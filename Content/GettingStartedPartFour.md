@@ -8,7 +8,7 @@ This is because the desktop folder is (by default) configured as a _recoverable_
 
 The [Quick Recovery](QuickRecovery.md) command scans the recoverable folders and displays a summary of all recoverable files:
 
-![](Media/QuickRecoverSandbox.png)
+![](/Media/QuickRecoverSandbox.png)
 
 You can invoke the **Quick Recovery** command:
 
@@ -38,7 +38,7 @@ Alternatively, you can use the _Recover to Any Folder_ command, which can move t
 
 The [Immediate Recovery](ImmediateRecovery.md) feature, which was mentioned briefly in the previous part of this guide, is an extension of [Quick Recovery](QuickRecovery.md). Immediate Recovery keeps scanning the same set of recoverable folders, and will enable you to recover files as soon as they are created:
 
-![](Media/ImmediateRecoverFavIcon.png)
+![](/Media/ImmediateRecoverFavIcon.png)
 
 As with Quick Recovery, you can _Recover to Same Folder_ or _Recover to Any Folder_.
 

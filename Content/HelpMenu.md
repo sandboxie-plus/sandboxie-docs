@@ -2,7 +2,7 @@
 
 [Sandboxie Control](SandboxieControl.md) > Help Menu
 
-![](Media/HelpMenu.png)
+![](/Media/HelpMenu.png)
 
 * * *
 
@@ -20,7 +20,7 @@ Opens a web browser on the [Help Topics](HelpTopics.md) page of this online docu
 
 Opens a web browser on the [Getting Started](GettingStarted.md) page of this online documentation. A window will open to ask if the web browser should run under the supervision of Sandboxie (recommended) or not:
 
-![](Media/OpenGettingStarted.png)
+![](/Media/OpenGettingStarted.png)
 
 * * *
 
@@ -34,7 +34,7 @@ This command checks if the Sandboxie web site reports a newer version of Sandbox
 *   Click the **Next Week** button to postpone the check to a later time.
 *   Click the **Never** button to disable automatic check for updates.
 
-![](Media/CheckForUpdates.png)
+![](/Media/CheckForUpdates.png)
 
 * * *
 
@@ -44,7 +44,7 @@ This command checks if the Sandboxie web site reports a newer version of Sandbox
 
 Displays product and registration information for the Sandboxie program.
 
-![](Media/AboutSandboxie.png)
+![](/Media/AboutSandboxie.png)
 
 * * *
 

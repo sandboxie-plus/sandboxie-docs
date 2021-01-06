@@ -1,6 +1,6 @@
 # Tray Icon Menu
 
-![](Media/TrayPopupMenu.png)
+![](/Media/TrayPopupMenu.png)
 
 To invoke commands from the tray icon menu, right-click the Sandboxie tray icon that appears in your system notification area, typically at the lower-right corner of the screen.
 

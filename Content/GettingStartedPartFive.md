@@ -4,7 +4,7 @@
 
 When you are finished using the application under Sandboxie, and you have recovered the downloaded files, documents and other desired work items, it is a good idea to delete the contents of the sandbox. Click the **Delete Contents** command in the [Tray Icon Menu](TrayIconMenu.md):
 
-![](Media/TrayPopupDelete.png)
+![](/Media/TrayPopupDelete.png)
 
 You can also invoke the **Delete Contents** command from the [Sandbox Menu](SandboxMenu.md) in the main window of Sandboxie Control.
 
@@ -12,7 +12,7 @@ You can also invoke the **Delete Contents** command from the [Sandbox Menu](Sand
 
 The [Delete Sandbox](DeleteSandbox.md) window appears, giving you one last chance to recover any files still remaining in the sandbox:
 
-![](Media/DeleteSandbox.png)
+![](/Media/DeleteSandbox.png)
 
 The upper part of the window in the picture above was introduced in the last part as the Quick Recovery command. The lower part counts the accumulated size of the contents of the sandbox.
 
@@ -26,11 +26,11 @@ In the default configuration, the sandbox is not deleted automatically, so you w
 
 This behavior can be changed by altering a setting. In the main window of [Sandboxie Control](SandboxieControl.md), use the [Sandbox Menu](SandboxMenu.md) to open the [Sandbox Settings](SandboxSettings.md) window:
 
-![](Media/SettingsMenu.png)
+![](/Media/SettingsMenu.png)
 
 The [Sandbox Settings](SandboxSettings.md) window appears. Click on _Delete_ to expand the delete settings group, then on _Invocation_ to show the [Delete > Invocation](DeleteSettings#invocation) settings page:
 
-![](Media/SettingsDelete.png)
+![](/Media/SettingsDelete.png)
 
 Place a checkmark in the box _Automatically delete contents of sandbox_ to have Sandboxie automatically invoke the Delete Sandbox command, as described in the settings page.
 

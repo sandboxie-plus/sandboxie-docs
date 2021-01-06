@@ -2,7 +2,7 @@
 
 Sandboxie Control > Sandbox Settings > Appearance:
 
-![](Media/AppearanceSettings.png)
+![](/Media/AppearanceSettings.png)
 
 Normally, Sandboxie inserts the Sandboxie marks [#] in the title bar of windows associated with sandboxed programs.
 

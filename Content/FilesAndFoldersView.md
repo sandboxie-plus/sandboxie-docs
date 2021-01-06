@@ -2,7 +2,7 @@
 
 [Sandboxie Control](SandboxieControl.md) > [View Menu](ViewMenu.md) > [Files and Folders](ViewMenu#fafview)
 
-![](Media/FileViewFavIcon.png)
+![](/Media/FileViewFavIcon.png)
 
 The _Files and Folders View_ is a secondary view mode in [Sandboxie Control](SandboxieControl.md). It displays the files and folders in each of the sandboxes, organized into a tree of folders, and grouped by sandbox name.
 

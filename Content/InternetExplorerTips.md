@@ -4,7 +4,7 @@
 
 [Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > [Applications > Web Browser > Internet Explorer](ApplicationsSettings#web)
 
-![](Media/WebBrowserSettings1.png)
+![](/Media/WebBrowserSettings1.png)
 
 * * *
 
@@ -93,7 +93,7 @@ The second setting allows Internet Explorer running under Sandboxie to store "Cr
 
 [Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > [Delete](DeleteSettings.md) > [Invocation](DeleteSettings#invocation)
 
-![](Media/DeleteInvocationSettings.png)
+![](/Media/DeleteInvocationSettings.png)
 
 *   Setting: Automatically delete contents of sandbox
 
@@ -105,7 +105,7 @@ This setting tells Sandboxie to delete the sandbox whenever all programs in the 
 
 [Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.html) > [Appearance Settings](AppearanceSettings.md)
 
-![](Media/AppearanceSettings.png)
+![](/Media/AppearanceSettings.png)
 
 *   Setting: Display a border around the window
 

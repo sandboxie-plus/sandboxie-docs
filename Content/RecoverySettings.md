@@ -4,7 +4,7 @@
 
 [Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > Recovery:
 
-![](Media/RecoverySettings.png)
+![](/Media/RecoverySettings.png)
 
 While you can manually explore the contents of the sandbox and extract the files you need, Sandboxie has a [Quick Recovery](QuickRecovery.md) tool that scans particular folders and informs you if any files are available for recovery out of the sandbox. The Recovery group configures this tool.
 
@@ -14,7 +14,7 @@ While you can manually explore the contents of the sandbox and extract the files
 
 [Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > Recovery > Quick Recovery:
 
-![](Media/QuickRecoverySettings.png)
+![](/Media/QuickRecoverySettings.png)
 
 Use this settings page to add and remove folders that should be scanned by Sandboxie.
 
@@ -35,7 +35,7 @@ Related [Sandboxie Ini](SandboxieIni.md) setting: [RecoverFolder](RecoverFolder.
 
 [Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > Recovery > Immediate Recovery:
 
-![](Media/ImmediateRecoverySettings.png)
+![](/Media/ImmediateRecoverySettings.png)
 
 The Quick Recovery tool scans folders only when invoked, which is either explicitly, or when the sandbox is about to be deleted. [Immediate Recovery](ImmediateRecovery.md) is an extension which notifies you about recoverable files as soon as they are created by a sandboxed program.
 

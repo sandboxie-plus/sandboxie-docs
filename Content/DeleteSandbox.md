@@ -3,7 +3,7 @@
 [Sandboxie Control](SandboxieControl.md) > [Sandbox Menu](SandboxMenu.md) > Delete Contents  
 [Sandboxie Control](SandboxieControl.md) > [Tray Icon Menu](TrayIconMenu.md) > Delete Contents
 
-![](Media/DeleteSandbox.png)
+![](/Media/DeleteSandbox.png)
 
 The Delete Sandbox window appears when the sandbox is about to be deleted. The window is split into two areas:
 

@@ -22,17 +22,17 @@ Or skip ahead to [Getting Started Part Six](GettingStartedPartSix.md) which disc
 
 Sandboxie is operated primarily through the [Sandboxie Control](SandboxieControl.md) program. This program adds the yellow Sandboxie icon to the system notification ("tray") area of your taskbar:
 
-![](Media/TrayIconEmpty.png)
+![](/Media/TrayIconEmpty.png)
 
 If [Sandboxie Control](SandboxieControl.md) is not already active, you can find it and launch it from the Sandboxie program group in your Windows Start menu:
 
 ### Windows XP
 
-![](Media/StartMenuStartControl.png)</td>
+![](/Media/StartMenuStartControl.png)</td>
 
 ### Windows Vista
 
-![](Media/StartMenuStartControlVista.png)</td>
+![](/Media/StartMenuStartControlVista.png)</td>
 
 
 When active, you can use the Sandboxie tray icon to hide and show the main window of [Sandboxie Control](SandboxieControl.md), by double-clicking the icon. Or, you can right-click the icon and select the first command, which alternates between _Hide Window_ and _Show Window_.
@@ -43,6 +43,6 @@ For this tutorial, make sure the main window of [Sandboxie Control](SandboxieCon
 
 You should view this tutorial in a sandboxed Web browser. To do that, use the _Getting Started Tutorial (Web)_ command in the [Help Menu](HelpMenu.md) of [Sandboxie Control](SandboxieControl.md), and make sure you tell [Sandboxie Control](SandboxieControl.md) to run your browser **sandboxed**:
 
-![](Media/OpenGettingStarted.png)
+![](/Media/OpenGettingStarted.png)
 
 The tutorial continues in [Getting Started Part Two](GettingStartedPartTwo.md).
