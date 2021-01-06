@@ -1,0 +1,22 @@
+# Delete Sandbox
+
+[Sandboxie Control](SandboxieControl) > [Sandbox Menu](SandboxMenu) > Delete Contents  
+[Sandboxie Control](SandboxieControl) > [Tray Icon Menu](TrayIconMenu) > Delete Contents
+
+![](https://xanasoft.com/wp-content/uploads/2020/10/DeleteSandbox.png)
+
+The Delete Sandbox window appears when the sandbox is about to be deleted. The window is split into two areas:
+
+*   The upper part (about 3/4 of the window) shows the [Quick Recovery](QuickRecovery) display and controls, and operates in the same way as the _Quick Recovery_ window. See [Quick Recovery](QuickRecovery) for more information.
+
+*   The lower part counts the size of the sandbox (in files, folders, and bytes of disk space) and contains the _Delete Sandbox_ button which initiates delete processing for the sandbox.
+
+The window is displayed when the [Sandbox Menu > Sandbox > Delete Sandbox](SandboxMenu#sandbox) command (or the corresponding command from the [Tray Icon Menu](TrayIconMenu)) is invoked.
+
+The window is also displayed if the sandbox is configured for automatic delete (see [Sandbox Settings > Delete > Invocation](DeleteSettings#invocation)), and any files are eligible for [Quick Recovery](QuickRecovery). Note that if no files are eligible, the sandbox is deleted silently, without displaying the Delete Sandbox window.
+
+Note that the _Delete Sandbox_ command terminates any programs that are running in the sandbox and initiates the delete process. An empty sandbox will be immediately available to run programs as soon as you click the _Delete Sandbox_ button. While the delete process is undergoing on the old sandbox, the Sandboxie tray icon changes to a red X icon to indicate that sandbox delete is in progress. In correct operation, the red X icon should not remain displayed for more than a few seconds.
+
+* * *
+
+Go to [Quick Recovery](QuickRecovery), [Sandboxie Control](SandboxieControl), [Help Topics](HelpTopics).
