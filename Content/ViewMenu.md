@@ -1,6 +1,6 @@
 # View Menu
 
-![](Media/ViewMenu.png)
+![](/Media/ViewMenu.png)
 
 ## Programs
 

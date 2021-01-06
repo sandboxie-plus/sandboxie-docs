@@ -4,7 +4,7 @@
 
 [Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > Resource Access
 
-![](Media/ResourceAccessSettings.png)
+![](/Media/ResourceAccessSettings.png)
 
 Programs that run in a sandbox are generally not allowed to access system resources directly. In some cases, it may be desirable to make exceptions to this rule. The settings here display and change that set of exceptions.
 
@@ -25,7 +25,7 @@ Configuration changes do not apply to programs that are already running sandboxe
 
 Each settings page within the Resource Access group generally has the following characteristics:
 
-![](Media/ResourceAccessGeneral.png)
+![](/Media/ResourceAccessGeneral.png)
 
 *   There is a _Title_ for the page, for example, _Direct File Acccess_ or _Read-Only Registry Access_.
 *   There is a _Short Explanation_ describing what the setting does.

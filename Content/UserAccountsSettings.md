@@ -2,7 +2,7 @@
 
 [Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > User Accounts:
 
-![](Media/UserAccountsSettings.png)
+![](/Media/UserAccountsSettings.png)
 
 This settings page can restrict use of this sandbox to specific user accounts. The Add User button opens a standard Windows user account selection dialog box which can be used to find and select specific user accounts. User account groups may also be specified.
 

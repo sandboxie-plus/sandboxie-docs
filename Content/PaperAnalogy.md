@@ -6,7 +6,7 @@ Traditional privacy and anti-malware software try to locate and erase any writin
 
 On the other hand, the Sandboxie sandbox works like a transparency layer placed over the paper. Programs write on the transparency layer and to them it looks like the real paper. When you delete the sandbox, it's like removing the transparency layer, the unchanged, real paper is revealed.
 
-![](Media/PaperAnimation.gif)
+![](/Media/PaperAnimation.gif)
 
 (Note: The graphics depicts the [Sandboxie Control](SandboxieControl.md) application prior to version 3.20.)
 

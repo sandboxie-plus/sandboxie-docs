@@ -4,7 +4,7 @@
 
 [Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > Restrictions
 
-![](Media/RestrictionsSettings.png)
+![](/Media/RestrictionsSettings.png)
 
 Settings in this section are intended to alter the default set of restrictions that Sandboxie places on programs running in the sandbox.
 
@@ -17,7 +17,7 @@ Settings in this section are intended to alter the default set of restrictions t
 
 [Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > Restrictions > Internet Access
 
-![](Media/InternetAccessSettings.png)
+![](/Media/InternetAccessSettings.png)
 
 Use these settings to select which programs, if any, will be allowed to access the Internet in the sandbox. Initially, all programs in the sandbox can access the Internet.
 
@@ -44,7 +44,7 @@ Related [Sandboxie Ini](SandboxieIni.md) settings: [ClosedFilePath](ClosedFilePa
 
 [Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > Restrictions > Start/Run Access
 
-![](Media/StartRunAccessSettings.png)
+![](/Media/StartRunAccessSettings.png)
 
 Use these settings to select which programs, if any, will be allowed to start and run in the sandbox. Initially, all programs in the sandbox can start and run in the sandbox.
 
@@ -70,7 +70,7 @@ Related [Sandboxie Ini](SandboxieIni.md) settings: [ClosedIpcPath](ClosedIpcPath
 
 [Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > Restrictions > Drop Rights
 
-![](Media/DropRightsSettings.png)
+![](/Media/DropRightsSettings.png)
 
 The setting in this page causes Sandboxie to strip administrative rights from programs running in this sandbox.
 
@@ -90,7 +90,7 @@ Related [Sandboxie Ini](SandboxieIni.md) settings: [DropAdminRights](DropAdminRi
 
 [Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > Restrictions > Low-Level Access
 
-![](Media/LowLevelAccessSettings.png)
+![](/Media/LowLevelAccessSettings.png)
 
 This category manages restrictions for several types of global operations which are restricted in some way within the sandbox. Please see the associated [Sandboxie Ini](SandboxieIni.md) settings for more information.
 
@@ -117,7 +117,7 @@ This category manages restrictions for several types of global operations which 
 
 [Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > Restrictions > Hardware Access
 
-![](Media/HardwareAccessSettings.png)
+![](/Media/HardwareAccessSettings.png)
 
 This category manages restrictions for three types of global operations which are restricted in some way within the sandbox. Please see the associated [Sandboxie Ini](SandboxieIni.md) settings for more information.
 
