@@ -21,7 +21,7 @@ The package creates an application group called _Debugging Tools for Windows_ in
 
 Start the debugger under Sandboxie by using the Sandboxie Start menu.
 
-[Sandboxie Control](SandboxieControl) > [Sandbox Menu](SandboxMenu) > Run From Start Menu
+[Sandboxie Control](SandboxieControl.md) > [Sandbox Menu](SandboxMenu.md) > Run From Start Menu
 
 Then navigate the Sandboxie Start menu to locate and invoke the _WinDbg_ program within the _Debugging Tools for Windows_ group.
 

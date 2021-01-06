@@ -4,7 +4,7 @@
 
 The Program Settings window is a quick way to configure some of the aspects of Sandboxie. To access the window, right-click on the name of a running sandboxed program to show the context menu, and select _Program Settings_:
 
-![](https://xanasoft.com/wp-content/uploads/2020/10/ProgramSettingsContextMenu.png)
+![](Media/ProgramSettingsContextMenu.png)
 
 (You can also use Shift+F10 or the View menu to show the context menu.)
 
@@ -14,7 +14,7 @@ The Program Settings window displays the sandbox where the program is running, t
 
 ### Page 1
 
-![](https://xanasoft.com/wp-content/uploads/2020/10/ProgramSettingsPage1.png)
+![](Media/ProgramSettingsPage1.png)
 
 **Program Start**
 
@@ -23,7 +23,7 @@ These settings control how Sandboxie handles programs that start outside any san
 <a name="alert" id="alert"></a>
 
 *   **Issue alert message SBIE1301**
-    *   Sandboxie will issue message [SBIE1301](SBIE1301) whenever this program starts outside any sandbox.
+    *   Sandboxie will issue message [SBIE1301](SBIE1301.md) whenever this program starts outside any sandbox.
     *   See also [Configure Menu > Alert Programs](ConfigureMenu#alert).
 
 <a name="force" id="force"></a>
@@ -52,7 +52,7 @@ These settings control how Sandboxie handles this program stopping in this sandb
 
 ### Page 2
 
-![](https://xanasoft.com/wp-content/uploads/2020/10/ProgramSettingsPage2.png)
+![](Media/ProgramSettingsPage2.png)
 
 These settings control which restrictions apply to this program.
 

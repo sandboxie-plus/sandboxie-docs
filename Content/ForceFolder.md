@@ -1,6 +1,6 @@
 # Force Folder
 
-_ForceFolder_ is a sandbox setting in [Sandboxie.ini](SandboxieIni) which allows to force folder contents to run inside a specific sandbox. If any files or programs in these folders* (or in a sub-folder of one of these folders) are started outside any sandbox, they will be automatically sandboxed into a particular sandbox. For example:
+_ForceFolder_ is a sandbox setting in [Sandboxie.ini](SandboxieIni.md) which allows to force folder contents to run inside a specific sandbox. If any files or programs in these folders* (or in a sub-folder of one of these folders) are started outside any sandbox, they will be automatically sandboxed into a particular sandbox. For example:
 
 ```
    .
@@ -19,6 +19,6 @@ The second example specifies that any files/programs started from drive E will b
 
 Another consideration is that metro apps are not supported. If your default application for opening a specific file type is a Windows Metro app (such as Windows 10 photo viewer), the application will launch outside the Sandbox. For more information regarding Windows Metro apps please see [KnownConflicts](KnownConflicts#Windows)
 
-See also: [ForceProcess](ForceProcess). If both a _ForceFolder_ and a _ForceProcess_ are applicable to a program that is starting, the ForceFolder setting takes precedence.
+See also: [ForceProcess](ForceProcess.md). If both a _ForceFolder_ and a _ForceProcess_ are applicable to a program that is starting, the ForceFolder setting takes precedence.
 
-Related [Sandboxie Control](SandboxieControl) setting: [Sandbox Settings > Program Start > Forced Folders](ProgramStartSettings#folder)
+Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Program Start > Forced Folders](ProgramStartSettings#folder)

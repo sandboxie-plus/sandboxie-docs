@@ -1,8 +1,8 @@
 # Open File Path
 
-_OpenFilePath_ is a sandbox setting in [Sandboxie Ini](SandboxieIni). It specifies path patterns for which Sandboxie will not apply sandboxing for files. This lets sandboxed programs have direct access to update files and folders _outside the sandbox_. This setting essentially _punches a hole_ in the sandbox, at a particular folder location.
+_OpenFilePath_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It specifies path patterns for which Sandboxie will not apply sandboxing for files. This lets sandboxed programs have direct access to update files and folders _outside the sandbox_. This setting essentially _punches a hole_ in the sandbox, at a particular folder location.
 
-[Shell Folders](ShellFolders) may be specified. [Program Name Prefix](ProgramNamePrefix) may be specified.
+[Shell Folders](ShellFolders.md) may be specified. [Program Name Prefix](ProgramNamePrefix.md) may be specified.
 
 Examples:
 ```
@@ -30,6 +30,6 @@ The fourth example combines the previous two examples, by showing a path contain
 
 **Note:** For security reasons, this setting does not apply when the program executable file resides within the sandbox. This means that (potentially malicious) software downloaded into your computer and executed, cannot take advantage of this setting.
 
-A setting similar to _OpenFilePath_, which is _always_ applied, is [OpenPipePath](OpenPipePath).
+A setting similar to _OpenFilePath_, which is _always_ applied, is [OpenPipePath](OpenPipePath.md).
 
-Related [Sandboxie Control](SandboxieControl) setting: [Sandbox Settings > Resource Access > File Access > Direct Access](ResourceAccessSettings#file)
+Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Resource Access > File Access > Direct Access](ResourceAccessSettings#file)

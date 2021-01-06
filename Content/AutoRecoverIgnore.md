@@ -1,6 +1,6 @@
 # Auto Recover Ignore
 
-_AutoRecoverIgnore_ is a sandbox setting in [Sandboxie Ini](SandboxieIni). It specifies folders or file types that should be ignored by the Immediate Recovery extension of [Quick Recovery](QuickRecovery). For example:
+_AutoRecoverIgnore_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It specifies folders or file types that should be ignored by the Immediate Recovery extension of [Quick Recovery](QuickRecovery.md). For example:
 
 ```
    .
@@ -16,4 +16,4 @@ The first example excludes from Immediate Recovery any files ending in _.part_. 
 
 The second and third examples exclude the specified folders from Immediate Recovery.
 
-Related [Sandboxie Control](SandboxieControl) setting: [Sandbox Settings > Recovery > Immediate Recovery](RecoverySettings#immediate)
+Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Recovery > Immediate Recovery](RecoverySettings#immediate)

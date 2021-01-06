@@ -22,4 +22,4 @@ However, this DLL is not bundled with Windows 2000\. Follow these steps to insta
 
 *   Make sure that a new file _GDIPLUS.DLL_ has been created within the folder _C:\WINNT\SYSTEM32_.
 
-*   The installation is complete and you can now [install Sandboxie](DownloadSandboxie).
+*   The installation is complete and you can now [install Sandboxie](DownloadSandboxie.md).

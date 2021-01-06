@@ -1,6 +1,6 @@
 # Border Color
 
-_BorderColor_ is a sandbox setting in [Sandboxie Ini](SandboxieIni). It controls whether Sandboxie displays a colored border around the active foreground window, if that windows belongs to a sandboxed application.
+_BorderColor_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It controls whether Sandboxie displays a colored border around the active foreground window, if that windows belongs to a sandboxed application.
 
 Usage:
 
@@ -22,6 +22,6 @@ The color is specified in HTML-like RGB color notation:
 *   The next two hex digits denote the green component of the color.
 *   The last two hex digits denote the blue component of the color.
 
-The border will not be drawn when [Sandboxie Control](SandboxieControl) is not running.
+The border will not be drawn when [Sandboxie Control](SandboxieControl.md) is not running.
 
-Related [Sandboxie Control](SandboxieControl) setting: [Sandbox Settings > Appearance](AppearanceSettings)
+Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Appearance](AppearanceSettings.md)

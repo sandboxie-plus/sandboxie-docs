@@ -2,7 +2,7 @@
 
 Starting with version 4.02, Sandboxie fully supports Windows 8 without qualifications on both 32-bit and 64-bit editions.
 
-To download version 4.02 or a later version, please visit the [Download Sandboxie](DownloadSandboxie) web page.
+To download version 4.02 or a later version, please visit the [Download Sandboxie](DownloadSandboxie.md) web page.
 
 * * *
 

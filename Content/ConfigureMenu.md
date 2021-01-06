@@ -1,16 +1,16 @@
 # Configure Menu
 
-[Sandboxie Control](SandboxieControl) > Configure Menu
+[Sandboxie Control](SandboxieControl.md) > Configure Menu
 
-![](https://xanasoft.com/wp-content/uploads/2020/10/ConfigureMenu.png)
+![](Media/ConfigureMenu.png)
 
 * * *
 
 ### Program Alerts
 
-The _Program Alerts_ command opens the following window in which you can configure Sandboxie to issue message [SBIE1301](SBIE1301) whenever specific programs start outside any sandbox.
+The _Program Alerts_ command opens the following window in which you can configure Sandboxie to issue message [SBIE1301](SBIE1301.md) whenever specific programs start outside any sandbox.
 
-![](https://xanasoft.com/wp-content/uploads/2020/10/AlertPrograms.png)
+![](Media/AlertPrograms.png)
 
 *   Use the _Add Program_ button to open the Program Groups window and select a program to add.
 
@@ -20,24 +20,24 @@ The _Program Alerts_ command opens the following window in which you can configu
 *   Mozilla Firefox is typically found in the folder _C:\Program Files\Mozilla Firefox_.
 
 
-If the desired program is already running sandboxed, you can also use [Program Settings](ProgramSettings#page1) to specify that message [SBIE1301](SBIE1301) should be issued for the program.
+If the desired program is already running sandboxed, you can also use [Program Settings](ProgramSettings#page1) to specify that message [SBIE1301](SBIE1301.md) should be issued for the program.
 
-Related [Sandboxie Ini](SandboxieIni) setting: [AlertProcess](AlertProcess).
+Related [Sandboxie Ini](SandboxieIni.md) setting: [AlertProcess](AlertProcess.md).
 
 * * *
 
 ### Windows Shell Integration
 
-The _Windows Shell Integration_ command opens a window which controls how [Sandboxie Control](SandboxieControl) integrates into and associates itself with your Windows desktop. It can also be used to create desktop shortcut icons to run your programs sandboxed. By default, all settings in the window are enabled.
+The _Windows Shell Integration_ command opens a window which controls how [Sandboxie Control](SandboxieControl.md) integrates into and associates itself with your Windows desktop. It can also be used to create desktop shortcut icons to run your programs sandboxed. By default, all settings in the window are enabled.
 
-![](https://xanasoft.com/wp-content/uploads/2020/10/ShellIntegration.png)
+![](Media/ShellIntegration.png)
 
-*   The top frame indicates when [Sandboxie Control](SandboxieControl) should start:
+*   The top frame indicates when [Sandboxie Control](SandboxieControl.md) should start:
 
 
-*   _When Windows starts_ will integrate [Sandboxie Control](SandboxieControl) into the startup sequence
+*   _When Windows starts_ will integrate [Sandboxie Control](SandboxieControl.md) into the startup sequence
 
-*   _When a sandboxed program starts_ will start [Sandboxie Control](SandboxieControl) (if it is not already running) when a sandboxed program starts. This applies to programs that are started explicitly through Sandboxie, such as when using the [Run Sandboxed](SandboxMenu#sandbox) commands, or shortcuts created using _Add Shortcut Icons_ (see below). It also applies to [forced programs](ProgramStartSettings#program) and [forced folders](ProgramStartSettings#folder).
+*   _When a sandboxed program starts_ will start [Sandboxie Control](SandboxieControl.md) (if it is not already running) when a sandboxed program starts. This applies to programs that are started explicitly through Sandboxie, such as when using the [Run Sandboxed](SandboxMenu#sandbox) commands, or shortcuts created using _Add Shortcut Icons_ (see below). It also applies to [forced programs](ProgramStartSettings#program) and [forced folders](ProgramStartSettings#folder).
 
 *   The middle frame deals with shortcut icons:
 
@@ -68,17 +68,17 @@ The _Windows Shell Integration_ command opens a window which controls how [Sandb
 
 ### Experimental Protection (64-bit)
 
-Please see [Experimental Protection](ExperimentalProtection).
+Please see [Experimental Protection](ExperimentalProtection.md).
 
 * * *
 
 ### Forget Hidden Messages
 
-Whenever [Sandboxie Control](SandboxieControl) displays one or more [SBIE Messages](SBIE_Messages), you have the option to hide future instances of the message. This is accomplished by highlighting and clicking the _Hide_ command:
+Whenever [Sandboxie Control](SandboxieControl.md) displays one or more [SBIE Messages](SBIE_Messages), you have the option to hide future instances of the message. This is accomplished by highlighting and clicking the _Hide_ command:
 
-![](https://xanasoft.com/wp-content/uploads/2020/10/MessagesFromSandboxie.png)
+![](Media/MessagesFromSandboxie.png)
 
-Note that messages are filtered by message code alone. For instance, the picture above shows message [SBIE1304](SBIE1304) with information detail _osk.exe_. Hiding that message will hide all future instances of message SBIE1304, regardless of the information detail.
+Note that messages are filtered by message code alone. For instance, the picture above shows message [SBIE1304](SBIE1304.md) with information detail _osk.exe_. Hiding that message will hide all future instances of message SBIE1304, regardless of the information detail.
 
 The _Forget Hidden Messages_ command tells Sandboxie to stop filtering messages, and resume the display of all SBIExxxx messages that occurs.
 
@@ -86,7 +86,7 @@ The _Forget Hidden Messages_ command tells Sandboxie to stop filtering messages,
 
 ### Tips
 
-When [Sandboxie Control](SandboxieControl) displays a warning or notification message box, it usually includes a checkbox labeled _In the future, don't show this message._ If you mark the checkbox, that particular message will not be displayed again.
+When [Sandboxie Control](SandboxieControl.md) displays a warning or notification message box, it usually includes a checkbox labeled _In the future, don't show this message._ If you mark the checkbox, that particular message will not be displayed again.
 
 The _Show All Tips_ command tells Sandboxie to disregard any such use of the checkboxes, and resume displaying of all warnings and notifications.
 
@@ -96,26 +96,26 @@ The _Hide All Tips_ command tells Sandboxie to consider all checkboxes as checke
 
 ### Lock Configuration
 
-![](https://xanasoft.com/wp-content/uploads/2020/10/LockConfiguration.png)
+![](Media/LockConfiguration.png)
 
-Please see [Configuration Protection](ConfigurationProtection).
+Please see [Configuration Protection](ConfigurationProtection.md).
 
 * * *
 
 ### Edit Configuration
 
-Opens the system text editor (typically, _Windows Notepad_) to edit the [Sandboxie Ini](SandboxieIni) configuration file. The _Reload Configuration_ command will be automatically invoked when the editor is closed.
+Opens the system text editor (typically, _Windows Notepad_) to edit the [Sandboxie Ini](SandboxieIni.md) configuration file. The _Reload Configuration_ command will be automatically invoked when the editor is closed.
 
-Note: Manual editing of Sandboxie.ini is not recommended. You are advised to use [Sandbox Settings](SandboxSettings) and other configuration windows in [Sandboxie Control](SandboxieControl) to make any changes to the configuration of Sandboxie.
+Note: Manual editing of Sandboxie.ini is not recommended. You are advised to use [Sandbox Settings](SandboxSettings.md) and other configuration windows in [Sandboxie Control](SandboxieControl.md) to make any changes to the configuration of Sandboxie.
 
-Note: The [Sandboxie Ini](SandboxieIni) configuration file is usually located in the _Windows_ folder, and cannot be modified by non-privileged user accounts. If you use Windows Vista with User Account Controls (UAC), you may have to elevate to an Administrator account before you can modify Sandboxie.ini.
+Note: The [Sandboxie Ini](SandboxieIni.md) configuration file is usually located in the _Windows_ folder, and cannot be modified by non-privileged user accounts. If you use Windows Vista with User Account Controls (UAC), you may have to elevate to an Administrator account before you can modify Sandboxie.ini.
 
 * * *
 
 ### Reload Configuration
 
-Forces Sandboxie to reload its configuration from the [Sandboxie Ini](SandboxieIni) configuration file.
+Forces Sandboxie to reload its configuration from the [Sandboxie Ini](SandboxieIni.md) configuration file.
 
 * * *
 
-Go to [Sandboxie Control](SandboxieControl#menus), [Help Topics](HelpTopics).
+Go to [Sandboxie Control](SandboxieControl#menus), [Help Topics](HelpTopics.md).

@@ -1,6 +1,6 @@
 # Program Name Prefix
 
-In several settings in the [Sandboxie Ini](SandboxieIni) configuration file, a program name can be specified. This tells the setting to take effect only for sandboxed processes that match the program name criteria.
+In several settings in the [Sandboxie Ini](SandboxieIni.md) configuration file, a program name can be specified. This tells the setting to take effect only for sandboxed processes that match the program name criteria.
 
 The prefix is specified as the name of the executable, with an extension, but _without_ a folder path:
 
