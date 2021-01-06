@@ -2,9 +2,9 @@
 
 ### "Resource Access" Settings Group
 
-[Sandboxie Control](SandboxieControl) > [Sandbox Settings](SandboxSettings) > Resource Access
+[Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > Resource Access
 
-![](https://xanasoft.com/wp-content/uploads/2020/10/ResourceAccessSettings.png)
+![](Media/ResourceAccessSettings.png)
 
 Programs that run in a sandbox are generally not allowed to access system resources directly. In some cases, it may be desirable to make exceptions to this rule. The settings here display and change that set of exceptions.
 
@@ -12,7 +12,7 @@ Examples where exceptions are convenient or necessary:
 
 *   Allow direct access to some specific folder. For example, let the Web browser place downloads directly in a _Downloads_ folder.  
     See the [File Access](ResourceAccessSettings#file) category below.
-*   A program may need access to some resource for correct operation. If the program is known and trusted, it is reasonable to make such an exception. See [Known Conflicts](KnownConflicts) for some examples.
+*   A program may need access to some resource for correct operation. If the program is known and trusted, it is reasonable to make such an exception. See [Known Conflicts](KnownConflicts.md) for some examples.
 
 
 
@@ -25,7 +25,7 @@ Configuration changes do not apply to programs that are already running sandboxe
 
 Each settings page within the Resource Access group generally has the following characteristics:
 
-![](https://xanasoft.com/wp-content/uploads/2020/10/ResourceAccessGeneral.png)
+![](Media/ResourceAccessGeneral.png)
 
 *   There is a _Title_ for the page, for example, _Direct File Acccess_ or _Read-Only Registry Access_.
 *   There is a _Short Explanation_ describing what the setting does.
@@ -51,7 +51,7 @@ Each settings page within the Resource Access group generally has the following 
 
 ### File Access
 
-[Sandboxie Control](SandboxieControl) > [Sandbox Settings](SandboxSettings) > Resource Access > File Access
+[Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > Resource Access > File Access
 
 This category manages the following types of resources: Files, folders, drives, and other devices.
 
@@ -63,19 +63,19 @@ Allow direct access to some file or folder, bypassing the supervision of Sandbox
 
 Note that _Direct Access_ exclusions do not apply when the program itself resides in the sandbox. For example, suppose that you allow direct access to a **C:\Downloads** folder, and then you go on to install a new Web browser into the sandbox. This new sandboxed browser will _not_ have direct access to the **C:\Downloads** folder.
 
-Related [Sandboxie Ini](SandboxieIni) settings: [OpenFilePath](OpenFilePath)
+Related [Sandboxie Ini](SandboxieIni.md) settings: [OpenFilePath](OpenFilePath.md)
 
 **File Access > Full Access**
 
 Similar to _Direct Access_, but always applies, even if the sandboxed program itself resides in the sandbox. For better protection, you are advised to use _Direct Access_ rather than _Full Access_ whenever possible.
 
-Related [Sandboxie Ini](SandboxieIni) settings: [OpenPipePath](OpenPipePath)
+Related [Sandboxie Ini](SandboxieIni.md) settings: [OpenPipePath](OpenPipePath.md)
 
 **File Access > Read-Only Access**
 
 This access mode excludes the effects of sandboxing on a file (or folder) resource, while allowing a program to read, but not modify, the real resource.
 
-Related [Sandboxie Ini](SandboxieIni) settings: [ReadFilePath](ReadFilePath.html)
+Related [Sandboxie Ini](SandboxieIni.md) settings: [ReadFilePath](ReadFilePath.html)
 
 **File Access > Write-Only Access**
 
@@ -83,19 +83,19 @@ This access mode hides all files and folders which are located within the select
 
 This setting can only be used effectively on folders. If a file is selected, the effect is the same as the Blocked Access setting (see below).
 
-Related [Sandboxie Ini](SandboxieIni) settings: [WriteFilePath](WriteFilePath)
+Related [Sandboxie Ini](SandboxieIni.md) settings: [WriteFilePath](WriteFilePath.md)
 
 **File Access > Blocked Access**
 
 Deny all access to the resource, for example to a folder containing sensitive data. _Blocked Access_ settings take precedence over all other resource access rules. For example, if an exclusion for **C:\Downloads** appears in both _Direct Access_ and _Blocked Access_, the latter will apply, denying all access to the folder.
 
-Related [Sandboxie Ini](SandboxieIni) settings: [ClosedFilePath](ClosedFilePath)
+Related [Sandboxie Ini](SandboxieIni.md) settings: [ClosedFilePath](ClosedFilePath.md)
 
 * * *
 
 ### Registry Access
 
-[Sandboxie Control](SandboxieControl) > [Sandbox Settings](SandboxSettings) > Resource Access > Registry Access
+[Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > Resource Access > Registry Access
 
 This category manages registry key resources. The registry is a mechanism provided by Windows for programs to store configuration and settings.
 
@@ -105,31 +105,31 @@ See [General Information](ResourceAccessSettings#general) above for more informa
 
 Allow direct access to a registry key resource. Note that _Direct Access_ exclusions do not apply when the program itself resides in the sandbox. This is described in more detail in the File Access category above. Note that unlike in the File Access category, there is no _Full Access_ access mode for registry keys.
 
-Related [Sandboxie Ini](SandboxieIni) settings: [OpenKeyPath](OpenKeyPath)
+Related [Sandboxie Ini](SandboxieIni.md) settings: [OpenKeyPath](OpenKeyPath.md)
 
 **Registry Access > Read-Only Access**
 
 This access mode excludes the effects of sandboxing on a registry key resource, while allowing a program to read, but not modify, the real resource.
 
-Related [Sandboxie Ini](SandboxieIni) settings: [ReadKeyPath](ReadKeyPath)
+Related [Sandboxie Ini](SandboxieIni.md) settings: [ReadKeyPath](ReadKeyPath.md)
 
 **Registry Access > Write-Only Access**
 
 This access mode hides all registry data which is located within the selected registry key outside the sandbox. However, programs in the sandbox can create new registry data within the corresponding folder in the sandbox.
 
-Related [Sandboxie Ini](SandboxieIni) settings: [WriteKeyPath](WriteKeyPath)
+Related [Sandboxie Ini](SandboxieIni.md) settings: [WriteKeyPath](WriteKeyPath.md)
 
 **Registry Access > Blocked Access**
 
 Deny all access to a registry key resource, for example to a key containing Windows policy settings. _Blocked Access_ settings take precedence over all other resource access rules. For example, if an exclusion for a registry key appears in both _Direct Access_ and _Blocked Access_, the latter will apply, denying all access to the registry key.
 
-Related [Sandboxie Ini](SandboxieIni) settings: [ClosedKeyPath](ClosedKeyPath)
+Related [Sandboxie Ini](SandboxieIni.md) settings: [ClosedKeyPath](ClosedKeyPath.md)
 
 * * *
 
 ### IPC Access
 
-[Sandboxie Control](SandboxieControl) > [Sandbox Settings](SandboxSettings) > Resource Access > IPC Access
+[Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > Resource Access > IPC Access
 
 This category manages exclusions for NT IPC objects. These resources are created by programs running the system as a way to coordinate operations or otherwise communicate.
 
@@ -139,7 +139,7 @@ See [General Information](ResourceAccessSettings#general) above for more informa
 
 Allow direct access to an IPC object resource. Note that unlike in the File Access and Registry Access categories, _Direct Access_ exclusions for IPC objects always apply to all sandboxed programs.
 
-Related [Sandboxie Ini](SandboxieIni) settings: [OpenIpcPath](OpenIpcPath)
+Related [Sandboxie Ini](SandboxieIni.md) settings: [OpenIpcPath](OpenIpcPath.md)
 
 **IPC Access > Blocked Access**
 
@@ -147,28 +147,28 @@ Deny all access to an IPC object resource. _Blocked Access_ settings take preced
 
 This setting can be used to override default _IPC Access > Direct Access_ settings in Sandboxie, and block the access. For example, by default Sandboxie allows sandboxed programs to access the audio device. To override this and cut off audio output by sandboxed programs, add an exclusion for **\RPC Control\AudioSrv**.
 
-Related [Sandboxie Ini](SandboxieIni) settings: [ClosedIpcPath](ClosedIpcPath)
+Related [Sandboxie Ini](SandboxieIni.md) settings: [ClosedIpcPath](ClosedIpcPath.md)
 
 * * *
 
 ### Window Access
 
-[Sandboxie Control](SandboxieControl) > [Sandbox Settings](SandboxSettings) > Resource Access > Window Access
+[Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > Resource Access > Window Access
 
 This category manages exclusions for window classes. These resources are primarily related to windows displayed on the screen, but can also be used by programs as a way to coordinate operations or otherwise communicate. You can specify which window classes, that were created outside the sandbox, will be available for use by sandboxed programs.
 
 See [General Information](ResourceAccessSettings#general) above for more information about editing resources and associating resources with particular programs.
 
-Related [Sandboxie Ini](SandboxieIni) settings: [OpenWinClass](OpenWinClass)
+Related [Sandboxie Ini](SandboxieIni.md) settings: [OpenWinClass](OpenWinClass.md)
 
 * * *
 
 ### COM Access
 
-[Sandboxie Control](SandboxieControl) > [Sandbox Settings](SandboxSettings) > Resource Access > COM Access
+[Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > Resource Access > COM Access
 
 This category manages exclusions for COM classes. These resources represent objects which are used as a way to coordinate operations or otherwise communicate. You can specify the COM class identifiers for those COM objects that exist outside the sandbox, and which should be accessible to sandboxed programs.
 
 See [General Information](ResourceAccessSettings#general) above for more information about editing resources and associating resources with particular programs.
 
-Related [Sandboxie Ini](SandboxieIni) settings: [OpenClsid](OpenClsid)
+Related [Sandboxie Ini](SandboxieIni.md) settings: [OpenClsid](OpenClsid.md)

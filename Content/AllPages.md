@@ -2,17 +2,9 @@
 
 ### A
 
-
-
-[Activation Prompt](ActivationPrompt.md)
-
 [Advanced Topics](AdvancedTopics.md)
 
 [Alert Process](AlertProcess.md)
-
-[All Pages](AllPages.md)
-
-[All Versions](AllVersions.md)
 
 [Appearance Settings](AppearanceSettings.md)
 
@@ -26,11 +18,7 @@
 
 [Auto Recover Ignore](AutoRecoverIgnore.md)
 
-
-
 ### B
-
-
 
 [Block Drivers](BlockDrivers.md)
 
@@ -54,11 +42,7 @@
 
 [Byte Order Mark](ByteOrderMark.md)
 
-
-
 ### C
-
-
 
 [Closed File Path](ClosedFilePath.md)
 
@@ -66,19 +50,11 @@
 
 [Closed Key Path](ClosedKeyPath.md)
 
-[Common Feature Requests](CommonFeatureRequests.md)
-
 [Config Level](ConfigLevel.md)
 
 [Configuration Protection](ConfigurationProtection.md)
 
 [Configure Menu](ConfigureMenu.md)
-
-[Confirm One Year License](http://localhost/ConfirmOneYearLicense.php.md)
-
-[Contact Author](ContactAuthor.md)
-
-[Contributed Utilities](ContributedUtilities.md)
 
 [Copy Limit Kb](CopyLimitKb.md)
 
@@ -86,11 +62,7 @@
 
 [Corporate Installation](CorporateInstallation.md)
 
-
-
 ### D
-
-
 
 [Delete Command](DeleteCommand.md)
 
@@ -104,15 +76,9 @@
 
 [Detecting Key Loggers](DetectingKeyLoggers.md)
 
-[Download Sandboxie](http://localhost/DownloadSandboxie.php.php.md)
-
 [Drop Admin Rights](DropAdminRights.md)
 
-
-
 ### E
-
-
 
 [Edit Admin Only](EditAdminOnly.md)
 
@@ -122,25 +88,13 @@
 
 [Enabled](Enabled.md)
 
-[End User License Agreement](EndUserLicenseAgreement.md)
-
 [Expandable Variables](ExpandableVariables.md)
 
 [Experimental Protection](ExperimentalProtection.md)
 
-[External Links](ExternalLinks.md)
-
-[External Tutorials](ExternalTutorials.md)
-
-
-
 ### F
 
-
-
 [FAQ Email](FAQ_Email.md)
-
-[FAQ Licensing](FAQ_Licensing.md)
 
 [FAQ Virus](FAQ_Virus.md)
 
@@ -166,17 +120,11 @@
 
 [Frequently Asked Questions](FrequentlyAskedQuestions.md)
 
-
-
 ### G
-
-
 
 [Gdi Plus](GdiPlus.md)
 
 [General Tips](GeneralTips.md)
-
-[Genuine Software Taobao](GenuineSoftwareTaobao.md)
 
 [Getting Started](GettingStarted.md)
 
@@ -190,11 +138,7 @@
 
 [Getting Started Part Two](GettingStartedPartTwo.md)
 
-
-
 ### H
-
-
 
 [Help Menu](HelpMenu.md)
 
@@ -206,11 +150,7 @@
 
 [How To Use Win Dbg](HowToUseWinDbg.md)
 
-
-
 ### I
-
-
 
 [Immediate Recovery](ImmediateRecovery.md)
 
@@ -222,47 +162,31 @@
 
 [Ipc Root Path](IpcRootPath.md)
 
-
-
 ### J
 
 ### K
-
-
 
 [Key Root Path](KeyRootPath.md)
 
 [Known Conflicts](KnownConflicts.md)
 
-
-
 ### L
-
-
 
 [Leader Process](LeaderProcess.md)
 
 [Linger Process](LingerProcess.md)
 
-
-
 ### M
-
-
 
 [Messages From Sandboxie](MessagesFromSandboxie.md)
 
 [Monitor Admin Only](MonitorAdminOnly.md)
 
-
-
 ### N
 
-
+[Network Files](NetworkFiles.md)
 
 [Never Delete](NeverDelete.md)
-
-[News](News.md)
 
 [Notes About 64 Bit Edition](NotesAbout64BitEdition.md)
 
@@ -274,13 +198,7 @@
 
 [Nt Status Codes](NtStatusCodes.md)
 
-
-
 ### O
-
-
-
-[Offline Activation](OfflineActivation.md)
 
 [Open Clsid](OpenClsid.md)
 
@@ -298,11 +216,7 @@
 
 [Open Win Class](OpenWinClass.md)
 
-
-
 ### P
-
-
 
 [Paper Analogy](PaperAnalogy.md)
 
@@ -316,8 +230,6 @@
 
 [Process Limit 2](ProcessLimit2.md)
 
-[Product Activation](ProductActivation.md)
-
 [Program Name Prefix](ProgramNamePrefix.md)
 
 [Program Settings](ProgramSettings.md)
@@ -330,21 +242,13 @@
 
 [Protected Storage](ProtectedStorage.md)
 
-
-
 ### Q
-
-
 
 [Questions](Questions.md)
 
 [Quick Recovery](QuickRecovery.md)
 
-
-
 ### R
-
-
 
 [Ransomware](Ransomware.md)
 
@@ -358,17 +262,15 @@
 
 [Register Sandboxie](RegisterSandboxie.md)
 
+[Resource Access](ResourceAccess.md)
+
 [Resource Access Monitor](ResourceAccessMonitor.md)
 
 [Resource Access Settings](ResourceAccessSettings.md)
 
 [Restrictions Settings](RestrictionsSettings.md)
 
-
-
 ### S
-
-
 
 [SBIE1101](SBIE1101.md)
 
@@ -646,8 +548,6 @@
 
 [Sandboxie Ini](SandboxieIni.md)
 
-[Sandboxie Install Checksums](SandboxieInstallChecksums.md)
-
 [Sandboxie Trace](SandboxieTrace.md)
 
 [Secure Delete Sandbox](SecureDeleteSandbox.md)
@@ -658,11 +558,7 @@
 
 [Start Command Line](StartCommandLine.md)
 
-[Stop Ransomware](StopRansomware.md)
-
 [System Event Log](SystemEventLog.md)
-
-
 
 ### T
 
@@ -672,33 +568,19 @@
 
 [Trusted Logos](TrustedLogos.md)
 
-
-
 ### U
-
-
 
 [Usage Tips](UsageTips.md)
 
 [User Accounts Settings](UserAccountsSettings.md)
 
-
-
 ### V
-
-
 
 [Version Changes](VersionChanges.md)
 
-[Video Reviews](VideoReviews.md)
-
 [View Menu](ViewMenu.md)
 
-
-
 ### W
-
-
 
 [Windows 8](Windows8.md)
 
@@ -710,17 +592,10 @@
 
 [Write Key Path](WriteKeyPath.md)
 
-
-
 ### X
 
 ### Y
 
-
-
 [Yes Or No Settings](YesOrNoSettings.md)
 
-
-
 ### Z
-

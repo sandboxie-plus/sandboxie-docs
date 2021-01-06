@@ -8,7 +8,7 @@ By default, Sandboxie deletes the sandbox using a standard Windows command to de
 
 People who are concerned about the privacy of their sensitive data can plug a third-party secure deletion utility into Sandboxie, to be used instead of the standard command.
 
-You can configure a custom delete command through Sandboxie Control or by manually editing the [Sandboxie Ini](SandboxieIni) configuration file.
+You can configure a custom delete command through Sandboxie Control or by manually editing the [Sandboxie Ini](SandboxieIni.md) configuration file.
 
 **In Sandboxie Control**
 
@@ -26,9 +26,9 @@ Use [Sandbox Settings > Delete > Command](DeleteSettings#command). A couple of e
 
 **In the Sandboxie.ini Configuration File**
 
-To configure a custom delete command for a particular sandbox, edit or insert the [DeleteCommand](DeleteCommand) setting in the sandbox section of [Sandboxie Ini](SandboxieIni).
+To configure a custom delete command for a particular sandbox, edit or insert the [DeleteCommand](DeleteCommand.md) setting in the sandbox section of [Sandboxie Ini](SandboxieIni.md).
 
-To configure a global custom delete command, edit or insert the [DeleteCommand](DeleteCommand) setting in the [GlobalSettings] section of [Sandboxie Ini](SandboxieIni).
+To configure a global custom delete command, edit or insert the [DeleteCommand](DeleteCommand.md) setting in the [GlobalSettings] section of [Sandboxie Ini](SandboxieIni.md).
 
 
 When specifying this setting, make sure to include **"%SANDBOX%"** (with quote marks) in the command.
@@ -37,4 +37,4 @@ Before launching the delete command, Sandboxie scans the sandbox to make sure al
 
 * * *
 
-Go to [Help Topics](HelpTopics).
+Go to [Help Topics](HelpTopics.md).

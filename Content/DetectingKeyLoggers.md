@@ -1,6 +1,6 @@
 # Detecting Key Loggers
 
-Go to [Help Topics](HelpTopics), [Usage Tips](UsageTips).
+Go to [Help Topics](HelpTopics.md), [Usage Tips](UsageTips.md).
 
 * * *
 
@@ -30,7 +30,7 @@ Rootkit key-loggers record keystrokes at the lowest software level, typically by
 
 Once installed, this class of key-loggers may provide the best logging facilities, and may be difficult to get rid of. But to be installed in the first place, this key-logger needs the explicit help of the operating system, and so is easily blocked by Sandboxie.
 
-If such a key-logger attempts to install, Sandboxie should report an informational message [SBIE2103](SBIE2103), unless the [BlockDrivers](BlockDrivers) setting (see also [Sandbox Settings > Restrictions > Low-Level Access](RestrictionsSettings#lowlevel)) was explicitly used to disable this protection.
+If such a key-logger attempts to install, Sandboxie should report an informational message [SBIE2103](SBIE2103.md), unless the [BlockDrivers](BlockDrivers.md) setting (see also [Sandbox Settings > Restrictions > Low-Level Access](RestrictionsSettings#lowlevel)) was explicitly used to disable this protection.
 
 ### Windows Hook Key-Loggers
 
@@ -42,7 +42,7 @@ It is not uncommon for applications to install such hooks as part of normal oper
 
 The approach Sandboxie takes is to honor the hook request partially, by applying the hook only to applications in the same sandbox as the requesting application.
 
-The [BlockWinHooks](BlockWinHooks) setting (see also [Sandbox Settings > Restrictions > Low-Level Access](RestrictionsSettings#lowlevel)) may be used to explicitly disable this protection.
+The [BlockWinHooks](BlockWinHooks.md) setting (see also [Sandbox Settings > Restrictions > Low-Level Access](RestrictionsSettings#lowlevel)) may be used to explicitly disable this protection.
 
 ### Windows Message Key-Loggers
 
@@ -73,7 +73,7 @@ Then carry out all untrusted activity -- such as browsing the Web, reading email
 *   You can make sure you stop all of them, by telling Sandboxie to stop all activity in all sandboxes.
     *   See also the **Terminate All Programs** command in the [File Menu](FileMenu#termall) and the [Tray Icon Menu](TrayIconMenu#termall).
 *   Once stopped, you can discard the traces of their program code, by deleting the contents of the sandbox.
-    *   See also [Delete Sandbox](DeleteSandbox).
+    *   See also [Delete Sandbox](DeleteSandbox.md).
 
 Once discarded, they can no longer record your keyboard activity, and you are safe to browse to trusted sites and enter your passwords.
 
@@ -91,4 +91,4 @@ Note two caveats:
 
 * * *
 
-Go to [Help Topics](HelpTopics), [Usage Tips](UsageTips).
+Go to [Help Topics](HelpTopics.md), [Usage Tips](UsageTips.md).

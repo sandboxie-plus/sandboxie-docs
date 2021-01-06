@@ -1,6 +1,6 @@
 # Open Win Class
 
-_OpenWinClass_ is a sandbox setting in [Sandboxie Ini](SandboxieIni). It specifies the class names for unsandboxed windows that should be accessible by a sandboxed program.
+_OpenWinClass_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It specifies the class names for unsandboxed windows that should be accessible by a sandboxed program.
 
 Examples:
 ```
@@ -43,4 +43,4 @@ Note that OpenWinClass=* allows full communication with all windows outside the 
 
 **Identifying Window Class Names**
 
-The unsandboxed windows are identified by their _window class name_, which is an internal name given to the window by the application that created it. You can use a tool like [WinSpy](http://www.catch22.net/software/winspy.asp) to identify window class names. The [Resource Access Monitor](ResourceAccessMonitor) tool in Sandboxie also displays window class names.
+The unsandboxed windows are identified by their _window class name_, which is an internal name given to the window by the application that created it. You can use a tool like [WinSpy](http://www.catch22.net/software/winspy.asp) to identify window class names. The [Resource Access Monitor](ResourceAccessMonitor.md) tool in Sandboxie also displays window class names.

@@ -2,9 +2,9 @@
 
 ### Applications" Settings Group
 
-[Sandboxie Control](SandboxieControl) > [Sandbox Settings](SandboxSettings) > Applications.
+[Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > Applications.
 
-![](https://xanasoft.com/wp-content/uploads/2020/10/ApplicationsSettings.png)
+![](Media/ApplicationsSettings.png)
 
 This group of settings pages offers quick configuration of Sandboxie for use with other applications, particularly the various well-known Web browsers and email programs, but also some third-party applications that are known to require special configuration in Sandboxie.
 
@@ -12,21 +12,21 @@ This group of settings pages offers quick configuration of Sandboxie for use wit
 
 ### Web Browser
 
-[Sandboxie Control](SandboxieControl) > [Sandbox Settings](SandboxSettings) > Applications > Web Browser
+[Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > Applications > Web Browser
 
 This settings sub-group is itself divided into three sub-groups:
 
 
 #### Internet Explorer
-![](https://xanasoft.com/wp-content/uploads/2020/10/WebBrowserSettings1.png)</td>
-See also:   [Internet Explorer Tips](InternetExplorerTips)
+![](Media/WebBrowserSettings1.png)</td>
+See also:   [Internet Explorer Tips](InternetExplorerTips.md)
 
 #### Firefox
-![](https://xanasoft.com/wp-content/uploads/2020/10/WebBrowserSettings2.png)
-See also:  [Firefox Tips](FirefoxTips)
+![](Media/WebBrowserSettings2.png)
+See also:  [Firefox Tips](FirefoxTips.md)
 
 #### Other Browsers
-![](https://xanasoft.com/wp-content/uploads/2020/10/WebBrowserSettings3.png)</td>
+![](Media/WebBrowserSettings3.png)</td>
 
 
 This settings page offers quick configuration for the following browsers: Internet Explorer, Mozilla Firefox and SeaMonkey, the Opera Web browser, Maxthon 2, and Google Chrome.
@@ -35,17 +35,17 @@ Select (highlight) the desired configuration and click the _Add_ button to enabl
 
 Two special settings on the Internet Explorer settings page:
 
-*   Save outside sandbox: History of search strings and invoked commands. For detailed information, see [Sandboxie Ini](SandboxieIni) setting: [OpenProtectedStorage](OpenProtectedStorage).
-*   Save outside sandbox: Account information for Hotmail and Messenger. For detailed information, see [Sandboxie Ini](SandboxieIni) setting: [OpenCredentials](OpenCredentials).
+*   Save outside sandbox: History of search strings and invoked commands. For detailed information, see [Sandboxie Ini](SandboxieIni.md) setting: [OpenProtectedStorage](OpenProtectedStorage.md).
+*   Save outside sandbox: Account information for Hotmail and Messenger. For detailed information, see [Sandboxie Ini](SandboxieIni.md) setting: [OpenCredentials](OpenCredentials.md).
 *   See also [Save Outside Sandbox in Internet Explorer Tips](InternetExplorerTips#SaveOutsideSandbox) for more information and recommendations.
 
 * * *
 
 #### Email Reader
 
-[Sandboxie Control](SandboxieControl) > [Sandbox Settings](SandboxSettings) > Applications > Email Reader
+[Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > Applications > Email Reader
 
-![](https://xanasoft.com/wp-content/uploads/2020/10/EmailReaderSettings.png)  
+![](Media/EmailReaderSettings.png)  
 
 This settings page offers quick configuration for the following email programs:
 
@@ -89,9 +89,9 @@ Select (highlight) the desired configuration and click the _Add_ button to enabl
 
 #### Local
 
-[Sandboxie Control](SandboxieControl) > [Sandbox Settings](SandboxSettings) > Applications > Local
+[Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > Applications > Local
 
-![](https://xanasoft.com/wp-content/uploads/2020/10/LocalApplicationsSettings.png)
+![](Media/LocalApplicationsSettings.png)
 
 Use this settings page to enter your own custom settings as an application configuration package that can be easily enabled or disabled for a particular sandbox.
 
@@ -101,9 +101,9 @@ For more information about designing your own application configuration packages
 
 #### Folders
 
-[Sandboxie Control](SandboxieControl) > [Sandbox Settings](SandboxSettings) > Applications > Folders
+[Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > Applications > Folders
 
-![](https://xanasoft.com/wp-content/uploads/2020/10/FolderApplicationsSettings.png)
+![](Media/FolderApplicationsSettings.png)
 
 Use this settings page to specify any alternate (non-default) folder locations for the data files used by applications for which you have enabled in (or add to) the sandbox.
 
@@ -113,9 +113,9 @@ First, select (highlight) the desired application, then click the _Add_ button t
 
 #### Accessibility Settings
 
-[Sandboxie Control](SandboxieControl) > [Sandbox Settings](SandboxSettings) > Applications > Accessibility
+[Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > Applications > Accessibility
 
-![](https://xanasoft.com/wp-content/uploads/2020/10/AccessibilitySettings.png)
+![](Media/AccessibilitySettings.png)
 
 This settings page offers quick configuration for the following screen reading programs:
 

@@ -1,6 +1,6 @@
 # Description
 
-_Description_ is a sandbox settings in [Sandboxie Ini](SandboxieIni). It specifies free text, which can explain, for example, the purpose of the sandbox.
+_Description_ is a sandbox settings in [Sandboxie Ini](SandboxieIni.md). It specifies free text, which can explain, for example, the purpose of the sandbox.
 
 ```
    .

@@ -12,4 +12,4 @@ Usage:
    CopyLimitSilent=yes
 ```
 
-Related [Sandboxie Ini](SandboxieIni) setting: [CopyLimitKb](CopyLimitKb).
+Related [Sandboxie Ini](SandboxieIni.md) setting: [CopyLimitKb](CopyLimitKb.md).

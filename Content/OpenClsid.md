@@ -1,6 +1,6 @@
 # Open Clsid
 
-_OpenClsid_ is a sandbox setting in [Sandboxie Ini](SandboxieIni). It specifies the COM class identifiers for unsandboxed COM objects that should be accessible by a sandboxed program.
+_OpenClsid_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It specifies the COM class identifiers for unsandboxed COM objects that should be accessible by a sandboxed program.
 
 Examples:
 ```
@@ -13,4 +13,4 @@ Examples:
 
 This example makes the HP Universal Printer Status Monitor pop-up component accessible to sandboxed programs.
 
-Related [Sandboxie Control](SandboxieControl) setting: [Sandbox Settings > Resource Access > COM Access](ResourceAccessSettings#com)
+Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Resource Access > COM Access](ResourceAccessSettings#com)

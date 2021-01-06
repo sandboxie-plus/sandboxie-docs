@@ -1,6 +1,6 @@
 # Closed File Path
 
-_ClosedFilePath_ is a sandbox setting in [Sandboxie Ini](SandboxieIni). It specifies path patterns for which Sandboxie will deny _all_ access by sandboxed progams, including _read_ access. This setting essentially blocks files and folders from being accessed by sandboxed programs.
+_ClosedFilePath_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It specifies path patterns for which Sandboxie will deny _all_ access by sandboxed progams, including _read_ access. This setting essentially blocks files and folders from being accessed by sandboxed programs.
 
 [Shell Folders](ShellFolders.html) may be specified. [Program Name Prefix](ProgramNamePrefix.html) may be specified.
 
@@ -28,10 +28,10 @@ The example blocks any program _other than_ Internet Explorer (_iexplore.exe_) f
 
 The second example shows how to configure Sandboxie to block sandboxed programs from accessing the My Documents folder.
 
-The value specified for ClosedFilePath can include wildcards. For more information on this, including examples that show the use of wildcards, see [OpenFilePath](OpenFilePath).
+The value specified for ClosedFilePath can include wildcards. For more information on this, including examples that show the use of wildcards, see [OpenFilePath](OpenFilePath.md).
 
 The third example (spanning four lines) disables Internet access within a sandbox _except_ for Internet Explorer (_iexplore.exe_). See also [Sandbox Settings > Restrictions > Internet Access](RestrictionsSettings#internet).
 
 **Note:** Unlike the corresponding OpenFilePath setting, the _ClosedFilePath_ settings always applies to sandboxed programs, whether the program executable file resides within the sandbox, or out of it.
 
-Related [Sandboxie Control](SandboxieControl) setting: [Sandbox Settings > Resource Access > File Access > Blocked Access](ResourceAccessSettings#file)
+Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Resource Access > File Access > Blocked Access](ResourceAccessSettings#file)

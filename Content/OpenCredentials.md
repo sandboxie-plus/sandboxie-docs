@@ -1,6 +1,6 @@
 # Open Credentials
 
-_OpenCredentials_ is a sandbox setting in [Sandboxie Ini](SandboxieIni). It is typically specified as _OpenCredentials=yes_ (see [Yes Or No Settings](YesOrNoSettings)), and indicates that Sandboxie should not isolate Windows credentials in the sandbox. For example:
+_OpenCredentials_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It is typically specified as _OpenCredentials=yes_ (see [Yes Or No Settings](YesOrNoSettings.md)), and indicates that Sandboxie should not isolate Windows credentials in the sandbox. For example:
 ```
    .
    .
@@ -22,5 +22,5 @@ To manage Windows credentials, start Control Panel > User Accounts, select an ac
 **Note:** Sandboxie stores credentials in the sandboxed protected storage. Thus, if the setting _Save outside sandbox: History of search strings and invoked commands_  
 in [Sandbox Settings > Applications > Web Browsers](ApplicationsSettings#web) is enabled, credentials will not be stored in the sandbox, regardless of the OpenCredentials setting.
 
-Related [Sandboxie Control](SandboxieControl) setting: _Save outside sandbox: Account information for Hotmail and Messenger_  
+Related [Sandboxie Control](SandboxieControl.md) setting: _Save outside sandbox: Account information for Hotmail and Messenger_  
 in [Sandbox Settings > Applications > Web Browsers](ApplicationsSettings#web)

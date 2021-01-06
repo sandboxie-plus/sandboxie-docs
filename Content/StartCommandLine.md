@@ -39,7 +39,7 @@ In all forms, the parameter _/box:SandboxName_ is applicable, and may be specifi
 
 A special form of the /box parameter is _/box:_**_ask_**__ and causes Start.exe to display the sandbox selection dialog box.
 
-The parameter _/nosbiectrl_ can be used to make sure Start.exe does not try to run [Sandboxie Control](SandboxieControl) before running the sandboxed program.
+The parameter _/nosbiectrl_ can be used to make sure Start.exe does not try to run [Sandboxie Control](SandboxieControl.md) before running the sandboxed program.
 ```
   &quot;C:\Program Files\Sandboxie\Start.exe&quot;  /nosbiectrl calc.exe	
 ```
@@ -146,7 +146,7 @@ The delete operation occurs in two phases:
     *   Sandboxes that were processed in phase 1 are those that have been renamed as described above.
     *   More than one sandbox may be deleted in phase 2\.
     *   By default, the standard system command RMDIR is used to delete the renamed sandbox folder.
-    *   Alternatively, a third-party delete utility may used. See [Secure Delete Sandbox](SecureDeleteSandbox).
+    *   Alternatively, a third-party delete utility may used. See [Secure Delete Sandbox](SecureDeleteSandbox.md).
 
 Issuing the _delete_sandbox_ command causes Start.exe to invoke phase 1 followed by phase 2\. Start.exe also accepts these commands to invoke a specific phase:
 ```
@@ -190,6 +190,6 @@ Note the missing slash in this command syntax. Note also that this command is no
 
 ### Related Reading Material
 
-See also: [InjectDll](InjectDll) and [SBIE DLL API](SBIE_DLL_API)
+See also: [InjectDll](InjectDll.md) and [SBIE DLL API](SBIE_DLL_API)
 
-Go to [Help Topics](HelpTopics).
+Go to [Help Topics](HelpTopics.md).

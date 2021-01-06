@@ -1,10 +1,10 @@
 # Ipc Root Path
 
-_IpcRootPath_ is a sandbox setting in [Sandboxie Ini](SandboxieIni). It specifies the location within the NT object namespace where a particular sandbox is created.
+_IpcRootPath_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It specifies the location within the NT object namespace where a particular sandbox is created.
 
 As with all sandbox settings, it may also be specified in the global section, and in that case will apply for all sandboxes where the setting is not also specified in the sandbox section.
 
-See [Sandbox Hierarchy](SandboxHierarchy) for more information.
+See [Sandbox Hierarchy](SandboxHierarchy.md) for more information.
 
 Usage:
 ```

@@ -1,10 +1,10 @@
 # Programs View
 
-[Sandboxie Control](SandboxieControl) > [View Menu](ViewMenu) > [Programs](ViewMenu#pgmview)
+[Sandboxie Control](SandboxieControl.md) > [View Menu](ViewMenu.md) > [Programs](ViewMenu#pgmview)
 
-![](https://xanasoft.com/wp-content/uploads/2020/10/MainWindow.png)
+![](Media/MainWindow.png)
 
-The _Programs View_ is the default view mode in [Sandboxie Control](SandboxieControl). It displays the programs running in each of the sandboxes, grouped by sandbox name. The list shows three colums:
+The _Programs View_ is the default view mode in [Sandboxie Control](SandboxieControl.md). It displays the programs running in each of the sandboxes, grouped by sandbox name. The list shows three colums:
 
 *   The _Program Name_ column displays the name of the executable file of the program. For example, the picture shows _iexplore.exe_, which is the executable name for Internet Explorer.
     *   For a row describing a sandbox, this column displays the name of the sandbox.
@@ -32,10 +32,10 @@ For a program row, the context menu offerrs these commands:
 
 *   The _Terminate Program_ command terminates the program.
 
-*   The _Program Settings_ command displays the [Program Settings](ProgramSettings) window for the program.
+*   The _Program Settings_ command displays the [Program Settings](ProgramSettings.md) window for the program.
 
-*   The _Resource Access_ command displays the [Sandbox Settings > Resource Access](ResourceAccessSettings) group of settings pages, where the program name is pre-selected in the program name filter (_The list above applies to_ filter).
+*   The _Resource Access_ command displays the [Sandbox Settings > Resource Access](ResourceAccessSettings.md) group of settings pages, where the program name is pre-selected in the program name filter (_The list above applies to_ filter).
 
 * * *
 
-Go to [Sandboxie Control](SandboxieControl), [Files And Folders View](FilesAndFoldersView), [Help Topics](HelpTopics).
+Go to [Sandboxie Control](SandboxieControl.md), [Files And Folders View](FilesAndFoldersView.md), [Help Topics](HelpTopics.md).
