@@ -2,7 +2,7 @@
 
 [Sandboxie Control](SandboxieControl.md) > Configure Menu
 
-![](Media/ConfigureMenu.png)
+![](/Media/ConfigureMenu.png)
 
 * * *
 
