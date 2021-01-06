@@ -1,0 +1,14 @@
+# Notify Internet Access Denied
+
+_NotifyInternetAccessDenied_ is a sandbox setting in [Sandboxie Ini](SandboxieIni). It is typically specified as _NotifyInternetAccessDenied=y_, and indicates that Sandboxie should issue message [SBIE1307](SBIE1307) when programs are denied access to the Internet.
+
+Usage:
+```
+   .
+   .
+   .
+   [DefaultBox]
+   NotifyInternetAccessDenied=y
+```
+
+Related [Sandboxie Control](SandboxieControl) setting: [Sandbox Settings > Restrictions > Internet Access](RestrictionsSettings#internet) Related [Sandboxie Control](SandboxieControl) setting: [Program Settings](ProgramSettings#page2)
