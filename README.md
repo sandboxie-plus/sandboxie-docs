@@ -28,6 +28,7 @@ Select from two editions:
 * [Usage Tips](Content/UsageTips.md)
 * [Frequenty Asked Questions](Content/FrequentlyAskedQuestions.md)
 * [Advanced Topics](Content/AdvancedTopics.md)
+* [Technical Aspects](TechnicalAspects.md)
 * [SBIE Messages](Content/SBIEMessages.md)
 * [Command Line Usage](Content/StartCommandLine.md)
 * [Sandboxie Configuration File](Content/Sandboxieini.md)
