@@ -2,7 +2,7 @@
 
 [Sandboxie Control](SandboxieControl.md) > Sandbox Menu
 
-![](/Media/SandboxMenu.png)
+![](../Media/SandboxMenu.png)
 
 * * *
 

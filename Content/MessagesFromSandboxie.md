@@ -4,7 +4,7 @@ The _Messages From Sandboxie_ window is displayed automatically whenever Sandbox
 
 The window displays one message per line, as in the example below.
 
-![](/Media/MessagesFromSandboxie.png)
+![](../Media/MessagesFromSandboxie.png)
 
 Clicking the _Help_ button opens the Web browser and navigates to the documentation page for the highlighted message.
 

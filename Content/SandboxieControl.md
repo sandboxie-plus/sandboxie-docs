@@ -34,7 +34,7 @@ Sandboxie Control is the graphical front end to Sandboxie, and can control most 
 
 Sandboxie is primarily a mechanism to run other programs, not an interactive tool. You will typically hide the main window of Sandboxie Control, and the program will only be visible as a tray icon in your system notification area, typically at the lower-right corner of the screen:
 
-![](/Media/TrayIcon.png)
+![](../Media/TrayIcon.png)
 
 (Note the yellow Sandboxie Control icon near the clock.)
 

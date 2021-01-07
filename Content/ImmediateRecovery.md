@@ -1,6 +1,6 @@
 # Immediate Recovery
 
-![](/Media/ImmediateRecoverFavIcon.png)
+![](../Media/ImmediateRecoverFavIcon.png)
 
 Immediate Recovery is an extension of [Quick Recovery](QuickRecovery.md). Both Quick and Immediate Recovery scan the list of folders configured in [Sandbox Settings > Recovery > Quick Recovery](RecoverySettings#quick), and suggest an easy way to move any files (or folders) found out of the sandbox.
 

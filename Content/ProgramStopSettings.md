@@ -4,7 +4,7 @@
 
 [Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > Program Stop:
 
-![](/Media/ProgramStopSettings.png)
+![](../Media/ProgramStopSettings.png)
 
 Settings in this section control when Sandboxie automatically ends programs that run in the sandbox.
 
@@ -14,7 +14,7 @@ Settings in this section control when Sandboxie automatically ends programs that
 
 [Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > Program Stop > Lingering Programs
 
-![](/Media/LingeringProgramsSettings.png)
+![](../Media/LingeringProgramsSettings.png)
 
 When one sandboxed program starts another program, that other program will be started in the same sandbox. However, the end of first program does not necessarily mean that the second program ends as well. This means that the sandbox can still be active after the primary program in the sandbox has been stopped.
 
@@ -38,7 +38,7 @@ Related [Sandboxie Ini](SandboxieIni.md) setting: [LingerProcess](LingerProcess.
 
 [Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > Program Stop > Leader Programs
 
-![](/Media/LeaderProgramsSettings.png)
+![](../Media/LeaderProgramsSettings.png)
 
 When this sandboxed program ends, Sandboxie will stop all other programs in the sandbox.
 

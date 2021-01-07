@@ -4,7 +4,7 @@
 
 [Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > Applications.
 
-![](/Media/ApplicationsSettings.png)
+![](../Media/ApplicationsSettings.png)
 
 This group of settings pages offers quick configuration of Sandboxie for use with other applications, particularly the various well-known Web browsers and email programs, but also some third-party applications that are known to require special configuration in Sandboxie.
 
@@ -18,15 +18,15 @@ This settings sub-group is itself divided into three sub-groups:
 
 
 #### Internet Explorer
-![](/Media/WebBrowserSettings1.png)</td>
+![](../Media/WebBrowserSettings1.png)</td>
 See also:   [Internet Explorer Tips](InternetExplorerTips.md)
 
 #### Firefox
-![](/Media/WebBrowserSettings2.png)
+![](../Media/WebBrowserSettings2.png)
 See also:  [Firefox Tips](FirefoxTips.md)
 
 #### Other Browsers
-![](/Media/WebBrowserSettings3.png)</td>
+![](../Media/WebBrowserSettings3.png)</td>
 
 
 This settings page offers quick configuration for the following browsers: Internet Explorer, Mozilla Firefox and SeaMonkey, the Opera Web browser, Maxthon 2, and Google Chrome.
@@ -45,7 +45,7 @@ Two special settings on the Internet Explorer settings page:
 
 [Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > Applications > Email Reader
 
-![](/Media/EmailReaderSettings.png)  
+![](../Media/EmailReaderSettings.png)  
 
 This settings page offers quick configuration for the following email programs:
 
@@ -91,7 +91,7 @@ Select (highlight) the desired configuration and click the _Add_ button to enabl
 
 [Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > Applications > Local
 
-![](/Media/LocalApplicationsSettings.png)
+![](../Media/LocalApplicationsSettings.png)
 
 Use this settings page to enter your own custom settings as an application configuration package that can be easily enabled or disabled for a particular sandbox.
 
@@ -103,7 +103,7 @@ For more information about designing your own application configuration packages
 
 [Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > Applications > Folders
 
-![](/Media/FolderApplicationsSettings.png)
+![](../Media/FolderApplicationsSettings.png)
 
 Use this settings page to specify any alternate (non-default) folder locations for the data files used by applications for which you have enabled in (or add to) the sandbox.
 
@@ -115,7 +115,7 @@ First, select (highlight) the desired application, then click the _Add_ button t
 
 [Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > Applications > Accessibility
 
-![](/Media/AccessibilitySettings.png)
+![](../Media/AccessibilitySettings.png)
 
 This settings page offers quick configuration for the following screen reading programs:
 
