@@ -19,10 +19,12 @@ This settings sub-group is itself divided into three sub-groups:
 
 #### Internet Explorer
 ![](../Media/WebBrowserSettings1.png)
+
 See also:   [Internet Explorer Tips](InternetExplorerTips.md)
 
 #### Firefox
 ![](../Media/WebBrowserSettings2.png)
+
 See also:  [Firefox Tips](FirefoxTips.md)
 
 #### Other Browsers
