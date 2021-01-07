@@ -28,11 +28,11 @@ If [Sandboxie Control](SandboxieControl.md) is not already active, you can find 
 
 ### Windows XP
 
-![](../Media/StartMenuStartControl.png)</td>
+![](../Media/StartMenuStartControl.png)
 
 ### Windows Vista
 
-![](../Media/StartMenuStartControlVista.png)</td>
+![](../Media/StartMenuStartControlVista.png)
 
 
 When active, you can use the Sandboxie tray icon to hide and show the main window of [Sandboxie Control](SandboxieControl.md), by double-clicking the icon. Or, you can right-click the icon and select the first command, which alternates between _Hide Window_ and _Show Window_.
