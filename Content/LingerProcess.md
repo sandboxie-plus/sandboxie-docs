@@ -1,6 +1,6 @@
 # Linger Process
 
-_LingerProcess_ is a sandbox setting in [Sandboxie Ini](SandboxieIni). It specifies names of programs that will be automatically terminated, when they are the last programs that remain in execution in a particular sandbox. This is useful as some programs occasionally launch _helper programs_ to carry out a specific task, and the helper program remains in execution even after the original program has ended. For example:
+_LingerProcess_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It specifies names of programs that will be automatically terminated, when they are the last programs that remain in execution in a particular sandbox. This is useful as some programs occasionally launch _helper programs_ to carry out a specific task, and the helper program remains in execution even after the original program has ended. For example:
 
 ```
    .
@@ -21,6 +21,6 @@ For example, the default configuration includes Adobe Acrobat Reader as a Linger
 
 However, if you manually start Adobe Acrobat Reader sandboxed, for example by running it from the Sandboxie Start Menu, then the LingerProcess setting will not apply to that process.
 
-Related [Sandboxie Control](SandboxieControl) setting: [Sandbox Settings -> Program Stop -> Lingering Programs](ProgramStopSettings#linger)
+Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings -> Program Stop -> Lingering Programs](ProgramStopSettings#linger)
 
 See also: [Program Settings](ProgramSettings#linger).

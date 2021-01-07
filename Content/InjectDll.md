@@ -1,7 +1,7 @@
 # Inject Dll
 
 
-_InjectDll_ is a sandbox setting in [Sandboxie Ini](SandboxieIni). It tells Sandboxie to "inject" some DLL into every program in the sandbox. "Inject" means the DLL is
+_InjectDll_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It tells Sandboxie to "inject" some DLL into every program in the sandbox. "Inject" means the DLL is
 ```
    .
    .
@@ -12,7 +12,7 @@ _InjectDll_ is a sandbox setting in [Sandboxie Ini](SandboxieIni). It tells Sand
 
 You should specify a full path to the DLL. If the DLL file itself resides within the sandbox, specify the full path inside the sandbox.
 
-**Note:** The InjectDll setting specifies 32-bit DLLs, and will be ignored in a 64-bit process on 64-bit Windows. Use the [InjectDll64](InjectDll64) setting to specify 64-bit DLLs.
+**Note:** The InjectDll setting specifies 32-bit DLLs, and will be ignored in a 64-bit process on 64-bit Windows. Use the [InjectDll64](InjectDll64.md) setting to specify 64-bit DLLs.
 
 * * *
 
@@ -42,7 +42,7 @@ It is recommended to use the **hSbieDll** parameter as the module instance handl
 
 * * *
 
-At this time, this setting cannot be manipulated from [Sandboxie Control](SandboxieControl). You have to manually edit it into [Sandboxie Ini](SandboxieIni).
+At this time, this setting cannot be manipulated from [Sandboxie Control](SandboxieControl.md). You have to manually edit it into [Sandboxie Ini](SandboxieIni.md).
 
-See also: [InjectDll64](InjectDll64), [SBIE DLL API](SBIE_DLL_API), [Start Command Line](StartCommandLine).
+See also: [InjectDll64](InjectDll64.md), [SBIE DLL API](SBIE_DLL_API), [Start Command Line](StartCommandLine.md).
 

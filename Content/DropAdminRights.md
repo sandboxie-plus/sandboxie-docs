@@ -1,6 +1,6 @@
 # Drop Admin Rights
 
-_DropAdminRights_ is a sandbox setting in [Sandboxie Ini](SandboxieIni). It specifies whether Sandboxie will strip Administrator rights from programs running in this sandbox.
+_DropAdminRights_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It specifies whether Sandboxie will strip Administrator rights from programs running in this sandbox.
 
 Usage:
 
@@ -18,5 +18,5 @@ Specifically, the security credentials used to start the sandboxed program will 
 
 Note that this has little effect if you are already running under a non-Administrator user account.
 
-Related [Sandboxie Control](SandboxieControl) setting: [Sandbox Settings > Restrictions > Drop Rights](RestrictionsSettings#drop)
+Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Restrictions > Drop Rights](RestrictionsSettings#drop)
 

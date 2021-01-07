@@ -2,17 +2,17 @@
 
 ## "Delete" Settings Group
 
-[Sandboxie Control](SandboxieControl) > [Sandbox Settings](SandboxSettings) > Delete:
+[Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > Delete:
 
-![](https://xanasoft.com/wp-content/uploads/2020/10/DeleteSettings.png)
+![](/Media/DeleteSettings.png)
 
 Here you configure when and how Sandboxie deletes the sandbox.
 
 ## Invocation
 
-[Sandboxie Control](SandboxieControl) > [Sandbox Settings](SandboxSettings) > Delete > Invocation:
+[Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > Delete > Invocation:
 
-![](https://xanasoft.com/wp-content/uploads/2020/10/DeleteInvocationSettings.png)
+![](/Media/DeleteInvocationSettings.png)
 
 Use this settings page to indicate when you want the sandbox deleted:
 
@@ -24,15 +24,15 @@ Note that while both checkboxes can be cleared, only one checkbox can be marked 
 
 As long as the second checkbox is marked, Sandboxie will not initiate any delete operation on the sandbox, even if you explicitly ask for it. Important: This does not protect the sandbox from being deleted by other programs.
 
-Related [Sandboxie Ini](SandboxieIni) settings: [AutoDelete](AutoDelete), [NeverDelete](NeverDelete), [DeleteCommand](DeleteCommand).
+Related [Sandboxie Ini](SandboxieIni.md) settings: [AutoDelete](AutoDelete.md), [NeverDelete](NeverDelete.md), [DeleteCommand](DeleteCommand.md).
 
 ## Command
 
-[Sandboxie Control](SandboxieControl) > [Sandbox Settings](SandboxSettings) > Delete > Command:
+[Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > Delete > Command:
 
-![](https://xanasoft.com/wp-content/uploads/2020/10/DeleteCommandSettings.png)
+![](/Media/DeleteCommandSettings.png)
 
-Use this settings page to specify the system command that will be used to delete the sandbox. By default this is a simple RMDIR (remove directory) command. People who are concerned with privacy issues may choose to use secure deletion instead, as described in more detail in [Secure Delete Sandbox](SecureDeleteSandbox).
+Use this settings page to specify the system command that will be used to delete the sandbox. By default this is a simple RMDIR (remove directory) command. People who are concerned with privacy issues may choose to use secure deletion instead, as described in more detail in [Secure Delete Sandbox](SecureDeleteSandbox.md).
 
 You can use the buttons to select a preset command. The RMDIR button selects the simple RMDIR noted above.
 

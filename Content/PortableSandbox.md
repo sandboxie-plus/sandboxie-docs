@@ -1,6 +1,6 @@
 # Portable Sandbox
 
-The revised [layout of the sandbox](SandboxHierarchy) that is introduced in version 2.80 allows for greater portability of the sandbox across computers. By redirecting programs to create sandboxed objects which have a nonspecific path, it is possible to populate a sandbox on one computer, then carry this sandbox to another computer and keep using it.
+The revised [layout of the sandbox](SandboxHierarchy.md) that is introduced in version 2.80 allows for greater portability of the sandbox across computers. By redirecting programs to create sandboxed objects which have a nonspecific path, it is possible to populate a sandbox on one computer, then carry this sandbox to another computer and keep using it.
 
 For example, consider installing a game program to a portable device such as a USB memory stick which is mounted as drive P. The game may install its files to a folder on drive P, but any menu shortcuts it creates will be installed in the Windows Start menu of the local computer, outside drive P. And any registry keys it creates will also be created in the Windows registry, also outside the USB device.
 

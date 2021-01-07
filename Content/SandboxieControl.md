@@ -16,17 +16,17 @@ Sandboxie Control is the graphical front end to Sandboxie, and can control most 
 
 *   Main Menu:
 
-	* [File Menu](FileMenu)
+	* [File Menu](FileMenu.md)
 
-	* [View Menu](ViewMenu)
+	* [View Menu](ViewMenu.md)
 
-	* [Sandbox Menu](SandboxMenu)
+	* [Sandbox Menu](SandboxMenu.md)
 
-	* [Configure Menu](ConfigureMenu)
+	* [Configure Menu](ConfigureMenu.md)
 
-	* [Help Menu](HelpMenu)
+	* [Help Menu](HelpMenu.md)
 
-*   See Also: [Tray Icon Menu](TrayIconMenu)
+*   See Also: [Tray Icon Menu](TrayIconMenu.md)
 
 * * *
 
@@ -34,11 +34,11 @@ Sandboxie Control is the graphical front end to Sandboxie, and can control most 
 
 Sandboxie is primarily a mechanism to run other programs, not an interactive tool. You will typically hide the main window of Sandboxie Control, and the program will only be visible as a tray icon in your system notification area, typically at the lower-right corner of the screen:
 
-![](https://xanasoft.com/wp-content/uploads/2020/10/TrayIcon.png)
+![](/Media/TrayIcon.png)
 
 (Note the yellow Sandboxie Control icon near the clock.)
 
-To toggle the hidden state, double-click the tray icon, or right-click it and select the _Show Window_ or _Hide Window_ commands. (See [Tray Icon Menu](TrayIconMenu).) Additionally, you can hide the window by clicking the close button (X) at the upper-right corner of the window.
+To toggle the hidden state, double-click the tray icon, or right-click it and select the _Show Window_ or _Hide Window_ commands. (See [Tray Icon Menu](TrayIconMenu.md).) Additionally, you can hide the window by clicking the close button (X) at the upper-right corner of the window.
 
 To quit Sandboxie Control and remove its tray icon from the system notification area, right-click the tray icon and select _Exit_.
 
@@ -46,17 +46,17 @@ To quit Sandboxie Control and remove its tray icon from the system notification 
 
 ### Views
 
-*   [Programs View](ProgramsView)
+*   [Programs View](ProgramsView.md)
 
-*   [Files And Folders View](FilesAndFoldersView)
+*   [Files And Folders View](FilesAndFoldersView.md)
 
 * * *
 
 ### Quick Links to More Topics
 
-*   [Quick Recovery](QuickRecovery), [Immediate Recovery](ImmediateRecovery) and [Delete Sandbox](DeleteSandbox)
+*   [Quick Recovery](QuickRecovery.md), [Immediate Recovery](ImmediateRecovery.md) and [Delete Sandbox](DeleteSandbox.md)
 
-*   [Sandbox Settings](SandboxSettings)
+*   [Sandbox Settings](SandboxSettings.md)
 
 *   [Disable Forced Programs](FileMenu#disableforce)
 
@@ -66,4 +66,4 @@ To quit Sandboxie Control and remove its tray icon from the system notification 
 
 * * *
 
-Go to [Help Topics](HelpTopics).
+Go to [Help Topics](HelpTopics.md).

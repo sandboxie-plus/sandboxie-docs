@@ -2,9 +2,9 @@
 
 **Automatic Delete Sandbox**
 
-[Sandboxie Control](SandboxieControl) > [Sandbox Settings](SandboxSettings) > [Delete](DeleteSettings) > [Invocation](DeleteSettings#invocation)
+[Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > [Delete](DeleteSettings.md) > [Invocation](DeleteSettings#invocation)
 
-![](https://xanasoft.com/wp-content/uploads/2020/10/DeleteInvocationSettings.png)
+![](/Media/DeleteInvocationSettings.png)
 
 *   Setting: Automatically delete contents of sandbox
 
@@ -14,9 +14,9 @@ This setting tells Sandboxie to delete the sandbox whenever all programs in the 
 
 **Highlight Windows of Programs Running Under Sandboxie**
 
-[Sandboxie Control](SandboxieControl) > [Sandbox Settings](SandboxSettings) > [Appearance Settings](AppearanceSettings)
+[Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > [Appearance Settings](AppearanceSettings.md)
 
-![](https://xanasoft.com/wp-content/uploads/2020/10/AppearanceSettings.png)
+![](/Media/AppearanceSettings.png)
 
 *   Setting: Display a border around the window
 

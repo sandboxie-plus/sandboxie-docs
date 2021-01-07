@@ -1,10 +1,10 @@
 # File Root Path
 
-_FileRootPath_ is a sandbox setting in [Sandboxie Ini](SandboxieIni). It specifies the root folder for a particular sandbox.
+_FileRootPath_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It specifies the root folder for a particular sandbox.
 
 As with all sandbox settings, it may also be specified in the global section, and in that case will apply for all sandboxes where the setting is not also specified in the sandbox section.
 
-See [Sandbox Hierarchy](SandboxHierarchy) for more information.
+See [Sandbox Hierarchy](SandboxHierarchy.md) for more information.
 
 Usage:
 
@@ -24,7 +24,7 @@ The following substitution variables may be useful in this path.
 *   The variable %SID% which expands to the user security-ID (SID)
 *   The variable %SESSION% which expands to the Terminal Services session number
 
-If _FileRootPath_ is not specified, its default value is constructed using the _deprecated_ [BoxRootFolder](BoxRootFolder) setting, thus:
+If _FileRootPath_ is not specified, its default value is constructed using the _deprecated_ [BoxRootFolder](BoxRootFolder.md) setting, thus:
 
 *   _BoxRootFolder\Sandbox\%SANDBOX%._
 

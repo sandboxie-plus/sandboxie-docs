@@ -25,7 +25,7 @@
 *   [How do I make Quick Recovery show my saved favorites and downloads?](FrequentlyAskedQuestions#QuickRecovery)
 *   [I saved a downloaded file, a document or an email inside the sandbox, how do I get it out?](FrequentlyAskedQuestions#SavedInSandbox)
 *   [Why does the wrong program start when I run my default Web browser sandboxed?](FrequentlyAskedQuestions#WrongBrowser)
-*   If you have a program that doesn't work properly sandboxed, please look it up on the [Known Conflicts](KnownConflicts) page before posting a problem report.
+*   If you have a program that doesn't work properly sandboxed, please look it up on the [Known Conflicts](KnownConflicts.md) page before posting a problem report.
 
 * * *
 
@@ -41,7 +41,7 @@ Traditional privacy and anti-malware software try to locate and erase any writin
 
 On the other hand, the Sandboxie sandbox works like a transparency layer placed over the paper. Programs write on the transparency layer and to them it looks like the real paper. When you delete the sandbox, it's like removing the transparency layer, the unchanged, real paper is revealed.
 
-![](https://xanasoft.com/wp-content/uploads/2020/10/PaperAnimation.gif)
+![](/Media/PaperAnimation.gif)
 
 Thanks to _esalkin_ for the paper metaphore. Thanks to _warwagon_ for the graphics.
 
@@ -102,7 +102,7 @@ Sandboxie works on
 *   Windows 8.1 (32/64)
 *   Windows 10 (32/64)(Edge browser & Metro(tile) Apps not supported)
 *   Windows 10 Insider Preview (Fast Ring) supported in Beta builds that are released in the User Forum
-*   There is some support for older 64-bit versions of Windows: see [the download page](DownloadSandboxie).
+*   There is some support for older 64-bit versions of Windows: see [the download page](DownloadSandboxie.md).
 
 Supported Web Browsers (32 & 64 bit supported)
 
@@ -140,13 +140,13 @@ Sandboxie needs only a small amount of memory and should have a very small impac
 
 Sandboxie extends the operating system (OS) with sandboxing capabilities by blending into it. Applications can never access hardware such as disk storage directly, they have to ask the OS to do it for them. Since Sandboxie integrates into the OS, it can do what it does without risk of being circumvented.
 
-The following classes of system objects are supervised by Sandboxie: Files, Disk Devices, Registry Keys, Process and Thread objects, Driver objects, and objects used for Inter-process communication: Named Pipes and Mailbox Objects, Events, Mutexs (Mutants in NT speak), Semaphores, Sections and LPC Ports. For some more information on this, see [Sandbox Hierarchy](SandboxHierarchy).
+The following classes of system objects are supervised by Sandboxie: Files, Disk Devices, Registry Keys, Process and Thread objects, Driver objects, and objects used for Inter-process communication: Named Pipes and Mailbox Objects, Events, Mutexs (Mutants in NT speak), Semaphores, Sections and LPC Ports. For some more information on this, see [Sandbox Hierarchy](SandboxHierarchy.md).
 
 Sandboxie also takes measures to prevent programs executing inside the sandbox from hijacking non-sandboxed programs and using them as a vehicle to operate outside the sandbox.
 
 Sandboxie also prevents programs executing inside the sandbox from loading drivers directly. It also prevents programs from asking a central system component, known as the Service Control Manager, to load drivers on their behalf. In this way, drivers, and more importantly, rootkits, cannot be installed by a sandboxed program.
 
-It should be noted, however, that Sandboxie does not typically stop sandboxed programs from reading your sensitive data. However, by careful configuration of the [ClosedFilePath](ClosedFilePath) and [ClosedKeyPath](ClosedKeyPath) settings, you can achieve this goal as well.
+It should be noted, however, that Sandboxie does not typically stop sandboxed programs from reading your sensitive data. However, by careful configuration of the [ClosedFilePath](ClosedFilePath.md) and [ClosedKeyPath](ClosedKeyPath.md) settings, you can achieve this goal as well.
 
 **Back to [Table of Contents](FrequentlyAskedQuestions#Technical)**
 
@@ -158,7 +158,7 @@ Yes, to some extent. First of all, your system (outside the sandbox) must not ha
 
 You may want to consider always browsing sandboxed, so you don't accidentally get any key-loggers into your system.
 
-It is very difficult to reliably detect a key-logger. For a lengthy explanation, see [Detecting Key Loggers](DetectingKeyLoggers). So the most important tool Sandboxie offers you for protection against key-loggers, is to delete the sandbox.
+It is very difficult to reliably detect a key-logger. For a lengthy explanation, see [Detecting Key Loggers](DetectingKeyLoggers.md). So the most important tool Sandboxie offers you for protection against key-loggers, is to delete the sandbox.
 
 When you stop all sandboxed activity (in all sandboxes), then proceed to delete the sandbox you're about to use, you can be fairly certain that all key-loggers are dead.
 
@@ -202,7 +202,7 @@ When a program accesses a file, it declares what operations it plans to do on th
 
 <a name="SandboxieRpcss" id="SandboxieRpcss"></a>**What are SandboxieRpcSs and SandboxieDcomLaunch?**
 
-See [Service Programs](ServicePrograms).
+See [Service Programs](ServicePrograms.md).
 
 **Back to [Table of Contents](FrequentlyAskedQuestions.html#Technical)**
 
@@ -210,7 +210,7 @@ See [Service Programs](ServicePrograms).
 
 <a name="EmailProtection" id="EmailProtection"></a>**How can I use Sandboxie to protect myself from viruses in email?**
 
-See full article: [Email Protection](EmailProtection).
+See full article: [Email Protection](EmailProtection.md).
 
 **Back to [Table of Contents](FrequentlyAskedQuestions#Technical)**
 
@@ -220,7 +220,7 @@ See full article: [Email Protection](EmailProtection).
 
 By default Sandboxie is configured to load and start automatically. To have Sandboxie load only when you need it, make the following changes.
 
-*   In [Sandboxie Control](SandboxieControl), open the _Configure -> Shell Integration_ window, and clear the checkbox _When Windows starts_ to stop Sandboxie Control from starting.
+*   In [Sandboxie Control](SandboxieControl.md), open the _Configure -> Shell Integration_ window, and clear the checkbox _When Windows starts_ to stop Sandboxie Control from starting.
 
 *   Open the Windows Services configuration window: _Start menu -> Control Panel -> Administrative Tools -> Services_. Then locate the Sandboxie Service. Double click to bring up its properties window. Set its _Startup type_ to _Manual_ rather than automatic.
 

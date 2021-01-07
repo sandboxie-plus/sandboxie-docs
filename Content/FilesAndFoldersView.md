@@ -1,14 +1,14 @@
 # Files And Folders View
 
-[Sandboxie Control](SandboxieControl) > [View Menu](ViewMenu) > [Files and Folders](ViewMenu#fafview)
+[Sandboxie Control](SandboxieControl.md) > [View Menu](ViewMenu.md) > [Files and Folders](ViewMenu#fafview)
 
-![](https://xanasoft.com/wp-content/uploads/2020/10/FileViewFavIcon.png)
+![](/Media/FileViewFavIcon.png)
 
-The _Files and Folders View_ is a secondary view mode in [Sandboxie Control](SandboxieControl). It displays the files and folders in each of the sandboxes, organized into a tree of folders, and grouped by sandbox name.
+The _Files and Folders View_ is a secondary view mode in [Sandboxie Control](SandboxieControl.md). It displays the files and folders in each of the sandboxes, organized into a tree of folders, and grouped by sandbox name.
 
 Within each sandbox, there are two top-level folders:
 
-*   _Quick Recover Folders_ shows the folders configured to [Quick Recovery](QuickRecovery), and any folders or files contained within these folders.
+*   _Quick Recover Folders_ shows the folders configured to [Quick Recovery](QuickRecovery.md), and any folders or files contained within these folders.
 
 *   _All Files and Folders_ contains the full contents of the sandbox (as described in [Sandbox Hierarchy](SandboxHierarchy#files)) in a friendly way. This folder is itself organized into two folders:
     *   _Drives_ shows the sandboxed contents that were created for drives in the system.
@@ -36,12 +36,12 @@ For a file or folder, the context menu offers these commands:
     *   Document files will be opened in a sandboxed instance of the program associated with the document type.
     *   Folders will be opened in a sandboxed instance of Windows Explorer.
 
-*   The _Recover to Same Folder_ and _Recover to Any Folder_ commands move the file or folder out of the sandbox. See [Quick Recovery](QuickRecovery) for a full description.
+*   The _Recover to Same Folder_ and _Recover to Any Folder_ commands move the file or folder out of the sandbox. See [Quick Recovery](QuickRecovery.md) for a full description.
 
-*   The _Add Folder to Quick Recovery_ command is available in folders below the top-level _All Files and Folders_ folder, and adds the folder to the list of [Quick Recovery](QuickRecovery) folders.
+*   The _Add Folder to Quick Recovery_ command is available in folders below the top-level _All Files and Folders_ folder, and adds the folder to the list of [Quick Recovery](QuickRecovery.md) folders.
 
-*   The _Remove Folder from Quick Recovery_ command is available in folders below the top-level _Quick Recovery Folders_ folder, and removes the folder from the list of [Quick Recovery](QuickRecovery) folders.
+*   The _Remove Folder from Quick Recovery_ command is available in folders below the top-level _Quick Recovery Folders_ folder, and removes the folder from the list of [Quick Recovery](QuickRecovery.md) folders.
 
 * * *
 
-Go to [Sandboxie Control](SandboxieControl), [Programs View](ProgramsView), [Help Topics](HelpTopics).
+Go to [Sandboxie Control](SandboxieControl.md), [Programs View](ProgramsView.md), [Help Topics](HelpTopics.md).
