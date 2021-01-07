@@ -2,7 +2,7 @@
 
 [Sandboxie Control](SandboxieControl.md) > [View Menu](ViewMenu.md) > [Programs](ViewMenu#pgmview)
 
-![](/Media/MainWindow.png)
+![](../Media/MainWindow.png)
 
 The _Programs View_ is the default view mode in [Sandboxie Control](SandboxieControl.md). It displays the programs running in each of the sandboxes, grouped by sandbox name. The list shows three colums:
 

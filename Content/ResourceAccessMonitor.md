@@ -4,7 +4,7 @@ The Resource Access Monitor tool displays the names of any system resources that
 
 **Important:** Please use the Resource Access Monitor tool only if you are asked to do so.
 
-![](/Media/ResourceAccessMonitor.png)
+![](../Media/ResourceAccessMonitor.png)
 
 **Using the Monitor**
 
