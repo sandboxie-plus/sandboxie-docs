@@ -1,6 +1,6 @@
 # Auto Exec
 
-_AutoExec_ is a sandbox setting in [Sandboxie Ini](SandboxieIni). It specifies a list of commands that are executed every time the sandbox is initially populated.
+_AutoExec_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It specifies a list of commands that are executed every time the sandbox is initially populated.
 
 Examples:
 
@@ -19,7 +19,7 @@ Multiple _AutoExec_ settings may be specified for a single sandbox. The commands
 
 This is true even if the command execution fails -- it will not be executed again, unless the sandbox is deleted.
 
-At this time, there is no corresponding [Sandboxie Control](SandboxieControl) configuration for this setting.
+At this time, there is no corresponding [Sandboxie Control](SandboxieControl.md) configuration for this setting.
 
 **Technical Details**
 

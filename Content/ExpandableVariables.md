@@ -162,11 +162,11 @@ And more
 
 **Template Variables**
 
-Global templates are part of the installation of Sandboxie and reside in the file _Templates.ini_ in the Sandboxie installation folder. Additional local templates may be added to [Sandboxie Ini](SandboxieIni). Any template may reference template variables in the form %Tmpl.SomeVariableName%. These variable names are not built into the core of Sandboxie. They must be defined in _Templates.ini_ or _Sandboxie.ini_ in a [TemplateSettings] section.
+Global templates are part of the installation of Sandboxie and reside in the file _Templates.ini_ in the Sandboxie installation folder. Additional local templates may be added to [Sandboxie Ini](SandboxieIni.md). Any template may reference template variables in the form %Tmpl.SomeVariableName%. These variable names are not built into the core of Sandboxie. They must be defined in _Templates.ini_ or _Sandboxie.ini_ in a [TemplateSettings] section.
 
 **Overriding Variables**
 
-Any of the variables in the table above, including any of the [Shell Folders](ShellFolders) variable and any template variables, can be overridden by the [Sandboxie Ini](SandboxieIni) configuration file. To override a variable, add a setting with an **Ovr.** prefix.
+Any of the variables in the table above, including any of the [Shell Folders](ShellFolders.md) variable and any template variables, can be overridden by the [Sandboxie Ini](SandboxieIni.md) configuration file. To override a variable, add a setting with an **Ovr.** prefix.
 
 For example:
 
@@ -188,7 +188,7 @@ When a variable is overriden in this way, its expanded value will always match t
 
 **Registry Fallbacks**
 
-Some of the variables in the table above are taken from the system registry. Those variables are _ProgramFiles_ and any other variable that appears below _ProgramFiles_ in the table above. For these variables, it is possible to specify "fallback" values in the [Sandboxie Ini](SandboxieIni) configuration file. To specify a fallback for a variable, add a setting with a **Reg.** prefix.
+Some of the variables in the table above are taken from the system registry. Those variables are _ProgramFiles_ and any other variable that appears below _ProgramFiles_ in the table above. For these variables, it is possible to specify "fallback" values in the [Sandboxie Ini](SandboxieIni.md) configuration file. To specify a fallback for a variable, add a setting with a **Reg.** prefix.
 
 For example:
 

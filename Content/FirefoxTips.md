@@ -2,9 +2,9 @@
 
 ## Tips Specific to Firefox
 
-[Sandboxie Control](SandboxieControl) > [Sandbox Settings](SandboxSettings) > [Applications > Web Browser > Firefox](ApplicationsSettings#web)
+[Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > [Applications > Web Browser > Firefox](ApplicationsSettings#web)
 
-![](https://xanasoft.com/wp-content/uploads/2020/10/WebBrowserSettings2.png)
+![](/Media/WebBrowserSettings2.png)
 
 * * *
 
@@ -32,11 +32,11 @@ This setting allows Firefox running under Sandboxie to store bookmarks outside t
 
 Note that in Firefox 3, the same file (called _places.sqlite_) stores both bookmarks and the history of visited sites. Therefore this setting will cause Firefox to also store the history of visited outside the sandbox.
 
-One approach to this is to install the [PlainOldFavorites](https://addons.mozilla.org/en-US/firefox/addon/668) add-on, which lets Firefox create and manage Internet Explorer-style Favorites in addition to Mozilla-style bookmarks. Then consult the discussion on favorites in [Internet Explorer Tips](InternetExplorerTips).
+One approach to this is to install the [PlainOldFavorites](https://addons.mozilla.org/en-US/firefox/addon/668) add-on, which lets Firefox create and manage Internet Explorer-style Favorites in addition to Mozilla-style bookmarks. Then consult the discussion on favorites in [Internet Explorer Tips](InternetExplorerTips.md).
 
 **Bottom line:**
 
-*   If you don't mind the extra add-on, install PlainOldFavorites to enhance Firefox with Internet Explorer-style favorites, then read the recommendations for handling favorites in [Internet Explorer Tips](InternetExplorerTips).
+*   If you don't mind the extra add-on, install PlainOldFavorites to enhance Firefox with Internet Explorer-style favorites, then read the recommendations for handling favorites in [Internet Explorer Tips](InternetExplorerTips.md).
 *   But if you are happy with Firefox bookmarks, then select this setting.
 
 * * *
@@ -80,9 +80,9 @@ This setting allows Firefox running under Sandboxie to have access to any data f
 
 **Automatic Delete Sandbox**
 
-[Sandboxie Control](SandboxieControl) > [Sandbox Settings](SandboxSettings) > [Delete](DeleteSettings) > [Invocation](DeleteSettings#invocation)
+[Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > [Delete](DeleteSettings.md) > [Invocation](DeleteSettings#invocation)
 
-![](https://xanasoft.com/wp-content/uploads/2020/10/DeleteInvocationSettings.png)
+![](/Media/DeleteInvocationSettings.png)
 
 *   Setting: Automatically delete contents of sandbox
 
@@ -92,9 +92,9 @@ This setting tells Sandboxie to delete the sandbox whenever all programs in the 
 
 **Highlight Windows of Programs Running Under Sandboxie**
 
-[Sandboxie Control](SandboxieControl) > [Sandbox Settings](SandboxSettings) > [Appearance Settings](AppearanceSettings)
+[Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > [Appearance Settings](AppearanceSettings.md)
 
-![](https://xanasoft.com/wp-content/uploads/2020/10/AppearanceSettings.png)
+![](/Media/AppearanceSettings.png)
 
 *   Setting: Display a border around the window
 

@@ -1,9 +1,9 @@
 # Quick Recovery
 
-[Sandboxie Control](SandboxieControl) > [Sandbox Menu](SandboxMenu) > Quick Recovery  
-[Sandboxie Control](SandboxieControl) > [Tray Icon Menu](TrayIconMenu) > Quick Recovery
+[Sandboxie Control](SandboxieControl.md) > [Sandbox Menu](SandboxMenu.md) > Quick Recovery  
+[Sandboxie Control](SandboxieControl.md) > [Tray Icon Menu](TrayIconMenu.md) > Quick Recovery
 
-![](https://xanasoft.com/wp-content/uploads/2020/10/QuickRecoverSandbox.png)
+![](/Media/QuickRecoverSandbox.png)
 
 Sandboxed programs create files and folders inside the sandbox. It may be desirable to move some of these created files out of the sandbox. For instance, a document file downloaded by a sandboxed browser is saved into the sandbox, but that file should be extracted and placed in the _My Documents_ folder outside the sandbox.
 
@@ -11,7 +11,7 @@ The rudimentary approach is to use the regular, non-sandboxed Windows Explorer t
 
 The Quick Recovery feature makes it easier to extract files (and even whole folders) that are created and saved by sandboxed programs. It scans a few sandboxed folders, which have to be selected in advance, and lists the files (and folders) it finds within them. These files (and folders) can be recovered into the corresponding location outside the sandbox, or to any location.
 
-To invoke the Quick Recovery window, use the [Sandbox Menu > Sandbox > Quick Recovery](SandboxMenu#sandbox) command (or the corresponding command from the [Tray Icon Menu](TrayIconMenu)). Quick Recovery also appear as part of the [Delete Sandbox](DeleteSandbox) window.
+To invoke the Quick Recovery window, use the [Sandbox Menu > Sandbox > Quick Recovery](SandboxMenu#sandbox) command (or the corresponding command from the [Tray Icon Menu](TrayIconMenu.md)). Quick Recovery also appear as part of the [Delete Sandbox](DeleteSandbox.md) window.
 
 **The Quick Recovery Window**
 
@@ -31,8 +31,8 @@ As noted, Quick Recovery only scans folders which are explicitly selected. By de
 
 *   You can use [Sandbox Settings > Recovery > Quick Recovery](RecoverySettings#quick) to add and remove folders.
 
-*   When [Sandboxie Control](SandboxieControl) is in [Files And Folders View](FilesAndFoldersView) view, you can right-click a folder and select _Add Folder to Quick Recovery_.
+*   When [Sandboxie Control](SandboxieControl.md) is in [Files And Folders View](FilesAndFoldersView.md) view, you can right-click a folder and select _Add Folder to Quick Recovery_.
 
 * * *
 
-Go to [Delete Sandbox](DeleteSandbox), [Immediate Recovery](ImmediateRecovery), [Sandboxie Control](SandboxieControl), [Help Topics](HelpTopics).
+Go to [Delete Sandbox](DeleteSandbox.md), [Immediate Recovery](ImmediateRecovery.md), [Sandboxie Control](SandboxieControl.md), [Help Topics](HelpTopics.md).

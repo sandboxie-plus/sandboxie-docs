@@ -1,8 +1,8 @@
 # Sandbox Menu
 
-[Sandboxie Control](SandboxieControl) > Sandbox Menu
+[Sandboxie Control](SandboxieControl.md) > Sandbox Menu
 
-![](https://xanasoft.com/wp-content/uploads/2020/10/SandboxMenu.png)
+![](/Media/SandboxMenu.png)
 
 * * *
 
@@ -33,25 +33,25 @@ One or more sub-menus appear for each sandbox defined. The default configuration
 
 *   The _Terminate Running Programs_ command stops all programs running in the sandbox.
 
-*   The _Quick Recovery_ command shows the [Quick Recovery](QuickRecovery) window.
+*   The _Quick Recovery_ command shows the [Quick Recovery](QuickRecovery.md) window.
 
-*   The _Delete Contents_ command shows the [Delete Sandbox](DeleteSandbox) window.
+*   The _Delete Contents_ command shows the [Delete Sandbox](DeleteSandbox.md) window.
 
-*   The _Explore Contents_ command opens an _unsandboxed_ folder view for the contents of the sandbox _outside the supervision of Sandboxie_. If possible, use the [Files And Folders View](FilesAndFoldersView) to browse the contents of the sandbox.
+*   The _Explore Contents_ command opens an _unsandboxed_ folder view for the contents of the sandbox _outside the supervision of Sandboxie_. If possible, use the [Files And Folders View](FilesAndFoldersView.md) to browse the contents of the sandbox.
 
-*   The _Sandbox Settings_ command opens the [Sandbox Settings](SandboxSettings) window.
+*   The _Sandbox Settings_ command opens the [Sandbox Settings](SandboxSettings.md) window.
 
 *   The _Rename Sandbox_ command changes the name of the sandbox.
 
 *   The _Remove Sandbox_ command removes a sandboxed created using the [Create New Sandbox](SandboxMenu#create) command.
 
-These commands, except for Rename Sandbox and Remove Sandbox, are also available in the [Tray Icon Menu](TrayIconMenu).
+These commands, except for Rename Sandbox and Remove Sandbox, are also available in the [Tray Icon Menu](TrayIconMenu.md).
 
 * * *
 
 ### Create New Sandbox
 
-The _Create New Sandbox_ command defines a new sandbox in Sandboxie. A dialog box window will be displayed asking for the name of the new sandbox. The name can be any of combination of digits and letters, and its maximum length is 32 characters. A combobox button can specify some existing sandbox, from which settings will be copied into the new sandbox. If such an existing sandbox has not been selected, the new sandbox will initially have a default set of settings. Once the sandbox is created, the [Sandbox Settings](SandboxSettings) window can be used to alter sandbox settings.
+The _Create New Sandbox_ command defines a new sandbox in Sandboxie. A dialog box window will be displayed asking for the name of the new sandbox. The name can be any of combination of digits and letters, and its maximum length is 32 characters. A combobox button can specify some existing sandbox, from which settings will be copied into the new sandbox. If such an existing sandbox has not been selected, the new sandbox will initially have a default set of settings. Once the sandbox is created, the [Sandbox Settings](SandboxSettings.md) window can be used to alter sandbox settings.
 
 * * *
 
@@ -64,7 +64,7 @@ The special variable **%SANDBOX%** is replaced by the name of the sandbox.
 The special variable **%USER%** is replaced by the name of whichever user account (or logon) is using that sandbox. Note that a sandbox created in one user account is visible and can be used by other accounts in the system.  
 However, if the container folder includes the **%USER%** special variable, then the user accounts don't actually share the same sandbox. Each account has a separate instance of the sandbox.
 
-Related [Sandboxie Ini](SandboxieIni) setting: [FileRootPath](FileRootPath).
+Related [Sandboxie Ini](SandboxieIni.md) setting: [FileRootPath](FileRootPath.md).
 
 * * *
 
@@ -72,16 +72,16 @@ Related [Sandboxie Ini](SandboxieIni) setting: [FileRootPath](FileRootPath).
 
 The _Set Layout and Groups_ command permits ordering sandboxes within a hierarchy of groups, when displayed in menus and lists. This does not have any effect on how programs behave within a sandbox. This feature is useful when more than a few sandboxes are defined, as it permits easier menu access to a specific sandbox.
 
-Once any groups have been defined, the main [Programs View](ProgramsView) in [Sandboxie Control](SandboxieControl) will include a comobobox button which can be used to restrict the list of sandboxes which are displayed.
+Once any groups have been defined, the main [Programs View](ProgramsView.md) in [Sandboxie Control](SandboxieControl.md) will include a comobobox button which can be used to restrict the list of sandboxes which are displayed.
 
-Related [Sandboxie Ini](SandboxieIni) setting: BoxDisplayOrder.
+Related [Sandboxie Ini](SandboxieIni.md) setting: BoxDisplayOrder.
 
 * * *
 
 ### Reveal Hidden Sandbox
 
-The _Reveal Hidden Sandbox_ commmand appears in the menu only if some sandboxes are not visible to or useable by the current user account. A sandbox can be restricted to specific user accounts using the [User Accounts Settings](UserAccountsSettings) settings page in the [Sandbox Settings](SandboxSettings) window. The _Reveal Hidden Sandbox_ command can restore visibility of a sandbox that has been made unavailable the current user account.
+The _Reveal Hidden Sandbox_ commmand appears in the menu only if some sandboxes are not visible to or useable by the current user account. A sandbox can be restricted to specific user accounts using the [User Accounts Settings](UserAccountsSettings.md) settings page in the [Sandbox Settings](SandboxSettings.md) window. The _Reveal Hidden Sandbox_ command can restore visibility of a sandbox that has been made unavailable the current user account.
 
 * * *
 
-Go to [Sandboxie Control](SandboxieControl#menus), [Help Topics](HelpTopics).
+Go to [Sandboxie Control](SandboxieControl#menus), [Help Topics](HelpTopics.md).

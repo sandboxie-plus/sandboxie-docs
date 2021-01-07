@@ -115,7 +115,7 @@ This shows that access to some _Xyzzy_ resource was denied. Sandboxie does not k
 
 If a sandboxed programs begins to malfunction (it may lock up, or it may end abruptly, or just complain about something) soon after this record appears in the trace, it stands to reason that the program was expecting the resource to be accessible.
 
-The next step is to add an [OpenIpcPath](OpenIpcPath) setting for this resource:  
+The next step is to add an [OpenIpcPath](OpenIpcPath.md) setting for this resource:  
 
 OpenIpcPath=\BaseNamedObjects\Xyzzy
 
@@ -129,8 +129,8 @@ But if the program still fails, the trace log can be inspected again for later (
 
 The trace record shows the Sandboxie resource class of the object. This indicates which OpenXxxPath setting is needed to allow access to the object.
 
-*   When resource class is F, as in (FA) or (FD), the relevant settings are [OpenFilePath](OpenFilePath) and [ClosedFilePath](ClosedFilePath)
-*   When resource class is K, as in (KA) or (KD), the relevant settings are [OpenKeyPath](OpenKeyPath) and [ClosedKeyPath](ClosedKeyPath)
-*   When resource class is I, as in (IA) or (ID), the relevant settings are [OpenIpcPath](OpenIpcPath) and [ClosedIpcPath](ClosedIpcPath)
-*   When resource class is G, as in (GA) or (GD), the relevant settings are [OpenWinClass](OpenWinClass), [BlockWinHooks](BlockWinHooks), and [BlockFakeInput](BlockFakeInput)
-*   For COM objects displayed by ClsidTrace, the relevant setting is [OpenClsid](OpenClsid).
+*   When resource class is F, as in (FA) or (FD), the relevant settings are [OpenFilePath](OpenFilePath.md) and [ClosedFilePath](ClosedFilePath.md)
+*   When resource class is K, as in (KA) or (KD), the relevant settings are [OpenKeyPath](OpenKeyPath.md) and [ClosedKeyPath](ClosedKeyPath.md)
+*   When resource class is I, as in (IA) or (ID), the relevant settings are [OpenIpcPath](OpenIpcPath.md) and [ClosedIpcPath](ClosedIpcPath.md)
+*   When resource class is G, as in (GA) or (GD), the relevant settings are [OpenWinClass](OpenWinClass.md), [BlockWinHooks](BlockWinHooks.md), and [BlockFakeInput](BlockFakeInput.md)
+*   For COM objects displayed by ClsidTrace, the relevant setting is [OpenClsid](OpenClsid.md).

@@ -10,7 +10,7 @@ This tutorial has walked you through the basic principles of using and understan
   * How to delete the sandbox
 ```
 
-You can read more tips about using Sandboxie in the [Usage Tips](UsageTips) page, and in pages about specific web browsers: [Internet Explorer Tips](InternetExplorerTips) and [Firefox Tips](FirefoxTips).
+You can read more tips about using Sandboxie in the [Usage Tips](UsageTips.md) page, and in pages about specific web browsers: [Internet Explorer Tips](InternetExplorerTips.md) and [Firefox Tips](FirefoxTips.md).
 
 An important point to keep in mind when using Sandboxie is that it is designed to isolate programs from each other. Therefore you should expect to lose _a small_ measure of inter-operability between programs. For example:
 
@@ -34,9 +34,9 @@ On the other hand, you should not expect to lose _every_ measure of inter-operab
 
 * * *
 
-Please also take some time now to review the many settings in the [Sandbox Settings](SandboxSettings) window. The settings are explained clearly, and you will find many settings that enable you to strike your preferred balance between security and convenience.
+Please also take some time now to review the many settings in the [Sandbox Settings](SandboxSettings.md) window. The settings are explained clearly, and you will find many settings that enable you to strike your preferred balance between security and convenience.
 
-For example, one person may prefer greater security and control over web bookmarks and favorites, by letting them first save into the sandbox, and then recovering selected items through [Quick Recovery](QuickRecovery) or [Immediate Recovery](ImmediateRecovery). (This is the default configuration in Sandboxie.)
+For example, one person may prefer greater security and control over web bookmarks and favorites, by letting them first save into the sandbox, and then recovering selected items through [Quick Recovery](QuickRecovery.md) or [Immediate Recovery](ImmediateRecovery.md). (This is the default configuration in Sandboxie.)
 
 But another person may prefer to configure Sandboxie such that a sandboxed web browser can directly access the bookmarks or favorites, without an intermediate recovery step, thus sacrificing some security for greater convenience.
 
@@ -46,4 +46,4 @@ Enjoy!
 
 * * *
 
-This is the end of the tutorial. Go back to [Help Topics](HelpTopics), where you can read more [Usage Tips](UsageTips).
+This is the end of the tutorial. Go back to [Help Topics](HelpTopics.md), where you can read more [Usage Tips](UsageTips.md).

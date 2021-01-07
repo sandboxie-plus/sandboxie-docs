@@ -2,9 +2,9 @@
 
 ## Tips Specific to Internet Explorer
 
-[Sandboxie Control](SandboxieControl) > [Sandbox Settings](SandboxSettings) > [Applications > Web Browser > Internet Explorer](ApplicationsSettings#web)
+[Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > [Applications > Web Browser > Internet Explorer](ApplicationsSettings#web)
 
-![](https://xanasoft.com/wp-content/uploads/2020/10/WebBrowserSettings1.png)
+![](/Media/WebBrowserSettings1.png)
 
 * * *
 
@@ -39,7 +39,7 @@ Note the Automatic Updates facility in Windows does not rely on Internet Explore
 
 These settings allows Internet Explorer running under Sandboxie to store favorites outside the sandbox, so they can persist even after the sandbox is deleted. When this option is not set, favorites are stored only in the sandbox, and will be deleted when the sandbox is deleted.
 
-The first setting (direct access) stores favorites directly outside the sandbox. The second setting ([Quick Recovery](QuickRecovery)) initially keeps the favorites in the sandbox but offers to recover (move out of the sandbox) any new favorites as they are added.
+The first setting (direct access) stores favorites directly outside the sandbox. The second setting ([Quick Recovery](QuickRecovery.md)) initially keeps the favorites in the sandbox but offers to recover (move out of the sandbox) any new favorites as they are added.
 
 The first setting is more flexible in that you can add, edit and delete favorites freely. The second setting is more secure, but at the cost of some measure of convenience.
 
@@ -91,9 +91,9 @@ The second setting allows Internet Explorer running under Sandboxie to store "Cr
 
 **Automatic Delete Sandbox**
 
-[Sandboxie Control](SandboxieControl) > [Sandbox Settings](SandboxSettings) > [Delete](DeleteSettings) > [Invocation](DeleteSettings#invocation)
+[Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > [Delete](DeleteSettings.md) > [Invocation](DeleteSettings#invocation)
 
-![](https://xanasoft.com/wp-content/uploads/2020/10/DeleteInvocationSettings.png)
+![](/Media/DeleteInvocationSettings.png)
 
 *   Setting: Automatically delete contents of sandbox
 
@@ -103,9 +103,9 @@ This setting tells Sandboxie to delete the sandbox whenever all programs in the 
 
 **Highlight Windows of Programs Running Under Sandboxie**
 
-[Sandboxie Control](SandboxieControl) > [Sandbox Settings](SandboxSettings.html) > [Appearance Settings](AppearanceSettings)
+[Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.html) > [Appearance Settings](AppearanceSettings.md)
 
-![](https://xanasoft.com/wp-content/uploads/2020/10/AppearanceSettings.png)
+![](/Media/AppearanceSettings.png)
 
 *   Setting: Display a border around the window
 

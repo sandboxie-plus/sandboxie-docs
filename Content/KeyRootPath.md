@@ -1,10 +1,10 @@
 # Key Root Path
 
-_KeyRootPath_ is a sandbox setting in [Sandboxie Ini](SandboxieIni). It specifies the registry location where the registry hive for a particular sandbox is mounted.
+_KeyRootPath_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It specifies the registry location where the registry hive for a particular sandbox is mounted.
 
 As with all sandbox settings, it may also be specified in the global section, and in that case will apply for all sandboxes where the setting is not also specified in the sandbox section.
 
-See [Sandbox Hierarchy](SandboxHierarchy) for more information.
+See [Sandbox Hierarchy](SandboxHierarchy.md) for more information.
 
 Usage:
 ```
@@ -30,4 +30,4 @@ The value must begin with the prefix **\REGISTRY\USER\** or Sandboxie will not b
 
 There is probably no reason to change the default value for this setting, and doing so is not recommended.
 
-If Sandboxie cannot successfully mount or un-mount the sandboxed registry hive, it will issue messages [SBIE1241](SBIE1241) and [SBIE2208](SBIE2208), respectively.
+If Sandboxie cannot successfully mount or un-mount the sandboxed registry hive, it will issue messages [SBIE1241](SBIE1241.md) and [SBIE2208](SBIE2208.md), respectively.

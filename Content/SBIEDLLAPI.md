@@ -4,8 +4,8 @@ This page describes the callable entrypoints in the _SbieDll.dll_ dynamically-li
 
 There are three aspects to using Sandboxie programmatically:
 
-*   Driving some functionality using the Start.exe program. See [Start Command Line](StartCommandLine).
-*   Injecting custom DLLs into sandboxed programs. See [InjectDll](InjectDll).
+*   Driving some functionality using the Start.exe program. See [Start Command Line](StartCommandLine.md).
+*   Injecting custom DLLs into sandboxed programs. See [InjectDll](InjectDll.md).
 *   Calling Sandboxie entrypoints from programs running (sandboxed or not). Described here.
 
 The entrypoints described here are all exported by _SbieDll.dll_. To access an entrypoint, you should dynamically load this DLL into your program, and get the address of the desired entrypoint. For example,
@@ -29,7 +29,7 @@ The entrypoints described here are all exported by _SbieDll.dll_. To access an e
 	}
 ```
 
-Note the use of _InjectDllMain_ (see [Inject Dll](InjectDll)) to get a handle to the loaded instance of SbieDll. That is the recommended approach. However, using LoadLibrary or GetModuleHandle to look up SbieDll by name is also fine.
+Note the use of _InjectDllMain_ (see [Inject Dll](InjectDll.md)) to get a handle to the loaded instance of SbieDll. That is the recommended approach. However, using LoadLibrary or GetModuleHandle to look up SbieDll by name is also fine.
 
 * * *
 

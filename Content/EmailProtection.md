@@ -32,7 +32,7 @@ The Sandboxie protection comes at a small cost: You should always keep in mind t
 
 This means for example, that a malicious program installed by a virus is placed in the sandbox and considered discardable. But it also means that if you save an email message to a file, then that file is also put in the sandbox and will be discarded when the sandbox is deleted. **And most importantly,** this means that Sandboxie will treat incoming new mail as discardable content.
 
-For this reason, you _must_ configure Sandboxie to treat your mailbox data files as trusted content, or you stand to lose important information. To protect against accidental loss of data, Sandboxie will issue message [SBIE2212](SBIE2212) if you run your email program without first properly configuring Sandboxie.
+For this reason, you _must_ configure Sandboxie to treat your mailbox data files as trusted content, or you stand to lose important information. To protect against accidental loss of data, Sandboxie will issue message [SBIE2212](SBIE2212.md) if you run your email program without first properly configuring Sandboxie.
 
 Sandboxie offers easy configuration for most popular email reader programs. See [Sandbox Settings > Applications > Email Reader](ApplicationsSettings#email).
 
@@ -43,4 +43,4 @@ You may also need to tell Sandboxie where your mailbox data files reside, in the
 
 To do that, open [Sandbox Settings > Applications > Folders](ApplicationsSettings#folders), select your email software from the drop-down list, and then select a folder location to be associated with it.
 
-After completing the email configuration, you may want to test it, to make sure that even when running under Sandboxie, new emails are not lost when you delete the sandbox. To do that, follow the steps outlined in [Test Email Configuration](TestEmailConfiguration).
+After completing the email configuration, you may want to test it, to make sure that even when running under Sandboxie, new emails are not lost when you delete the sandbox. To do that, follow the steps outlined in [Test Email Configuration](TestEmailConfiguration.md).

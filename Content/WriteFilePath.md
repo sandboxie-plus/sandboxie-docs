@@ -1,8 +1,8 @@
 # Write File Path
 
-WriteFilePath is a sandbox setting in [Sandboxie Ini](SandboxieIni). It specifies path patterns for which Sandboxie will hide any files or folders outside the sandbox, while allowing new files and folders to be created in the sandbox.
+WriteFilePath is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It specifies path patterns for which Sandboxie will hide any files or folders outside the sandbox, while allowing new files and folders to be created in the sandbox.
 
-[Shell Folders](ShellFolders) may be specified. [Program Name Prefix](ProgramNamePrefix) may be specified.
+[Shell Folders](ShellFolders.md) may be specified. [Program Name Prefix](ProgramNamePrefix.md) may be specified.
 
 Examples:
 ```
@@ -17,6 +17,6 @@ This example means that program in the sandbox will not be able to see any files
 
 This setting is not applicable to files. If the path specified in the setting matches a file, the file will be treated as if it matches a ClosedFilePath setting.
 
-Note: WriteFilePath is implemented internally as an enhanced form of [ClosedFilePath](ClosedFilePath).
+Note: WriteFilePath is implemented internally as an enhanced form of [ClosedFilePath](ClosedFilePath.md).
 
-Related [Sandboxie Control](SandboxieControl) setting: [Sandbox Settings > Resource Access > File Access > Write-Only Access](ResourceAccessSettings#file) 
+Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Resource Access > File Access > Write-Only Access](ResourceAccessSettings#file) 
