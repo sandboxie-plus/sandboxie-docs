@@ -2,7 +2,7 @@
 
 [Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > File Migration:
 
-![](/Media/FileMigrationSettings.png)
+![](../Media/FileMigrationSettings.png)
 
 Before a sandboxed program can make changes to a file that already exists in your computer, Sandboxie first must make a copy of this file in the sandbox. However, making copies of very large files would be a long operation. For this reason, Sandboxie will only make copies of files that are below a certain maximum size. Files larger than this size will be considered read-only inside the sandbox, and any attempt to modify them will result in message [SBIE2102](SBIE2102.md).
 

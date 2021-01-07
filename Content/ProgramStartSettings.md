@@ -4,7 +4,7 @@
 
 [Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > Program Start:
 
-![](/Media/ProgramStartSettings.png)
+![](../Media/ProgramStartSettings.png)
 
 Settings in this section control which programs will be automatically sandboxed when started outside any sandbox. Put another way, here you select the program which Sandboxie will "force" to run sandboxed.
 
@@ -14,7 +14,7 @@ Settings in this section control which programs will be automatically sandboxed 
 
 [Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > Program Start > Forced Folders
 
-![](/Media/ForcedFoldersSettings.png)
+![](../Media/ForcedFoldersSettings.png)
 
 You may designate some folders for automatic, or forced, sandboxing. This means that if any program from that folder starts unsandboxed, then Sandboxie will automatically force that program to run in the sandbox. Some examples where this is useful:
 
@@ -40,7 +40,7 @@ Related [Sandboxie Ini](SandboxieIni.md) setting: [ForceFolder](ForceFolder.md).
 
 [Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > Program Start > Forced Programs
 
-![](/Media/ForcedProgramsSettings.png)
+![](../Media/ForcedProgramsSettings.png)
 
 You may designate some program names for automatic, or forced, sandboxing. This means that if that program starts unsandboxed, then Sandboxie will automatically force that program to run in the sandbox. The most common use for the Forced Programs setting is to set the Web browser to automatically run sandboxed.
 

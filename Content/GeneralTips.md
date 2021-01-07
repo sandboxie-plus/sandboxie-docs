@@ -4,7 +4,7 @@
 
 [Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > [Delete](DeleteSettings.md) > [Invocation](DeleteSettings#invocation)
 
-![](/Media/DeleteInvocationSettings.png)
+![](../Media/DeleteInvocationSettings.png)
 
 *   Setting: Automatically delete contents of sandbox
 
@@ -16,7 +16,7 @@ This setting tells Sandboxie to delete the sandbox whenever all programs in the 
 
 [Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > [Appearance Settings](AppearanceSettings.md)
 
-![](/Media/AppearanceSettings.png)
+![](../Media/AppearanceSettings.png)
 
 *   Setting: Display a border around the window
 

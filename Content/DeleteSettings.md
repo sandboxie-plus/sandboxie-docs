@@ -4,7 +4,7 @@
 
 [Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > Delete:
 
-![](/Media/DeleteSettings.png)
+![](../Media/DeleteSettings.png)
 
 Here you configure when and how Sandboxie deletes the sandbox.
 
@@ -12,7 +12,7 @@ Here you configure when and how Sandboxie deletes the sandbox.
 
 [Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > Delete > Invocation:
 
-![](/Media/DeleteInvocationSettings.png)
+![](../Media/DeleteInvocationSettings.png)
 
 Use this settings page to indicate when you want the sandbox deleted:
 
@@ -30,7 +30,7 @@ Related [Sandboxie Ini](SandboxieIni.md) settings: [AutoDelete](AutoDelete.md), 
 
 [Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > Delete > Command:
 
-![](/Media/DeleteCommandSettings.png)
+![](../Media/DeleteCommandSettings.png)
 
 Use this settings page to specify the system command that will be used to delete the sandbox. By default this is a simple RMDIR (remove directory) command. People who are concerned with privacy issues may choose to use secure deletion instead, as described in more detail in [Secure Delete Sandbox](SecureDeleteSandbox.md).
 

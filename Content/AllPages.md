@@ -60,8 +60,6 @@
 
 [Copy Limit Silent](CopyLimitSilent.md)
 
-[Corporate Installation](CorporateInstallation.md)
-
 ### D
 
 [Delete Command](DeleteCommand.md)
@@ -94,9 +92,9 @@
 
 ### F
 
-[FAQ Email](FAQ_Email.md)
+[FAQ Email](FAQEmail.md)
 
-[FAQ Virus](FAQ_Virus.md)
+[FAQ Virus](FAQVirus.md)
 
 [File Menu](FileMenu.md)
 
@@ -105,8 +103,6 @@
 [File Root Path](FileRootPath.md)
 
 [Files And Folders View](FilesAndFoldersView.md)
-
-[Find Page](FindPage.md)
 
 [Firefox Tips](FirefoxTips.md)
 
@@ -144,8 +140,6 @@
 
 [Help Topics](HelpTopics.md)
 
-[Home Use](HomeUse.md)
-
 [How It Works](HowItWorks.md)
 
 [How To Use Win Dbg](HowToUseWinDbg.md)
@@ -168,8 +162,6 @@
 
 [Key Root Path](KeyRootPath.md)
 
-[Known Conflicts](KnownConflicts.md)
-
 ### L
 
 [Leader Process](LeaderProcess.md)
@@ -183,8 +175,6 @@
 [Monitor Admin Only](MonitorAdminOnly.md)
 
 ### N
-
-[Network Files](NetworkFiles.md)
 
 [Never Delete](NeverDelete.md)
 
@@ -259,8 +249,6 @@
 [Recover Folder](RecoverFolder.md)
 
 [Recovery Settings](RecoverySettings.md)
-
-[Register Sandboxie](RegisterSandboxie.md)
 
 [Resource Access](ResourceAccess.md)
 
@@ -534,9 +522,9 @@
 
 [SBIE9305](SBIE9305.md)
 
-[SBIE DLL API](SBIE_DLL_API.md)
+[SBIE DLL API](SBIEDLLAPI.md)
 
-[SBIE Messages](SBIE_Messages.md)
+[SBIE Messages](SBIEMessages.md)
 
 [Sandbox Hierarchy](SandboxHierarchy.md)
 
@@ -566,8 +554,6 @@
 
 [Tray Icon Menu](TrayIconMenu.md)
 
-[Trusted Logos](TrustedLogos.md)
-
 ### U
 
 [Usage Tips](UsageTips.md)
@@ -575,8 +561,6 @@
 [User Accounts Settings](UserAccountsSettings.md)
 
 ### V
-
-[Version Changes](VersionChanges.md)
 
 [View Menu](ViewMenu.md)
 
@@ -586,7 +570,7 @@
 
 [Windows Vista 64](WindowsVista64.md)
 
-[Windows XP Mode](Windows_XP_Mode.md)
+[Windows XP Mode](WindowsXPMode.md)
 
 [Write File Path](WriteFilePath.md)
 

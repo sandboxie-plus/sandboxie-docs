@@ -3,7 +3,7 @@
 [Sandboxie Control](SandboxieControl.md) > [Sandbox Menu](SandboxMenu.md) > Quick Recovery  
 [Sandboxie Control](SandboxieControl.md) > [Tray Icon Menu](TrayIconMenu.md) > Quick Recovery
 
-![](/Media/QuickRecoverSandbox.png)
+![](../Media/QuickRecoverSandbox.png)
 
 Sandboxed programs create files and folders inside the sandbox. It may be desirable to move some of these created files out of the sandbox. For instance, a document file downloaded by a sandboxed browser is saved into the sandbox, but that file should be extracted and placed in the _My Documents_ folder outside the sandbox.
 
