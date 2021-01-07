@@ -50,6 +50,8 @@
 
 [Closed Key Path](ClosedKeyPath.md)
 
+[Code Injection](codeinjection.md)
+
 [Config Level](ConfigLevel.md)
 
 [Configuration Protection](ConfigurationProtection.md)
@@ -549,6 +551,8 @@
 [System Event Log](SystemEventLog.md)
 
 ### T
+
+[Technical Aspects](TechnicalAspects.md)
 
 [Test Email Configuration](TestEmailConfiguration.md)
 
