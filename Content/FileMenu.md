@@ -3,7 +3,7 @@
 
 [Sandboxie Control](SandboxieControl.md) > File Menu
 
-![](/Media/FileMenu.png)
+![](../Media/FileMenu.png)
 
 * * *
 
@@ -13,7 +13,7 @@
 
 The _Terminate All Programs_ command immediately stops all programs running in all sandboxes. There is no window associated with this command. However, you may be warned about the potential loss of any data processed by the programs which are about to be terminated:
 
-![](/Media/TerminateWarning.png)
+![](../Media/TerminateWarning.png)
 
 This warning refers to, for example, any open documents which will not be saved. This warning can be disabled by selecting the checkbox at the bottom: _In the future, terminate processes without asking._
 
@@ -29,7 +29,7 @@ The _Disable Forced Programs_ toggle command temporarily disables or re-enables 
 
 By default, forced sandboxing is suspended for 10 seconds. The number of seconds can be changed in the following dialog box, which appears when you select this command.
 
-![](/Media/DisableForcedPrograms.png)
+![](../Media/DisableForcedPrograms.png)
 
 Note that the associated command in the [Tray Icon Menu](TrayIconMenu.md) does not show this dialog box, and uses the last duration specified, or the default of 10 seconds.
 
@@ -62,7 +62,7 @@ See also: [Run As UAC Administrator](TrayIconMenu#uac) in [Tray Icon Menu](TrayI
 
 The _Is Window Sandboxed?_ command is used to select a window displayed on the screen, and if the window is owned by a sandboxed program, the command displays the name of the program and the sandbox it is running in.
 
-![](/Media/IsWindowSandboxed.png)
+![](../Media/IsWindowSandboxed.png)
 
 To use the command, click and hold the left mouse button on the _Finder Tool_, that is, the icon of a target within a window. Without releasing the left mouse button, drag the target over the desired window, and when the target is within the boundaries of the desired window, release the left mouse button.
 

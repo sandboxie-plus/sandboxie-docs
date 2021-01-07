@@ -2,7 +2,7 @@
 
 [Sandboxie Control](SandboxieControl.md) > Configure Menu
 
-![](/Media/ConfigureMenu.png)
+![](../Media/ConfigureMenu.png)
 
 * * *
 
@@ -10,7 +10,7 @@
 
 The _Program Alerts_ command opens the following window in which you can configure Sandboxie to issue message [SBIE1301](SBIE1301.md) whenever specific programs start outside any sandbox.
 
-![](/Media/AlertPrograms.png)
+![](../Media/AlertPrograms.png)
 
 *   Use the _Add Program_ button to open the Program Groups window and select a program to add.
 
@@ -30,7 +30,7 @@ Related [Sandboxie Ini](SandboxieIni.md) setting: [AlertProcess](AlertProcess.md
 
 The _Windows Shell Integration_ command opens a window which controls how [Sandboxie Control](SandboxieControl.md) integrates into and associates itself with your Windows desktop. It can also be used to create desktop shortcut icons to run your programs sandboxed. By default, all settings in the window are enabled.
 
-![](/Media/ShellIntegration.png)
+![](../Media/ShellIntegration.png)
 
 *   The top frame indicates when [Sandboxie Control](SandboxieControl.md) should start:
 
@@ -76,7 +76,7 @@ Please see [Experimental Protection](ExperimentalProtection.md).
 
 Whenever [Sandboxie Control](SandboxieControl.md) displays one or more [SBIE Messages](SBIE_Messages), you have the option to hide future instances of the message. This is accomplished by highlighting and clicking the _Hide_ command:
 
-![](/Media/MessagesFromSandboxie.png)
+![](../Media/MessagesFromSandboxie.png)
 
 Note that messages are filtered by message code alone. For instance, the picture above shows message [SBIE1304](SBIE1304.md) with information detail _osk.exe_. Hiding that message will hide all future instances of message SBIE1304, regardless of the information detail.
 
@@ -96,7 +96,7 @@ The _Hide All Tips_ command tells Sandboxie to consider all checkboxes as checke
 
 ### Lock Configuration
 
-![](/Media/LockConfiguration.png)
+![](../Media/LockConfiguration.png)
 
 Please see [Configuration Protection](ConfigurationProtection.md).
 

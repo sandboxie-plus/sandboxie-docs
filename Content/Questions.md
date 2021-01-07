@@ -1,4 +1,4 @@
- # Questions
+# Questions
 
 * "Antivir can remove infected files out from Sandbox, why not some malware can access out of sandbox?" 
 
