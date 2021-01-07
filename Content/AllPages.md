@@ -50,7 +50,7 @@
 
 [Closed Key Path](ClosedKeyPath.md)
 
-[Code Injection](codeinjection.md)
+[Code Injection](CodeInjection.md)
 
 [Config Level](ConfigLevel.md)
 
