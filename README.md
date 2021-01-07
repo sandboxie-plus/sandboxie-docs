@@ -13,6 +13,14 @@ Select from two editions:
 [Download the latest release now on github](https://github.com/sandboxie-plus/Sandboxie/releases)
 
 
+# Enjoy the Benefits
+
+* Browse the web without fear of malicious downloads
+* Install and run untrusted software without worrying about losing files or damaging your system
+* Identify changes to your files and registry applications are trying to make
+* Prevent applications from "calling home" or stealing your personal data
+
+
 # Read the Documentation
 
 * [Getting Started](Content/GettingStarted.md)
@@ -23,13 +31,6 @@ Select from two editions:
 * [SBIE Messages](Content/SBIEMessages.md)
 * [Command Line Usage](Content/StartCommandLine.md)
 * [Sandboxie Configuration File](Content/Sandboxieini.md)
-
-# Enjoy the Benefits
-
-* Browse the web without fear of malicious downloads
-* Install and run untrusted software without worrying about losing files or damaging your system
-* Identify changes to your files and registry applications are trying to make
-* Prevent applications from "calling home" or stealing your personal data
 
 
 # Donate
