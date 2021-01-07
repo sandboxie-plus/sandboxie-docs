@@ -18,7 +18,7 @@ This settings sub-group is itself divided into three sub-groups:
 
 
 #### Internet Explorer
-![](../Media/WebBrowserSettings1.png)</td>
+![](../Media/WebBrowserSettings1.png)
 See also:   [Internet Explorer Tips](InternetExplorerTips.md)
 
 #### Firefox
@@ -26,7 +26,7 @@ See also:   [Internet Explorer Tips](InternetExplorerTips.md)
 See also:  [Firefox Tips](FirefoxTips.md)
 
 #### Other Browsers
-![](../Media/WebBrowserSettings3.png)</td>
+![](../Media/WebBrowserSettings3.png)
 
 
 This settings page offers quick configuration for the following browsers: Internet Explorer, Mozilla Firefox and SeaMonkey, the Opera Web browser, Maxthon 2, and Google Chrome.
