@@ -2,17 +2,16 @@
 
 The Sandboxie Start program can do any of the following, depending on command line parameters specified to it.
 
-*   [Start](StartCommandLine#start) programs under the supervision of Sandboxie
-*   [Stop](StartCommandLine#stop) sandboxed programs
-*   [List](StartCommandLine#list) sandboxed programs
-*   [Delete](StartCommandLine#delete) the contents of a sandbox
-*   [Reload](StartCommandLine#reload) Sandboxie configuration
-*   Initiate the [Disable Forced Programs](StartCommandLine#disableforce) mode
-*   [Related](StartCommandLine#related) reading material
+*   [Start](#start) programs under the supervision of Sandboxie
+*   [Stop](#stop) sandboxed programs
+*   [List](#list) sandboxed programs
+*   [Delete](#delete) the contents of a sandbox
+*   [Reload](#reload) Sandboxie configuration
+*   Initiate the [Disable Forced Programs](#disableforce) mode
+*   [Related](#related) reading material
 
 * * *
-
-### Start Programs
+### Start Programs  <a name="start" href="#start">#</a>
 
 This is the default behavior. By specifying a full or partial path to a program executable file, Sandboxie Start will launch that program under the supervision of Sandboxie:
 ```
@@ -86,7 +85,7 @@ Parameters can be combined in any order. For example:
    &quot;C:\Program Files\Sandboxie\Start.exe&quot;  /box:CustomBox /silent /nosbiectrl MyProgram.exe	
 ```
 
-### Stop Programs
+### Stop Programs <a name="stop" href="#stop">#</a>
 
 Terminate all programs running in a particular sandbox. Note that the request is transmitted to the Sandboxie service SbieSvc, which actually carries out the termination.
 ```
@@ -101,7 +100,7 @@ The form _/terminate_all_ terminates all programs in all sandboxes.
 
 * * *
 
-### List Programs
+### List Programs <a name="list" href="#list">#</a>
 
 List the system process ID numbers for all programs running in a particular sandbox.
 ```
@@ -124,7 +123,7 @@ Note that Start.exe is not a console applications, so the output does not appear
 
 * * *
 
-### Delete Contents of Sandbox
+### Delete Contents of Sandbox <a name="delete" href="#delete">#</a>
 ```
   &quot;C:\Program Files\Sandboxie\Start.exe&quot;  delete_sandbox
   &quot;C:\Program Files\Sandboxie\Start.exe&quot;  delete_sandbox_silent	
@@ -158,7 +157,7 @@ Issuing the _delete_sandbox_ command causes Start.exe to invoke phase 1 followed
 
 * * *
 
-### Reload Configuration
+### Reload Configuration <a name="reload" href="#reload">#</a>
 
 This command reloads the Sandboxie configuration in SandboxieIni into the active Sandboxie driver. Typically useful after manually editing the Sandboxie.ini file.
 ```
@@ -169,7 +168,7 @@ Note that reloading the configuration does not take effect on sandboxed programs
 
 * * *
 
-### Disable Forced Programs
+### Disable Forced Programs <a name="disableforce" href="#disableforce">#</a>
 
 The following command runs a program outside the sandox, even if the program is forced. It is similar to using the Run Outside Sandbox option from the sandbox selection window of the Run Sandboxed command.
 ```
@@ -188,7 +187,7 @@ Note the missing slash in this command syntax. Note also that this command is no
 
 * * *
 
-### Related Reading Material
+### Related Reading Material <a name="related" href="#related">#</a>
 
 See also: [InjectDll](InjectDll.md) and [SBIE DLL API](SBIE_DLL_API)
 
