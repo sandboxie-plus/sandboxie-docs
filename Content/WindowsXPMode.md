@@ -12,13 +12,14 @@ With Sandboxie, you can have a web browser which is isolated within its own sand
 
 * * *
 
-The official Microsoft site for _Windows XP Mode_ includes download links and installation videos:
+An unofficial download link for _Windows XP Mode_:
 
-[http://www.microsoft.com/windows/virtual-pc/support/default.aspx](http://www.microsoft.com/windows/virtual-pc/support/default.aspx)
+[WindowsXPMode_en-us](https://mega.nz/file/UKAlVYBY#_AoxLJEiNLK7dif7eCySvyd1gwuY_TdVtgYq0RNYuT4)
+(SHA-1: BF9AE7899A332C083676D7D973A4AB68EA4143B1)
 
 An unofficial step-by-step installation guide for _Windows XP Mode_:
 
-[http://www.sevenforums.com/tutorials/8247-windows-xp-mode-install-setup.html](http://www.sevenforums.com/tutorials/8247-windows-xp-mode-install-setup)
+[Windows 7: Windows XP Mode - Install and Setup](https://www.sevenforums.com/tutorials/8247-windows-xp-mode-install-setup.html)
 
 Once _Windows XP Mode_ is installed into your Windows 7, here are step-by-step instructions to install Sandboxie and Firefox:
 
@@ -28,7 +29,7 @@ Once _Windows XP Mode_ is installed into your Windows 7, here are step-by-step i
 
 *   Download and install Sandboxie.
 
-*   Optionally download and install an anti-vrius for your _Windows XP Mode_ operating system.
+*   Optionally download and install an anti-virus for your _Windows XP Mode_ operating system.
 
 *   Log out of the _Windows XP Mode_ operating system.
 
