@@ -20,9 +20,9 @@
 
 ### B
 
-[Block Drivers](BlockDrivers.md)
+~~[Block Drivers](BlockDrivers.md)~~ (no longer supported since Sandboxie v4.xx and up)
 
-[Block Fake Input](BlockFakeInput.md)
+~~[Block Fake Input](BlockFakeInput.md)~~ (no longer supported since Sandboxie v4.xx and up)
 
 [Block Net Param](BlockNetParam.md)
 
@@ -30,15 +30,15 @@
 
 [Block Port](BlockPort.md)
 
-[Block Sys Param](BlockSysParam.md)
+~~[Block Sys Param](BlockSysParam.md)~~ (deprecated)
 
-[Block Win Hooks](BlockWinHooks.md)
+~~[Block Win Hooks](BlockWinHooks.md)~~ (deprecated)
 
 [Border Color](BorderColor.md)
 
 [Box Name Title](BoxNameTitle.md)
 
-[Box Root Folder](BoxRootFolder.md)
+~~[Box Root Folder](BoxRootFolder.md)~~ (no longer supported since Sandboxie v3.xx and up)
 
 [Byte Order Mark](ByteOrderMark.md)
 
@@ -52,7 +52,7 @@
 
 [Code Injection](CodeInjection.md)
 
-[Config Level](ConfigLevel.md)
+~~[Config Level](ConfigLevel.md)~~ (no longer supported since Sandboxie v3.xx and up)
 
 [Configuration Protection](ConfigurationProtection.md)
 
@@ -90,7 +90,7 @@
 
 [Expandable Variables](ExpandableVariables.md)
 
-[Experimental Protection](ExperimentalProtection.md)
+~~[Experimental Protection](ExperimentalProtection.md)~~ (removed since Sandboxie v4.02 and up)
 
 ### F
 
@@ -218,9 +218,9 @@
 
 [Privacy Concerns](PrivacyConcerns.md)
 
-[Process Limit 1](ProcessLimit1.md)
+~~[Process Limit 1](ProcessLimit1.md)~~ (deprecated)
 
-[Process Limit 2](ProcessLimit2.md)
+~~[Process Limit 2](ProcessLimit2.md)~~ (deprecated)
 
 [Program Name Prefix](ProgramNamePrefix.md)
 
