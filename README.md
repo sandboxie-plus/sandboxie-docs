@@ -31,7 +31,7 @@ Select from two editions:
 * [Technical Aspects](Content/TechnicalAspects.md)
 * [SBIE Messages](Content/SBIEMessages.md)
 * [Command Line Usage](Content/StartCommandLine.md)
-* [Sandboxie Configuration File](Content/Sandboxieini.md)
+* [Sandboxie Configuration File](Content/SandboxieIni.md)
 
 
 # Donate
