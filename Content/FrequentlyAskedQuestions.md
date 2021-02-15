@@ -97,7 +97,7 @@ And in addition, you can even _install_ some applications into the sandbox.
 
 Sandboxie works on
 
-*   Windows XP SP3 (Up until Sandboxie 5.22 and just in version [5.40](https://github.com/sandboxie-plus/Sandboxie/releases/tag/v5.40))
+*   Windows XP SP3 (Up until Sandboxie 5.22 and solely in [v5.40](https://github.com/sandboxie-plus/Sandboxie/releases/tag/v5.40))
 *   Windows 7 (32/64)
 *   Windows 8.1 (32/64)
 *   Windows 10 (32/64)(Edge browser & Metro(tile) Apps not supported)
