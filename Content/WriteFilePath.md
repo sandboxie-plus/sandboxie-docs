@@ -19,4 +19,4 @@ This setting is not applicable to files. If the path specified in the setting ma
 
 Note: WriteFilePath is implemented internally as an enhanced form of [ClosedFilePath](ClosedFilePath.md).
 
-Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Resource Access > File Access > Write-Only Access](ResourceAccessSettings#file) 
+Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Resource Access > File Access > Write-Only Access](ResourceAccessSettings.md#file) 
