@@ -100,22 +100,22 @@ Sandboxie works on
 *   Windows XP SP3 (Up until Sandboxie 5.22 and solely in [v5.40](https://github.com/sandboxie-plus/Sandboxie/releases/tag/v5.40))
 *   Windows 7 (32/64)
 *   Windows 8.1 (32/64)
-*   Windows 10 (32/64)(Edge browser & Metro(tile) Apps not supported)
+*   Windows 10 (32/64)(Metro(tile) Apps not supported)
 
 See [the download page](https://github.com/sandboxie-plus/Sandboxie/releases).
 
 Supported Web Browsers (32 & 64 bit supported)
 
-*   Firefox
+*   Internet Explorer 8, 9, 10 & 11
+*   Microsoft Edge (Chromium)
 *   Google Chrome
+*   Firefox
 *   Opera
-*   Cyberfox
+*   PaleMoon
 *   SeaMonkey
 *   Vivaldi
-*   Internet Explorer 8, 9, 10 & 11
 *   Waterfox
-*   Nightly Builds of FF
-*   Chromium
+*   Brave Browser
 *   And many others!
 
 Sandboxie does not work on...
@@ -254,11 +254,13 @@ Another approach is configuring one or more folders as an OpenFilePath. Saving f
 
 **Why does the wrong program start when I run my default Web browser sandboxed?** <a name="WrongBrowser" href="#WrongBrowser">#</a>
 
-This happens for some people. Try this program:
+This happens for some people.
 
-[http://www.winhelponline.com/xp/defaultbrowser.htm](http://www.winhelponline.com/xp/defaultbrowser.htm)
+In Windows 7, open Control Panel in Icon view and select Default Programs > Set your default programs. You can then select the browser you want as default.
 
-If using Windows 10, ensure that your default Web Browser for Windows is set correctly (Click on the Start menu, type "default app settings" and Choose your default apps).
+In Windows 8/8.1, point to (but do not click) the lower-right or top-right corner of the screen, and then click the Settings icon. In the lower-right corner, click Change PC Settings > Search and apps > Defaults. You can then select the browser you want as default.
+
+If using Windows 10, ensure that your default Web Browser for Windows is set correctly (click on the Start menu, type "default app settings" and Choose your default apps).
 
 **Back to [Table of Contents](#Problems)**
 
