@@ -186,7 +186,7 @@ It becomes apparent that, like most other things, each tool has its advantages a
 
 **Why am I getting some Messages from Sandbox Driver?** <a name="CommonMessages" href="#CommonMessages">#</a>
 
-Not all messages are errors, some simply inform you of an event that has occurred. For more information, see [SBIE Messages](SBIE_Messages).
+Not all messages are errors, some simply inform you of an event that has occurred. For more information, see [SBIE Messages](SBIEMessages.md).
 
 **Back to [Table of Contents](#Technical)**
 
