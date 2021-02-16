@@ -242,7 +242,7 @@ You may not see all your folders in Quick Recovery, as only a few are configured
 
 ### I saved a downloaded file, a document or an email inside the sandbox, how do I get it out?
 
-If you read [What is Sandboxie](#WhatIsSandboxie) then you know Sandboxie is like a transparency layer placed over the paper. (The paper is your computer.) When you save files (downloads, documents, emails, or anything else) through a sandboxed program, these files go into the transparency layer that is the sandbox.
+If you read [What is Sandboxie](#what-is-sandboxie-and-how-is-it-different-than-other-solutions) then you know Sandboxie is like a transparency layer placed over the paper. (The paper is your computer.) When you save files (downloads, documents, emails, or anything else) through a sandboxed program, these files go into the transparency layer that is the sandbox.
 
 You can use QuickRecovery to get these files out. Unless configured otherwise, QuickRecovery looks in your My Documents folder, and Desktop folder. If you save the files to either of these folders, then you can use QuickRecovery to easily get them out.
 
