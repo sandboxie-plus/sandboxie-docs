@@ -2,16 +2,16 @@
 
 The Sandboxie Start program can do any of the following, depending on command line parameters specified to it.
 
-*   [Start](#start) programs under the supervision of Sandboxie
-*   [Stop](#stop) sandboxed programs
-*   [List](#list) sandboxed programs
-*   [Delete](#delete) the contents of a sandbox
-*   [Reload](#reload) Sandboxie configuration
-*   Initiate the [Disable Forced Programs](#disableforce) mode
-*   [Related](#related) reading material
+*   [Start](#start-programs) programs under the supervision of Sandboxie
+*   [Stop](#stop-programs) sandboxed programs
+*   [List](#list-programs) sandboxed programs
+*   [Delete](#delete-contents-of-sandbox) the contents of a sandbox
+*   [Reload](#reload-configuration) Sandboxie configuration
+*   Initiate the [Disable Forced Programs](#disable-forced-programs) mode
+*   [Related](#related-reading-material) reading material
 
 * * *
-### Start Programs  <a name="start" href="#start">#</a>
+### Start Programs
 
 This is the default behavior. By specifying a full or partial path to a program executable file, Sandboxie Start will launch that program under the supervision of Sandboxie:
 ```
@@ -85,7 +85,7 @@ Parameters can be combined in any order. For example:
    "C:\Program Files\Sandboxie\Start.exe"  /box:CustomBox /silent /nosbiectrl MyProgram.exe	
 ```
 
-### Stop Programs <a name="stop" href="#stop">#</a>
+### Stop Programs
 
 Terminate all programs running in a particular sandbox. Note that the request is transmitted to the Sandboxie service SbieSvc, which actually carries out the termination.
 ```
@@ -100,7 +100,7 @@ The form _/terminate_all_ terminates all programs in all sandboxes.
 
 * * *
 
-### List Programs <a name="list" href="#list">#</a>
+### List Programs
 
 List the system process ID numbers for all programs running in a particular sandbox.
 ```
@@ -123,7 +123,7 @@ Note that Start.exe is not a console applications, so the output does not appear
 
 * * *
 
-### Delete Contents of Sandbox <a name="delete" href="#delete">#</a>
+### Delete Contents of Sandbox
 ```
   "C:\Program Files\Sandboxie\Start.exe"  delete_sandbox
   "C:\Program Files\Sandboxie\Start.exe"  delete_sandbox_silent	
@@ -157,7 +157,7 @@ Issuing the _delete_sandbox_ command causes Start.exe to invoke phase 1 followed
 
 * * *
 
-### Reload Configuration <a name="reload" href="#reload">#</a>
+### Reload Configuration
 
 This command reloads the Sandboxie configuration in SandboxieIni into the active Sandboxie driver. Typically useful after manually editing the Sandboxie.ini file.
 ```
@@ -168,7 +168,7 @@ Note that reloading the configuration does not take effect on sandboxed programs
 
 * * *
 
-### Disable Forced Programs <a name="disableforce" href="#disableforce">#</a>
+### Disable Forced Programs
 
 The following command runs a program outside the sandox, even if the program is forced. It is similar to using the Run Outside Sandbox option from the sandbox selection window of the Run Sandboxed command.
 ```
@@ -178,7 +178,7 @@ The following command runs a program outside the sandox, even if the program is 
 
 Note that /dfp and /disable_force are identical.
 
-An older form of this command can temporarily disable the forced programs mode, for all programs. It is similar in function to using the Disable Forced Programs command from the [Tray Icon Menu](TrayIconMenu#disableforce) in Sandboxie Control (and not the [File Menu](FileMenu#disableforce)).
+An older form of this command can temporarily disable the forced programs mode, for all programs. It is similar in function to using the Disable Forced Programs command from the [Tray Icon Menu](TrayIconMenu.md#disable-forced-programs) in Sandboxie Control (and not the [File Menu](FileMenu.md#disable-forced-programs)).
 ```
   "C:\Program Files\Sandboxie\Start.exe"  disable_force	
 ```
@@ -187,8 +187,8 @@ Note the missing slash in this command syntax. Note also that this command is no
 
 * * *
 
-### Related Reading Material <a name="related" href="#related">#</a>
+### Related Reading Material
 
-See also: [InjectDll](InjectDll.md) and [SBIE DLL API](SBIE_DLL_API)
+See also: [InjectDll](InjectDll.md) and [SBIE DLL API](SBIEDLLAPI.md)
 
 Go to [Help Topics](HelpTopics.md).
