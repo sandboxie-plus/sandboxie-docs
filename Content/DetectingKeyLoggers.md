@@ -30,7 +30,7 @@ Rootkit key-loggers record keystrokes at the lowest software level, typically by
 
 Once installed, this class of key-loggers may provide the best logging facilities, and may be difficult to get rid of. But to be installed in the first place, this key-logger needs the explicit help of the operating system, and so is easily blocked by Sandboxie.
 
-If such a key-logger attempts to install, Sandboxie should report an informational message [SBIE2103](SBIE2103.md), unless the [BlockDrivers](BlockDrivers.md) setting (see also [Sandbox Settings > Restrictions > Low-Level Access](RestrictionsSettings#lowlevel)) was explicitly used to disable this protection.
+~~If such a key-logger attempts to install, Sandboxie should report an informational message [SBIE2103](SBIE2103.md), unless the [BlockDrivers](BlockDrivers.md) setting (see also [Sandbox Settings > Restrictions > Low-Level Access](RestrictionsSettings#lowlevel)) was explicitly used to disable this protection.~~
 
 ### Windows Hook Key-Loggers
 
@@ -38,11 +38,11 @@ These key-loggers don't masquerade as hardware drivers, but they still have to a
 
 It is not uncommon for applications to install such hooks as part of normal operation, and blocking all of them would prevent some programs from running successfully inside the sandbox.
 
-**Removed From Sandboxie - Block Hooks Command**
+~~**Removed From Sandboxie - Block Hooks Command**~~
 
-The approach Sandboxie takes is to honor the hook request partially, by applying the hook only to applications in the same sandbox as the requesting application.
+~~The approach Sandboxie takes is to honor the hook request partially, by applying the hook only to applications in the same sandbox as the requesting application.~~
 
-The [BlockWinHooks](BlockWinHooks.md) setting (see also [Sandbox Settings > Restrictions > Low-Level Access](RestrictionsSettings#lowlevel)) may be used to explicitly disable this protection.
+~~The [BlockWinHooks](BlockWinHooks.md) setting (see also [Sandbox Settings > Restrictions > Low-Level Access](RestrictionsSettings#lowlevel)) may be used to explicitly disable this protection.~~
 
 ### Windows Message Key-Loggers
 
@@ -71,7 +71,7 @@ The first step is to make sure your system is not infected by malicious key-logg
 Then carry out all untrusted activity -- such as browsing the Web, reading email, and testing unknown programs -- only in the restricted area of the sandbox. This doesn't mean you won't be infected by key-loggers, but it does mean you can get rid of them:
 
 *   You can make sure you stop all of them, by telling Sandboxie to stop all activity in all sandboxes.
-    *   See also the **Terminate All Programs** command in the [File Menu](FileMenu#termall) and the [Tray Icon Menu](TrayIconMenu#termall).
+    *   See also the **Terminate All Programs** command in the [File Menu](FileMenu.md#termall) and the [Tray Icon Menu](TrayIconMenu.md#termall).
 *   Once stopped, you can discard the traces of their program code, by deleting the contents of the sandbox.
     *   See also [Delete Sandbox](DeleteSandbox.md).
 
@@ -81,7 +81,7 @@ Note that if you don't like to regularly delete your sandbox, you can set aside 
 
 * * *
 
-Another protection measure against a key-logger is to configure Sandboxie to deny access to the Internet for anything other than your Web browser, in an attempt to prevent the key-logger from sending out the recorded information. See the setting for "the only program that can access the Internet" in [Program Settings](ProgramSettings#internet).
+Another protection measure against a key-logger is to configure Sandboxie to deny access to the Internet for anything other than your Web browser, in an attempt to prevent the key-logger from sending out the recorded information. See the setting for "the only program that can access the Internet" in [Program Settings](ProgramSettings.md#internet).
 
 Note two caveats:
 
