@@ -81,7 +81,7 @@ You should be able to run most applications sandboxed.
 *   Mail and news readers
 *   instant messengers and chat clients
 *   peer-to-peer networking
-*   Office Suites (Libre Office, OpenOffice)
+*   Office Suites (MS Office, LibreOffice, OpenOffice)
 *   Most games
     *   in particular, online games which download extension software code
 
