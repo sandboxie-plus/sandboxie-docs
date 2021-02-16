@@ -3,7 +3,7 @@
 
 ### Overview
 
-*   [What is Sandboxie and how is it different than other solutions?](#What-Is-Sandboxie)
+*   [What is Sandboxie and how is it different than other solutions?](#what-is-sandboxie)
 *   [How safe would I be, by using Sandboxie?](#HowSafe)
 *   [Do I need other solutions if I use Sandboxie?](#NeedOtherSolutions)
 *   [What kinds of programs can I run using Sandboxie?](#SandboxablePrograms)
