@@ -3,28 +3,28 @@
 
 ### Overview
 
-*   [What is Sandboxie and how is it different than other solutions?](#what-is-sandboxie-)
-*   [How safe would I be, by using Sandboxie?](#HowSafe)
-*   [Do I need other solutions if I use Sandboxie?](#NeedOtherSolutions)
-*   [What kinds of programs can I run using Sandboxie?](#SandboxablePrograms)
-*   [What are the technical requirements to run Sandboxie?](#Requirements)
+*   [What is Sandboxie and how is it different than other solutions?](#what-is-sandboxie-and-how-is-it-different-than-other-solutions)
+*   [How safe would I be, by using Sandboxie?](#how-safe-would-i-be-by-using-sandboxie)
+*   [Do I need other solutions if I use Sandboxie?](#do-i-need-other-solutions-if-i-use-sandboxie)
+*   [What kinds of programs can I run using Sandboxie?](#what-kinds-of-programs-can-i-run-using-sandboxie)
+*   [What are the technical requirements to run Sandboxie?](#what-are-the-requirements-to-run-sandboxie)
 
 ### Technical
 
-*   [How does Sandboxie protect me, technically?](#HowItWorks)
-*   [Will Sandboxie protect me from malicious key-loggers?](#KeyLoggers)
-*   [Some competing products require a reboot to initiate sandboxing, why?](#RebootNeeded)
-*   [Why am I getting some Messages from Sandbox Driver?](#CommonMessages)
-*   [Why are so many files copied into the sandbox?](#TooManyFiles)
-*   [What are SandboxieRpcSs and SandboxieDcomLaunch?](#SandboxieRpcss)
-*   [How can I use Sandboxie to protect myself from viruses in email?](#EmailProtection)
-*   [How to configure Sandboxie for only an occasional use?](#OccasionalUse)
+*   [How does Sandboxie protect me, technically?](#how-does-sandboxie-protect-me-technically)
+*   [Will Sandboxie protect me from malicious key-loggers?](#will-sandboxie-protect-me-from-malicious-key-loggers)
+*   [Some competing products require a reboot to initiate sandboxing, why?](#some-competing-products-require-a-reboot-to-initiate-sandboxing-why)
+*   [Why am I getting some Messages from Sandbox Driver?](#why-am-i-getting-some-messages-from-sandbox-driver)
+*   [Why are so many files copied into the sandbox?](#why-are-so-many-files-copied-into-the-sandbox)
+*   [What are SandboxieRpcSs and SandboxieDcomLaunch?](#what-are-sandboxierpcss-and-sandboxiedcomlaunch)
+*   [How can I use Sandboxie to protect myself from viruses in email?](#how-can-i-use-sandboxie-to-protect-myself-from-viruses-in-email)
+*   [How to configure Sandboxie for only an occasional use?](#how-to-configure-sandboxie-for-only-an-occasional-use)
 
 ### Problems
 
-*   [How do I make Quick Recovery show my saved favorites and downloads?](#QuickRecovery)
-*   [I saved a downloaded file, a document or an email inside the sandbox, how do I get it out?](#SavedInSandbox)
-*   [Why does the wrong program start when I run my default Web browser sandboxed?](#WrongBrowser)
+*   [How do I make Quick Recovery show my saved favorites and downloads?](#how-do-i-make-quick-recovery-show-my-saved-favorites-and-downloads)
+*   [I saved a downloaded file, a document or an email inside the sandbox, how do I get it out?](#i-saved-a-downloaded-file-a-document-or-an-email-inside-the-sandbox-how-do-i-get-it-out)
+*   [Why does the wrong program start when I run my default Web browser sandboxed?](#why-does-the-wrong-program-start-when-i-run-my-default-web-browser-sandboxed)
 *   If you have a program that doesn't work properly sandboxed, please look it up on the [Known Conflicts](SandboxieKnownConflicts.md) page before posting a problem report.
 
 * * *
@@ -33,7 +33,7 @@ Back to [HelpTopics](HelpTopics.md)
 
 * * *
 
-#### What is Sandboxie and how is it different than other solutions?
+### What is Sandboxie and how is it different than other solutions?
 
 Think of your PC as a piece of paper. Every program you run writes on the paper. When you run your browser, it writes on the paper about every site you visited. And any malware you come across will usually try to write itself into the paper.
 
@@ -49,7 +49,7 @@ Thanks to _esalkin_ for the paper metaphore. Thanks to _warwagon_ for the graphi
 
 * * *
 
-#### How safe would I be, by using Sandboxie?
+### How safe would I be, by using Sandboxie?
 
 You would be quite safe using Sandboxie. It should be noted that, from time to time, people are able to find some vulnerability in Sandboxie, an open hole through which malicious software can still infiltrate the system.
 
@@ -61,7 +61,7 @@ Thus it's a good idea to have more traditional anti-malware software. This is is
 
 * * *
 
-#### Do I need other solutions if I use Sandboxie?
+### Do I need other solutions if I use Sandboxie?
 
 Sandboxie may be your first line of defense, but it should certainly be complemented by the more traditional anti-virus and anti-malware solutions. These solutions can let you know if your system does become infected in any way.
 
@@ -73,7 +73,7 @@ The combination of the two approaches should keep malicious software -- which is
 
 * * *
 
-#### What kinds of programs can I run using Sandboxie?
+### What kinds of programs can I run using Sandboxie?
 
 You should be able to run most applications sandboxed.
 
@@ -93,7 +93,7 @@ And in addition, you can even _install_ some applications into the sandbox.
 
 * * *
 
-#### What are the requirements to run Sandboxie?
+### What are the requirements to run Sandboxie?
 
 Sandboxie works on
 
@@ -136,7 +136,7 @@ Sandboxie needs only a small amount of memory and should have a very small impac
 
 * * *
 
-#### How does Sandboxie protect me, technically?
+### How does Sandboxie protect me, technically?
 
 Sandboxie extends the operating system (OS) with sandboxing capabilities by blending into it. Applications can never access hardware such as disk storage directly, they have to ask the OS to do it for them. Since Sandboxie integrates into the OS, it can do what it does without risk of being circumvented.
 
@@ -152,7 +152,7 @@ It should be noted, however, that Sandboxie does not typically stop sandboxed pr
 
 * * *
 
-#### Will Sandboxie protect me from malicious key-loggers?
+### Will Sandboxie protect me from malicious key-loggers?
 
 Yes, to some extent. First of all, your system (outside the sandbox) must not have been already compromised by an installed key-logger. Sandboxie can not protect against key-loggers that are already running outside the sandbox.
 
@@ -166,7 +166,7 @@ When you stop all sandboxed activity (in all sandboxes), then proceed to delete 
 
 * * *
 
-#### Some competing products require a reboot to initiate sandboxing, why?
+### Some competing products require a reboot to initiate sandboxing, why?
 
 Changes to the computing environment must eventually make their way to disk storage, if they are to be permanent. This obviously applies to files. But it also applies to things like settings and preferences saved in the system registry.
 
@@ -184,7 +184,7 @@ It becomes apparent that, like most other things, each tool has its advantages a
 
 * * *
 
-#### Why am I getting some Messages from Sandbox Driver?
+### Why am I getting some Messages from Sandbox Driver?
 
 Not all messages are errors, some simply inform you of an event that has occurred. For more information, see [SBIE Messages](SBIEMessages.md).
 
@@ -192,7 +192,7 @@ Not all messages are errors, some simply inform you of an event that has occurre
 
 * * *
 
-#### Why are so many files copied into the sandbox?
+### Why are so many files copied into the sandbox?
 
 When a program accesses a file, it declares what operations it plans to do on the file: if it plans to read from the file, to write the file, to change its attributes, and so on. Whenever a program declares any kind of write access to a file, Sandboxie copies it into the sandbox. In some cases, programs declare they intend to write to the file when in fact they do not, but nevertheless Sandboxie must copy the file into the sandbox.
 
@@ -200,7 +200,7 @@ When a program accesses a file, it declares what operations it plans to do on th
 
 * * *
 
-#### What are SandboxieRpcSs and SandboxieDcomLaunch?
+### What are SandboxieRpcSs and SandboxieDcomLaunch?
 
 See [Service Programs](ServicePrograms.md).
 
@@ -208,7 +208,7 @@ See [Service Programs](ServicePrograms.md).
 
 * * *
 
-#### How can I use Sandboxie to protect myself from viruses in email?
+### How can I use Sandboxie to protect myself from viruses in email?
 
 See full article: [Email Protection](EmailProtection.md).
 
@@ -216,7 +216,7 @@ See full article: [Email Protection](EmailProtection.md).
 
 * * *
 
-#### How to configure Sandboxie for only an occasional use?
+### How to configure Sandboxie for only an occasional use?
 
 By default Sandboxie is configured to load and start automatically. To have Sandboxie load only when you need it, make the following changes.
 
@@ -232,7 +232,7 @@ Starting Sandboxie Control will also start the service. (But note that Administr
 
 * * *
 
-#### How do I make Quick Recovery show my saved favorites and downloads?
+### How do I make Quick Recovery show my saved favorites and downloads?
 
 You may not see all your folders in Quick Recovery, as only a few are configured by default in the initial installation. See also QuickRecovery.
 
@@ -240,7 +240,7 @@ You may not see all your folders in Quick Recovery, as only a few are configured
 
 * * *
 
-#### I saved a downloaded file, a document or an email inside the sandbox, how do I get it out?
+### I saved a downloaded file, a document or an email inside the sandbox, how do I get it out?
 
 If you read [What is Sandboxie](#WhatIsSandboxie) then you know Sandboxie is like a transparency layer placed over the paper. (The paper is your computer.) When you save files (downloads, documents, emails, or anything else) through a sandboxed program, these files go into the transparency layer that is the sandbox.
 
@@ -252,7 +252,7 @@ Another approach is configuring one or more folders as an OpenFilePath. Saving f
 
 * * *
 
-#### Why does the wrong program start when I run my default Web browser sandboxed?
+### Why does the wrong program start when I run my default Web browser sandboxed?
 
 This happens for some people.
 
