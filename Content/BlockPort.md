@@ -1,6 +1,6 @@
 # Block Port
 
-_BlockPort_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.html). It specifies IP port numbers which will be blocked for outgoing communications.
+_BlockPort_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It specifies IP port numbers which will be blocked for outgoing communications.
 
 Usage:
 
@@ -21,6 +21,6 @@ The setting can be specified repeatedly over multiple lines and the effects will
 
 This setting is not configurable through Sandboxie Control, except to enable or disable a pre-defined list of default blocked ports:
 
-[Sandbox Settings > Applications > Miscellaneous](ApplicationsSettings#misc) > Default list of blocked TCP/IP ports
+[Sandbox Settings > Applications > Miscellaneous](ApplicationsSettings.md#misc) > Default list of blocked TCP/IP ports
 
 Note that this setting will prevent programs such as [smbclient](http://www.samba.org/samba/docs/man/manpages-3/smbclient.1) from properly running under Sandboxie. In case this is required, the setting can be turned off.
