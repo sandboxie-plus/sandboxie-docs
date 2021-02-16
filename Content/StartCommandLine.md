@@ -2,13 +2,13 @@
 
 The Sandboxie Start program can do any of the following, depending on command line parameters specified to it.
 
-*   [Start](#start-programs--) programs under the supervision of Sandboxie
-*   [Stop](#stop-programs-) sandboxed programs
-*   [List](#list-programs-) sandboxed programs
-*   [Delete](#delete-contents-of-sandbox-) the contents of a sandbox
-*   [Reload](#reload-configuration-) Sandboxie configuration
-*   Initiate the [Disable Forced Programs](#disable-forced-programs-) mode
-*   [Related](#related-reading-material-) reading material
+*   [Start](#start-programs) programs under the supervision of Sandboxie
+*   [Stop](#stop-programs) sandboxed programs
+*   [List](#list-programs) sandboxed programs
+*   [Delete](#delete-contents-of-sandbox) the contents of a sandbox
+*   [Reload](#reload-configuration) Sandboxie configuration
+*   Initiate the [Disable Forced Programs](#disable-forced-programs) mode
+*   [Related](#related-reading-material) reading material
 
 * * *
 ### Start Programs
