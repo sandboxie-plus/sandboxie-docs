@@ -71,7 +71,7 @@ The first step is to make sure your system is not infected by malicious key-logg
 Then carry out all untrusted activity -- such as browsing the Web, reading email, and testing unknown programs -- only in the restricted area of the sandbox. This doesn't mean you won't be infected by key-loggers, but it does mean you can get rid of them:
 
 *   You can make sure you stop all of them, by telling Sandboxie to stop all activity in all sandboxes.
-    *   See also the **Terminate All Programs** command in the [File Menu](FileMenu.md#termimate-all-programs) and the [Tray Icon Menu](TrayIconMenu.md#terminate-all-programs).
+    *   See also the **Terminate All Programs** command in the [File Menu](FileMenu.md#terminate-all-programs) and the [Tray Icon Menu](TrayIconMenu.md#terminate-all-programs).
 *   Once stopped, you can discard the traces of their program code, by deleting the contents of the sandbox.
     *   See also [Delete Sandbox](DeleteSandbox.md).
 
