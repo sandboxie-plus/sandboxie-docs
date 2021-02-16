@@ -77,11 +77,11 @@ The combination of the two approaches should keep malicious software -- which is
 
 You should be able to run most applications sandboxed.
 
-*   Major Web browsers (Microsoft Edge is not supported at this time)
+*   Major Web browsers
 *   Mail and news readers
 *   instant messengers and chat clients
 *   peer-to-peer networking
-*   Office Suites (Libre Office, OpenOffice) (Support for MS Office 2016/Office365 is offered for the paid version)
+*   Office Suites (Libre Office, OpenOffice)
 *   Most games
     *   in particular, online games which download extension software code
 
