@@ -4,7 +4,7 @@
 Some Sandboxie settings may include _variables_. These are placeholder names which are expanded to (replaced by) text which may be specific to a particular computer and user account. For example,
 
 ```
-[RecoverFolder](RecoverFolder.html)=%Personal%\Song_Lyrics
+RecoverFolder=%Personal%\Song_Lyrics
 ```
 
 In this simple example, Sandboxie expands the variable _Personal_ by the actual folder for the My Documents folder.
@@ -152,7 +152,7 @@ Favorites
 And more  
 </td>
 
-<td style=" padding: 5px; border-bottom: solid black 1px; ">Locations of user-account and system folders as are known to Windows Explorer. For more information, see [Shell Folders](ShellFolders.html).</td>
+<td style=" padding: 5px; border-bottom: solid black 1px; ">Locations of user-account and system folders as are known to Windows Explorer. For more information, see <a href="ShellFolders.md">ShellFolders</a>.</td>
 
 </tr>
 
@@ -180,8 +180,8 @@ For example:
 ```
     [DefaultBox]
     Ovr.Personal=Z:\MY_FILES
-    [RecoverFolder](RecoverFolder.html)=%Personal%
-    [OpenFilePath](OpenFilePath.html)=%SystemRoot%\Temp
+    RecoverFolder=%Personal%
+    OpenFilePath=%SystemRoot%\Temp
 ```
 
 When a variable is overriden in this way, its expanded value will always match the value specified in the configuration file.
