@@ -18,4 +18,4 @@ The third example setting specifies that QuickRecovery from the InstallBox sandb
 
 Note that when [Quick Recovery](QuickRecovery.md) looks in the specified folder, it also looks in any folders within that folder, and any folders within those folders, for as many levels of depth as are needed.
 
-Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Recovery > Quick Recovery](RecoverySettings#quick)
+Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Recovery > Quick Recovery](RecoverySettings.md#quick-recovery)

@@ -2,7 +2,7 @@
 
 ![](../Media/ImmediateRecoverFavIcon.png)
 
-Immediate Recovery is an extension of [Quick Recovery](QuickRecovery.md). Both Quick and Immediate Recovery scan the list of folders configured in [Sandbox Settings > Recovery > Quick Recovery](RecoverySettings#quick), and suggest an easy way to move any files (or folders) found out of the sandbox.
+Immediate Recovery is an extension of [Quick Recovery](QuickRecovery.md). Both Quick and Immediate Recovery scan the list of folders configured in [Sandbox Settings > Recovery > Quick Recovery](RecoverySettings.md#quick-recovery), and suggest an easy way to move any files (or folders) found out of the sandbox.
 
 Quick Recovery is invoked by explicit request, or just before the sandbox is deleted, that is, typically it is invoked after the sandboxed programs have finished running. By contrast, _Immediate Recovery_ works within the sandboxed program, and identifies files as soon as they are created and eligible for recovery.
 

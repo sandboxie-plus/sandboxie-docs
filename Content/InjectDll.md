@@ -44,5 +44,5 @@ It is recommended to use the **hSbieDll** parameter as the module instance handl
 
 At this time, this setting cannot be manipulated from [Sandboxie Control](SandboxieControl.md). You have to manually edit it into [Sandboxie Ini](SandboxieIni.md).
 
-See also: [InjectDll64](InjectDll64.md), [SBIE DLL API](SBIE_DLL_API), [Start Command Line](StartCommandLine.md).
+See also: [InjectDll64](InjectDll64.md), [SBIE DLL API](SBIEDLLAPI.md), [Start Command Line](StartCommandLine.md).
 

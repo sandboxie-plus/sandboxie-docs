@@ -14,4 +14,4 @@ Thanks to _esalkin_ for the paper metaphore. Thanks to _warwagon_ for the graphi
 
 * * *
 
-See also the Sandboxie [Front Page](sandboxie.md) for a different illustration of the same concept.
+See also the Sandboxie [demonstration](https://www.youtube.com/watch?v=9ZF9c03PN8I) for a different illustration of the same concept.

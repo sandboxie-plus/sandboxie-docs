@@ -19,7 +19,7 @@ This page will explain the various known mechanisms that record information abou
 
 **Prefetch and SuperFetch**
 
-Prefetch, introduced in Windows XP, and SuperFetch, introduced in Windows Vista, make up the [prefetcher](http://en.wikipedia.org/wiki/Prefetcher) component in Windows.
+Prefetch, introduced in Windows XP, and SuperFetch, introduced in Windows Vista, make up the [prefetcher](https://en.wikipedia.org/wiki/Prefetcher) component in Windows.
 
 This component is designed to improve application start up time by keeping copies of program files in a location that can be quickly accessed. The copies are kept in a folder called _Prefetch_ that resides within the main Windows folder; typically that is _C:\Windows\Prefetch_.
 
@@ -27,9 +27,9 @@ Windows may store copies of programs files in this Prefetch folder even when the
 
 Prefetch behavior can be reduced to caching only programs using during the boot sequence, or to not cache anything at all. Follow these links for more information:
 
-[http://www.theeldergeek.com/prefetch_parameters_-_altering.htm](http://www.theeldergeek.com/prefetch_parameters_-_altering.htm)  
-[http://www.howtogeek.com/howto/windows-vista/change-superfetch-to-only-cache-system-boot-files-in-vista/](http://www.howtogeek.com/howto/windows-vista/change-superfetch-to-only-cache-system-boot-files-in-vista/)  
-[http://www.howtogeek.com/howto/windows-vista/how-to-disable-superfetch-on-windows-vista/](http://www.howtogeek.com/howto/windows-vista/how-to-disable-superfetch-on-windows-vista/)
+[https://www.ghacks.net/2008/01/13/enableprefetcher-in-prefetchparameters](https://www.ghacks.net/2008/01/13/enableprefetcher-in-prefetchparameters)  
+[https://www.howtogeek.com/howto/windows-vista/change-superfetch-to-only-cache-system-boot-files-in-vista](https://www.howtogeek.com/howto/windows-vista/change-superfetch-to-only-cache-system-boot-files-in-vista)  
+[https://www.howtogeek.com/howto/windows-vista/how-to-disable-superfetch-on-windows-vista](https://www.howtogeek.com/howto/windows-vista/how-to-disable-superfetch-on-windows-vista)
 
 **MUI Cache**
 
@@ -51,7 +51,7 @@ On Windows 7 and later, Windows Explorer stores information associated with icon
    %Appdata%\Microsoft\Internet Explorer\Quick Launch\User Pinned\ImplicitAppShortcuts
 ```
 
-The [Sandbox Settings > Applications > Miscellaneous](ApplicationsSettings.html#misc) settings page includes the setting "Permit programs to update jump lists in the Windows 7 taskbar". If this setting is enabled, additional files are created in the following folders, within the user profile folder.
+The [Sandbox Settings > Applications > Miscellaneous](ApplicationsSettings.md#miscellaneous) settings page includes the setting "Permit programs to update jump lists in the Windows 7 taskbar". If this setting is enabled, additional files are created in the following folders, within the user profile folder.
 ```
    %Appdata%\Microsoft\Windows\Recent\CustomDestinations
    %Appdata%\Microsoft\Windows\Recent\AutomaticDestinations
@@ -59,11 +59,11 @@ The [Sandbox Settings > Applications > Miscellaneous](ApplicationsSettings.html#
 
 **Windows Page File**
 
-During its normal course of operation, Windows sometimes needs to put away the contents of memory used by one program in order to make room for another program. The memory contents are stored in the Windows [page file](http://www.theeldergeek.com/paging_file.htm).
+During its normal course of operation, Windows sometimes needs to put away the contents of memory used by one program in order to make room for another program. The memory contents are stored in the Windows [page file](https://www.howtogeek.com/126430/htg-explains-what-is-the-windows-page-file-and-should-you-disable-it).
 
 Programs that run under Sandboxie are still running in the same Windows operating system as any other program in the computer, so portions of sandboxed and normal programs may end up sitting side by side in the same page file.
 
-It is possible to configure Windows to clear the contents of the page file at shutdown. More information [here](http://support.microsoft.com/kb/314834) and [here](http://www.vistax64.com/tutorials/157323-virtual-memory-paging-file-clear-shutdown).
+It is possible to configure Windows to clear the contents of the page file at shutdown. More information [here](https://winaero.com/clear-pagefile-shutdown-windows-10) and [here](https://www.vistax64.com/threads/virtual-memory-paging-file-clear-at-shutdown.157323).
 
 It is possible to configure Windows Vista to encrypt the contents of the page file:
 ```
@@ -83,25 +83,25 @@ Similar to the Windows Page File, the hibernate file stores a copy of the memory
 
 Restore points are snapshots of the state of the operating system at some points in time. The System Restore components in Windows XP and later versions of Windows records and restores these snapshots.
 
-Snapshots are recorded in the (typically inaccessible) folder called _System Volume Information_ and may include [many types of files](http://msdn.microsoft.com/en-us/library/aa378870.aspx) found throughout the system, including within the folders of the sandbox.
+Snapshots are recorded in the (typically inaccessible) folder called _System Volume Information_ and may include [many types of files](https://docs.microsoft.com/it-it/windows/win32/sr/monitored-file-extensions) found throughout the system, including within the folders of the sandbox.
 
 Thus it is possible that System Restore will create backup copies in its folders for files or programs that exist only in the sandbox.
 
-The System Restore component ignores files and folders in temporary folders, so [moving the sandbox](SandboxMenu.html) to C:\TEMP\SANDBOX instead of the default C:\SANDBOX should cause System Restore to ignore the sandbox when creating a snapshot.
+The System Restore component ignores files and folders in temporary folders, so [moving the sandbox](SandboxMenu.md) to C:\TEMP\SANDBOX instead of the default C:\SANDBOX should cause System Restore to ignore the sandbox when creating a snapshot.
 
 **System, Audit and Other Event Logs**
 
-Windows sometimes records bits of information about running programs in its various [event logs](http://en.wikipedia.org/wiki/Event_Viewer). Typically, very little if any information is logged about a program. However, if security auditing has been enabled for some aspects of the system, Windows will have no trouble logging the details of any actions taken by a program running under Sandboxie.
+Windows sometimes records bits of information about running programs in its various [event logs](https://en.wikipedia.org/wiki/Event_Viewer). Typically, very little if any information is logged about a program. However, if security auditing has been enabled for some aspects of the system, Windows will have no trouble logging the details of any actions taken by a program running under Sandboxie.
 
-Windows has an Event Viewer program which can be used to view and delete the event logs. [More information here](http://support.microsoft.com/kb/308427).
+Windows has an Event Viewer program which can be used to view and delete the event logs. [More information here](https://www.howtogeek.com/123646/htg-explains-what-the-windows-event-viewer-is-and-how-you-can-use-it).
 
 **Windows System Tray Icons**
 
-When a programs which is running under Sandboxie asks to place an icon in the [system tray area](http://support.microsoft.com/kb/310578), Sandboxie lets the program place the icon in the real system tray, which is typically located at the bottom right corner of the display.
+When a programs which is running under Sandboxie asks to place an icon in the [system tray area](https://www.computerhope.com/issues/chsys.htm), Sandboxie lets the program place the icon in the real system tray, which is typically located at the bottom right corner of the display.
 
 This has the advantage that interaction with the tray icon of the sandboxed program is as easy as interacting with any other tray icon. However, it also means that Windows will record this icon and its description in the history of all tray icons it has ever displayed.
 
-It is possible to manually clear this history in [Windows XP](http://support.microsoft.com/kb/283084) and [Windows Vista](http://www.howtogeek.com/howto/windows-vista/clean-up-past-notification-icons-in-windows-vista/). There may also be third-party registry clearing tools that can erase this information.
+It is possible to manually clear this history in [Windows](https://www.howtogeek.com/howto/windows-vista/clean-up-past-notification-icons-in-windows-vista). There may also be third-party registry clearing tools that can erase this information.
 
 **Disk Defragmentation**
 
@@ -115,8 +115,8 @@ Sandboxie isolation occurs at the higher file level rather than the lower level 
 
 Sandboxie isolation and protection occurs entirely within the local computer and is not visible to any other remote computer. Thus accessing the Internet using a sandboxed program looks the same as accessing the Internet using a program that is not running under Sandboxie. In both cases the remote computer identifies the accessing computer by its IP address.
 
-There are various third-party solutions for anonymous Web access. More information [here](http://en.wikipedia.org/wiki/Anonymous_web_browsing).
+There are various third-party solutions for anonymous Web access. More information [here](https://en.wikipedia.org/wiki/Anonymous_web_browsing).
 
 **Windows DNS Host Cache**
 
-Sandboxie does not prevent the logging and storage of DNS Hosts files (Your DNS cache) on your Windows machine. This is written to C:\Windows\System32\drivers\etc in Windows
+Sandboxie does not prevent the logging and storage of DNS Hosts files (Your DNS cache) on your Windows machine. This is written to C:\Windows\System32\drivers\etc in Windows.

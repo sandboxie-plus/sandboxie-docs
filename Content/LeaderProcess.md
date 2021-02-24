@@ -11,6 +11,6 @@ _LeaderProcess_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It spe
 
 _iexplore.exe_ is Internet Explorer.
 
-Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings -> Program Stop -> Leader Programs](ProgramStopSettings#leader)
+Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings -> Program Stop -> Leader Programs](ProgramStopSettings.md#leader-programs)
 
-See also: [Program Settings](ProgramSettings#leader).
+See also: [Program Settings](ProgramSettings.md#leader).

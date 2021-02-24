@@ -1,6 +1,6 @@
 # Resource Access
 
-In sandboxie various [Resource Access settings](ResourceAccesssettings.md) apply only to programs installed outside of sandboxie as not to be bypassed by sandboxed programs changing their exe name. The following table shows which settings apply to what installation locations.
+In Sandboxie, various [Resource Access Settings](ResourceAccessSettings.md) apply only to programs installed outside of Sandboxie, as not to be bypassed by sandboxed programs changing their exe name. The following table shows which settings apply to what installation locations.
 
 
 
