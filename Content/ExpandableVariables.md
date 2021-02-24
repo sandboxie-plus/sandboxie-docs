@@ -152,7 +152,7 @@ Favorites
 And more  
 </td>
 
-<td style=" padding: 5px; border-bottom: solid black 1px; ">Locations of user-account and system folders as are known to Windows Explorer. For more information, see <a href="ShellFolders.md">ShellFolders</a>.</td>
+<td style=" padding: 5px; border-bottom: solid black 1px; ">Locations of user-account and system folders as are known to Windows Explorer. For more information, see <a href="ShellFolders.md">Shell Folders</a>.</td>
 
 </tr>
 
