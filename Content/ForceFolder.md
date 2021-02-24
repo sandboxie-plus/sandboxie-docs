@@ -17,8 +17,8 @@ The second example specifies that any files/programs started from drive E will b
 
 * Please keep in mind that shortcuts located inside a ForceFolder, that are pointing to a path that is not a ForceFolder, will not start a Sandboxed application. For example: if you place a shortcut inside C:\ForcedFolder and it points to C:\SomeOtherPathThatIsNotForced, then the shortcut will trigger a non-sandboxed application.
 
-Another consideration is that metro apps are not supported. If your default application for opening a specific file type is a Windows Metro app (such as Windows 10 photo viewer), the application will launch outside the Sandbox. For more information regarding Windows Metro apps please see [KnownConflicts](KnownConflicts#Windows)
+Another consideration is that metro apps are not supported. If your default application for opening a specific file type is a Windows Metro app (such as Windows 10 photo viewer), the application will launch outside the Sandbox. For more information regarding Microsoft Store apps, please see [KnownConflicts](SandboxieKnownConflicts.md#uwp--modern--microsoft-store-apps).
 
 See also: [ForceProcess](ForceProcess.md). If both a _ForceFolder_ and a _ForceProcess_ are applicable to a program that is starting, the ForceFolder setting takes precedence.
 
-Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Program Start > Forced Folders](ProgramStartSettings#folder)
+Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Program Start > Forced Folders](ProgramStartSettings.md#forced-folders)

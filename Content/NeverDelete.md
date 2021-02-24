@@ -10,4 +10,4 @@ _NeverDelete_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It is ty
    NeverDelete=yes
 ```
 
-Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Delete > Invocation](DeleteSettings#invocation)
+Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Delete > Invocation](DeleteSettings.md#invocation)

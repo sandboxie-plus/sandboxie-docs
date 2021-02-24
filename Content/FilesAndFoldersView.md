@@ -1,6 +1,6 @@
 # Files And Folders View
 
-[Sandboxie Control](SandboxieControl.md) > [View Menu](ViewMenu.md) > [Files and Folders](ViewMenu#fafview)
+[Sandboxie Control](SandboxieControl.md) > [View Menu](ViewMenu.md) > [Files and Folders](ViewMenu.md#files-and-folders)
 
 ![](../Media/FileViewFavIcon.png)
 
@@ -10,7 +10,7 @@ Within each sandbox, there are two top-level folders:
 
 *   _Quick Recover Folders_ shows the folders configured to [Quick Recovery](QuickRecovery.md), and any folders or files contained within these folders.
 
-*   _All Files and Folders_ contains the full contents of the sandbox (as described in [Sandbox Hierarchy](SandboxHierarchy#files)) in a friendly way. This folder is itself organized into two folders:
+*   _All Files and Folders_ contains the full contents of the sandbox (as described in [Sandbox Hierarchy](SandboxHierarchy.md#files)) in a friendly way. This folder is itself organized into two folders:
     *   _Drives_ shows the sandboxed contents that were created for drives in the system.
     *   _User Files_ shows the sandboxed contents of user profile folders. A user profile folder contains folders such as _My Documents_, _Desktop_ and _Favorites_.
     *   The _All Files and Folders_ folder typically also contains _RegHive_ files which represent the sandboxed copy of the Windows registry.
@@ -25,9 +25,9 @@ The _Files and Folders View_ provides context menus for sandboxes and programs. 
 
 *   Select (highlight) the row using the mouse or keyboard, then press Shift+F10\.
 
-*   Select (highlight) the row using the mouse or keyboard, then use the [View Menu -> Context Menu](ViewMenu#context) command.
+*   Select (highlight) the row using the mouse or keyboard, then use the [View Menu -> Context Menu](ViewMenu.md#context-menu) command.
 
-For a sandbox row, the context menu displayed is the same as [Sandbox Menu -> Sandbox Sub-Menu](SandboxMenu#sandbox). See there for a full description.
+For a sandbox row, the context menu displayed is the same as [Sandbox Menu -> Sandbox Sub-Menu](SandboxMenu.md#sandbox-sub-menu). See there for a full description.
 
 For a file or folder, the context menu offers these commands:
 

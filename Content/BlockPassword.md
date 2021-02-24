@@ -14,4 +14,4 @@ Usage:
 
 Specifying _n_ indicates that a sandboxed program should be permitted to issue requests to change the user account password.
 
-Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Restrictions > Low-Level Access](RestrictionsSettings#lowlevel)
+~~Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Restrictions > Low-Level Access](RestrictionsSettings.md#low-level-access--removed)~~

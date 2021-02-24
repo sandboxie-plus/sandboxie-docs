@@ -45,7 +45,7 @@ Manages software signing, security certificates and software catalogs.. This ser
 
 This service occasionally connects to the Internet address _mscrl.microsoft.com_. This connection is initiated by Microsoft code running within SandboxieCrypto.exe and it is part of the procedure which verifies or revokes digital certificates for Web sites and programs.
 
-This connection is not unique to _SandboxieCrypto.exe_ and is initiated also by the "real" service program running under one of the _svchost.exe_ processes. It is possible to block this connection through [Internet Access Restrictions](RestrictionsSettings#internet) or through a firewall. However, this is not recommended. Please see [Certificate revocation list on Wikipedia](http://en.wikipedia.org/wiki/Certificate_revocation_list) for more information about certificate revocation.
+This connection is not unique to _SandboxieCrypto.exe_ and is initiated also by the "real" service program running under one of the _svchost.exe_ processes. It is possible to block this connection through [Restrictions > Internet Access](RestrictionsSettings.md#internet-access) or through a firewall. However, this is not recommended. Please see [Certificate revocation list on Wikipedia](https://en.wikipedia.org/wiki/Certificate_revocation_list) for more information about certificate revocation.
 
 * * *
 

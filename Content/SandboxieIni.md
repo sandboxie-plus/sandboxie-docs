@@ -8,13 +8,13 @@ As a general rule, manual editing of the configuration file is discouraged. You 
 
 Sandboxie looks for the file Sandboxie.ini in the following folders, in this order:
 * In the Windows folder: C:\WINDOWS on most Windows installation; C:\WINNT on Windows 2000
-* In the Sandboxie installation folder: Typically C:\Program Files\Sandboxie 
+* In the Sandboxie installation folder: typically C:\Program Files\Sandboxie 
 
 The search for Sandboxie.ini ends when an instance of the file is found, and all other instances are ignored.
 
-When [Sandboxie Control](SandboxieControl.md) updates the configuration, it rewrites the file Sandboxie.ini file in the folder from which the configuration was last read. Thus, if the file is manually moved, Sandboxie configuration must be manually [reloaded](ConfigureMenu#reloadconf). (Restarting the computer would have the same effect.)
+When [Sandboxie Control](SandboxieControl.md) updates the configuration, it rewrites the file Sandboxie.ini file in the folder from which the configuration was last read. Thus, if the file is manually moved, Sandboxie configuration must be manually [reloaded](ConfigureMenu.md#reload-configuration). (Restarting the computer would have the same effect.)
 
-**Note:** Sandboxie does not support any other, custom location for the Sandboxie.ini file.
+**Note:** Sandboxie does not support any other custom location for the Sandboxie.ini file.
 
 ## Structure
 
@@ -42,7 +42,6 @@ A simple Sandboxie.ini file may look like this.
    # Sandboxie Control settings for some user
    [UserSettings_054A02CE]
    SbieCtrl_UserName=tzuk
-
 ```
 
 The example shows four sections: The global section (GlobalSettings), two sandbox sections (DefaultBox and InstallBox), and one user account section (UserSettings_054A02CE).
@@ -73,7 +72,7 @@ The file is UNICODE-encoded, which means each character is composed of two bytes
 
 In the example above, the sandbox setting [FileRootPath](FileRootPath.md) appears in [GlobalSettings] and applies to all sandboxes, but note that it is overriden in section [InstallBox].
 
-* Sandbox settings can be applied to a specific program. See [Program Name Prefix](Program-Name-Prefix).
+* Sandbox settings can be applied to a specific program. See [Program Name Prefix](ProgramNamePrefix.md).
 * Some sandbox settings are [Yes Or No Settings](YesOrNoSettings.md).
 * Sandbox settings may specify [Expandable Variables](ExpandableVariables.md) that Sandboxie recognizes. 
 

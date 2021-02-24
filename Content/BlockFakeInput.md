@@ -25,4 +25,4 @@ Specifying _BlockFakeInput=n_ indicates that a sandboxed program should be allow
 
 To experiemnt with this setting, you can run a sandboxed instance of _osk.exe_, the Windows on-screen keyboard.
 
-Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Restrictions > Hardware Access](RestrictionsSettings#hardware)
+Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Restrictions > Hardware Access](RestrictionsSettings.md#hardware-access-has-been-removed-from-sandboxie-v4-and-up)

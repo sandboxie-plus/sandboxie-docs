@@ -26,9 +26,9 @@ Use this settings page to select the folders (or drives) to which Forced Folders
 
 Notes:
 
-*   Forced Folders can be temporarily suspended using the [Disable Forced Programs](FileMenu#disableforce) command.
+*   Forced Folders can be temporarily suspended using the [Disable Forced Programs](FileMenu.md#disable-forced-programs) command.
 
-*   Forced Folders take precedence over [Forced Programs](ProgramStartSettings#program). In other words, when a program matches both a Forced Folders and a Forced Programs setting, the Forced Folder setting will apply, and the Forced Programs setting will be ignored.
+*   Forced Folders take precedence over [Forced Programs](ProgramStartSettings.md#forced-programs). In other words, when a program matches both a Forced Folders and a Forced Programs setting, the Forced Folder setting will apply, and the Forced Programs setting will be ignored.
 
 *   The Forced Folders setting is only available in the registered version of Sandboxie.
 
@@ -46,7 +46,7 @@ You may designate some program names for automatic, or forced, sandboxing. This 
 
 Use this settings page to select the programs that will be forced to run in the sandbox. Use the _Add By Name_ button to enter the program name, or the _Add By File_ button to select the program file through folder navigation.
 
-You can also configure this setting in the [Program Settings](ProgramSetting.md) window.
+You can also configure this setting in the [Program Settings](ProgramSettings.md) window.
 
 
 *   On your "download" folder, where you typically download software from the Internet
@@ -55,9 +55,9 @@ You can also configure this setting in the [Program Settings](ProgramSetting.md)
 
 Notes:
 
-*   Forced Programs can be temporarily suspended using the [Disable Forced Programs](FileMenu#disableforce) command.
+*   Forced Programs can be temporarily suspended using the [Disable Forced Programs](FileMenu.md#disable-forced-programs) command.
 
-*   [Forced Folders](ProgramStartSettings#folder) take precedence over Forced Programs. In other words, when a program matches both a Forced Folders and a Forced Programs setting, the Forced Folder setting will apply, and the Forced Programs setting will be ignored.
+*   [Forced Folders](ProgramStartSettings.md#forced-folders) take precedence over Forced Programs. In other words, when a program matches both a Forced Folders and a Forced Programs setting, the Forced Folder setting will apply, and the Forced Programs setting will be ignored.
 
 *   The Forced Programs setting is only available in the registered version of Sandboxie.
 

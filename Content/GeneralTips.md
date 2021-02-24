@@ -2,7 +2,7 @@
 
 **Automatic Delete Sandbox**
 
-[Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > [Delete](DeleteSettings.md) > [Invocation](DeleteSettings#invocation)
+[Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > [Delete](DeleteSettings.md) > [Invocation](DeleteSettings.md#invocation)
 
 ![](../Media/DeleteInvocationSettings.png)
 

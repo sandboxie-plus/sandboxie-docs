@@ -22,4 +22,4 @@ In effect, this restricts the effect of global hooks to a specific sandbox, and 
 
 Specifying _BlockWinHooks=n_ disables this protection, and allows a sandboxed application to install global hooks into all running applications, both inside and outside the sandbox.
 
-Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Restrictions > Low-Level Access](RestrictionsSettings#lowlevel)
+Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Restrictions > Low-Level Access](RestrictionsSettings.md#low-level-access--removed)

@@ -1,6 +1,6 @@
 # Delete Command
 
-DeleteCommand is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It specifies the command to issue to physically delete the contents of the sandbox. Its primary purpose is to make it possible to plug a third-party secure deletion utility into Sandboxie. [See Secure Delete Sandbox](SeeSecureDeleteSandbox.md).
+DeleteCommand is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It specifies the command to issue to physically delete the contents of the sandbox. Its primary purpose is to make it possible to plug a third-party secure deletion utility into Sandboxie. See [Secure Delete Sandbox](SecureDeleteSandbox.md).
 
 Usage:
 ```
@@ -8,7 +8,7 @@ Usage:
    .
    .
    [DefaultBox]
-   DeleteCommand=%SystemRoot%\System32\cmd.exe /c RMDIR /s /q &quot;%SANDBOX%&quot;
+   DeleteCommand=%SystemRoot%\System32\cmd.exe /c RMDIR /s /q "%SANDBOX%"
 ```
 
 The example is the default setting used when DeleteCommand is not explicitly specified, and invokes the Windows RMDIR command to remove the sandbox folder.
@@ -21,6 +21,6 @@ When specifying this setting, make sure to include **"%SANDBOX%"** (with quote m
 
 ***
 
-Note: Secure deletion is a privacy measure, not a security measure. Both regular deletion and secure deletion effectively remove undesired software that was collected into the sandbox. [See Secure Delete Sandbox](SeeSecureDeleteSandbox.md).
+Note: Secure deletion is a privacy measure, not a security measure. Both regular deletion and secure deletion effectively remove undesired software that was collected into the sandbox. See [Secure Delete Sandbox](SecureDeleteSandbox.md).
 
-Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Delete > Command](DeleteSettings#command) 
+Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Delete > Command](DeleteSettings.md#command)

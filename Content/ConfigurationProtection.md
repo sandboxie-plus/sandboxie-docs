@@ -12,7 +12,7 @@ Either or both modes can be active at the same time.
 
 The protection applies to the **Global Settings**, **Sandbox Settings** and **Template Settings** sections of the [Sandboxie Ini](SandboxieIni.md) configuration file. It does not apply to any **User Settings** sections, which store per-user preferences.
 
-To activate the protection, use the [Sandboxie Control > Configure menu > Lock Configuration](ConfigureMenu#lockconf) command.
+To activate the protection, use the [Sandboxie Control > Configure menu > Lock Configuration](ConfigureMenu.md#lock-configuration) command.
 
 * * *
 

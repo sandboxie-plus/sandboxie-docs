@@ -33,13 +33,13 @@ See also:  [Firefox Tips](FirefoxTips.md)
 
 This settings page offers quick configuration for the following browsers: Internet Explorer, Mozilla Firefox and SeaMonkey, the Opera Web browser, Maxthon 2, and Google Chrome.
 
-Select (highlight) the desired configuration and click the _Add_ button to enable it for this sandbox. If you use non-default locations for the data (profile) folders used by your Web browsers, make sure to also visit the [Applications > Folders](ApplicationsSettings#folders) settings page to specify the alternate locations.
+Select (highlight) the desired configuration and click the _Add_ button to enable it for this sandbox. If you use non-default locations for the data (profile) folders used by your Web browsers, make sure to also visit the [Applications > Folders](ApplicationsSettings.md#folders) settings page to specify the alternate locations.
 
 Two special settings on the Internet Explorer settings page:
 
 *   Save outside sandbox: History of search strings and invoked commands. For detailed information, see [Sandboxie Ini](SandboxieIni.md) setting: [OpenProtectedStorage](OpenProtectedStorage.md).
 *   Save outside sandbox: Account information for Hotmail and Messenger. For detailed information, see [Sandboxie Ini](SandboxieIni.md) setting: [OpenCredentials](OpenCredentials.md).
-*   See also [Save Outside Sandbox in Internet Explorer Tips](InternetExplorerTips#SaveOutsideSandbox) for more information and recommendations.
+*   See also [Save Outside Sandbox in Internet Explorer Tips](InternetExplorerTips.md#save-outside-sandbox) for more information and recommendations.
 
 * * *
 
@@ -69,13 +69,13 @@ You may also need to tell Sandboxie where your mailbox data files reside, in the
 *   If your mailbox resides in a non-default or non-standard location.
 *   If you use the Eudora or The-Bat! email software.
 
-To do that, open [Sandbox Settings > Applications > Folders](ApplicationsSettings.html#folders), select your email software from the drop-down list, and then select a folder location to be associated with it.
+To do that, open [Sandbox Settings > Applications > Folders](ApplicationsSettings.md#folders), select your email software from the drop-down list, and then select a folder location to be associated with it.
 
-After completing the email configuration, you may want to test it, to make sure that even when running under Sandboxie, new emails are not lost when you delete the sandbox. To do that, follow the steps outlined in [Test Email Configuration](TestEmailConfiguration.html).
+After completing the email configuration, you may want to test it, to make sure that even when running under Sandboxie, new emails are not lost when you delete the sandbox. To do that, follow the steps outlined in [Test Email Configuration](TestEmailConfiguration.md).
 
-If your email program is not known to Sandboxie, you can use [Sandbox Settings > Resource Access > File Access > Direct Access](ResourceAccessSettings.html#file) to explicitly add direct access to the folder containing your mailbox data files.
+If your email program is not known to Sandboxie, you can use [Sandbox Settings > Resource Access > File Access > Direct Access](ResourceAccessSettings.md#file-access--direct-access) to explicitly add direct access to the folder containing your mailbox data files.
 
-See also message [SBIE2212](SBIE2212.html), [Email Protection](EmailProtection.html), and [FAQ Email](FAQ_Email.html).
+See also message [SBIE2212](SBIE2212.md), [Email Protection](EmailProtection.md), and [FAQ Email](FAQEmail.md).
 
 * * *
 
@@ -85,7 +85,7 @@ The following settings pages are used to enable configurations for third-party s
 
 Select (highlight) the desired configuration and click the _Open Web Site_ button to visit the vendor Web site for a particular program recognized by Sandboxie.
 
-Select (highlight) the desired configuration and click the _Add_ button to enable it for this sandbox. In some cases, you also specify the locations of the data files used by the third-party software. Use [Applications > Folders](ApplicationsSettings#folders) settings page to specify the alternate locations.
+Select (highlight) the desired configuration and click the _Add_ button to enable it for this sandbox. In some cases, you also specify the locations of the data files used by the third-party software. Use [Applications > Folders](ApplicationsSettings.md#folders) settings page to specify the alternate locations.
 
 * * *
 
@@ -132,4 +132,4 @@ Normally, the isolation of Sandboxie prevents the screen reader from accessing t
 
 Enabling the setting will weaken the protection of the Sandboxie in order to permit two-way communication between the screen reader program and the sandboxed program.
 
-You may wish to enable [Sandbox Settings > Restrictions > Drop Rights](RestrictionsSettings#drop) to compensate for the lost protection.
+You may wish to enable [Sandbox Settings > Restrictions > Drop Rights](RestrictionsSettings.md#drop-rights) to compensate for the lost protection.

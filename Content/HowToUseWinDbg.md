@@ -1,19 +1,20 @@
 # How To Use Win Dbg
 
-In some rare cases, programs running under the supervision of Sandboxie might not work correctly, without providing any hint to the cause of the malfunction. In these cases, Microsoft's free [Debugging Tools for Windows](http://www.microsoft.com/whdc/DevTools/Debugging/default.mspx) can help to shed more light on the problem or even to identify the cause of the problem.
+In some rare cases, programs running under the supervision of Sandboxie might not work correctly, without providing any hint to the cause of the malfunction. In these cases, Microsoft's free [Debugging Tools for Windows](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/debugger-download-tools) can help to shed more light on the problem or even to identify the cause of the problem.
 
 * * *
 
-Download and install the latest release of the Debugging Tools for Windows from the following web page:
+Download and install the latest release of _Windows 10 SDK_ from the following web page:
 
-[http://msdn.microsoft.com/en-us/windows/hardware/gg463016.aspx#ERD](http://msdn.microsoft.com/en-us/windows/hardware/gg463016.aspx#ERD) (32-bit)  
-[http://msdn.microsoft.com/en-us/windows/hardware/gg463012.aspx#EIF](http://msdn.microsoft.com/en-us/windows/hardware/gg463012.aspx#EIF) (64-bit)
+[https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk) (both 32-bit and 64-bit)
 
-You probably should get the 32-bit debugger, even on 64-bit Windows. You only need the 64-bit debugger to debug 64-bit programs.
+If you just need the _Debugging Tools for Windows_, you can install the debugging tools as a standalone component.
 
-The package installs into _C:\Program Files\Debugging Tools for Windows_ by default.
+The package installs into _C:\Program Files (x86)\Windows Kits\10\Debuggers_ by default.
 
-The package creates an application group called _Debugging Tools for Windows_ in the Windows Start menu. The application group contains the program _WinDbg_.
+The package creates an application group called _Windows Kits_ in the Windows Start menu. The application group contains the program _WinDbg_.
+
+You probably should use the 32-bit debugger, even on 64-bit Windows. You only need to use the 64-bit debugger to debug 64-bit programs. For more information, see [Choosing the 32-Bit or 64-Bit Debugging Tools](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/choosing-a-32-bit-or-64-bit-debugger-package).
 
 * * *
 
@@ -23,7 +24,7 @@ Start the debugger under Sandboxie by using the Sandboxie Start menu.
 
 [Sandboxie Control](SandboxieControl.md) > [Sandbox Menu](SandboxMenu.md) > Run From Start Menu
 
-Then navigate the Sandboxie Start menu to locate and invoke the _WinDbg_ program within the _Debugging Tools for Windows_ group.
+Then navigate the Sandboxie Start menu to locate and invoke the _WinDbg_ program within the _Windows Kits_ group.
 
 The WinDbg debugger should start and open its main window.
 
@@ -41,7 +42,7 @@ Use the Debug menu > Go command to begin the execution of the program. (You can 
 
 In this scenario, you already used Sandboxie to start the program, and the program is already running.
 
-Start the debugger normally from the Windows Start menu: Locate and invoke the _WinDbg_ program within the _Debugging Tools for Windows_ group.
+Start the debugger normally from the Windows Start menu: Locate and invoke the _WinDbg_ program within the _Windows Kits_ group.
 
 The WinDbg debugger should start and open its main window.
 
@@ -69,7 +70,7 @@ Once the program exhibits the problem, switch back to the WinDbg debugger comman
 When the debugger status line no longer says *BUSY*, enter the following commands. Enter one command at a time, then press Enter.
 
 ```
-    .sympath srv*C:\Windows\Symbols*[http://msdl.microsoft.com/download/symbols](http://msdl.microsoft.com/download/symbols)
+    .sympath srv*C:\Symbols*https://msdl.microsoft.com/download/symbols
     .reload
     ~* k 99
 ```

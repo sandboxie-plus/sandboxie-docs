@@ -30,7 +30,7 @@ Rootkit key-loggers record keystrokes at the lowest software level, typically by
 
 Once installed, this class of key-loggers may provide the best logging facilities, and may be difficult to get rid of. But to be installed in the first place, this key-logger needs the explicit help of the operating system, and so is easily blocked by Sandboxie.
 
-~~If such a key-logger attempts to install, Sandboxie should report an informational message [SBIE2103](SBIE2103.md), unless the [BlockDrivers](BlockDrivers.md) setting (see also [Sandbox Settings > Restrictions > Low-Level Access](RestrictionsSettings#lowlevel)) was explicitly used to disable this protection.~~
+~~If such a key-logger attempts to install, Sandboxie should report an informational message [SBIE2103](SBIE2103.md), unless the [BlockDrivers](BlockDrivers.md) setting (see also [Sandbox Settings > Restrictions > Low-Level Access](RestrictionsSettings.md#low-level-access--removed)) was explicitly used to disable this protection.~~
 
 ### Windows Hook Key-Loggers
 
@@ -42,7 +42,7 @@ It is not uncommon for applications to install such hooks as part of normal oper
 
 ~~The approach Sandboxie takes is to honor the hook request partially, by applying the hook only to applications in the same sandbox as the requesting application.~~
 
-~~The [BlockWinHooks](BlockWinHooks.md) setting (see also [Sandbox Settings > Restrictions > Low-Level Access](RestrictionsSettings#lowlevel)) may be used to explicitly disable this protection.~~
+~~The [BlockWinHooks](BlockWinHooks.md) setting (see also [Sandbox Settings > Restrictions > Low-Level Access](RestrictionsSettings.md#low-level-access--removed)) may be used to explicitly disable this protection.~~
 
 ### Windows Message Key-Loggers
 

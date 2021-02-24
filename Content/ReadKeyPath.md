@@ -17,4 +17,4 @@ This example forces the _Policies_ key, and everything below it, to be readable,
 
 Note: _ReadKeyPath_ is a restricted form of [OpenKeyPath](OpenKeyPath.md). As with _OpenKeyPath_, any already-existing sandboxed contents for the specified file or folder locations, are ignored.
 
-Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Resource Access > Registry Access > Read-Only Access](ResourceAccessSettings#key)
+Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Resource Access > Registry Access > Read-Only Access](ResourceAccessSettings.md#registry-access--read-only-access)

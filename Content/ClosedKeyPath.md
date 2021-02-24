@@ -22,7 +22,7 @@ The value specified for _ClosedKeyPath_ can include wildcards, although for regi
 
 **Note:** Unlike the corresponding [OpenKeyPath](OpenKeyPath.md) setting, the _ClosedKeyPath_ settings always applies to sandboxed programs, whether the program executable file resides within the sandbox, or out of it.
 
-Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Resource Access > Registry Access > Blocked Access](ResourceAccessSettings#key)
+Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Resource Access > Registry Access > Blocked Access](ResourceAccessSettings.md#registry-access--blocked-access)
 
 * * *
 
