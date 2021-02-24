@@ -4,8 +4,8 @@ The System Event Log is a component of Windows whichs collects informational and
 
 Windows Start Menu > Control Panel > Administrative Tools > Event Viewer
 
-For more information about the System Event Log, see [Event Viewer in Wikipedia](http://en.wikipedia.org/wiki/Event_Viewer).
+For more information about the System Event Log, see [Event Viewer in Wikipedia](https://en.wikipedia.org/wiki/Event_Viewer).
 
 If any Sandboxie messages are issued due to an error which prevents successful initialization, [Sandboxie Control](SandboxieControl.md) will display a flashing exclamation mark icon. Right-click the flashing icon and select _Show Errors_ to view any related messages.
 
-See also: [SBIE Messages](SBIE_Messages).
+See also: [SBIE Messages](SBIEMessages.md).

@@ -17,7 +17,7 @@ The _Terminate All Programs_ command immediately stops all programs running in a
 
 This warning refers to, for example, any open documents which will not be saved. This warning can be disabled by selecting the checkbox at the bottom: _In the future, terminate processes without asking._
 
-See also: [Terminate All Programs](TrayIconMenu#termall) in [Tray Icon Menu](TrayIconMenu.md).
+See also: [Terminate All Programs](TrayIconMenu.md#terminate-all-programs) in [Tray Icon Menu](TrayIconMenu.md).
 
 * * *
 
@@ -25,7 +25,7 @@ See also: [Terminate All Programs](TrayIconMenu#termall) in [Tray Icon Menu](Tra
 
 [Sandboxie Control](SandboxieControl.md) > [File Menu](FileMenu.md) > Disable Forced Programs
 
-The _Disable Forced Programs_ toggle command temporarily disables or re-enables forced sandboxing. Normally, any [forced programs](ProgramStartSettings#program) (or programs in any [forced folders](ProgramStartSettings#folder))will automatically start under the supervision of Sandboxie. Forced sandboxing is temporarily suspended when the Disable Forced Programs command is invoked.
+The _Disable Forced Programs_ toggle command temporarily disables or re-enables forced sandboxing. Normally, any [forced programs](ProgramStartSettings.md#forced-programs) (or programs in any [forced folders](ProgramStartSettings.md#forced-folders)) will automatically start under the supervision of Sandboxie. Forced sandboxing is temporarily suspended when the Disable Forced Programs command is invoked.
 
 By default, forced sandboxing is suspended for 10 seconds. The number of seconds can be changed in the following dialog box, which appears when you select this command.
 
@@ -40,7 +40,7 @@ For the duration that the Disable Forced Programs mode is in effect:
 *   Message [SBIE1301](SBIE1301.md) will be issued if any forced programs are started.
 *   Selecting this command again will cancel the mode, restore the icon to its original appearance, and resume the normal operation of forced sandboxing.
 
-See also: [Disable Forced Programs](TrayIconMenu#disableforce) in [Tray Icon Menu](TrayIconMenu.md).
+See also: [Disable Forced Programs](TrayIconMenu.md#disable-forced-programs) in [Tray Icon Menu](TrayIconMenu.md).
 
 * * *
 
@@ -52,7 +52,7 @@ The _Run As UAC Administrator_ toggle command tells Sandboxie to ask for elevati
 
 There is no window associated with this command. However, while the _Run As UAC Administrator_ is in effect, the command appears in the [File Menu](FileMenu.md) and [Tray Icon Menu](TrayIconMenu.md) with a checkmark next to it.
 
-See also: [Run As UAC Administrator](TrayIconMenu#uac) in [Tray Icon Menu](TrayIconMenu.md).
+See also: [Run As UAC Administrator](TrayIconMenu.md#run-as-uac-administrator) in [Tray Icon Menu](TrayIconMenu.md).
 
 * * *
 
@@ -92,4 +92,4 @@ If you do not wish to see Sandboxie Control in your system tray area, consider c
 
 * * *
 
-Go to [Sandboxie Control](SandboxieControl#menus), [Tray Icon Menu](TrayIconMenu.md), [Help Topics](HelpTopics.md).
+Go to [Sandboxie Control](SandboxieControl.md#menus), [Tray Icon Menu](TrayIconMenu.md), [Help Topics](HelpTopics.md).

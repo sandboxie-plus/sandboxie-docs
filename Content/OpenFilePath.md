@@ -32,4 +32,4 @@ The fourth example combines the previous two examples, by showing a path contain
 
 A setting similar to _OpenFilePath_, which is _always_ applied, is [OpenPipePath](OpenPipePath.md).
 
-Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Resource Access > File Access > Direct Access](ResourceAccessSettings#file)
+Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Resource Access > File Access > Direct Access](ResourceAccessSettings.md#file-access--direct-access)

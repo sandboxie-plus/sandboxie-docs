@@ -18,5 +18,5 @@ Specifically, the security credentials used to start the sandboxed program will 
 
 Note that this has little effect if you are already running under a non-Administrator user account.
 
-Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Restrictions > Drop Rights](RestrictionsSettings#drop)
+Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Restrictions > Drop Rights](RestrictionsSettings.md#drop-rights)
 

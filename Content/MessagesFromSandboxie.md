@@ -1,6 +1,6 @@
 # Messages From Sandboxie
 
-The _Messages From Sandboxie_ window is displayed automatically whenever Sandboxie logs at least one error or informational message. (For more information about Sandboxie messages, [SBIE Messages](SBIE_Messages).)
+The _Messages From Sandboxie_ window is displayed automatically whenever Sandboxie logs at least one error or informational message. (For more information about Sandboxie messages, [SBIE Messages](SBIEMessages.md).)
 
 The window displays one message per line, as in the example below.
 

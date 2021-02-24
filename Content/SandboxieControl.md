@@ -58,11 +58,11 @@ To quit Sandboxie Control and remove its tray icon from the system notification 
 
 *   [Sandbox Settings](SandboxSettings.md)
 
-*   [Disable Forced Programs](FileMenu#disableforce)
+*   [Disable Forced Programs](FileMenu.md#disable-forced-programs)
 
-*   [Shell Integration](ConfigureMenu#shell)
+*   [Shell Integration](ConfigureMenu.md#windows-shell-integration)
 
-*   [Is Window Sandboxed?](FileMenu#iswindow)
+*   [Is Window Sandboxed?](FileMenu.md#is-window-sandboxed)
 
 * * *
 

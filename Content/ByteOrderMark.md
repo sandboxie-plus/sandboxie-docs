@@ -12,9 +12,9 @@ Usage:
    ByteOrderMark=yes
 ```
 
-This setting must be edited into [Sandboxie Ini](SandboxieIni.md), then Sandboxie configuration must be manually [reloaded](ConfigureMenu#reloadconf). Following this, the next time [Sandboxie Control](SandboxieControl.md) rewrites the configuration, it will insert the UNICODE BOM character into the very first two bytes in the [Sandboxie Ini](SandboxieIni.md) configuration file, thus: (hex.) FF FE.
+This setting must be edited into [Sandboxie Ini](SandboxieIni.md), then Sandboxie configuration must be manually [reloaded](ConfigureMenu.md#reload-configuration). Following this, the next time [Sandboxie Control](SandboxieControl.md) rewrites the configuration, it will insert the UNICODE BOM character into the very first two bytes in the [Sandboxie Ini](SandboxieIni.md) configuration file, thus: (hex.) FF FE.
 
 You need only bother with this setting if both these statements are true:
 
 *   You plan to edit the [Sandboxie Ini](SandboxieIni.md) file manually;
-*   Your text editor cannot recognize that [Sandboxie Ini](SandboxieIni.) file is a UNICODE text file.
+*   Your text editor cannot recognize that [Sandboxie Ini](SandboxieIni.md) file is a UNICODE text file.

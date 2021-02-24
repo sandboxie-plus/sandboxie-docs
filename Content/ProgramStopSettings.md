@@ -44,7 +44,7 @@ When this sandboxed program ends, Sandboxie will stop all other programs in the 
 
 Use this settings page to identify those programs that should be considered primary programs in the sandbox, such that whenever they finish and stop, all other programs in the sandbox are stopped as well.
 
-For example, if you have a sandbox dedicated for Web browsing, then rather than listing all possible lingering programs (see [Lingering Programs](ProgramStopSettings#linger) above for a discussion of a lingering program),you can list just the Web browser program as the leader program.
+For example, if you have a sandbox dedicated for Web browsing, then rather than listing all possible lingering programs (see [Lingering Programs](ProgramStopSettings.md#lingering-programs) above for a discussion of a lingering program),you can list just the Web browser program as the leader program.
 
 You can also configure this setting in the [Program Settings](ProgramSettings.md) window.
 

@@ -28,7 +28,7 @@ This behavior can be changed by altering a setting. In the main window of [Sandb
 
 ![](../Media/SettingsMenu.png)
 
-The [Sandbox Settings](SandboxSettings.md) window appears. Click on _Delete_ to expand the delete settings group, then on _Invocation_ to show the [Delete > Invocation](DeleteSettings#invocation) settings page:
+The [Sandbox Settings](SandboxSettings.md) window appears. Click on _Delete_ to expand the delete settings group, then on _Invocation_ to show the [Delete > Invocation](DeleteSettings.md#invocation) settings page:
 
 ![](../Media/SettingsDelete.png)
 

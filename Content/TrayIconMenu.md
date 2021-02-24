@@ -18,7 +18,7 @@ One or more sub-menus appear for each sandbox defined. The default configuration
 
 *   The _Run Web Browser_ command starts the system (default) Web browser.  
     Same as [Sandbox Menu](SandboxMenu.md) -> _(sandbox)_ -> Run Sandboxed -> Web Browser.  
-    (Note: If the wrong program starts, use the [Default Browser utility](http://windowsxp.mvps.org/defaultbrowser.htm) to fix this.)
+    (Note: If the wrong program starts, see [Frequently Asked Questions](FrequentlyAskedQuestions.md#why-does-the-wrong-program-start-when-i-run-my-default-web-browser-sandboxed) to fix this.)
 
 *   The _Run Email Reader_ command starts the system (default) email reader.  
     Same as [Sandbox Menu](SandboxMenu.md) -> _(sandbox)_ -> Run Sandboxed -> Email Reader.
@@ -51,7 +51,7 @@ One or more sub-menus appear for each sandbox defined. The default configuration
 The _Terminate All Programs_ command stops all programs running in all sandboxes.  
 Same as [File Menu](FileMenu.md) -> Terminate All Programs.
 
-See also: [Terminate All Programs](FileMenu#termall) in [File Menu](FileMenu.md).
+See also: [Terminate All Programs](FileMenu.md#terminate-all-programs) in [File Menu](FileMenu.md).
 
 * * *
 
@@ -60,7 +60,7 @@ See also: [Terminate All Programs](FileMenu#termall) in [File Menu](FileMenu.md)
 The _Disable Forced Programs_ toggle command temporarily disables and re-enables forced sandboxing. See the associated command in the [File Menu](FileMenu.md). Note that unlike the File Menu command, the tray icon command does not show a dialog box to alter the duration of the command. Instead, forced sandboxing will be suspended for the last duration specified, or the default of 10 seconds.  
 Same as [File Menu](FileMenu.md) -> Disable Forced Programs.
 
-See also: [Disable Forced Programs](FileMenu#disableforce) in [File Menu](FileMenu.md).
+See also: [Disable Forced Programs](FileMenu.md#disable-forced-programs) in [File Menu](FileMenu.md).
 
 * * *
 
@@ -69,7 +69,7 @@ See also: [Disable Forced Programs](FileMenu#disableforce) in [File Menu](FileMe
 The _Run As UAC Administrator_ (not shown in the picture; see [File Menu](FileMenu.md)) toggle command tells Sandboxie to ask for elevation to Administrative privileges before starting any programs. This command is only available on Windows Vista when User Account Controls (UAC) is in effect, and the user account is not already elevated. If this command is available in the menu, then it is typically necessary to enable it before installing programs into the sandbox, and it is recommended to disable it when that installation is complete.  
 Same as [File Menu](FileMenu.md) -> Run As UAC Administrator.
 
-See also: [Run As UAC Administrator](FileMenu.ml#uac) in [File Menu](FileMenu.md).
+See also: [Run As UAC Administrator](FileMenu.md#run-as-uac-administrator) in [File Menu](FileMenu.md).
 
 * * *
 
@@ -80,5 +80,5 @@ Same as [File Menu](FileMenu.md) -> Exit.
 
 * * *
 
-Go to [Sandboxie Control](SandboxieControl#menus), [Help Topics](HelpTopics.md).
+Go to [Sandboxie Control](SandboxieControl.md#menus), [Help Topics](HelpTopics.md).
 

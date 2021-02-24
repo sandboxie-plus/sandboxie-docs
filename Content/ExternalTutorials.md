@@ -8,13 +8,15 @@ Other web sites offer more tutorials:
 
 **English**
 
-[Introduction to Sandboxie by Free PC Security](http://freepcsecurity.co.uk/2008/07/09/sandbox-your-surfing-for-security-with-sandboxie/) (Video and Text)
+[An Introduction and a Quick Guide to Sandboxie](https://www.techsupportalert.com/content/introduction-and-quick-guide-sandboxie.htm) (Tutorial)
 
-[Introduction to Sandboxie by Madison Computer Works](http://madisoncomputerworks.com/sbieflash/) (Video)
+[Using SANDBOXIE to Safely Browse the Internet (PDF)](http://www.jimopi.net/PDFs/Word%20Pro%20-%20Sandboxie.pdf) (PDF)
 
-[An Introduction and a Quick Guide to Sandboxie](http://www.techsupportalert.com/content/introduction-and-quick-guide-sandboxie.htm)
+[Sandboxie Isolation Demonstration](https://www.youtube.com/watch?v=9ZF9c03PN8I) (Video)
 
-[Using SANDBOXIE to Safely Browse the Internet (PDF)](http://www.jimopi.net/PDFs/Word%20Pro%20-%20Sandboxie.pdf) on [Jim McKnight's PC Self-Help Tips](http://www.jimopi.net/indexSupport)
+[ToolKit Item: Sandboxie by Guest Author Bo Elam](https://win10.guru/toolkit-item-sandboxie-by-guest-author-bo-elam) (Article)
+
+[Sandboxie Plus is an open source fork of Sandboxie with a modern interface](https://www.ghacks.net/2021/01/29/sandboxie-plus-is-an-open-source-fork-of-sandboxie-with-a-modern-interface/) (Article)
 
 **German**
 

@@ -2,13 +2,13 @@
 
 ## Tips Specific to Internet Explorer
 
-[Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > [Applications > Web Browser > Internet Explorer](ApplicationsSettings#web)
+[Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > [Applications > Web Browser > Internet Explorer](ApplicationsSettings.md#web-browser)
 
 ![](../Media/WebBrowserSettings1.png)
 
 * * *
 
-**Always Run In Sandbox**
+#### Always Run In Sandbox
 
 *   Setting: Force Internet Explorer to run in this sandbox (Registered version only)
 
@@ -16,7 +16,7 @@ This setting tells Sandboxie to automatically supervise any instance of Internet
 
 * * *
 
-**Windows Vista/7 with UAC Enabled**
+#### Windows Vista/7 with UAC Enabled
 
 In Windows Vista or Windows 7 with UAC enabled, Internet Explorer maintains two sets of configurations: Normal configuration and administrator configuration. Each set contains its own cookies, home pages and some other settings. When you normally launch Internet Explorer, you get the normal configuration. When you right-click Internet Explorer and select the _Run as administrator_ action, you get the administrator configuration.
 
@@ -24,15 +24,15 @@ Under Sandboxie, Internet Explorer selects the Administrator configuration. (But
 
 * * *
 
-**Windows Update on Windows XP**
+#### Windows Update on Windows XP
 
-When you wish to visit the Windows Update web site, you should run Internet Explorer outside the sandbox. If Internet Explorer is forced to always run under Sandboxie (as discussed above), then use the [Disable Forced Programs](FileMenu#disableforce) command to disable forced sandboxing before and after visiting the Windows Update web site.
+When you wish to visit the Windows Update web site, you should run Internet Explorer outside the sandbox. If Internet Explorer is forced to always run under Sandboxie (as discussed above), then use the [Disable Forced Programs](FileMenu.md#disable-forced-programs) command to disable forced sandboxing before and after visiting the Windows Update web site.
 
 Note the Automatic Updates facility in Windows does not rely on Internet Explorer and should not be affected by any Sandboxie settings related to Internet Explorer. Similarly, the Windows Updates window in Windows Vista also does not rely on Internet Explorer and is also not affected by Sandboxie.
 
 * * *
 
-**Favorites**
+#### Favorites
 
 *   Setting: Allow direct access to Internet Explorer favorites
 *   Setting: Add Internet Explorer favorites to Quick Recovery folders
@@ -47,7 +47,7 @@ The first setting is more flexible in that you can add, edit and delete favorite
 
 * * *
 
-**Cookies**
+#### Cookies
 
 *   Setting: Allow direct access to Internet Explorer cookies
 
@@ -62,7 +62,7 @@ An alternative approach is to this setting is to visit your favorite sites once 
 
 * * *
 
-**Feeds**
+#### Feeds
 
 *   Setting: Allow direct access to Internet Explorer feeds
 
@@ -74,7 +74,7 @@ Internet Explorer perdiocally checks its feeds from a component which is running
 
 * * *
 
-**Save Outside Sandbox**
+#### Save Outside Sandbox
 
 *   Setting: Save outside sandbox: History of search strings and invoked commands.
 *   Setting: Save outside sandbox: Account information for Hotmail and Messenger.
@@ -89,9 +89,9 @@ The second setting allows Internet Explorer running under Sandboxie to store "Cr
 
 ## General Tips
 
-**Automatic Delete Sandbox**
+#### Automatic Delete Sandbox
 
-[Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > [Delete](DeleteSettings.md) > [Invocation](DeleteSettings#invocation)
+[Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > [Delete](DeleteSettings.md) > [Invocation](DeleteSettings.md#invocation)
 
 ![](../Media/DeleteInvocationSettings.png)
 
@@ -101,9 +101,9 @@ This setting tells Sandboxie to delete the sandbox whenever all programs in the 
 
 * * *
 
-**Highlight Windows of Programs Running Under Sandboxie**
+#### Highlight Windows of Programs Running Under Sandboxie
 
-[Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.html) > [Appearance Settings](AppearanceSettings.md)
+[Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > [Appearance Settings](AppearanceSettings.md)
 
 ![](../Media/AppearanceSettings.png)
 

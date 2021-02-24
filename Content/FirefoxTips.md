@@ -2,7 +2,7 @@
 
 ## Tips Specific to Firefox
 
-[Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > [Applications > Web Browser > Firefox](ApplicationsSettings#web)
+[Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > [Applications > Web Browser > Firefox](ApplicationsSettings.md#firefox)
 
 ![](../Media/WebBrowserSettings2.png)
 
@@ -10,7 +10,7 @@
 
 **Always Run In Sandbox**
 
-*   Setting: Force Firefox to run in this sandbox (Registered version only)
+*   Setting: Force Firefox to run in this sandbox
 
 This setting tells Sandboxie to automatically supervise any instance of Firefox as it starts, even if it was not started directly through a Sandboxie facility or command.
 
@@ -20,7 +20,7 @@ This setting tells Sandboxie to automatically supervise any instance of Firefox 
 
 In the default configuration, any updates to Firefox or its add-ons will happen only within the sandbox. When the sandbox is deleted, all such updates will be deleted as well. To avoid this problem, you should run Firefox outside the sandbox when you recognize that any updates are available. Let the normal Firefox finish updating, including any necessary restarts of Firefox. Finally, exit Firefox and restart it under Sandboxie.
 
-If Firefox is forced to always run under Sandboxie (as discussed above), use the [Disable Forced Programs](FileMenu#disableforce) command to disable forced sandboxing for a duration of several minutes. Then follow the procedure in the preceding paragraph. Finally, use the _Disable Forced Programs_ command again to resume forced sandboxing.
+If Firefox is forced to always run under Sandboxie (as discussed above), use the [Disable Forced Programs](FileMenu.md#disable-forced-programs) command to disable forced sandboxing for a duration of several minutes. Then follow the procedure in the preceding paragraph. Finally, use the _Disable Forced Programs_ command again to resume forced sandboxing.
 
 * * *
 
@@ -30,14 +30,14 @@ If Firefox is forced to always run under Sandboxie (as discussed above), use the
 
 This setting allows Firefox running under Sandboxie to store bookmarks outside the sandbox, so they can persist even after the sandbox is deleted. When this option is not set, bookmarks are stored only in the sandbox, and will be deleted when the sandbox is deleted.
 
-Note that in Firefox 3, the same file (called _places.sqlite_) stores both bookmarks and the history of visited sites. Therefore this setting will cause Firefox to also store the history of visited outside the sandbox.
+Please note that, starting from Firefox 3, the same file (called _places.sqlite_) stores both bookmarks and the history of visited sites. Therefore this setting will cause Firefox to also store the history of visited outside the sandbox.
 
-One approach to this is to install the [PlainOldFavorites](https://addons.mozilla.org/en-US/firefox/addon/668) add-on, which lets Firefox create and manage Internet Explorer-style Favorites in addition to Mozilla-style bookmarks. Then consult the discussion on favorites in [Internet Explorer Tips](InternetExplorerTips.md).
+~~One approach to this is to install the [PlainOldFavorites](https://www.iosart.com/firefox/plainoldfavorites) add-on, which lets Firefox create and manage Internet Explorer-style Favorites in addition to Mozilla-style bookmarks. Then consult the discussion on favorites in [Internet Explorer Tips](InternetExplorerTips.md#favorites).~~
 
 **Bottom line:**
 
-*   If you don't mind the extra add-on, install PlainOldFavorites to enhance Firefox with Internet Explorer-style favorites, then read the recommendations for handling favorites in [Internet Explorer Tips](InternetExplorerTips.md).
-*   But if you are happy with Firefox bookmarks, then select this setting.
+~~*   If you don't mind the extra add-on, install PlainOldFavorites to enhance Firefox with Internet Explorer-style favorites, then read the recommendations for handling favorites in [Internet Explorer Tips](InternetExplorerTips.md).~~
+*   If you are happy with Firefox bookmarks, then select this setting.
 
 * * *
 
@@ -45,7 +45,7 @@ One approach to this is to install the [PlainOldFavorites](https://addons.mozill
 
 *   Setting: Allow direct access to Firefox cookies
 
-This setting allows Firefox running under Sandboxie to store cookies outside the sandbox (in a file called _cookies.sqllite_), so they can persist even after the sandbox is deleted. When this option is not set, cookies are stored only in the sandbox, and will be deleted when the sandbox is deleted.
+This setting allows Firefox running under Sandboxie to store cookies outside the sandbox (in a file called _cookies.sqlite_), so they can persist even after the sandbox is deleted. When this option is not set, cookies are stored only in the sandbox, and will be deleted when the sandbox is deleted.
 
 An alternative approach is to this setting is to visit your favorite sites once with a normal Firefox, to get these sites to remember you in their cookies. Then switch to a Firefox under Sandboxie, so any new cookies are kept the sandbox until you delete the sandbox.
 
@@ -80,7 +80,7 @@ This setting allows Firefox running under Sandboxie to have access to any data f
 
 **Automatic Delete Sandbox**
 
-[Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > [Delete](DeleteSettings.md) > [Invocation](DeleteSettings#invocation)
+[Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > [Delete](DeleteSettings.md) > [Invocation](DeleteSettings.md#invocation)
 
 ![](../Media/DeleteInvocationSettings.png)
 

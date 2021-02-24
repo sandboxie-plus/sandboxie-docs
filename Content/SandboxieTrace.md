@@ -1,6 +1,6 @@
 # Sandboxie Trace
 
-**The Sandboxie trace facility is deprecated. Please see [Resource Access Monitor](ResourceAccessMonitor.html) for a more advanced solution.**
+**Please see [Resource Access Monitor](ResourceAccessMonitor.md) for a more advanced solution.**
 
 ### Overview
 
@@ -37,9 +37,9 @@ Then use Sandboxie Control to reload the configuration.
 
 ### Review the Trace for **IpcTrace** and **PipeTrace**
 
-The information collected by the Sandboxie trace facility is logged in the system debugger log. You will need a utility to display this log: [DebugView](http://technet.microsoft.com/en-us/sysinternals/bb896647) from Sysinternals (now Microsoft) is recommended.
+The information collected by the Sandboxie trace facility is logged in the system debugger log. You will need a utility to display this log: [DebugView](https://docs.microsoft.com/it-it/sysinternals/downloads/debugview) from Sysinternals (now Microsoft) is recommended.
 
-(On Windows Vista, output from the system debugger log is disabled by default. [This blog post](http://blogs.msdn.com/doronh/archive/2006/11/14/where-did-my-debug-output-go-in-vista.aspx) explains how to enable the output.)
+(On Windows Vista, output from the system debugger log is disabled by default. [This blog post](https://web.archive.org/web/20080731211018/http://blogs.msdn.com:80/doronh/archive/2006/11/14/where-did-my-debug-output-go-in-vista.aspx) explains how to enable the output.)
 
 The trace will display output in the following format. (Assuming **IpcTrace**, and **PipeTrace** enabled.)
 
@@ -97,7 +97,7 @@ When **GuiTrace** is enabled, the trace also produces entires like the following
 
 These entries have a few formats. The first word after (GA) or (GD) identifies the type of the entry.
 
-When the first word is _WinHook_ or _AccHook_, the entry indicates installation of a hook. Its installation is permitted for (GA) entries, and denied for (GD) entries. _WinHook_ is a standard Windows hook, followed by the type of the hook (see [SetWidowsHookEx in MSDN](http://www.google.com/search?hl=en&q=setwindowshookex+msdn)). _AccHook_ is an accessability hook (see [SetWinEventHook in MSDN](http://www.google.com/search?hl=en&q=setwineventhook+msdn)).
+When the first word is _WinHook_ or _AccHook_, the entry indicates installation of a hook. Its installation is permitted for (GA) entries, and denied for (GD) entries. _WinHook_ is a standard Windows hook, followed by the type of the hook (see [SetWidowsHookEx in MSDN](https://www.google.com/search?hl=en&q=setwindowshookex+msdn)). _AccHook_ is an accessability hook (see [SetWinEventHook in MSDN](https://www.google.com/search?hl=en&q=setwineventhook+msdn)).
 
 Both entries identify the thread number (tid) process number (pid) into which the hook was to be installed.
 
