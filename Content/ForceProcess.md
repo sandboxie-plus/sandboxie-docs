@@ -19,6 +19,6 @@ Note that the _ForceProcess_ settings only apply to programs that start unsandbo
 
 See also: [ForceFolder](ForceFolder.md). If both a _ForceFolder_ and a _ForceProcess_ are applicable to a program that is starting, the ForceFolder setting takes precedence.
 
-Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Program Start > Forced Programs](ProgramStartSettings#program)
+Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Program Start > Forced Programs](ProgramStartSettings.md#forced-programs)
 
-See also: [Program Settings](ProgramSettings#force).
+See also: [Program Settings](ProgramSettings.md#page-1).

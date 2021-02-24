@@ -11,4 +11,4 @@ Usage:
    NotifyInternetAccessDenied=y
 ```
 
-Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Restrictions > Internet Access](RestrictionsSettings#internet) Related [Sandboxie Control](SandboxieControl.md) setting: [Program Settings](ProgramSettings#page2)
+Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Restrictions > Internet Access](RestrictionsSettings.md#internet-access) Related [Sandboxie Control](SandboxieControl.md) setting: [Program Settings](ProgramSettings.md#page-2)

@@ -8,8 +8,8 @@ The best application example is Internet Explorer version 6, which uses PStore t
 
 (Note that Internet Explorer version 7 still encrypts this information, but no longer uses PStore to do it. Presumably this is an effort to hide the sensitive information from other programs -- most likely spyware that may be running in the same user account.)
 
-Sandboxie can provide its own implementation of PStore, for sandboxed applications. This is the default setting, unless altered in [Sandbox Settings > Applications > Web Browsers](ApplicationsSettings#web).
+Sandboxie can provide its own implementation of PStore, for sandboxed applications. This is the default setting, unless altered in [Sandbox Settings > Applications > Web Browser](ApplicationsSettings.md#web-browser).
 
-The Sandboxie PStore is stored in the file _SbiePst.dat_ in the **sandboxed**_Windows_ folder. (This would be _Winnt_ on Windows 2000 system.)
+The Sandboxie PStore is stored in the file _SbiePst.dat_ in the **sandboxed** _Windows_ folder. (This would be _Winnt_ on Windows 2000 system.)
 
 The Sandboxie implementation of PStore encrypts data using a _much weaker_ method than what the system security component would have done. However, information entered into the Sandboxie PStore will likely disappear quickly, as part of the process of deleting the sandbox.

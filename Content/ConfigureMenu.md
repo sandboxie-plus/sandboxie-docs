@@ -20,7 +20,7 @@ The _Program Alerts_ command opens the following window in which you can configu
 *   Mozilla Firefox is typically found in the folder _C:\Program Files\Mozilla Firefox_.
 
 
-If the desired program is already running sandboxed, you can also use [Program Settings](ProgramSettings#page1) to specify that message [SBIE1301](SBIE1301.md) should be issued for the program.
+If the desired program is already running sandboxed, you can also use [Program Settings](ProgramSettings.md#page-1) to specify that message [SBIE1301](SBIE1301.md) should be issued for the program.
 
 Related [Sandboxie Ini](SandboxieIni.md) setting: [AlertProcess](AlertProcess.md).
 
@@ -37,7 +37,7 @@ The _Windows Shell Integration_ command opens a window which controls how [Sandb
 
 *   _When Windows starts_ will integrate [Sandboxie Control](SandboxieControl.md) into the startup sequence
 
-*   _When a sandboxed program starts_ will start [Sandboxie Control](SandboxieControl.md) (if it is not already running) when a sandboxed program starts. This applies to programs that are started explicitly through Sandboxie, such as when using the [Run Sandboxed](SandboxMenu#sandbox) commands, or shortcuts created using _Add Shortcut Icons_ (see below). It also applies to [forced programs](ProgramStartSettings#program) and [forced folders](ProgramStartSettings#folder).
+*   _When a sandboxed program starts_ will start [Sandboxie Control](SandboxieControl.md) (if it is not already running) when a sandboxed program starts. This applies to programs that are started explicitly through Sandboxie, such as when using the [Run Sandboxed](SandboxMenu.md#sandbox-menu) commands, or shortcuts created using _Add Shortcut Icons_ (see below). It also applies to [forced programs](ProgramStartSettings.md#forced-programs) and [forced folders](ProgramStartSettings.md#forced-folders).
 
 *   The middle frame deals with shortcut icons:
 
@@ -57,7 +57,7 @@ The _Windows Shell Integration_ command opens a window which controls how [Sandb
 *   _Add right-click action "Run Sandboxed" to files and folders_ enables (when checked) or removes (when cleared) the _Run Sandboxed_ option which appears when you click the right mouse button on a file or folder on your desktop or in Windows Explorer.
 
 
-*   _Add sandboxes as targets for "Send To" action_ enables (when checked) or removes (when cleared) the available sandboxes as an option in the _Send To_ action that appears when you click the right mouse button on a file or folder on your desktop or in Windows Explorer. If this setting is enabled, [Sandboxie Control](SandboxieControl.html) will automatically update the list of _Send To_ targets whenever sandboxes are [created](SandboxMenu.html#create) or removed.
+*   _Add sandboxes as targets for "Send To" action_ enables (when checked) or removes (when cleared) the available sandboxes as an option in the _Send To_ action that appears when you click the right mouse button on a file or folder on your desktop or in Windows Explorer. If this setting is enabled, [Sandboxie Control](SandboxieControl.md) will automatically update the list of _Send To_ targets whenever sandboxes are [created](SandboxMenu.md#create-new-sandbox) or removed.
 
 
 * * *
@@ -66,15 +66,15 @@ The _Windows Shell Integration_ command opens a window which controls how [Sandb
 
 * * *
 
-### Experimental Protection (64-bit)
+~~### Experimental Protection (64-bit)~~
 
-Please see [Experimental Protection](ExperimentalProtection.md).
+~~Please see [Experimental Protection](ExperimentalProtection.md).~~
 
 * * *
 
 ### Forget Hidden Messages
 
-Whenever [Sandboxie Control](SandboxieControl.md) displays one or more [SBIE Messages](SBIE_Messages), you have the option to hide future instances of the message. This is accomplished by highlighting and clicking the _Hide_ command:
+Whenever [Sandboxie Control](SandboxieControl.md) displays one or more [SBIE Messages](SBIEMessages.md), you have the option to hide future instances of the message. This is accomplished by highlighting and clicking the _Hide_ command:
 
 ![](../Media/MessagesFromSandboxie.png)
 
@@ -118,4 +118,4 @@ Forces Sandboxie to reload its configuration from the [Sandboxie Ini](SandboxieI
 
 * * *
 
-Go to [Sandboxie Control](SandboxieControl#menus), [Help Topics](HelpTopics.md).
+Go to [Sandboxie Control](SandboxieControl.md#menus), [Help Topics](HelpTopics.md).

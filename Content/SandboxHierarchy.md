@@ -51,7 +51,7 @@ Sandboxie creates the hive file in the sandbox folder, as the files _RegHive_ an
 The sandboxed hive has the following position and structure within the global struture of the Windows registry.
 ```
  . HKEY_USERS
- . . [KeyRootPath](KeyRootPath.html)
+ . . KeyRootPath
  . . . machine
  . . . user
  . . . . current
@@ -81,7 +81,7 @@ Sandboxie isolates these objects in order to make it possible to run the same pr
 
 These objects are created in the NT object namespace. Their position and structure within that namespace are as follows.
 ```
- . [IpcRootPath](IpcRootPath.html)
+ . IpcRootPath
  . . BaseNamedObjects
  . . . Global
  . . . Local
@@ -97,7 +97,7 @@ Objects created by sandboxed programs are created within the sandbox object dire
 
 Note that objects may be created without a name, in which case the object is effectively isolated to the particular program which created it. However, a program can access the internals of another program in order to locate and use such nameless objects. To mitigate this, Sandboxie prevents a program in the sandbox from accessing a program outside the sandbox in this way.
 
-The free utility [WinObj](http://www.microsoft.com/technet/sysinternals/SystemInformation/WinObj.mspx) by Sysinternals (now a part of Microsoft) can be used to display the NT object namespace.
+The free utility [WinObj](https://docs.microsoft.com/en-us/sysinternals/downloads/winobj) by Sysinternals (now a part of Microsoft) can be used to display the NT object namespace.
 
 Unlike the case with files or registry keys, sandboxed programs are never permitted to access IPC objects outside the sandbox namespace, not even for read-only access. This behavior can be affected with the registry-related settings [OpenIpcPath](OpenIpcPath.md) and [ClosedIpcPath](ClosedIpcPath.md).
 

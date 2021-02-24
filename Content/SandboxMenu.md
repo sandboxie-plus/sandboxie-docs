@@ -8,13 +8,13 @@
 
 ### Sandbox Sub-Menu
 
-One or more sub-menus appear for each sandbox defined. The default configuration includes only one sandbox named _DefaultBox_, but more can be added using the [Create New Sandbox](SandboxMenu#create) command. Each sub-menu contains the following commands:
+One or more sub-menus appear for each sandbox defined. The default configuration includes only one sandbox named _DefaultBox_, but more can be added using the [Create New Sandbox](SandboxMenu.md#create-new-sandbox) command. Each sub-menu contains the following commands:
 
 *   The _Run Sandboxed_ sub-sub-menu is used to start programs under the supervision of Sandboxie:
 
 
 *   The _Web Browser_ command starts the system (default) Web browser.  
-    (Note: If the wrong program starts, use the [Default Browser utility](http://windowsxp.mvps.org/defaultbrowser.htm) to fix this.)
+    (Note: If the wrong program starts, see [Frequently Asked Questions](FrequentlyAskedQuestions.md#why-does-the-wrong-program-start-when-i-run-my-default-web-browser-sandboxed) to fix this.)
 
 
 *   The _Email Reader_ command starts the system (default) email reader
@@ -43,7 +43,7 @@ One or more sub-menus appear for each sandbox defined. The default configuration
 
 *   The _Rename Sandbox_ command changes the name of the sandbox.
 
-*   The _Remove Sandbox_ command removes a sandboxed created using the [Create New Sandbox](SandboxMenu#create) command.
+*   The _Remove Sandbox_ command removes a sandboxed created using the [Create New Sandbox](SandboxMenu.md#create-new-sandbox) command.
 
 These commands, except for Rename Sandbox and Remove Sandbox, are also available in the [Tray Icon Menu](TrayIconMenu.md).
 
@@ -84,4 +84,4 @@ The _Reveal Hidden Sandbox_ commmand appears in the menu only if some sandboxes 
 
 * * *
 
-Go to [Sandboxie Control](SandboxieControl#menus), [Help Topics](HelpTopics.md).
+Go to [Sandboxie Control](SandboxieControl.md#menus), [Help Topics](HelpTopics.md).

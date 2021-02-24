@@ -16,4 +16,4 @@ The first example excludes from Immediate Recovery any files ending in _.part_. 
 
 The second and third examples exclude the specified folders from Immediate Recovery.
 
-Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Recovery > Immediate Recovery](RecoverySettings#immediate)
+Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Recovery > Immediate Recovery](RecoverySettings.md#immediate-recovery)

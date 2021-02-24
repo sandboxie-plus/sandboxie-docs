@@ -12,16 +12,16 @@ You can configure a custom delete command through Sandboxie Control or by manual
 
 **In Sandboxie Control**
 
-Use [Sandbox Settings > Delete > Command](DeleteSettings#command). A couple of examples for the Delete Command:
+Use [Sandbox Settings > Delete > Command](DeleteSettings.md#command). A couple of examples for the Delete Command:
 
 *   Invoke [Eraser by Heidi Computers](https://eraser.heidi.ie/) to delete the contents securely:
 ```
-    %SystemRoot%\System32\eraserl.exe -folder &quot;%SANDBOX%&quot; -subfolders -method DoD_E -resultsonerror -queue
+    %SystemRoot%\System32\eraserl.exe -folder "%SANDBOX%" -subfolders -method DoD_E -resultsonerror -queue
 ```
 
 *   Invoke [SDelete by SysInternals/Microsoft](https://technet.microsoft.com/en-us/sysinternals/bb897443.aspx) to delete the contents securely.
 ```
-    &quot;C:\Program Files\Sysinternals\SDelete\sdelete.exe&quot; -p 3 -s -q &quot;%SANDBOX%&quot;
+    "C:\Program Files\Sysinternals\SDelete\sdelete.exe" -p 3 -s -q "%SANDBOX%"
 ```
 
 **In the Sandboxie.ini Configuration File**
@@ -33,7 +33,7 @@ To configure a global custom delete command, edit or insert the [DeleteCommand](
 
 When specifying this setting, make sure to include **"%SANDBOX%"** (with quote marks) in the command.
 
-Before launching the delete command, Sandboxie scans the sandbox to make sure all files can be properly deleted, as described in [Delete Contents of Sandbox](StartCommandLine#delete).
+Before launching the delete command, Sandboxie scans the sandbox to make sure all files can be properly deleted, as described in [Delete Contents of Sandbox](StartCommandLine.md#delete-contents-of-sandbox).
 
 * * *
 

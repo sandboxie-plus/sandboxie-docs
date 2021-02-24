@@ -14,7 +14,7 @@ You can read more tips about using Sandboxie in the [Usage Tips](UsageTips.md) p
 
 An important point to keep in mind when using Sandboxie is that it is designed to isolate programs from each other. Therefore you should expect to lose _a small_ measure of inter-operability between programs. For example:
 
-*   Email: Clicking email (_mailto_) links typically causes your web browser to start your email software. This will not work correctly unless Sandboxie is configured to run your email software in that sandbox. See [FAQ Email](FAQ_Email).
+*   Email: Clicking email (_mailto_) links typically causes your web browser to start your email software. This will not work correctly unless Sandboxie is configured to run your email software in that sandbox. See [FAQ Email](FAQEmail.md).
 
 
 

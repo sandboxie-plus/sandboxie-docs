@@ -20,13 +20,13 @@ Your Web browser should come up _sandboxed_. You can tell that a program is sand
 
 ![](../Media/SandboxedTitle.png)
 
-(Note: In some computer systems, Sandboxie starts the wrong program when you select _Run Web Browser_. If this is the case for you, use the [Default Browser utility](http://windowsxp.mvps.org/defaultbrowser.htm) to fix this.)
+(Note: In some computer systems, Sandboxie starts the wrong program when you select _Run Web Browser_. If this is the case for you, see [Frequently Asked Questions](FrequentlyAskedQuestions.md#why-does-the-wrong-program-start-when-i-run-my-default-web-browser-sandboxed) to fix this.)
 
 The sandboxed program should appear in the main window of [Sandboxie Control](SandboxieControl.md):
 
 ![](../Media/MainWindow.png)
 
-The window displays the list of programs that are currently running _sandboxed_ under the supervision of Sandboxie. Initially there is just one sandbox, _DefaultBox_, however, more sandboxes can be created; see the [Create New Sandbox](SandboxMenu#create) command in the [Sandbox Menu](SandboxMenu.md).
+The window displays the list of programs that are currently running _sandboxed_ under the supervision of Sandboxie. Initially there is just one sandbox, _DefaultBox_, however, more sandboxes can be created; see the [Create New Sandbox](SandboxMenu.md#create-new-sandbox) command in the [Sandbox Menu](SandboxMenu.md).
 
 The picture above shows Sandboxie is running three programs. The first, _iexplore.exe_, stands for Internet Explorer, as this tutorial assumes Internet Explorer is the Web browser in use. If the default Web browser in your system is Firefox, or Opera, then you would see _firefox.exe_ or _opera.exe_, respectively, as the first program running in the sandbox.
 

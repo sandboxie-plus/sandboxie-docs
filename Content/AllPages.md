@@ -20,9 +20,9 @@
 
 ### B
 
-~~[Block Drivers](BlockDrivers.md)~~ (no longer supported since Sandboxie v4.xx and up)
+~~[Block Drivers](BlockDrivers.md)~~ (deprecated since Sandboxie v4.xx)
 
-~~[Block Fake Input](BlockFakeInput.md)~~ (no longer supported since Sandboxie v4.xx and up)
+~~[Block Fake Input](BlockFakeInput.md)~~ (deprecated since Sandboxie v4.xx)
 
 [Block Net Param](BlockNetParam.md)
 
@@ -30,15 +30,15 @@
 
 [Block Port](BlockPort.md)
 
-~~[Block Sys Param](BlockSysParam.md)~~ (deprecated)
+~~[Block Sys Param](BlockSysParam.md)~~ (deprecated since Sandboxie v4.xx)
 
-~~[Block Win Hooks](BlockWinHooks.md)~~ (deprecated)
+~~[Block Win Hooks](BlockWinHooks.md)~~ (deprecated since Sandboxie v4.xx)
 
 [Border Color](BorderColor.md)
 
 [Box Name Title](BoxNameTitle.md)
 
-~~[Box Root Folder](BoxRootFolder.md)~~ (no longer supported since Sandboxie v3.xx and up)
+~~[Box Root Folder](BoxRootFolder.md)~~ (deprecated since Sandboxie v3.xx)
 
 [Byte Order Mark](ByteOrderMark.md)
 
@@ -52,7 +52,7 @@
 
 [Code Injection](CodeInjection.md)
 
-~~[Config Level](ConfigLevel.md)~~ (no longer supported since Sandboxie v3.xx and up)
+~~[Config Level](ConfigLevel.md)~~ (deprecated since Sandboxie v3.xx)
 
 [Configuration Protection](ConfigurationProtection.md)
 
@@ -90,7 +90,7 @@
 
 [Expandable Variables](ExpandableVariables.md)
 
-~~[Experimental Protection](ExperimentalProtection.md)~~ (removed since Sandboxie v4.02 and up)
+~~[Experimental Protection](ExperimentalProtection.md)~~ (removed since Sandboxie v4.02)
 
 ### F
 
@@ -142,7 +142,7 @@
 
 [Help Topics](HelpTopics.md)
 
-[How It Works](HowItWorks.md)
+[How It Works](HowitWorks.md)
 
 [How To Use Win Dbg](HowToUseWinDbg.md)
 
@@ -336,9 +336,9 @@
 
 [SBIE1301](SBIE1301.md)
 
-[SBIE1303](SBIE1303.md)
+~~[SBIE1303](SBIE1303.md)~~ (deprecated since Sandboxie 5.31.4)
 
-[SBIE1304](SBIE1304.md)
+~~[SBIE1304](SBIE1304.md)~~ (deprecated)
 
 [SBIE1306](SBIE1306.md)
 
@@ -346,15 +346,15 @@
 
 [SBIE1308](SBIE1308.md)
 
-[SBIE1309](SBIE1309.md)
+~~[SBIE1309](SBIE1309.md)~~ (deprecated)
 
-[SBIE1310](SBIE1310.md)
+~~[SBIE1310](SBIE1310.md)~~ (deprecated since Sandboxie 5.31.4)
 
-[SBIE1311](SBIE1311.md)
+~~[SBIE1311](SBIE1311.md)~~ (deprecated)
 
 [SBIE1312](SBIE1312.md)
 
-[SBIE1313](SBIE1313.md)
+~~[SBIE1313](SBIE1313.md)~~ (deprecated since Sandboxie 0.7.1 / 5.48.5)
 
 [SBIE1314](SBIE1314.md)
 

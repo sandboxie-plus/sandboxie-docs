@@ -12,4 +12,4 @@ _OpenProtectedStorage_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md).
 Indicates that programs running in the DefaultBox sandbox will update the global system [Protected Storage](ProtectedStorage.md), rather than a sandboxed instance of it.
 
 Related [Sandboxie Control](SandboxieControl.md) setting: _Save outside sandbox: History of search strings and invoked commands_  
-in [Sandbox Settings > Applications > Web Browsers](ApplicationsSettings#web)
+in [Sandbox Settings > Applications > Web Browser](ApplicationsSettings.md#web-browser)
