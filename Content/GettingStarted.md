@@ -25,12 +25,6 @@ Sandboxie is operated primarily through the [Sandboxie Control](SandboxieControl
 
 If [Sandboxie Control](SandboxieControl.md) is not already active, you can find it and launch it from the Sandboxie program group in your Windows Start menu:
 
-### Windows XP
-
-![](../Media/StartMenuStartControl.png)
-
-### Windows Vista
-
 ![](../Media/StartMenuStartControlVista.png)
 
 
