@@ -85,4 +85,4 @@ In the example above, the sandbox setting [FileRootPath](FileRootPath.md) appear
 
 ## Automation
 
-Version 3.68 of Sandboxie includes a command-line utility to query or update the Sandboxie.ini configuration file. The utility is suitable for direct command-line interaction as well as invocation from a script or a program. The utility can be found as SbieIni.exe in the Sandboxie installation directory. 
+Sandboxie includes a command-line utility to query or update the Sandboxie.ini configuration file. The utility is suitable for direct command-line interaction as well as invocation from a script or a program. The utility can be found as SbieIni.exe in the Sandboxie installation directory. 
