@@ -15,32 +15,32 @@ The Sandboxie Start program can do any of the following, depending on command li
 
 This is the default behavior. By specifying a full or partial path to a program executable file, Sandboxie Start will launch that program under the supervision of Sandboxie:
 ```
-  "C:\Program Files\Sandboxie\Start.exe"  c:\windows\system32\calc.exe
-  "C:\Program Files\Sandboxie\Start.exe"  calc.exe
+  "C:\Program Files\Sandboxie\Start.exe"  c:\windows\system32\notepad.exe
+  "C:\Program Files\Sandboxie\Start.exe"  notepad.exe
 ```
 
 Two special program names are allowed:
 ```
   "C:\Program Files\Sandboxie\Start.exe"  default_browser
-  "C:\Program Files\Sandboxie\Start.exe"  mail_agent	
+  "C:\Program Files\Sandboxie\Start.exe"  mail_agent
 ```
 
 Sandboxie Start can also display the Run Any Program dialog window, or the Sandboxie Start Menu, depending on parameters specified:
 ```
   "C:\Program Files\Sandboxie\Start.exe"  run_dialog
-  "C:\Program Files\Sandboxie\Start.exe"  start_menu	
+  "C:\Program Files\Sandboxie\Start.exe"  start_menu
 ```
 
 In all forms, the parameter _/box:SandboxName_ is applicable, and may be specified between Start.exe and the parameter, to indicate a sandbox name other than the default of _DefaultBox_. For example:
 ```
-  "C:\Program Files\Sandboxie\Start.exe"  /box:TestBox  run_dialog	
+  "C:\Program Files\Sandboxie\Start.exe"  /box:TestBox  run_dialog
 ```
 
 A special form of the /box parameter is _/box:_**_ask_**__ and causes Start.exe to display the sandbox selection dialog box.
 
 The parameter _/nosbiectrl_ can be used to make sure Start.exe does not try to run [Sandboxie Control](SandboxieControl.md) before running the sandboxed program.
 ```
-  "C:\Program Files\Sandboxie\Start.exe"  /nosbiectrl calc.exe	
+  "C:\Program Files\Sandboxie\Start.exe"  /nosbiectrl notepad.exe
 ```
 
 The parameter _/silent_ can be used to eliminate some pop-up error messages. For example:
@@ -52,37 +52,37 @@ In both silent and normal operation, Start.exe exits with a zero exit code on su
 
 The parameter _/elevate_ can be used to run a program with Administartor privileges on a system where User Account Control (UAC) is enabled. For example:
 ```
-  "C:\Program Files\Sandboxie\Start.exe"  /elevate cmd.exe	
+  "C:\Program Files\Sandboxie\Start.exe"  /elevate cmd.exe
 ```
 
 The parameter _/env_ can be used to pass an environment variable:
 ```
   "C:\Program Files\Sandboxie\Start.exe"  /env:VariableName=VariableValueWithoutSpace
-  "C:\Program Files\Sandboxie\Start.exe"  /env:VariableName="Variable Value With Spaces"	
+  "C:\Program Files\Sandboxie\Start.exe"  /env:VariableName="Variable Value With Spaces"
 ```
 
 The parameter _/hide_window_ can be used to signal that the starting program should not display its window:
 ```
-  "C:\Program Files\Sandboxie\Start.exe"  /hide_window cmd.exe /c automated_script.bat	
+  "C:\Program Files\Sandboxie\Start.exe"  /hide_window cmd.exe /c automated_script.bat
 ```
 
 The parameter _/wait_ can be used to run a program, wait for it to finish, and return the exit status from the program:
 ```
-  "C:\Program Files\Sandboxie\Start.exe"  /wait cmd.exe	
+  "C:\Program Files\Sandboxie\Start.exe"  /wait cmd.exe
 ```
 
 Note that Start.exe is a Win32 application and not a console application, so the system "start" command is useful here to force the system to wait for Start.exe to finish:
 ```
   start /wait "C:\Program Files\Sandboxie\Start.exe" /wait cmd /c exit 9
   echo %ERRORLEVEL%
-  9	
+  9
 ```
 
 The system waits for Start.exe to finish, which in turn waits for "cmd /c exit 9" to finish, and then the exit status 9 is returned all the way back.
 
 Parameters can be combined in any order. For example:
 ```
-   "C:\Program Files\Sandboxie\Start.exe"  /box:CustomBox /silent /nosbiectrl MyProgram.exe	
+   "C:\Program Files\Sandboxie\Start.exe"  /box:CustomBox /silent /nosbiectrl MyProgram.exe
 ```
 
 ### Stop Programs
@@ -105,7 +105,7 @@ The form _/terminate_all_ terminates all programs in all sandboxes.
 List the system process ID numbers for all programs running in a particular sandbox.
 ```
   "C:\Program Files\Sandboxie\Start.exe"  /listpids
-  "C:\Program Files\Sandboxie\Start.exe"  /box:TestBox  /listpids	
+  "C:\Program Files\Sandboxie\Start.exe"  /box:TestBox  /listpids
 ```
 
 If the parameter _/box:SandboxName_ is omitted, programs running in the default sandbox, _DefaultBox_, will be listed.
@@ -116,7 +116,7 @@ The output is formatted as one number per line. The first line contains the numb
     3
     3036
     2136
-    384	
+    384
 ```
 
 Note that Start.exe is not a console applications, so the output does not appear in a command prompt window unless you pipe the output using a construct such as _| more_.
@@ -126,7 +126,7 @@ Note that Start.exe is not a console applications, so the output does not appear
 ### Delete Contents of Sandbox
 ```
   "C:\Program Files\Sandboxie\Start.exe"  delete_sandbox
-  "C:\Program Files\Sandboxie\Start.exe"  delete_sandbox_silent	
+  "C:\Program Files\Sandboxie\Start.exe"  delete_sandbox_silent
 ```
 
 The _/box:SandboxName_ parameter may be specified between Start.exe and the delete command.
@@ -152,7 +152,7 @@ Issuing the _delete_sandbox_ command causes Start.exe to invoke phase 1 followed
   "C:\Program Files\Sandboxie\Start.exe"  delete_sandbox_phase1
   "C:\Program Files\Sandboxie\Start.exe"  delete_sandbox_phase2
   "C:\Program Files\Sandboxie\Start.exe"  delete_sandbox_silent_phase1
-  "C:\Program Files\Sandboxie\Start.exe"  delete_sandbox_silent_phase2	
+  "C:\Program Files\Sandboxie\Start.exe"  delete_sandbox_silent_phase2
 ```
 
 * * *
@@ -161,7 +161,7 @@ Issuing the _delete_sandbox_ command causes Start.exe to invoke phase 1 followed
 
 This command reloads the Sandboxie configuration in SandboxieIni into the active Sandboxie driver. Typically useful after manually editing the Sandboxie.ini file.
 ```
-  "C:\Program Files\Sandboxie\Start.exe"  /reload	
+  "C:\Program Files\Sandboxie\Start.exe"  /reload
 ```
 
 Note that reloading the configuration does not take effect on sandboxed programs that are already running when this command is issued.
@@ -173,14 +173,14 @@ Note that reloading the configuration does not take effect on sandboxed programs
 The following command runs a program outside the sandox, even if the program is forced. It is similar to using the Run Outside Sandbox option from the sandbox selection window of the Run Sandboxed command.
 ```
   "C:\Program Files\Sandboxie\Start.exe"  /dfp            c:\path\to\program.exe
-  "C:\Program Files\Sandboxie\Start.exe"  /disable_force  c:\path\to\program.exe	
+  "C:\Program Files\Sandboxie\Start.exe"  /disable_force  c:\path\to\program.exe
 ```
 
 Note that /dfp and /disable_force are identical.
 
 An older form of this command can temporarily disable the forced programs mode, for all programs. It is similar in function to using the Disable Forced Programs command from the [Tray Icon Menu](TrayIconMenu.md#disable-forced-programs) in Sandboxie Control (and not the [File Menu](FileMenu.md#disable-forced-programs)).
 ```
-  "C:\Program Files\Sandboxie\Start.exe"  disable_force	
+  "C:\Program Files\Sandboxie\Start.exe"  disable_force
 ```
 
 Note the missing slash in this command syntax. Note also that this command is not a toggle. It always puts the Disable Forced Programs mode into effect and always restarts the countdown timer. At this time, Start.exe does not offer a way to request the cancelation of this mode.
