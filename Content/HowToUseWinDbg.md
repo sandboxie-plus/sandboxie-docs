@@ -30,7 +30,7 @@ The WinDbg debugger should start and open its main window.
 
 In the debugger, invoke the File menu > Open Executable command. Then navigate to and select the EXE file for the program that you want to run in the debugger.
 
-For example, navigate to and select _C:\Windows\System32\calc.exe_
+For example, navigate to and select _C:\Windows\System32\notepad.exe_
 
 The debugger will open a command window, to control (or to debug) the new program.
 
