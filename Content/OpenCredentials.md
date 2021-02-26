@@ -15,7 +15,7 @@ Windows credentials are used primarily by Windows and Microsoft applications to 
 
 *   Network shares
 *   Skype accounts
-*   Microsoft Accounts
+*   Microsoft accounts
 
 To manage Windows credentials, start Control Panel > User Accounts, select an account, and the click on the Related Task labeled _Manage my network passwords._
 
