@@ -42,7 +42,7 @@ This command checks if the Sandboxie web site reports a newer version of Sandbox
 
 [Sandboxie Control](SandboxieControl.md) > [Help Menu](HelpMenu.md) > About Sandboxie
 
-Displays product and registration information for the Sandboxie program.
+Displays product ~~and registration information~~ for the Sandboxie program.
 
 ![](../Media/AboutSandboxie.png)
 
