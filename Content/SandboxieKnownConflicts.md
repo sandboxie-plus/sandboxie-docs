@@ -1,7 +1,7 @@
 # Known Conflicts
 
 * * *
-Known conflicts can be resolved by activating application configurations in Sandbox Settings > Applications or Sandbox Options > App Templates in the Plus edition.
+Known conflicts can be resolved by activating application configurations in Sandbox Settings > Applications or in Sandbox Options > App Templates (Plus edition).
 * * *
 
 ### Not all programs can be installed inside Sandboxie
