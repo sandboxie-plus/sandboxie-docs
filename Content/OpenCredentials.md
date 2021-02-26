@@ -14,7 +14,6 @@ Indicates that programs running in the DefaultBox sandbox will update the real c
 Windows credentials are used primarily by Windows and Microsoft applications to store user name and password information for:
 
 *   Network shares
-*   Skype accounts
 *   Microsoft accounts
 
 To manage Windows credentials, start Control Panel > User Accounts, select an account, and the click on the Related Task labeled _Manage my network passwords._
