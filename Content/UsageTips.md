@@ -18,6 +18,6 @@
 
 * Use [Sandbox Settings > Forced Folders](ProgramStartSettings.md#forced-folders) to protect CDROM and DVD drives.
 
-* Create [more sandboxes](SandboxMenu.md#create-new-sandbox) for better isolation of separate programs. (The Paid version of Sandboxie allows you to run the same program in multiple sandboxes at the same time) the non-paid, shareware version limits a particular program to 1 (one) sandbox at a time, but you can have virtually unlimited sandboxes.)
+* Create [more sandboxes](SandboxMenu.md#create-new-sandbox) for better isolation of separate programs.
 
         Note: To run a program sandboxed means to invoke it under the supervision of Sandboxie.

@@ -1,5 +1,15 @@
 # Known Conflicts
 
+* * *
+Known conflicts can be resolved by activating application configurations in Sandbox Settings > Applications or in Sandbox Options > App Templates (Plus edition).
+* * *
+
+### Not all programs can be installed inside Sandboxie
+
+Problem: Some applications that invoke services or drivers may not install inside Sandboxie.
+
+Solution: Install the application on your host and then run it sandboxed.
+
 ### UWP / Modern / Microsoft Store Apps
 
 Problem: Microsoft store apps will not work in Sandboxie Classic and Sandboxie Plus.
