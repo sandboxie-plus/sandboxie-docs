@@ -25,7 +25,7 @@ Select from two editions:
 
 * [Getting Started with Sandboxie](Content/GettingStarted.md)
 * [General Usage Tips](Content/UsageTips.md)
-* [Usage Manual for Sandboxie Classic](Content/SandboxieControl.md)
+* [Usage Manual for Sandboxie](Content/SandboxieControl.md)
 * [Known Conflicts](Content/SandboxieKnownConflicts.md)
 * [Frequenty Asked Questions](Content/FrequentlyAskedQuestions.md)
 * [Advanced Topics](Content/AdvancedTopics.md)
