@@ -1,6 +1,6 @@
 # Protected Storage
 
-Protected Storage (hereafter PStore) was a small memory space available until Windows 7, managed by the system security component, and usable by applications. Applications that need to store sensitive information, such as passwords, could use PStore rather than implement means to encrypt and protect that information.
+Protected Storage (hereafter PStore) was a small memory space available until Windows 7, managed by the system security component, and usable by applications. Applications that needed to store sensitive information, such as passwords, could use PStore rather than implement means to encrypt and protect that information.
 
 Note that PStore memory of one user account is not accessible by another user account; but all programs running in the same user account can see and change information entered into the memory store by any other application.
 
