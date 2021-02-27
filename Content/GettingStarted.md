@@ -14,7 +14,7 @@ This Getting Started tutorial will show you:
 
 Or skip ahead to [Getting Started Part Six](GettingStartedPartSix.md) which discusses a few final points.
 
-#### You can also review the [External Tutorials](ExternalTutorials.md) page for more links to tutorials about Sandboxie, some in languages other than English, others are in video form rather than text.
+You can also review the [External Tutorials](ExternalTutorials.md) page for more links to tutorials about Sandboxie, some in languages other than English, others are in video form rather than text.
 
 * * *
 

@@ -68,11 +68,7 @@ To use the command, click and hold the left mouse button on the _Finder Tool_, t
 
 If the window is owned by a sandboxed program, Sandboxie will display the program name and sandbox name, will switch the view to [Programs View](ProgramsView.md), and highlight that program.
 
-
-
-##### Some programs display their windows using customized graphics, and this prevents Sandboxie from showing the [#] indicators in the title bar. In these cases, you can use the _Is Window Sandboxed?_ command to make sure that the window and its related program are running sandboxed.
-
-
+Some programs display their windows using customized graphics, and this prevents Sandboxie from showing the [#] indicators in the title bar. In these cases, you can use the _Is Window Sandboxed?_ command to make sure that the window and its related program are running sandboxed.
 
 * * *
 
