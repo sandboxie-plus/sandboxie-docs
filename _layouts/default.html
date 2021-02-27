@@ -22,10 +22,26 @@
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
   </head>
   <body>
-    
+
     <section class="page-header">
       <h1 class="project-name"><a href="{{ site.baseurl }}">{{ site.title | default: site.title | default: site.github.repository_name }}</a></h1>
       <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
+	  <div id="search-container">
+		<input type="text" id="search-input" placeholder="Search...">
+		<ul id="results-container"></ul>
+      </div>
+      <script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js" type="text/javascript"></script>
+	  <script type="text/javascript">
+        SimpleJekyllSearch({
+		searchInput: document.getElementById('search-input'),
+		resultsContainer: document.getElementById('results-container'),
+		json: '/{{ site.github.repository_name }}/search.json',
+		searchResultTemplate: '<li><a href="{url}" tabindex="1">{title}</a></li>',
+		noResultsText: 'No results found!',
+		limit: 8,
+		fuzzy: false
+		})
+	  </script>
     </section>
 
     <section class="main-content">
