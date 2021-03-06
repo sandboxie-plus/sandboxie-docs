@@ -12,7 +12,7 @@ _RecoverFolder_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It spe
    RecoverFolder=D:\Program Files
 ```
 
-The first two example settings specify that [Quick Recovery](QuickRecovery.md) from the DefaultBox sandbox should look in the _My Documents_, and the _Downloads_ folders in drive C.
+The first two example settings specify that [Quick Recovery](QuickRecovery.md) from the DefaultBox sandbox should look in the _Documents_ and the _Downloads_ folders in drive C.
 
 The third example setting specifies that QuickRecovery from the InstallBox sandbox should look in the _Program Files_ folder in drive D.
 

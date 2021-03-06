@@ -1,23 +1,23 @@
 # Help Topics
 
-### Tutorial: [Getting Started](GettingStarted.md) with Sandboxie
+#### Tutorial: [Getting Started](GettingStarted.md) with Sandboxie
 
-### General [Usage Tips](UsageTips.md) for using Sandboxie
+#### General [Usage Tips](UsageTips.md) for using Sandboxie
 
-### Usage Manual for [Sandboxie](SandboxieControl.md)
+#### Usage Manual for [Sandboxie](SandboxieControl.md)
 
-### [Known Conflicts](SandboxieKnownConflicts.md) with other programs
+#### [Known Conflicts](SandboxieKnownConflicts.md) with other programs
 
-### [Frequently Asked Questions](FrequentlyAskedQuestions.md)
+#### [Frequently Asked Questions](FrequentlyAskedQuestions.md)
 
-### [Advanced Topics](AdvancedTopics.md)
+#### [Advanced Topics](AdvancedTopics.md)
 
-### [Technical Aspects](TechnicalAspects.md)
+#### [Technical Aspects](TechnicalAspects.md)
 
-### Reference for error and informational [SBIE Messages](SBIEMessages.md)
+#### Reference for error and informational [SBIE Messages](SBIEMessages.md)
 
-### Sandboxie [Start Command Line](StartCommandLine.md) parameters
+#### Sandboxie [Start Command Line](StartCommandLine.md) parameters
 
-### Configuring Sandboxie through [Sandboxie Ini](SandboxieIni.md)
+#### Configuring Sandboxie through [Sandboxie Ini](SandboxieIni.md)
 
-### [Documentation Index](AllPages.md)
+#### [Documentation Index](AllPages.md)

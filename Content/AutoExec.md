@@ -10,7 +10,7 @@ Examples:
    .
    [DefaultBox]
    AutoExec=regedit /s c:\defaultbox.reg
-   AutoExec=cmd /c del /f &quot;%windir%\system32\someExploitableDLL.dll&quot;
+   AutoExec=cmd /c del /f "%windir%\system32\someExploitableDLL.dll"
 ```
 
 The first example shows using _AutoExec_ to populate the sandboxed registry in some way. The second example shows using _AutoExec_ to delete an undesirable DLL file. In both cases the customization takes place only within the sandbox.
@@ -26,4 +26,3 @@ At this time, there is no corresponding [Sandboxie Control](SandboxieControl.md)
 Each _AutoExec_ command, as it is executed by Sandboxie, is recorded in the registry of that sandbox, in the key _HKEY_CURRENT_USER\Software\SandboxieAutoExec_.
 
 The command will not be executed if it was already recorded in the sandboxed registry. Thus, deleting the sandbox clears all recorded _AutoExec_ commands, so they are executed again the next time any sandboxed program starts in that sandbox. But it is also possible to get them to execute again, by manually deleting the command from that sandboxed registry key.
-

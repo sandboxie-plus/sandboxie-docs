@@ -234,7 +234,7 @@ Starting Sandboxie Control will also start the service. (But note that Administr
 
 ### How do I make Quick Recovery show my saved favorites and downloads?
 
-You may not see all your folders in Quick Recovery, as only a few are configured by default in the initial installation. See also QuickRecovery.
+You may not see all your folders in Quick Recovery, as only a few are configured by default in the initial installation. See also [Quick Recovery](QuickRecovery.md).
 
 **Back to [Table of Contents](#problems)**
 
@@ -244,9 +244,9 @@ You may not see all your folders in Quick Recovery, as only a few are configured
 
 If you read [What is Sandboxie](#what-is-sandboxie-and-how-is-it-different-than-other-solutions) then you know Sandboxie is like a transparency layer placed over the paper. (The paper is your computer.) When you save files (downloads, documents, emails, or anything else) through a sandboxed program, these files go into the transparency layer that is the sandbox.
 
-You can use QuickRecovery to get these files out. Unless configured otherwise, QuickRecovery looks in your My Documents folder, and Desktop folder. If you save the files to either of these folders, then you can use QuickRecovery to easily get them out.
+You can use Quick Recovery to get these files out. Unless configured otherwise, Quick Recovery looks in your _Documents_, _Favorites_, _Desktop_ and _Downloads_ folders. If you save the files to either of these folders, then you can use Quick Recovery to easily get them out.
 
-Another approach is configuring one or more folders as an OpenFilePath. Saving files into such folders bypasses the sandbox mechanism, and goes directly to the real folders. Setting this is more complicated, but may also prove useful, in some cases.
+Another approach is configuring one or more folders as an [OpenFilePath](OpenFilePath.md). Saving files into such folders bypasses the sandbox mechanism, and goes directly to the real folders. Setting this is more complicated, but may also prove useful, in some cases.
 
 **Back to [Table of Contents](#problems)**
 
