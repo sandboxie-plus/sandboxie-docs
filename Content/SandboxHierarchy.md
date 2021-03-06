@@ -26,9 +26,9 @@ If the [FileRootPath](FileRootPath.md) setting is omitted, the [BoxRootFolder](B
 
 As sandboxed programs create new files or modify existing files, Sandboxie redirects these operations to act on paths that lead into the sandbox. If the sandboxed program was trying to create the file _C:\NEW.TXT_, it will be redirected to create instead _([FileRootPath](FileRootPath.md))\drive\C\NEW.TXT_.
 
-If the sandboxed program was trying to create the file _C:\Documents and Settings\joe\My Documents\NEW.TXT_, it will be redirected to create _([FileRootPath](FileRootPath.md))\user\current\My Documents\NEW.TXT_.
+If the sandboxed program was trying to create the file _C:\Users\joe\Documents\NEW.TXT_, it will be redirected to create _([FileRootPath](FileRootPath.md))\user\current\Documents\NEW.TXT_.
 
-Files that are created or modified in or below _profile_ (or _home_) folders, such as _C:\Documents and Settings\joe_ (on Windows XP and earlier), or _C:\Users\joe_ (on Windows Vista and later) are redirected into the sandboxed _user\curent_ folder.
+Files that are created or modified in or below _profile_ (or _home_) folders, such as _C:\Users\joe_ (on Windows Vista and later) are redirected into the sandboxed _user\current_ folder.
 
 Files that are created or modified in or below the generic (or _All Users_) profile, are redirected into the sandboxed _user\all_ folder.
 

@@ -9,11 +9,13 @@ Usage:
    .
    .
    [DefaultBox]
-   BorderColor=#00FFFF
-   BorderColor=#00FFFF,n
+   BorderColor=#00FFFF,ttl,6
+   BorderColor=#00FFFF,off,6
+   BorderColor=#00FFFF,on,6
 ```
+Its default value is  _"#00FFFF,ttl,6"_. The number represents the default pixel width of the drawn border and can be omitted.
 
-By default, Sandboxie does not draw the border. This is also true if the _BorderColor_ setting ends with _,n_ as shown in the second example above.
+Sandboxie doesn't draw the border if _BorderColor_ ends with _",off,6"_, while in previous versions it was  _",n"_.
 
 The color is specified in HTML-like RGB color notation:
 

@@ -20,4 +20,4 @@
 
 * Create [more sandboxes](SandboxMenu.md#create-new-sandbox) for better isolation of separate programs.
 
-        Note: To run a program sandboxed means to invoke it under the supervision of Sandboxie.
+> Note: To run a program sandboxed means to invoke it under the supervision of Sandboxie.
