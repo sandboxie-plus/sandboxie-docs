@@ -18,7 +18,7 @@ Usage:
 
 The following substitution variables may be useful in this path.
 
-*   ShellFolders variables such as %Personal% which expands to the user's My Documents folder
+*   ShellFolders variables such as %Personal% which expands to the user's Documents folder
 *   The variable %SANDBOX% which expands to the name of the sandbox
 *   The variable %USER% which expands to the user name
 *   The variable %SID% which expands to the user security-ID (SID)

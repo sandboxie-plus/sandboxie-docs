@@ -119,7 +119,7 @@ The output is formatted as one number per line. The first line contains the numb
     384
 ```
 
-Note that Start.exe is not a console applications, so the output does not appear in a command prompt window unless you pipe the output using a construct such as _| more_.
+Note that Start.exe is not a console applications, so the output does not appear in a command prompt window unless you pipe the output using a construct such as `| more`.
 
 * * *
 
@@ -139,7 +139,7 @@ The delete operation occurs in two phases:
     *   Junctions (also known as reparse points) are removed.
     *   Read-only files and directories are made fully accessible.
     *   Files and directories that have very long names are renamed to shorter names.
-    *   Renames the sandbox to the format __Delete__(sandbox name)___(some random number)__. For example, if the sandbox is DefaultBox, it could be renamed to __Delete_DefaultBox_01C4012345678912\.
+    *   Renames the sandbox to the format `__Delete_(sandbox name)_(some random number)`. For example, if the sandbox is DefaultBox, it could be renamed to `__Delete_DefaultBox_01C4012345678912`.
 
 *   Phase 2 deletes any sandboxes that were processed in phase 1\.
     *   Sandboxes that were processed in phase 1 are those that have been renamed as described above.

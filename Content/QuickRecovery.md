@@ -5,7 +5,7 @@
 
 ![](../Media/QuickRecoverSandbox.png)
 
-Sandboxed programs create files and folders inside the sandbox. It may be desirable to move some of these created files out of the sandbox. For instance, a document file downloaded by a sandboxed browser is saved into the sandbox, but that file should be extracted and placed in the _My Documents_ folder outside the sandbox.
+Sandboxed programs create files and folders inside the sandbox. It may be desirable to move some of these created files out of the sandbox. For instance, a document file downloaded by a sandboxed browser is saved into the sandbox, but that file should be extracted and placed in the _Documents_ folder outside the sandbox.
 
 The rudimentary approach is to use the regular, non-sandboxed Windows Explorer to navigate inside the folders that make up the sandbox. By using the [Sandbox Menu > Sandbox > Explore Contents](SandboxMenu.md#sandbox-menu) command, you can open a folder window (unsandboxed) with a view into the sandbox. You can then navigate in the depth of the sandbox folder, and _cut_ sandboxed files in order to _paste_ them somewhere else.
 
@@ -25,7 +25,7 @@ These commands are also available if you invoke the context menu on a file or fo
 
 **Adding Folders to Quick Recovery**
 
-As noted, Quick Recovery only scans folders which are explicitly selected. By default, it scans the _Desktop_, _Favorites_ and _My Documents_ folders. Where applicable, your _Downloads_ folder is also considered a recoverable folder.
+As noted, Quick Recovery only scans folders which are explicitly selected. By default, it scans the _Desktop_, _Favorites_ and _Documents_ folders. Where applicable, your _Downloads_ folder is also considered a recoverable folder.
 
 *   You can add more folders using the _Add Folder_ button.
 

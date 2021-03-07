@@ -13,13 +13,13 @@ Usage:
 ```
 
 By default, Sandboxie only displays the sandboxed [#] indicator in the title bar of a window that belongs to a sandboxed application. For example:
-```
-   [#] Sandboxie - Front Page - Windows Internet Explorer [#]
-```
+
+[#] Sandboxie - Front Page - Windows Internet Explorer [#]
+
 
 Specifying _BoxNameTitle=y_ places the sandbox name in the title bar:
-```
-   [#] **[DefaultBox]** Sandboxie - Front Page - Windows Internet Explorer [#]
-```
+
+[#] [DefaultBox] Sandboxie - Front Page - Windows Internet Explorer [#]
+
 
 Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Appearance](AppearanceSettings.md)
