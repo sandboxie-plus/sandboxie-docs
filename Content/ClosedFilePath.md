@@ -26,7 +26,7 @@ The example blocks any program _other than_ Internet Explorer (_iexplore.exe_) f
 
 (Note that this does not stop browser extensions, like add-on toolbars, from looking into the Cookies folder, because these extensions execute inside the Internet Explorer program process.)
 
-The second example shows how to configure Sandboxie to block sandboxed programs from accessing the My Documents folder.
+The second example shows how to configure Sandboxie to block sandboxed programs from accessing the _Documents_ folder.
 
 The value specified for ClosedFilePath can include wildcards. For more information on this, including examples that show the use of wildcards, see [OpenFilePath](OpenFilePath.md).
 

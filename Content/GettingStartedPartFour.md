@@ -20,7 +20,7 @@ You can invoke the **Quick Recovery** command:
 
 The picture above shows _favicon.ico_ as the only recoverable file, because it was the only file saved to a recoverable location -- the desktop folder in this case.
 
-Other folder locations that are set as recoverable folders by default are your _My Documents_ folder, the Windows _Favorites_ folder. Where applicable, your _Downloads_ folder is also considered a recoverable folder. Since these folders don't contain any files eligible for recovery, they are not listed at all in the picture above.
+Other folder locations that are set as recoverable folders by default are your _Documents_ folder, the Windows _Favorites_ folder. Where applicable, your _Downloads_ folder is also considered a recoverable folder. Since these folders don't contain any files eligible for recovery, they are not listed at all in the picture above.
 
 You can use the _Add Folder_ button to add more folders to Quick Recovery.
 
