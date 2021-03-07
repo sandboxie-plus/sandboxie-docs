@@ -27,11 +27,11 @@ Problem: Click to Run versions of Microsoft Office 2013, 2016 and Office 365 wil
 Solution: Use a non-Click-To-Run version of Office or Google Docs, Libre Office, OpenOffice. All support Microsoft document formats.
 See issue [#428](https://github.com/sandboxie-plus/Sandboxie/issues/428) to track any possible change about this.
 
-### TOR Browser
+### Tor Browser
 
-Problem: TOR is very slow in a sandbox, crashes or crashes after a certain time.
+Problem: Tor Browser is very slow in a sandbox, crashes or crashes after a certain time.
 
-Solution: The TOR browser is not fully supported by Sandboxie. A known workaround is to install the 32-bit version of Tor Browser if you are on Windows 10.
+Solution: Tor Browser is not fully supported by Sandboxie. A known workaround is to install the 32-bit version of Tor Browser if you are on Windows 10.
 See issue [#538](https://github.com/sandboxie-plus/Sandboxie/issues/538) for more information.
 
 ### HP Universal Print Driver
