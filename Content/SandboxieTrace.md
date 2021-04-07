@@ -1,6 +1,6 @@
 # Sandboxie Trace
 
-**Please see [Resource Access Monitor](ResourceAccessMonitor.md) for a more advanced solution.**
+**Please see [Resource Access Monitor](ResourceAccessMonitor.md) for Sandboxie Classic.**
 
 ### Overview
 
