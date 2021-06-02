@@ -26,7 +26,7 @@ The first example exposes a resource provided by the Terminal Services subsystem
 ```
 OpenIpcPath=\RPC Control\seclogon
 ```
-The second example exposes the resource provided by the Windows _Run As_ service. It can let a sandboxed program launch another program using the credentials of a different user. However, the launched program will execute outside of the control of Sandboxie.
+The second example exposes the resource provided by the Windows _Run As_ service. It can let a sandboxed program launch another program using the credentials of a different user. The launched program was executed outside of the control of Sandboxie until [v0.7.3 / 5.49.5](https://github.com/sandboxie-plus/Sandboxie/releases/tag/0.7.3), which runs it inside the sandbox.
 
 This setting accepts wildcards. For more information on the use of wildcards in the _OpenXxxPath_ and _ClosedXxxPath_ settings, see [OpenFilePath](OpenFilePath.md).
 
