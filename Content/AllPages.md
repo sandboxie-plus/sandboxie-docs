@@ -40,7 +40,7 @@
 
 ~~[Box Root Folder](BoxRootFolder.md)~~ (deprecated since Sandboxie v3.xx)
 
-[Byte Order Mark](ByteOrderMark.md)
+~~[Byte Order Mark](ByteOrderMark.md)~~ (deprecated since Sandboxie v0.6.5 / 5.47.0)
 
 ### C
 
