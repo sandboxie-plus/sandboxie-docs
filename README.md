@@ -10,7 +10,7 @@ Select from two editions:
 * Get Sandboxie Plus if you are a first-time user or want the latest features.
 * Get Sandboxie Classic if you have used Sandboxie for a long time and prefer a familiar environment over new features.
 
-[Download the latest release now on Github](https://github.com/sandboxie-plus/Sandboxie/releases)
+[Download the latest release now on GitHub](https://github.com/sandboxie-plus/Sandboxie/releases)
 
 
 # Enjoy the Benefits
@@ -44,6 +44,6 @@ If you find Sandboxie useful, then feel free to shout us a coffee so we can work
 
 # Contribute
 
-If you have development, testing, or documentation skills, then check out our [Github repository](https://github.com/sandboxie-plus/Sandboxie) and get started.
+If you have development, testing, or documentation skills, then check out our [GitHub repository](https://github.com/sandboxie-plus/Sandboxie) and get started.
 
 We are also looking for translators to make Sandboxie available in more languages.
