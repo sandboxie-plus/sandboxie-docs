@@ -23,7 +23,7 @@ Normally, Sandboxie will not permit a sandboxed program to access, communicate, 
    OpenWinClass=$:program.exe
 ```
 
-Permits a program running inside the sandbox to use the PostThreadMessage API to send a message directly to a thread in a target process running outside the sandbox. This form of the _OpenWinClass_ setting does not support wildcards, so the process name of the target process must match the name specified in the setting.
+Windows XP only - it permits a program running inside the sandbox to use the PostThreadMessage API to send a message directly to a thread in a target process running outside the sandbox. This form of the _OpenWinClass_ setting does not support wildcards, so the process name of the target process must match the name specified in the setting.
 ```
    OpenWinClass=#
 ```
