@@ -354,7 +354,7 @@
 
 [SBIE1312](SBIE1312.md)
 
-~~[SBIE1313](SBIE1313.md)~~ (deprecated since Sandboxie 0.7.1 / 5.48.5)
+[SBIE1313](SBIE1313.md)
 
 [SBIE1314](SBIE1314.md)
 
