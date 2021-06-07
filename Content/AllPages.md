@@ -52,7 +52,7 @@
 
 [Code Injection](CodeInjection.md)
 
-~~[Config Level](ConfigLevel.md)~~ (deprecated since Sandboxie v3.xx)
+[Config Level](ConfigLevel.md)
 
 [Configuration Protection](ConfigurationProtection.md)
 
