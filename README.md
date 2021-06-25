@@ -35,7 +35,7 @@ Select from two editions:
 * [Sandboxie Configuration File](Content/SandboxieIni.md)
 * [Documentation Index](Content/AllPages.md)
 
-A browsable documentation with inbuilt search is available [here](https://davidxanatos.github.io/sandboxie-docs).
+A browsable documentation with inbuilt search is available [here](https://sandboxie-plus.github.io/sandboxie-docs).
 
 # Donate
 
