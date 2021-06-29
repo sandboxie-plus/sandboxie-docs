@@ -28,7 +28,7 @@ h1 {
 
 @media screen and (min-width: 64em) {
  .project-name {
-  font-size:2.25rem;
+  font-size:2.10rem;
  }
 }
 
@@ -61,6 +61,7 @@ h1 {
 
 .project-tagline {
  margin-bottom:0rem;
+ margin-top:0rem;
  font-weight:normal;
  opacity:0.7;
 }
@@ -74,7 +75,7 @@ h1 {
 #search-container {
  max-width: 20em;
  padding: 1em;
- margin: 1em auto;
+ margin: 0em auto;
  border: 1px solid lightgrey;
  }
 
