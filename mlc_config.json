@@ -3,5 +3,8 @@
     {
       "pattern": "^https://www.sevenforums.com"
     }
+    {
+      "pattern": "^https://www.vistax64.com"
+    }
   ]
 }
