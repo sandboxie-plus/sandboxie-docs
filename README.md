@@ -33,7 +33,7 @@ Select from two editions:
 * Get Sandboxie Plus if you are a first-time user or want the latest features.
 * Get Sandboxie Classic if you have used Sandboxie for a long time and prefer a familiar environment over new features.
 
-[System requirements](https://github.com/sandboxie-plus/Sandboxie#system-requirements) | [Changelog](https://github.com/isaak654/Sandboxie/blob/master/CHANGELOG.md) | [Download the latest release](https://github.com/sandboxie-plus/Sandboxie/releases/latest)
+[System requirements](https://github.com/sandboxie-plus/Sandboxie#system-requirements) | [Changelog](https://github.com/sandboxie-plus/Sandboxie/blob/master/CHANGELOG.md) | [Download the latest release](https://github.com/sandboxie-plus/Sandboxie/releases/latest)
 
 ## Contribute
 If you find Sandboxie useful, then feel free to donate [here](https://xanasoft.com/donate).
