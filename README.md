@@ -6,8 +6,7 @@ Sandboxie is a free and open source application isolation software for Windows t
 * Prevent applications from "calling home" or stealing your personal data
 
 # Why this documentation is hosted on GitHub?
-Since Sandboxie became open source, it was decided to release the documentation in the same way, in order to be accessible and easily updated from the community.
-So this tends to be more up-to-date than the documentation available on [sandboxie-plus.com](https://sandboxie-plus.com).
+After Sandboxie became open source, it was decided to release the documentation in the same way, in order to be accessible and easily updated from the community. So the following help topics tend to be more up-to-date than the documentation available on [sandboxie-plus.com](https://sandboxie-plus.com) and other archived sources.
 
 # Help Topics
 * [Getting Started with Sandboxie](Content/GettingStarted.md)
