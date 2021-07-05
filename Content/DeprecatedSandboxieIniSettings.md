@@ -2,16 +2,20 @@
 
 The following settings are deprecated.
 
-[ConfigLevel](ConfigLevel.md)
-
-[BoxRootFolder](BoxRootFolder.md)
-
 [BlockDrivers](BlockDrivers.md)
 
 [BlockFakeInput](BlockFakeInput.md)
 
-[ProcessLimit1](ProcessLimit1.md)
+[BlockPassword](BlockPassword.md)
 
 [BlockSysParam](BlockSysParam.md)
 
 [BlockWinHooks](BlockWinHooks.md)
+
+[BoxRootFolder](BoxRootFolder.md)
+
+[ByteOrderMark](ByteOrderMark.md)
+
+[ProcessLimit1](ProcessLimit1.md) 
+
+[ProcessLimit2](ProcessLimit1.md)

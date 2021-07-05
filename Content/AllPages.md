@@ -26,7 +26,7 @@
 
 [Block Net Param](BlockNetParam.md)
 
-[Block Password](BlockPassword.md)
+~~[Block Password](BlockPassword.md)~~ (deprecated)
 
 [Block Port](BlockPort.md)
 
