@@ -8,7 +8,7 @@ Other web sites offer more tutorials:
 
 **English**
 
-[An Introduction and a Quick Guide to Sandboxie](https://www.techsupportalert.com/content/introduction-and-quick-guide-sandboxie.htm) (Tutorial)
+[An Introduction and a Quick Guide to Sandboxie](https://web.archive.org/web/20210712023635/https://www.techsupportalert.com/content/introduction-and-quick-guide-sandboxie.htm) (Tutorial)
 
 [Using SANDBOXIE to Safely Browse the Internet (PDF)](http://www.jimopi.net/PDFs/Word%20Pro%20-%20Sandboxie.pdf) (PDF)
 
