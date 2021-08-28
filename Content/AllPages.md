@@ -28,7 +28,7 @@
 
 ~~[Block Password](BlockPassword.md)~~ (deprecated)
 
-[Block Port](BlockPort.md)
+~~[Block Port](BlockPort.md)~~ (deprecated since Sandboxie v0.9.0 / 5.51.0)
 
 ~~[Block Sys Param](BlockSysParam.md)~~ (deprecated since Sandboxie v4.xx)
 

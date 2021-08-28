@@ -21,7 +21,7 @@ Settings in this section are intended to alter the default set of restrictions t
 
 Use these settings to select which programs, if any, will be allowed to access the Internet in the sandbox. Initially, all programs in the sandbox can access the Internet.
 
-Use the _Add by Name_ button to add a program by typing its explicit executable name. Alternatively, use the _Add by File_ button to navigate to the program folder and select its program executable. Blocking of SMB/CIFS which you can block as well by visiting [BlockPort](BlockPort.md)
+Use the _Add by Name_ button to add a program by typing its explicit executable name. Alternatively, use the _Add by File_ button to navigate to the program folder and select its program executable. ~~Blocking of SMB/CIFS which you can block as well by visiting [BlockPort](BlockPort.md)~~
 
 
 When _any_ restrictions are in effect, programs that are installed (or downloaded) into the sandbox will never be allowed to access the Internet.

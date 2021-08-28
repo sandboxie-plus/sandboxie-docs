@@ -8,6 +8,8 @@ The following settings are deprecated.
 
 [BlockPassword](BlockPassword.md)
 
+[BlockPort](BlockPort.md)
+
 [BlockSysParam](BlockSysParam.md)
 
 [BlockWinHooks](BlockWinHooks.md)
