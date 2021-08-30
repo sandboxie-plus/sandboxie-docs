@@ -146,7 +146,7 @@ Sandboxie also takes measures to prevent programs executing inside the sandbox f
 
 Sandboxie also prevents programs executing inside the sandbox from loading drivers directly. It also prevents programs from asking a central system component, known as the Service Control Manager, to load drivers on their behalf. In this way, drivers, and more importantly, rootkits, cannot be installed by a sandboxed program.
 
-Sandboxie also helps to stop a sandboxed process from reading the memory of unsandboxed processes. With a careful use of the [ClosedFilePath](ClosedFilePath.md) and [ClosedKeyPath](ClosedKeyPath.md) settings, you can improve your configuration as well.
+Sandboxie also stops a sandboxed process from reading the memory of unsandboxed processes. You can also use [ClosedFilePath](ClosedFilePath.md) and [ClosedKeyPath](ClosedKeyPath.md) settings to improve your configuration as well.
 
 **Back to [Table of Contents](#technical)**
 
