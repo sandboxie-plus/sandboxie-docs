@@ -5,7 +5,7 @@ Sandboxie employs a particularly low level approach of injecting its code into p
 ##### Trigger
 The driver registers a PsSetCreateProcessNotifyRoutine callback and when this is triggered inspects if the process should be sandboxed, when it decides so it blocks and requests the SbieSvc service to inject a loader into the process image. Alternatively a suspended process can be created and the driver triggered to put it into a sandbox by using API_START_PROCESS and resuming the process once the driver has finished. 
 
-The injection mechanism itself can be adapted to be utilized without the driver. As of version 5.44 the loader code has been moved from the SbieSvc.exe to SbieDll.dll and a cli based tool SbieLdr.exe to utilize it is provided.
+The injection mechanism itself can be adapted to be utilized without the driver. As of version 5.44 the loader code has been moved from the SbieSvc.exe to SbieDll.dll.
 
 ##### Overview
 The Code Injection mechanism is made up of 3 components, the injector itself, a low-level shell code (LowLevel.dll), and the to be injected payload (SbieDll.dll). Note that the LowLevel.dll is embedded into the loader as a resource.
