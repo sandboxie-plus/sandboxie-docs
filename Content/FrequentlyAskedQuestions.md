@@ -142,11 +142,13 @@ Sandboxie extends the operating system (OS) with sandboxing capabilities by blen
 
 The following classes of system objects are supervised by Sandboxie: Files, Disk Devices, Registry Keys, Process and Thread objects, Driver objects, and objects used for Inter-process communication: Named Pipes and Mailbox Objects, Events, Mutexs (Mutants in NT speak), Semaphores, Sections and LPC Ports. For some more information on this, see [Sandbox Hierarchy](SandboxHierarchy.md).
 
-Sandboxie also takes measures to prevent programs executing inside the sandbox from hijacking non-sandboxed programs and using them as a vehicle to operate outside the sandbox.
+Sandboxie also takes measures to prevent programs executing inside the sandbox from hijacking non-sandboxed programs and using them as a vehicle to operate outside the sandbox. For the same reason, Sandboxie doesn't allow a sandboxed process from reading the memory of unsandboxed processes and it provides a feature to hide selected host processes from sandboxed processes. For more information about this, see [#59](https://github.com/sandboxie-plus/Sandboxie/issues/59#issuecomment-653756014) and [0.3 / 5.42 notes](https://github.com/sandboxie-plus/Sandboxie/blob/master/CHANGELOG.md#added-35).
 
 Sandboxie also prevents programs executing inside the sandbox from loading drivers directly. It also prevents programs from asking a central system component, known as the Service Control Manager, to load drivers on their behalf. In this way, drivers, and more importantly, rootkits, cannot be installed by a sandboxed program.
 
-Sandboxie also stops a sandboxed process from reading the memory of unsandboxed processes, see [#59](https://github.com/sandboxie-plus/Sandboxie/issues/59#issuecomment-653756014). You can also apply [ClosedFilePath](ClosedFilePath.md) and [ClosedKeyPath](ClosedKeyPath.md) settings to improve your configuration as well.
+It should be noted, however, that Sandboxie does not typically prevent the exfiltration of user data by processes running under its supervision without advanced configuration, as the default file and registry access scheme is Allow Read to anything except when the user specified a particular path to be closed. However, by careful configuration of the [ClosedFilePath](ClosedFilePath.md) and [ClosedKeyPath](ClosedKeyPath.md) settings, you can achieve this goal as well.
+
+If you want to follow the future development on this, see [New privacy enhanced File/Registry access scheme, White list/Template Mode, plans and discussion](https://github.com/sandboxie-plus/Sandboxie/issues/890)
 
 **Back to [Table of Contents](#technical)**
 
