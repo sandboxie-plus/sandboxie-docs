@@ -2,7 +2,6 @@
 
 In Sandboxie, various [Resource Access Settings](ResourceAccessSettings.md) apply only to programs installed outside of Sandboxie, as not to be bypassed by sandboxed programs changing their exe name. The following table shows which settings apply to what installation locations.
 
-<div align="center">
 
 |                 | Outside | Inside |
 |-----------------|---------|--------|
@@ -20,6 +19,5 @@ In Sandboxie, various [Resource Access Settings](ResourceAccessSettings.md) appl
 |[WriteFilePath](WriteFilePath.md)   | No      | Yes     |
 |[WriteKeyPath](WriteKeyPath.md)     | No      | Yes     |
 
-</div>
 
-<p align="center">Note that all `Close...=!<program>,...` excludes only programs from outside the sandbox.</p>
+Note that all `Close...=!<program>,...` excludes only programs from outside the sandbox.
