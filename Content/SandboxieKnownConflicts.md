@@ -24,8 +24,7 @@ Solution: None at this time. See issue [#19](https://github.com/sandboxie-plus/S
 
 Problem: Click to Run versions of Microsoft Office 2013, 2016 and Office 365 will crash when sandboxed. This includes Outlook 2013 and up.
 
-Solution: Use a non-Click-To-Run version of Office or Google Docs, Libre Office, OpenOffice. All support Microsoft document formats.
-See issue [#428](https://github.com/sandboxie-plus/Sandboxie/issues/428) to track any possible change about this.
+Solution: A fix was included on [v0.9.7 / 5.52.1](https://github.com/sandboxie-plus/Sandboxie/releases/tag/0.9.7). It can be applied manually with most recent Sandboxie versions, see [#428](https://github.com/sandboxie-plus/Sandboxie/issues/428#issuecomment-932708577).
 
 ### Tor Browser
 
@@ -46,3 +45,9 @@ Solution: Open Sandbox Settings > Resource Access > COM Access, click Add and en
 Problem: Autodelete feature no longer works on Microsoft Edge.
 
 Solution: Microsoft Edge was updated with a new setting (under System) called "Start up boost", which is enabled by default. It prevents Edge from fully shutting down, so we suggest to disable the option.
+
+### Steam games
+
+Problem: Not all Steam games will function while Sandboxed.
+
+Solution: Install the games on your computer, not in a sandbox. Most games can work. However, there are [known reports](https://github.com/sandboxie-plus/Sandboxie/labels/game%20issue) that some simply may not. If you run into a problem with a Steam game, you should make sure Steam client is updated on your host machine. Run Steam not sandboxed, download and install the game on your host computer and then "right click" on the game shortcut and select "Run Sandboxed" as a workaround. If problems persist, please let us know the details by posting on the official Github repository [here](https://github.com/sandboxie-plus/Sandboxie/issues).
