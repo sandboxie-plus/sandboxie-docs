@@ -38,7 +38,7 @@ See issue [#538](https://github.com/sandboxie-plus/Sandboxie/issues/538) for mor
 Problem: The HP Universal Printer Status Monitor pop-up component is failing when printing from a sandboxed Web browser.
 
 Solution: Open Sandbox Settings > Resource Access > COM Access, click Add and enter this resource name:
-{D713F357-7920-4B91-9EB6-49054709EC7A}
+`{D713F357-7920-4B91-9EB6-49054709EC7A}`
 
 ### Autodelete feature on Microsoft Edge
 
