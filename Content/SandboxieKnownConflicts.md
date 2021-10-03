@@ -51,3 +51,49 @@ Solution: Microsoft Edge was updated with a new setting (under System) called "S
 Problem: Not all Steam games will function while Sandboxed.
 
 Solution: Install the games on your computer, not in a sandbox. Most games can work. However, there are [known reports](https://github.com/sandboxie-plus/Sandboxie/labels/game%20issue) that some simply may not. If you run into a problem with a Steam game, you should make sure Steam client is updated on your host machine. Run Steam not sandboxed, download and install the game on your host computer and then "right click" on the game shortcut and select "Run Sandboxed" as a workaround. If problems persist, please let us know the details by posting on the official Github repository [here](https://github.com/sandboxie-plus/Sandboxie/issues).
+
+### GOG Games and Galaxy Beta
+
+Problem: Games from GOG Galaxy may not run while sandboxed.
+
+Solution: No fix yet. You can "force" GOG Program folder so that it works correctly within a sandbox. See also: [ForceFolder](ForceFolder.md).
+
+### MS Edge is stuck when you clean Media Foundation data
+
+Problem: MS Edge doesn't clear "Media Foundation data" while sandboxed.
+
+Solution: You can uncheck the option for the time being, see [#867](https://github.com/sandboxie-plus/Sandboxie/issues/867).
+
+### Chromium browsers like Edge or Chrome can not access microphone in any sandbox
+
+Problem: Chromium-based browsers can not access microphone while sandboxed.
+
+Solution: No fix yet, see [#1208](https://github.com/sandboxie-plus/Sandboxie/issues/1208).
+
+### Windows Explorer takes a long time to open folders, drives or context menus
+
+Problem: Windows Explorer can take a long time to open while sandboxed on Windows 10 and 11.
+
+Solution: No fix yet, see [#69](https://github.com/sandboxie-plus/Sandboxie/issues/69).
+
+### "Open With" dialog not working in sandboxed Explorer instance
+
+Problem: "Open with" functionality is not working with Sandboxie.
+
+Solution: No fix yet, see [#1138](https://github.com/sandboxie-plus/Sandboxie/issues/1138).
+
+### Can't use the search box in File Explorer (or Windows Explorer)
+
+Problem: The search box in File Explorer doesn't get focused while sandboxed, and you can't input anything.
+
+Solution: A workaround is available, see [#1002](https://github.com/sandboxie-plus/Sandboxie/issues/1002).
+
+###  "Sandboxed service failed to start: BITS" or "Request to start service bits was denied" can appear while a program is sandboxed
+
+Problem: BITS service seems to be broken since a few Windows 10 releases, as it's using some parts of WMI which is blocked in Sandboxie.
+
+Solution: A workaround is available, see [#1081](https://github.com/sandboxie-plus/Sandboxie/issues/1081#issuecomment-933021149).
+
+### I can't find my issue in this list
+
+If you would like to search further issues, please use the search box on the official Github repository [here](https://github.com/sandboxie-plus/Sandboxie/issues).
