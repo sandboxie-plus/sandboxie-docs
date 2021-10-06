@@ -56,7 +56,7 @@ Solution: Install the games on your computer, not in a sandbox. Most games can w
 
 Problem: Games from GOG Galaxy may not run while sandboxed.
 
-Solution: No fix yet. You can "force" GOG Program folder so that it works correctly within a sandbox. See also: [ForceFolder](ForceFolder.md).
+Solution: No fix yet, see [#1246](https://github.com/sandboxie-plus/Sandboxie/issues/1246). You can "force" GOG Program folder so that it works correctly within a sandbox. See also: [ForceFolder](ForceFolder.md).
 
 ### MS Edge is stuck when you clean Media Foundation data
 
@@ -69,6 +69,12 @@ Solution: You can uncheck the option for the time being, see [#867](https://gith
 Problem: Chromium-based browsers can not access microphone while sandboxed.
 
 Solution: No fix yet, see [#1208](https://github.com/sandboxie-plus/Sandboxie/issues/1208).
+
+### Tabs sessions on Chromium browsers are sometimes not restored correctly in Sandboxie
+
+Problem: Tabs sessions are lost when a Chromium browser is running outside of the sandbox.
+
+Solution: No fix yet, see [#558](https://github.com/sandboxie-plus/Sandboxie/issues/558).
 
 ### Windows Explorer takes a long time to open folders, drives or context menus
 
