@@ -1,6 +1,6 @@
-# Resource Access Monitor
+# Resource Access Monitor (for Sandboxie Classic)
 
-The Resource Access Monitor tool displays the names of any system resources that are accessed by programs running under the supervision of Sandboxie. Designed to make it easy to identify those system resources which should be excluded from sandboxing, this tool doesn't replace the [Sandboxie Trace](SandboxieTrace.md) facility.
+The Resource Access Monitor tool displays the names of any system resources that are accessed by programs running under the supervision of Sandboxie. Designed to make it easy to identify those system resources which should be excluded from sandboxing, this tool can be used with the [Sandboxie Trace](SandboxieTrace.md) options.
 
 **Important:** Please use the Resource Access Monitor tool only if you are asked to do so.
 
@@ -20,6 +20,6 @@ The Resource Access Monitor tool displays the names of any system resources that
 
 6\. You can now paste (Ctrl+V) the collected data somewhere and make it available for analysis.
 
-**Performace Impact**
+**Performance Impact**
 
-When inactive, the Resource Access Monitor does not use any system resources and does not have any performance impact on any running programs. When active, the Resource Access Monitor consumes 64K bytes of system memory and has a small performace penalty on sandboxed programs. Network Administrators may want to use the [MonitorAdminOnly](MonitorAdminOnly.md) to restrict the use of this commad.
+When inactive, the Resource Access Monitor does not use any system resources and does not have any performance impact on any running programs. When active, the Resource Access Monitor consumes 64K bytes of system memory and has a small performance penalty on sandboxed programs. Network Administrators may want to use the [MonitorAdminOnly](MonitorAdminOnly.md) setting to restrict the use of this tool for user accounts which are not members of the Administrators group.

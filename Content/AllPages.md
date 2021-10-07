@@ -254,7 +254,7 @@
 
 [Resource Access](ResourceAccess.md)
 
-[Resource Access Monitor](ResourceAccessMonitor.md)
+[Resource Access Monitor for Sandboxie Classic](ResourceAccessMonitor.md)
 
 [Resource Access Settings](ResourceAccessSettings.md)
 
@@ -555,6 +555,8 @@
 [Technical Aspects](TechnicalAspects.md)
 
 [Test Email Configuration](TestEmailConfiguration.md)
+
+[Trace Logging for Sandboxie Plus](TraceLog.md)
 
 [Tray Icon Menu](TrayIconMenu.md)
 
