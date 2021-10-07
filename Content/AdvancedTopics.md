@@ -8,7 +8,7 @@ Information about the Sandboxie [Service Programs](ServicePrograms.md).
 
 ***
 
-Instructions for use of the [Resource Access Monitor](ResourceAccessMonitor.md).
+Instructions for use of the [Resource Access Monitor](ResourceAccessMonitor.md) with Sandboxie Classic.
 
 Read [How To Use Win Dbg](HowToUseWinDbg.md) to identify problems with Sandboxie. 
 
