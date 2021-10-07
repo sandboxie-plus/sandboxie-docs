@@ -26,4 +26,4 @@ The Trace Log tool displays the names of any system resources that are accessed 
 
 **Performace Impact**
 
-When inactive, the Trace Log does not use any system resources and does not have any performance impact on any running programs. When active, the Trace Log has a small performace penalty on sandboxed programs. Network Administrators may want to use the [MonitorAdminOnly](MonitorAdminOnly.md) to restrict the use of this command.
+When inactive, the Trace Log does not use any system resources and does not have any performance impact on any running programs. When active, the Trace Log has a small performance penalty on sandboxed programs.
