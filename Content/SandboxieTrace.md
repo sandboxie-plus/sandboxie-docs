@@ -49,7 +49,7 @@ Since 0.9.0, it was added a new option `NetFwTrace=*` to trace the actions of th
 On Windows Vista and later, output from the system debugger log is disabled by default. [This blog post](https://web.archive.org/web/20080731211018/http://blogs.msdn.com:80/doronh/archive/2006/11/14/where-did-my-debug-output-go-in-vista.aspx) and [this StackOverflow thread](https://stackoverflow.com/questions/65015739/outputdebugstring-not-showing-message-in-debugview-windows-10-x64) explain how to enable it.
 
 The following trace will display output in the following format. (Assuming **IpcTrace**, and **PipeTrace** enabled.)
-
+```
 ...  
 (001404) SBIE (FA) 00120116.01.00000000 \Device\NamedPipe\ShimViewer  
 ...  
@@ -63,10 +63,10 @@ The following trace will display output in the following format. (Assuming **Ipc
 ...  
 (001404) SBIE (ID) 001F0001 \RPC Control\protected_storage  
 ...  
-
+```
 The format is this:
 
-(pid) SBIE (ca) (access) (resource)
+```(pid) SBIE (ca) (access) (resource)```
 
 where _pid_ identifies the process attempting the access;  
 _c_ indicates the Sandboxie class for the resource -- more on this later;  
@@ -76,22 +76,22 @@ _resource_ identifies the resource to which access is desired; in the case of pr
 
 Some examples:
 
-(001404) SBIE (IA) 001F0001 \ThemeApiPort  
+```(001404) SBIE (IA) 001F0001 \ThemeApiPort```
 
 Here the process making the request is process id 1404, and was allowed to access the resource named _ThemeApiPort_. The resource class is I, so this is an inter-process object. The access was allowed because by default, Sandboxie allows this specific access.
 
-(001404) SBIE (ID) 001F0001 \RPC Control\protected_storage  
+```(001404) SBIE (ID) 001F0001 \RPC Control\protected_storage```
 
 Here the access to the resource _protected_storage_ was denied. By default Sandboxie does not allow this access; however the OpenProtectedStorage setting changes this behavior.
 
-(001404) SBIE (FA) 00000001.0F.FFFFFFFF \Device\Afd\Endpoint  
+```(001404) SBIE (FA) 00000001.0F.FFFFFFFF \Device\Afd\Endpoint```
 
 Here the access is allowed to the resource _Endpoint_. The resource class is F, so this is a named pipe or a mail slot resource. The access is allowed by default, because the _\Device\Afd_ prefix names resources needed for Internet access.
 
 ### Review **GuiTrace** Entries
 
-When **GuiTrace** is enabled, the trace also produces entires like the following.
-
+When **GuiTrace** is enabled, the trace also produces entries like the following:
+```
 ...  
 (001404) SBIE (GA) WinHook 0002 on tid=001484 pid=001960  
 (001404) SBIE (GA) AccHook on tid=000000 pid=000000  
@@ -101,7 +101,7 @@ When **GuiTrace** is enabled, the trace also produces entires like the following
 ...  
 (001404) SBIE (GD) SendInput  
 (001404) SBIE (GA) SendInput  
-
+```
 These entries have a few formats. The first word after (GA) or (GD) identifies the type of the entry.
 
 When the first word is _WinHook_ or _AccHook_, the entry indicates installation of a hook. Its installation is permitted for (GA) entries, and denied for (GD) entries. _WinHook_ is a standard Windows hook, followed by the type of the hook (see [SetWidowsHookEx in MSDN](https://www.google.com/search?hl=en&q=setwindowshookex+msdn)). _AccHook_ is an accessability hook (see [SetWinEventHook in MSDN](https://www.google.com/search?hl=en&q=setwineventhook+msdn)).
@@ -114,9 +114,9 @@ When the first word is _PostMessage_, _SendMessage_ or _ThrdMessage_, the entry 
 
 The point of using the trace is usually to identify the resource that is keeping the sandboxed program from functioning correctly.
 
-Consider for example the following trace record.
+Consider for example the following trace record:
 
-(001404) SBIE (ID) 001F0001 \BaseNamedObjects\Xyzzy  
+```(001404) SBIE (ID) 001F0001 \BaseNamedObjects\Xyzzy```
 
 This shows that access to some _Xyzzy_ resource was denied. Sandboxie does not know this resource, and by default, it denies access to unknown resources.
 
@@ -124,7 +124,7 @@ If a sandboxed programs begins to malfunction (it may lock up, or it may end abr
 
 The next step is to add an [OpenIpcPath](OpenIpcPath.md) setting for this resource:  
 
-OpenIpcPath=\BaseNamedObjects\Xyzzy
+```OpenIpcPath=\BaseNamedObjects\Xyzzy```
 
 This setting tells Sandboxie that access to the _Xyzzy_ resource should not be blocked.
 
