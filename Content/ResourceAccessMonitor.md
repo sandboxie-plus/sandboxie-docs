@@ -1,6 +1,6 @@
 # Resource Access Monitor (for Sandboxie Classic)
 
-The Resource Access Monitor tool displays the names of any system resources that are accessed by programs running under the supervision of Sandboxie. Designed to make it easy to identify those system resources which should be excluded from sandboxing, this tool doesn't replace the [Sandboxie Trace](SandboxieTrace.md) facility.
+The Resource Access Monitor tool displays the names of any system resources that are accessed by programs running under the supervision of Sandboxie. Designed to make it easy to identify those system resources which should be excluded from sandboxing, this tool can be used with the [Sandboxie Trace](SandboxieTrace.md) options.
 
 **Important:** Please use the Resource Access Monitor tool only if you are asked to do so.
 
