@@ -14,20 +14,21 @@ The trace displays access attempts and makes it possible to somewhat easily iden
 
 ### Enable the Trace
 
-The trace is activated through four SandboxieIni settings:
+The trace can be activated through different [Sandboxie Ini](SandboxieIni.md) settings:
 
 *   **FileTrace** logs access to files, folders, and filesystem volumes;
 *   **KeyTrace** logs access to registry keys (but not values within keys);
 *   **PipeTrace** logs access to named pipes and mail slot objects which are used for inter-process communication;
 *   **IpcTrace** logs access to other objects used for inter-process communication, and also logs access attempts by one process to another process;
-*   **GuiTrace** logs window-to-window communications, Windows hooks, and manufacturing of fake keyboard input.
-*   **ClsidTrace** logs COM communications.
+*   **GuiTrace** logs window-to-window communications;
+*   **ClsidTrace** logs COM communications;
+*   **NetFwTrace** traces the actions of the firewall components (since 0.9.0)
 
-Each setting accepts a sequence of characters which specifies what to log. The character _a_ logs requests which were allowed; the character _d_ logs requests which were denied. For the **FileTrace** and **PipeTrace** settings, the character _i_ logs requests which were allowed because they access a device which is ignored by Sandboxie, such as a CD ROM.
+Each setting accepts a sequence of characters which specifies what to log. The character _a_ logs requests which were allowed; the character _d_ logs requests which were denied. For the **FileTrace** and **PipeTrace** settings, the character _i_ logs requests which were allowed because they access a device which is ignored by Sandboxie, such as a CD-ROM.
 
-The last three settings, **PipeTrace**, **IpcTrace** and **GuiTrace**, are more relevant to the discussion in this page. **FileTrace** and __KeyTrace_ will usually not be able to provide insight as to why a sandboxed program is malfunctioning.
+The settings **PipeTrace**, **IpcTrace** and **GuiTrace** are more relevant to the discussion in this page. **FileTrace** and **KeyTrace** will usually not be able to provide insight as to why a sandboxed program is malfunctioning.
 
-Thus, typically you enable by the trace by making this change in SandboxieIni:
+Thus, typically you enable the trace by making this change in [Sandboxie Ini](SandboxieIni.md):
 ```
    [GlobalSettings]
    IpcTrace=ad
@@ -37,14 +38,15 @@ Thus, typically you enable by the trace by making this change in SandboxieIni:
 
 Then use Sandboxie Control to reload the configuration.
 
-### Review the Trace for **IpcTrace** and **PipeTrace**
+Trace options can be set on a per box basis such that only the boxes you need will generate trace logs.
 
-~~The information collected by the Sandboxie trace facility is logged in the system debugger log. You will need a utility to display this log: [DebugView](https://docs.microsoft.com/it-it/sysinternals/downloads/debugview) from Sysinternals (now Microsoft) is recommended.~~
+You can also adjust the buffer size by adding ```TraceBufferPages=2560``` that will increase it tenfold.
 
-~~On Windows Vista and later, output from the system debugger log is disabled by default. [This blog post](https://web.archive.org/web/20080731211018/http://blogs.msdn.com:80/doronh/archive/2006/11/14/where-did-my-debug-output-go-in-vista.aspx) explains how to enable the output.~~
+### Review the Trace for **NetFwTrace**, **IpcTrace** and **PipeTrace**
 
-The trace options no longer log to the kernel debug output, but to the resource access log of Sandboxie, so it's not expected to see anything in DebugView.
-You can set the trace options on a per box basis such that only the boxes you need will generate trace logs, see also [#886](https://github.com/sandboxie-plus/Sandboxie/issues/886).
+Since 0.9.0, it was added a new option `NetFwTrace=*` to trace the actions of the firewall components. Please note that the driver only logs the kernel debug output, hence you can use [DbgView.exe](https://docs.microsoft.com/it-it/sysinternals/downloads/debugview).
+
+On Windows Vista and later, output from the system debugger log is disabled by default. [This blog post](https://web.archive.org/web/20080731211018/http://blogs.msdn.com:80/doronh/archive/2006/11/14/where-did-my-debug-output-go-in-vista.aspx) and [this StackOverflow thread](https://stackoverflow.com/questions/65015739/outputdebugstring-not-showing-message-in-debugview-windows-10-x64) explain how to enable it.
 
 The following trace will display output in the following format. (Assuming **IpcTrace**, and **PipeTrace** enabled.)
 
