@@ -47,7 +47,7 @@ Some messages display details which include NT status codes, denoted in the help
 [SBIE1223](SBIE1223.md)
 [SBIE1224](SBIE1224.md)
 [SBIE1241](SBIE1241.md)
-[SBIE1242](SBIE1242.md)
+~~[SBIE1242](SBIE1242.md)~~
 [SBIE1301](SBIE1301.md)
 ~~[SBIE1303](SBIE1303.md)~~
 ~~[SBIE1304](SBIE1304.md)~~
