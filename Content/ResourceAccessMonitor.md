@@ -22,4 +22,4 @@ The Resource Access Monitor tool displays the names of any system resources that
 
 **Performace Impact**
 
-When inactive, the Resource Access Monitor does not use any system resources and does not have any performance impact on any running programs. When active, the Resource Access Monitor consumes 64K bytes of system memory and has a small performace penalty on sandboxed programs. Network Administrators may want to use the [MonitorAdminOnly](MonitorAdminOnly.md) to restrict the use of this commad.
+When inactive, the Resource Access Monitor does not use any system resources and does not have any performance impact on any running programs. When active, the Resource Access Monitor consumes 64K bytes of system memory and has a small performace penalty on sandboxed programs. Network Administrators may want to use the [MonitorAdminOnly](MonitorAdminOnly.md) to restrict the use of this command.
