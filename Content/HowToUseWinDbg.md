@@ -22,7 +22,9 @@ You probably should use the 32-bit debugger, even on 64-bit Windows. You only ne
 
 Start the debugger under Sandboxie by using the Sandboxie Start menu.
 
-[Sandboxie Control](SandboxieControl.md) > [Sandbox Menu](SandboxMenu.md) > Run From Start Menu
+* [Sandboxie Control](SandboxieControl.md) > [Sandbox Menu](SandboxMenu.md) > Run From Start Menu
+
+* Sandboxie Plus window > right click on your sandbox > Run > Run From Start Menu
 
 Then navigate the Sandboxie Start menu to locate and invoke the _WinDbg_ program within the _Windows Kits_ group.
 
