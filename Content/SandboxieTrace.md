@@ -2,6 +2,8 @@
 
 **Please see [Resource Access Monitor](ResourceAccessMonitor.md) for Sandboxie Classic.**
 
+**Please see [Trace Log](TraceLog.md) for Sandboxie Plus.**
+
 ### Overview
 
 In some cases, a program may not function correctly within the sandbox, because it needs access to a system resource which is, by default, protected by Sandboxie, and access to that resource is denied.
