@@ -39,11 +39,14 @@ Then use Sandboxie Control to reload the configuration.
 
 ### Review the Trace for **IpcTrace** and **PipeTrace**
 
-The information collected by the Sandboxie trace facility is logged in the system debugger log. You will need a utility to display this log: [DebugView](https://docs.microsoft.com/it-it/sysinternals/downloads/debugview) from Sysinternals (now Microsoft) is recommended.
+~~The information collected by the Sandboxie trace facility is logged in the system debugger log. You will need a utility to display this log: [DebugView](https://docs.microsoft.com/it-it/sysinternals/downloads/debugview) from Sysinternals (now Microsoft) is recommended.~~
 
-(On Windows Vista, output from the system debugger log is disabled by default. [This blog post](https://web.archive.org/web/20080731211018/http://blogs.msdn.com:80/doronh/archive/2006/11/14/where-did-my-debug-output-go-in-vista.aspx) explains how to enable the output.)
+~~On Windows Vista and later, output from the system debugger log is disabled by default. [This blog post](https://web.archive.org/web/20080731211018/http://blogs.msdn.com:80/doronh/archive/2006/11/14/where-did-my-debug-output-go-in-vista.aspx) explains how to enable the output.~~
 
-The trace will display output in the following format. (Assuming **IpcTrace**, and **PipeTrace** enabled.)
+The trace options no longer log to the kernel debug output, but to the resource access log of Sandboxie, so it's not expected to see anything in DebugView.
+You can set the trace options on a per box basis such that only the boxes you need will generate trace logs, see also [#886](https://github.com/sandboxie-plus/Sandboxie/issues/886).
+
+The following trace will display output in the following format. (Assuming **IpcTrace**, and **PipeTrace** enabled.)
 
 ...  
 (001404) SBIE (FA) 00120116.01.00000000 \Device\NamedPipe\ShimViewer  
@@ -131,8 +134,8 @@ But if the program still fails, the trace log can be inspected again for later (
 
 The trace record shows the Sandboxie resource class of the object. This indicates which OpenXxxPath setting is needed to allow access to the object.
 
-*   When resource class is F, as in (FA) or (FD), the relevant settings are [OpenFilePath](OpenFilePath.md) and [ClosedFilePath](ClosedFilePath.md)
-*   When resource class is K, as in (KA) or (KD), the relevant settings are [OpenKeyPath](OpenKeyPath.md) and [ClosedKeyPath](ClosedKeyPath.md)
-*   When resource class is I, as in (IA) or (ID), the relevant settings are [OpenIpcPath](OpenIpcPath.md) and [ClosedIpcPath](ClosedIpcPath.md)
-*   When resource class is G, as in (GA) or (GD), the relevant settings are [OpenWinClass](OpenWinClass.md), [BlockWinHooks](BlockWinHooks.md), and [BlockFakeInput](BlockFakeInput.md)
+*   When resource class is F, as in (FA) or (FD), the relevant settings are [OpenFilePath](OpenFilePath.md) and [ClosedFilePath](ClosedFilePath.md).
+*   When resource class is K, as in (KA) or (KD), the relevant settings are [OpenKeyPath](OpenKeyPath.md) and [ClosedKeyPath](ClosedKeyPath.md).
+*   When resource class is I, as in (IA) or (ID), the relevant settings are [OpenIpcPath](OpenIpcPath.md) and [ClosedIpcPath](ClosedIpcPath.md).
+*   When resource class is G, as in (GA) or (GD), the relevant setting is [OpenWinClass](OpenWinClass.md).
 *   For COM objects displayed by ClsidTrace, the relevant setting is [OpenClsid](OpenClsid.md).
