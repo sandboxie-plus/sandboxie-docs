@@ -24,6 +24,6 @@ The Trace Log tool displays the names of any system resources that are accessed 
 
 8\. You can now paste (Ctrl+V) the collected data somewhere and make it available for analysis.
 
-**Performace Impact**
+**Performance Impact**
 
 When inactive, the Trace Log does not use any system resources and does not have any performance impact on any running programs. When active, the Trace Log has a small performance penalty on sandboxed programs.
