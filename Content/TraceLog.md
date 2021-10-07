@@ -10,7 +10,7 @@ The Trace Log tool displays the names of any system resources that are accessed 
 
 1\. Open the Sandboxie Plus window, then go to **Options** menu -> **Edit ini file** -> confirm **Yes**.
 
-2\. Add `IpcTrace=*` below `[DefaultBox]` (or your sandbox name).
+2\. Add `IpcTrace=*` below `[DefaultBox]` (or your specific sandbox name).
 
 3\. Save the ini file and close it.
 
