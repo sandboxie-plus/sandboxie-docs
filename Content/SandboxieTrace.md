@@ -1,8 +1,10 @@
 # Sandboxie Trace
 
-**Please see [Resource Access Monitor](ResourceAccessMonitor.md) for Sandboxie Classic.**
+### Please see [Resource Access Monitor](ResourceAccessMonitor.md) for Sandboxie Classic.
 
-**Please see [Trace Logging](TraceLog.md) for Sandboxie Plus.**
+### Please see [Trace Logging](TraceLog.md) for Sandboxie Plus.
+
+---
 
 ### Overview
 
