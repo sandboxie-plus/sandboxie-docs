@@ -22,7 +22,7 @@ The trace can be activated through different [Sandboxie Ini](SandboxieIni.md) se
 *   **IpcTrace** logs access to other objects used for inter-process communication, and also logs access attempts by one process to another process;
 *   **GuiTrace** logs window-to-window communications;
 *   **ClsidTrace** logs COM communications;
-*   **NetFwTrace** traces the actions of the firewall components (since 0.9.0)
+*   **NetFwTrace** traces the actions of the firewall components (since version 0.9.0 / 5.51.0)
 
 Each setting accepts a sequence of characters which specifies what to log. The character _a_ logs requests which were allowed; the character _d_ logs requests which were denied. For the **FileTrace** and **PipeTrace** settings, the character _i_ logs requests which were allowed because they access a device which is ignored by Sandboxie, such as a CD-ROM.
 
@@ -36,7 +36,9 @@ Thus, typically you enable the trace by making this change in [Sandboxie Ini](Sa
    GuiTrace=ad
 ```
 
-Then use Sandboxie Control to reload the configuration.
+Then use Sandboxie to reload the configuration:
+* **Configure** menu -> **Reload Configuration** on Sandboxie Classic
+* **Options** menu -> **Reload ini file** on Sandboxie Plus
 
 Trace options can be set on a per box basis such that only the boxes you need will generate trace logs.
 
@@ -44,7 +46,7 @@ You can also adjust the buffer size by adding ```TraceBufferPages=2560``` that w
 
 ### Review the Trace for **NetFwTrace**, **IpcTrace** and **PipeTrace**
 
-Since 0.9.0, it was added a new option `NetFwTrace=*` to trace the actions of the firewall components. Please note that the driver only logs the kernel debug output, hence you can use [DbgView.exe](https://docs.microsoft.com/it-it/sysinternals/downloads/debugview).
+Since version 0.9.0 / 5.51.0, it was added a new option `NetFwTrace=*` to trace the actions of the firewall components. Please note that the driver only logs the kernel debug output, hence you can use [DbgView.exe](https://docs.microsoft.com/it-it/sysinternals/downloads/debugview).
 
 On Windows Vista and later, output from the system debugger log is disabled by default. [This blog post](https://web.archive.org/web/20080731211018/http://blogs.msdn.com:80/doronh/archive/2006/11/14/where-did-my-debug-output-go-in-vista.aspx) and [this StackOverflow thread](https://stackoverflow.com/questions/65015739/outputdebugstring-not-showing-message-in-debugview-windows-10-x64) explain how to enable it.
 
