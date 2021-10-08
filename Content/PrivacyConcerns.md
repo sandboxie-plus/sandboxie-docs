@@ -83,7 +83,7 @@ Similar to the Windows Page File, the hibernate file stores a copy of the memory
 
 Restore points are snapshots of the state of the operating system at some points in time. The System Restore components in Windows XP and later versions of Windows records and restores these snapshots.
 
-Snapshots are recorded in the (typically inaccessible) folder called _System Volume Information_ and may include [many types of files](https://docs.microsoft.com/it-it/windows/win32/sr/monitored-file-extensions) found throughout the system, including within the folders of the sandbox.
+Snapshots are recorded in the (typically inaccessible) folder called _System Volume Information_ and may include [many types of files](https://docs.microsoft.com/en-us/windows/win32/sr/monitored-file-extensions) found throughout the system, including within the folders of the sandbox.
 
 Thus it is possible that System Restore will create backup copies in its folders for files or programs that exist only in the sandbox.
 
