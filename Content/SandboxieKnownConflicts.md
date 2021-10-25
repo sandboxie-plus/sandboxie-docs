@@ -92,7 +92,7 @@ Solution: No fix yet, see [#1138](https://github.com/sandboxie-plus/Sandboxie/is
 
 Problem: The search box in File Explorer doesn't get focused while sandboxed, and you can't input anything.
 
-Solution: A workaround is available, see [#1002](https://github.com/sandboxie-plus/Sandboxie/issues/1002).
+Solution: A permanent fix was included on [v0.9.8c / 5.53.2](https://github.com/sandboxie-plus/Sandboxie/releases/tag/0.9.8c). It can be also applied manually on older versions, see [#1002](https://github.com/sandboxie-plus/Sandboxie/issues/1002).
 
 ###  "Sandboxed service failed to start: BITS" or "Request to start service bits was denied" can appear while a program is sandboxed
 
