@@ -8,21 +8,15 @@ The Trace Log tool displays the names of any system resources that are accessed 
 
 **Using the Trace Log**
 
-1\. Open the Sandboxie Plus window, then go to **Options** menu -> **Edit ini file** -> confirm **Yes**.
+1\. Enable **Trace Log** tab by opening **Options** menu -> **Trace Logging**.
 
-2\. Add `IpcTrace=*` below `[DefaultBox]` (or your specific sandbox name).
+2\. When the Trace Log tab is activated, it immediately starts to collect and display resource access information from all sandboxed programs that are running.
 
-3\. Save the ini file and close it.
+3\. At this point, perform any specific tasks that fail when done under the supervision of Sandboxie Plus.
 
-4\. Enable **Trace Log** tab by opening **Options** menu -> **Trace Logging**.
+4\. Finally, right click on the collected data and select the entry named **Copy Panel**. This copies the collected data into the clipboard.
 
-5\. When the Trace Log tab is activated, it immediately starts to collect and display resource access information from all sandboxed programs that are running.
-
-6\. At this point, perform any specific tasks that fail when done under the supervision of Sandboxie Plus.
-
-7\. Finally, right click on the collected data and select the entry named **Copy Panel**. This copies the collected data into the clipboard.
-
-8\. You can now paste (Ctrl+V) the collected data somewhere and make it available for analysis.
+5\. You can now paste (Ctrl+V) the collected data somewhere and make it available for analysis.
 
 **Performance Impact**
 
