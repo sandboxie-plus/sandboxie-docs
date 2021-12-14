@@ -10,16 +10,21 @@ The following table shows which settings apply to what installation locations.
 |[ClosedFilePath](ClosedFilePath.md)   | Yes     | Yes    |
 |[ClosedIpcPath](ClosedIpcPath.md)    | Yes     | Yes    |
 |[ClosedKeyPath](ClosedKeyPath.md)    | Yes     | Yes    |
+|ClosedRT   | Yes     | Yes    |
 |[OpenClsid](OpenClsid.md)        | Yes     | Yes    |
+|ClosedClsid        | Yes     | Yes    |
 |[OpenFilePath](OpenFilePath.md)     | Yes     | No       |
 |[OpenIpcPath](OpenIpcPath.md)      | Yes     | Yes      |
 |[OpenKeyPath](OpenKeyPath.md)      | Yes     | No       |
 |[OpenPipePath](OpenPipePath.md)     | Yes     | Yes    |
 |[OpenWinClass](OpenWinClass.md)     | Yes     | Yes    |
+| NormalFilePath    | Read-only     | Yes      |
+| NormalIpcPath     | Read-only     | Yes      |
+| NormalKeyPath     | Read-only     | Yes      |
 |[ReadFilePath](ReadFilePath.md)     | Read-only  | No   |
 |[ReadKeyPath](ReadKeyPath.md)       | Read-only  | No   |
 |[WriteFilePath](WriteFilePath.md)   | No      | Yes     |
 |[WriteKeyPath](WriteKeyPath.md)     | No      | Yes     |
 
 
-Note that all `Close...=!<program>,...` excludes only programs from outside the sandbox.
+~~Note that all `Close...=!<program>,...` excludes only programs from outside the sandbox.~~
