@@ -9,7 +9,7 @@ Examples:
    .
    [DefaultBox]
    OpenWinClass=ConsoleWindowClass
-   OpenWinClass=$:program.exe
+   OpenWinClass=$:program.exe/IgnoreUIPI
    OpenWinClass=#
    OpenWinClass=*
 ```
@@ -20,10 +20,10 @@ Normally, Sandboxie will not permit a sandboxed program to access, communicate, 
 
 **Special Forms**
 ```
-   OpenWinClass=$:program.exe
+   OpenWinClass=$:program.exe/IgnoreUIPI
 ```
 
-Windows XP only - it permits a program running inside the sandbox to use the PostThreadMessage API to send a message directly to a thread in a target process running outside the sandbox. This form of the _OpenWinClass_ setting does not support wildcards, so the process name of the target process must match the name specified in the setting.
+This permits a program running inside the sandbox to use the PostThreadMessage API to send a message directly to a thread in a target process running outside the sandbox. This form of the _OpenWinClass_ setting does not support wildcards, so the process name of the target process must match the name specified in the setting.
 ```
    OpenWinClass=#
 ```
