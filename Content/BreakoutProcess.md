@@ -12,7 +12,7 @@ Usage:
    BreakoutProcess=ProgramName.exe
 ```
 
-Specifying _ProgramName_ indicates the application that should be launched unsandboxed. This statement can be repeated for all the applications that the user wishes to launch unsandboxed.
+Specifying _ProgramName_ indicates the application that should be launched unsandboxed. Alternatively, the program's path can be specified. This statement can be repeated for all the applications that the user wishes to launch unsandboxed.
 
 Priority System:
 If you set a program to breakout from a sandbox and force it to be sandboxed in another, this acts as a useful priority system.
