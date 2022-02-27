@@ -1,6 +1,6 @@
-# BreakoutProcess
+# Breakout Process
 
-_BreakoutProcess_  is a sandbox setting in [Sandboxie Ini](SandboxieIni.md) available only for certified project supporters since v1.0.8 / 5.55.8. It specifies which apps shall run unsandboxed when launched within the sandbox. A combination of this and _ForceProcess_ allows for a simple priority system.
+_BreakoutProcess_  is a sandbox setting in [Sandboxie Ini](SandboxieIni.md) available since v1.0.8 / 5.55.8. It specifies which applications shall run unsandboxed when launched within the sandbox. A combination of this and _ForceProcess_ allows for a simple priority system.
 
 Usage:
 

@@ -40,9 +40,9 @@
 
 ~~[Box Root Folder](BoxRootFolder.md)~~ (deprecated since Sandboxie v3.xx)
 
-[BreakoutFolder](BreakoutFolder.md)
+[Breakout Folder](BreakoutFolder.md)
 
-[BreakoutProcess](BreakoutProcess.md)
+[Breakout Process](BreakoutProcess.md)
 
 ~~[Byte Order Mark](ByteOrderMark.md)~~ (deprecated since Sandboxie v0.6.5 / 5.47.0)
 
