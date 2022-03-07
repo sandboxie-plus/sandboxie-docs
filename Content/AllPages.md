@@ -222,6 +222,8 @@
 
 [Privacy Concerns](PrivacyConcerns.md)
 
+[Privacy Mode](PrivacyMode.md)
+
 ~~[Process Limit 1](ProcessLimit1.md)~~ (deprecated)
 
 ~~[Process Limit 2](ProcessLimit2.md)~~ (deprecated)
