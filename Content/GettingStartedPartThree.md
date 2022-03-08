@@ -8,7 +8,7 @@ The browser program may make changes to your computer. These changes will all be
 
 Try it now. Right-click on the following link, and save the file to your desktop. If you're using Internet Explorer, this is the _Save Target As_ command in the right-click menu. If you're using Firefox, this is the _Save Link As_ command in the right-click menu:
 
-[https://www.sandboxie.com/favicon.ico](https://www.sandboxie.com/favicon.ico)
+[favicon.ico](https://github.com/sandboxie-plus/sandboxie-docs/raw/main/Media/favicon.ico)
 
 In the default and recommended configuration, Sandboxie will identify that a file was saved to an interesting location -- your desktop, in this case -- and will offer [Immediate Recovery](ImmediateRecovery.md) for the file:
 
