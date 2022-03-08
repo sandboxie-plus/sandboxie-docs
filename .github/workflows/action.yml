@@ -2,6 +2,10 @@ name: Check Markdown links
 on: 
   schedule:
     - cron: '0 8 * * *'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
 jobs:
   markdown-link-check:
     runs-on: ubuntu-latest
