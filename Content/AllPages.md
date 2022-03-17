@@ -536,13 +536,23 @@
 
 [Sandbox Hierarchy](SandboxHierarchy.md)
 
-[Sandbox Menu](SandboxMenu.md)
+[Sandbox Menu - Sandboxie Plus](SBPlusSandboxMenu.md)
 
-[Sandbox Settings](SandboxSettings.md)
+[Sandbox Menu - Classic Sandboxie](SandboxMenu.md)
 
-[Sandboxie Control](SandboxieControl.md)
+[Sandbox Settings - Sandboxie Plus](SBPlusSandboxSettings.md)
+
+[Sandbox Settings - Classic Sandboxie](SandboxSettings.md)
+
+[Sandboxie Agents](SandboxieAgent.md)
+
+[Sandboxie Plus Agent](SandboxiePlus.md)
+
+[Classic Sandboxie Control Agent](SandboxieControl.md)
 
 [Sandboxie Ini](SandboxieIni.md)
+
+[Sandbox Sub Menu](SBPlusSandboxSubMenu.md)
 
 [Sandboxie Trace](SandboxieTrace.md)
 
@@ -564,7 +574,9 @@
 
 [Trace Logging for Sandboxie Plus](TraceLog.md)
 
-[Tray Icon Menu](TrayIconMenu.md)
+[Tray Icon Menu - Sandboxie Plus](SBPlusTrayIconMenu.md)
+
+[Tray Icon Menu - Sandboxie Classic](TrayIconMenu.md)
 
 ### U
 

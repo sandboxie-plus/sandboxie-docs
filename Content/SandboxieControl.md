@@ -2,37 +2,37 @@
 
 ### Overview
 
-Sandboxie Control is the graphical front end to Sandboxie, and can control most aspects of Sandboxie. These are some of the things that you can do with it:
+Sandboxie Control is the classic graphical agent to Sandboxie, and can control most aspects of Sandboxie. It is important to note that many of the features since mid 2020 are not available using the classic client. These are some of the things that you can do with it:
 
-*   Start and stop programs under the supervision of Sandboxie
-*   View files inside the sandbox
-*   Recover desired files out of the sandbox
-*   Delete the contents of sandboxes, purging all undesired files
-*   Create, remove and configure sandboxes
+* Start and stop programs under the supervision of Sandboxie
+* View files inside the sandbox
+* Recover desired files out of the sandbox
+* Delete the contents of sandboxes, purging all undesired files
+* Create, remove and configure sandboxes
 
 * * *
 
 ### Menus
 
-*   Main Menu:
+* Main Menu:
+  
+  * [File Menu](FileMenu.md)
+  
+  * [View Menu](ViewMenu.md)
+  
+  * [Sandbox Menu](SandboxMenu.md)
+  
+  * [Configure Menu](ConfigureMenu.md)
+  
+  * [Help Menu](HelpMenu.md)
 
-	* [File Menu](FileMenu.md)
-
-	* [View Menu](ViewMenu.md)
-
-	* [Sandbox Menu](SandboxMenu.md)
-
-	* [Configure Menu](ConfigureMenu.md)
-
-	* [Help Menu](HelpMenu.md)
-
-*   See Also: [Tray Icon Menu](TrayIconMenu.md)
+* See Also: [Tray Icon Menu](TrayIconMenu.md)
 
 * * *
 
 ### Visibility
 
-Sandboxie is primarily a mechanism to run other programs, not an interactive tool. You will typically hide the main window of Sandboxie Control, and the program will only be visible as a tray icon in your system notification area, typically at the lower-right corner of the screen:
+Sandboxie Control is primarily a mechanism to run other programs, not an interactive tool. You will typically hide the main window of Sandboxie Control, and the program will only be visible as a tray icon in your system notification area, typically at the lower-right corner of the screen:
 
 ![](../Media/TrayIcon.png)
 
@@ -46,23 +46,23 @@ To quit Sandboxie Control and remove its tray icon from the system notification 
 
 ### Views
 
-*   [Programs View](ProgramsView.md)
+* [Programs View](ProgramsView.md)
 
-*   [Files And Folders View](FilesAndFoldersView.md)
+* [Files And Folders View](FilesAndFoldersView.md)
 
 * * *
 
 ### Quick Links to More Topics
 
-*   [Quick Recovery](QuickRecovery.md), [Immediate Recovery](ImmediateRecovery.md) and [Delete Sandbox](DeleteSandbox.md)
+* [Quick Recovery](QuickRecovery.md), [Immediate Recovery](ImmediateRecovery.md) and [Delete Sandbox](DeleteSandbox.md)
 
-*   [Sandbox Settings](SandboxSettings.md)
+* [Sandbox Settings](SBPlusSandboxSettings.md)
 
-*   [Disable Forced Programs](FileMenu.md#disable-forced-programs)
+* [Disable Forced Programs](FileMenu.md#disable-forced-programs)
 
-*   [Shell Integration](ConfigureMenu.md#windows-shell-integration)
+* [Shell Integration](ConfigureMenu.md#windows-shell-integration)
 
-*   [Is Window Sandboxed?](FileMenu.md#is-window-sandboxed)
+* [Is Window Sandboxed?](FileMenu.md#is-window-sandboxed)
 
 * * *
 
