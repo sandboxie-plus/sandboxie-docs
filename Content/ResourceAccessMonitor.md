@@ -1,6 +1,6 @@
-# Resource Access Monitor (for Sandboxie Classic)
+# Classic Sandboxie Resource Access Monitor
 
-The Resource Access Monitor tool displays the names of any system resources that are accessed by programs running under the supervision of Sandboxie. Designed to make it easy to identify those system resources which should be excluded from sandboxing, this tool can be used with the [Sandboxie Trace](SandboxieTrace.md) options.
+The Resource Access Monitor tool displays the names of any system resources that are accessed by programs running under the supervision of Sandboxie. Designed to make it easy to identify those system resources which should be excluded from sandboxing, this tool can be used with the [Sandboxie Trace](SandboxieTrace.md) options.  Note: the Resource Access Monitor window is not optimized for the current tracelog viewing, it is recommended to use the [SBPlus Trace Log](TraceLog.md) viewer instead.
 
 **Important:** Please use the Resource Access Monitor tool only if you are asked to do so.
 
@@ -8,9 +8,9 @@ The Resource Access Monitor tool displays the names of any system resources that
 
 **Using the Monitor**
 
-1\. To activate the monitor, expand or open the [Sandboxie Control](SandboxieControl.md) window, then select the [File Menu](FileMenu.md) -> Resource Access Monitor command.
+1\. To activate the monitor, expand or open the [Classic Sandboxie Control](SandboxieControl.md) window, then select the [File Menu](FileMenu.md) -> Resource Access Monitor command.
 
-2\. You should typically activate the monitor before any programs are running in any sandbox. Note that the Resource Access Monitor window blocks access to the [Sandboxie Control](SandboxieControl.md) main window, including its menu, so you will have to start sandboxed programs through the [Tray Icon Menu](TrayIconMenu.md).
+2\. You should typically activate the monitor before any programs are running in any sandbox. Note that the Resource Access Monitor window blocks access to the [Classic Sandboxie Control](SandboxieControl.md) main window, including its menu, so you will have to start sandboxed programs through the [Tray Icon Menu](TrayIconMenu.md).
 
 3\. When the monitor is activated and its window appears on the screen, it immediately starts to collect and display resource access information from all sandboxed programs that are running.
 
