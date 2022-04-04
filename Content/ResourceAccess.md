@@ -22,6 +22,7 @@ The following table shows which settings apply to what installation locations.
 | NormalIpcPath     | Read-only     | Yes      |
 | NormalKeyPath     | Read-only     | Yes      |
 |[ReadFilePath](ReadFilePath.md)     | Read-only  | No   |
+| ReadIpcPath       | Read-only     | No   |
 |[ReadKeyPath](ReadKeyPath.md)       | Read-only  | No   |
 |[WriteFilePath](WriteFilePath.md)   | No      | Yes     |
 |[WriteKeyPath](WriteKeyPath.md)     | No      | Yes     |
