@@ -86,7 +86,7 @@ Solution: No fix yet, see [#69](https://github.com/sandboxie-plus/Sandboxie/issu
 
 Problem: "Open with" functionality is not working with Sandboxie.
 
-Solution: No fix yet, see [#1138](https://github.com/sandboxie-plus/Sandboxie/issues/1138).
+Solution: A fix was included on [v1.0.6 / 5.55.6](https://github.com/sandboxie-plus/Sandboxie/releases/tag/1.0.6).
 
 ### Can't use the search box in File Explorer (or Windows Explorer)
 
@@ -98,7 +98,7 @@ Solution: A permanent fix was included on [v0.9.8c / 5.53.2](https://github.com/
 
 Problem: BITS service seems to be broken since a few Windows 10 releases, as it's using some parts of WMI which is blocked in Sandboxie.
 
-Solution: A workaround is available, see [#1081](https://github.com/sandboxie-plus/Sandboxie/issues/1081#issuecomment-933021149).
+Solution: A workaround was directly included on [v1.0.1 / 5.55.1](https://github.com/sandboxie-plus/Sandboxie/releases/tag/1.0.1).
 
 ### I can't find my issue in this list
 
