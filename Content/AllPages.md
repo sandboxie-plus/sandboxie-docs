@@ -398,7 +398,7 @@
 
 [SBIE2192](SBIE2192.md)
 
-[SBIE2193](SBIE2193.md)
+~~[SBIE2193](SBIE2193.md)~~ (deprecated since Sandboxie 1.0.14 / 5.55.14)
 
 [SBIE2202](SBIE2202.md)
 

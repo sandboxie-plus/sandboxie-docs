@@ -77,7 +77,7 @@ Some messages display details which include NT status codes, denoted in the help
 [SBIE2108](SBIE2108.md)
 [SBIE2191](SBIE2191.md)
 [SBIE2192](SBIE2192.md)
-[SBIE2193](SBIE2193.md)
+~~[SBIE2193](SBIE2193.md)~~
 [SBIE2202](SBIE2202.md)
 [SBIE2203](SBIE2203.md)
 [SBIE2204](SBIE2204.md)
