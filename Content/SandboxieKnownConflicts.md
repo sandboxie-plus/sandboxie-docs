@@ -30,8 +30,7 @@ Solution: A fix was included on [v0.9.7 / 5.52.1](https://github.com/sandboxie-p
 
 Problem: Tor Browser is very slow in a sandbox, crashes or crashes after a certain time.
 
-Solution: Tor Browser is not fully supported by Sandboxie. A known workaround is to install the 32-bit version of Tor Browser if you are on Windows 10.
-See issue [#538](https://github.com/sandboxie-plus/Sandboxie/issues/538) for more information.
+Solution:  A fix was included on [v1.0.21 / 5.55.21](https://github.com/sandboxie-plus/Sandboxie/releases/tag/1.0.21).
 
 ### HP Universal Print Driver
 
