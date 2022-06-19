@@ -16,6 +16,7 @@ In a few words:
 * [General Usage Tips](Content/UsageTips.md)
 * [Usage Manual for Sandboxie Control](Content/SandboxieControl.md)
 * [Known Conflicts](Content/SandboxieKnownConflicts.md)
+* [Comparison between Sandboxie Plus and Classic](Content/PlusMigrationGuide.md)
 * [Comparison of Resource Access Settings](Content/ResourceAccess.md)
 * [Frequenty Asked Questions](Content/FrequentlyAskedQuestions.md)
 * [Advanced Topics](Content/AdvancedTopics.md)
