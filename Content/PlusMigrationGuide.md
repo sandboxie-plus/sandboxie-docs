@@ -12,13 +12,13 @@ This guide shows where all the known sandboxie functions can be found in the new
 The over all layout of the main window of sandman.exe is exactly the same as the old one of sbiectrl.exe when the "Simple View" is chosen. If the "Advanced View" is chosen there are three additional tabs on the bottom of the window ("Sbie Messages" etc.), so it corresponds with what can be seen in the right picture.
 
 
-## Fila and Sandbox Menus
+## File and Sandbox Menus
 
 ![](../Media/Migration/1.png)
 
-All important menu commands can be found in simmilar places, although some have been move.
+All important menu commands can be found in similar places, although some have been moved.
 
-## Create Ne Box dialog
+## Create New Box dialog
 
 ![](../Media/Migration/2.png)
 
@@ -44,7 +44,7 @@ The "View" menu  offers a few more functions, and the option to enable a simplif
 
 The modern Sandboxie UI has replaced by the "Files and Folders" view to a separate window which can be opened form the box context menu.
 
-## Files and Folders - view / widnow
+## Files and Folders - view / window
 
 ![](../Media/Migration/6.png)
 
@@ -66,7 +66,7 @@ In the modern UI it is possible to not only change the file system root path, bu
 
 ![](../Media/Migration/9.png)
 
-Sandboxie-Plus can not only warn when unboxed processes are started, but it can also prevent the start entierly.
+Sandboxie-Plus can not only warn when unboxed processes are started, but it can also prevent their start entirely.
 
 ## Shell Integration
 
@@ -80,7 +80,7 @@ On this tab the shell integration can be configured, most functions are availabl
 
 To create a shortcut to a boxed program now an option in the box context menu is to be used, which can be reached quicker.
 
-## Software COopatybility
+## Software Compatibility
 
 ![](../Media/Migration/12.png)
 
