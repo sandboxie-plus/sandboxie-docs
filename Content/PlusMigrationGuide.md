@@ -54,7 +54,7 @@ The window 'Files' offers the same functionality as the old view, but enhances i
 
 ![](../Media/Migration/7.png)
 
-The new Sandboxie UI has a global settings window (Options --> Global Settings) where all options are located together on vertical tabs instead of havin to open individual windows.
+The new Sandboxie UI has a global settings window (Options --> Global Settings) where all options are located together on vertical tabs instead of having to open individual windows.
 
 ## File System Root
 
@@ -132,37 +132,37 @@ The Delete Command option can now be found on the sub tab 'Triggers' of the tab 
 
 ![](../Media/Migration/20.png)
 
-The new UI supports groups just liek the old one.
+The new UI supports groups just like the old one.
 
 ## Forced Programs and Folders
 
 ![](../Media/Migration/21.png)
 
-Force programs and Folders are also merged into one tab.
+Forced programs and Folders are also merged into one tab ('Program Control', sub tab 'Force* Programs').
 
 ## Lingering Programs & Leader Programs
 
 ![](../Media/Migration/22.png)
 
-Program stop behavioure are also merged into one tab.
+Program stop behavioures are also merged into one tab.
 
 ## File Migration
 
 ![](../Media/Migration/23.png)
 
-File Migration options have been integrated into the File Option sub tab of the General tab
+File Migration options have been integrated into the File Options sub tab of the General Options tab
 
 ## Internet Access
 
 ![](../Media/Migration/24.png)
 
-Sandboxie plus can not only use the old method of blockign internet access but also use the Window Filtering Platform (WFP) instead, which provides better compatybility.
+Sandboxie plus can not only use the old method of blocking internet access but also use the Windows Filtering Platform (WFP) instead, which provides better compatibility.
 
 ## Network Access
 
 ![](../Media/Migration/25.png)
 
-Aditionally using the WFP facility a full per box firewall can be configured.
+Aditionally using the WFP facility a full per box firewall can be configured (tab 'Internet Restrictions' --> sub tab 'Network Firewall Rules').
 
 ## Start/Run Access
 
@@ -174,13 +174,13 @@ Start restriction options have been promoted to a top level tab.
 
 ![](../Media/Migration/27.png)
 
-The "drop admin rights" option is in the new UI located on the Security sub tab of the general tab, together with additional security enchancements.
+The "drop admin rights" option is in the new UI located on the Security sub tab of the General Options tab, together with additional security enhancements.
 
 ## Network Files
 
 ![](../Media/Migration/28.png)
 
-"Block network file and folder access" have been moved to the Access Restrictions sib tab of the General tab
+"Block network files and folders access" has been moved to the Access Restrictions sub tab of the General Options tab.
 
 ## Resource Access
 
@@ -188,17 +188,17 @@ The "drop admin rights" option is in the new UI located on the Security sub tab 
 
 The "Resource Access" options have been integrated into a joined view which shows all presets in one list, the options can be edited as well as disabled without removing them.
 
-## Application Compatybility Templates
+## Application Compatibility Templates
 
 ![](../Media/Migration/30.png)
 
-The Compatybility Templates are now also presented as a joined view.
+The compatibility Templates are now also presented as a joined view (tab 'App Templates', sub tab 'Compatibility Templates').
 
 ## User Accounts
 
 ![](../Media/Migration/31.png)
 
-Last but not lwast the ability to restrict a box to selected users, have been moved to a sib tab of the advanced tab.
+Last but not least the ability to restrict a box to selected users, has been moved to the sub tab 'Users' of the tab 'Advanced Options'.
 
 ## About Dialog
 
@@ -207,7 +207,7 @@ Last but not lwast the ability to restrict a box to selected users, have been mo
 And finally we have the about dialog.
 
 
-As is apaprent Sandboxie-Plus has much more additional options not shown here as this guise is only ment to facilitate the migration from sandboxie Classic to Sandboxie Plus.
+As is apparent Sandboxie-Plus has much more additional options not shown here, as this guide is only meant to facilitate the migration from Sandboxie Classic to Sandboxie Plus.
 
 
 
