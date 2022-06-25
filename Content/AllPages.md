@@ -542,9 +542,9 @@
 
 [Sandboxie Control](SandboxieControl.md)
 
-[Sandboxie Plus migration guide](PlusMigrationGuide.md)
-
 [Sandboxie Ini](SandboxieIni.md)
+
+[Sandboxie Plus Migration Guide](PlusMigrationGuide.md)
 
 [Sandboxie Trace](SandboxieTrace.md)
 
