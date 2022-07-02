@@ -43,7 +43,7 @@ Solution: Open Sandbox Settings > Resource Access > COM Access, click Add and en
 
 Problem: Autodelete feature no longer works on Microsoft Edge.
 
-Solution: Microsoft Edge was updated with a new setting (under System) called "Start up boost", which is enabled by default. It prevents Edge from fully shutting down, so we suggest to disable the option.
+Solution: Microsoft Edge was updated with a new setting (under System) called "Startup boost", which is enabled by default. It prevents Edge from fully shutting down, so we suggest to disable the option or install [v1.1.2 / 5.56.2](https://github.com/sandboxie-plus/Sandboxie/releases/tag/v1.1.2) or newer versions which include the fix.
 
 ### Steam games
 
