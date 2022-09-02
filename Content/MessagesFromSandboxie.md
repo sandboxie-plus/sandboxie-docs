@@ -30,4 +30,13 @@ Example of output for a log level of 2:
 2022-09-02 01:04:18 SBIE1308 Program cannot start due to restrictions - HelpPane.exe [ChromeBox]
 ```
 
-Since version `1.3.3`, it is possible to pass logs in verbose mode to have the SID of the account used by the target process:
+Since version `1.3.3`, it is possible to pass logs in verbose mode to have the SID of the account used by the target process.
+
+Another registry key allows to filter and split logs on specific messages:
+```cmd
+reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\SbieSvc" /t REG_SZ /v LogFile /d "2;C:\Windows\System32\LogFiles\Sandboxie.log" /f
+reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\SbieSvc" /t REG_SZ /v MultiLog /d "1308,1307" /f
+```
+This simple configuration will:
+- Put all logs without filter inside `C:\Windows\System32\LogFiles\Sandboxie.log`
+- create _one file per box_ (ie: `C:\Windows\System32\LogFiles\Sandboxie_DefualtBox.log`) with only event 1308 and 1307
