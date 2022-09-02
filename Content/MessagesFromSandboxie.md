@@ -14,7 +14,7 @@ For example, the [SBIE1304](SBIE1304.md) messages shown above has the detail _os
 
 Clicking the _Close_ button closes the window.
 
-## Log messages to a file
+## Log Messages To A File
 It's possible to log _Messages From Sandboxie_ to a file with a simple configuration inside the registry:
 ```cmd
 reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\SbieSvc" /t REG_SZ /v LogFile /d "2;C:\Windows\System32\LogFiles\Sandboxie.log" /f
