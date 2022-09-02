@@ -13,3 +13,21 @@ Clicking the _Hide_ button indicates that you don't wish to receive this message
 For example, the [SBIE1304](SBIE1304.md) messages shown above has the detail _osk.exe_. In this case the _Hide_ button will hide future occurrences of [SBIE1304](SBIE1304.md) for _osk.exe_. If [SBIE1304](SBIE1304.md) is issued for some other progam name, it will still be displayed.
 
 Clicking the _Close_ button closes the window.
+
+## Log messages to a file
+It's possible to log _Messages From Sandboxie_ to a file with a simple configuration inside the registry:
+```cmd
+reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\SbieSvc" /t REG_SZ /v LogFile /d "2;C:\Windows\System32\LogFiles\Sandboxie.log" /f
+```
+The `LogFile` value consists of two pieces of information:
+- `2` is the log level. Only two values are correct: `2` (classic log) or `3` (log with process SID)
+- `C:\Windows\System32\LogFiles\Sandboxie.log` is the full path of the log
+
+Example of output for a log level of 2:
+```
+2022-09-02 01:04:18 SBIE1308 Program cannot start due to restrictions - powershell.exe [ChromeBox]
+2022-09-02 01:04:18 SBIE1308 Program cannot start due to restrictions - powershell.exe [ChromeBox]
+2022-09-02 01:04:18 SBIE1308 Program cannot start due to restrictions - HelpPane.exe [ChromeBox]
+```
+
+Since version `1.3.3`, it is possible to pass logs in verbose mode to have the SID of the account used by the target process:
