@@ -46,4 +46,4 @@ reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\SbieSvc" /t REG_SZ /v MultiL
 ```
 This simple configuration will:
 - put all logs without filter inside `C:\Windows\System32\LogFiles\Sandboxie.log`
-- create _one file per box_ (ie: `C:\Windows\System32\LogFiles\Sandboxie_DefualtBox.log`) with only event 1308 and 1307
+- create _one file per box_ (ie: `C:\Windows\System32\LogFiles\Sandboxie_DefaultBox.log`) with only event 1308 and 1307
