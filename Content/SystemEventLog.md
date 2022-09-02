@@ -8,4 +8,6 @@ For more information about the System Event Log, see [Event Viewer in Wikipedia]
 
 If any Sandboxie messages are issued due to an error which prevents successful initialization, [Sandboxie Control](SandboxieControl.md) will display a flashing exclamation mark icon. Right-click the flashing icon and select _Show Errors_ to view any related messages.
 
+_Messages From Sandboxie_ are not stored in the _Windows Event Log_, a workaround is available to [store the logs in a flat file](MessagesFromSandboxie.md).
+
 See also: [SBIE Messages](SBIEMessages.md).
