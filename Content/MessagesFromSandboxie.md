@@ -30,7 +30,7 @@ Example of output for a log level of 2:
 2022-09-02 01:04:18 SBIE1308 Program cannot start due to restrictions - HelpPane.exe [ChromeBox]
 ```
 
-Since version `1.3.3`, it is possible to pass logs in verbose mode to have the SID of the account used by the target process.
+Since version 1.3.3 / 5.58.3, it is possible to pass logs in verbose mode to have the SID of the account used by the target process.
 
 Example of output for a log level of 3:
 ```
