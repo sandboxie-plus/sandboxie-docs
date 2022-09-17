@@ -15,8 +15,8 @@ Usage:
    BreakoutProcess=Pro?ram*.exe
 ```
 
- `*` defines any name after Program (Program0Test1.exe, Program5Test92G.exe and etc.).
- `?` defines one character from name (Program1.exe, Program2.exe .. Program9.exe).
+- `*` defines any name after Program (Program0Test1.exe, Program5Test92G.exe and etc.).
+- `?` defines one character from name (Program1.exe, Program2.exe .. Program9.exe).
  
 Also, you can combine several wildcards to match the specified name.
 
