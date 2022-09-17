@@ -20,7 +20,7 @@ The first example specifies that any content inside the folder "C:\Downloads" wi
 Entire drives can also be specified as shown in the second example.
 
 The third and fourth line shows basic characters from wildcard.
-For example `*` defines any subfolder beyond App folder(App\1, App\1\1 etc.).
+`*` defines any subfolder beyond App folder(App\1, App\1\1 etc.).
 `?` defines single character from folder (App1, App2 .. App9) but not subfolders.
 
 NOTE:
