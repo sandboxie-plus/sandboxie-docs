@@ -11,11 +11,17 @@ Usage:
    [DefaultBox]
    BreakoutFolder=C:\Downloads
    BreakoutFolder=E:\
+   BreakoutFolder=C:\App\*
+   BreakoutFolder=C:\App?
 ```
 
 The first example specifies that any content inside the folder "C:\Downloads" will be launched unsandboxed.
 
 Entire drives can also be specified as shown in the second example.
+
+The third and fourth line shows basic characters from wildcard.
+For example `*` defines any subfolder beyond App folder(App\1, App\1\1 etc.).
+`?` defines single character from folder (App1, App2 .. App9) but not subfolders.
 
 NOTE:
  * Shortcuts that link to a program outside the specified folders will be launched sandboxed. For example: if you place a shortcut inside a broken out folder and it links to some program in a non broken out folder, then the shortcut will launch sandboxed.
