@@ -1,4 +1,4 @@
-# SandboxieDrv use of undocumented kernel exports to do its token magic.
+# SandboxieDrv use of undocumented kernel exports to do its token magic
 
 Sandboxie implements isolation by running sandboxed processes with a heavily restricted primary token. As most applications cannot function this way, it hooks all NTDLL.dll calls redirecting them through an interface in the SbieDrv. The driver then can inspect the call arguments, makes the calling thread impersonate the original unrestricted token, execute the system call, and de-impersonate the thread before returning control to user mode.
 
@@ -16,7 +16,7 @@ Sandboxie currently obtains those by finding the address of the unexported sysca
 
 To eliminate the dependencies on unexported symbols, it is required to export KeServiceDescriptorTableShadow.
 
-3. Due to limitations in PsImpersonateClient (starting with Windows XP SP 2), it is required to call it with impersonation level SecurityIdentification and then change that in the opaque thread object to SecurityImpersonation.
+3. Due to limitations in PsImpersonateClient (starting with Windows XP SP2), it is required to call it with impersonation level SecurityIdentification and then change that in the opaque thread object to SecurityImpersonation.
 
 To eliminate the dependencies on unexported symbols, it would be required to provide a documented mechanism for a driver to achieve any desired impersonation level.
 
