@@ -34,9 +34,9 @@ Since version 1.3.3 / 5.58.3, it is possible to pass logs in verbose mode to hav
 
 Example of output for a log level of 3:
 ```
-2022-09-02 01:04:18 SBIE1308 Program cannot start due to restrictions - powershell.exe [ChromeBox] (administrator/DESKTOP-RZ4242)
-2022-09-02 01:04:18 SBIE1308 Program cannot start due to restrictions - powershell.exe [ChromeBox] (administrator/DESKTOP-RZ4242)
-2022-09-02 01:04:18 SBIE1308 Program cannot start due to restrictions - HelpPane.exe [ChromeBox] (administrator/DESKTOP-RZ4242)
+2022-09-02 01:04:18 SBIE1308 Program cannot start due to restrictions - powershell.exe [ChromeBox] (DESKTOP-RZ4242\administrator)
+2022-09-02 01:04:18 SBIE1308 Program cannot start due to restrictions - powershell.exe [ChromeBox] (DESKTOP-RZ4242\administrator)
+2022-09-02 01:04:18 SBIE1308 Program cannot start due to restrictions - HelpPane.exe [ChromeBox] (DESKTOP-RZ4242\administrator)
 ```
 
 Another registry key allows to filter and split logs on specific messages:
