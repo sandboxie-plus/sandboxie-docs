@@ -14,8 +14,8 @@ Usage:
    BreakoutProcess=Program?.exe
 ```
 
- * defines any name after Program(Program0Test1.exe, Program5Test92G.exe and etc.).
- ? defines 1 character from name (Program1.exe, Program2.exe .. Program9.exe).
+ `*` defines any name after Program(Program0Test1.exe, Program5Test92G.exe and etc.).
+ `?` defines 1 character from name (Program1.exe, Program2.exe .. Program9.exe).
 
 Specifying _ProgramName_ indicates the application that should be launched unsandboxed. Alternatively, the program's path can be specified.
 
