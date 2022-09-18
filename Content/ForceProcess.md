@@ -20,7 +20,7 @@ _ForceProcess_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It spec
 - `*` defines any character.
 - `?` defines one character.
 
-The example specifies that Internet Explorer (iexplore.exe), Firefox (firefox.exe), App* (Appga, App03 and etc.). and App? (App1, Appg, Appa and etc.). will be forced to run sandboxed in the sandbox _DefaultBox_. Outlook.exe and click?? (clickor, clickid and etc.). will be forced to run sandboxed in the sandbox _MailBox_.
+The example specifies that Internet Explorer (iexplore.exe), Firefox (firefox.exe), App* (Appga, App03 and etc.). and App? (App1, Appg, Appa and etc.). will be forced to run sandboxed in the sandbox _DefaultBox_. Outlook.exe and cl?cke? (clicker, clicked and etc.). will be forced to run sandboxed in the sandbox _MailBox_.
 
 Note that the _ForceProcess_ settings only apply to programs that start unsandboxed. If a program is specifically started in a sandbox, or started by a program that is already sandboxed, then _ForceProcess_ settings are not applied.
 
