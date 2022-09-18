@@ -13,7 +13,7 @@ _ForceProcess_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It spec
    ForceProcess=App?.exe
    [MailBox]
    ForceProcess=outlook.exe
-   ForceProcess=click??.exe
+   ForceProcess=cl?cke?.exe
    
 ```
 
