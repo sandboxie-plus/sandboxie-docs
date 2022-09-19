@@ -68,7 +68,7 @@ Sandboxie-Plus can not only warn when unboxed processes are started, but it can 
 
 ![](../Media/Migration/10.png)
 
-On this tab, the shell integration can be configured. Most functions are available, although deprecated features were dropped and other options were moved out.
+On this tab, the shell integration can be configured. Most functions are available, although some deprecated features were dropped and other options were moved out.
 
 ## Create Sandbox shortcut
 
