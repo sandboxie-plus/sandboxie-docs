@@ -2,7 +2,7 @@
 
 ### Overview
 
-When sandboxed programs create (or modify) objects, such as files, in fact, some kind of project should be created. Sandboxie creates these objects out of the way, to protect the system from harmful changes. But these objects must reside somewhere in the system. This page describes where various types of sandboxed objects are placed.
+When sandboxed programs create (or modify) objects, such as files, in fact, some kind of data should be created. Sandboxie creates these objects out of the way, to protect the system from harmful changes. But these objects must reside somewhere in the system. This page describes where various types of sandboxed objects are placed.
 
 Beginning with version 2.80 of Sandboxie, the layout of the sandbox is not tied to computer-specific device names and account names. See [Portable Sandbox](PortableSandbox.md) for more information.
 
