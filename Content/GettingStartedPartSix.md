@@ -12,7 +12,7 @@ This tutorial has walked you through the basic principles of using and understan
 
 You can read more tips about using Sandboxie in the [Usage Tips](UsageTips.md) page, and in pages about specific web browsers: [Internet Explorer Tips](InternetExplorerTips.md) and [Firefox Tips](FirefoxTips.md).
 
-An important point to keep in mind when using Sandboxie is that it is designed to isolate programs from each other. Therefore you should expect to lose _a small_ measure of inter-operability between programs. For example:
+An important point to keep in mind when using Sandboxie is that it is designed to isolate programs from each other. Therefore you should expect to lose _a small_ measure of interoperability between programs. For example:
 
 *   Email: Clicking email (_mailto_) links typically causes your web browser to start your email software. This will not work correctly unless Sandboxie is configured to run your email software in that sandbox. See [FAQ Email](FAQEmail.md).
 
@@ -30,7 +30,7 @@ An important point to keep in mind when using Sandboxie is that it is designed t
 
 
 
-On the other hand, you should not expect to lose _every_ measure of inter-operability between programs. For example, you may use a dictionary software which should react to keystrokes or mouse-clicks to display information in a pop up window. Sandboxie may or may not interfere with this, depending on how the dictionary software is designed. When things do not work as expected, please report it on the Sandboxie forum and ask for a solution.
+On the other hand, you should not expect to lose _every_ measure of interoperability between programs. For example, you may use a dictionary software which should react to keystrokes or mouse-clicks to display information in a pop up window. Sandboxie may or may not interfere with this, depending on how the dictionary software is designed. When things do not work as expected, please report it on the Sandboxie forum and ask for a solution.
 
 * * *
 
