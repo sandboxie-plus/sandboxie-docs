@@ -60,17 +60,17 @@ The file is UNICODE-encoded, which means each character is composed of two bytes
 
 * Listed in the navigation bar on the right under the heading Global Settings.
 * Settings apply to the general operation of Sandboxie, not to any particular sandbox.
-* Global settings must be placed in the GlobalSettings section, and cannot be overriden by also including them in a sandbox section.
-* Sandbox settings may appear in the GlobalSettings section, and can be overriden by also including them in a sandbox section. 
+* Global settings must be placed in the GlobalSettings section, and cannot be overridden by also including them in a sandbox section.
+* Sandbox settings may appear in the GlobalSettings section, and can be overridden by also including them in a sandbox section. 
 
 ### Sandbox Settings:
 
 * Listed in the navigation bar on the right under the heading Sandbox Settings.
-* Settings apply to a particular sandbox when specified in the associated sandbox setion.
+* Settings apply to a particular sandbox when specified in the associated sandbox section.
 * Settings apply to all sandboxes when specified in the [GlobalSettings] section.
 * Settings in the sandbox section override corresponding settings from [GlobalSettings]. 
 
-In the example above, the sandbox setting [FileRootPath](FileRootPath.md) appears in [GlobalSettings] and applies to all sandboxes, but note that it is overriden in section [InstallBox].
+In the example above, the sandbox setting [FileRootPath](FileRootPath.md) appears in [GlobalSettings] and applies to all sandboxes, but note that it is overridden in section [InstallBox].
 
 * Sandbox settings can be applied to a specific program. See [Program Name Prefix](ProgramNamePrefix.md).
 * Some sandbox settings are [Yes Or No Settings](YesOrNoSettings.md).
