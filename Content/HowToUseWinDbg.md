@@ -65,7 +65,7 @@ This section assumes the program in question has already exhibited the problem:
 *   If the program gets stuck in a loop, then it should already be stuck.
 *   If the program crashes, then it should already have crashed.
 
-If the problem condition has not yet occured, you should now cause the program to malfunction.
+If the problem condition has not yet occurred, you should now cause the program to malfunction.
 
 Once the program exhibits the problem, switch back to the WinDbg debugger command window. If the debugger status line still says *BUSY*, use the Debug menu > Break command to stop the program. (You can also press Ctrl+Break.)
 
