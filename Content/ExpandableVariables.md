@@ -55,7 +55,7 @@ For example:
     OpenFilePath=%SystemRoot%\Temp
 ```
 
-When a variable is overriden in this way, its expanded value will always match the value specified in the configuration file.
+When a variable is overridden in this way, its expanded value will always match the value specified in the configuration file.
 
 ### Registry Fallbacks
 
