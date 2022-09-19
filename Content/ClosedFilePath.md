@@ -1,6 +1,6 @@
 # Closed File Path
 
-_ClosedFilePath_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It specifies path patterns for which Sandboxie will deny _all_ access by sandboxed progams, including _read_ access. This setting essentially blocks files and folders from being accessed by sandboxed programs.
+_ClosedFilePath_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It specifies path patterns for which Sandboxie will deny _all_ access by sandboxed programs, including _read_ access. This setting essentially blocks files and folders from being accessed by sandboxed programs.
 
 [Shell Folders](ShellFolders.md) may be specified. [Program Name Prefix](ProgramNamePrefix.md) may be specified.
 
