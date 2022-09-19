@@ -34,7 +34,7 @@ On the other hand, you should not expect to lose _every_ measure of interoperabi
 
 * * *
 
-Please also take some time now to review the many settings in the [Sandbox Settings](SandboxSettings.md) window. The settings are explained clearly, and you will find many settings that enable you to strike your preferred balance between security and convenience.
+Please also take some time now to review the many settings in the [Sandbox Settings](SandboxSettings.md) window. The settings are explained clearly, and you will find many settings that allow you to find the best balance between security and convenience.
 
 For example, one person may prefer greater security and control over web bookmarks and favorites, by letting them first save into the sandbox, and then recovering selected items through [Quick Recovery](QuickRecovery.md) or [Immediate Recovery](ImmediateRecovery.md). (This is the default configuration in Sandboxie.)
 
