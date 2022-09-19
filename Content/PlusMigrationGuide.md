@@ -30,7 +30,7 @@ The feature to copy an existing box can be found now on another place. (See the 
 
 ![](../Media/Migration/3.png)
 
-To copy a existing box configuration the "Duplicate Sandbox" menu comand can be used.
+To copy a existing box configuration the "Duplicate Sandbox" menu command can be used.
 
 ## View Menu
 
@@ -72,7 +72,7 @@ Sandboxie-Plus can not only warn when unboxed processes are started, but it can 
 
 ![](../Media/Migration/10.png)
 
-On this tab the shell integration can be configured, most functions are available, although depecated windows features were dropped and other options were moved out.
+On this tab the shell integration can be configured, most functions are available, although deprecated windows features were dropped and other options were moved out.
 
 ## Create Sandbox shortcut
 
@@ -162,7 +162,7 @@ Sandboxie plus can not only use the old method of blocking internet access but a
 
 ![](../Media/Migration/25.png)
 
-Aditionally using the WFP facility a full per box firewall can be configured (tab 'Internet Restrictions' --> sub tab 'Network Firewall Rules').
+Additionally using the WFP facility a full per box firewall can be configured (tab 'Internet Restrictions' --> sub tab 'Network Firewall Rules').
 
 ## Start/Run Access
 
