@@ -4,7 +4,6 @@
 This guide shows where all the known Sandboxie functions can be found in the new UI.
 
 
-
 ## Main Window
 
 ![](../Media/Migration/0.png)
@@ -66,7 +65,7 @@ In the modern UI it is possible to not only change the file system root path, bu
 
 ![](../Media/Migration/9.png)
 
-Sandboxie-Plus not only warns when unboxed processes are started, but it can also prevent their start entirely.
+Sandboxie-Plus can not only warn when unboxed processes are started, but it can also prevent their start entirely.
 
 ## Shell Integration
 
@@ -156,7 +155,7 @@ File Migration options have been integrated into the "File Options" sub tab of t
 
 ![](../Media/Migration/24.png)
 
-Sandboxie Plus not only uses the old method of blocking internet access but also the Windows Filtering Platform (WFP), which provides better compatibility.
+Sandboxie Plus can not only use the old method of blocking internet access but also the Windows Filtering Platform (WFP), which provides better compatibility.
 
 ## Network Access
 
