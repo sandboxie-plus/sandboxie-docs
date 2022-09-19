@@ -158,7 +158,7 @@ Sandboxie Plus can not only use the old method of blocking internet access but a
 
 ![](../Media/Migration/25.png)
 
-Additionally, using the WFP facility, a full per sandbox firewall can be configured (tab "Internet Restrictions" --> sub tab "Network Firewall Rules").
+Additionally, using the WFP facility, a per sandbox firewall can be configured (tab "Internet Restrictions" --> sub tab "Network Firewall Rules").
 
 ## Start/Run Access
 
