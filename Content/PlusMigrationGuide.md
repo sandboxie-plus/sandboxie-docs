@@ -16,7 +16,7 @@ The over all layout of the main window of sandman.exe is exactly the same as the
 
 ![](../Media/Migration/1.png)
 
-All important menu commands can be found in similar places, although some have been moved.
+All important menu commands can be found in similar locations, although some have been moved.
 
 ## Create New Box dialog
 
