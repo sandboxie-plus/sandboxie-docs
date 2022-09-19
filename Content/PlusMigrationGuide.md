@@ -9,7 +9,7 @@ This guide shows where all the known sandboxie functions can be found in the new
 
 ![](../Media/Migration/0.png)
 
-The over all layout of the main window of sandman.exe is exactly the same as the old one of sbiectrl.exe when the "Simple View" is chosen. If the "Advanced View" is chosen there are three additional tabs on the bottom of the window ("Sbie Messages" etc.), so it corresponds with what can be seen in the right picture.
+The over all layout of the main window of sandman.exe is exactly the same as the old one of sbiectrl.exe when the "Simple View" is chosen. If the "Advanced View" is chosen, there are three additional tabs on the bottom of the window ("Sbie Messages" etc.), so it corresponds with what can be seen in the right picture.
 
 
 ## File and Sandbox Menus
@@ -22,7 +22,7 @@ All important menu commands can be found in similar locations, although some hav
 
 ![](../Media/Migration/2.png)
 
-The "Create New Box" command opens the new box dialog. Unlike in classic here a box type preset can be selected.
+The "Create New Box" command opens the new box dialog. Unlike in Classic, here a box type preset can be selected.
 
 The feature to copy an existing box can be found now on another place. (See the following unit.)
 
@@ -48,13 +48,13 @@ The modern Sandboxie UI has replaced by the "Files and Folders" view to a separa
 
 ![](../Media/Migration/6.png)
 
-The window 'Files' offers the same functionality as the old view, but enhances it by providing a full windows context menu.
+The window "Files" offers the same functionality as the old view, but enhances it by providing a full windows context menu.
 
 ## Global Settings
 
 ![](../Media/Migration/7.png)
 
-The new Sandboxie UI has a global settings window (Options --> Global Settings) where all options are located together on vertical tabs instead of having to open individual windows.
+The new Sandboxie Plus UI has a global settings window (Options --> Global Settings) where all options are located together on vertical tabs instead of having to open individual windows.
 
 ## File System Root
 
@@ -66,67 +66,67 @@ In the modern UI it is possible to not only change the file system root path, bu
 
 ![](../Media/Migration/9.png)
 
-Sandboxie-Plus can not only warn when unboxed processes are started, but it can also prevent their start entirely.
+Sandboxie-Plus not only warns when unboxed processes are started, but it can also prevent their start entirely.
 
 ## Shell Integration
 
 ![](../Media/Migration/10.png)
 
-On this tab the shell integration can be configured, most functions are available, although deprecated windows features were dropped and other options were moved out.
+On this tab, the shell integration can be configured. Most functions are available, although deprecated Windows features were dropped and other options were moved out.
 
 ## Create Sandbox shortcut
 
 ![](../Media/Migration/11.png)
 
-To create a shortcut to a boxed program now an option in the box context menu is to be used, which can be reached quicker.
+To create a shortcut to a boxed program, now an option in the box context menu is to be used, which can be reached quicker.
 
 ## Software Compatibility
 
 ![](../Media/Migration/12.png)
 
-Also the compatibility dialog is integrated now into the window with the global settings* (tab 'Compatibility').
+Also the compatibility dialog is now integrated into the window with the global settings (tab "Compatibility").
 
 ## Lock Configuration
 
 ![](../Media/Migration/13.png)
 
-The setting protection options are available in the Global Settings Window as well (tab 'Config Protection').
+The setting protection options are available in the Global Settings window as well (tab "Config Protection").
 
 ## Sandbox Context Menu
 
 ![](../Media/Migration/14.png)
 
-The Box Context Menu is much more advanced, and contains all the options of from the old menu. Double click on the box name now opens the Box Settings.
+The sandbox context menu is much more advanced, and contains all the options from the old menu. Double click on the sandbox name now opens the sandbox settings.
 
 ## Explore Contents
 
 ![](../Media/Migration/15.png)
 
-In addition to being able to explore contents, the Box Content sub menu allows to mount and browse the sandboxed registry.
+In addition to being able to explore contents, the "Box Content" sub menu allows to mount and browse the sandboxed registry.
 
 ## Sandbox Settings
 
 ![](../Media/Migration/16.png)
 
-All functionality from the old Sandbox Settings are now located in the Sandbox Options. Some area similar place, but many have also been moved around.
+All functionality from the old Sandbox Settings are now located in the Sandbox Options. Some areas are similar, but many have also been moved around.
 
 ## Quick and Immediate Recover
 
 ![](../Media/Migration/17.png)
 
-The options for Quick Recovery and Immediate Recovery have been merged into one tab ('File Recovery').
+The options for Quick Recovery and Immediate Recovery have been merged into one tab ("File Recovery").
 
 ## Delete Options
 
 ![](../Media/Migration/18.png)
 
-The Delete Options have been moved to the sub tab 'File Options' of the tab 'General Options'.
+The Delete Options have been moved to the sub tab "File Options" of the tab "General Options".
 
 ## Delete Command
 
 ![](../Media/Migration/19.png)
 
-The Delete Command option can now be found on the sub tab 'Triggers' of the tab 'Advanced Options'.
+The "Delete Command" option can now be found on the sub tab "Triggers" of the tab "Advanced Options".
 
 ## Program Groups
 
@@ -138,31 +138,31 @@ The new UI supports groups just like the old one.
 
 ![](../Media/Migration/21.png)
 
-Forced programs and Folders are also merged into one tab ('Program Control', sub tab 'Force* Programs').
+Forced programs and folders are also merged into one tab ("Program Control", sub tab "Force* Programs").
 
 ## Lingering Programs & Leader Programs
 
 ![](../Media/Migration/22.png)
 
-Program stop behavioures are also merged into one tab.
+Program stop behaviours are also merged into one tab.
 
 ## File Migration
 
 ![](../Media/Migration/23.png)
 
-File Migration options have been integrated into the File Options sub tab of the General Options tab
+File Migration options have been integrated into the "File Options" sub tab of the "General Options" tab.
 
 ## Internet Access
 
 ![](../Media/Migration/24.png)
 
-Sandboxie plus can not only use the old method of blocking internet access but also use the Windows Filtering Platform (WFP) instead, which provides better compatibility.
+Sandboxie Plus not only uses the old method of blocking internet access but also the Windows Filtering Platform (WFP), which provides better compatibility.
 
 ## Network Access
 
 ![](../Media/Migration/25.png)
 
-Additionally using the WFP facility a full per box firewall can be configured (tab 'Internet Restrictions' --> sub tab 'Network Firewall Rules').
+Additionally, using the WFP facility a full per sandbox firewall can be configured (tab "Internet Restrictions" --> sub tab "Network Firewall Rules").
 
 ## Start/Run Access
 
@@ -174,13 +174,13 @@ Start restriction options have been promoted to a top level tab.
 
 ![](../Media/Migration/27.png)
 
-The "drop admin rights" option is in the new UI located on the Security sub tab of the General Options tab, together with additional security enhancements.
+The "Drop Admin Rights" option is in the new UI located on the "Security" sub tab of the "General Options" tab, together with additional security enhancements.
 
 ## Network Files
 
 ![](../Media/Migration/28.png)
 
-"Block network files and folders access" has been moved to the Access Restrictions sub tab of the General Options tab.
+"Block network files and folders access" has been moved to the "Access Restrictions" sub tab of the "General Options" tab.
 
 ## Resource Access
 
@@ -192,25 +192,18 @@ The "Resource Access" options have been integrated into a joined view which show
 
 ![](../Media/Migration/30.png)
 
-The compatibility Templates are now also presented as a joined view (tab 'App Templates', sub tab 'Compatibility Templates').
+The compatibility Templates are now also presented as a joined view (tab "App Templates", sub tab "Compatibility Templates").
 
 ## User Accounts
 
 ![](../Media/Migration/31.png)
 
-Last but not least the ability to restrict a box to selected users, has been moved to the sub tab 'Users' of the tab 'Advanced Options'.
+Last but not least, the ability to restrict a box to selected users has been moved to the sub tab "Users" of the tab "Advanced Options".
 
 ## About Dialog
 
 ![](../Media/Migration/32.png)
 
-And finally we have the about dialog.
+And finally, we have the About dialog.
 
-
-As is apparent Sandboxie-Plus has much more additional options not shown here, as this guide is only meant to facilitate the migration from Sandboxie Classic to Sandboxie Plus.
-
-
-
-
-
-
+As is apparent, Sandboxie-Plus has much more additional options not shown here, as this guide is only meant to facilitate the migration from Sandboxie Classic to Sandboxie Plus.
