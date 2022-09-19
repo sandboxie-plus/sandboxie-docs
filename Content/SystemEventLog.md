@@ -1,6 +1,6 @@
 # System Event Log
 
-The system event log is a Windows component that collects informational and error messages issued by Windows itself and other third-party software. Sandboxie issues some messages to the System Event Log. The messages are listed with a Source value of SbieDrv. To access the log and view messages, use the Event Viewer tool:
+The System Event Log is a Windows component that collects informational and error messages issued by Windows itself and other third-party software. Sandboxie issues some messages to the System Event Log. The messages are listed with a Source value of SbieDrv. To access the log and view messages, use the Event Viewer tool:
 
 Windows Start Menu > Control Panel > Administrative Tools > Event Viewer
 
