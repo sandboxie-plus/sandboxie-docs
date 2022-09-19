@@ -183,7 +183,7 @@ An older form of this command can temporarily disable the forced programs mode, 
   "C:\Program Files\Sandboxie\Start.exe"  disable_force
 ```
 
-Note the missing slash in this command syntax. Note also that this command is not a toggle. It always puts the Disable Forced Programs mode into effect and always restarts the countdown timer. At this time, Start.exe does not offer a way to request the cancelation of this mode.
+Note the missing slash in this command syntax. Note also that this command is not a toggle. It always puts the Disable Forced Programs mode into effect and always restarts the countdown timer. At this time, Start.exe does not offer a way to request the cancellation of this mode.
 
 * * *
 
