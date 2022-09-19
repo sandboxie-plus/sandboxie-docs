@@ -1,6 +1,6 @@
 # Force Process
 
-_ForceProcess_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It specifies names of programs. If any of these programs are started outside any sandbox, they will automatically sandboxed in a particular sandbox. For example:
+_ForceProcess_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It specifies names of programs. If any of these programs are started outside any sandbox, they will be automatically sandboxed in a particular sandbox. For example:
 
 ```
    .
