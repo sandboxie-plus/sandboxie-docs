@@ -66,7 +66,7 @@ The file is UNICODE-encoded, which means each character is composed of two bytes
 ### Sandbox Settings:
 
 * Listed in the navigation bar on the right under the heading Sandbox Settings.
-* Settings apply to a particular sandbox when specified in the associated sandbox setion.
+* Settings apply to a particular sandbox when specified in the associated sandbox section.
 * Settings apply to all sandboxes when specified in the [GlobalSettings] section.
 * Settings in the sandbox section override corresponding settings from [GlobalSettings]. 
 
