@@ -1,7 +1,7 @@
 
 # Sandboxie-Plus Migration Guide
 
-This guide shows where all the known sandboxie functions can be found in the new UI.
+This guide shows where all the known Sandboxie functions can be found in the new UI.
 
 
 
@@ -162,7 +162,7 @@ Sandboxie Plus not only uses the old method of blocking internet access but also
 
 ![](../Media/Migration/25.png)
 
-Additionally, using the WFP facility a full per sandbox firewall can be configured (tab "Internet Restrictions" --> sub tab "Network Firewall Rules").
+Additionally, using the WFP facility, a full per sandbox firewall can be configured (tab "Internet Restrictions" --> sub tab "Network Firewall Rules").
 
 ## Start/Run Access
 
