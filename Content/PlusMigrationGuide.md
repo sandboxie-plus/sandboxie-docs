@@ -30,7 +30,7 @@ The feature to copy an existing box can be found now on another place. (See the 
 
 ![](../Media/Migration/3.png)
 
-To copy a existing box configuration the "Duplicate Sandbox" menu command can be used.
+To copy a existing box configuration, the "Duplicate Sandbox" menu command can be used.
 
 ## View Menu
 
