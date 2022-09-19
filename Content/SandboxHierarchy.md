@@ -48,7 +48,7 @@ Registry keys are created in a sandboxed registry hive. A _registry hive_ is the
 
 Sandboxie creates the hive file in the sandbox folder, as the files _RegHive_ and _RegHive.LOG_. This hive is mounted (or in other words, loaded into the registry) when a sandboxed program starts. The hive is unmounted when all sandboxed programs end.
 
-The sandboxed hive has the following position and structure within the global struture of the Windows registry.
+The sandboxed hive has the following position and structure within the global structure of the Windows registry.
 ```
  . HKEY_USERS
  . . KeyRootPath
