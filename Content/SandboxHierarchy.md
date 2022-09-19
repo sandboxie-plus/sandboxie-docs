@@ -8,7 +8,7 @@ Beginning with version 2.80 of Sandboxie, the layout of the sandbox is not tied 
 
 ### Files
 
-Files are created in the sandbox folder in the following hierarchy:
+Files are created in the Sandbox folder according to the following hierarchy:
 ```
   . FileRootPath
   . . drive
