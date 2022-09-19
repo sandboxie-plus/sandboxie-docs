@@ -40,7 +40,7 @@ For example, one person may prefer greater security and control over web bookmar
 
 But another person may prefer to configure Sandboxie such that a sandboxed web browser can directly access the bookmarks or favorites, without an intermediate recovery step, thus sacrificing some security for greater convenience.
 
-Sandboxie enables you to strike your personal balance of security and convenience.
+Sandboxie allows you to find your personal balance of security and convenience.
 
 Enjoy!
 
