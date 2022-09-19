@@ -4,7 +4,7 @@
 
 ![](../Media/MainWindow.png)
 
-The _Programs View_ is the default view mode in [Sandboxie Control](SandboxieControl.md). It displays the programs running in each of the sandboxes, grouped by sandbox name. The list shows three colums:
+The _Programs View_ is the default view mode in [Sandboxie Control](SandboxieControl.md). It displays the programs running in each of the sandboxes, grouped by sandbox name. The list shows three columns:
 
 *   The _Program Name_ column displays the name of the executable file of the program. For example, the picture shows _iexplore.exe_, which is the executable name for Internet Explorer.
     *   For a row describing a sandbox, this column displays the name of the sandbox.
