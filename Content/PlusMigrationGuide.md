@@ -1,15 +1,12 @@
-
 # Sandboxie-Plus Migration Guide
 
 This guide shows where all the known Sandboxie functions can be found in the new UI.
-
 
 ## Main Window
 
 ![](../Media/Migration/0.png)
 
 The over all layout of the main window of sandman.exe is exactly the same as the old one of sbiectrl.exe when the "Simple View" is chosen. If the "Advanced View" is chosen, there are three additional tabs on the bottom of the window ("Sbie Messages" etc.), so it corresponds with what can be seen in the right picture.
-
 
 ## File and Sandbox Menus
 
@@ -71,7 +68,7 @@ Sandboxie-Plus can not only warn when unboxed processes are started, but it can 
 
 ![](../Media/Migration/10.png)
 
-On this tab, the shell integration can be configured. Most functions are available, although deprecated Windows features were dropped and other options were moved out.
+On this tab, the shell integration can be configured. Most functions are available, although deprecated features were dropped and other options were moved out.
 
 ## Create Sandbox shortcut
 
