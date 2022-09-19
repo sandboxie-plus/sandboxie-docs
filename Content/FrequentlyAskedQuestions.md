@@ -53,7 +53,7 @@ Thanks to _esalkin_ for the paper metaphor. Thanks to _warwagon_ for the graphic
 
 You would be quite safe using Sandboxie. It should be noted that, from time to time, people are able to find some vulnerability in Sandboxie, an open hole through which malicious software can still infiltrate the system.
 
-This is very rarely and is quickly resolved by closing the hole that is the attack vector.
+This is very rare and is quickly resolved by closing the hole that is the attack vector.
 
 Thus it's a good idea to have more traditional anti-malware software. This is is the subject of the following question.
 
