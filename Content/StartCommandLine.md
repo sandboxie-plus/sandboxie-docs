@@ -13,7 +13,7 @@ The Sandboxie Start program can do any of the following, depending on command li
 * * *
 ### Start Programs
 
-This is the default behavior. By specifying a full or partial path to a program executable file, Sandboxie Start will launch that program under the supervision of Sandboxie:
+This is the default behavior. By specifying a full or partial path to a program's executable file, Sandboxie Start will launch that program under the supervision of Sandboxie:
 ```
   "C:\Program Files\Sandboxie\Start.exe"  c:\windows\system32\notepad.exe
   "C:\Program Files\Sandboxie\Start.exe"  notepad.exe
