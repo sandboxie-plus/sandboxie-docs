@@ -1,4 +1,6 @@
 # Sandboxie documentation
+[![Markdown links Status](https://github.com/sandboxie-plus/sandboxie-docs/actions/workflows/action.yml/badge.svg)](https://github.com/sandboxie-plus/sandboxie-docs/actions/workflows/action.yml) [![Codespell Status](https://github.com/sandboxie-plus/sandboxie-docs/actions/workflows/codespell.yml/badge.svg)](https://github.com/sandboxie-plus/sandboxie-docs/actions/workflows/codespell.yml)
+
 ## Introduction
 Sandboxie is a free and open source application isolation software for Windows that lets you try and run untrusted applications without worrying about unwanted changes to your files or registry. 
 
