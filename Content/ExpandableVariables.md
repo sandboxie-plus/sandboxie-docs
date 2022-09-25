@@ -19,7 +19,7 @@ The following table lists the variables that Sandboxie recognizes.
 | :---          | :---       |
 | sandbox   | Name of sandbox in which the program is running. <br> Example: DefaultBox |
 | user <br> username | User account in which the program is running. <br> Example: joe |
-| sid | SID-string identifying the user account in which the program is running. <br> Example: S-1-5-21-414-171-1981-1005 |
+| sid | SID string identifying the user account in which the program is running. <br> Example: S-1-5-21-414-171-1981-1005 |
 | session | The number of the logon session in which the program is running. <br> Example: 1 |
 | ProgramFiles | Location of program files folder. <br> Example: C:\Program Files |
 | SystemRoot | Location of the Windows installation folder. <br> Example: C:\Windows |
@@ -29,7 +29,7 @@ The following table lists the variables that Sandboxie recognizes.
 | AllUsersProfile | Location of the shared user account root folder. <br> Example: C:\ProgramData |
 | HomeDrive <br> HomePath <br> HomeShare | Partial locations of the user account root folder, as defined in the registry key: <br> HKEY_CURRENT_USER\Volatile Environment |
 | temp <br> tmp | Location of the Windows temporary files folder as defined in the registry key: <br> HKEY_CURRENT_USER\Environment. <br> Example: C:\Windows\Temp |
-| Personal <br> AppData <br> Local AppData <br> Favorites <br> And more  | Locations of user-account and system folders as are known to Windows Explorer. For more information, see [Shell Folders](ShellFolders.md). |
+| Personal <br> AppData <br> Local AppData <br> Favorites <br> And more  | Locations of user account and system folders as are known to Windows Explorer. For more information, see [Shell Folders](ShellFolders.md). |
 
 ### Template Variables
 
