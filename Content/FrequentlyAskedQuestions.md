@@ -43,7 +43,7 @@ On the other hand, the Sandboxie sandbox works like a transparency layer placed 
 
 ![](../Media/PaperAnimation.gif)
 
-Thanks to _esalkin_ for the paper metaphore. Thanks to _warwagon_ for the graphics.
+Thanks to _esalkin_ for the paper metaphor. Thanks to _warwagon_ for the graphics.
 
 **Back to [Table of Contents](#overview)**
 
@@ -53,7 +53,7 @@ Thanks to _esalkin_ for the paper metaphore. Thanks to _warwagon_ for the graphi
 
 You would be quite safe using Sandboxie. It should be noted that, from time to time, people are able to find some vulnerability in Sandboxie, an open hole through which malicious software can still infiltrate the system.
 
-This is extremely rare and is quickly resolved by closing the hole that is the attack vector.
+This is very rare and is quickly resolved by closing the hole that is the attack vector.
 
 Thus it's a good idea to have more traditional anti-malware software. This is is the subject of the following question.
 
@@ -140,7 +140,7 @@ Sandboxie needs only a small amount of memory and should have a very small impac
 
 Sandboxie extends the operating system (OS) with sandboxing capabilities by blending into it. Applications can never access hardware such as disk storage directly, they have to ask the OS to do it for them. Since Sandboxie integrates into the OS, it can do what it does without risk of being circumvented.
 
-The following classes of system objects are supervised by Sandboxie: Files, Disk Devices, Registry Keys, Process and Thread objects, Driver objects, and objects used for Inter-process communication: Named Pipes and Mailbox Objects, Events, Mutexs (Mutants in NT speak), Semaphores, Sections and LPC Ports. For some more information on this, see [Sandbox Hierarchy](SandboxHierarchy.md).
+The following classes of system objects are supervised by Sandboxie: Files, Disk Devices, Registry Keys, Process and Thread objects, Driver objects, and objects used for Inter-process communication: Named Pipes and Mailbox Objects, Events, Mutexes (Mutants in NT speak), Semaphores, Sections and LPC Ports. For some more information on this, see [Sandbox Hierarchy](SandboxHierarchy.md).
 
 Sandboxie also takes measures to prevent programs executing inside the sandbox from hijacking non-sandboxed programs and using them as a vehicle to operate outside the sandbox. For the same reason, Sandboxie doesn't allow a sandboxed process from reading the memory of unsandboxed processes and it provides a feature to hide selected host processes from sandboxed processes. For more information about this, see [#59](https://github.com/sandboxie-plus/Sandboxie/issues/59#issuecomment-653756014) and [0.3 / 5.42 notes](https://github.com/sandboxie-plus/Sandboxie/blob/master/CHANGELOG.md#added-35).
 
