@@ -65,7 +65,7 @@ This section assumes the program in question has already exhibited the problem:
 *   If the program gets stuck in a loop, then it should already be stuck.
 *   If the program crashes, then it should already have crashed.
 
-If the problem condition has not yet occured, you should now cause the program to malfunction.
+If the problem condition has not yet occurred, you should now cause the program to malfunction.
 
 Once the program exhibits the problem, switch back to the WinDbg debugger command window. If the debugger status line still says *BUSY*, use the Debug menu > Break command to stop the program. (You can also press Ctrl+Break.)
 
@@ -77,6 +77,6 @@ When the debugger status line no longer says *BUSY*, enter the following command
     ~* k 99
 ```
 
-The third command will cause the debugger to produce some output. When the command completes, please copy the entire debug log. Use the Edit menu > _Copy Window Text to Clipboard_ command to copy the entire debug log to your clipboard, then go back to the Sandboxie forum and paste this debug log into your comment.
+The third command will cause the debugger to produce some output. When the command completes, please copy the entire debug log. Use the Edit menu > _Copy Window Text to Clipboard_ command to copy the entire debug log to your clipboard, then go back to the Sandboxie support and paste this debug log into your comment.
 
 Thank you in advance.
