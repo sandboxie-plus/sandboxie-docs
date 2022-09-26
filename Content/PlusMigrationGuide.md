@@ -32,7 +32,7 @@ To copy a existing box configuration, the "Duplicate Sandbox" menu command can b
 
 ![](../Media/Migration/4.png)
 
-The "View" menu  offers a few more functions, and the option to enable a simplified view mode. The recovery log is no longer a separate window but a tab at the bottom (visible when that the "Advanced View" is chosen).
+The "View" menu  offers a few more functions, and the option to enable a simplified view mode. The recovery log is no longer a separate window but a tab at the bottom (visible when the "Advanced View" is chosen).
 
 ## View Menu - Files and Folders
 
