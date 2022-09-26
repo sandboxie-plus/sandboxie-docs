@@ -556,6 +556,10 @@
 
 [Start Command Line](StartCommandLine.md)
 
+[Start Program](StartProgram.md)
+
+[Start Service](StartService.md)
+
 [System Event Log](SystemEventLog.md)
 
 ### T
