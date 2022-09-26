@@ -38,7 +38,7 @@ The "View" menu  offers a few more functions, and the option to enable a simplif
 
 ![](../Media/Migration/5.png)
 
-The modern Sandboxie UI has replaced by the "Files and Folders" view to a separate window which can be opened form the box context menu.
+The modern Sandboxie UI has replaced the "Files and Folders" view with a separate window that can be opened from the box context menu.
 
 ## Files and Folders - view / window
 
