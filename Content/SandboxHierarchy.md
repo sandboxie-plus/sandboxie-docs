@@ -32,7 +32,7 @@ Files that are created or modified in or below _profile_ (or _home_) folders, su
 
 Files that are created or modified in or below the generic (or _All Users_) profile, are redirected into the sandboxed _user\all_ folder.
 
-Other files that don't match either of the above paths are redirected to the sandboxed _drive\X_ folder, where _X_ would be the drive in which the files was _supposed_ to have been written.
+Other files that don't match either of the above paths are redirected to the sandboxed _drive\X_ folder, where _X_ would be the drive in which the files were _supposed_ to have been written.
 
 Files that are created or modified on a remote network share are redirected into the sandboxed _share\\servername\\sharename_ folder.
 
