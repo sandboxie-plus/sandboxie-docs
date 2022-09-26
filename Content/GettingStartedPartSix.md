@@ -4,7 +4,7 @@
 
 This tutorial has walked you through the basic principles of using and understanding Sandboxie:
 ```
-  * How to to use Sandboxie to run your applications
+  * How to use Sandboxie to run your applications
   * How the changes are trapped in the sandbox
   * How to recover important files and documents out of the sandbox
   * How to delete the sandbox
@@ -22,7 +22,7 @@ An important point to keep in mind when using Sandboxie is that it is designed t
 
 
 
-*   Download manager: Clicking download links is intercepted and handled by software which is operating outside your web browser. When the web browser is running in a sandbox, this might cause it to start the download manager in the sandbox as well, which would probably not be desired result.
+*   Download manager: Clicking download links is intercepted and handled by software which is operating outside your web browser. When the web browser is running in a sandbox, this might cause it to start the download manager in the sandbox as well, which would probably not be the desired result.
 
 
 
@@ -30,7 +30,7 @@ An important point to keep in mind when using Sandboxie is that it is designed t
 
 
 
-On the other hand, you should not expect to lose _every_ measure of interoperability between programs. For example, you may use a dictionary software which should react to keystrokes or mouse-clicks to display information in a pop up window. Sandboxie may or may not interfere with this, depending on how the dictionary software is designed. When things do not work as expected, please report it on the Sandboxie forum and ask for a solution.
+On the other hand, you should not expect to lose _every_ measure of interoperability between programs. For example, you may use a dictionary software which should react to keystrokes or mouse-clicks to display information in a pop-up window. Sandboxie may or may not interfere with this, depending on how the dictionary software is designed. When things do not work as expected, please report it on the Sandboxie support and ask for a solution.
 
 * * *
 
