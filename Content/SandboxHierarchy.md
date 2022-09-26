@@ -63,11 +63,13 @@ As sandboxed programs create new registry keys or modify existing keys, Sandboxi
 
 If the sandboxed program was trying to create the key _HKEY_CURRENT_USER\Software\NewKey_, it will be redirected to create _([KeyRootPath](KeyRootPath.md))\user\current\Software\NewKey_.
 
-With the sandboxed registry, the rules for redirection are simpler than for sandboxed files: A registry key created or modified below the HKEY_LOCAL_MACHINE tree will be redirected below the sandboxed _machine_ key.
+With the sandboxed registry, the rules for redirection are simpler than for sandboxed files:
 
-A registry key created or modified below the HKEY_CURRENT_USER tree will be redirected below the sandboxed _user\current_ key.
+- A registry key created or modified below the HKEY_LOCAL_MACHINE tree will be redirected below the sandboxed _machine_ key.
 
-A registry key created or modified below the HKEY_CLASSES_ROOT tree will be redirected below the sandboxed _user\current_classes_ key.
+- A registry key created or modified below the HKEY_CURRENT_USER tree will be redirected below the sandboxed _user\current_ key.
+
+- A registry key created or modified below the HKEY_CLASSES_ROOT tree will be redirected below the sandboxed _user\current_classes_ key.
 
 Note that the sandboxed _user\current\software\classes_ key is a symbolic link to the _user\current_classes_ key which means and the keys are effectively synonyms and share the same content in the sandboxed Windows registry.
 
