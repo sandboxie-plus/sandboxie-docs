@@ -38,15 +38,15 @@ Files that are created or modified on a remote network share are redirected into
 
 When a program tries to open a file for which a copy already exists in the sandbox, Sandboxie will redirect the program to the copy of the file that was previously stored in the sandbox. On the other hand, if a copy for the file does not exist in the sandbox, and if the program does not try to modify the file, then Sandboxie will permit read-only access on the original file outside the sandbox. This behavior can be affected with the file-related settings [OpenFilePath](OpenFilePath.md), [ReadFilePath](ReadFilePath.md), and [ClosedFilePath](ClosedFilePath.md).
 
-Note that the sandbox folder itself resides on one particular drive, so even as sandboxed programs may create and modify files in multiple drives, all these files will end up residing _physically_ in the same drive -- the drive where the sandbox folder resides.
+Note that the Sandbox folder itself resides on one particular drive, so even as sandboxed programs may create and modify files in multiple drives, all these files will end up residing _physically_ in the same drive -- the drive where the Sandbox folder resides.
 
-Apart from the two sub-folders, _drive_ and _user_, the sandbox folder itself contains the file _RegHive_, and typically also _RegHive.LOG_. These hold the sandboxed registry. See below.
+Apart from the two sub-folders, _drive_ and _user_, the Sandbox folder itself contains the file _RegHive_, and typically also _RegHive.LOG_. These hold the sandboxed registry. See below.
 
 ### Registry
 
 Registry keys are created in a sandboxed registry hive. A _registry hive_ is the Microsoft Windows term for a group of related registry keys that are stored in a single _hive file_.
 
-Sandboxie creates the hive file in the sandbox folder, as the files _RegHive_ and _RegHive.LOG_. This hive is mounted (or in other words, loaded into the registry) when a sandboxed program starts. The hive is unmounted when all sandboxed programs end.
+Sandboxie creates the hive file in the Sandbox folder, as the files _RegHive_ and _RegHive.LOG_. This hive is mounted (or in other words, loaded into the registry) when a sandboxed program starts. The hive is unmounted when all sandboxed programs end.
 
 The sandboxed hive has the following position and structure within the global structure of the Windows registry.
 ```
