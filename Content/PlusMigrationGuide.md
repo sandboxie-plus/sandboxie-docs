@@ -62,7 +62,7 @@ In the modern UI, it is possible to change not only the file system root path, b
 
 ![](../Media/Migration/9.png)
 
-Sandboxie-Plus can not only warn when unboxed processes are started, but it can also prevent their start entirely.
+Sandboxie Plus can not only warn when unboxed processes are started, but it can also prevent them from starting at all.
 
 ## Shell Integration
 
@@ -202,4 +202,4 @@ Last but not least, the ability to restrict a box to selected users has been mov
 
 And finally, we have the About dialog.
 
-As is apparent, Sandboxie-Plus has much more additional options not shown here, as this guide is only meant to facilitate the migration from Sandboxie Classic to Sandboxie Plus.
+As is apparent, Sandboxie Plus has much more additional options not shown here, as this guide is only meant to facilitate the migration from Sandboxie Classic to Sandboxie Plus.
