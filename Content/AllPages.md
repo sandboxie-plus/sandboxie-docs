@@ -48,6 +48,8 @@
 
 ### C
 
+[Closed Clsid](ClosedClsid.md)
+
 [Closed File Path](ClosedFilePath.md)
 
 [Closed Ipc Path](ClosedIpcPath.md)
