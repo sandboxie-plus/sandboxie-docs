@@ -56,7 +56,7 @@ The new Sandboxie Plus UI has a global settings window (Options --> Global Setti
 
 ![](../Media/Migration/8.png)
 
-In the modern UI it is possible to not only change the file system root path, but also the registry root and the IPC root.
+In the modern UI, it is possible to change not only the file system root path, but also the registry root and the IPC root.
 
 ## Program Start monitoring
 
