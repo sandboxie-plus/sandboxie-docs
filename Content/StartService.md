@@ -12,9 +12,6 @@ _StartService_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). This fe
    
 ```
 
-- `*` defines any character.
-- `?` defines one character.
-
 The example specifies that Google Update (Google Update.exe) and Adaware (Adaware.exe) will be forced to run sandboxed in the sandbox _DefaultBox_.
 
 Note that the _StartService_ works right after launching any application the specified sandbox, for general applications see [StartProgram](StartProgram.md).
