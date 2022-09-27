@@ -44,7 +44,7 @@ The modern Sandboxie UI has replaced the "Files and Folders" view with a separat
 
 ![](../Media/Migration/6.png)
 
-The window "Files" offers the same functionality as the old view, but enhances it by providing a full windows context menu.
+The window "Files" offers the same functionality as the old view, but enhances it by providing a full context menu.
 
 ## Global Settings
 
