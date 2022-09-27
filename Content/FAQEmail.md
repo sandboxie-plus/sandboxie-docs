@@ -16,7 +16,7 @@ A. No. As a safety measure, Sandboxie refuses to launch your application under i
 
 ### Q. How do I configure Sandboxie for use with my email software?
 
-A. Open [Sandbox Settings > Applications > Email Reader](ApplicationsSettings.md#email-reader) and select the software that you use. If your mailbox data files are not in the default location, see [Sandbox Settings > Applications > Folders](ApplicationsSettings.md#folders). Then, you should also test the configuration; see [Test Email Configuration](TestEmailConfiguration.md).
+A. Open [Sandbox Settings > Applications > Email Reader](ApplicationsSettings.md#email-reader) and select the email software that you use. If your mailbox data files are not in the default location, see [Sandbox Settings > Applications > Folders](ApplicationsSettings.md#folders). Then, you should also test the configuration; see [Test Email Configuration](TestEmailConfiguration.md).
 
 ### Q. How do I run my email software under Sandboxie?
 
