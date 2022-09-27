@@ -38,7 +38,7 @@ Global templates are part of the Sandboxie installation and located in the file 
 
 ### Overriding Variables
 
-Any of the variables in the table above, including any of the [Shell Folders](ShellFolders.md) variables and any of the template variables, can be overridden by the [Sandboxie Ini](SandboxieIni.md) configuration file. To override a variable, add a setting with an **Ovr.** prefix.
+Any of the variables in the table above, including any of the [Shell Folders](ShellFolders.md) variables and any of the template variables, can be overridden by the [Sandboxie Ini](SandboxieIni.md) configuration file. To override a variable, add a parameter prefixed with **Ovr.**.
 
 For example:
 
