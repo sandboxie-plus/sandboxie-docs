@@ -20,7 +20,7 @@ A. Open [Sandbox Settings > Applications > Email Reader](ApplicationsSettings.md
 
 ### Q. How do I run my email software under Sandboxie?
 
-A. You can use the _Run Email Reader_ command from the [Sandbox Menu](SandboxMenu.md) or [Tray Icon Menu](TrayIconMenu.md) of [Sandboxie Control](SandboxieControl.md). You can also right-click _Run Sandboxed_ on the executable icon for your software.
+A. You can use the _Run Email Reader_ command from the [Sandbox Menu](SandboxMenu.md) or [Tray Icon Menu](TrayIconMenu.md) of [Sandboxie Control](SandboxieControl.md). You can also right-click _Run Sandboxed_ on the executable icon for your email software.
 
 ### Q. How can I force my email software to always run under Sandboxie?
 
