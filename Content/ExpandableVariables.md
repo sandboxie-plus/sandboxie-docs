@@ -74,6 +74,6 @@ For example:
     Reg.Cookies=%USERPROFILE%\Cookies
 ```
 
-Note that "Ovr." style overrides (described above) will cause Sandboxie to not look in the registry at all. On the other hand, Sandboxie only considers "Reg." style fallbacks if the expanded variable cannot be found in the registry. This means that if both Ovr.X and Reg.X are specified for the same variable X, the Ovr.X form will always apply when X is expanded, and the Reg.X form will never apply.
+Note that "Ovr." style overrides (described above) will skip the registry addressing for Sandboxie. On the other hand, Sandboxie only considers "Reg." style fallbacks if the expanded variable cannot be found in the registry. This means that if both Ovr.X and Reg.X are specified for the same variable X, the Ovr.X form will always apply when X is expanded, and the Reg.X form will never apply.
 
 It is generally preferable to use "Ovr." style overrides than "Reg." style fallbacks.
