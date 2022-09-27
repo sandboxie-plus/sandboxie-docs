@@ -17,7 +17,7 @@ The following table lists the variables that Sandboxie recognizes.
 
 | Variable Name | Expands To |
 | :---          | :---       |
-| SbieHome | Root path of sandboxie installation |
+| SbieHome | Root path of Sandboxie installation |
 | sandbox | Name of sandbox in which the program is running. <br> Example: DefaultBox |
 | user <br> username | User account in which the program is running. <br> Example: joe |
 | sid | SID-string identifying the user account in which the program is running. <br> Example: S-1-5-21-414-171-1981-1005 |
