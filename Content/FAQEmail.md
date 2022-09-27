@@ -34,7 +34,7 @@ A. No. The updates will be installed in the sandbox and will disappear when the 
 
 A. This depends primarily on your habits. If you want the convenience of opening your email software by clicking an email link (_mailto_) in your browser, then you have to use (and configure) the same sandbox for both web browsing and email reading. On the other hand, some people prefer to isolate the two unrelated activities into separate sandboxes. There is no strict answer, and both approaches work well.
 
-### Q. I want to launch my web browser in a sandbox, but not my email software. When I click on the email link (_mailto_), the web browser tries to launch my email software in the sandbox. What should I do?
+### Q. I want to launch my web browser in a sandbox, but not my email software. When I click an email link (_mailto_), the web browser tries to launch my email software in the sandbox. What should I do?
 
 A. You can avoid this issue by right-clicking on the email link instead of left (normal) clicking it. The right-click menu will let you **copy** the email address. Then switch to your email software and **paste** the email address. If the pasted email address begins with a **mailto:** prefix, then make sure to **delete** that prefix, including the colon (:).
 
