@@ -28,7 +28,7 @@ The _Programs View_ provides context menus for sandboxes and programs. To displa
 
 For a sandbox row, the context menu displayed is the same as [Sandbox Menu -> Sandbox Sub-Menu](SandboxMenu.md#sandbox-sub-menu). See there for a full description.
 
-For a program row, the context menu offerrs the following commands:
+For a program row, the context menu offers the following commands:
 
 *   The _Terminate Program_ command terminates the program.
 
