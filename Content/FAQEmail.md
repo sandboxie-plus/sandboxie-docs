@@ -10,7 +10,7 @@ A. Email software, as any other Internet-facing application, processes data that
 
 A. No. Sandboxie leaves this task to your anti-virus and anti-malware software. The job of Sandboxie is to provide the first line of defense and prevent a virus from infecting your computer, and potentially even your anti-virus software.
 
-### Q. Message SBIE2212 appears when I run my email software under Sandboxie, does this indicate an error?
+### Q. Message SBIE2212 appears when I run my email software in Sandboxie, does this indicate an error?
 
 A. No. As a safety measure, Sandboxie refuses to launch your application under its supervision, until it is properly configured. For more information, see the reference page for message [SBIE2212](SBIE2212.md). To learn how to configure support for your email software, see the next question in this FAQ
 
@@ -32,16 +32,16 @@ A. No. The updates will be installed in the sandbox and will disappear when the 
 
 ### Q. Should I create a separate, dedicated sandbox just for email, or can I use the same sandbox for email and web browsing?
 
-A. This depends primarily on your habits. If you want the convenience of opening your email software by clicking on the email ("mailto") link in your browser, then you have to use (and configure) the same sandbox for both web browsing and email reading. On the other hand, some people prefer to isolate the two unrelated types of activities into separate sandboxes. There is no strict answer, and both approaches work well.
+A. This depends primarily on your habits. If you want the convenience of opening your email software by clicking on the email ("mailto") link in your browser, then you have to use (and configure) the same sandbox for both web browsing and email reading. On the other hand, some people prefer to isolate the two unrelated activities into separate sandboxes. There is no strict answer, and both approaches work well.
 
-### Q. I want to launch my web browser in a sandbox, but not my email software. When I click on the email link (_mailto_), the web browser runs my email software in the sandbox. What should I do?
+### Q. I want to launch my web browser in a sandbox, but not my email software. When I click on the email link (_mailto_), the web browser tries to launch my email software in the sandbox. What should I do?
 
-A. You can avoid this problem by right-clicking on the email link instead of left (normal) clicking it. The right-click menu will let you **copy** the email address. Then switch to your email software and **paste** the email address. If the pasted email address begins with a **mailto:** prefix, then make sure to **delete** that prefix, including the colon (:).
+A. You can avoid this issue by right-clicking on the email link instead of left (normal) clicking it. The right-click menu will let you **copy** the email address. Then switch to your email software and **paste** the email address. If the pasted email address begins with a **mailto:** prefix, then make sure to **delete** that prefix, including the colon (:).
 
 ### Q. I want to launch my email software in a different sandbox than my web browser. When I click on the email link (_mailto_), the web browser tries to launch my email software in the wrong sandbox. What should I do?
 
-A. See answer the to the previous question.
+A. See the answer to the previous question.
 
-### Q. I have a web mail account and I read my email through web browser, do I need to configure anything?
+### Q. I have a web mail account and I read my email via my web browser, do I need to configure anything?
 
 A. No, because in this case, none of your emails are stored in your computer.
