@@ -4,7 +4,7 @@ Questions and anwers regarding the use of Sandboxie with email software. For a l
 
 ### Q. Why should I use Sandboxie to run my email software?
 
-A. Email software, as any other Internet-facing application, processes data that cannot be completely trusted, as it was received from the Internet. That data -- which is your email -- might contain viruses, and small bits of software designed to exploit vulnerabilities in your email software. By running your email software under the supervision of Sandboxie, you can confine the email software to its sandbox, along with any potential viruses and exploits. See [Email Protection](EmailProtection.md) for more information.
+A. Email software, as any other Internet-facing application, processes data that cannot be completely trusted, as it was received from the Internet. That data -- which is your email -- might contain viruses, and small bits of software designed to exploit vulnerabilities in your email software. By running your email software under the supervision of Sandboxie, you can confine the email software to its sandbox, along with any potential viruses and exploits. See [Email Protection](EmailProtection.md) for more informaion.
 
 ### Q. Will Sandboxie identify and delete viruses in my email?
 
