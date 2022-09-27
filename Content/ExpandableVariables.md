@@ -20,7 +20,7 @@ The following table lists the variables that Sandboxie recognizes.
 | SbieHome | Root path of Sandboxie installation |
 | sandbox | Name of sandbox in which the program is running. <br> Example: DefaultBox |
 | user <br> username | User account in which the program is running. <br> Example: joe |
-| sid | SID string identifying the user account in which the program is running. <br> Example: S-1-5-21-414-171-1981-1005 |
+| sid | SID-string identifying the user account in which the program is running. <br> Example: S-1-5-21-414-171-1981-1005 |
 | session | The number of the logon session in which the program is running. <br> Example: 1 |
 | ProgramFiles | Location of program files folder. <br> Example: C:\Program Files |
 | SystemRoot | Location of the Windows installation folder. <br> Example: C:\Windows |
