@@ -9,7 +9,7 @@ The _Programs View_ is the default view mode in [Sandboxie Control](SandboxieCon
 *   The _Program Name_ column displays the name of the executable file of the program. For example, the picture shows _iexplore.exe_, which is the executable name for Internet Explorer.
     *   For a row describing a sandbox, this column displays the name of the sandbox.
 
-*   The _PID_ column displays the process ID of the program. This is the same number that appears in the Processes tab of the Windows Task Manager. (The Windows Task Manager appears when you press Ctrl+Shift+Esc or Ctrl+Alt+Del that brings up the Windows Security menu.)
+*   The _PID_ column displays the process ID of the program. This is the same number that appears in the Processes tab of the Windows Task Manager. (The Windows Task Manager appears when you press the Ctrl+Shift+Esc keyboard shortcut or Ctrl+Alt+Del, which leads to the Windows logon screen.)
     *   For a row describing a sandbox, this column displays _Active_ if any programs are running in the sandbox.
 
 *   The _Window Title_ column displays the title associated with the main window of the program.
