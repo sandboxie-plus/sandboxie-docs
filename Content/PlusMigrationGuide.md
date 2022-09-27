@@ -6,7 +6,7 @@ This guide shows where all the known Sandboxie functions can be found in the new
 
 ![](../Media/Migration/0.png)
 
-The overall layout of the main window of SandMan.exe is exactly the same as the old one in Sbiectrl.exe when the "Simple View" is chosen. If the "Advanced View" is chosen, there are three additional tabs on the bottom of the window ("Sbie Messages" etc.), so it corresponds with what can be seen in the right picture.
+The overall layout of the main window of SandMan.exe is exactly the same as the old one in SbieCtrl.exe when the "Simple View" is chosen. If the "Advanced View" is chosen, there are three additional tabs on the bottom of the window ("Sbie Messages" etc.), so it corresponds with what can be seen in the right picture.
 
 ## File and Sandbox Menus
 
