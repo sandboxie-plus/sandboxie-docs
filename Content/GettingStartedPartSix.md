@@ -4,7 +4,7 @@
 
 This tutorial has walked you through the basic principles of using and understanding Sandboxie:
 ```
-  * How to to use Sandboxie to run your applications
+  * How to use Sandboxie to run your applications
   * How the changes are trapped in the sandbox
   * How to recover important files and documents out of the sandbox
   * How to delete the sandbox
@@ -12,7 +12,7 @@ This tutorial has walked you through the basic principles of using and understan
 
 You can read more tips about using Sandboxie in the [Usage Tips](UsageTips.md) page, and in pages about specific web browsers: [Internet Explorer Tips](InternetExplorerTips.md) and [Firefox Tips](FirefoxTips.md).
 
-An important point to keep in mind when using Sandboxie is that it is designed to isolate programs from each other. Therefore you should expect to lose _a small_ measure of inter-operability between programs. For example:
+An important point to keep in mind when using Sandboxie is that it is designed to isolate programs from each other. Therefore you should expect to lose _a small_ measure of interoperability between programs. For example:
 
 *   Email: Clicking email (_mailto_) links typically causes your web browser to start your email software. This will not work correctly unless Sandboxie is configured to run your email software in that sandbox. See [FAQ Email](FAQEmail.md).
 
@@ -22,7 +22,7 @@ An important point to keep in mind when using Sandboxie is that it is designed t
 
 
 
-*   Download manager: Clicking download links is intercepted and handled by software which is operating outside your web browser. When the web browser is running in a sandbox, this might cause it to start the download manager in the sandbox as well, which would probably not be desired result.
+*   Download manager: Clicking download links is intercepted and handled by software which is operating outside your web browser. When the web browser is running in a sandbox, this might cause it to start the download manager in the sandbox as well, which would probably not be the desired result.
 
 
 
@@ -30,17 +30,17 @@ An important point to keep in mind when using Sandboxie is that it is designed t
 
 
 
-On the other hand, you should not expect to lose _every_ measure of inter-operability between programs. For example, you may use a dictionary software which should react to keystrokes or mouse-clicks to display information in a pop up window. Sandboxie may or may not interfere with this, depending on how the dictionary software is designed. When things do not work as expected, please report it on the Sandboxie forum and ask for a solution.
+On the other hand, you should not expect to lose _every_ measure of interoperability between programs. For example, you may use a dictionary software which should react to keystrokes or mouse-clicks to display information in a pop-up window. Sandboxie may or may not interfere with this, depending on how the dictionary software is designed. When things do not work as expected, please report it on the Sandboxie support and ask for a solution.
 
 * * *
 
-Please also take some time now to review the many settings in the [Sandbox Settings](SandboxSettings.md) window. The settings are explained clearly, and you will find many settings that enable you to strike your preferred balance between security and convenience.
+Please also take some time now to review the many settings in the [Sandbox Settings](SandboxSettings.md) window. The settings are explained clearly, and you will find many settings that allow you to find the best balance between security and convenience.
 
 For example, one person may prefer greater security and control over web bookmarks and favorites, by letting them first save into the sandbox, and then recovering selected items through [Quick Recovery](QuickRecovery.md) or [Immediate Recovery](ImmediateRecovery.md). (This is the default configuration in Sandboxie.)
 
 But another person may prefer to configure Sandboxie such that a sandboxed web browser can directly access the bookmarks or favorites, without an intermediate recovery step, thus sacrificing some security for greater convenience.
 
-Sandboxie enables you to strike your personal balance of security and convenience.
+Sandboxie allows you to find your personal balance of security and convenience.
 
 Enjoy!
 
