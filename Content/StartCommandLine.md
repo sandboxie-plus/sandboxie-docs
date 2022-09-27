@@ -13,7 +13,7 @@ The Sandboxie Start program can do any of the following, depending on command li
 * * *
 ### Start Programs
 
-This is the default behavior. By specifying a full or partial path to a program executable file, Sandboxie Start will launch that program under the supervision of Sandboxie:
+This is the default behavior. By specifying a full or partial path to a program's executable file, Sandboxie Start will launch that program under the supervision of Sandboxie:
 ```
   "C:\Program Files\Sandboxie\Start.exe"  c:\windows\system32\notepad.exe
   "C:\Program Files\Sandboxie\Start.exe"  notepad.exe
@@ -183,7 +183,7 @@ An older form of this command can temporarily disable the forced programs mode, 
   "C:\Program Files\Sandboxie\Start.exe"  disable_force
 ```
 
-Note the missing slash in this command syntax. Note also that this command is not a toggle. It always puts the Disable Forced Programs mode into effect and always restarts the countdown timer. At this time, Start.exe does not offer a way to request the cancelation of this mode.
+Note the missing slash in this command syntax. Note also that this command is not a toggle. It always puts the Disable Forced Programs mode into effect and always restarts the countdown timer. At this time, Start.exe does not offer a way to request the cancellation of this mode.
 
 * * *
 
