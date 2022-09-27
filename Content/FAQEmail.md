@@ -38,7 +38,7 @@ A. This depends primarily on your habits. If you want the convenience of opening
 
 A. You can avoid this issue by right-clicking the email link instead of left (normal) clicking it. The right-click menu will let you **copy** the email address. Then switch to your email software and **paste** the email address. If the pasted email address begins with a **mailto:** prefix, then make sure to **delete** that prefix, including the colon (:).
 
-### Q. I want to launch my email software in a different sandbox than my web browser. When I click on the email link (_mailto_), the web browser tries to launch my email software in the wrong sandbox. What should I do?
+### Q. I want to launch my email software in a different sandbox than my web browser. When I click an email link (_mailto_), the web browser tries to open my email software in the wrong sandbox. What should I do?
 
 A. See the answer to the previous question.
 
