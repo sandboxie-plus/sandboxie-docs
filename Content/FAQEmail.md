@@ -24,7 +24,7 @@ A. You can use the _Run Email Reader_ command from the [Sandbox Menu](SandboxMen
 
 ### Q. How can I force my email software to always run under Sandboxie?
 
-A. When software is already running under Sandboxie, go to [Program Settings](ProgramSettings.md#page-1), Page 1, and select the checkbox to _Force program to run in this sandbox_. You can also use [Sandbox Settings > Program Start > Forced Programs](ProgramStartSettings.md#forced-programs) to accomplish the same.
+A. When the software is already running under Sandboxie, go to [Program Settings](ProgramSettings.md#page-1), Page 1, and select the checkbox to _Force program to run in this sandbox_. You can also use [Sandbox Settings > Program Start > Forced Programs](ProgramStartSettings.md#forced-programs) to accomplish the same.
 
 ### Q. My email software is periodically updated (automatically or manually). Will the updates become permanent?
 
