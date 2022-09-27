@@ -2,7 +2,7 @@
 
 Questions and anwers regarding the use of Sandboxie with email software. For a longer discussion, see [Email Protection](EmailProtection.md).
 
-### Q. Why should I use Sandboxie to launch my email software?
+### Q. Why should I use Sandboxie to run my email software?
 
 A. Email software, as any other Internet-facing application, processes data that cannot be completely trusted, as it was received from the Internet. That data -- which is your email -- might contain viruses, and small bits of software designed to exploit vulnerabilities in your email software. By launching your application under the supervision of Sandboxie, you can confine the email software to its sandbox, along with any potential viruses and exploits. See [Email Protection](EmailProtection.md) for more information.
 
@@ -10,7 +10,7 @@ A. Email software, as any other Internet-facing application, processes data that
 
 A. No. Sandboxie leaves this task to your anti-virus and anti-malware software. The job of Sandboxie is to provide the first line of defense and prevent a virus from infecting your computer, and potentially even your anti-virus software.
 
-### Q. Message SBIE2212 appears when I launch my email software under Sandboxie, does this indicate an error?
+### Q. Message SBIE2212 appears when I run my email software under Sandboxie, does this indicate an error?
 
 A. No. As a safety measure, Sandboxie refuses to launch your application under its supervision, until it is properly configured. For more information, see the reference page for message [SBIE2212](SBIE2212.md). To learn how to configure support for your email software, see the next question in this FAQ
 
@@ -18,7 +18,7 @@ A. No. As a safety measure, Sandboxie refuses to launch your application under i
 
 A. Open [Sandbox Settings > Applications > Email Reader](ApplicationsSettings.md#email-reader) and select the software that you use. If your mailbox data files are not in the default location, see [Sandbox Settings > Applications > Folders](ApplicationsSettings.md#folders). Then, you should also test the configuration; see [Test Email Configuration](TestEmailConfiguration.md).
 
-### Q. How do I launch my email software under Sandboxie?
+### Q. How do I run my email software under Sandboxie?
 
 A. You can use the _Run Email Reader_ command from the [Sandbox Menu](SandboxMenu.md) or [Tray Icon Menu](TrayIconMenu.md) of [Sandboxie Control](SandboxieControl.md). You can also right-click _Run Sandboxed_ on the executable icon for your software.
 
