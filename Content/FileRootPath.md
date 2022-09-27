@@ -18,17 +18,16 @@ Usage:
 
 The following substitution variables may be useful in this path.
 
-*   ShellFolders variables such as %Personal% which expands to the user's Documents folder
+*   [Shell Folders](ShellFolders.md) variables such as %Personal% which expands to the user's Documents folder
 *   The variable %SANDBOX% which expands to the name of the sandbox
 *   The variable %USER% which expands to the user name
-*   The variable %SID% which expands to the user security-ID (SID)
+*   The variable %SID% which expands to the user security ID (SID)
 *   The variable %SESSION% which expands to the Terminal Services session number
 
 If _FileRootPath_ is not specified, its default value is constructed using the _deprecated_ [BoxRootFolder](BoxRootFolder.md) setting, thus:
 
-*   _BoxRootFolder\Sandbox\%SANDBOX%._
+*   `BoxRootFolder\Sandbox\%SANDBOX%`
 
-If _BoxRootFolder_ is also not specified, then default setting is taken as:
+If _BoxRootFolder_ is also not specified, then the default setting is:
 
-*   _C:\Sandbox\%USER%\%SANDBOX%_.
-
+*   `C:\Sandbox\%USER%\%SANDBOX%`

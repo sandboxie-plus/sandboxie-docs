@@ -56,29 +56,29 @@ On Windows Vista and later, output from the system debugger log is disabled by d
 
 The following trace will display output in the following format. (Assuming **IpcTrace**, and **PipeTrace** enabled.)
 ```
-...  
-(001404) SBIE (FA) 00120116.01.00000000 \Device\NamedPipe\ShimViewer  
-...  
-(001404) SBIE (IA) 001F0001 \ThemeApiPort  
-...  
-(001404) SBIE (PD) 00000040 001136  
-(001404) SBIE (PA) 00020400 001136  
-...  
-(001404) SBIE (FA) 00000001.0F.FFFFFFFF \Device\Afd\Endpoint  
-(001404) SBIE (FA) 00000001.0F.FFFFFFFF \Device\Afd  
-...  
-(001404) SBIE (ID) 001F0001 \RPC Control\protected_storage  
-...  
+...
+(001404) SBIE (FA) 00120116.01.00000000 \Device\NamedPipe\ShimViewer
+...
+(001404) SBIE (IA) 001F0001 \ThemeApiPort
+...
+(001404) SBIE (PD) 00000040 001136
+(001404) SBIE (PA) 00020400 001136
+...
+(001404) SBIE (FA) 00000001.0F.FFFFFFFF \Device\Afd\Endpoint
+(001404) SBIE (FA) 00000001.0F.FFFFFFFF \Device\Afd
+...
+(001404) SBIE (ID) 001F0001 \RPC Control\protected_storage
+...
 ```
 The format is this:
 
 ```(pid) SBIE (ca) (access) (resource)```
 
-where _pid_ identifies the process attempting the access;  
-_c_ indicates the Sandboxie class for the resource -- more on this later;  
-_a_ indicates if the access was allowed (A) or denied (D);  
-access indicates the access requested to the object, and is typically not interesting or important;  
-_resource_ identifies the resource to which access is desired; in the case of process-to-process access, where _ca_ is (PA) or (PD), the resource name is the process id of the process being accessed.
+- `pid` identifies the process attempting the access;
+- `c` indicates the Sandboxie class for the resource -- more on this later;
+- `a` indicates if the access was allowed (A) or denied (D);
+- `access` indicates the access requested to the object, and is typically not interesting or important;
+- `resource` identifies the resource to which access is desired; in the case of process-to-process access, where _ca_ is (PA) or (PD), the resource name is the process id of the process being accessed.
 
 Some examples:
 
@@ -98,19 +98,19 @@ Here the access is allowed to the resource _Endpoint_. The resource class is F, 
 
 When **GuiTrace** is enabled, the trace also produces entries like the following:
 ```
-...  
-(001404) SBIE (GA) WinHook 0002 on tid=001484 pid=001960  
-(001404) SBIE (GA) AccHook on tid=000000 pid=000000  
-...  
-(001404) SBIE (GD) PostMessage 01224 (04C8) to hwnd=00050060 pid=001324 DDEMLMom  
-(001404) SBIE (GD) SendMessage 49376 (C0E0) to hwnd=00010014 pid=000804 #32769  
-...  
-(001404) SBIE (GD) SendInput  
-(001404) SBIE (GA) SendInput  
+...
+(001404) SBIE (GA) WinHook 0002 on tid=001484 pid=001960
+(001404) SBIE (GA) AccHook on tid=000000 pid=000000
+...
+(001404) SBIE (GD) PostMessage 01224 (04C8) to hwnd=00050060 pid=001324 DDEMLMom
+(001404) SBIE (GD) SendMessage 49376 (C0E0) to hwnd=00010014 pid=000804 #32769
+...
+(001404) SBIE (GD) SendInput
+(001404) SBIE (GA) SendInput
 ```
 These entries have a few formats. The first word after (GA) or (GD) identifies the type of the entry.
 
-When the first word is _WinHook_ or _AccHook_, the entry indicates installation of a hook. Its installation is permitted for (GA) entries, and denied for (GD) entries. _WinHook_ is a standard Windows hook, followed by the type of the hook (see [SetWidowsHookEx in MSDN](https://www.google.com/search?hl=en&q=setwindowshookex+msdn)). _AccHook_ is an accessability hook (see [SetWinEventHook in MSDN](https://www.google.com/search?hl=en&q=setwineventhook+msdn)).
+When the first word is _WinHook_ or _AccHook_, the entry indicates installation of a hook. Its installation is permitted for (GA) entries, and denied for (GD) entries. _WinHook_ is a standard Windows hook, followed by the type of the hook (see [SetWidowsHookEx in MSDN](https://www.google.com/search?hl=en&q=setwindowshookex+msdn)). _AccHook_ is an accessibility hook (see [SetWinEventHook in MSDN](https://www.google.com/search?hl=en&q=setwineventhook+msdn)).
 
 Both entries identify the thread number (tid) process number (pid) into which the hook was to be installed.
 
@@ -126,9 +126,9 @@ Consider for example the following trace record:
 
 This shows that access to some _Xyzzy_ resource was denied. Sandboxie does not know this resource, and by default, it denies access to unknown resources.
 
-If a sandboxed programs begins to malfunction (it may lock up, or it may end abruptly, or just complain about something) soon after this record appears in the trace, it stands to reason that the program was expecting the resource to be accessible.
+If a sandboxed program begins to malfunction (it may lock up, or it may end abruptly, or just complain about something) soon after this record appears in the trace, it stands to reason that the program was expecting the resource to be accessible.
 
-The next step is to add an [OpenIpcPath](OpenIpcPath.md) setting for this resource:  
+The next step is to add an [OpenIpcPath](OpenIpcPath.md) setting for this resource:
 
 ```OpenIpcPath=\BaseNamedObjects\Xyzzy```
 

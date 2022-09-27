@@ -51,7 +51,7 @@ These commands, except for Rename Sandbox and Remove Sandbox, are also available
 
 ### Create New Sandbox
 
-The _Create New Sandbox_ command defines a new sandbox in Sandboxie. A dialog box window will be displayed asking for the name of the new sandbox. The name can be any of combination of digits and letters, and its maximum length is 32 characters. A combobox button can specify some existing sandbox, from which settings will be copied into the new sandbox. If such an existing sandbox has not been selected, the new sandbox will initially have a default set of settings. Once the sandbox is created, the [Sandbox Settings](SandboxSettings.md) window can be used to alter sandbox settings.
+The _Create New Sandbox_ command defines a new sandbox in Sandboxie. A dialog box window will be displayed asking for the name of the new sandbox. The name can be any combination of digits and letters, and its maximum length is 32 characters. A combo box button can specify some existing sandbox, from which settings will be copied into the new sandbox. If such an existing sandbox has not been selected, the new sandbox will initially have a default set of settings. Once the sandbox is created, the [Sandbox Settings](SandboxSettings.md) window can be used to alter sandbox settings.
 
 * * *
 
@@ -72,7 +72,7 @@ Related [Sandboxie Ini](SandboxieIni.md) setting: [FileRootPath](FileRootPath.md
 
 The _Set Layout and Groups_ command permits ordering sandboxes within a hierarchy of groups, when displayed in menus and lists. This does not have any effect on how programs behave within a sandbox. This feature is useful when more than a few sandboxes are defined, as it permits easier menu access to a specific sandbox.
 
-Once any groups have been defined, the main [Programs View](ProgramsView.md) in [Sandboxie Control](SandboxieControl.md) will include a comobobox button which can be used to restrict the list of sandboxes which are displayed.
+Once any groups have been defined, the main [Programs View](ProgramsView.md) in [Sandboxie Control](SandboxieControl.md) will include a combo box button which can be used to restrict the list of sandboxes that are displayed.
 
 Related [Sandboxie Ini](SandboxieIni.md) setting: BoxDisplayOrder.
 
@@ -80,7 +80,7 @@ Related [Sandboxie Ini](SandboxieIni.md) setting: BoxDisplayOrder.
 
 ### Reveal Hidden Sandbox
 
-The _Reveal Hidden Sandbox_ commmand appears in the menu only if some sandboxes are not visible to or useable by the current user account. A sandbox can be restricted to specific user accounts using the [User Accounts Settings](UserAccountsSettings.md) settings page in the [Sandbox Settings](SandboxSettings.md) window. The _Reveal Hidden Sandbox_ command can restore visibility of a sandbox that has been made unavailable the current user account.
+The _Reveal Hidden Sandbox_ command appears in the menu only if some sandboxes are not visible to or usable by the current user account. A sandbox can be restricted to specific user accounts using the [User Accounts Settings](UserAccountsSettings.md) settings page in the [Sandbox Settings](SandboxSettings.md) window. The _Reveal Hidden Sandbox_ command can restore visibility of a sandbox that has been made unavailable the current user account.
 
 * * *
 
