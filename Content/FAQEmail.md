@@ -12,7 +12,7 @@ A. No. Sandboxie leaves this task to your anti-virus and anti-malware software. 
 
 ### Q. Message SBIE2212 appears when I run my email software in Sandboxie, does this indicate an error?
 
-A. No. As a safety measure, Sandboxie refuses to launch your application under its supervision, until it is properly configured. For more information, see the reference page for message [SBIE2212](SBIE2212.md). To learn how to configure support for your email software, see the next question in this FAQ
+A. No. As a safety measure, Sandboxie refuses to launch your application under its supervision, until it is properly configured. For more information, see the reference page for message [SBIE2212](SBIE2212.md). To learn how to configure support for your email software, see the next question in this FAQ.
 
 ### Q. How do I configure Sandboxie for use with my email software?
 
