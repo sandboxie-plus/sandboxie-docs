@@ -25,7 +25,7 @@
 *   [How do I make Quick Recovery show my saved favorites and downloads?](#how-do-i-make-quick-recovery-show-my-saved-favorites-and-downloads)
 *   [I saved a downloaded file, a document or an email inside the sandbox, how do I get it out?](#i-saved-a-downloaded-file-a-document-or-an-email-inside-the-sandbox-how-do-i-get-it-out)
 *   [Why does the wrong program start when I run my default Web browser sandboxed?](#why-does-the-wrong-program-start-when-i-run-my-default-web-browser-sandboxed)
-*   If you have a program that doesn't work properly sandboxed, please look it up on the [Known Conflicts](SandboxieKnownConflicts.md) page before posting a problem report.
+*   If you have a program that doesn't work properly sandboxed, please look it up on the [Known Conflicts](KnownConflicts.md) page before posting a problem report.
 
 * * *
 
