@@ -12,7 +12,7 @@ Examples where exceptions are convenient or necessary:
 
 *   Allow direct access to some specific folder. For example, let the Web browser place downloads directly in a _Downloads_ folder.  
     See the [File Access](ResourceAccessSettings.md#file-access) category below.
-*   A program may need access to some resource for correct operation. If the program is known and trusted, it is reasonable to make such an exception. See [Known Conflicts](SandboxieKnownConflicts.md) for some examples.
+*   A program may need access to some resource for correct operation. If the program is known and trusted, it is reasonable to make such an exception. See [Known Conflicts](KnownConflicts.md) for some examples.
 
 
 

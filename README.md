@@ -17,7 +17,7 @@ In a few words:
 * [Getting Started with Sandboxie](Content/GettingStarted.md)
 * [General Usage Tips](Content/UsageTips.md)
 * [Usage Manual for Sandboxie Control](Content/SandboxieControl.md)
-* [Known Conflicts](Content/SandboxieKnownConflicts.md)
+* [Known Conflicts](Content/KnownConflicts.md)
 * [Comparison between Sandboxie Plus and Classic](Content/PlusMigrationGuide.md)
 * [Comparison of Resource Access Settings](Content/ResourceAccess.md)
 * [Frequenty Asked Questions](Content/FrequentlyAskedQuestions.md)
