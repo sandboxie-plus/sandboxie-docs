@@ -18,6 +18,7 @@ The following table shows which settings apply to what installation locations.
 |[OpenKeyPath](OpenKeyPath.md)      | Yes     | No       |
 |[OpenPipePath](OpenPipePath.md)     | Yes     | Yes    |
 |[OpenWinClass](OpenWinClass.md)     | Yes     | Yes    |
+|NoRenameWinClass |  Yes    |    Yes    |
 | NormalFilePath    | Read-only     | Yes      |
 | NormalIpcPath     | Read-only     | Yes      |
 | NormalKeyPath     | Read-only     | Yes      |
