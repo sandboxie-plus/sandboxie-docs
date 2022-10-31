@@ -13,6 +13,7 @@ The following table shows which settings apply to what installation locations.
 |ClosedRT   | Yes     | Yes    |
 |[OpenClsid](OpenClsid.md)        | Yes     | Yes    |
 |ClosedClsid        | Yes     | Yes    |
+|[OpenConfPath](OpenConfPath.md)        | Yes     | Yes    |
 |[OpenFilePath](OpenFilePath.md)     | Yes     | No       |
 |[OpenIpcPath](OpenIpcPath.md)      | Yes     | Yes      |
 |[OpenKeyPath](OpenKeyPath.md)      | Yes     | No       |
