@@ -198,6 +198,8 @@
 
 [Open Clsid](OpenClsid.md)
 
+[Open Conf Path](OpenConfPath.md)
+
 [Open Credentials](OpenCredentials.md)
 
 [Open File Path](OpenFilePath.md)
