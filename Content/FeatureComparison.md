@@ -1,12 +1,12 @@
 # Feature Comparison
 
-Sandboxie Plus and Classic share the same core components, the main difference is that the Classic UI is no longer under development. Hence a UI for new core functionality is only available in the SandMan UI of the Sandboxie-Plus. Likewise various other new features are only implemented in the SandMan UI.
+Sandboxie Plus and Classic share the same core components, the main difference is that the Classic UI is no longer under development. Hence, a UI for new core functionality is only available in the SandMan UI of the Sandboxie-Plus. Likewise, various other new features are only implemented in the SandMan UI.
 
 Some exclusive functionality is only available to project supporters with a valid [Supporter Certificate](https://sandboxie-plus.com/supporter-certificate/), see the table below.
 
-**Please note that to use Sandboxie Plus in a commertial setting a [Business Certificate](https://xanasoft.com/product/sandboxie-plus-business-certificate/) is required!**
+**Please note that a [Business Certificate](https://xanasoft.com/product/sandboxie-plus-business-certificate/) is required to use Sandboxie Plus in a commercial setting!**
 
-| ClASSIC VS. PLUS                 | CLASSIC |              | PLUS     |          |          |                    |            |                    |
+| CLASSIC VS. PLUS                 | CLASSIC |              | PLUS     |          |          |                    |            |                    |
 |----------------------------------|---------|--------------|----------|----------|----------|--------------------|------------|--------------------|
 | LICENSE                          | ![Green Color](https://placeholder.antonshell.me/img?width=15&color_bg=green&text=+) FREE    | SUPPORTED    | ![Green Color](https://placeholder.antonshell.me/img?width=15&color_bg=green&text=+) FREE     | SMALL    | MEDIUM   | LARGE              | BUSINESS   | HUGE               |
 | Usage                            |         |              | Personal | Personal | Personal | Personal           | Commercial | Commercial         |
