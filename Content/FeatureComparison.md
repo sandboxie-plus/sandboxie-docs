@@ -6,7 +6,7 @@ Some exclusive functionality is only available to project supporters with a vali
 
 **Please note that a [Business Certificate](https://xanasoft.com/product/sandboxie-plus-business-certificate/) is required to use Sandboxie Plus in a commercial setting!**
 
-| CLASSIC VS. PLUS                 | CLASSIC |              | PLUS     |          |          |                    |            |                    |
+| CLASSIC VS. PLUS                 | CLASSIC ([see open source license](https://github.com/sandboxie-plus/Sandboxie/blob/master/LICENSE)) |              | PLUS ([see limited license](https://github.com/sandboxie-plus/Sandboxie/blob/master/Installer/license.txt))    |          |          |                    |            |                    |
 |----------------------------------|---------|--------------|----------|----------|----------|--------------------|------------|--------------------|
 | LICENSE                          | ![Green Color](https://placeholder.antonshell.me/img?width=15&color_bg=green&text=+) FREE    | SUPPORTED    | ![Green Color](https://placeholder.antonshell.me/img?width=15&color_bg=green&text=+) FREE     | SMALL    | MEDIUM   | LARGE              | BUSINESS   | HUGE               |
 | Usage                            |    -     |       -       | Personal | Personal | Personal | Personal           | Commercial | Commercial         |
