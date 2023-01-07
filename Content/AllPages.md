@@ -102,6 +102,8 @@
 
 [FAQ Virus](FAQVirus.md)
 
+[Feature Comparison](FeatureComparison.md)
+
 [File Menu](FileMenu.md)
 
 [File Migration Settings](FileMigrationSettings.md)
