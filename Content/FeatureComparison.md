@@ -2,11 +2,11 @@
 
 Sandboxie Plus and Classic share the same core components, the main difference is that the Classic UI is no longer under development. Hence, a UI for new core functionality is only available in the SandMan UI of the Sandboxie-Plus. Likewise, various other new features are only implemented in the SandMan UI.
 
-Another difference is that Sandboxie Plus is provided under a [custom license](https://github.com/sandboxie-plus/Sandboxie/blob/master/Installer/license.txt), while Sandboxie Classic is provided under a [GPL-3.0 license](https://github.com/sandboxie-plus/Sandboxie/blob/master/LICENSE).
+Another difference is that Sandboxie Plus is provided under a [custom license](https://github.com/sandboxie-plus/Sandboxie/blob/master/Installer/license.txt), while Sandboxie Classic is provided under a [GPL-3.0+ license](https://github.com/sandboxie-plus/Sandboxie/blob/master/LICENSE).
 
 Some exclusive functionality is only available to project supporters with a valid [Supporter Certificate](https://sandboxie-plus.com/supporter-certificate/), see the table below.
 
-**Please note that a [Business Certificate](https://xanasoft.com/product/sandboxie-plus-business-certificate/) is required to use Sandboxie Plus in a commercial setting!**
+**Please note that a [Business Certificate](https://xanasoft.com/product/sandboxie-plus-business-certificate/) is required to use Sandboxie Plus in a commercial or educational setting!**
 
 | CLASSIC VS. PLUS                 | CLASSIC |              | PLUS     |          |          |                    |            |                    |
 |----------------------------------|---------|--------------|----------|----------|----------|--------------------|------------|--------------------|
