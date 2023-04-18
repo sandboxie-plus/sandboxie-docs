@@ -77,11 +77,11 @@ Internet Explorer perdiocally checks its feeds from a component which is running
 #### Save Outside Sandbox
 
 *   Setting: Save outside sandbox: History of search strings and invoked commands.
-*   Setting: Save outside sandbox: Account information for Hotmail and Messenger.
+*   ~~Setting: Save outside sandbox: Account information for Hotmail and Messenger.~~ (deprecated since Sandboxie v0.8.0 / 5.50.0)
 
 The first setting allows Internet Explorer running under Sandboxie to store "AutoComplete" information, which is typically used for keeping history: History of search strings, or history of commands typed into an input box.
 
-The second setting allows Internet Explorer running under Sandboxie to store "Credentials" information, which is typically used by Microsoft web sites, such as Hotmail, to remember your Windows Live ID. It is also used by Windows (Live) Messenger.
+~~The second setting allows Internet Explorer running under Sandboxie to store "Credentials" information, which is typically used by Microsoft web sites, such as Hotmail, to remember your Windows Live ID. It is also used by Windows (Live) Messenger.~~
 
 **Bottom line:** These settings are concerned with privacy more than security. Information that you enter into web sites can be kept permanently (as with a normal browser) or only until you delete the sandbox. To keep it permanently, select these settings. Otherwise, leave the settings unselected.
 
