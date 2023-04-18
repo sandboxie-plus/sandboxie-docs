@@ -10,7 +10,7 @@
 
 #### Always Run In Sandbox
 
-*   Setting: Force Internet Explorer to run in this sandbox (Registered version only)
+*   Setting: Force Internet Explorer to run in this sandbox ~~(Registered version only)~~
 
 This setting tells Sandboxie to automatically supervise any instance of Internet Explorer as it starts, even if it was not started directly through a Sandboxie facility or command.
 
