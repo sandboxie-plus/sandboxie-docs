@@ -98,9 +98,11 @@ And in addition, you can even _install_ some applications into the sandbox.
 Sandboxie works on
 
 *   Windows XP SP3 (Up until Sandboxie 5.22 and solely in [v5.40](https://github.com/sandboxie-plus/Sandboxie/releases/tag/v5.40))
-*   Windows 7 (32/64)
-*   Windows 8.1 (32/64)
-*   Windows 10 (32/64)(Metro(tile) Apps not supported)
+*   Windows Vista SP2 (Up until Sandboxie 5.22)
+*   Windows 7 32/64
+*   Windows 8.1 32/64
+*   Windows 10 32/64 ([Modern Apps not supported](https://github.com/sandboxie-plus/Sandboxie/issues/19))
+*   Windows 11 64 ([Modern Apps not supported](https://github.com/sandboxie-plus/Sandboxie/issues/19))
 
 See [the download page](https://github.com/sandboxie-plus/Sandboxie/releases).
 
@@ -148,7 +150,7 @@ Sandboxie also prevents programs executing inside the sandbox from loading drive
 
 It should be noted, however, that Sandboxie does not typically prevent the exfiltration of user data by processes running under its supervision without advanced configuration, as the default file and registry access scheme is Allow Read to anything except when the user specified a particular path to be closed. However, by careful configuration of the [ClosedFilePath](ClosedFilePath.md) and [ClosedKeyPath](ClosedKeyPath.md) settings, you can achieve this goal as well.
 
-If you want to follow the future development on this, see [New privacy enhanced File/Registry access scheme, White list/Template Mode, plans and discussion](https://github.com/sandboxie-plus/Sandboxie/issues/890)
+If you want to follow the future development on this, see [New privacy enhanced File/Registry access scheme, White list/Template Mode, plans and discussion](https://github.com/sandboxie-plus/Sandboxie/issues/890).
 
 **Back to [Table of Contents](#technical)**
 
@@ -188,7 +190,7 @@ It becomes apparent that, like most other things, each tool has its advantages a
 
 ### Why am I getting some Messages from Sandbox Driver?
 
-Not all messages are errors, some simply inform you of an event that has occurred. For more information, see [SBIE Messages](SBIEMessages.md).
+Not all messages are errors, some simply inform you of an event that has occurred. For more information, see [SBIE Messages](SBIEMessages.md) and [Log Messages To A File](MessagesFromSandboxie.md#log-messages-to-a-file).
 
 **Back to [Table of Contents](#technical)**
 
@@ -262,7 +264,7 @@ In Windows 7, open Control Panel in Icon view and select Default Programs > Set 
 
 In Windows 8/8.1, point to (but do not click) the lower-right or top-right corner of the screen, and then click the Settings icon. In the lower-right corner, click Change PC Settings > Search and apps > Defaults. You can then select the browser you want as default.
 
-If using Windows 10, ensure that your default Web Browser for Windows is set correctly (click on the Start menu, type "default app settings" and Choose your default apps).
+If using Windows 10/11, ensure that your default Web Browser for Windows is set correctly (click on the Start menu, type "default app settings" and Choose your default apps).
 
 **Back to [Table of Contents](#problems)**
 
