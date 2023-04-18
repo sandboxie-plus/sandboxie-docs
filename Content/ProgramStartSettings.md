@@ -30,8 +30,6 @@ Notes:
 
 *   Forced Folders take precedence over [Forced Programs](ProgramStartSettings.md#forced-programs). In other words, when a program matches both a Forced Folders and a Forced Programs setting, the Forced Folder setting will apply, and the Forced Programs setting will be ignored.
 
-*   The Forced Folders setting is only available in the registered version of Sandboxie.
-
 Related [Sandboxie Ini](SandboxieIni.md) setting: [ForceFolder](ForceFolder.md).
 
 * * *
@@ -58,7 +56,5 @@ Notes:
 *   Forced Programs can be temporarily suspended using the [Disable Forced Programs](FileMenu.md#disable-forced-programs) command.
 
 *   [Forced Folders](ProgramStartSettings.md#forced-folders) take precedence over Forced Programs. In other words, when a program matches both a Forced Folders and a Forced Programs setting, the Forced Folder setting will apply, and the Forced Programs setting will be ignored.
-
-*   The Forced Programs setting is only available in the registered version of Sandboxie.
 
 Related [Sandboxie Ini](SandboxieIni.md) setting: [ForceProcess](ForceProcess.md).
