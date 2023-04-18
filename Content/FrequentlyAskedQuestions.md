@@ -264,7 +264,7 @@ In Windows 7, open Control Panel in Icon view and select Default Programs > Set 
 
 In Windows 8/8.1, point to (but do not click) the lower-right or top-right corner of the screen, and then click the Settings icon. In the lower-right corner, click Change PC Settings > Search and apps > Defaults. You can then select the browser you want as default.
 
-If using Windows 10/11, ensure that your default Web Browser for Windows is set correctly (click on the Start menu, type "default app settings" and Choose your default apps).
+If using Windows 10/11, ensure that your default Web Browser for Windows is set correctly (click on the Start menu, type "default apps" and Choose your default apps).
 
 **Back to [Table of Contents](#problems)**
 
