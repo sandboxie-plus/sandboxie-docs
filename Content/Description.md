@@ -6,8 +6,8 @@ _Description_ is a sandbox settings in [Sandboxie Ini](SandboxieIni.md). It spec
    .
    .
    .
-   [DefaultBoxBox]
-   Description=Example&lt;BR&gt;text.
+   [DefaultBox]
+   Description=Example<BR>text.
    .
    .
    .
@@ -17,4 +17,4 @@ _Description_ is a sandbox settings in [Sandboxie Ini](SandboxieIni.md). It spec
    ClosedFilePath=D:\MyDocs
 ```
 
-The _<BR_> sequence in the text is used to indicate a line break. The free text is displayed in a balloon pop-up in the _Run Sandboxed_ sandbox selection dialog box.
+The `<BR>` sequence in the text is used to indicate a line break. The free text is displayed in a balloon pop-up in the _Run Sandboxed_ sandbox selection dialog box.
