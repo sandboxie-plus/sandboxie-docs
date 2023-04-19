@@ -1,6 +1,6 @@
 # Block Port
 
-**This feature is deprecated since v0.9.0 / 5.51.0. If you have custom BlockPort entries in your Sandboxie.ini, they will need to be updated by hand to the new format, for example `BlockPort=137,138,139,445` -> `NetworkAccess=Block;Port=137,138,139,445`**
+**This feature is deprecated since v0.9.0 / 5.51.0. If you have custom BlockPort entries in your Sandboxie.ini, they will need to be updated by hand to the new format, for example `BlockPort=137,138,139,445` -> `NetworkAccess=*,Block;Port=137,138,139,445`**
 
 _BlockPort_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It specifies IP port numbers which will be blocked for outgoing communications.
 
