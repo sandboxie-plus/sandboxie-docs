@@ -1,12 +1,12 @@
 # Open Credentials
 
-_OpenCredentials_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It is typically specified as _OpenCredentials=yes_ (see [Yes Or No Settings](YesOrNoSettings.md)), and indicates that Sandboxie should not isolate Windows credentials in the sandbox. For example:
+_OpenCredentials_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It is typically specified as _OpenCredentials=y_ (see [Yes Or No Settings](YesOrNoSettings.md)), and indicates that Sandboxie should not isolate Windows credentials in the sandbox. For example:
 ```
    .
    .
    .
    [DefaultBox]
-   OpenCredentials=yes
+   OpenCredentials=y
 ```
 
 Indicates that programs running in the DefaultBox sandbox will update the real credential store, rather than a sandboxed instance of it.
