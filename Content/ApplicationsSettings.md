@@ -37,8 +37,11 @@ Select (highlight) the desired configuration and click the _Add_ button to enabl
 
 Two special settings on the Internet Explorer settings page:
 
-*   Save outside sandbox: History of search strings and invoked commands. For detailed information, see [Sandboxie Ini](SandboxieIni.md) setting: [OpenProtectedStorage](OpenProtectedStorage.md).
-*   ~~Save outside sandbox: Account information for Hotmail and Messenger.~~ (deprecated since Sandboxie v0.8.0 / 5.50.0). For detailed information, see [Sandboxie Ini](SandboxieIni.md) setting: [OpenCredentials](OpenCredentials.md).
+*   Save outside sandbox: History of search strings and invoked commands.<br>
+For detailed information, see [Sandboxie Ini](SandboxieIni.md) setting: [OpenProtectedStorage](OpenProtectedStorage.md).
+
+*   ~~Save outside sandbox: Account information for Hotmail and Messenger.~~ (deprecated since Sandboxie v0.8.0 / 5.50.0).<br>
+For detailed information, see [Sandboxie Ini](SandboxieIni.md) setting: [OpenCredentials](OpenCredentials.md).
 *   See also [Save Outside Sandbox in Internet Explorer Tips](InternetExplorerTips.md#save-outside-sandbox) for more information and recommendations.
 
 * * *
