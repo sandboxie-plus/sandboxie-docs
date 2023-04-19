@@ -9,7 +9,7 @@ Usage:
    .
    .
    [GlobalSettings]
-   EditAdminOnly=yes
+   EditAdminOnly=y
 ```
 
 This setting is designed for use by network administrators.
