@@ -10,15 +10,15 @@
 
 #### Always Run In Sandbox
 
-*   Setting: Force Internet Explorer to run in this sandbox ~~(Registered version only)~~
+*   Setting: Force Internet Explorer to run in this sandbox
 
 This setting tells Sandboxie to automatically supervise any instance of Internet Explorer as it starts, even if it was not started directly through a Sandboxie facility or command.
 
 * * *
 
-#### Windows Vista/7 with UAC Enabled
+#### Internet Explorer with UAC Enabled
 
-In Windows Vista or Windows 7 with UAC enabled, Internet Explorer maintains two sets of configurations: Normal configuration and administrator configuration. Each set contains its own cookies, home pages and some other settings. When you normally launch Internet Explorer, you get the normal configuration. When you right-click Internet Explorer and select the _Run as administrator_ action, you get the administrator configuration.
+In Windows Vista/7/8/8.1 with UAC enabled, Internet Explorer maintains two sets of configurations: Normal configuration and administrator configuration. Each set contains its own cookies, home pages and some other settings. When you normally launch Internet Explorer, you get the normal configuration. When you right-click Internet Explorer and select the _Run as administrator_ action, you get the administrator configuration.
 
 Under Sandboxie, Internet Explorer selects the Administrator configuration. (But Internet Explorer does not necessarily run as Administrator under Sandboxie.) To fine-tune the administrator configuration, use the _Run as administrator_ right-click action when you run Internet Explorer outside the sandbox.
 

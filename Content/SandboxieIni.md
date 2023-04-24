@@ -22,7 +22,7 @@ Configuration settings in the file are split into groups, or sections. A section
 
 * The Global Settings section contains settings global to Sandboxie. These apply in one way or another to all sandboxes and all user accounts. There can be only one Global Settings section, typically at the top of the configuration file. 
 
-* One Sandbox Settings section for each sandbox known to Sandboxie. A valid sandbox name is a string of letters and digits, and has a maximum length of 32 characters. The Sandbox Settings section should contain the setting [Enabled](Enabled.md)=yes. 
+* One Sandbox Settings section for each sandbox known to Sandboxie. A valid sandbox name is a string of letters and digits, and has a maximum length of 32 characters. The Sandbox Settings section should contain the setting [Enabled](Enabled.md)=y. 
 
 * One User Settings section for each user account. These settings record the state of [Sandboxie Control](SandboxieControl.md) for a particular user account, and include such information as the size of the window. These settings are not documented here, but see a brief discussion below. 
 
@@ -34,10 +34,10 @@ A simple Sandboxie.ini file may look like this.
    FileRootPath=C:\Sandbox\%USER%\%SANDBOX%
    # Settings for sandbox DefaultBox
    [DefaultBox]
-   Enabled=yes
+   Enabled=y
    # Settings for sandbox InstallBox
    [InstallBox]
-   Enabled=yes
+   Enabled=y
    FileRootPath=D:\Sandbox\Install
    # Sandboxie Control settings for some user
    [UserSettings_054A02CE]
