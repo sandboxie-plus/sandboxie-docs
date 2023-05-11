@@ -186,6 +186,12 @@
 
 [Never Delete](NeverDelete.md)
 
+[Normal File Path](NormalFilePath.md)
+
+[Normal Ipc Path](NormalIpcPath.md)
+
+[Normal Key Path](NormalKeyPath.md)
+
 [Notes About 64 Bit Edition](NotesAbout64BitEdition.md)
 
 [Notify Direct Disk Access](NotifyDirectDiskAccess.md)
