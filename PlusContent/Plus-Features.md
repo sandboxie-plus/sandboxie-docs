@@ -27,7 +27,7 @@ Some more features (**) are available to participants of the [Sandboxie-Insider]
 
 
 
-#### Enchanced network filering and redirection **
+#### Enhanced network filtering and redirection **
  - [Proxy injection](ProxySupport.md) is yet another feature which has been added in the insider builds, it allows to force any application to use a Socks 5 proxy instead of a direct connection.
  - [DNS query logging, filtering and redirection](DNSFilter.md) feature allows you to block, or redirect DNS queries made by sandboxed programs for selected domains.
 
