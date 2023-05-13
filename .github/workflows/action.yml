@@ -1,10 +1,10 @@
-name: Check Markdown links
-on: 
+name: Check broken links
+on:
   schedule:
     - cron: '0 8 * * *'
   # Triggers the workflow on push or pull request events
-  #push:
-  #  branches: [ main ]
+  push:
+    branches: [ main ]
   pull_request:
     branches: [ main ]
 
@@ -12,11 +12,37 @@ on:
   workflow_dispatch:
 
 jobs:
-  markdown-link-check:
+  LinkChecker:
+    name: Link Checker
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - uses: gaurav-nelson/github-action-markdown-link-check@v1
-      with:
-        use-quiet-mode: 'yes'
-        use-verbose-mode: 'no'
+      - uses: actions/checkout@v3
+
+      - name: Lychee Broken Link Checker
+        uses: lycheeverse/lychee-action@v1.7.0
+        with:
+          # Check all markdown files in repo
+          args: --verbose --no-progress './**/*.md'
+          fail: true
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+      # To avoid automated spam, try to find an existing open issue before opening a new one
+      # Source: https://github.com/cilium/tetragon/pull/805
+      - name: Search for existing issue number
+        id: search-issue
+        if: always()
+        run: |
+          encoded_issue_name=$(echo "$ISSUE_NAME" | sed 's/ /%20/g')
+          response=$(curl -s -X GET "https://api.github.com/search/issues?q=$encoded_issue_name+repo:sandboxie-plus/sandboxie-docs+state:open+label:automated-report&type=Issues")
+          issue_number=$(echo "$response" | jq -r '.items[0].number // empty')
+          echo "issue_number=$issue_number" >> $GITHUB_OUTPUT
+
+      - name: Create issue from file
+        if: always() && env.lychee_exit_code != 0
+        uses: peter-evans/create-issue-from-file@v4
+        with:
+          title: Link Checker Report
+          content-filepath: ./lychee/out.md
+          issue-number: ${{ steps.search-issue.outputs.issue_number }}
+          labels: automated-report
