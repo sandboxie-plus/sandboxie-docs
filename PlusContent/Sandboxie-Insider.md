@@ -11,11 +11,11 @@ The insider builds introduce several new features that are designed to improve t
  - [Proxy injection](ProxySupport.md) is yet another feature which has been added in the insider builds, it allows to force any application to use a Socks 5 proxy instead of a direct connection.
  - [DNS query logging, filtering and redirection](DNSFilter.md) feature allows you to block, or redirect DNS queries made by sandboxed programs for selected domains.
 
- - [USB drive sandboxing](usbsandboxing.md) is yet another new feature that has been added to the Insider builds. This feature allows you to automatically sandbox any USB drive that you plug into your computer, which adds an extra layer of protection to your system.
+ - [USB drive sandboxing](USBSandboxing.md) is yet another new feature that has been added to the Insider builds. This feature allows you to automatically sandbox any USB drive that you plug into your computer, which adds an extra layer of protection to your system.
 
  - Insider builds include Support for EFS which is a feature in Windows that allows you to encrypt files and folders to protect them from unauthorized access.
 
- - [Document BreakOut](breakoutdocument.md) is an extension to the already well-known Breakout mechanism to allow to open selected file types saved to an open file path from within the sandbox in an unsandbox instance of the associated application.
+ - [Document BreakOut](../Content/BreakoutDocument.md) is an extension to the already well-known Breakout mechanism to allow to open selected file types saved to an open file path from within the sandbox in an unsandbox instance of the associated application.
 
 
 

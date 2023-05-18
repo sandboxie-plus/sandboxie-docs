@@ -40,7 +40,7 @@
 
 ~~[Box Root Folder](BoxRootFolder.md)~~ (deprecated since Sandboxie v3.xx)
 
-[Breakout Document](breakoutdocument.md)
+[Breakout Document](BreakoutDocument.md)
 
 [Breakout Folder](BreakoutFolder.md)
 
@@ -76,7 +76,7 @@
 
 [Delete Settings](DeleteSettings.md)
 
-[Delete V2](delete-v2.md)
+[Delete V2](Delete-V2.md)
 
 [Deprecated Sandboxie Ini Settings](DeprecatedSandboxieIniSettings.md)
 
@@ -558,6 +558,8 @@
 
 [Sandboxie Ini](SandboxieIni.md)
 
+[Sandboxie Plus Features](../PlusContent/Plus-Features.md)
+
 [Sandboxie Plus Migration Guide](PlusMigrationGuide.md)
 
 [Sandboxie Trace](SandboxieTrace.md)
@@ -577,8 +579,6 @@
 [Technical Aspects](TechnicalAspects.md)
 
 [Test Email Configuration](TestEmailConfiguration.md)
-
-[Trace Logging for Sandboxie Plus](../PlusContent/TraceLog.md)
 
 [Tray Icon Menu](TrayIconMenu.md)
 

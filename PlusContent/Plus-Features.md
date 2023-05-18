@@ -9,15 +9,15 @@ Some more features (**) are available to participants of the [Sandboxie-Insider]
  - With this option, rules are prioritized based on their specificity (see changelog/docs for details), this way sub paths can be readable/writeable while parent parts are still protected.
 
 
-#### [Security enhanced sandboxes](security-mode) *
+#### [Security enhanced sandboxes](https://sandboxie-plus.com/security-mode/) *
  - Restrict syscall elevation to approved known safe / filtered syscalls
  - Limit access to device endpoints to known safe / filtered endpoints
 
-#### [Privacy enhanced sandboxes](privacy-mode) *
+#### [Privacy enhanced sandboxes](https://sandboxie-plus.com/privacy-mode/) *
 - With this feature, by applying a preset rule collection, all locations potentially containing personal data can be protected. Applications running in boxes with personal data protection will see an empty PC with no user data on it.
 
 
-#### [Compartment Mode](app-box) *
+#### [Compartment Mode](https://sandboxie-plus.com/compartment-mode/) *
  - This mode is intended to optimize compatibility at the cost of security, here Sandboxie’s token-based isolation scheme is not used. Isolation is limited to the FS minifilter as well as registry and object callbacks. This has the potential to greatly improve compatibility with various applications.
 
 
@@ -81,7 +81,7 @@ Some more features (**) are available to participants of the [Sandboxie-Insider]
  - Instead of using anonymous login SID, it uses custom SIDs per-sandbox like Sandboxie/DefaultBox. This way, processes from separate sandboxes won’t be able accessing each other’s resources.
 
 
-#### [Breakout Process](BreakOutProcess.md)
+#### [Breakout Process](../Content/BreakoutProcess.md)
  - Allows to specify which applications shall run unsandboxed when launched within the sandbox. A combination of this and ForceProcess allows for a simple priority system.
 
  - Document Breakout is an extension to the already well-known Breakout mechanism to allow to open selected file types saved to an open file path from within the sandbox in an unsandboxed instance of the associated application.  **
