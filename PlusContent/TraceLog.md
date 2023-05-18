@@ -1,6 +1,6 @@
 # Trace logging (for Sandboxie Plus)
 
-The Trace Log tool displays the names of any system resources that are accessed by programs running under the supervision of Sandboxie Plus. Designed to make it easy to identify those system resources which should be excluded from sandboxing, this tool can be used with the [Sandboxie Trace](SandboxieTrace.md) options.
+The Trace Log tool displays the names of any system resources that are accessed by programs running under the supervision of Sandboxie Plus. Designed to make it easy to identify those system resources which should be excluded from sandboxing, this tool can be used with the [Sandboxie Trace](../Content/SandboxieTrace.md) options.
 
 **Important:** Please use the Trace Log tool only if you are asked to do so.
 
