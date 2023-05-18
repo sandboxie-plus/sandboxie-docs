@@ -6,7 +6,7 @@ Sandboxie is a sandbox-based isolation software for Windows that lets you try an
 
 After Sandboxie became [open source](https://news.sophos.com/en-us/2020/04/09/sandboxie-is-now-an-open-source-tool/), it was decided to release the documentation in the same way, in order to be accessible and easily updated from the community than the documentation available on [sandboxie-plus.com](https://sandboxie-plus.com) and other archived sources.
 
-A GitHub Pages site based on this content is also available: https://sandboxie-plus.github.io/sandboxie-docs 
+A GitHub Pages site based on this content is also available: [https://sandboxie-plus.github.io/sandboxie-docs](https://sandboxie-plus.github.io/sandboxie-docs)
 <br>If you would like to improve it, please see [#102](https://github.com/sandboxie-plus/sandboxie-docs/issues/102)
 
 ## Help Topics
