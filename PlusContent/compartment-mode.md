@@ -1,0 +1,1 @@
+Sandboxie plus offers a less restrictive box mode, called  Application Compartmentalization Mode, this mode provides improves application compatybility at the cost of reduced isoaltion. 

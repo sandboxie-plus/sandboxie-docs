@@ -1,0 +1,1 @@
+The privacy mode prevents sandboxed processes from reading non generic windows paths, this way protecting confidential user data from being accessed by sandboxed processes.
