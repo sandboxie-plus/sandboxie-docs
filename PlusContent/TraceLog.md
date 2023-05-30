@@ -21,3 +21,9 @@ The Trace Log tool displays the names of any system resources that are accessed 
 **Performance Impact**
 
 When inactive, the Trace Log does not use any system resources and does not have any performance impact on any running programs. When active, the Trace Log has a small performance penalty on sandboxed programs.
+
+**Recent Improvements**
+
+**v1.9.6** adds a full stack trace to all trace messages.
+Note that Enable the Trace Logging also turns on the Keep Terminated.
+This is not a bug but new intended behaviour. Without it, the stack trace in the trace log would not work properly, as it uses the process objects to cache the symbols.
