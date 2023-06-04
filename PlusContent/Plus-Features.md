@@ -9,15 +9,15 @@ Some more features (**) are available to participants of the [Sandboxie-Insider]
  - With this option, rules are prioritized based on their specificity (see changelog/docs for details), this way sub paths can be readable/writeable while parent parts are still protected.
 
 
-#### [Security enhanced sandboxes](https://sandboxie-plus.com/security-mode/) *
+#### [Security enhanced sandboxes](security-mode.md) *
  - Restrict syscall elevation to approved known safe / filtered syscalls
  - Limit access to device endpoints to known safe / filtered endpoints
 
-#### [Privacy enhanced sandboxes](https://sandboxie-plus.com/privacy-mode/) *
+#### [Privacy enhanced sandboxes](privacy-mode.md) *
 - With this feature, by applying a preset rule collection, all locations potentially containing personal data can be protected. Applications running in boxes with personal data protection will see an empty PC with no user data on it.
 
 
-#### [Compartment Mode](https://sandboxie-plus.com/compartment-mode/) *
+#### [Compartment Mode](compartment-mode.md) *
  - This mode is intended to optimize compatibility at the cost of security, here Sandboxie’s token-based isolation scheme is not used. Isolation is limited to the FS minifilter as well as registry and object callbacks. This has the potential to greatly improve compatibility with various applications.
 
 
