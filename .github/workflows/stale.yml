@@ -1,0 +1,26 @@
+name: "Mark stale PRs"
+
+on:
+  workflow_dispatch:
+  schedule:
+  - cron: "0 0 * * *"
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+    - uses: actions/stale@v8
+      with:
+        operations-per-run: 30
+        ignore-pr-updates: true
+        days-before-pr-stale: 365
+        days-before-pr-close: -1
+        stale-pr-message: "This pull request is stale because it has been open for a year. Please note it may be closed at any time if no further activity occurs."
+        stale-pr-label: "stale"
+        remove-stale-when-updated: true
+        any-of-issue-labels: "more info needed,answered?,incorrect"
+        exempt-issue-labels: "automated-report,enhancement,bug,dependencies,contributor certificate,help wanted,question"
+        exempt-pr-labels: "enhancement,bug,dependencies,contributor certificate,help wanted,question"
