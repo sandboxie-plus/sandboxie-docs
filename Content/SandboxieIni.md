@@ -7,8 +7,8 @@ As a general rule, manual editing of the configuration file is discouraged. You 
 ## Location
 
 Sandboxie looks for the file Sandboxie.ini in the following folders, in this order:
-* In the Windows folder: C:\WINDOWS on most Windows installations
-* In the Sandboxie installation folder: typically C:\Program Files\Sandboxie
+* In the Windows folder: `C:\Windows` on most Windows installations
+* In the Sandboxie installation folder: typically `C:\Program Files\Sandboxie` or `C:\Program Files\Sandboxie-Plus`
 
 The search for Sandboxie.ini ends when an instance of the file is found, and all other instances are ignored.
 
