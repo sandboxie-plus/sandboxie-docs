@@ -20,9 +20,9 @@ The following table shows which settings apply to what installation locations.
 |[OpenPipePath](OpenPipePath.md)     | Yes     | Yes    |
 |[OpenWinClass](OpenWinClass.md)     | Yes     | Yes    |
 |NoRenameWinClass |  Yes    |    Yes    |
-| NormalFilePath    | Read-only     | Yes      |
-| NormalIpcPath     | Read-only     | Yes      |
-| NormalKeyPath     | Read-only     | Yes      |
+|[NormalFilePath](NormalFilePath.md)    | Read-only     | Yes      |
+|[NormalIpcPath](NormalIpcPath.md)     | Read-only     | Yes      |
+|[NormalKeyPath](NormalKeyPath.md)     | Read-only     | Yes      |
 |[ReadFilePath](ReadFilePath.md)     | Read-only  | No   |
 | ReadIpcPath       | Read-only     | No   |
 |[ReadKeyPath](ReadKeyPath.md)       | Read-only  | No   |
