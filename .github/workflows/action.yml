@@ -21,6 +21,8 @@ jobs:
     permissions:
       contents: read
       issues: write
+      actions: write
+      pull-requests: write
     steps:
       - uses: actions/checkout@v3
 
