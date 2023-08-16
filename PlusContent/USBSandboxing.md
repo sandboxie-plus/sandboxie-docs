@@ -12,5 +12,5 @@ Sandboxie-plus introduces USB Drive Sandboxing, a new and impactful feature with
 
 - Data Integrity: Even in the presence of a potentially unsafe USB drive, your data remains intact while the maliciouse process is confined to the sandboxed environment.
 
-Embrace a more secure future with USB Drive Sandboxing – a feature that revolutionizes your approach to external storage security, mitigating risks and reinforcing your system's defense mechanisms.
+Embrace a more secure future with USB Drive Sandboxing â€“ a feature that revolutionizes your approach to external storage security, mitigating risks and reinforcing your system's defense mechanisms.
 
