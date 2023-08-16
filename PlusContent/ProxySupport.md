@@ -1,9 +1,9 @@
 # Proxy Support
 
-In the ever-evolving landscape of network security and control, Sandboxie-plus brings forth a powerful addition to its arsenal of features – Proxy Injection. As a testament to our commitment to providing advanced sandboxing solutions, Proxy Injection emerges as a game-changing capability within the new builds of Sandboxie-plus. This cutting-edge feature empowers users with an unprecedented level of control over network connectivity, enabling the forceful redirection of application traffic through a Socks 5 proxy instead of relying on direct connections.
+In the ever-evolving landscape of network security and control, Sandboxie-Plus brings forth a powerful addition to its arsenal of features – Proxy Injection. As a testament to our commitment to providing advanced sandboxing solutions, Proxy Injection emerges as a game-changing capability within the new builds of Sandboxie-Plus. This cutting-edge feature empowers users with an unprecedented level of control over network connectivity, enabling the forceful redirection of application traffic through a Socks 5 proxy instead of relying on direct connections.
 
 ## A Glimpse into Proxy Injection
-Proxy Injection stands as a pioneering addition to the Sandboxie-plus suite, designed to elevate the security and manageability of application interactions within sandboxed environments. This feature redefines how users can influence network behavior by seamlessly injecting a Socks 5 proxy mechanism into applications, ensuring that all network-bound activities are routed through a designated proxy server.
+Proxy Injection stands as a pioneering addition to the Sandboxie-Plus suite, designed to elevate the security and manageability of application interactions within sandboxed environments. This feature redefines how users can influence network behavior by seamlessly injecting a Socks 5 proxy mechanism into applications, ensuring that all network-bound activities are routed through a designated proxy server.
 
 ## The Power of Control
 At its core, Proxy Injection embodies the concept of control. With this feature, users wield a newfound ability to enforce the use of a Socks 5 proxy for any application, regardless of its inherent network settings. This degree of control translates into numerous tangible advantages:

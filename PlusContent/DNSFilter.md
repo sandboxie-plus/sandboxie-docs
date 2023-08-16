@@ -1,9 +1,9 @@
 # DNS Filter
 
-In the dynamic landscape of digital security and network management, Sandboxie-plus strides forward with a groundbreaking addition to its repertoire – DNS Query Logging, Filtering, and Redirection. This feature emerges as a pivotal enhancement within the realm of sandboxing, offering users an unparalleled level of control over network interactions. Empowering users with the ability to monitor, filter, and redirect DNS queries initiated by sandboxed programs for specific domains, this innovation revolutionizes the way network activities are managed within sandboxed environments.
+In the dynamic landscape of digital security and network management, Sandboxie-Plus strides forward with a groundbreaking addition to its repertoire – DNS Query Logging, Filtering, and Redirection. This feature emerges as a pivotal enhancement within the realm of sandboxing, offering users an unparalleled level of control over network interactions. Empowering users with the ability to monitor, filter, and redirect DNS queries initiated by sandboxed programs for specific domains, this innovation revolutionizes the way network activities are managed within sandboxed environments.
 
 ## A Deeper Look into DNS Query Control
-The introduction of DNS Query Logging, Filtering, and Redirection signifies a remarkable advancement in the capabilities of Sandboxie-plus. This feature is the embodiment of precision control, allowing users to influence how sandboxed applications interact with the Domain Name System (DNS). By delving into DNS activities, users can effectively manage and tailor network access, resulting in heightened security, granular oversight, and enhanced privacy.
+The introduction of DNS Query Logging, Filtering, and Redirection signifies a remarkable advancement in the capabilities of Sandboxie-Plus. This feature is the embodiment of precision control, allowing users to influence how sandboxed applications interact with the Domain Name System (DNS). By delving into DNS activities, users can effectively manage and tailor network access, resulting in heightened security, granular oversight, and enhanced privacy.
 
 ## The Power of Control
 DNS Query Control shifts the balance of power towards users, granting them unprecedented control over how sandboxed programs interact with DNS servers. This control manifests in a multitude of benefits:
