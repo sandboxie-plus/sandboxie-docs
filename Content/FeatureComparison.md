@@ -1,12 +1,12 @@
-# Feature Comparison
+# Feature Comparison (to be updated)
 
-Sandboxie Plus and Classic share the same core components, the main difference is that the Classic UI is no longer under development. Hence, a UI for new core functionality is only available in the SandMan UI of the Sandboxie-Plus. Likewise, various other new features are only implemented in the SandMan UI.
+Sandboxie Plus and Classic share the same core components, the main difference is that the Classic UI is no longer under development. Hence, a UI for new core functionality is only available in the SandMan UI of the Sandboxie-Plus. Likewise, various other new features are only implemented in the SandMan UI. Another difference is that Sandboxie Plus is provided under a [custom license](https://github.com/sandboxie-plus/Sandboxie/blob/master/Installer/license.txt), while Sandboxie Classic is provided under a [GPL-3.0+ license](https://github.com/sandboxie-plus/Sandboxie/blob/master/LICENSE).
 
-Another difference is that Sandboxie Plus is provided under a [custom license](https://github.com/sandboxie-plus/Sandboxie/blob/master/Installer/license.txt), while Sandboxie Classic is provided under a [GPL-3.0+ license](https://github.com/sandboxie-plus/Sandboxie/blob/master/LICENSE).
+Some exclusive functionality is only available to project supporters with a valid [Supporter Certificate](https://sandboxie-plus.com/supporter-certificate/).
 
-Some exclusive functionality is only available to project supporters with a valid [Supporter Certificate](https://sandboxie-plus.com/supporter-certificate/), see the table below.
+**Please note that a Business Certificate is required to use Sandboxie Plus in a commercial or educational setting!**
 
-**Please note that a [Business Certificate](https://xanasoft.com/product/sandboxie-plus-business-certificate/) is required to use Sandboxie Plus in a commercial or educational setting!**
+> ### ⚠️ The following table is obsolete as of [Sandboxie Plus 1.11.0](https://github.com/sandboxie-plus/Sandboxie/releases/tag/v1.11.0) and should be updated with the new one in [https://sandboxie-plus.com/feature-comparison/](https://sandboxie-plus.com/feature-comparison/)
 
 | CLASSIC VS. PLUS                 | CLASSIC |              | PLUS     |          |          |                    |            |                    |
 |----------------------------------|---------|--------------|----------|----------|----------|--------------------|------------|--------------------|
