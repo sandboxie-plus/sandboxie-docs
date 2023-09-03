@@ -1,9 +1,9 @@
 # Block Fake Input
 
-**This feature is no longer supported in SBIE v4 and up.**
+**This feature was removed in SBIE version 4 and up. It is no longer available.**
 
 
-_BlockFakeInput_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It specifies whether Sandboxie will allow sandboxed programs to manufacture fake keyboard input and send it to windows of applications running outside that sandbox.
+_BlockFakeInput_ was a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It specified whether Sandboxie should allow sandboxed programs to manufacture fake keyboard input and send it to windows of applications running outside that sandbox.
 
 Usage:
 
