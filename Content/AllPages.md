@@ -4,6 +4,8 @@
 
 [Advanced Topics](AdvancedTopics.md)
 
+[Alert Folder](AlertFolder.md)
+
 [Alert Process](AlertProcess.md)
 
 [Appearance Settings](AppearanceSettings.md)
@@ -50,11 +52,15 @@
 
 ### C
 
+[Closed Clsid Path](ClosedClsid.md)
+
 [Closed File Path](ClosedFilePath.md)
 
 [Closed Ipc Path](ClosedIpcPath.md)
 
 [Closed Key Path](ClosedKeyPath.md)
+
+[Closed RT](ClosedRT.md)
 
 [Code Injection](CodeInjection.md)
 
@@ -83,6 +89,8 @@
 [Description](Description.md)
 
 [Detecting Key Loggers](DetectingKeyLoggers.md)
+
+[Disable RT Blacklist](DisableRTBlacklist.md)
 
 [Drop Admin Rights](DropAdminRights.md)
 
@@ -190,6 +198,8 @@
 
 [Never Delete](NeverDelete.md)
 
+[No Rename Win Class](NoRenameWinClass.md)
+
 [Normal File Path](NormalFilePath.md)
 
 [Normal Ipc Path](NormalIpcPath.md)
@@ -201,6 +211,8 @@
 [Notify Direct Disk Access](NotifyDirectDiskAccess.md)
 
 [Notify Internet Access Denied](NotifyInternetAccessDenied.md)
+
+[Notify Process Access Denied](NotifyProcessAccessDenied.md)
 
 [Notify Start Run Access Denied](NotifyStartRunAccessDenied.md)
 
@@ -238,6 +250,8 @@
 
 [Privacy Mode](PrivacyMode.md)
 
+[Process Limit](ProcessLimit.md)
+
 ~~[Process Limit 1](ProcessLimit1.md)~~ (deprecated)
 
 ~~[Process Limit 2](ProcessLimit2.md)~~ (deprecated)
@@ -265,6 +279,8 @@
 [Ransomware](Ransomware.md)
 
 [Read File Path](ReadFilePath.md)
+
+[Read Ipc Path](ReadIpcPath.md)
 
 [Read Key Path](ReadKeyPath.md)
 
@@ -407,6 +423,8 @@
 [SBIE2104](SBIE2104.md)
 
 [SBIE2108](SBIE2108.md)
+
+[SBIE2111](SBIE2111.md)
 
 [SBIE2191](SBIE2191.md)
 
