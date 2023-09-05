@@ -2,7 +2,7 @@
 
 _ClosedRT_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md) available since v0.5.3a / 5.45.2. It specifies the problematic Windows RT interfaces that should not be accessible by a sandboxed program.
 
-Examples:
+Usage:
 ```
    .
    .
