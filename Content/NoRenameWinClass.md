@@ -2,7 +2,7 @@
 
 _NoRenameWinClass_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It specifies the window class names that should not be translated by Sandboxie.
 
-Examples:
+Usage:
 ```
    .
    .
