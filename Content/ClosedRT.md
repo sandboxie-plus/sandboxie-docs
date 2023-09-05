@@ -11,7 +11,7 @@ Examples:
    ClosedRT=ExampleRT
 ```
 
-This example makes the _ExampleRT_ not accessible to sandboxed programs.
+This example makes the _ExampleRT_ interface not accessible to sandboxed programs.
 
 Related Sandboxie Plus setting:
 
