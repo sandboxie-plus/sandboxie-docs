@@ -1,6 +1,6 @@
 # Box Root Folder
 
-**This setting is deprecated. Please see [FileRootPath](FileRootPath.md) instead.**
+**This setting is deprecated. Please use [FileRootPath](FileRootPath.md) instead.**
 
 _BoxRootFolder_ is a global setting in [Sandboxie Ini](SandboxieIni.md). It specifies the folder containing all sandboxes. One sub-folder is created within the container folder for each sandbox in active use.
 

@@ -22,19 +22,19 @@
 
 ### B
 
-~~[Block Drivers](BlockDrivers.md)~~ (deprecated since Sandboxie v4.xx)
+~~[Block Drivers](BlockDrivers.md)~~ (removed since Sandboxie v4.xx)
 
-~~[Block Fake Input](BlockFakeInput.md)~~ (deprecated since Sandboxie v4.xx)
+~~[Block Fake Input](BlockFakeInput.md)~~ (removed since Sandboxie v4.xx)
 
 [Block Net Param](BlockNetParam.md)
 
-~~[Block Password](BlockPassword.md)~~ (deprecated)
+~~[Block Password](BlockPassword.md)~~ (obsolete)
 
-~~[Block Port](BlockPort.md)~~ (deprecated since Sandboxie v0.9.0 / 5.51.0)
+~~[Block Port](BlockPort.md)~~ (removed since Sandboxie v0.9.0 / 5.51.0 in favour of NetworkAccess)
 
-~~[Block Sys Param](BlockSysParam.md)~~ (deprecated since Sandboxie v4.xx)
+~~[Block Sys Param](BlockSysParam.md)~~ (removed since Sandboxie v4.xx)
 
-~~[Block Win Hooks](BlockWinHooks.md)~~ (deprecated since Sandboxie v4.xx)
+~~[Block Win Hooks](BlockWinHooks.md)~~ (removed since Sandboxie v4.xx)
 
 [Border Color](BorderColor.md)
 
@@ -48,7 +48,7 @@
 
 [Breakout Process](BreakoutProcess.md)
 
-~~[Byte Order Mark](ByteOrderMark.md)~~ (deprecated since Sandboxie v0.6.5 / 5.47.0)
+~~[Byte Order Mark](ByteOrderMark.md)~~ (removed since Sandboxie v0.6.5 / 5.47.0)
 
 ### C
 
@@ -84,7 +84,7 @@
 
 [Delete V2](Delete-V2.md)
 
-[Deprecated Sandboxie Ini Settings](DeprecatedSandboxieIniSettings.md)
+[Deprecated/Obsolete/Removed Sandboxie Ini Settings](DeprecatedSandboxieIniSettings.md)
 
 [Description](Description.md)
 
@@ -252,9 +252,9 @@
 
 [Process Limit](ProcessLimit.md)
 
-~~[Process Limit 1](ProcessLimit1.md)~~ (deprecated)
+~~[Process Limit 1](ProcessLimit1.md)~~ (removed since Sandboxie v0.7.1 / 5.48.5 in favour of ProcessLimit)
 
-~~[Process Limit 2](ProcessLimit2.md)~~ (deprecated)
+~~[Process Limit 2](ProcessLimit2.md)~~ (removed since Sandboxie v0.7.1 / 5.48.5 in favour of ProcessLimit)
 
 [Program Name Prefix](ProgramNamePrefix.md)
 
@@ -368,13 +368,13 @@
 
 [SBIE1241](SBIE1241.md)
 
-~~[SBIE1242](SBIE1242.md)~~ (deprecated since Sandboxie 0.9.0 / 5.51.0)
+~~[SBIE1242](SBIE1242.md)~~ (obsolete since Sandboxie 0.9.0 / 5.51.0)
 
 [SBIE1301](SBIE1301.md)
 
-~~[SBIE1303](SBIE1303.md)~~ (deprecated since Sandboxie 5.31.4)
+~~[SBIE1303](SBIE1303.md)~~ (obsolete since Sandboxie 5.31.4)
 
-~~[SBIE1304](SBIE1304.md)~~ (deprecated)
+~~[SBIE1304](SBIE1304.md)~~ (obsolete)
 
 [SBIE1306](SBIE1306.md)
 
@@ -382,11 +382,11 @@
 
 [SBIE1308](SBIE1308.md)
 
-~~[SBIE1309](SBIE1309.md)~~ (deprecated)
+~~[SBIE1309](SBIE1309.md)~~ (obsolete)
 
-~~[SBIE1310](SBIE1310.md)~~ (deprecated since Sandboxie 5.31.4)
+~~[SBIE1310](SBIE1310.md)~~ (obsolete since Sandboxie 5.31.4)
 
-~~[SBIE1311](SBIE1311.md)~~ (deprecated)
+~~[SBIE1311](SBIE1311.md)~~ (obsolete)
 
 [SBIE1312](SBIE1312.md)
 
@@ -430,7 +430,7 @@
 
 [SBIE2192](SBIE2192.md)
 
-~~[SBIE2193](SBIE2193.md)~~ (deprecated since Sandboxie 1.0.14 / 5.55.14)
+~~[SBIE2193](SBIE2193.md)~~ (obsolete since Sandboxie 1.0.14 / 5.55.14)
 
 [SBIE2202](SBIE2202.md)
 

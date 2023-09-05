@@ -77,7 +77,7 @@ Internet Explorer perdiocally checks its feeds from a component which is running
 #### Save Outside Sandbox
 
 *   Setting: Save outside sandbox: History of search strings and invoked commands.
-*   ~~Setting: Save outside sandbox: Account information for Hotmail and Messenger.~~ (deprecated since Sandboxie v0.8.0 / 5.50.0)
+*   ~~Setting: Save outside sandbox: Account information for Hotmail and Messenger.~~ (replaced with [OpenCredentials](OpenCredentials.md) since Sandboxie v0.8.0 / 5.50.0)
 
 The first setting allows Internet Explorer running under Sandboxie to store "AutoComplete" information, which is typically used for keeping history: History of search strings, or history of commands typed into an input box.
 
