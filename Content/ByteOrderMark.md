@@ -1,8 +1,8 @@
 # Byte Order Mark
 
-**This feature is deprecated since v0.6.5 / 5.47.0.**
+**This feature was removed since v0.6.5 / 5.47.0.**
 
-_ByteOrderMark_ is a global setting in [Sandboxie Ini](SandboxieIni.md). It is typically specified as ByteOrderMark=y (see [Yes Or No Settings](YesOrNoSettings.md)), and indicates that [Sandboxie Control](SandboxieControl.md) should insert a UTF-16 UNICODE Byte Order Mark (BOM) character at the top of the configuration file.
+_ByteOrderMark_ was a global setting in [Sandboxie Ini](SandboxieIni.md). It was typically specified as ByteOrderMark=y (see [Yes Or No Settings](YesOrNoSettings.md)), and indicated that [Sandboxie Control](SandboxieControl.md) should insert a UTF-16 UNICODE Byte Order Mark (BOM) character at the top of the configuration file.
 
 Usage:
 

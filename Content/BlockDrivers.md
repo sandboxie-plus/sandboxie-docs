@@ -1,8 +1,8 @@
 # Block Drivers
 
-**This feature has been deprecated in SBIE version 4.+ and up. It is no longer supported.**
+**This feature was removed in SBIE version 4.+ and up. It is no longer available.**
 
-_BlockDrivers_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It specifies whether Sandboxie will allow sandboxed programs to load drivers into the operating system. However, this setting does _not_ govern the _installation_ of new drivers -- see more below.
+_BlockDrivers_ was a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It specified whether Sandboxie should allow sandboxed programs to load drivers into the operating system. However, this setting did _not_ govern the _installation_ of new drivers -- see more below.
 
 Usage:
 
