@@ -4,7 +4,7 @@ _ReadIpcPath_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md) available
 
 [Program Name Prefix](ProgramNamePrefix.md) may be specified.
 
-Example:
+Usage:
 ```
    .
    .
