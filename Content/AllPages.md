@@ -106,8 +106,6 @@
 
 [Expandable Variables](ExpandableVariables.md)
 
-~~[Experimental Protection](ExperimentalProtection.md)~~ (removed since Sandboxie v4.02)
-
 ### F
 
 [FAQ Email](FAQEmail.md)
@@ -205,8 +203,6 @@
 [Normal Ipc Path](NormalIpcPath.md)
 
 [Normal Key Path](NormalKeyPath.md)
-
-[Notes About 64 Bit Edition](NotesAbout64BitEdition.md)
 
 [Notify Direct Disk Access](NotifyDirectDiskAccess.md)
 
@@ -613,8 +609,6 @@
 ### W
 
 [Windows 8](Windows8.md)
-
-[Windows Vista 64](WindowsVista64.md)
 
 [Windows XP Mode](WindowsXPMode.md)
 

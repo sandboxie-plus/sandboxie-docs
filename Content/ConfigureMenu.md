@@ -62,16 +62,6 @@ The _Windows Shell Integration_ command opens a window which controls how [Sandb
 
 * * *
 
-### Software Compatibility
-
-* * *
-
-~~### Experimental Protection (64-bit)~~
-
-~~Please see [Experimental Protection](ExperimentalProtection.md).~~
-
-* * *
-
 ### Forget Hidden Messages
 
 Whenever [Sandboxie Control](SandboxieControl.md) displays one or more [SBIE Messages](SBIEMessages.md), you have the option to hide future instances of the message. This is accomplished by highlighting and clicking the _Hide_ command:
