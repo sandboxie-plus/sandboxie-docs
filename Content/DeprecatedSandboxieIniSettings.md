@@ -8,7 +8,7 @@ The following settings are deprecated, obsolete or removed:
 
 [BlockPassword](BlockPassword.md) (obsolete)
 
-[BlockPort](BlockPort.md) (removed in favour of NetworkAccess)
+[BlockPort](BlockPort.md) (removed)
 
 [BlockSysParam](BlockSysParam.md) (removed before the open source release)
 
@@ -18,6 +18,6 @@ The following settings are deprecated, obsolete or removed:
 
 [ByteOrderMark](ByteOrderMark.md) (removed)
 
-[ProcessLimit1](ProcessLimit1.md) (removed in favour of ProcessLimit)
+[ProcessLimit1](ProcessLimit1.md) (removed)
 
-[ProcessLimit2](ProcessLimit1.md) (removed in favour of ProcessLimit)
+[ProcessLimit2](ProcessLimit1.md) (removed)

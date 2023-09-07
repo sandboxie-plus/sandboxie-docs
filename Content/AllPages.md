@@ -30,7 +30,7 @@
 
 ~~[Block Password](BlockPassword.md)~~ (obsolete)
 
-~~[Block Port](BlockPort.md)~~ (removed since Sandboxie v0.9.0 / 5.51.0 in favour of NetworkAccess)
+~~[Block Port](BlockPort.md)~~ (removed since Sandboxie v0.9.0 / 5.51.0)
 
 ~~[Block Sys Param](BlockSysParam.md)~~ (removed since Sandboxie v4.xx)
 
@@ -252,9 +252,9 @@
 
 [Process Limit](ProcessLimit.md)
 
-~~[Process Limit 1](ProcessLimit1.md)~~ (removed since Sandboxie v0.7.1 / 5.48.5 in favour of ProcessLimit)
+~~[Process Limit 1](ProcessLimit1.md)~~ (removed since Sandboxie v0.7.1 / 5.48.5)
 
-~~[Process Limit 2](ProcessLimit2.md)~~ (removed since Sandboxie v0.7.1 / 5.48.5 in favour of ProcessLimit)
+~~[Process Limit 2](ProcessLimit2.md)~~ (removed since Sandboxie v0.7.1 / 5.48.5)
 
 [Program Name Prefix](ProgramNamePrefix.md)
 
@@ -354,11 +354,11 @@
 
 [SBIE1213](SBIE1213.md)
 
-[SBIE1214](SBIE1214.md)
+~~[SBIE1214](SBIE1214.md)~~ (obsolete)
 
-[SBIE1215](SBIE1215.md)
+~~[SBIE1215](SBIE1215.md)~~ (obsolete)
 
-[SBIE1216](SBIE1216.md)
+~~[SBIE1216](SBIE1216.md)~~ (obsolete)
 
 [SBIE1222](SBIE1222.md)
 
