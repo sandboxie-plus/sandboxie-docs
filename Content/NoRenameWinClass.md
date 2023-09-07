@@ -15,7 +15,7 @@ Usage:
 The first setting tells Sandboxie to not translate _ExampleWinClass_ window class name by making it accessible to sandboxed programs, and goes a step further to disable a few other windowing-related Sandboxie functions. This may also cause the Sandboxie indicator [#] to not appear in window titles.
 
 ```
-   NoRenameWinClass=Program.exe,*
+   NoRenameWinClass=program.exe,*
 ```
 
 This setting tells Sandboxie to not translate window class names created by _Program.exe_ by making them accessible to sandboxed programs, and goes a step further to disable a few other windowing-related Sandboxie functions. This may also cause the Sandboxie indicator [#] to not appear in window titles.
