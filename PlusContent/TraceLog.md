@@ -30,7 +30,7 @@ When inactive, the Trace Log does not use any system resources and does not have
 >
 > **Sandboxie Plus v0.8.0** adds the ability to disable resource access monitor for selected sandboxes with `DisableResourceMonitor=y`.
 >
-> **Sandboxie Plus v0.9.8b** adds the ability to save the trace log into a new file.
+> **Sandboxie Plus v0.9.8b** adds the ability to save the trace log output into a new .log file (via the floppy disk icon).
 >
 > **Sandboxie Plus v0.9.8d** adds the ability to select multiple access types at once.
 >
@@ -38,4 +38,4 @@ When inactive, the Trace Log does not use any system resources and does not have
 >
 > **Sandboxie Plus v1.9.6** adds a full stack trace to all trace messages. Note that activating the Trace Log also turns on the Keep Terminated feature. This is not a bug, but a new intended behaviour. Without it, the stack trace in the Trace Log would not work properly, as it uses the process objects to cache the symbols.
 >
-> **Sandboxie Plus v1.10.1** adds an "auto scroll" option in the right-click menu.
+> **Sandboxie Plus v1.10.1** adds an "auto scroll" option in the right-click menu (not available in the monitor mode).
