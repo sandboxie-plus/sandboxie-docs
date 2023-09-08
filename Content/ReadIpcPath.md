@@ -24,7 +24,7 @@ It is also possible to restore the old behavior entirely by specifying:
    ReadIpcPath=$:*
 ```
 
-By default, the only process whose memory can be read is _explorer.exe_. Many processes require it and Windows File Explorer should not keep any secrets anyway. To block this, you can use:
+By default, the only process whose memory can be read is _explorer.exe_. Many processes requires it and Windows File Explorer should not keep any secrets anyway. To block this, you can use:
 ```
    .
    .
