@@ -2,7 +2,7 @@
 
 The Trace Log tool displays the names of any system resources that are accessed by programs running under the supervision of Sandboxie Plus. Designed to make it easy to identify those system resources which should be excluded from sandboxing, this tool can be used with the [Sandboxie Trace](../Content/SandboxieTrace.md) options.
 
-**Important:** Please use the Trace Log tool only if you are asked to do so.
+**Important:** Please consider to use the Trace Log before opening a new issue.
 
 ![](../Media/TraceLog.png)
 
@@ -18,10 +18,24 @@ The Trace Log tool displays the names of any system resources that are accessed 
 
 5\. You can now paste (Ctrl+V) the collected data somewhere and make it available for analysis.
 
+6\. Optionally, the keyboard shortcut CTRL+F can be used to search for specific entries within the Trace Log tab.
+
 **Performance Impact**
 
 When inactive, the Trace Log does not use any system resources and does not have any performance impact on any running programs. When active, the Trace Log has a small performance penalty on sandboxed programs.
 
-**Recent Improvements**
+**Additional Improvements**
 
-**Sandboxie Plus v1.9.6** adds a full stack trace to all trace messages. Note that activating the Trace Log also turns on the Keep Terminated feature. This is not a bug, but a new intended behaviour. Without it, the stack trace in the Trace Log would not work properly, as it uses the process objects to cache the symbols.
+> **Sandboxie Plus v0.7.0** adds the ability to adjust the buffer size with `TraceBufferPages=2560`.
+>
+> **Sandboxie Plus v0.8.0** adds the ability to disable resource access monitor for selected sandboxes with `DisableResourceMonitor=y`.
+>
+> **Sandboxie Plus v0.9.8b** adds the ability to save the trace log into a new file.
+>
+> **Sandboxie Plus v0.9.8d** adds the ability to select multiple access types at once.
+>
+> **Sandboxie Plus v1.0.16** adds a monitor mode to the resource access trace.
+>
+> **Sandboxie Plus v1.9.6** adds a full stack trace to all trace messages. Note that activating the Trace Log also turns on the Keep Terminated feature. This is not a bug, but a new intended behaviour. Without it, the stack trace in the Trace Log would not work properly, as it uses the process objects to cache the symbols.
+>
+> **Sandboxie Plus v1.10.1** adds an "auto scroll" option in the right-click menu.
