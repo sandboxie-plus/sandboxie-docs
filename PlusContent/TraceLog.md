@@ -6,7 +6,7 @@ The Trace Log tool displays the names of any system resources that are accessed 
 
 ![](../Media/TraceLog.png)
 
-**Using the Trace Log**
+### Using the Trace Log
 
 1\. Enable **Trace Log** tab by opening **Options** menu -> **Trace Logging**.
 
@@ -20,11 +20,11 @@ The Trace Log tool displays the names of any system resources that are accessed 
 
 6\. Optionally, the keyboard shortcut CTRL+F can be used to search for specific entries within the Trace Log tab.
 
-**Performance Impact**
+### Performance Impact
 
 When inactive, the Trace Log does not use any system resources and does not have any performance impact on any running programs. When active, the Trace Log has a small performance penalty on sandboxed programs.
 
-**Additional Improvements**
+### Additional Improvements
 
 > **Sandboxie Plus v0.7.0** adds the ability to adjust the buffer size with `TraceBufferPages=2560`.
 >
