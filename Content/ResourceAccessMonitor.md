@@ -6,7 +6,7 @@ The Resource Access Monitor tool displays the names of any system resources that
 
 ![](../Media/ResourceAccessMonitor.png)
 
-**Using the Monitor**
+### Using the Monitor
 
 1\. To activate the monitor, expand or open the [Sandboxie Control](SandboxieControl.md) window, then select the [File Menu](FileMenu.md) -> Resource Access Monitor command.
 
@@ -20,6 +20,6 @@ The Resource Access Monitor tool displays the names of any system resources that
 
 6\. You can now paste (Ctrl+V) the collected data somewhere and make it available for analysis.
 
-**Performance Impact**
+### Performance Impact
 
 When inactive, the Resource Access Monitor does not use any system resources and does not have any performance impact on any running programs. When active, the Resource Access Monitor consumes 64K bytes of system memory and has a small performance penalty on sandboxed programs. Network Administrators may want to use the [MonitorAdminOnly](MonitorAdminOnly.md) setting to restrict the use of this tool for user accounts which are not members of the Administrators group.
