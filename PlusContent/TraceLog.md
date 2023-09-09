@@ -38,4 +38,4 @@ When inactive, the Trace Log does not use any system resources and does not have
 >
 > **Sandboxie Plus v1.9.6** adds a full stack trace to all trace messages. Note that activating the Trace Log also turns on the Keep Terminated feature. This is not a bug, but a new intended behaviour. Without it, the stack trace in the Trace Log would not work properly, as it uses the process objects to cache the symbols.
 >
-> **Sandboxie Plus v1.10.1** adds an "auto scroll" option in the right-click menu (not available in the monitor mode).
+> **Sandboxie Plus v1.10.1** adds an auto scroll functionality (enabled by default in the monitor mode).
