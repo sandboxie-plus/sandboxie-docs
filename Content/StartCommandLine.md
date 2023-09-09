@@ -100,6 +100,35 @@ The form _/terminate_all_ terminates all programs in all sandboxes.
 
 * * *
 
+### Unmount Box Images
+
+These commands unmount encrypted box images or ram disks created by Sandboxie Plus. These parameters are available since v1.11.0 / 5.66.0.
+```
+  "C:\Program Files\Sandboxie-Plus\Start.exe"  /unmount
+  "C:\Program Files\Sandboxie-Plus\Start.exe"  /box:EncryptedBox  /unmount
+  "C:\Program Files\Sandboxie-Plus\Start.exe"  /unmounted_all
+```
+
+If the parameter _/box:SandboxName_ is omitted, default sandbox, _DefaultBox_ image, will be unmounted.
+
+The form _/unmount_all_ unmounts all encrypted box images, including ram disks!
+
+### Mount Box Images
+
+These commands mount encrypted box images created by Sandboxie Plus. These parameters are available since v1.11.0 / 5.66.0.
+```
+  "C:\Program Files\Sandboxie-Plus\Start.exe"  /key:[box image password] /mount_protected
+  "C:\Program Files\Sandboxie-Plus\Start.exe"  /key:[box image password] /mount
+  "C:\Program Files\Sandboxie-Plus\Start.exe"  /box:EncryptedBox  /key:[box image password] /mount_protected
+  "C:\Program Files\Sandboxie-Plus\Start.exe"  /box:EncryptedBox  /key:[box image password] /mount
+```
+
+If the parameter _/box:SandboxName_ is omitted, default sandbox, _DefaultBox_ image, will be mounted.
+
+The form _/mount_protected_ mounts encrypted box images with the _Box Root Protection_. _Box Root Protection_ prevents processes running outside the sandbox from accessing the root folder of the encrypted box.
+
+* * *
+
 ### List Programs
 
 List the system process ID numbers for all programs running in a particular sandbox.

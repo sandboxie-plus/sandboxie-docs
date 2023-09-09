@@ -4,6 +4,8 @@
 
 [Advanced Topics](AdvancedTopics.md)
 
+[Alert Folder](AlertFolder.md)
+
 [Alert Process](AlertProcess.md)
 
 [Appearance Settings](AppearanceSettings.md)
@@ -28,7 +30,7 @@
 
 ~~[Block Password](BlockPassword.md)~~ (obsolete)
 
-~~[Block Port](BlockPort.md)~~ (removed since Sandboxie v0.9.0 / 5.51.0 in favour of NetworkAccess)
+~~[Block Port](BlockPort.md)~~ (removed since Sandboxie v0.9.0 / 5.51.0)
 
 ~~[Block Sys Param](BlockSysParam.md)~~ (removed since Sandboxie v4.xx)
 
@@ -50,11 +52,15 @@
 
 ### C
 
+[Closed Clsid Path](ClosedClsid.md)
+
 [Closed File Path](ClosedFilePath.md)
 
 [Closed Ipc Path](ClosedIpcPath.md)
 
 [Closed Key Path](ClosedKeyPath.md)
+
+[Closed RT](ClosedRT.md)
 
 [Code Injection](CodeInjection.md)
 
@@ -84,6 +90,8 @@
 
 [Detecting Key Loggers](DetectingKeyLoggers.md)
 
+[Disable RT Blacklist](DisableRTBlacklist.md)
+
 [Drop Admin Rights](DropAdminRights.md)
 
 ### E
@@ -97,8 +105,6 @@
 [Enabled](Enabled.md)
 
 [Expandable Variables](ExpandableVariables.md)
-
-~~[Experimental Protection](ExperimentalProtection.md)~~ (removed since Sandboxie v4.02)
 
 ### F
 
@@ -190,17 +196,19 @@
 
 [Never Delete](NeverDelete.md)
 
+[No Rename Win Class](NoRenameWinClass.md)
+
 [Normal File Path](NormalFilePath.md)
 
 [Normal Ipc Path](NormalIpcPath.md)
 
 [Normal Key Path](NormalKeyPath.md)
 
-[Notes About 64 Bit Edition](NotesAbout64BitEdition.md)
-
 [Notify Direct Disk Access](NotifyDirectDiskAccess.md)
 
 [Notify Internet Access Denied](NotifyInternetAccessDenied.md)
+
+[Notify Process Access Denied](NotifyProcessAccessDenied.md)
 
 [Notify Start Run Access Denied](NotifyStartRunAccessDenied.md)
 
@@ -238,9 +246,11 @@
 
 [Privacy Mode](PrivacyMode.md)
 
-~~[Process Limit 1](ProcessLimit1.md)~~ (removed since Sandboxie v0.7.1 / 5.48.5 in favour of ProcessLimit)
+[Process Limit](ProcessLimit.md)
 
-~~[Process Limit 2](ProcessLimit2.md)~~ (removed since Sandboxie v0.7.1 / 5.48.5 in favour of ProcessLimit)
+~~[Process Limit 1](ProcessLimit1.md)~~ (removed since Sandboxie v0.7.1 / 5.48.5)
+
+~~[Process Limit 2](ProcessLimit2.md)~~ (removed since Sandboxie v0.7.1 / 5.48.5)
 
 [Program Name Prefix](ProgramNamePrefix.md)
 
@@ -265,6 +275,8 @@
 [Ransomware](Ransomware.md)
 
 [Read File Path](ReadFilePath.md)
+
+[Read Ipc Path](ReadIpcPath.md)
 
 [Read Key Path](ReadKeyPath.md)
 
@@ -338,11 +350,11 @@
 
 [SBIE1213](SBIE1213.md)
 
-[SBIE1214](SBIE1214.md)
+~~[SBIE1214](SBIE1214.md)~~ (obsolete)
 
-[SBIE1215](SBIE1215.md)
+~~[SBIE1215](SBIE1215.md)~~ (obsolete)
 
-[SBIE1216](SBIE1216.md)
+~~[SBIE1216](SBIE1216.md)~~ (obsolete)
 
 [SBIE1222](SBIE1222.md)
 
@@ -407,6 +419,8 @@
 [SBIE2104](SBIE2104.md)
 
 [SBIE2108](SBIE2108.md)
+
+[SBIE2111](SBIE2111.md)
 
 [SBIE2191](SBIE2191.md)
 
@@ -595,8 +609,6 @@
 ### W
 
 [Windows 8](Windows8.md)
-
-[Windows Vista 64](WindowsVista64.md)
 
 [Windows XP Mode](WindowsXPMode.md)
 

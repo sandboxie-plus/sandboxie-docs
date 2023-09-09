@@ -64,11 +64,7 @@ The _Windows Shell Integration_ command opens a window which controls how [Sandb
 
 ### Software Compatibility
 
-* * *
-
-~~### Experimental Protection (64-bit)~~
-
-~~Please see [Experimental Protection](ExperimentalProtection.md).~~
+The _Software Compatibility_ command opens a window with a list of available compatibility templates.
 
 * * *
 
@@ -108,7 +104,7 @@ Opens the system text editor (typically, _Windows Notepad_) to edit the [Sandbox
 
 Note: Manual editing of Sandboxie.ini is not recommended. You are advised to use [Sandbox Settings](SandboxSettings.md) and other configuration windows in [Sandboxie Control](SandboxieControl.md) to make any changes to the configuration of Sandboxie.
 
-Note: The [Sandboxie Ini](SandboxieIni.md) configuration file is usually located in the _Windows_ folder, and cannot be modified by non-privileged user accounts. If you use Windows Vista with User Account Controls (UAC), you may have to elevate to an Administrator account before you can modify Sandboxie.ini.
+Note: The [Sandboxie Ini](SandboxieIni.md) configuration file is usually located in the _Windows_ folder, and cannot be modified by non-privileged user accounts. If you use Windows with User Account Control (UAC), you may have to elevate to an Administrator account before you can modify Sandboxie.ini.
 
 * * *
 
