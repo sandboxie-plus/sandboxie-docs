@@ -111,7 +111,7 @@ These commands unmount encrypted box images or ram disks created by Sandboxie-Pl
 
 If the parameter _/box:SandboxName_ is omitted, default sandbox, _DefaultBox_ image, will be unmounted.
 
-The form _/unmount_all_ unmount all encrypted box images, including ram disks!
+The form _/unmount_all_ unmounts all encrypted box images, including ram disks!
 
 ### Mount Box Images
 
@@ -125,7 +125,7 @@ These commands mount encrypted box images created by Sandboxie-Plus. These param
 
 If the parameter _/box:SandboxName_ is omitted, default sandbox, _DefaultBox_ image, will be mounted.
 
-The form _/mount_protected_ mount encrypted box images with the _Box Root Protection_. _Box Root Protection_ prevents processes running outside the sandbox from accessing the root folder of the encrypted box.
+The form _/mount_protected_ mounts encrypted box images with the _Box Root Protection_. _Box Root Protection_ prevents processes running outside the sandbox from accessing the root folder of the encrypted box.
 
 * * *
 
