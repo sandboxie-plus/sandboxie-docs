@@ -102,7 +102,7 @@ The form _/terminate_all_ terminates all programs in all sandboxes.
 
 ### Unmount Box Images
 
-These commands unmount encrypted box images or ram disks created by Sandboxie-Plus. These parameters are available since v1.11.0 / 5.66.0.
+These commands unmount encrypted box images or ram disks created by Sandboxie Plus. These parameters are available since v1.11.0 / 5.66.0.
 ```
   "C:\Program Files\Sandboxie-Plus\Start.exe"  /unmount
   "C:\Program Files\Sandboxie-Plus\Start.exe"  /box:EncryptedBox  /unmount
@@ -115,7 +115,7 @@ The form _/unmount_all_ unmounts all encrypted box images, including ram disks!
 
 ### Mount Box Images
 
-These commands mount encrypted box images created by Sandboxie-Plus. These parameters are available since v1.11.0 / 5.66.0.
+These commands mount encrypted box images created by Sandboxie Plus. These parameters are available since v1.11.0 / 5.66.0.
 ```
   "C:\Program Files\Sandboxie-Plus\Start.exe"  /key:[box image password] /mount_protected
   "C:\Program Files\Sandboxie-Plus\Start.exe"  /key:[box image password] /mount
