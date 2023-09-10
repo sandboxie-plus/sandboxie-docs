@@ -136,8 +136,6 @@
 
 ### G
 
-[Gdi Plus](GdiPlus.md)
-
 [General Tips](GeneralTips.md)
 
 [Getting Started](GettingStarted.md)
