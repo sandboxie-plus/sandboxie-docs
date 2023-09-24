@@ -106,12 +106,12 @@ These commands unmount encrypted box images or ram disks created by Sandboxie Pl
 ```
   "C:\Program Files\Sandboxie-Plus\Start.exe"  /unmount
   "C:\Program Files\Sandboxie-Plus\Start.exe"  /box:EncryptedBox  /unmount
-  "C:\Program Files\Sandboxie-Plus\Start.exe"  /unmounted_all
+  "C:\Program Files\Sandboxie-Plus\Start.exe"  /unmount_all
 ```
 
 If the parameter _/box:SandboxName_ is omitted, default sandbox, _DefaultBox_ image, will be unmounted.
 
-The form _/unmount_all_ unmounts all encrypted box images, including ram disks!
+The form _/unmount_all_ terminates all programs in all sandboxes then unmounts all encrypted box images, including ram disks!
 
 ### Mount Box Images
 
