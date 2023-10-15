@@ -1,4 +1,4 @@
-Sandboxie Plus and Classic share the same core components, the main difference is that the Classic UI is no longer under development. Hence, a UI for new core functionality is only available in the SandMan UI of Sandboxie Plus. Likewise, various other new features are only implemented in the SandMan UI. Another difference is that Sandboxie Plus is provided under a [custom license](https://github.com/sandboxie-plus/Sandboxie/blob/master/Installer/license.txt), while Sandboxie Classic is provided under a [GPL-3.0+ license](https://github.com/sandboxie-plus/Sandboxie/blob/master/LICENSE).
+Sandboxie Plus and Classic share the same core components, the main difference is that the Classic user interface is no longer under development. Hence, new core functionality is only available in the SandMan user interface of Sandboxie Plus. Likewise, various other new features are only implemented in the SandMan UI. Another difference is that Sandboxie Plus is provided under a [custom license](https://github.com/sandboxie-plus/Sandboxie/blob/master/Installer/license.txt), while Sandboxie Classic is provided under a [GPL-3.0+ license](https://github.com/sandboxie-plus/Sandboxie/blob/master/LICENSE).
 
 Some exclusive functionality is only available to project supporters with a valid [Supporter Certificate](https://sandboxie-plus.com/supporter-certificate/), see the table below.
 
@@ -27,8 +27,7 @@ Starting with version 1.11.0, an [Advanced Encryption Pack](https://xanasoft.com
 | [RAM Disk integration](../PlusContent/RamDiskSandboxes.md)          | ![Red Color](https://placeholder.antonshell.me/img?width=15&color_bg=ff0000&text=+) No  | ![Green Color](https://placeholder.antonshell.me/img?width=15&color_bg=00ff00&text=+) Yes (no UI) |                  | ![Red Color](https://placeholder.antonshell.me/img?width=15&color_bg=ff0000&text=+) No       | ![Green Color](https://placeholder.antonshell.me/img?width=15&color_bg=00ff00&text=+) Yes                | ![Green Color](https://placeholder.antonshell.me/img?width=15&color_bg=00ff00&text=+) Yes                        | ![Green Color](https://placeholder.antonshell.me/img?width=15&color_bg=00ff00&text=+) Yes                | ![Green Color](https://placeholder.antonshell.me/img?width=15&color_bg=00ff00&text=+) Yes                | ![Green Color](https://placeholder.antonshell.me/img?width=15&color_bg=00ff00&text=+) Yes |
 
 
-\*) A personal type certificate once expired does not unlock features in builds compiled after it expired, builds compiled before that time retain their exclusive features in unlocked state.
+\*) A personal type certificate once expired does not unlock features in builds compiled after it expired, builds compiled before that time retain their exclusive features in unlocked state.  
 \*\*) Personal covers all devices you use yourself, so if you have a laptop and a desktop one certificate covers booth.  
 \*\*\*) A family pack can be used for the entire family it is not required for the family to live in teh same household, so the cert can be used for children which moved out or your grand parents.  
 \*\*\*\*) For as long as the service exists.  
-
