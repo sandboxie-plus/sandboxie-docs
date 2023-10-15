@@ -1,4 +1,0 @@
-# Security Hardened Mode
-
-TODO
-
