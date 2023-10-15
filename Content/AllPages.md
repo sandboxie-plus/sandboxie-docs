@@ -632,6 +632,8 @@
 
 [Use Privacy Mode](UsePrivacyMode.md)
 
+[Use Rule Specificity](UseRuleSpecificity.md)
+
 ### V
 
 [View Menu](ViewMenu.md)
