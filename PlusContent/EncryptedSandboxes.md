@@ -1,3 +1,0 @@
-# Encrypted Sandboxes
-
-TODO
