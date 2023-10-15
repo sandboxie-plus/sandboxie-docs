@@ -3,7 +3,7 @@ Sandboxie Plus offers a bunch different box configuration presets.
 A sandbox typically isolates your host system from processes running within the box, it prevents them from making permanent changes to other programs and data in your computer. The level of isolation impacts your [security](../PlusContent/security-mode.md) as well as the [compatibility](../PlusContent/compartment-mode.md) with applications.
 Sandboxie-Plus can also [protect your personal data](../PlusContent/privacy-mode.md) from being accessed by processes running under its supervision.
 
-Sandboxie-Plus can also be used to [protect confidential data](../PlusContent/black-box.md) by creating a [encrypted sandbox](../PlusContent/BoxEncryption.md) and restricting access to the root folder to processes run within the sandbox.
+Sandboxie-Plus can also be used to [protect confidential data](../PlusContent/black-box.md) by creating a [encrypted sandbox](../PlusContent/EncryptedSandboxes.md) and restricting access to the root folder to processes run within the sandbox.
 
 
 
