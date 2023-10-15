@@ -5,8 +5,9 @@ Sandboxie Plus and Classic share the same core components, the main difference i
 Some exclusive functionality is only available to project supporters with a valid [Supporter Certificate](https://sandboxie-plus.com/supporter-certificate/).
 <br> Please note that a Business Certificate is required to use Sandboxie Plus in a commercial or educational setting!
 
-> [!IMPORTANT]
-> **The following comparison is obsolete as of version [1.11.0 / 5.66.0](https://github.com/sandboxie-plus/Sandboxie/releases/tag/v1.11.0), please see the [new page](FeatureComparison.md).**
+| ⚠️  Warning       |
+|:------------------|
+| **The following comparison is obsolete as of version [1.11.0 / 5.66.0](https://github.com/sandboxie-plus/Sandboxie/releases/tag/v1.11.0), please see the [new page](FeatureComparison.md).** |
 
 | CLASSIC VS. PLUS                 | CLASSIC |              | PLUS     |          |          |                    |            |                    |
 |----------------------------------|---------|--------------|----------|----------|----------|--------------------|------------|--------------------|
