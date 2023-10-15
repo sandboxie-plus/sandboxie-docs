@@ -5,7 +5,7 @@
 
 The security hardened box and the concept of security hardened mode was introduced in **Sandboxie Plus v1.3.0**. It restricts NT syscall elevation to approved known safe/filtered syscalls. It also provides device security by restricting device access to known safe/filtered endpoints.
 
-The setting for a security hardened box can be enabled by adding `UseSecurityMode=y` to the box settings section of **Sandboxie.ini**. It can also be enabled in the Sandman UI. Right-click on a box and select "Sandbox Options" from the drop-down menu (or simply double-click on a box) to bring up the Box Options UI. Select the Box Type Preset as "Security Hardened Sandbox" (with an **orange** box icon) and click OK to apply changes. The status column of Sandman UI labels this box as **Enhanced Isolation**.
+The setting for a security hardened box can be enabled by adding `UseSecurityMode=y` to the box settings section of **[Sandboxie Ini](../Content/SandboxieIni.md)**. It can also be enabled in the Sandman UI. Right-click on a box and select "Sandbox Options" from the drop-down menu (or simply double-click on a box) to bring up the Box Options UI. Select the Box Type Preset as "Security Hardened Sandbox" (with an **orange** box icon) and click OK to apply changes. The status column of Sandman UI labels this box as **Enhanced Isolation**.
 
 ![](../Media/Box_SecurityMode.png)
 
@@ -16,7 +16,7 @@ RestrictDevices=y
 SysCallLockDown=y
 UseRuleSpecificity=y
 ```
-1. **DropAdminRights:** Prior to **Sandboxie Plus v1.3.0**, any box with `DropAdminRights=y` was considered **hardened** and labeled "Enhanced Isolation" in the Sandman UI status column. Starting with **Sandboxie Plus v1.3.0**, only boxes with `UseSecurityMode=y` have their status listed as "Enhanced Isolation".
+1. **[DropAdminRights:](../Content/DropAdminRights.md)** Prior to **Sandboxie Plus v1.3.0**, any box with `DropAdminRights=y` was considered **hardened** and labeled "Enhanced Isolation" in the Sandman UI status column. Starting with **Sandboxie Plus v1.3.0**, only boxes with `UseSecurityMode=y` have their status listed as "Enhanced Isolation".
 
 2. **SysCallLockDown:**
 The setting `SysCallLockDown=y` limits the use of NT system calls. Only those calls that are included as defaults in the file **Templates.ini** or
