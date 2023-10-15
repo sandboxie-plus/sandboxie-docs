@@ -16,7 +16,7 @@ RestrictDevices=y
 SysCallLockDown=y
 UseRuleSpecificity=y
 ```
-1. **[DropAdminRights:](../Content/DropAdminRights.md)** Prior to **Sandboxie Plus v1.3.0**, any box with `DropAdminRights=y` was considered **hardened** and labeled "Enhanced Isolation" in the Sandman UI status column. Starting with **Sandboxie Plus v1.3.0**, only boxes with `UseSecurityMode=y` have their status listed as "Enhanced Isolation".
+1. **[DropAdminRights](../Content/DropAdminRights.md):** Prior to **Sandboxie Plus v1.3.0**, any box with `DropAdminRights=y` was considered **hardened** and labeled "Enhanced Isolation" in the Sandman UI status column. Starting with **Sandboxie Plus v1.3.0**, only boxes with `UseSecurityMode=y` have their status listed as "Enhanced Isolation".
 
 2. **SysCallLockDown:**
 The setting `SysCallLockDown=y` limits the use of NT system calls. Only those calls that are included as defaults in the file **Templates.ini** or
@@ -25,7 +25,7 @@ are executed with the original token. Any NT syscalls that are not approved are 
 
 3. **RestrictDevices:** An earlier **"DeviceSecurity"** template was replaced by a dedicated setting `RestrictDevices=y` in **Sandboxie Plus v1.3.0** to harden box security even further. A security enhanced sandbox does not have access to drivers installed on the host. However, the use of appropriate **[Normal](../Content/NormalFilePath.md)** path directives can allow one to open specific devices as needed.
 
-4. **[Rule Specificity:](../PlusContent/RuleSpecificity.md)** The setting `UseRuleSpecificity=y` allows rules to be prioritized based on their "specificity". When rule specifity is combined with `Normal[File/Key/Ipc]Path` entries, selected subpaths can be made readable/writeable while parent paths are still protected. A security hardened box works in a **default allow** mode: every path is a `Normal[File/Key/Ipc]Path` (which allows read/write changes to a sandbox) unless specifically blocked by an overriding rule.
+4. **[Rule Specificity](../PlusContent/RuleSpecificity.md):** The setting `UseRuleSpecificity=y` allows rules to be prioritized based on their "specificity". When rule specifity is combined with `Normal[File/Key/Ipc]Path` entries, selected subpaths can be made readable/writeable while parent paths are still protected. A security hardened box works in a **default allow** mode: every path is a `Normal[File/Key/Ipc]Path` (which allows read/write changes to a sandbox) unless specifically blocked by an overriding rule.
 
 **Comparison with Other Box Types:** RuleSpecificity along with `Normal[File/Key/Ipc]Path` entries is also used in **blue** ([privacy enhanced](../PlusContent/privacy-mode.md)) boxes and in **red** boxes (that combine enhanced privacy and enhanced security). These two box types work in a **default block** mode: all drive paths are set to `WriteFilePath`. This hides all files and folders outside the sandbox, but allows new files and folders to be created in the sandbox (unless specifically allowed by an overriding rule).
 
