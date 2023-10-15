@@ -33,3 +33,4 @@
 |Turkish|Yes|Yes|
 |Ukrainian|Yes|Yes|
 |Vietnamese| |Yes
+

@@ -1,3 +1,5 @@
 # List of URLs to ignore in the link checker
 https://www.ghacks.net/*
 https://web.archive.org/web/*
+https://www.paypal.com/en_AT/i/scr/pixel.gif
+https://www.paypal.com/cgi-bin/webscr

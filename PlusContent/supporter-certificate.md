@@ -5,10 +5,10 @@ Keeping Sandboxie up to date with the rolling releases of Windows and compatible
 
 
 
-A support certificate enables the use of new supporter exclusive plus features, like [Privacy Mode](privacy-mode) or [App Compartment Boxes](compartment-mode), see the [Feature Comparison Table](https://sandboxie-plus.com/feature-comparison/) for more details and certificate options.
+A support certificate enables the use of new supporter exclusive plus features, like [Privacy Mode](../PlusContent/privacy-mode.md) or [App Compartment Boxes](../PlusContent/compartment-mode.md), see the [Feature Comparison Table](https://sandboxie-plus.com/feature-comparison/) for more details and certificate options.
 
 
-**Please note that to use Sandboxie Plus in a business setting a [Business Certificate](https://xanasoft.com/product/sandboxie-plus-business-certificate/) is required!**
+**Please note that to use Sandboxie Plus in a business setting a [Business Certificate](https://xanasoft.com/product/sandboxie-plus-business/) is required!**
 
 
 **Patreon certificates** are valid for as long as the subscription is active and unlock all features. Patreons which ended their subscription are entitled to a residual certificate corresponding to the total amount of their support.
@@ -19,3 +19,4 @@ A support certificate enables the use of new supporter exclusive plus features, 
 <!-- If you have donated in the past already (before the shop was introduced), or are a patreon, you can get your supporter certificate [here](https://xanasoft.com/get_cert.php) just enter the email address used with paypal or patreon, and download your certificate.
 
 New donations must indicate that they want to receive a certificate (for bureaucratic reasons) and will be updated once or twice a month. To receive a Supporter Certificate instantly use one of the [purchase options](https://sandboxie-plus.com/go.php?to=sbie-get-cert) provided. -->
+

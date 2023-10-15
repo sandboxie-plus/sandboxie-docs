@@ -20,3 +20,4 @@ Once teh certificate is accepted the entry field should become green.
 ![](../Media/PlusCert6.png)
 
 And a notification popUp windows should appear.
+
