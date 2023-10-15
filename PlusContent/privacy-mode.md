@@ -6,7 +6,7 @@ The concept of privacy mode and privacy enhanced (or Data Protection) boxes was 
 In this mode, most of the locations on a PC are set to be treated like a Write[File/Key]Path, which means the sandboxed locations are writable, but the unsandboxed locations are not readable.
 In addition, the registry does not allow reading of user root keys. In other words, even though sandboxed processes can continue to work, they cannot access private user data.
 
-The setting for a privacy enhanced box can be enabled by adding `UsePrivacyMode=y` to the box settings section of [Sandboxie Ini](SandboxieIni.md). It can also be enabled in the Sandman UI. Right-click on a box and select "Sandbox Options" from the drop-down menu (or simply double-click on a box) to bring up the Box Options UI. Select the Box Type Preset as "Sandbox with Data Protection" (with a **blue** box icon) and click OK to apply changes. The status column of Sandman UI labels this box as **Privacy Enhanced**.
+The setting for a privacy enhanced box can be enabled by adding `UsePrivacyMode=y` to the box settings section of [Sandboxie Ini](../Content/SandboxieIni.md). It can also be enabled in the Sandman UI. Right-click on a box and select "Sandbox Options" from the drop-down menu (or simply double-click on a box) to bring up the Box Options UI. Select the Box Type Preset as "Sandbox with Data Protection" (with a **blue** box icon) and click OK to apply changes. The status column of Sandman UI labels this box as **Privacy Enhanced**.
 
 ![](../Media/Box_PrivacyMode.png)
 

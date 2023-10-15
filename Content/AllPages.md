@@ -254,7 +254,7 @@
 
 [Privacy Concerns](PrivacyConcerns.md)
 
-[Privacy Mode](../PlusContent/PrivacyMode.md)
+[Privacy Mode](../PlusContent/privacy-mode.md)
 
 [Process Limit](ProcessLimit.md)
 
@@ -318,7 +318,7 @@
 
 [Sandboxie Ini](SandboxieIni.md)
 
-[Sandboxie Insider](../PlusContent/sandboxie-insider.md)
+[Sandboxie Insider](../PlusContent/Sandboxie-Insider.md)
 
 [Sandboxie Live](../PlusContent/Sandboxie-Live.md)
 
@@ -618,7 +618,7 @@
 
 [Test Email Configuration](TestEmailConfiguration.md)
 
-[Translations](../PlusContenttranslations.md)
+[Translations](../PlusContent/translations.md)
 
 [Tray Icon Menu](TrayIconMenu.md)
 
@@ -626,7 +626,7 @@
 
 [Usage Tips](UsageTips.md)
 
-[USB Sandboxing](../PlusContentUSBSandboxing.md)
+[USB Sandboxing](../PlusContent/USBSandboxing.md)
 
 [User Accounts Settings](UserAccountsSettings.md)
 
@@ -638,7 +638,7 @@
 
 ### W
 
-[WFP Support](WFPSupport.md)
+[WFP Support](../PlusContent/WFPSupport.md)
 
 [Windows 8](Windows8.md)
 
