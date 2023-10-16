@@ -634,7 +634,7 @@
 
 [Use Rule Specificity](UseRuleSpecificity.md)
 
-[Use Security Mode](UseRuleSpecificity.md)
+[Use Security Mode](UseSecurityMode.md)
 
 [User Accounts Settings](UserAccountsSettings.md)
 
