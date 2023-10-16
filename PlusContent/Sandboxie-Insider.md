@@ -4,7 +4,7 @@ To become a participant in the Insider Program and gain access to the private Gi
 
 The insider builds introduce several new features that are designed to improve the Sandboxie experience and enhance the security of your system:
 
- - [RamDisk support](../PlusContent/RamDiskSandboxes.md), available since the latest insider build, allows you to create a virtual disk in your system's memory, using the ImDisk driver, which can speed up file access and increase confidentiality as all box contents will be discarded when the disk is unmounted (manually or automatically on reboot).
+ - [RamDisk support](../PlusContent/RamDiskSupport.md), available since the latest insider build, allows you to create a virtual disk in your system's memory, using the ImDisk driver, which can speed up file access and increase confidentiality as all box contents will be discarded when the disk is unmounted (manually or automatically on reboot).
 
  - [Encrypted Box Image support](../PlusContent/BoxEncryption.md) is currently in development and allows you to create encrypted sandboxed environments for an even greater protection of your confidential data. With this feature the box file root is being mounted from an AES-XTS encrypted box image, other ciphers are available as well. Upcoming additions to this core functionality will contain secure box passphrase handling and a driver extension to prevent applications not running in the encrypted sandbox from accessing the sandboxed files.
 
