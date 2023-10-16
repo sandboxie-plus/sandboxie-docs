@@ -634,6 +634,8 @@
 
 [Use Rule Specificity](UseRuleSpecificity.md)
 
+[Use Security Mode](UseRuleSpecificity.md)
+
 ### V
 
 [View Menu](ViewMenu.md)
