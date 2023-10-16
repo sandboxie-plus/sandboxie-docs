@@ -30,4 +30,4 @@ Starting with version 1.11.0, an [Advanced Encryption Pack](https://xanasoft.com
 \*) A personal type certificate once expired does not unlock features in builds compiled after it expired, builds compiled before that time retain their exclusive features in unlocked state.  
 \*\*) Personal covers all devices you use yourself, so if you have a laptop and a desktop one certificate covers booth.  
 \*\*\*) A family pack can be used for the entire family it is not required for the family to live in teh same household, so the cert can be used for children which moved out or your grand parents.  
-\*\*\*\*) For as long as the service exists.  
+\*\*\*\*) For as long as the service exists.
