@@ -23,4 +23,4 @@ The red arrows indicate changes flowing from a running program into your compute
 
 * * *
 
-**Check out the [Help Topics](../Content/HelpTopics.md) for sandboxie, or visit the [Support Page Index](../Content/AllPages.md).**
+**Check out the [Help Topics](../Content/HelpTopics.md) for Sandboxie, or visit the [Support Page Index](../Content/AllPages.md).**
