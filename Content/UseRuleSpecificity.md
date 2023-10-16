@@ -2,7 +2,7 @@
 
 _UseRuleSpecificity_ is a setting introduced in v1.0.0 / 5.55.0.
 
-It is also a sandbox setting in [Sandboxie Ini](SandboxieIni.md)
+It is also a sandbox setting in [Sandboxie Ini](SandboxieIni.md).
 
 Usage:
 
