@@ -630,13 +630,13 @@
 
 [USB Sandboxing](../PlusContent/USBSandboxing.md)
 
-[User Accounts Settings](UserAccountsSettings.md)
-
 [Use Privacy Mode](UsePrivacyMode.md)
 
 [Use Rule Specificity](UseRuleSpecificity.md)
 
 [Use Security Mode](UseRuleSpecificity.md)
+
+[User Accounts Settings](UserAccountsSettings.md)
 
 ### V
 
