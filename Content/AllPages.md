@@ -44,9 +44,9 @@
 
 [Box Preset Comparison](../PlusContent/box-preset-comparison.md)
 
-[Box Snapshots](../PlusContent/BoxSnapshots.md)
-
 ~~[Box Root Folder](BoxRootFolder.md)~~ (deprecated since Sandboxie v3.xx)
+
+[Box Snapshots](../PlusContent/BoxSnapshots.md)
 
 [Breakout Document](BreakoutDocument.md)
 
