@@ -70,13 +70,13 @@
 
 [Code Injection](CodeInjection.md)
 
+[Compartment Mode](../PlusContent/compartment-mode.md)
+
 [Config Level](ConfigLevel.md)
 
 [Configuration Protection](ConfigurationProtection.md)
 
 [Configure Menu](ConfigureMenu.md)
-
-[Compartment Mode](../PlusContent/compartment-mode.md)
 
 [Copy Limit Kb](CopyLimitKb.md)
 
