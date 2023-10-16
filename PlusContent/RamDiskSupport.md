@@ -2,7 +2,7 @@
 
 ## RAM Disk Support
 
-By seamlessly interfacing with the [ImDisk Driver](../PlusContent/imdisk.md), Sandboxie-plus introduces a transformative way to allocate a portion of your system RAM for dynamic RAM Disks. This mechanism revolutionizes the speed and efficiency of your sandboxes, while also conferring distinct privacy advantages.
+By seamlessly interfacing with the [ImDisk Driver](../PlusContent/imdisk.md), Sandboxie Plus introduces a transformative way to allocate a portion of your system RAM for dynamic RAM Disks. This mechanism revolutionizes the speed and efficiency of your sandboxes, while also conferring distinct privacy advantages.
 
 ## Performance Amplification
 
@@ -18,13 +18,13 @@ To fully embrace the potential of RAM Disk Support, follow these straightforward
 
 ### Updating Sandbox Configuration:
 
-Open the sandboxie.ini configuration file for the sandbox you wish to enhance. To enable the RAM Disk for this sandbox, include the following line within the respective sandbox's section:
+Open the Sandboxie.ini configuration file for the sandbox you wish to enhance. To enable the RAM Disk for this sandbox, include the following line within the respective sandbox's section:
 
     UseRamDisk=y
 
 ### Configuring Global Settings:
 
-To enable RAM Disk Support across all your sandboxes, navigate to the \[GlobalSettings\] section within the sandboxie.ini file. Allocate the appropriate memory for the RAM Disk by adding this line:
+To enable RAM Disk Support across all your sandboxes, navigate to the [GlobalSettings] section within the Sandboxie.ini file. Allocate the appropriate memory for the RAM Disk by adding this line:
 
     RamDiskSizeKb=2097152
 
