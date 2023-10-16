@@ -284,7 +284,7 @@
 
 ### R
 
-[Ram Disk Support](../PlusContent/RamDiskSupport.md)
+[RAM Disk Support](../PlusContent/RamDiskSupport.md)
 
 [Ransomware](Ransomware.md)
 
