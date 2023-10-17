@@ -38,9 +38,15 @@
 
 [Border Color](BorderColor.md)
 
+[Box Encryption](../PlusContent/BoxEncryption.md)
+
 [Box Name Title](BoxNameTitle.md)
 
+[Box Preset Comparison](../PlusContent/box-preset-comparison.md)
+
 ~~[Box Root Folder](BoxRootFolder.md)~~ (deprecated since Sandboxie v3.xx)
+
+[Box Snapshots](../PlusContent/BoxSnapshots.md)
 
 [Breakout Document](BreakoutDocument.md)
 
@@ -63,6 +69,8 @@
 [Closed RT](ClosedRT.md)
 
 [Code Injection](CodeInjection.md)
+
+[Compartment Mode](../PlusContent/compartment-mode.md)
 
 [Config Level](ConfigLevel.md)
 
@@ -91,6 +99,8 @@
 [Detecting Key Loggers](DetectingKeyLoggers.md)
 
 [Disable RT Blacklist](DisableRTBlacklist.md)
+
+[DNS Filter](../PlusContent/DNSFilter.md)
 
 [Drop Admin Rights](DropAdminRights.md)
 
@@ -161,6 +171,8 @@
 [How To Use Win Dbg](HowToUseWinDbg.md)
 
 ### I
+
+[ImDisk Integration](../PlusContent/imdisk.md)
 
 [Immediate Recovery](ImmediateRecovery.md)
 
@@ -242,7 +254,7 @@
 
 [Privacy Concerns](PrivacyConcerns.md)
 
-[Privacy Mode](PrivacyMode.md)
+[Privacy Mode](../PlusContent/privacy-mode.md)
 
 [Process Limit](ProcessLimit.md)
 
@@ -262,6 +274,8 @@
 
 [Protected Storage](ProtectedStorage.md)
 
+[Proxy Support](../PlusContent/ProxySupport.md)
+
 ### Q
 
 [Questions](Questions.md)
@@ -269,6 +283,8 @@
 [Quick Recovery](QuickRecovery.md)
 
 ### R
+
+[RAM Disk Support](../PlusContent/RamDiskSupport.md)
 
 [Ransomware](Ransomware.md)
 
@@ -290,7 +306,35 @@
 
 [Restrictions Settings](RestrictionsSettings.md)
 
+[Rule Specificity](../PlusContent/RuleSpecificity.md)
+
 ### S
+
+[Sandbox Hierarchy](SandboxHierarchy.md)
+
+[Sandbox Menu](SandboxMenu.md)
+
+[Sandbox Settings](SandboxSettings.md)
+
+[Sandboxie Control](SandboxieControl.md)
+
+[Sandboxie Ini](SandboxieIni.md)
+
+[Sandboxie Insider](../PlusContent/Sandboxie-Insider.md)
+
+[Sandboxie Live](../PlusContent/Sandboxie-Live.md)
+
+[Sandboxie Plus Features](../PlusContent/Plus-Features.md)
+
+[Sandboxie Plus Migration Guide](PlusMigrationGuide.md)
+
+[Sandboxie Portable](../PlusContent/sandboxie-portable.md)
+
+[Sandboxie Trace](SandboxieTrace.md)
+
+[SBIE DLL API](SBIEDLLAPI.md)
+
+[SBIE Messages](SBIEMessages.md)
 
 [SBIE1101](SBIE1101.md)
 
@@ -556,33 +600,17 @@
 
 [SBIE9305](SBIE9305.md)
 
-[SBIE DLL API](SBIEDLLAPI.md)
-
-[SBIE Messages](SBIEMessages.md)
-
-[Sandbox Hierarchy](SandboxHierarchy.md)
-
-[Sandbox Menu](SandboxMenu.md)
-
-[Sandbox Settings](SandboxSettings.md)
-
-[Sandboxie Control](SandboxieControl.md)
-
-[Sandboxie Ini](SandboxieIni.md)
-
-[Sandboxie Plus Features](../PlusContent/Plus-Features.md)
-
-[Sandboxie Plus Migration Guide](PlusMigrationGuide.md)
-
-[Sandboxie Trace](SandboxieTrace.md)
-
 [Secure Delete Sandbox](SecureDeleteSandbox.md)
+
+[Security Mode](../PlusContent/security-mode.md)
 
 [Service Programs](ServicePrograms.md)
 
 [Shell Folders](ShellFolders.md)
 
 [Start Command Line](StartCommandLine.md)
+
+[Supporter Certificate](../PlusContent/supporter-certificate.md)
 
 [System Event Log](SystemEventLog.md)
 
@@ -592,11 +620,21 @@
 
 [Test Email Configuration](TestEmailConfiguration.md)
 
+[Translations](../PlusContent/translations.md)
+
 [Tray Icon Menu](TrayIconMenu.md)
 
 ### U
 
 [Usage Tips](UsageTips.md)
+
+[USB Sandboxing](../PlusContent/USBSandboxing.md)
+
+[Use Privacy Mode](UsePrivacyMode.md)
+
+[Use Rule Specificity](UseRuleSpecificity.md)
+
+[Use Security Mode](UseSecurityMode.md)
 
 [User Accounts Settings](UserAccountsSettings.md)
 
@@ -605,6 +643,8 @@
 [View Menu](ViewMenu.md)
 
 ### W
+
+[WFP Support](../PlusContent/WFPSupport.md)
 
 [Windows 8](Windows8.md)
 

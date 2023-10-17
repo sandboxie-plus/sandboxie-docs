@@ -4,7 +4,7 @@
 
 ### WFP implementation
 
-To enable WFP functionality, add `NetworkEnableWFP=y` to the [GlobalSettings] section of the configuration file **Sandboxie.ini** and **reboot the machine or reload the driver** for it to take effect. WFP filtering **works for both inbound and outbound** traffic.
+To enable WFP functionality, add `NetworkEnableWFP=y` to the [GlobalSettings] section of the configuration file **[Sandboxie Ini](../Content/SandboxieIni.md)** and **reboot the machine or reload the driver** for it to take effect. WFP filtering **works for both inbound and outbound** traffic.
 
 - To enable blocking globally, add `AllowNetworkAccess=n` to the [GlobalSettings] section.
 - To enable WFP blocking for a box, such as DefaultBox, add `AllowNetworkAccess=n` to the [DefaultBox] section.

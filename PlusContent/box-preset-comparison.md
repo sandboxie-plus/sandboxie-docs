@@ -1,13 +1,11 @@
-Sandboxie Plus offers a bunch different box configuration presets.
+Sandboxie Plus offers a bunch of different box configuration presets.
 
-A sandbox typically isolates your host system from processes running within the box, it prevents them from making permanent changes to other programs and data in your computer. The level of isolation impacts your [security](security-mode) as well as the [compatibility](compartment-mode) with applications.
-Sandboxie-Plus can also [protect your personal data](privacy-mode) from being accessed by processes running under its supervision.
+A sandbox typically isolates your host system from processes running within the box, it prevents them from making permanent changes to other programs and data in your computer. The level of isolation impacts your [security](../PlusContent/security-mode.md) as well as the [compatibility](../PlusContent/compartment-mode.md) with applications.
+Sandboxie Plus can [protect your personal data](../PlusContent/privacy-mode.md) from being accessed by processes running under its supervision.
 
-Sandboxie-Plus can also be used to [protect confidential data](black-box) by creating a [encrypted sandbox](boxencryption.md) and restricting access to the root folder to processes run within the sandbox.
+Sandboxie Plus can also be used to [protect confidential data](../PlusContent/black-box.md) by creating an [encrypted sandbox](../PlusContent/BoxEncryption.md) and restricting access to the root folder for processes running within the sandbox.
 
-
-
-| Box Preset | [Security Hardened](security-mode) | [Data Protection](privacy-mode) | [Compatybility](compartment-mode) | [Encrypted](boxencryption.md) | [Confidential](black-box) |
+| Box Preset | [Security Hardened](../PlusContent/security-mode.md) | [Data Protection](../PlusContent/privacy-mode.md) | [Compatibility](../PlusContent/compartment-mode.md) | [Encrypted](../PlusContent/BoxEncryption.md) | [Confidential](../PlusContent/black-box.md) |
 |-|-|-|-|-|-|
 |![](../Media/sandbox-r-full.png) Red Box|![Green Color](https://placeholder.antonshell.me/img?width=15&color_bg=green&text=+) YES|![Green Color](https://placeholder.antonshell.me/img?width=15&color_bg=green&text=+) YES| ![Red Color](https://placeholder.antonshell.me/img?width=15&color_bg=FF0000&text=+) NO|![Red Color](https://placeholder.antonshell.me/img?width=15&color_bg=FF0000&text=+) NO|![Red Color](https://placeholder.antonshell.me/img?width=15&color_bg=FF0000&text=+) NO|
 |![](../Media/sandbox-o-full.png) Orange Box|![Green Color](https://placeholder.antonshell.me/img?width=15&color_bg=green&text=+) YES|![Red Color](https://placeholder.antonshell.me/img?width=15&color_bg=FF0000&text=+) NO| ![Red Color](https://placeholder.antonshell.me/img?width=15&color_bg=FF0000&text=+) NO|![Red Color](https://placeholder.antonshell.me/img?width=15&color_bg=FF0000&text=+) NO|![Red Color](https://placeholder.antonshell.me/img?width=15&color_bg=FF0000&text=+) NO|
@@ -16,16 +14,4 @@ Sandboxie-Plus can also be used to [protect confidential data](black-box) by cre
 |![](../Media/sandbox-c-full.png) Cyan Box|![Red Color](https://placeholder.antonshell.me/img?width=15&color_bg=FF0000&text=+) NO|![Green Color](https://placeholder.antonshell.me/img?width=15&color_bg=green&text=+) YES|![Green Color](https://placeholder.antonshell.me/img?width=15&color_bg=green&text=+) YES|![Red Color](https://placeholder.antonshell.me/img?width=15&color_bg=FF0000&text=+) NO|![Red Color](https://placeholder.antonshell.me/img?width=15&color_bg=FF0000&text=+) NO|
 |![](../Media/sandbox-g-full.png) Green Box|![Red Color](https://placeholder.antonshell.me/img?width=15&color_bg=FF0000&text=+) NO|![Red Color](https://placeholder.antonshell.me/img?width=15&color_bg=FF0000&text=+) NO|![Green Color](https://placeholder.antonshell.me/img?width=15&color_bg=green&text=+) YES|![Red Color](https://placeholder.antonshell.me/img?width=15&color_bg=FF0000&text=+) NO|![Red Color](https://placeholder.antonshell.me/img?width=15&color_bg=FF0000&text=+) NO|
 |![](../Media/sandbox-k-full.png) Black Box|![Red Color](https://placeholder.antonshell.me/img?width=15&color_bg=FF0000&text=+) NO|![Red Color](https://placeholder.antonshell.me/img?width=15&color_bg=FF0000&text=+) NO|![Green Color](https://placeholder.antonshell.me/img?width=15&color_bg=green&text=+) YES|![Green Color](https://placeholder.antonshell.me/img?width=15&color_bg=green&text=+) YES|![Green Color](https://placeholder.antonshell.me/img?width=15&color_bg=green&text=+) YES|
-
-
-
-
-
-
-
-
-
-
-
-
 

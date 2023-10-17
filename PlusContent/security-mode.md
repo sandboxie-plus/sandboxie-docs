@@ -5,7 +5,7 @@
 
 The security hardened box and the concept of security hardened mode was introduced in **Sandboxie Plus v1.3.0**. It restricts NT syscall elevation to approved known safe/filtered syscalls. It also provides device security by restricting device access to known safe/filtered endpoints.
 
-The setting for a security hardened box can be enabled by adding `UseSecurityMode=y` to the box settings section of **[Sandboxie Ini](../Content/SandboxieIni.md)**. It can also be enabled in the Sandman UI. Right-click on a box and select "Sandbox Options" from the drop-down menu (or simply double-click on a box) to bring up the Box Options UI. Select the Box Type Preset as "Security Hardened Sandbox" (with an **orange** box icon) and click OK to apply changes. The status column of Sandman UI labels this box as **Enhanced Isolation**.
+The setting for a security hardened box can be enabled by adding `UseSecurityMode=y` to the box settings section of **[Sandboxie Ini](../Content/SandboxieIni.md)**. It can also be enabled in the Sandman UI. Right-click on a box and select "Sandbox Options" from the drop-down menu (or simply double-click on a box) to bring up the Box Options UI. Select the box type preset as "Security Hardened Sandbox" (with an **orange** box icon) and click OK to apply changes. The status column of Sandman UI labels this box as **Enhanced Isolation**.
 
 ![](../Media/Box_SecurityMode.png)
 
@@ -20,8 +20,8 @@ UseRuleSpecificity=y
 
 2. **SysCallLockDown:**
 The setting `SysCallLockDown=y` limits the use of NT system calls. Only those calls that are included as defaults in the file **Templates.ini** or
-calls configured in the [GlobalSettings] section of **Sandboxie.ini** as `ApproveWinNtSysCall=...` or `ApproveWin32SysCall=...`
-are executed with the original token. Any NT syscalls that are not approved are executed with the sandboxed token and may break compatibility in certain scenarios. To find which syscalls may be needed to make a particular program work is tedious and involves trial and error.  But once these syscalls are found, they can be added to the [GlobalSettings] section of **Sandboxie.ini**. Note that **the machine must be rebooted (or the driver restarted) for them to take effect**.
+calls configured in the [GlobalSettings] section of **[Sandboxie Ini](../Content/SandboxieIni.md)** as `ApproveWinNtSysCall=...` or `ApproveWin32SysCall=...`
+are executed with the original token. Any NT syscalls that are not approved are executed with the sandboxed token and may break compatibility in certain scenarios. To find which syscalls may be needed to make a particular program work is tedious and involves trial and error.  But once these syscalls are found, they can be added to the [GlobalSettings] section of **[Sandboxie Ini](../Content/SandboxieIni.md)**. Note that **the configuration must be reloaded using "Options -> Reload configuration" for these settings to take effect**.
 
 3. **RestrictDevices:** An earlier **"DeviceSecurity"** template was replaced by a dedicated setting `RestrictDevices=y` in **Sandboxie Plus v1.3.0** to harden box security even further. A security enhanced sandbox does not have access to drivers installed on the host. However, the use of appropriate **[Normal](../Content/NormalFilePath.md)** path directives can allow one to open specific devices as needed.
 
