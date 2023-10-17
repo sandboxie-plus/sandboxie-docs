@@ -4,7 +4,6 @@ Some of these features (*) are however only available to users with a [Support C
 
 Some more features (**) are available to participants of the [Sandboxie-Insider](../PlusContent/Sandboxie-Insider.md) program.
 
-
 #### [Rule Specificity](../PlusContent/RuleSpecificity.md) *
  - With this option rules are prioritized based on their specificity (see changelog/docs for details) this way sub paths can be readable/writeable while parent parts are still protected.
 
@@ -12,6 +11,7 @@ Some more features (**) are available to participants of the [Sandboxie-Insider]
 #### [Security enhanced sandboxes](../PlusContent/security-mode.md) *
  - Restrict syscall elevation to approved known safe / filtered syscalls
  - Limit access to device endpoints to known safe / filtered endpoints
+
 
 #### [Privacy enhanced sandboxes](../PlusContent/privacy-mode.md) *
 - With this feature, by applying a preset rule collection, all locations potentially containing personal data can be protected. Applications running in boxes with personal data protection will see an empty PC with no user data on it.
@@ -26,11 +26,9 @@ Some more features (**) are available to participants of the [Sandboxie-Insider]
  - [Encrypted Box Image support](../PlusContent/BoxEncryption.md) is currently in development and allows you to create encrypted sandboxed environments for an even greater protection of your confidential data. With this feature the box file root is being mounted from an AES-XTS encrypted box image, other ciphers are available as well. Upcoming additions to this root functionality will contain secure box passphrase handling and a driver extension to prevent applications not running in the encrypted sandbox from accessing the sandboxed files.
 
 
-
 #### Enhanced network filtering and redirection **
  - [Proxy injection](../PlusContent/ProxySupport.md) is yet another feature which has been added in the insider builds, it allows to force any application to use a Socks 5 proxy instead of a direct connection.
  - [DNS query logging, filtering and redirection](../PlusContent/DNSFilter.md) feature allows you to block, or redirect DNS queries made by sandboxed programs for selected domains.
-
 
 
 #### [WFP (Windows Filtering Platform) support](../PlusContent/WFPSupport.md)
@@ -83,7 +81,6 @@ Some more features (**) are available to participants of the [Sandboxie-Insider]
 
 #### [Breakout Process](../Content/BreakoutProcess.md)
  - Allows to specify which applications shall run unsandboxed when launched within the sandbox. A combination of this and ForceProcess allows for a simple priority system.
-
  - [Document Breakout](../Content/BreakoutDocument.md) is an extension to the already well-known Breakout mechanism to allow to open selected file types saved to an open file path from within the sandbox in an unsandboxed instance of the associated application.  **
 
 
@@ -99,6 +96,4 @@ Some more features (**) are available to participants of the [Sandboxie-Insider]
  - Support ARM64 natively
  - Support emulated x86
  - Support emulated x64 (ARM64EC)
-
-
 

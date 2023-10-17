@@ -18,13 +18,13 @@ To fully embrace the potential of RAM Disk Support, follow these straightforward
 
 ### Updating Sandbox Configuration:
 
-Open the Sandboxie.ini configuration file for the sandbox you wish to enhance. To enable the RAM Disk for this sandbox, include the following line within the respective sandbox's section:
+Open the **[Sandboxie Ini](../Content/SandboxieIni.md)** configuration file for the sandbox you wish to enhance. To enable the RAM Disk for this sandbox, include the following line within the respective sandbox's section:
 
     UseRamDisk=y
 
 ### Configuring Global Settings:
 
-To enable RAM Disk Support across all your sandboxes, navigate to the [GlobalSettings] section within the Sandboxie.ini file. Allocate the appropriate memory for the RAM Disk by adding this line:
+To enable RAM Disk Support across all your sandboxes, navigate to the [GlobalSettings] section within the **[Sandboxie Ini](../Content/SandboxieIni.md)** file. Allocate the appropriate memory for the RAM Disk by adding this line:
 
     RamDiskSizeKb=2097152
 

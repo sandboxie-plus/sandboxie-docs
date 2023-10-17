@@ -1,8 +1,6 @@
 # Privacy Mode
 
-_UsePrivacyMode_ is a box type preset available since v1.0.0 / 5.55.0.
-
-It is also a sandbox setting in [Sandboxie Ini](SandboxieIni.md).
+_UsePrivacyMode_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md) available since v1.0.0 / 5.55.0.
 
 Usage:
 
