@@ -11,7 +11,7 @@ Usage:
    .
    .
    [GlobalSettings]
-   MonitorAdminOnly=yes
+   MonitorAdminOnly=y
 ```
 
 This setting is designed for use by network administrators.

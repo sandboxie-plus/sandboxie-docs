@@ -4,6 +4,8 @@
 
 [Advanced Topics](AdvancedTopics.md)
 
+[Alert Folder](AlertFolder.md)
+
 [Alert Process](AlertProcess.md)
 
 [Appearance Settings](AppearanceSettings.md)
@@ -20,33 +22,43 @@
 
 ### B
 
-~~[Block Drivers](BlockDrivers.md)~~ (deprecated since Sandboxie v4.xx)
+~~[Block Drivers](BlockDrivers.md)~~ (removed since Sandboxie v4.xx)
 
-~~[Block Fake Input](BlockFakeInput.md)~~ (deprecated since Sandboxie v4.xx)
+~~[Block Fake Input](BlockFakeInput.md)~~ (removed since Sandboxie v4.xx)
 
 [Block Net Param](BlockNetParam.md)
 
-~~[Block Password](BlockPassword.md)~~ (deprecated)
+~~[Block Password](BlockPassword.md)~~ (obsolete)
 
-~~[Block Port](BlockPort.md)~~ (deprecated since Sandboxie v0.9.0 / 5.51.0)
+~~[Block Port](BlockPort.md)~~ (removed since Sandboxie v0.9.0 / 5.51.0)
 
-~~[Block Sys Param](BlockSysParam.md)~~ (deprecated since Sandboxie v4.xx)
+~~[Block Sys Param](BlockSysParam.md)~~ (removed since Sandboxie v4.xx)
 
-~~[Block Win Hooks](BlockWinHooks.md)~~ (deprecated since Sandboxie v4.xx)
+~~[Block Win Hooks](BlockWinHooks.md)~~ (removed since Sandboxie v4.xx)
 
 [Border Color](BorderColor.md)
 
+[Box Encryption](../PlusContent/BoxEncryption.md)
+
 [Box Name Title](BoxNameTitle.md)
 
+[Box Preset Comparison](../PlusContent/box-preset-comparison.md)
+
 ~~[Box Root Folder](BoxRootFolder.md)~~ (deprecated since Sandboxie v3.xx)
+
+[Box Snapshots](../PlusContent/BoxSnapshots.md)
+
+[Breakout Document](BreakoutDocument.md)
 
 [Breakout Folder](BreakoutFolder.md)
 
 [Breakout Process](BreakoutProcess.md)
 
-~~[Byte Order Mark](ByteOrderMark.md)~~ (deprecated since Sandboxie v0.6.5 / 5.47.0)
+~~[Byte Order Mark](ByteOrderMark.md)~~ (removed since Sandboxie v0.6.5 / 5.47.0)
 
 ### C
+
+[Closed Clsid Path](ClosedClsid.md)
 
 [Closed File Path](ClosedFilePath.md)
 
@@ -54,7 +66,11 @@
 
 [Closed Key Path](ClosedKeyPath.md)
 
+[Closed RT](ClosedRT.md)
+
 [Code Injection](CodeInjection.md)
+
+[Compartment Mode](../PlusContent/compartment-mode.md)
 
 [Config Level](ConfigLevel.md)
 
@@ -74,11 +90,17 @@
 
 [Delete Settings](DeleteSettings.md)
 
-[Deprecated Sandboxie Ini Settings](DeprecatedSandboxieIniSettings.md)
+[Delete V2](Delete-V2.md)
+
+[Deprecated/Obsolete/Removed Sandboxie Ini Settings](DeprecatedSandboxieIniSettings.md)
 
 [Description](Description.md)
 
 [Detecting Key Loggers](DetectingKeyLoggers.md)
+
+[Disable RT Blacklist](DisableRTBlacklist.md)
+
+[DNS Filter](../PlusContent/DNSFilter.md)
 
 [Drop Admin Rights](DropAdminRights.md)
 
@@ -94,13 +116,13 @@
 
 [Expandable Variables](ExpandableVariables.md)
 
-~~[Experimental Protection](ExperimentalProtection.md)~~ (removed since Sandboxie v4.02)
-
 ### F
 
 [FAQ Email](FAQEmail.md)
 
 [FAQ Virus](FAQVirus.md)
+
+[Feature Comparison](FeatureComparison.md)
 
 [File Menu](FileMenu.md)
 
@@ -123,8 +145,6 @@
 [Frequently Asked Questions](FrequentlyAskedQuestions.md)
 
 ### G
-
-[Gdi Plus](GdiPlus.md)
 
 [General Tips](GeneralTips.md)
 
@@ -151,6 +171,8 @@
 [How To Use Win Dbg](HowToUseWinDbg.md)
 
 ### I
+
+[ImDisk Integration](../PlusContent/imdisk.md)
 
 [Immediate Recovery](ImmediateRecovery.md)
 
@@ -184,11 +206,19 @@
 
 [Never Delete](NeverDelete.md)
 
-[Notes About 64 Bit Edition](NotesAbout64BitEdition.md)
+[No Rename Win Class](NoRenameWinClass.md)
+
+[Normal File Path](NormalFilePath.md)
+
+[Normal Ipc Path](NormalIpcPath.md)
+
+[Normal Key Path](NormalKeyPath.md)
 
 [Notify Direct Disk Access](NotifyDirectDiskAccess.md)
 
 [Notify Internet Access Denied](NotifyInternetAccessDenied.md)
+
+[Notify Process Access Denied](NotifyProcessAccessDenied.md)
 
 [Notify Start Run Access Denied](NotifyStartRunAccessDenied.md)
 
@@ -197,6 +227,8 @@
 ### O
 
 [Open Clsid](OpenClsid.md)
+
+[Open Conf Path](OpenConfPath.md)
 
 [Open Credentials](OpenCredentials.md)
 
@@ -222,11 +254,13 @@
 
 [Privacy Concerns](PrivacyConcerns.md)
 
-[Privacy Mode](PrivacyMode.md)
+[Privacy Mode](../PlusContent/privacy-mode.md)
 
-~~[Process Limit 1](ProcessLimit1.md)~~ (deprecated)
+[Process Limit](ProcessLimit.md)
 
-~~[Process Limit 2](ProcessLimit2.md)~~ (deprecated)
+~~[Process Limit 1](ProcessLimit1.md)~~ (removed since Sandboxie v0.7.1 / 5.48.5)
+
+~~[Process Limit 2](ProcessLimit2.md)~~ (removed since Sandboxie v0.7.1 / 5.48.5)
 
 [Program Name Prefix](ProgramNamePrefix.md)
 
@@ -240,6 +274,8 @@
 
 [Protected Storage](ProtectedStorage.md)
 
+[Proxy Support](../PlusContent/ProxySupport.md)
+
 ### Q
 
 [Questions](Questions.md)
@@ -248,9 +284,13 @@
 
 ### R
 
+[RAM Disk Support](../PlusContent/RamDiskSupport.md)
+
 [Ransomware](Ransomware.md)
 
 [Read File Path](ReadFilePath.md)
+
+[Read Ipc Path](ReadIpcPath.md)
 
 [Read Key Path](ReadKeyPath.md)
 
@@ -266,7 +306,35 @@
 
 [Restrictions Settings](RestrictionsSettings.md)
 
+[Rule Specificity](../PlusContent/RuleSpecificity.md)
+
 ### S
+
+[Sandbox Hierarchy](SandboxHierarchy.md)
+
+[Sandbox Menu](SandboxMenu.md)
+
+[Sandbox Settings](SandboxSettings.md)
+
+[Sandboxie Control](SandboxieControl.md)
+
+[Sandboxie Ini](SandboxieIni.md)
+
+[Sandboxie Insider](../PlusContent/Sandboxie-Insider.md)
+
+[Sandboxie Live](../PlusContent/Sandboxie-Live.md)
+
+[Sandboxie Plus Features](../PlusContent/Plus-Features.md)
+
+[Sandboxie Plus Migration Guide](PlusMigrationGuide.md)
+
+[Sandboxie Portable](../PlusContent/sandboxie-portable.md)
+
+[Sandboxie Trace](SandboxieTrace.md)
+
+[SBIE DLL API](SBIEDLLAPI.md)
+
+[SBIE Messages](SBIEMessages.md)
 
 [SBIE1101](SBIE1101.md)
 
@@ -324,11 +392,11 @@
 
 [SBIE1213](SBIE1213.md)
 
-[SBIE1214](SBIE1214.md)
+~~[SBIE1214](SBIE1214.md)~~ (obsolete)
 
-[SBIE1215](SBIE1215.md)
+~~[SBIE1215](SBIE1215.md)~~ (obsolete)
 
-[SBIE1216](SBIE1216.md)
+~~[SBIE1216](SBIE1216.md)~~ (obsolete)
 
 [SBIE1222](SBIE1222.md)
 
@@ -338,13 +406,13 @@
 
 [SBIE1241](SBIE1241.md)
 
-~~[SBIE1242](SBIE1242.md)~~ (deprecated since Sandboxie 0.9.0 / 5.51.0)
+~~[SBIE1242](SBIE1242.md)~~ (obsolete since Sandboxie 0.9.0 / 5.51.0)
 
 [SBIE1301](SBIE1301.md)
 
-~~[SBIE1303](SBIE1303.md)~~ (deprecated since Sandboxie 5.31.4)
+~~[SBIE1303](SBIE1303.md)~~ (obsolete since Sandboxie 5.31.4)
 
-~~[SBIE1304](SBIE1304.md)~~ (deprecated)
+~~[SBIE1304](SBIE1304.md)~~ (obsolete)
 
 [SBIE1306](SBIE1306.md)
 
@@ -352,11 +420,11 @@
 
 [SBIE1308](SBIE1308.md)
 
-~~[SBIE1309](SBIE1309.md)~~ (deprecated)
+~~[SBIE1309](SBIE1309.md)~~ (obsolete)
 
-~~[SBIE1310](SBIE1310.md)~~ (deprecated since Sandboxie 5.31.4)
+~~[SBIE1310](SBIE1310.md)~~ (obsolete since Sandboxie 5.31.4)
 
-~~[SBIE1311](SBIE1311.md)~~ (deprecated)
+~~[SBIE1311](SBIE1311.md)~~ (obsolete)
 
 [SBIE1312](SBIE1312.md)
 
@@ -394,11 +462,13 @@
 
 [SBIE2108](SBIE2108.md)
 
+[SBIE2111](SBIE2111.md)
+
 [SBIE2191](SBIE2191.md)
 
 [SBIE2192](SBIE2192.md)
 
-~~[SBIE2193](SBIE2193.md)~~ (deprecated since Sandboxie 1.0.14 / 5.55.14)
+~~[SBIE2193](SBIE2193.md)~~ (obsolete since Sandboxie 1.0.14 / 5.55.14)
 
 [SBIE2202](SBIE2202.md)
 
@@ -530,25 +600,9 @@
 
 [SBIE9305](SBIE9305.md)
 
-[SBIE DLL API](SBIEDLLAPI.md)
-
-[SBIE Messages](SBIEMessages.md)
-
-[Sandbox Hierarchy](SandboxHierarchy.md)
-
-[Sandbox Menu](SandboxMenu.md)
-
-[Sandbox Settings](SandboxSettings.md)
-
-[Sandboxie Control](SandboxieControl.md)
-
-[Sandboxie Ini](SandboxieIni.md)
-
-[Sandboxie Plus Migration Guide](PlusMigrationGuide.md)
-
-[Sandboxie Trace](SandboxieTrace.md)
-
 [Secure Delete Sandbox](SecureDeleteSandbox.md)
+
+[Security Mode](../PlusContent/security-mode.md)
 
 [Service Programs](ServicePrograms.md)
 
@@ -560,6 +614,8 @@
 
 [Start Service](StartService.md)
 
+[Supporter Certificate](../PlusContent/supporter-certificate.md)
+
 [System Event Log](SystemEventLog.md)
 
 ### T
@@ -568,13 +624,21 @@
 
 [Test Email Configuration](TestEmailConfiguration.md)
 
-[Trace Logging for Sandboxie Plus](TraceLog.md)
+[Translations](../PlusContent/translations.md)
 
 [Tray Icon Menu](TrayIconMenu.md)
 
 ### U
 
 [Usage Tips](UsageTips.md)
+
+[USB Sandboxing](../PlusContent/USBSandboxing.md)
+
+[Use Privacy Mode](UsePrivacyMode.md)
+
+[Use Rule Specificity](UseRuleSpecificity.md)
+
+[Use Security Mode](UseSecurityMode.md)
 
 [User Accounts Settings](UserAccountsSettings.md)
 
@@ -584,9 +648,9 @@
 
 ### W
 
-[Windows 8](Windows8.md)
+[WFP Support](../PlusContent/WFPSupport.md)
 
-[Windows Vista 64](WindowsVista64.md)
+[Windows 8](Windows8.md)
 
 [Windows XP Mode](WindowsXPMode.md)
 

@@ -8,7 +8,7 @@ Usage:
    .
    .
    [GlobalSettings]
-   ForceDisableAdminOnly=yes
+   ForceDisableAdminOnly=y
 ```
 
 This setting is designed for use by network administrators.

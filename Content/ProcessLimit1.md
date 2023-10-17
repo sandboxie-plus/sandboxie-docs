@@ -1,8 +1,8 @@
 # Process Limit 1
 
-**ProcessLimit features are deprecated.**
+**ProcessLimit1 and ProcessLimit2 were removed since Sandboxie v0.7.1 / 5.48.5 in favour of [ProcessLimit](ProcessLimit.md).**
 
-_ProcessLimit1_ and _ProcessLimit2_ are sandbox settings in [Sandboxie Ini](SandboxieIni.md). They limit the maximum number of processes that Sandboxie allows in the sandbox at the same time.
+_ProcessLimit1_ and _ProcessLimit2_ were sandbox settings in [Sandboxie Ini](SandboxieIni.md). They limited the maximum number of processes that Sandboxie allowed in the sandbox at the same time.
 ```
    .
    .

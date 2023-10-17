@@ -13,7 +13,7 @@ The Sandboxie Start program can do any of the following, depending on command li
 * * *
 ### Start Programs
 
-This is the default behavior. By specifying a full or partial path to a program executable file, Sandboxie Start will launch that program under the supervision of Sandboxie:
+This is the default behavior. By specifying a full or partial path to a program's executable file, Sandboxie Start will launch that program under the supervision of Sandboxie:
 ```
   "C:\Program Files\Sandboxie\Start.exe"  c:\windows\system32\notepad.exe
   "C:\Program Files\Sandboxie\Start.exe"  notepad.exe
@@ -100,6 +100,35 @@ The form _/terminate_all_ terminates all programs in all sandboxes.
 
 * * *
 
+### Unmount Box Images
+
+These commands unmount encrypted box images or ram disks created by Sandboxie Plus. These parameters are available since v1.11.0 / 5.66.0.
+```
+  "C:\Program Files\Sandboxie-Plus\Start.exe"  /unmount
+  "C:\Program Files\Sandboxie-Plus\Start.exe"  /box:EncryptedBox  /unmount
+  "C:\Program Files\Sandboxie-Plus\Start.exe"  /unmount_all
+```
+
+If the parameter _/box:SandboxName_ is omitted, default sandbox, _DefaultBox_ image, will be unmounted.
+
+The form _/unmount_all_ terminates all programs in all encrypted sandboxes and then unmounts all encrypted box images.
+
+### Mount Box Images
+
+These commands mount encrypted box images created by Sandboxie Plus. These parameters are available since v1.11.0 / 5.66.0.
+```
+  "C:\Program Files\Sandboxie-Plus\Start.exe"  /key:[box image password] /mount_protected
+  "C:\Program Files\Sandboxie-Plus\Start.exe"  /key:[box image password] /mount
+  "C:\Program Files\Sandboxie-Plus\Start.exe"  /box:EncryptedBox  /key:[box image password] /mount_protected
+  "C:\Program Files\Sandboxie-Plus\Start.exe"  /box:EncryptedBox  /key:[box image password] /mount
+```
+
+If the parameter _/box:SandboxName_ is omitted, default sandbox, _DefaultBox_ image, will be mounted.
+
+The form _/mount_protected_ mounts encrypted box images with the _Box Root Protection_. _Box Root Protection_ prevents processes running outside the sandbox from accessing the root folder of the encrypted box.
+
+* * *
+
 ### List Programs
 
 List the system process ID numbers for all programs running in a particular sandbox.
@@ -183,7 +212,7 @@ An older form of this command can temporarily disable the forced programs mode, 
   "C:\Program Files\Sandboxie\Start.exe"  disable_force
 ```
 
-Note the missing slash in this command syntax. Note also that this command is not a toggle. It always puts the Disable Forced Programs mode into effect and always restarts the countdown timer. At this time, Start.exe does not offer a way to request the cancelation of this mode.
+Note the missing slash in this command syntax. Note also that this command is not a toggle. It always puts the Disable Forced Programs mode into effect and always restarts the countdown timer. At this time, Start.exe does not offer a way to request the cancellation of this mode.
 
 * * *
 

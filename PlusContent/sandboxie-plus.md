@@ -1,0 +1,6 @@
+[Sandboxie](../Content/Sandboxie.md) is a sandbox-based isolation software for 32-bit and 64-bit Windows NT-based operating systems. It is being developed by David Xanatos since it became open source, before that it was developed by Sophos (which acquired it from Invincea, which acquired it earlier from the original author Ronen Tzur). It creates a sandbox-like isolated operating environment in which applications can be run or installed without permanently modifying the local or mapped drive. An isolated virtual environment allows controlled testing of untrusted programs and web surfing.
+
+Since the open sourcing, Sandboxie is being released in two flavors: the Classic build with a [MFC](https://en.wikipedia.org/wiki/Microsoft_Foundation_Class_Library)-based UI and a Plus build that incorporates new features with an entirely new [Qt](https://www.qt.io/)-based UI. All newly added features target the Plus branch, but can often be utilized in the Classic edition by manually editing the [Sandboxie Ini](../Content/SandboxieIni.md) file.
+
+The full Sandboxie documentation can be found through the [Support Page Index](../Content/AllPages.md), or you can start directly with the [Help Topics](../Content/HelpTopics.md) overview.
+

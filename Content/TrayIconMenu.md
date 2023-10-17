@@ -66,7 +66,7 @@ See also: [Disable Forced Programs](FileMenu.md#disable-forced-programs) in [Fil
 
 ### Run As UAC Administrator
 
-The _Run As UAC Administrator_ (not shown in the picture; see [File Menu](FileMenu.md)) toggle command tells Sandboxie to ask for elevation to Administrative privileges before starting any programs. This command is only available on Windows Vista when User Account Controls (UAC) is in effect, and the user account is not already elevated. If this command is available in the menu, then it is typically necessary to enable it before installing programs into the sandbox, and it is recommended to disable it when that installation is complete.  
+The _Run As UAC Administrator_ (not shown in the picture; see [File Menu](FileMenu.md)) toggle command tells Sandboxie to ask for elevation to Administrative privileges before starting any programs. This command is only available on Windows when User Account Control (UAC) is in effect, and the user account is not already elevated. If this command is available in the menu, then it is typically necessary to enable it before installing programs into the sandbox, and it is recommended to disable it when that installation is complete.  
 Same as [File Menu](FileMenu.md) -> Run As UAC Administrator.
 
 See also: [Run As UAC Administrator](FileMenu.md#run-as-uac-administrator) in [File Menu](FileMenu.md).

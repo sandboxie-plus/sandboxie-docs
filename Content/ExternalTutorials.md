@@ -14,8 +14,6 @@ Other web sites offer more tutorials:
 
 [Sandboxie Isolation Demonstration](https://www.youtube.com/watch?v=9ZF9c03PN8I) (Video)
 
-[ToolKit Item: Sandboxie by Guest Author Bo Elam](https://win10.guru/toolkit-item-sandboxie-by-guest-author-bo-elam) (Article)
-
 [Sandboxie Plus is an open source fork of Sandboxie with a modern interface](https://www.ghacks.net/2021/01/29/sandboxie-plus-is-an-open-source-fork-of-sandboxie-with-a-modern-interface/) (Article)
 
 **German**

@@ -19,6 +19,7 @@ Usage:
 The following substitution variables may be useful in this path.
 
 *   [Shell Folders](ShellFolders.md) variables such as %Personal% which expands to the user's Documents folder
+*   The variable %SBIEHOME% which expands to the root of the Sandboxie installation
 *   The variable %SANDBOX% which expands to the name of the sandbox
 *   The variable %USER% which expands to the user name
 *   The variable %SID% which expands to the user security ID (SID)

@@ -1,8 +1,8 @@
 # Block Win Hooks
 
-**BlockWinHooks feature is deprecated.**
+**BlockWinHooks feature was removed in SBIE version 4.+ and up. It is no longer available.**
 
-_BlockWinHooks_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It specifies whether Sandboxie will allow sandboxed programs to install system-global hooks.
+_BlockWinHooks_ was a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It specified whether Sandboxie should allow sandboxed programs to install system-global hooks.
 
 Usage:
 

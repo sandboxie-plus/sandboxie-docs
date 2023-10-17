@@ -4,12 +4,12 @@
 
 ![](../Media/MainWindow.png)
 
-The _Programs View_ is the default view mode in [Sandboxie Control](SandboxieControl.md). It displays the programs running in each of the sandboxes, grouped by sandbox name. The list shows three colums:
+The _Programs View_ is the default view mode in [Sandboxie Control](SandboxieControl.md). The programs running in each sandbox are displayed here, grouped by sandbox name. The list shows three columns:
 
 *   The _Program Name_ column displays the name of the executable file of the program. For example, the picture shows _iexplore.exe_, which is the executable name for Internet Explorer.
     *   For a row describing a sandbox, this column displays the name of the sandbox.
 
-*   The _PID_ column displays the process ID of the program. This is the same number that appears in the Processes tab of the Windows Task Manager. (The Windows Task Manager appears when you press Ctrl+Alt+Del or Ctrl+Shift+F10.)
+*   The _PID_ column displays the process ID of the program. This is the same number that appears in the Processes tab of the Windows Task Manager. (The Windows Task Manager appears when you press the Ctrl+Shift+Esc keyboard shortcut or Ctrl+Alt+Del, which leads to the Windows logon screen.)
     *   For a row describing a sandbox, this column displays _Active_ if any programs are running in the sandbox.
 
 *   The _Window Title_ column displays the title associated with the main window of the program.
@@ -22,13 +22,13 @@ The _Programs View_ provides context menus for sandboxes and programs. To displa
 
 *   Click the right mouse button anywhere on the row.
 
-*   Select (highlight) the row using the mouse or keyboard, then press Shift+F10\.
+*   Select (highlight) the row using the mouse or keyboard, then press Shift+F10.
 
 *   Select (highlight) the row using the mouse or keyboard, then use the [View Menu -> Context Menu](ViewMenu.md#context-menu) command.
 
 For a sandbox row, the context menu displayed is the same as [Sandbox Menu -> Sandbox Sub-Menu](SandboxMenu.md#sandbox-sub-menu). See there for a full description.
 
-For a program row, the context menu offerrs these commands:
+For a program row, the context menu offers the following commands:
 
 *   The _Terminate Program_ command terminates the program.
 

@@ -2,13 +2,13 @@
 
 ### Overview
 
-When sandboxed programs create (or modify) objects, such as files, some object must in fact be created. Sandboxie creates these objects out of the way, to protect the system from harmful changes. But these objects must reside somewhere in the system. This page describes where various types of sandboxed objects are placed.
+When sandboxed programs create (or modify) objects, such as files, in fact, some kind of data should be created. Sandboxie creates these objects out of the way, to protect the system from harmful changes. But these objects must reside somewhere in the system. This page describes where various types of sandboxed objects are placed.
 
 Beginning with version 2.80 of Sandboxie, the layout of the sandbox is not tied to computer-specific device names and account names. See [Portable Sandbox](PortableSandbox.md) for more information.
 
 ### Files
 
-Files are created in the sandbox folder. The hierarchy is as follows:
+Files are created in the _Sandbox_ folder according to the following hierarchy:
 ```
   . FileRootPath
   . . drive
@@ -32,23 +32,23 @@ Files that are created or modified in or below _profile_ (or _home_) folders, su
 
 Files that are created or modified in or below the generic (or _All Users_) profile, are redirected into the sandboxed _user\all_ folder.
 
-Other files that don't match either of the above paths are redirected to the sandboxed _drive\X_ folder, where _X_ would be the drive in which the files was _supposed_ to have been written.
+Other files that don't match either of the above paths are redirected to the sandboxed _drive\X_ folder, where _X_ would be the drive in which the files were _supposed_ to have been written.
 
 Files that are created or modified on a remote network share are redirected into the sandboxed _share\\servername\\sharename_ folder.
 
 When a program tries to open a file for which a copy already exists in the sandbox, Sandboxie will redirect the program to the copy of the file that was previously stored in the sandbox. On the other hand, if a copy for the file does not exist in the sandbox, and if the program does not try to modify the file, then Sandboxie will permit read-only access on the original file outside the sandbox. This behavior can be affected with the file-related settings [OpenFilePath](OpenFilePath.md), [ReadFilePath](ReadFilePath.md), and [ClosedFilePath](ClosedFilePath.md).
 
-Note that the sandbox folder itself resides on one particular drive, so even as sandboxed programs may create and modify files in multiple drives, all these files will end up residing _physically_ in the same drive -- the drive where the sandbox folder resides.
+Note that the _Sandbox_ folder itself resides on one particular drive, so even as sandboxed programs may create and modify files in multiple drives, all these files will end up residing _physically_ in the same drive -- the drive where the _Sandbox_ folder resides.
 
-Apart from the two sub-folders, _drive_ and _user_, the sandbox folder itself contains the file _RegHive_, and typically also _RegHive.LOG_. These hold the sandboxed registry. See below.
+Apart from the two sub-folders, _drive_ and _user_, the _Sandbox_ folder itself contains the file _RegHive_, and typically also _RegHive.LOG_. These hold the sandboxed registry. See below.
 
 ### Registry
 
 Registry keys are created in a sandboxed registry hive. A _registry hive_ is the Microsoft Windows term for a group of related registry keys that are stored in a single _hive file_.
 
-Sandboxie creates the hive file in the sandbox folder, as the files _RegHive_ and _RegHive.LOG_. This hive is mounted (or in other words, loaded into the registry) when a sandboxed program starts. The hive is unmounted when all sandboxed programs end.
+Sandboxie creates the hive file in the _Sandbox_ folder, as the files _RegHive_ and _RegHive.LOG_. This hive is mounted (or in other words, loaded into the registry) when a sandboxed program starts. The hive is unmounted when all sandboxed programs end.
 
-The sandboxed hive has the following position and structure within the global struture of the Windows registry.
+The sandboxed hive has the following position and structure within the global structure of the Windows registry.
 ```
  . HKEY_USERS
  . . KeyRootPath
@@ -63,11 +63,13 @@ As sandboxed programs create new registry keys or modify existing keys, Sandboxi
 
 If the sandboxed program was trying to create the key _HKEY_CURRENT_USER\Software\NewKey_, it will be redirected to create _([KeyRootPath](KeyRootPath.md))\user\current\Software\NewKey_.
 
-With the sandboxed registry, the rules for redirection are simpler than for sandboxed files: A registry key created or modified below the HKEY_LOCAL_MACHINE tree will be redirected below the sandboxed _machine_ key.
+With the sandboxed registry, the rules for redirection are simpler than for sandboxed files:
 
-A registry key created or modified below the HKEY_CURRENT_USER tree will be redirected below the sandboxed _user\current_ key.
+- A registry key created or modified below the HKEY_LOCAL_MACHINE tree will be redirected below the sandboxed _machine_ key.
 
-A registry key created or modified below the HKEY_CLASSES_ROOT tree will be redirected below the sandboxed _user\current_classes_ key.
+- A registry key created or modified below the HKEY_CURRENT_USER tree will be redirected below the sandboxed _user\current_ key.
+
+- A registry key created or modified below the HKEY_CLASSES_ROOT tree will be redirected below the sandboxed _user\current_classes_ key.
 
 Note that the sandboxed _user\current\software\classes_ key is a symbolic link to the _user\current_classes_ key which means and the keys are effectively synonyms and share the same content in the sandboxed Windows registry.
 

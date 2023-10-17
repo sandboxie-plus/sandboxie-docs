@@ -56,7 +56,7 @@ A. No. Although you can [configure](SecureDeleteSandbox.md) Sandboxie to use a t
 ### Q. Why does my anti-virus detect a virus in the _System Volume Information_ folder?
 
 A. The System Restore component in Windows collects various files into the _System Volume Information_ when they are deleted. While the intention is to protect your system, sometimes System Restore ends up making copies of virus files. These virus files are inactive, and even if restored, will be restored into the sandbox, so there is little cause for alarm. Nevertheless, it is a good idea to let your anti-virus get rid of any such virus files.  
-Note that this will not occur if you securely wipe the contents of the sandbox (see previous quesion).
+Note that this will not occur if you securely wipe the contents of the sandbox (see previous question).
 
 ### Q. My computer is already infected with a virus, will Sandboxie protect against that virus?
 

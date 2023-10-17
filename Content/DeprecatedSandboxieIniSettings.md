@@ -1,23 +1,23 @@
-# Deprecated Sandboxie Ini Settings
+# Deprecated/Obsolete/Removed Sandboxie Ini Settings
 
-The following settings are deprecated.
+The following settings are deprecated, obsolete or removed:
 
-[BlockDrivers](BlockDrivers.md)
+[BlockDrivers](BlockDrivers.md) (removed before the open source release)
 
-[BlockFakeInput](BlockFakeInput.md)
+[BlockFakeInput](BlockFakeInput.md) (removed before the open source release)
 
-[BlockPassword](BlockPassword.md)
+[BlockPassword](BlockPassword.md) (obsolete)
 
-[BlockPort](BlockPort.md)
+[BlockPort](BlockPort.md) (removed)
 
-[BlockSysParam](BlockSysParam.md)
+[BlockSysParam](BlockSysParam.md) (removed before the open source release)
 
-[BlockWinHooks](BlockWinHooks.md)
+[BlockWinHooks](BlockWinHooks.md) (removed before the open source release)
 
-[BoxRootFolder](BoxRootFolder.md)
+[BoxRootFolder](BoxRootFolder.md) (deprecated)
 
-[ByteOrderMark](ByteOrderMark.md)
+[ByteOrderMark](ByteOrderMark.md) (removed)
 
-[ProcessLimit1](ProcessLimit1.md) 
+[ProcessLimit1](ProcessLimit1.md) (removed)
 
-[ProcessLimit2](ProcessLimit1.md)
+[ProcessLimit2](ProcessLimit1.md) (removed)

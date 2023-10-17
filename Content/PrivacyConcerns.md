@@ -27,9 +27,9 @@ Windows may store copies of programs files in this Prefetch folder even when the
 
 Prefetch behavior can be reduced to caching only programs using during the boot sequence, or to not cache anything at all. Follow these links for more information:
 
-[https://www.ghacks.net/2008/01/13/enableprefetcher-in-prefetchparameters](https://www.ghacks.net/2008/01/13/enableprefetcher-in-prefetchparameters)  
-[https://www.howtogeek.com/howto/windows-vista/change-superfetch-to-only-cache-system-boot-files-in-vista](https://www.howtogeek.com/howto/windows-vista/change-superfetch-to-only-cache-system-boot-files-in-vista)  
-[https://www.howtogeek.com/howto/windows-vista/how-to-disable-superfetch-on-windows-vista](https://www.howtogeek.com/howto/windows-vista/how-to-disable-superfetch-on-windows-vista)
+[https://www.ghacks.net/2008/01/13/enableprefetcher-in-prefetchparameters](https://www.ghacks.net/2008/01/13/enableprefetcher-in-prefetchparameters)
+[https://www.howtogeek.com/998/change-superfetch-to-only-cache-system-boot-files-in-vista](https://www.howtogeek.com/998/change-superfetch-to-only-cache-system-boot-files-in-vista)
+[https://www.howtogeek.com/989/how-to-disable-superfetch-on-windows-vista](https://www.howtogeek.com/989/how-to-disable-superfetch-on-windows-vista)
 
 **MUI Cache**
 
@@ -59,7 +59,7 @@ The [Sandbox Settings > Applications > Miscellaneous](ApplicationsSettings.md#mi
 
 **Windows Page File**
 
-During its normal course of operation, Windows sometimes needs to put away the contents of memory used by one program in order to make room for another program. The memory contents are stored in the Windows [page file](https://www.howtogeek.com/126430/htg-explains-what-is-the-windows-page-file-and-should-you-disable-it).
+During its normal course of operation, Windows sometimes needs to put away the contents of memory used by one program in order to make room for another program. The memory contents are stored in the Windows [page file](https://www.howtogeek.com/126430/what-is-the-windows-page-file).
 
 Programs that run under Sandboxie are still running in the same Windows operating system as any other program in the computer, so portions of sandboxed and normal programs may end up sitting side by side in the same page file.
 
@@ -101,7 +101,7 @@ When a programs which is running under Sandboxie asks to place an icon in the [s
 
 This has the advantage that interaction with the tray icon of the sandboxed program is as easy as interacting with any other tray icon. However, it also means that Windows will record this icon and its description in the history of all tray icons it has ever displayed.
 
-It is possible to manually clear this history in [Windows](https://www.howtogeek.com/howto/windows-vista/clean-up-past-notification-icons-in-windows-vista). There may also be third-party registry clearing tools that can erase this information.
+It is possible to manually clear this history in [Windows](https://www.howtogeek.com/739/clean-up-past-notification-icons-in-windows-vista). There may also be third-party registry clearing tools that can erase this information.
 
 **Disk Defragmentation**
 
