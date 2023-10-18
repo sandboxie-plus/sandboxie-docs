@@ -1,19 +1,19 @@
 # Start Program
 
-_StartProgram_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). This feature provides an automatic start for the specified process. Any specified application will automatically run inside sandboxie. For example:
+_StartProgram_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It provides an automatic start for the specified program. For example:
 
 ```
    .
    .
    .
    [DefaultBox]
-   StartProgram=chrome.exe
-   StartProgram=Ccleaner.exe
-   [MailBox]
-   StartProgram=FireZilla.exe
-   
+   StartProgram=%ProgramFiles%\Google\Chrome\Application\chrome.exe
 ```
 
-The example specifies that Chrome (chrome.exe) and Ccleaner (Ccleaner.exe) will be forced to run sandboxed in the sandbox _DefaultBox_. Fire (FireZilla.exe) will be forced to run sandboxed in the sandbox _MailBox_.
+The example specifies that Google Chrome (chrome.exe) will be forced to run sandboxed in the sandbox _DefaultBox_.
 
-Note that the _StartProgram_ launches the specified application in hidden mode, for services see [StartService](StartService.md).
+**Technical Details**
+
+_StartProgram_ is processed by [SandboxieRpcSs](ServicePrograms.md#remote-procedure-call-rpc), which runs just once in every sandbox. Like the [AutoExec](AutoExec.md) setting, it is processed when the first program begins to run in a sandbox. Note that _StartProgram_ launches the specified application in hidden mode.
+
+For services, see [StartService](StartService.md).
