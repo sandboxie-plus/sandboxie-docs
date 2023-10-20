@@ -610,6 +610,10 @@
 
 [Start Command Line](StartCommandLine.md)
 
+[Start Program](StartProgram.md)
+
+[Start Service](StartService.md)
+
 [Supporter Certificate](../PlusContent/supporter-certificate.md)
 
 [System Event Log](SystemEventLog.md)
