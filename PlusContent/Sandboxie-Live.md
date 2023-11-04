@@ -19,6 +19,7 @@ For a "Version Update", the following options are available:
 - Notify
 - Download & Notify
 - Download & Install
+- What about a regedit function to browse the registry changes.
 
 There is no "Ignore" option for "New Version", as that is covered by disabling the update check.
 
