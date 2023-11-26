@@ -229,7 +229,8 @@ Note the use of _InjectDllMain_ (see [Inject Dll](InjectDll.md)) to get a handle
                 const WCHAR *box_name,      // pointer to WCHAR [34]
                 BOOLEAN all_sessions,
                 ULONG which_session,
-                ULONG *boxed_pids);         // pointer to ULONG [512]
+                ULONG *boxed_pids,         // pointer to ULONG []
+                ULONG *boxed_count);
 ```
 
 *    Export Name:
