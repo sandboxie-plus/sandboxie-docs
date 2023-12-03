@@ -14,7 +14,7 @@ The Code Injection mechanism is made up of 3 components, the injector itself, a 
 The injection is done calling `_FX ULONG SbieDll_InjectLow(HANDLE hProcess, BOOLEAN is_wow64, BOOLEAN bHostInject, BOOLEAN dup_drv_handle)` and providing the required arguments, the function than:
 
 
-* Starts with preparing a data block `lowdata` of type `SBIELOW_DATA`, and filling in variouse values like is_wow64, bHostInject and others...
+* Starts with preparing a data block `lowdata` of type `SBIELOW_DATA`, and filling in various values like is_wow64, bHostInject and others...
 
 * Than it uses `SbieDll_InjectLow_CopyCode` to allocate `sizeof(shell_code) + sizeof(SBIELOW_J_TABLE) + 0x400` bytes of Memory in the target process and write the shell code to it. 
 This function also, in an unrelated last step, copies 48 bytes from the begin of `ntdll!LdrInitializeThunk` into `lowdata.LdrInitializeThunk_tramp`.
@@ -34,7 +34,7 @@ The data stored there a couple of offsets, as well as the full paths to the Sbie
 
 * Finally the `ntdll!LdrInitializeThunk` in the target process gets overwritten using `SbieDll_InjectLow_WriteJump` with a jump instruction into the shell code's entry point.
 
-Now the process can be resumeed and the injected code will do its thing.
+Now the process can be resumed and the injected code will do its thing.
 
 An important note to make here is that this function does the same for native 64 bit and wow64 emulated 32 bit processes, 
 in fact, on a 64-bit system the injected shell code is always 64 bit. Only much later in the initialization of the process running under wow64 it switches to 32-bit.
@@ -52,7 +52,7 @@ The `InitInject` function checks if the process is running natively (i.e. 32-bit
 
 At this point the top portion of the `data->syscall_data` before the `SBIELOW_EXTRA_DATA` region is no longer required and is repurposed to store temporary data of the type `INJECT_DATA`.
 
-The function than finds the addresses of `LdrLoadDll`, `LdrGetProcedureAddress`, `NtRaiseHardError` and `RtlFindActivationContextSectionString` using a custom `FindDllExport` lookup function by parsing through the previously selected ntdll image, these addresses are stored into the `INJECT_DATA` region, then a couple values from the `SBIELOW_EXTRA_DATA` are also copied into that region, containing paths to the SbieDll.dll (booth 32 and 64 bit paths), as well as the name of kernel32.dll.
+The function than finds the addresses of `LdrLoadDll`, `LdrGetProcedureAddress`, `NtRaiseHardError` and `RtlFindActivationContextSectionString` using a custom `FindDllExport` lookup function by parsing through the previously selected ntdll image, these addresses are stored into the `INJECT_DATA` region, then a couple values from the `SBIELOW_EXTRA_DATA` are also copied into that region, containing paths to the SbieDll.dll (both 32 and 64 bit paths), as well as the name of kernel32.dll.
 
 On 64-bit systems the function distinguishes between the native and the wow64 execution, in the latter case branching of to `InitInjectWow64`.
 In the native case it continues with hooking the `RtlFindActivationContextSectionString` function in the ntdll.dll. 
