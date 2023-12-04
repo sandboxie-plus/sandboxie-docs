@@ -54,7 +54,7 @@ At this point the top portion of the `data->syscall_data` before the `SBIELOW_EX
 
 The function than finds the addresses of `LdrLoadDll`, `LdrGetProcedureAddress`, `NtRaiseHardError` and `RtlFindActivationContextSectionString` using a custom `FindDllExport` lookup function by parsing through the previously selected ntdll image, these addresses are stored into the `INJECT_DATA` region, then a couple values from the `SBIELOW_EXTRA_DATA` are also copied into that region, containing paths to the SbieDll.dll (both 32 and 64 bit paths), as well as the name of kernel32.dll.
 
-On 64-bit systems the function distinguishes between the native and the wow64 execution, in the latter case branching of to `InitInjectWow64`.
+On 64-bit systems the function distinguishes between the native and the wow64 execution, in the latter case branching off to `InitInjectWow64`.
 In the native case it continues with hooking the `RtlFindActivationContextSectionString` function in the ntdll.dll. 
 * An original copy of the functions begin is first saved to the `INJECT_DATA` structure 
 * The address of the structure is written into the detour function which is implemented in assembler. 
