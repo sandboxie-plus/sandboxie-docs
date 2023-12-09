@@ -30,7 +30,7 @@ jobs:
         uses: lycheeverse/lychee-action@v1.8.0
         with:
           # Check all markdown files in repo
-          args: --verbose --no-progress './**/*.md'
+          args: -vvv --no-progress './**/*.md'
           fail: true
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
