@@ -4,9 +4,7 @@ In some rare cases, programs running under the supervision of Sandboxie might no
 
 * * *
 
-Download and install the latest release of _Windows 10 SDK_ from the following web page:
-
-[https://developer.microsoft.com/en-us/windows/downloads/windows-sdk](https://developer.microsoft.com/en-us/windows/downloads/windows-sdk) (both 32-bit and 64-bit)
+Download and install the latest release of [_Windows SDK_](https://developer.microsoft.com/en-us/windows/downloads/windows-sdk) (both 32-bit and 64-bit).
 
 If you just need the _Debugging Tools for Windows_, you can install the debugging tools as a standalone component.
 
