@@ -72,6 +72,8 @@
 
 [Compartment Mode](../PlusContent/compartment-mode.md)
 
+[Confidential Box](ConfidentialBox.md)
+
 [Config Level](ConfigLevel.md)
 
 [Configuration Protection](ConfigurationProtection.md)
@@ -637,6 +639,8 @@
 [Use Privacy Mode](UsePrivacyMode.md)
 
 [Use Rule Specificity](UseRuleSpecificity.md)
+
+[Use SbieDesk Hack](UseSbieDeskHack.md)
 
 [Use Security Mode](UseSecurityMode.md)
 
