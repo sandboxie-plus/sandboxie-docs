@@ -5,7 +5,6 @@ Your support keeps Sandboxie up to date with the rolling releases of Windows and
 A support certificate enables the use of new supporter exclusive Plus features, like [Privacy Mode](../PlusContent/privacy-mode.md) or [App Compartment Boxes](../PlusContent/compartment-mode.md), see the [Feature Comparison Table](https://sandboxie-plus.com/feature-comparison/) for more details and certificate options.
 
 Certificate validity:
-
 **Please note that a [Business Certificate](https://xanasoft.com/product/sandboxie-plus-business/) is required to use Sandboxie Plus in a business or educational setting!**
 
 **Patreon certificates** are valid for as long as the subscription is active and unlock all features. Patreons who have ended their subscription are entitled to a residual certificate corresponding to the total amount of their support.
