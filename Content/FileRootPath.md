@@ -1,6 +1,6 @@
 # File Root Path
 
-_FileRootPath_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It specifies the root folder for a particular sandbox.
+_FileRootPath_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It specifies the root folder in your system for a particular sandbox.
 
 As with all sandbox settings, it may also be specified in the global section, and in that case will apply for all sandboxes where the setting is not also specified in the sandbox section.
 
