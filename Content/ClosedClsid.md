@@ -1,18 +1,16 @@
 # Closed Clsid
 
-_ClosedClsid_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md) available since v0.5.3a / 5.45.2. It specifies the COM class identifiers for unsandboxed COM objects that should not be accessible by a sandboxed program.
+The _ClosedClsid_ setting in [Sandboxie Ini](SandboxieIni.md) (available since v0.5.3a / 5.45.2) is employed to specify COM class identifiers for unsandboxed COM objects that should be restricted from access by sandboxed programs.
 
-Usage:
-```
-   .
-   .
-   .
-   [DefaultBox]
-   ClosedClsid={8BC3F05E-D86B-11D0-A075-00C04FB68820}
+To utilize this setting, you can include it in the [DefaultBox] section, as shown below:
+
+```ini
+[DefaultBox]
+ClosedClsid={8BC3F05E-D86B-11D0-A075-00C04FB68820}
 ```
 
-This example makes the _Windows Management and Instrumentation_ not accessible to sandboxed programs.
+In this example, the _Windows Management and Instrumentation_ is designated as not accessible to sandboxed programs.
 
-Related Sandboxie Plus setting:
+Additionally, it is related to the Sandboxie Plus setting found under:
 
 Sandbox Options > Resource Access > COM
