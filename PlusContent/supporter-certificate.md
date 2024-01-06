@@ -1,8 +1,10 @@
 A supporter certificate is like a license key, but for awesome people using and supporting open source software. :-)
 
-Keeping Sandboxie up to date with the rolling releases of Windows and compatible with all web browsers is a never-ending endeavor. Please consider supporting this work with a <a href="https://sandboxie-plus.com/go.php?to=donate">PayPal donation</a> or by purchasing a [Sandboxie Plus Supporter Certificate](https://sandboxie-plus.com/go.php?to=sbie-get-cert), you can also provide continuous support with a [Patreon subscription](https://sandboxie-plus.com/go.php?to=patreon).
+Your support keeps Sandboxie up to date with the rolling releases of Windows and compatible with all web browsers is a never-ending endeavor. Please consider supporting this work with a <a href="https://sandboxie-plus.com/go.php?to=donate">PayPal donation</a> or by purchasing a [Sandboxie Plus Supporter Certificate](https://sandboxie-plus.com/go.php?to=sbie-get-cert), you can also provide continuous support with a [Patreon subscription](https://sandboxie-plus.com/go.php?to=patreon).
 
 A support certificate enables the use of new supporter exclusive Plus features, like [Privacy Mode](../PlusContent/privacy-mode.md) or [App Compartment Boxes](../PlusContent/compartment-mode.md), see the [Feature Comparison Table](https://sandboxie-plus.com/feature-comparison/) for more details and certificate options.
+
+Certificate validity:
 
 **Please note that a [Business Certificate](https://xanasoft.com/product/sandboxie-plus-business/) is required to use Sandboxie Plus in a business or educational setting!**
 
