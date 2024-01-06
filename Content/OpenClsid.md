@@ -1,6 +1,6 @@
 # Open Clsid
 
-_OpenClsid_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It specifies the COM class identifiers for unsandboxed COM objects that should be accessible by a sandboxed program. More simple explanation: _OpenCLsid_ allows unsandboxed COM ports to be accessed by sandboxed apps
+_OpenClsid_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It specifies the COM class identifiers for unsandboxed COM objects that should be accessible by a sandboxed program. This allows unsandboxed COM ports to be accessed by sandboxed apps.
 
 Examples:
 ```
