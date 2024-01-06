@@ -1,28 +1,29 @@
 # Applying a Supporter Certificate using the Modern SandMan UI
 
-To apply a supporter certificate, please start Sandboxie Plus and open the global settings:
+To apply a supporter certificate, follow these steps:
 
-![](../Media/PlusCert1.png)
+1. Start Sandboxie Plus and open the global settings.
 
-In the global options, please go to the "Support & Updates" page:
+   ![Step 1](../Media/PlusCert1.png)
 
-![](../Media/PlusCert2.png)
+2. In the global options, navigate to the "Support & Updates" page.
 
-Enter your entire certificate starting with `NAME:` up to and including the last two equal signs `==`, then press Apply (or OK):
+   ![Step 2](../Media/PlusCert2.png)
 
-![](../Media/PlusCert3b.png)
+3. Enter your entire certificate starting with `NAME:` up to and including the last two equal signs `==`, then press Apply (or OK).
 
-Then you will be prompted to grant administrative privileges, you will need to allow them for the certificate to be installed:
+   ![Step 3](../Media/PlusCert3b.png)
 
-![](../Media/PlusCert4.png)
+4. You will be prompted to grant administrative privileges. Allow them for the certificate to be installed.
 
-Depending on your OS preset, you may also need to confirm an UAC prompt:
+   ![Step 4](../Media/PlusCert4.png)
 
-![](../Media/PlusCert5b.png)
+5. Depending on your OS preset, you may also need to confirm a UAC prompt.
 
-Once the certificate is accepted, the entry field should become green:
+   ![Step 5](../Media/PlusCert5b.png)
 
-![](../Media/PlusCert6.png)
+6. Once the certificate is accepted, the entry field should become green.
 
-And a notification popup window should appear.
+   ![Step 6](../Media/PlusCert6.png)
 
+7. A notification popup window should appear.
