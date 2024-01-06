@@ -9,7 +9,4 @@ AutoDelete is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It is typic
    AutoDelete=y
 ```
 
-You can also add it in ui:
-![](../Media/Box_AutoDelete.png)
-
 Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Delete > Invocation](DeleteSettings.md#invocation)
