@@ -1,34 +1,27 @@
 # File Root Path
 
-_FileRootPath_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It specifies the root folder in your system for a particular sandbox.
+The _FileRootPath_ setting in [Sandboxie Ini](SandboxieIni.md) is crucial for defining the root folder in your system for a specific sandbox. This setting can be specified globally or within a sandbox section, providing flexibility.
 
-As with all sandbox settings, it may also be specified in the global section, and in that case will apply for all sandboxes where the setting is not also specified in the sandbox section.
+To configure this setting, you can use the following example:
 
-See [Sandbox Hierarchy](SandboxHierarchy.md) for more information.
-
-Usage:
-
-```
-   .
-   .
-   .
-   [DefaultBox]
-   FileRootPath=C:\Sandbox\MySandbox
+```ini
+[DefaultBox]
+FileRootPath=C:\Sandbox\MySandbox
 ```
 
-The following substitution variables may be useful in this path.
+Additionally, you can employ substitution variables in the path for dynamic configurations:
 
-*   [Shell Folders](ShellFolders.md) variables such as %Personal% which expands to the user's Documents folder
-*   The variable %SBIEHOME% which expands to the root of the Sandboxie installation
-*   The variable %SANDBOX% which expands to the name of the sandbox
-*   The variable %USER% which expands to the user name
-*   The variable %SID% which expands to the user security ID (SID)
-*   The variable %SESSION% which expands to the Terminal Services session number
+- `%Personal%`: User's Documents folder
+- `%SBIEHOME%`: Root of the Sandboxie installation
+- `%SANDBOX%`: Name of the sandbox
+- `%USER%`: User name
+- `%SID%`: User security ID (SID)
+- `%SESSION%`: Terminal Services session number
 
-If _FileRootPath_ is not specified, its default value is constructed using the _deprecated_ [BoxRootFolder](BoxRootFolder.md) setting, thus:
+If _FileRootPath_ is not specified, the default value is generated using the _deprecated_ [BoxRootFolder](BoxRootFolder.md) setting:
 
-*   `BoxRootFolder\Sandbox\%SANDBOX%`
+- `BoxRootFolder\Sandbox\%SANDBOX%`
 
-If _BoxRootFolder_ is also not specified, then the default setting is:
+If _BoxRootFolder_ is also absent, the fallback is:
 
-*   `C:\Sandbox\%USER%\%SANDBOX%`
+- `C:\Sandbox\%USER%\%SANDBOX%`
