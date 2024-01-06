@@ -4,7 +4,7 @@
 
 The concept of privacy mode and privacy-enhanced (or Data Protection) boxes was introduced in **Sandboxie Plus v1.0.0**. In this mode, most locations on a PC are treated like a Write[File/Key]Path, making sandboxed locations writable, but unsandboxed locations not readable. Additionally, the registry does not allow reading of user root keys, preventing access to private user data by sandboxed processes.
 
-To enable privacy mode, add `UsePrivacyMode=y` to the box settings section of **[Sandboxie Ini](../Content/SandboxieIni.md)**. Alternatively, in the Sandboxie app, right-click on a box, select "Sandbox Options" from the drop-down menu (or double-click on a box), bring up the Box Options UI, choose the box type preset as "Sandbox with Data Protection" (with a **blue** box icon), and click OK. The Sandman UI status column labels this box as **Privacy Enhanced**.
+To enable privacy mode, add `UsePrivacyMode=y` to the box settings section of **[Sandboxie Ini](../Content/SandboxieIni.md)**. Alternatively, in Sandboxie Plus, right-click on a box, select "Sandbox Options" from the drop-down menu (or double-click on a box), bring up the Box Options UI, choose the box type preset as "Sandbox with Data Protection" (with a **blue** box icon), and click OK. The Sandman UI status column labels this box as **Privacy Enhanced**.
 
 ![Privacy Enhanced Box](../Media/Box_PrivacyMode.png)
 
