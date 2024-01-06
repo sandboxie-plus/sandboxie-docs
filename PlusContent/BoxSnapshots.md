@@ -1,6 +1,6 @@
 # Box Snapshots (for Sandboxie Plus)
 
-A **snapshot** saves the current state of a sandbox. You can create multiple snapshots of a box at different times and make one of the snapshots the default. To get started, open the Sandman GUI, right-click on the desired sandbox and click 'Snapshots Manager' from the drop-down list. See image below.
+A **snapshot** saves the current state of a sandbox. You can create multiple snapshots of a box at different times and make one of the snapshots the default. To get started, open the Sandman GUI, right-click on the desired sandbox and click 'Snapshots Manager' from the drop-down list. See image below. You can revert to a snapshot anytime.
 
 ![](../Media/Box_Snapshot1.png)
 
