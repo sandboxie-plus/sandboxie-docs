@@ -10,7 +10,7 @@ Clicking the _?_ button opens the Web browser and navigates to the documentation
 
 Clicking the _Dismiss > Hide all such message_ button indicates that you don't wish to receive this message again. If the message contains an information detail, the _Hide all such message_ button hides the message only in combination with that particular detail.
 
-For example, the [SBIE1304](SBIE1304.md) message shown above has the detail _osk.exe_. In this case, the _Hide all such message_ button will hide future occurrences of [SBIE1304](SBIE1304.md) for _osk.exe_. If [SBIE1304](SBIE1304.md) is issued for some other program name, it will still be displayed.
+For example, the [SBIE2313](SBIE2313.md) message shown above has the detail _SandboxieCrypto.exe_. In this case, the _Hide all such message_ button will hide future occurrences of [SBIE2313](SBIE2313.md) for _SandboxieCrypto.exe_. If [SBIE2313](SBIE2313.md) is issued for some other program name, it will still be displayed.
 
 Clicking the _Close_ button closes the window.
 
