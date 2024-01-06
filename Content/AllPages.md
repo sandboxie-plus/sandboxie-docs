@@ -1,4 +1,4 @@
-# All Pages
+# Table of Contents
 
 ### A
 
