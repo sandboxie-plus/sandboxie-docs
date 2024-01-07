@@ -1,12 +1,8 @@
-# Force Disable Seconds
+# Force Disable Seconds in Sandboxie
 
-_ForceDisableSeconds_ is a global setting in [Sandboxie Ini](SandboxieIni.md). It specifies the time, in seconds, that the [Disable Forced Programs](FileMenu.md#disable-forced-programs) mode will stay in effect.
+**ForceDisableSeconds** is a global setting in [Sandboxie Ini](SandboxieIni.md) that specifies the time, in seconds, for which the [Disable Forced Programs](FileMenu.md#disable-forced-programs) mode will stay in effect. Here is an example of its usage:
 
-Usage:
-```
-   .
-   .
-   .
+```ini
    [GlobalSettings]
    ForceDisableSeconds=25
    ForceDisableSeconds=0
