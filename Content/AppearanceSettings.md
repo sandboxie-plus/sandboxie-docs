@@ -1,6 +1,6 @@
 # Appearance Settings
 
-Sandboxie Control > Sandbox Settings > Appearance:
+Sandbox > Sandbox Options > General Options > Box Options
 
 ![](../Media/AppearanceSettings.png)
 

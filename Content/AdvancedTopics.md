@@ -1,5 +1,7 @@
 # Advanced Topics
 
+Some advanced topics:
+
 [Sandbox Hierarchy](SandboxHierarchy.md) discusses how Sandboxie isolates programs.
 
 [Privacy Concerns](PrivacyConcerns.md) for programs running under Sandboxie.

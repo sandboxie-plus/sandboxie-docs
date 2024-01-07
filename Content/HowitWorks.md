@@ -1,11 +1,11 @@
-# How it Works
+# How Sandboxie Works
 
-Sandboxie runs your programs in an isolated space which prevents them from making permanent changes to other programs and data in your computer.
+Sandboxie runs your programs in an isolated space, preventing them from making permanent changes to other programs and data on your computer. The process is illustrated below:
 
-![](../Media/FrontPageAnimation.gif)
+![Sandboxie Animation](../Media/FrontPageAnimation.gif)
 
-![](../Media/FrontPageLegend.png)
+![Sandboxie Legend](../Media/FrontPageLegend.png)
 
-The red arrows indicate changes flowing from a running program into your computer. The box labeled _Hard disk (no sandbox)_ shows changes by a program running normally. The box labeled _Hard disk (with sandbox)_ shows changes by a program running under Sandboxie. The animation illustrates that Sandboxie is able to intercept the changes and isolate them within a **sandbox**, depicted as a yellow rectangle. It also illustrates that grouping the changes together makes it easy to delete all of them at once.
+The red arrows indicate changes flowing from a running program into your computer. The box labeled _Hard disk (no sandbox)_ shows changes by a program running normally, while the box labeled _Hard disk (with sandbox)_ shows changes by a program running under Sandboxie. The animation demonstrates that Sandboxie can intercept and isolate these changes within a **sandbox**, represented as a yellow rectangle. Grouping the changes together in this sandbox makes it easy to delete all of them at once.
 
 **[Download Sandboxie](https://github.com/sandboxie-plus/Sandboxie/releases) now and give it a try!**

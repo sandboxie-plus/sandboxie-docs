@@ -4,100 +4,66 @@
 
 [Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > [Applications > Web Browser > Firefox](ApplicationsSettings.md#firefox)
 
-![](../Media/WebBrowserSettings2.png)
+![Web Browser Settings](../Media/WebBrowserSettings2.png)
 
-* * *
+### Always Run In Sandbox
 
-**Always Run In Sandbox**
+**Setting:** Force Firefox to run in this sandbox
 
-*   Setting: Force Firefox to run in this sandbox
+This option instructs Sandboxie to automatically supervise any instance of Firefox, even if not initiated directly through a Sandboxie facility or command.
 
-This setting tells Sandboxie to automatically supervise any instance of Firefox as it starts, even if it was not started directly through a Sandboxie facility or command.
+### Updating Firefox and its Add-ons
 
-* * *
+In the default configuration, Firefox and add-on updates occur only within the sandbox. To retain updates after sandbox deletion, run Firefox outside the sandbox when updates are available. Let Firefox complete updating, including necessary restarts, and then restart it under Sandboxie.
 
-**Updating Firefox and its Add-ons**
+If Firefox is forced to always run under Sandboxie (as discussed above), use the [Disable Forced Programs](FileMenu.md#disable-forced-programs) command to temporarily disable forced sandboxing. Follow the update procedure mentioned earlier and then use the _Disable Forced Programs_ command again to resume forced sandboxing.
 
-In the default configuration, any updates to Firefox or its add-ons will happen only within the sandbox. When the sandbox is deleted, all such updates will be deleted as well. To avoid this problem, you should run Firefox outside the sandbox when you recognize that any updates are available. Let the normal Firefox finish updating, including any necessary restarts of Firefox. Finally, exit Firefox and restart it under Sandboxie.
+### Bookmarks, History, and Favorites
 
-If Firefox is forced to always run under Sandboxie (as discussed above), use the [Disable Forced Programs](FileMenu.md#disable-forced-programs) command to disable forced sandboxing for a duration of several minutes. Then follow the procedure in the preceding paragraph. Finally, use the _Disable Forced Programs_ command again to resume forced sandboxing.
+**Setting:** Allow direct access to Firefox bookmarks and history database
 
-* * *
+This setting enables Firefox under Sandboxie to store bookmarks outside the sandbox, ensuring persistence even after sandbox deletion. If unselected, bookmarks are stored only in the sandbox and are deleted along with it.
 
-**Bookmarks, History and Favorites**
+*Note:* Starting from Firefox 3, the same file (_places.sqlite_) stores both bookmarks and the history of visited sites.
 
-*   Setting: Allow direct access to Firefox bookmarks and history database
+### Cookies
 
-This setting allows Firefox running under Sandboxie to store bookmarks outside the sandbox, so they can persist even after the sandbox is deleted. When this option is not set, bookmarks are stored only in the sandbox, and will be deleted when the sandbox is deleted.
+**Setting:** Allow direct access to Firefox cookies
 
-Please note that, starting from Firefox 3, the same file (called _places.sqlite_) stores both bookmarks and the history of visited sites. Therefore this setting will cause Firefox to also store the history of visited outside the sandbox.
+Enabling this setting lets Firefox under Sandboxie store cookies outside the sandbox (_cookies.sqlite_), ensuring persistence after sandbox deletion. If unselected, cookies are stored only in the sandbox and are deleted with it.
 
-~~One approach to this is to install the [PlainOldFavorites](https://www.iosart.com/firefox/plainoldfavorites) add-on, which lets Firefox create and manage Internet Explorer-style Favorites in addition to Mozilla-style bookmarks. Then consult the discussion on favorites in [Internet Explorer Tips](InternetExplorerTips.md#favorites).~~
+An alternative approach is to visit your favorite sites once with a normal Firefox, allowing them to remember you in their cookies. Then switch to a Firefox under Sandboxie to keep any new cookies in the sandbox until deletion.
 
-**Bottom line:**
+### Phishing Database
 
-~~*   If you don't mind the extra add-on, install PlainOldFavorites to enhance Firefox with Internet Explorer-style favorites, then read the recommendations for handling favorites in [Internet Explorer Tips](InternetExplorerTips.md).~~
-*   If you are happy with Firefox bookmarks, then select this setting.
+**Setting:** Allow direct access to Firefox phishing database
 
-* * *
+Keep this setting selected to allow Firefox under Sandboxie to efficiently update and maintain the phishing database (_urlclassifier*.sqlite_). If unselected, Firefox might need to spend time copying the potentially large file into the sandbox whenever it's deleted.
 
-**Cookies**
+### Full Profile Access
 
-*   Setting: Allow direct access to Firefox cookies
+**Setting:** Allow direct access to the entire Firefox profile folder
 
-This setting allows Firefox running under Sandboxie to store cookies outside the sandbox (in a file called _cookies.sqlite_), so they can persist even after the sandbox is deleted. When this option is not set, cookies are stored only in the sandbox, and will be deleted when the sandbox is deleted.
-
-An alternative approach is to this setting is to visit your favorite sites once with a normal Firefox, to get these sites to remember you in their cookies. Then switch to a Firefox under Sandboxie, so any new cookies are kept the sandbox until you delete the sandbox.
-
-**Bottom line:**
-
-*   If you regularly delete cookies, and plan to start regularly using Sandboxie, then you can keep this setting unselected, and you will not have to keep regularly deleting cookies.
-*   If you need web sites that you visit in a sandboxed Firefox to remember you, then select this setting.
-
-* * *
-
-**Phishing Database**
-
-*   Setting: Allow direct access to Firefox phishing database
-
-This setting allows Firefox running under Sandboxie to update and maintain the database of phishing web sites (a file called _urlclassifier*.sqlite_). When this option is not set, then whenever the sandbox is deleted, Firefox might have to spend time to copy the phishing database (potentially a very large file) into the sandbox, and then download updates to the database. The setting is enabled by default.
-
-**Bottom line:** Keep the setting selected.
-
-* * *
-
-**Full Profile Access**
-
-*   Setting: Allow direct access to entire Firefox profile folder
-
-This setting allows Firefox running under Sandboxie to have access to any data file within the entire Firefox profile. This setting includes any other Firefox data file mentioned above, and overrides all other "direct access" setting discussed earlier.
-
-**Bottom line:** Do not select this setting.
-
-* * *
+Avoid selecting this setting, as it grants unrestricted access to all Firefox profile data, overriding other "direct access" settings.
 
 ## General Tips
 
-**Automatic Delete Sandbox**
+### Automatic Delete Sandbox
 
 [Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > [Delete](DeleteSettings.md) > [Invocation](DeleteSettings.md#invocation)
 
-![](../Media/DeleteInvocationSettings.png)
+![Delete Invocation Settings](../Media/DeleteInvocationSettings.png)
 
-*   Setting: Automatically delete contents of sandbox
+**Setting:** Automatically delete contents of the sandbox
 
-This setting tells Sandboxie to delete the sandbox whenever all programs in the sandbox stop running.
+Enable this setting to automatically delete the sandbox contents when all programs within it stop running.
 
-* * *
-
-**Highlight Windows of Programs Running Under Sandboxie**
+### Highlight Windows of Programs Running Under Sandboxie
 
 [Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > [Appearance Settings](AppearanceSettings.md)
 
-![](../Media/AppearanceSettings.png)
+![Appearance Settings](../Media/AppearanceSettings.png)
 
-*   Setting: Display a border around the window
+**Setting:** Display a border around the window
 
-This setting tells Sandboxie to draw a color border around windows that belong to programs running in this sandbox. The default color is yellow, but you can select a different color for every sandbox.
-
-Alternatively, if you wish to blur the distinction between programs running under the supervision of Sandboxie and those that are not, select the setting "Don't show Sandboxie indicator in the window title."
+This setting adds a color border around windows of programs running in the sandbox, facilitating visual identification. Optionally, blur the distinction by selecting "Don't show Sandboxie indicator in the window title."

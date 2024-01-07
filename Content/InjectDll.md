@@ -1,48 +1,42 @@
 # Inject Dll
 
+The _InjectDll_ setting in [Sandboxie Ini](SandboxieIni.md) allows Sandboxie to inject a specified DLL into every program within the sandbox. This can be useful for extending functionality or implementing custom behavior.
 
-_InjectDll_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It tells Sandboxie to "inject" some DLL into every program in the sandbox. "Inject" means the DLL is
-```
-   .
-   .
-   .
-   [DefaultBox]
-   InjectDll=c:\Program Files\Sandboxie Utilities\Sample.dll
-```
+To implement this setting, you should include it in the [DefaultBox] section, providing the full path to the DLL, as demonstrated below:
 
-You should specify a full path to the DLL. If the DLL file itself resides within the sandbox, specify the full path inside the sandbox.
-
-**Note:** The InjectDll setting specifies 32-bit DLLs, and will be ignored in a 64-bit process on 64-bit Windows. Use the [InjectDll64](InjectDll64.md) setting to specify 64-bit DLLs.
-
-* * *
-
-The order of DLLs loaded into the sandboxed program is thus:
-
-Ntdll.dll  
-KernelBase.dll (only on Windows 7)  
-Kernel32.dll  
-SbieDll.dll (on 64-bit Windows, this can be either the 64-bit SbieDll or the 32-bit SbieDll)  
-_InjectDlls_ (loaded in the order specified in Sandboxie.ini)  
-Optionally, ShimEng (or AppHelp on Windows 7) and related DLLs  
-All [statically-linked](https://msdn.microsoft.com/en-us/library/ms684184(VS.85).aspx) DLLs
-
-The behavior described above applies to Sandboxie version 3.46 and later. Earlier versions of Sandboxie implemented a different behavior which is described below:
-
-The injected DLL is loaded into the sandboxed process (or program) after all the statically-linked DLLs are loaded and initialized, but before the program itself begins to execute at its entry point.
-
-* * *
-
-If the DLL exports the symbol **InjectDllMain** or **InjectDllMain@8**, Sandboxie will call this procedure after the DLL is loaded, and pass the address of the SbieDll module. Declare InjectDllMain in your code:
-```
-   __declspec(dllexport) void __stdcall InjectDllMain(
-      HINSTANCE hSbieDll, ULONG_PTR UnusedParameter);
+```ini
+[DefaultBox]
+InjectDll=c:\Program Files\Sandboxie Utilities\Sample.dll
 ```
 
-It is recommended to use the **hSbieDll** parameter as the module instance handle for SbieDll.Dll, instead of relying on GetModuleHandle("SbieDll.dll"). This makes it possible for the injected DLL to interact with SbieDll.dll regardless of the actual name used for SbieDll.dll. However, using LoadLibrary or GetModuleHandle to look up SbieDll by name is also fine.
+Ensure that the full path is specified, and if the DLL resides within the sandbox, use the full path inside the sandbox.
 
-* * *
+**Note:** The InjectDll setting is for 32-bit DLLs and won't affect 64-bit processes on 64-bit Windows. For 64-bit DLLs, use the [InjectDll64](InjectDll64.md) setting.
 
-At this time, this setting cannot be manipulated from [Sandboxie Control](SandboxieControl.md). You have to manually edit it into [Sandboxie Ini](SandboxieIni.md).
+### DLL Loading Order:
+
+1. Ntdll.dll
+2. KernelBase.dll (only on Windows 7)
+3. Kernel32.dll
+4. SbieDll.dll (64-bit SbieDll or 32-bit SbieDll on 64-bit Windows)
+5. _InjectDlls_ (loaded in order specified in Sandboxie.ini)
+6. Optionally, ShimEng (or AppHelp on Windows 7) and related DLLs
+7. All [statically-linked](https://msdn.microsoft.com/en-us/library/ms684184(VS.85).aspx) DLLs
+
+This behavior is applicable from Sandboxie version 3.46 onwards. Earlier versions had a different loading behavior, explained below:
+
+The injected DLL loads into the sandboxed process after the initialization of statically-linked DLLs but before the program execution starts at its entry point.
+
+### DLL Interaction:
+
+If the DLL exports **InjectDllMain** or **InjectDllMain@8**, Sandboxie will call this procedure after loading. Declare InjectDllMain in your code as follows:
+
+```c
+__declspec(dllexport) void __stdcall InjectDllMain(HINSTANCE hSbieDll, ULONG_PTR UnusedParameter);
+```
+
+It's recommended to use the **hSbieDll** parameter as the module instance handle for SbieDll.Dll for interaction. However, using LoadLibrary or GetModuleHandle to look up SbieDll by name is also acceptable.
+
+**Note:** This setting is not adjustable from [Sandboxie Control](SandboxieControl.md) at this time; manual editing of [Sandboxie Ini](SandboxieIni.md) is required.
 
 See also: [InjectDll64](InjectDll64.md), [SBIE DLL API](SBIEDLLAPI.md), [Start Command Line](StartCommandLine.md).
-
