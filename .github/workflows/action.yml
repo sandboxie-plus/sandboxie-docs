@@ -27,13 +27,11 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Lychee Broken Link Checker
-        uses: lycheeverse/lychee-action@v1.8.0
+        uses: lycheeverse/lychee-action@v1.9.1
         with:
           # Check all markdown files in repo
           args: -vvv --no-progress --accept 200,429 './**/*.md'
           fail: true
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
       # To avoid automated spam, try to find an existing open issue before opening a new one
       # Source: https://github.com/cilium/tetragon/pull/805
