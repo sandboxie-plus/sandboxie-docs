@@ -36,7 +36,7 @@ In all forms, the parameter _/box:SandboxName_ is applicable, and may be specifi
   "C:\Program Files\Sandboxie\Start.exe"  /box:TestBox  run_dialog
 ```
 
-A special form of the /box parameter is _/box:_**_ask_**__ and causes Start.exe to display the sandbox selection dialog box.
+A special form of the /box parameter is _/box:\_\_ask\_\__ and causes Start.exe to display the sandbox selection dialog box.
 
 The parameter _/silent_ can be used to eliminate some pop-up error messages. For example:
 ```
