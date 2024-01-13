@@ -57,7 +57,7 @@ The _Create New Sandbox_ command defines a new sandbox in Sandboxie. A dialog bo
 
 ### Set Container Folder
 
-The _Set Container Folder_ command selects the container (or master, or parent) folder which will contain all other sandboxes. The default location is **X:\Sandbox\%USER%\%SANDBOX%**, where **X:** stands for the drive where Windows is installed, typically **C:**.
+The _Set Container Folder_ command selects the container (or master, or parent) folder which will contain all other sandboxes. The default location is **X:\\Sandbox\\%USER%\\%SANDBOX%**, where **X:** stands for the drive where Windows is installed, typically **C:**.
 
 The special variable **%SANDBOX%** is replaced by the name of the sandbox.
 

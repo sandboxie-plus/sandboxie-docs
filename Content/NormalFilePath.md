@@ -16,3 +16,5 @@ Example:
    NormalFilePath=iexplore.exe,%Favorites%
    NormalFilePath=msimn.exe,*.eml
 ```
+
+Related Sandboxie Plus setting: Sandbox Options > Resource Access > Files > Add File/Folder > Access column > Normal

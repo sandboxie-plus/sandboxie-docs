@@ -12,7 +12,11 @@ Usage:
    AlertProcess=firefox.exe
 ```
 
+Related [Sandboxie Control](SandboxieControl.md) settings:
+* [Program Settings](ProgramSettings.md)
+* [Configure Menu > Alert Programs](ConfigureMenu.md#program-alerts)
 
-See also:
-* [Program Settings](ProgramSettings.md).
-* [Configure Menu > Alert Programs](ConfigureMenu.md#program-alerts).
+Related Sandboxie Plus setting:
+* Options menu > Global Settings > Program Control > Program Alerts
+
+See also: [Alert Folder](AlertFolder.md).

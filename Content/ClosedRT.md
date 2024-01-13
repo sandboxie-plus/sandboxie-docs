@@ -13,6 +13,4 @@ Usage:
 
 This example makes the _ExampleRT_ interface not accessible to sandboxed programs.
 
-Related Sandboxie Plus setting:
-
-Sandbox Options > Resource Access > COM
+Related Sandboxie Plus setting: Sandbox Options > Resource Access > COM > Add COM Object > Access column > Closed RT

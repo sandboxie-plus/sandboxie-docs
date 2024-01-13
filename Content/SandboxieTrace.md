@@ -52,7 +52,7 @@ You can also adjust the buffer size by adding ```TraceBufferPages=2560``` that w
 Since version 0.9.0 / 5.51.0, a new option `NetFwTrace=*` was added to trace the actions of the firewall components. Please note that the driver only logs to the kernel debug output, which you can view with [DbgView.exe](https://docs.microsoft.com/en-us/sysinternals/downloads/debugview).
 
 
-On Windows Vista and later, output from the system debugger log is disabled by default. [This blog post](https://web.archive.org/web/20080731211018/http://blogs.msdn.com:80/doronh/archive/2006/11/14/where-did-my-debug-output-go-in-vista.aspx) and [this StackOverflow thread](https://stackoverflow.com/questions/65015739/outputdebugstring-not-showing-message-in-debugview-windows-10-x64) explain how to enable it.
+On Windows Vista and later, output from the system debugger log is disabled by default. [This blog post](https://web.archive.org/web/20080731211018/http://blogs.msdn.com:80/doronh/archive/2006/11/14/where-did-my-debug-output-go-in-vista.aspx) and [this thread](https://web.archive.org/web/20230324011501/https://stackoverflow.com/questions/65015739/outputdebugstring-not-showing-message-in-debugview-windows-10-x64) explain how to enable it.
 
 The following trace will display output in the following format. (Assuming **IpcTrace**, and **PipeTrace** enabled.)
 ```

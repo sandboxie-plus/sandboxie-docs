@@ -21,3 +21,5 @@ These examples let the Firefox program, _firefox.exe_, have direct access to the
 The value specified for _OpenConfPath_ can include wildcards, although for registry keys, the use of wildcards is rarely needed. For more information on this, including examples that show the use of wildcards, see [OpenFilePath](OpenFilePath.md). (_OpenFilePath_ deals with files, not registry keys, but the principle of using wildcards remains the same.)
 
 **Note:** This setting does apply even when the program executable file resides within the sandbox. This means that (potentially malicious) software downloaded into your computer and executed, can take advantage of this setting.
+
+Related Sandboxie Plus setting: Sandbox Options > Resource Access > Registry > Add Reg Key > Access column > Open for All

@@ -16,6 +16,12 @@ Usage:
    FileRootPath=C:\Sandbox\MySandbox
 ```
 
+Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox menu > Set Container Folder](SandboxMenu.md#set-container-folder)
+
+Related Sandboxie Plus setting: Options menu > Global Settings > Advanced Config > Sandboxie Config > Sandbox file system root
+
+**Technical Details**
+
 The following substitution variables may be useful in this path.
 
 *   [Shell Folders](ShellFolders.md) variables such as %Personal% which expands to the user's Documents folder

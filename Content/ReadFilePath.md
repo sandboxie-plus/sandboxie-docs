@@ -18,3 +18,5 @@ This example forces the C:\WINDOWS folder, and everything below it, to be readab
 Note: _ReadFilePath_ is a restricted form of [OpenFilePath](OpenFilePath.md). As with _OpenFilePath_, any already-existing sandboxed contents for the specified file or folder locations, are ignored.
 
 Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Resource Access > File Access > Read-Only Access](ResourceAccessSettings.md#file-access--read-only-access)
+
+Related Sandboxie Plus setting: Sandbox Options > Resource Access > Files > Add File/Folder > Access column > Read Only

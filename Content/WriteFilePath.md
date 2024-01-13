@@ -20,3 +20,5 @@ This setting is not applicable to files. If the path specified in the setting ma
 Note: WriteFilePath is implemented internally as an enhanced form of [ClosedFilePath](ClosedFilePath.md).
 
 Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Resource Access > File Access > Write-Only Access](ResourceAccessSettings.md#file-access--write-only-access)
+
+Related Sandboxie Plus setting: Sandbox Options > Resource Access > Files > Add File/Folder > Access column > Box Only (Write Only)

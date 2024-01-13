@@ -30,7 +30,7 @@ jobs:
         uses: lycheeverse/lychee-action@v1.9.1
         with:
           # Check all markdown files in repo
-          args: -vvv --no-progress --accept 200,429 './**/*.md'
+          args: -vvv --no-progress --max-redirects 30 --accept 200,429 './**/*.md'
           fail: true
 
       # To avoid automated spam, try to find an existing open issue before opening a new one

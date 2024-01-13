@@ -21,3 +21,5 @@ To manage Windows credentials, start Control Panel > User Accounts, select an ac
 **Note:** Sandboxie stores credentials in the sandboxed protected storage. Thus, if the setting _Save outside sandbox: History of search strings and invoked commands_ in [Sandbox Settings > Applications > Web Browser](ApplicationsSettings.md#web-browser) is enabled, credentials will not be stored in the sandbox, regardless of the OpenCredentials setting.
 
 ~~Related [Sandboxie Control](SandboxieControl.md) setting: _Save outside sandbox: Account information for Hotmail and Messenger_ in [Sandbox Settings > Applications > Web Browser](ApplicationsSettings.md#web-browser)~~ (no longer available since Sandboxie v0.8.0 / 5.50.0)
+
+Related Sandboxie Plus setting: Sandbox Options > General Options > Restrictions > Other restrictions > Open System Protected Storage
