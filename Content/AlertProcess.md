@@ -2,7 +2,6 @@
 
 The _AlertProcess_ setting in [Sandboxie Ini](SandboxieIni.md) is a global configuration that specifies the names of programs triggering message [SBIE1301](SBIE1301.md) when started outside the sandbox. This setting can be conveniently managed within the application interface:
 
-![Alert Programs](../Media/AlertPrograms.png)
 
 To utilize this setting, add program names to the [GlobalSettings] section, as demonstrated:
 
