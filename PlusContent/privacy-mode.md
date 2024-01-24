@@ -17,6 +17,7 @@ Internally, a privacy enhanced box is based on three defaults:
 - `C:\Windows`
 - `C:\Program Files`
 - `C:\Program Files (x86)`
+- `C:\ProgramData\Microsoft` (since **Sandboxie Plus v1.12.7**)
 - Registry resources under HKLM (but not HKCU) are readable and can be sandboxed.
 - **Note:** The read access provides a good balance between privacy and convenience. One could, of course, drill down to identify selected system resources that may leak private data and further restrict them (using `Write[File/Key]Path`) if desired.
 
