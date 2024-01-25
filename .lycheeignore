@@ -1,3 +1,4 @@
 # List of URLs to ignore in the link checker
-https://www.ghacks.net/*
 https://web.archive.org/web/*
+https://www.ghacks.net/*
+https://www.howtogeek.com/*
