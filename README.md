@@ -1,4 +1,6 @@
 # Sandboxie documentation
+[![Join our Discord Server](https://img.shields.io/badge/Join-Our%20Discord%20Server%20for%20bugs%20,%20feedback%20and%20more!-blue?style=for-the-badge&logo=discord)](https://discord.gg/TZDC3qbCSk)
+
 [![Markdown links Status](https://github.com/sandboxie-plus/sandboxie-docs/actions/workflows/action.yml/badge.svg)](https://github.com/sandboxie-plus/sandboxie-docs/actions/workflows/action.yml) [![Codespell Status](https://github.com/sandboxie-plus/sandboxie-docs/actions/workflows/codespell.yml/badge.svg)](https://github.com/sandboxie-plus/sandboxie-docs/actions/workflows/codespell.yml)
 
 ## Introduction
