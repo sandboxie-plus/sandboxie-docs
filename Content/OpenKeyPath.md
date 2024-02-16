@@ -21,3 +21,5 @@ The value specified for _OpenKeyPath_ can include wildcards, although for regist
 **Note:** For security reasons, this setting does not apply when the program executable file resides within the sandbox. This means that (potentially malicious) software downloaded into your computer and executed, cannot take advantage of this setting.
 
 Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Resource Access > Registry Access > Direct Access](ResourceAccessSettings.md#registry-access--direct-access)
+
+Related Sandboxie Plus setting: Sandbox Options > Resource Access > Registry > Add Reg Key > Access column > Open

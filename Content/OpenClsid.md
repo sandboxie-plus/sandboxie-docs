@@ -14,3 +14,9 @@ Examples:
 This example makes the HP Universal Printer Status Monitor pop-up component accessible to sandboxed programs.
 
 Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Resource Access > COM Access](ResourceAccessSettings.md#com-access)
+
+Related Sandboxie Plus settings:
+
+Sandbox Options > Resource Access > COM > Add COM Object > Access column > Open
+
+Sandbox Options > Resource Access > COM > Don't use virtualized COM, Open access to hosts COM infrastructure (not recommended)

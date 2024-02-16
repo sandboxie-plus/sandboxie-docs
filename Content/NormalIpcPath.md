@@ -11,3 +11,5 @@ Example:
    [DefaultBox]
    NormalIpcPath=\RPC Control\AudioSrv
 ```
+
+Related Sandboxie Plus setting: Sandbox Options > Resource Access > IPC > Add IPC Path > Access column > Normal

@@ -11,8 +11,6 @@ Usage:
    NotifyProcessAccessDenied=y
 ```
 
-Related Sandboxie Plus setting:
+Related Sandboxie Plus setting: Sandbox Options > General Options > Restrictions > Other restrictions > Issue message 2111 when a process access is denied
 
-Sandbox Options > General Options > Resource Access > IPC
-
-Sandbox Options > General Options > Restrictions > Other restrictions
+For more information, see [SBIE2111](SBIE2111.md).

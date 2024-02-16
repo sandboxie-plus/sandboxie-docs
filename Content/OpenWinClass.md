@@ -44,3 +44,13 @@ Note that OpenWinClass=* allows full communication with all windows outside the 
 **Identifying Window Class Names**
 
 The unsandboxed windows are identified by their _window class name_, which is an internal name given to the window by the application that created it. You can use a tool like [WinSpy](https://www.catch22.net/software/winspy) to identify window class names. The [Resource Access Monitor](ResourceAccessMonitor.md) tool in Sandboxie Classic and the [Trace Logging](../PlusContent/TraceLog.md) tool in Sandboxie Plus also display window class names.
+
+Related Sandboxie Plus settings:
+
+Sandbox Options > Resource Access > Wnd > Add Wnd Class > Access column > Open
+
+Sandbox Options > Resource Access > Wnd > Add Wnd Class > Access column > Ignore UIPI
+
+Sandbox Options > Resource Access > Wnd > Don't alter window class names created by sandboxed programs
+
+See also: [No Rename Win Class](NoRenameWinClass.md).

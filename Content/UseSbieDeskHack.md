@@ -20,6 +20,4 @@ It was initially implemented to address the issue of infinite callback problems 
 
 It is now enabled by default. This allows Electron applications to run without the need to set the 'SpecialImage=chrome,program.exe' option.
 
-Related Sandboxie Plus setting:
-
-Sandbox Options > Various Options > Compatibility > Use desktop object workaround for all processes
+Related Sandboxie Plus setting: Sandbox Options > Various Options > Compatibility > Use desktop object workaround for all processes

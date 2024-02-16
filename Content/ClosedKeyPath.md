@@ -24,6 +24,4 @@ The value specified for _ClosedKeyPath_ can include wildcards, although for regi
 
 Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Resource Access > Registry Access > Blocked Access](ResourceAccessSettings.md#registry-access--blocked-access)
 
-* * *
-
-Go to [Sandboxie Ini](SandboxieIni.md).
+Related Sandboxie Plus setting: Sandbox Options > Resource Access > Registry > Add Reg Key > Access column > Closed

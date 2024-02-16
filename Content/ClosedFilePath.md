@@ -35,3 +35,5 @@ The third example (spanning four lines) disables Internet access within a sandbo
 **Note:** Unlike the corresponding OpenFilePath setting, the _ClosedFilePath_ settings always applies to sandboxed programs, whether the program executable file resides within the sandbox, or out of it.
 
 Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Resource Access > File Access > Blocked Access](ResourceAccessSettings.md#file-access--blocked-access)
+
+Related Sandboxie Plus setting: Sandbox Options > Resource Access > Files > Add File/Folder > Access column > Closed

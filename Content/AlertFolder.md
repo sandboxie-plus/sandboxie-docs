@@ -11,6 +11,6 @@ Usage:
    AlertFolder=%ProgramFiles%\Mozilla Firefox
 ```
 
-Related Sandboxie Plus setting:
+Related Sandboxie Plus setting: Options menu > Global Settings > Program Control > Program Alerts
 
-Options > Global Settings > Program Control > Program Alerts
+See also: [Alert Process](AlertProcess.md).

@@ -23,3 +23,5 @@ This setting accepts wildcards. For more information on the use of wildcards in 
 **Note:** Unlike the corresponding [OpenIpcPath](OpenIpcPath.md) setting, the _ClosedKeyPath_ settings always applies to sandboxed programs, whether the program executable file resides within the sandbox, or out of it.
 
 Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Resource Access > IPC Access > Blocked Access](ResourceAccessSettings.md#ipc-access--blocked-access)
+
+Related Sandboxie Plus setting: Sandbox Options > Resource Access > IPC > Add IPC Path > Access column > Closed

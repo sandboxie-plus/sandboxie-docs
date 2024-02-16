@@ -20,5 +20,6 @@ Example:
    NormalIpcPath=\RPC Control\epmapper
    NormalIpcPath=\RPC Control\OLE*
    NormalIpcPath=\RPC Control\LRPC*
-
 ```
+
+Related Sandboxie Plus setting: Sandbox Options > Resource Access > Registry > Add Reg Key > Access column > Normal

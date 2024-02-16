@@ -33,8 +33,8 @@ By default, the only process whose memory can be read is _explorer.exe_. Many pr
    ClosedIpcPath=$:explorer.exe
 ```
 
-Related Sandboxie Plus setting:
+Related Sandboxie Plus settings:
 
-Sandbox Options > General Options > Resource Access > IPC
+Sandbox Options > Resource Access > IPC > Add IPC Path > Access column > Read Only
 
-Sandbox Options > General Options > Restrictions > Other restrictions
+Sandbox Options > General Options > Restrictions > Other restrictions > Allow to read memory of unsandboxed processes (not recommended)

@@ -25,3 +25,5 @@ Will allow the sandboxed program to manage shares and user accounts on the compu
 **Note:** This specific example is not recommended, as it weakens the protection of the sandbox.
 
 Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Resource Access > File Access > Full Access](ResourceAccessSettings.md#file-access--full-access)
+
+Related Sandboxie Plus setting: Sandbox Options > Resource Access > Files > Add File/Folder > Access column > Open for All

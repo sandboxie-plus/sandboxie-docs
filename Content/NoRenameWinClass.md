@@ -16,6 +16,4 @@ The first setting tells Sandboxie to not translate _ExampleWinClass_ window clas
 
 The second setting tells Sandboxie to not translate window class names created by _program.exe_ by making them accessible to sandboxed programs, and goes a step further to disable a few other windowing-related Sandboxie functions. This may also cause the Sandboxie indicator [#] to not appear in window titles.
 
-Related Sandboxie Plus setting:
-
-Sandbox Options > General Options > Resource Access > Wnd
+Related Sandboxie Plus setting: Sandbox Options > Resource Access > Wnd > Add Wnd Class > Access column > No Rename
