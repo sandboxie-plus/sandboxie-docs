@@ -1,24 +1,24 @@
-# Sandboxie documentation
+# Sandboxie 文档
 
 [![Markdown links Status](https://github.com/sandboxie-plus/sandboxie-docs/actions/workflows/action.yml/badge.svg)](https://github.com/sandboxie-plus/sandboxie-docs/actions/workflows/action.yml) [![Codespell Status](https://github.com/sandboxie-plus/sandboxie-docs/actions/workflows/codespell.yml/badge.svg)](https://github.com/sandboxie-plus/sandboxie-docs/actions/workflows/codespell.yml)
 
 [![Join our Discord Server](https://img.shields.io/badge/Join-Our%20Discord%20Server%20for%20bugs,%20feedback%20and%20more!-blue?style=for-the-badge&logo=discord)](https://discord.gg/S4tFu6Enne)
 
 ## Introduction
-Sandboxie is a sandbox-based isolation software for Windows that lets you try and run untrusted applications without worrying about unwanted changes to your files or registry.
+Sandboxie 是一款基于沙盒的 Windows 隔离软件，可让您尝试运行不受信任的应用程序，而无需担心对文件或注册表进行不想要的更改。
 
-After Sandboxie became [open source](https://news.sophos.com/en-us/2020/04/09/sandboxie-is-now-an-open-source-tool/), it was decided to release the documentation in the same way, in order to be accessible and easily updated from the community than the documentation available on [sandboxie-plus.com](https://sandboxie-plus.com) and other archived sources.
+在 Sandboxie [开源](https://news.sophos.com/en-us/2020/04/09/sandboxie-is-now-an-open-source-tool/) 之后, 我们决定以同样的方式发布文档，以便从社区中访问和轻松更新，而不是从 [sandboxie-plus.com](https://sandboxie-plus.com) 和其他存档来源上的文档。
 
-A GitHub Pages site based on this content is also available: [https://sandboxie-plus.github.io/sandboxie-docs](https://sandboxie-plus.github.io/sandboxie-docs)
-<br>If you would like to improve it, please see [#102](https://github.com/sandboxie-plus/sandboxie-docs/issues/102)
+基于此内容的一个 GitHub Pages 站点也可用：[https://sandboxie-plus.github.io/sandboxie-docs](https://sandboxie-plus.github.io/sandboxie-docs)
+<br>如果您想改进它，请参阅 [#102](https://github.com/sandboxie-plus/sandboxie-docs/issues/102)
 
-## Help Topics
+## 帮助 主题
 
-* [Getting Started with Sandboxie](Content/GettingStarted.md)
-* [General Usage Tips](Content/UsageTips.md)
-* [Usage Manual for Sandboxie Control](Content/SandboxieControl.md)
-* [Known Conflicts](Content/KnownConflicts.md)
-* [Frequenty Asked Questions](Content/FrequentlyAskedQuestions.md)
+* [Sandboxie 入门](Content/GettingStarted.md)
+* [使用提示总览](Content/UsageTips.md)
+* [Sandboxie Control （Sandboxie 图形用户界面） 使用手册](Content/SandboxieControl.md)
+* [已知的 Sandboxie 与部分软件的冲突](Content/KnownConflicts.md)
+* [常见问题（FAQ）](Content/FrequentlyAskedQuestions.md)
 * [Advanced Topics](Content/AdvancedTopics.md)
 * [Technical Aspects](Content/TechnicalAspects.md)
 * [SBIE Messages](Content/SBIEMessages.md)
