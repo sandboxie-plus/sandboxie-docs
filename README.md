@@ -7,7 +7,7 @@
 ## Introduction
 Sandboxie 是一款基于沙盒的 Windows 隔离软件，可让您尝试运行不受信任的应用程序，而无需担心对文件或注册表进行不想要的更改。
 
-在 Sandboxie [开源](https://news.sophos.com/en-us/2020/04/09/sandboxie-is-now-an-open-source-tool/) 之后, 我们决定以同样的方式发布文档，以便从社区中访问和轻松更新，而不是从 [sandboxie-plus.com](https://sandboxie-plus.com) 和其他存档来源上的文档。
+在 Sandboxie [开源](https://news.sophos.com/en-us/2020/04/09/sandboxie-is-now-an-open-source-tool/) 之后, 我们决定以同样的方式发布文档，以便从社区中访问和轻松地更新，而不是从 [sandboxie-plus.com](https://sandboxie-plus.com) 和其他存档来源上的文档。
 
 基于此内容的一个 GitHub Pages 站点也可用：[https://sandboxie-plus.github.io/sandboxie-docs](https://sandboxie-plus.github.io/sandboxie-docs)
 <br>如果您想改进它，请参阅 [#102](https://github.com/sandboxie-plus/sandboxie-docs/issues/102)
@@ -19,23 +19,23 @@ Sandboxie 是一款基于沙盒的 Windows 隔离软件，可让您尝试运行�
 * [Sandboxie Control （Sandboxie 图形用户界面） 使用手册](Content/SandboxieControl.md)
 * [已知的 Sandboxie 与部分软件的冲突](Content/KnownConflicts.md)
 * [常见问题（FAQ）](Content/FrequentlyAskedQuestions.md)
-* [Advanced Topics](Content/AdvancedTopics.md)
-* [Technical Aspects](Content/TechnicalAspects.md)
-* [SBIE Messages](Content/SBIEMessages.md)
-* [Command Line Usage](Content/StartCommandLine.md)
-* [Sandboxie Configuration File](Content/SandboxieIni.md)
-* [Resource Access Settings](Content/ResourceAccess.md)
-* [Sandboxie Plus Migration Guide](Content/PlusMigrationGuide.md)
-* [Sandboxie Plus Features](PlusContent/Plus-Features.md)
-* [All Pages Index](Content/AllPages.md)
+* [高级内容](Content/AdvancedTopics.md)
+* [技术专文](Content/TechnicalAspects.md)
+* [SBIE 消息](Content/SBIEMessages.md)
+* [命令行用法](Content/StartCommandLine.md)
+* [Sandboxie 配置文件](Content/SandboxieIni.md)
+* [沙盒资源访问设置](Content/ResourceAccess.md)
+* [Sandboxie Plus 关于改进后的 UI（用户界面）指导手册](Content/PlusMigrationGuide.md)
+* [Sandboxie Plus 功能](PlusContent/Plus-Features.md)
+* [所有 Sandboxie-Docs 页面目录](Content/AllPages.md)
 
 ## Get Sandboxie
-Select from two editions:
+从两个版本中选择:
 
-* Get Sandboxie Plus if you are a first-time user or want the latest features.
-* Get Sandboxie Classic if you have used Sandboxie for a long time.
+* 如果您需要 Sandboxie 的最新功能或者您第一次使用 Sandboxie 系列产品，请选择Sandboxie Plus。
+* 如果您使用 Sandboxie(Classic)很久了，请选择 Sandboxie Classic。
 
-[Feature Comparison](Content/FeatureComparison.md) | [System requirements](https://github.com/sandboxie-plus/Sandboxie#sandboxie) | [Changelog](https://github.com/sandboxie-plus/Sandboxie/blob/master/CHANGELOG.md) | [Download the latest release](https://github.com/sandboxie-plus/Sandboxie/releases/latest)
+[功能比较](Content/FeatureComparison.md) | [系统要求](https://github.com/sandboxie-plus/Sandboxie#sandboxie) | [更新日志/变更日志](https://github.com/sandboxie-plus/Sandboxie/blob/master/CHANGELOG.md) | [下载最新版本](https://github.com/sandboxie-plus/Sandboxie/releases/latest)
 
 ## Contribute
-If you have development, testing or translation skills, then feel free to check out our [Contribution guidelines](https://github.com/sandboxie-plus/Sandboxie/blob/master/CONTRIBUTING.md).
+如果您拥有开发，测试或翻译技巧，那么您可以随时查看我们的 [捐助指南](https://github.com/sandboxie-plus/Sandboxie/blob/master/CONTRIBUTING.md).
