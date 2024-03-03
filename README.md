@@ -4,7 +4,7 @@
 
 [![Join our Discord Server](https://img.shields.io/badge/Join-Our%20Discord%20Server%20for%20bugs,%20feedback%20and%20more!-blue?style=for-the-badge&logo=discord)](https://discord.gg/S4tFu6Enne)
 
-## Introduction
+## 介绍
 Sandboxie 是一款基于沙盒的 Windows 隔离软件，可让您尝试运行不受信任的应用程序，而无需担心对文件或注册表进行不想要的更改。
 
 在 Sandboxie [开源](https://news.sophos.com/en-us/2020/04/09/sandboxie-is-now-an-open-source-tool/) 之后, 我们决定以同样的方式发布文档，以便从社区中访问和轻松地更新，而不是从 [sandboxie-plus.com](https://sandboxie-plus.com) 和其他存档来源上的文档。
