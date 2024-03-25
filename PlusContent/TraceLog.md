@@ -8,7 +8,7 @@ The Trace Log tool displays the names of any system resources that are accessed 
 
 ### Using the Trace Log
 
-1\. Enable **Trace Log** tab by opening **Options** menu -> **Trace Logging**.
+1\. Enable **Trace Log** tab by opening **View** menu -> **Trace Logging**.
 
 2\. When the Trace Log tab is activated, it immediately starts to collect and display resource access information from all sandboxed programs that are running.
 
