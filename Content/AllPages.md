@@ -186,6 +186,8 @@
 
 [Ipc Root Path](IpcRootPath.md)
 
+[Is Block Capture](IsBlockCapture.md)
+
 ### J
 
 ### K
