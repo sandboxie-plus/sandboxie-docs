@@ -1,6 +1,6 @@
 # Linger Exempt Wnds
 
-_LingerExemptWnds_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). 
+_LingerExemptWnds_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). To make the lingering process monitor mechanism no longer exempt lingering processes with windows from termination. For example:
 
 ```
    .
