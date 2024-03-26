@@ -198,6 +198,8 @@
 
 [Leader Process](LeaderProcess.md)
 
+[Linger Exempt Wnds](LingerExemptWnds.md)
+
 [Linger Process](LingerProcess.md)
 
 ### M
