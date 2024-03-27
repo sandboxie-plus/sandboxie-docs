@@ -12,6 +12,8 @@ Sandboxie Control is the graphical front end to Sandboxie, and can control most 
 
 * * *
 
+There is a newer graphical front end to Sandboxie: Sandboxie-plus
+
 ### Menus
 
 *   Main Menu:

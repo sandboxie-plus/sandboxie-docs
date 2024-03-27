@@ -6,7 +6,7 @@ The concept of an "Application Compartment" mode was introduced in **Sandboxie P
 
 The setting for a compartment box can be enabled by adding `NoSecurityIsolation=y` to the box settings section of **[Sandboxie Ini](../Content/SandboxieIni.md)**. It can also be enabled in the Sandman UI. Right-click on a box and select "Sandbox Options" from the drop-down menu (or simply double-click on a box) to bring up the Box Options UI. Select the box type preset as "Application Compartment (NO Isolation)" (with a **green** box icon) and click OK to apply changes. The status column of Sandman UI labels this box as **Application Compartment**.
 
-![](../Media/Box_CompartmentMode.png)
+![](../PlusMedia/compartment.png)
 
 In compartment mode, file system and registry filtering are still in place to enforce any access rules. So, processes do run without administrative privileges. This filtering can be disabled by adding `NoSecurityFiltering=y` to the box settings section of **[Sandboxie Ini](../Content/SandboxieIni.md)** in order to provide a greater degree of compatibility.
 
