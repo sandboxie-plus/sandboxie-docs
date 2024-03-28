@@ -144,6 +144,8 @@
 
 [Force Process](ForceProcess.md)
 
+[Forget Password](ForgetPassword.md)
+
 [Frequently Asked Questions](FrequentlyAskedQuestions.md)
 
 ### G
@@ -207,6 +209,8 @@
 [Messages From Sandboxie](MessagesFromSandboxie.md)
 
 [Monitor Admin Only](MonitorAdminOnly.md)
+
+[Msi Installer Exemptions](MsiInstallerExemptions.md)
 
 ### N
 
