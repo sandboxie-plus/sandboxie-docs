@@ -12,7 +12,7 @@
 
 [Applications Settings](ApplicationsSettings.md)
 
-[Applying a Supporter Certificate](applying-supporter-certificate.md)
+[Applying a Supporter Certificate](../PlusContent/applying-supporter-certificate.md)
 
 [Auto Delete](AutoDelete.md)
 
