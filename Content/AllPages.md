@@ -174,6 +174,8 @@
 
 [Help Topics](HelpTopics.md)
 
+[Hide Host Process](HideHostProcess.md)
+
 [Hide Other Boxes](HideOtherBoxes.md)
 
 [How It Works](HowitWorks.md)
