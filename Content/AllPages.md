@@ -648,7 +648,7 @@
 
 [Test Email Configuration](TestEmailConfiguration.md)
 
-[Trace logging](TraceLog.md)
+[Trace logging](../PlusContent/TraceLog.md)
 
 [Translations](../PlusContent/translations.md)
 
