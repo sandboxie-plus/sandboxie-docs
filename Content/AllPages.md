@@ -174,6 +174,8 @@
 
 [Help Topics](HelpTopics.md)
 
+[Hide Other Boxes](HideOtherBoxes.md)
+
 [How It Works](HowitWorks.md)
 
 [How To Use Win Dbg](HowToUseWinDbg.md)
