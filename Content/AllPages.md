@@ -12,6 +12,8 @@
 
 [Applications Settings](ApplicationsSettings.md)
 
+[Applying a Supporter Certificate](applying-supporter-certificate.md)
+
 [Auto Delete](AutoDelete.md)
 
 [Auto Exec](AutoExec.md)
@@ -118,6 +120,8 @@
 
 [Expandable Variables](ExpandableVariables.md)
 
+[External Tutorials](ExternalTutorials.md)
+
 ### F
 
 [FAQ Email](FAQEmail.md)
@@ -190,11 +194,15 @@
 
 [Is Block Capture](IsBlockCapture.md)
 
+[Isolation Mechanism](IsolationMechanism.md)
+
 ### J
 
 ### K
 
 [Key Root Path](KeyRootPath.md)
+
+[Known Conflicts](KnownConflicts.md)
 
 ### L
 
@@ -326,6 +334,8 @@
 
 [Sandbox Settings](SandboxSettings.md)
 
+[Sandboxie](Sandboxie.md)
+
 [Sandboxie Control](SandboxieControl.md)
 
 [Sandboxie Ini](SandboxieIni.md)
@@ -334,6 +344,8 @@
 
 [Sandboxie Live](../PlusContent/Sandboxie-Live.md)
 
+[Sandboxie Plus](../PlusContent/sandboxie-plus.md)
+
 [Sandboxie Plus Features](../PlusContent/Plus-Features.md)
 
 [Sandboxie Plus Migration Guide](PlusMigrationGuide.md)
@@ -341,6 +353,8 @@
 [Sandboxie Portable](../PlusContent/sandboxie-portable.md)
 
 [Sandboxie Trace](SandboxieTrace.md)
+
+[SandboxieDrv use of undocumented kernel exports](TokenMagic.md)
 
 [SBIE DLL API](SBIEDLLAPI.md)
 
@@ -633,6 +647,8 @@
 [Technical Aspects](TechnicalAspects.md)
 
 [Test Email Configuration](TestEmailConfiguration.md)
+
+[Trace logging](TraceLog.md)
 
 [Translations](../PlusContent/translations.md)
 
