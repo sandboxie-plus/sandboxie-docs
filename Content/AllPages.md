@@ -240,6 +240,8 @@
 
 [Notify Start Run Access Denied](NotifyStartRunAccessDenied.md)
 
+[Nt Namespace Isolation](NtNamespaceIsolation.md)
+
 [Nt Status Codes](NtStatusCodes.md)
 
 ### O
