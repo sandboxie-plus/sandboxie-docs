@@ -244,6 +244,8 @@
 
 ### O
 
+[Open Clipboard](OpenClipboard.md)
+
 [Open Clsid](OpenClsid.md)
 
 [Open Conf Path](OpenConfPath.md)
