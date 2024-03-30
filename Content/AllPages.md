@@ -298,6 +298,8 @@
 
 [Programs View](ProgramsView.md)
 
+[Protect Host Images](ProtectHostImages.md)
+
 [Protected Storage](ProtectedStorage.md)
 
 [Proxy Support](../PlusContent/ProxySupport.md)
