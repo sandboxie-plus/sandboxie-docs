@@ -640,6 +640,8 @@
 
 [Security Mode](../PlusContent/security-mode.md)
 
+[Separate User Folders](SeparateUserFolders.md)
+
 [Service Programs](ServicePrograms.md)
 
 [Shell Folders](ShellFolders.md)
