@@ -8,6 +8,8 @@
 
 [Alert Process](AlertProcess.md)
 
+[Allow Raw Disk Read](AllowRawDiskRead.md)
+
 [Appearance Settings](AppearanceSettings.md)
 
 [Applications Settings](ApplicationsSettings.md)
