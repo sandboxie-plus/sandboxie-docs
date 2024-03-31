@@ -8,6 +8,8 @@
 
 [Alert Process](AlertProcess.md)
 
+[Allow Spooler Print To File](AllowSpoolerPrintToFile.md)
+
 [Appearance Settings](AppearanceSettings.md)
 
 [Applications Settings](ApplicationsSettings.md)
@@ -67,6 +69,8 @@
 [Closed Key Path](ClosedKeyPath.md)
 
 [Closed RT](ClosedRT.md)
+
+[Close Print Spooler](ClosePrintSpooler.md)
 
 [Code Injection](CodeInjection.md)
 
@@ -241,6 +245,8 @@
 [Open Key Path](OpenKeyPath.md)
 
 [Open Pipe Path](OpenPipePath.md)
+
+[Open Print Spooler](OpenPrintSpooler.md)
 
 [Open Protected Storage](OpenProtectedStorage.md)
 
