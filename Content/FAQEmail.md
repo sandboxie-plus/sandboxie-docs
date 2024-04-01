@@ -1,6 +1,6 @@
 # FAQ Email
 
-Questions and anwers regarding the use of Sandboxie with email software. For a longer discussion, see [Email Protection](EmailProtection.md).
+Questions and answers regarding the use of Sandboxie with email software. For a longer discussion, see [Email Protection](EmailProtection.md).
 
 ### Q. Why should I use Sandboxie to run my email software?
 
