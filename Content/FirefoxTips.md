@@ -30,7 +30,7 @@ If Firefox is forced to always run under Sandboxie (as discussed above), use the
 
 This setting allows Firefox running under Sandboxie to store bookmarks outside the sandbox, so they can persist even after the sandbox is deleted. When this option is not set, bookmarks are stored only in the sandbox, and will be deleted when the sandbox is deleted.
 
-Please note that, starting from Firefox 3, the same file (called _places.sqlite_) stores both bookmarks and the history of visited sites. Therefore this setting will cause Firefox to also store the history of visited outside the sandbox.
+Please note that, starting with Firefox 3, the same file (called _places.sqlite_) stores both bookmarks and the history of visited sites. Therefore this setting will cause Firefox to also store the history of visited outside the sandbox.
 
 ~~One approach to this is to install the [PlainOldFavorites](https://www.iosart.com/firefox/plainoldfavorites) add-on, which lets Firefox create and manage Internet Explorer-style Favorites in addition to Mozilla-style bookmarks. Then consult the discussion on favorites in [Internet Explorer Tips](InternetExplorerTips.md#favorites).~~
 
