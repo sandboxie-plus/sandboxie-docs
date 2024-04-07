@@ -1,6 +1,6 @@
 # Forget Password
 
-_ForgetPassword_ is a global setting in [Sandboxie Ini](SandboxieIni.md). If set in [Sandboxie Control](SandboxieControl.md) the configuration password is cleared when the main window is hidden - and will need to be re-entered in order to modify configuration settings.
+_ForgetPassword_ is a global setting in [Sandboxie Ini](SandboxieIni.md). If set in [Sandboxie Control](SandboxieControl.md) or [Sandman](PlusMigrationGuide.md), the configuration password is cleared when the main window is hidden - and will need to be re-entered in order to modify configuration settings.
 
 Usage:
 
