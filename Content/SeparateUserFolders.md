@@ -1,6 +1,6 @@
 # Separate User Folders 
 
-_SeparateUserFolders_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It specifies whether user profile files will be stored separately in the sandbox.
+_SeparateUserFolders_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md) available since v0.2.2 / 5.41.2. It specifies whether user profile files will be stored separately in the sandbox.
 
 ```
    .
