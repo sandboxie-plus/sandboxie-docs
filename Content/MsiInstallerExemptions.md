@@ -1,6 +1,6 @@
 # Msi Installer Exemptions
 
-_MsiInstallerExemptions_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md).
+_MsiInstallerExemptions_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md) available since v0.7.2 / 5.49.0.
 
 ```
    .
