@@ -200,6 +200,8 @@
 
 [Is Block Capture](IsBlockCapture.md)
 
+[Is Protect Screen](IsProtectScreen.md)
+
 [Isolation Mechanism](IsolationMechanism.md)
 
 ### J
