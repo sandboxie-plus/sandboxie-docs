@@ -25,4 +25,4 @@ Added as part of 0.5.4 / 5.46.0 version.
    OpenPrintSpooler=n
 ```
 
-When both settings are configured as shown above, the sandboxed applications' requests to the print spooler are selectively filtered. This means that certain actions related to the print spooler are permitted ("open") while others are restricted ("closed"). Specifically, this configuration allows for printing operations but restricts activities that would modify printer configurations or the installation/removal of printers on the system.
+When both settings are configured as shown above, requests from sandboxed applications to the print spooler are selectively filtered. This means that certain actions related to the print spooler are permitted ("open") while others are restricted ("closed"). Specifically, this configuration allows for printing operations but restricts activities that would modify printer configurations or the installation/removal of printers on the system.
