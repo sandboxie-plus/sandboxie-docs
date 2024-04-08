@@ -1,4 +1,5 @@
-<a class="{% if not nav_item.is_link %}reference internal{% endif %}{% if nav_item.active%} current{%endif%}" {% if nav_item == page %}href="#"{% elif nav_item.is_page or nav_item.is_link %}href="{{ nav_item.url|url }}"{% endif %}>{{ nav_item.title }}</a>
+<a class="{% if not nav_item.is_link %}reference internal{% endif %}{% if nav_item.active%} current{%endif%}" 
+    {% if nav_item == page %}href="#"{% elif nav_item.is_page or nav_item.is_link %}href="{{ nav_item.url|url }}"{% endif %} onclick="this.children[0].click()">{{ nav_item.title }}</a>
 {%- set navlevel = navlevel + 1 %}
 {%- if navlevel <= config.theme.navigation_depth
     and ((nav_item.is_page and nav_item.toc.items
