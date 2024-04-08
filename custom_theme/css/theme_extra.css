@@ -232,3 +232,8 @@ code {
     color: #819198;
     border-left: 0.3rem solid #dce6f0;
 }
+
+/*  */
+.logo {
+    width: 100px !important;
+}
