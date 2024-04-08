@@ -1,0 +1,9 @@
+# pyenv
+.python-version
+
+# virtualenv
+venv/
+ENV/
+
+# MkDocs documentation
+site*/
