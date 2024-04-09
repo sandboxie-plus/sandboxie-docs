@@ -60,6 +60,8 @@
 
 ### C
 
+[Close Print Spooler](ClosePrintSpooler.md)
+
 [Closed Clsid Path](ClosedClsid.md)
 
 [Closed File Path](ClosedFilePath.md)
@@ -69,8 +71,6 @@
 [Closed Key Path](ClosedKeyPath.md)
 
 [Closed RT](ClosedRT.md)
-
-[Close Print Spooler](ClosePrintSpooler.md)
 
 [Code Injection](CodeInjection.md)
 
