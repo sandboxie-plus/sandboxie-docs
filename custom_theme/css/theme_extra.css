@@ -237,3 +237,6 @@ code {
 .logo {
     width: 100px !important;
 }
+.logo-label {
+    color: #f8f8f8;
+}
