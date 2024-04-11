@@ -239,4 +239,13 @@ code {
 }
 .logo-label {
     color: #f8f8f8;
+    font-size:100%;
+}
+/*  */
+.wy-side-nav-search .wy-dropdown>a,
+.wy-side-nav-search>a {
+    font-weight:normal;
+}
+.wy-nav-top a {
+    font-weight:normal;
 }
