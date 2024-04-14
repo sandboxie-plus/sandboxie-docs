@@ -10,4 +10,4 @@ _OpenClipboard_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md) availab
    OpenClipboard=n
 ```
 
-Related Sandboxie Plus setting: Sandbox Options > General Options > Restrictions > Block read access to clipboard
+Related Sandboxie Plus setting: Sandbox Options > General Options > Restrictions > Block read access to the clipboard
