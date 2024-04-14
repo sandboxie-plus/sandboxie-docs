@@ -12,4 +12,4 @@ _IsProtectScreen_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md) avail
 
 A setting similar to _IsProtectScreen_ is [IsBlockCapture](IsBlockCapture.md).
 
-Related Sandboxie Plus setting: Sandbox Options > Security Options > Box Protection > Prevent processes from capturing window images from sandboxed windows.
+Related Sandboxie Plus setting: Sandbox Options > Security Options > Box Protection > Prevent processes from capturing window images from sandboxed windows
