@@ -14,4 +14,4 @@ Usage:
 
 See also: [Configuration Protection](ConfigurationProtection.md).
 
-Related Sandboxie Plus setting: Sandboxie Control > Options > Global Settings > Advanced Config > Sandboxie.ini Presets > Clear password when main window becomes hidden.
+Related Sandboxie Plus setting: Options menu > Global Settings > Advanced Config > Sandboxie.ini Presets > Clear password when main window becomes hidden
