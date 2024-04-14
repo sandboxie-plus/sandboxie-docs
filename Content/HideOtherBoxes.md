@@ -1,6 +1,6 @@
 # Hide Other Boxes
 
-_HideOtherBoxes_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md) available since v0.3 / 5.42. If enabled, processes from other boxes will be hidden. By default Sandboxie enables this. Example of disabling this setting:
+_HideOtherBoxes_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md) available since v0.3 / 5.42. By default, Sandboxie enables this feature, which allows processes to be hidden from other boxes. Example of disabling this setting:
 
 ```
    .
