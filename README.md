@@ -1,8 +1,7 @@
 # Sandboxie 文档
 
-[![Markdown links Status](https://github.com/sandboxie-plus/sandboxie-docs/actions/workflows/action.yml/badge.svg)](https://github.com/sandboxie-plus/sandboxie-docs/actions/workflows/action.yml) [![Codespell Status](https://github.com/sandboxie-plus/sandboxie-docs/actions/workflows/codespell.yml/badge.svg)](https://github.com/sandboxie-plus/sandboxie-docs/actions/workflows/codespell.yml)
 
-[![Join our Discord Server](https://img.shields.io/badge/Join-Our%20Discord%20Server%20for%20bugs,%20feedback%20and%20more!-blue?style=for-the-badge&logo=discord)](https://discord.gg/S4tFu6Enne)
+[![加入我们的 Discord 服务器](https://img.shields.io/badge/Join-Our%20Discord%20Server%20for%20bugs,%20feedback%20and%20more!-blue?style=for-the-badge&logo=discord)](https://discord.gg/S4tFu6Enne)
 
 ## 介绍
 Sandboxie 是一款基于沙盒的 Windows 隔离软件，可让您尝试运行不受信任的应用程序，而无需担心对文件或注册表进行不想要的更改。
@@ -32,10 +31,10 @@ Sandboxie 是一款基于沙盒的 Windows 隔离软件，可让您尝试运行�
 ## Get Sandboxie
 从两个版本中选择:
 
-* 如果您需要 Sandboxie 的最新功能或者您第一次使用 Sandboxie 系列产品，请选择Sandboxie Plus。
+* 如果您需要 Sandboxie 的最新功能或者您第一次使用 Sandboxie 系列产品，请选择 Sandboxie Plus。
 * 如果您使用 Sandboxie(Classic)很久了，请选择 Sandboxie Classic。
 
 [功能比较](Content/FeatureComparison.md) | [系统要求](https://github.com/sandboxie-plus/Sandboxie#sandboxie) | [更新日志/变更日志](https://github.com/sandboxie-plus/Sandboxie/blob/master/CHANGELOG.md) | [下载最新版本](https://github.com/sandboxie-plus/Sandboxie/releases/latest)
 
 ## Contribute
-如果您拥有开发，测试或翻译技巧，那么您可以随时查看我们的 [捐助指南](https://github.com/sandboxie-plus/Sandboxie/blob/master/CONTRIBUTING.md).
+如果您拥有开发，测试或翻译技巧，那么您可以随时查看我们的 [贡献指南](https://github.com/sandboxie-plus/Sandboxie/blob/master/CONTRIBUTING.md).
