@@ -33,8 +33,8 @@ Sandboxie 通过 [Sandboxie Control](SandboxieControl.md) 程序运行. 该程�
 
 * * *
 
-You should view this tutorial in a sandboxed Web browser. To do that, use the _Getting Started Tutorial (Web)_ command in the [Help Menu](HelpMenu.md) of [Sandboxie Control](SandboxieControl.md), and make sure you tell [Sandboxie Control](SandboxieControl.md) to run your browser **sandboxed**:
+您可以在沙盒 Web 浏览器中查看本教程。为此，请使用[Sandboxie Control](SandboxieControl.md)的[“帮助”菜单](HelpMenu.md)里的 _入门教程 (网页)_ 命令 , 并确保您对[Sandboxie Control](SandboxieControl.md) 使用了 **在沙盒中运行**:
 
 ![](../Media/OpenGettingStarted.png)
 
-The tutorial continues in [Getting Started Part Two](GettingStartedPartTwo.md).
+本教程在[开始：第二部分](GettingStartedPartTwo.md).
