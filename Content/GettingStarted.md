@@ -37,4 +37,4 @@ Sandboxie 通过 [Sandboxie Control](SandboxieControl.md) 程序运行. 该程�
 
 ![](../Media/OpenGettingStarted.png)
 
-本教程在[开始：第二部分](GettingStartedPartTwo.md).
+本教程在[开始：第二部分](GettingStartedPartTwo.md) 继续
