@@ -12,7 +12,7 @@ Sandboxie 在名为沙盒的隔离抽象化区域中运行应用程序。在 San
   * 如何删除沙盒 
 
 
-或者跳转到 [开始：第六部分](GettingStartedPartSix.md) 其中讨论了起决定性的几点。
+或者跳转到 [开始：第六部分](GettingStartedPartSix.md) ，其中讨论了起决定性的几点。
 你也可以查看 [外部教程](ExternalTutorials.md) 页面以获取有关 Sandboxie 的更多教程链接，其中一些是英语以外的语言，另一些是视频形式而不是文本。
 
 * * *
