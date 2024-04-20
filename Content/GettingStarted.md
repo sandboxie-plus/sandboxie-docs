@@ -2,7 +2,7 @@
 
 ### 第一部分: 介绍
 
-Sandboxie 在称为沙盒的隔离抽象化区域中运行应用程序。在 Sandboxie 的监督下，应用程序可以正常全速地运行，但无法对计算机进行永久性更改。相反，更改仅在沙盒中生效。
+Sandboxie 在名为沙盒的隔离抽象化区域中运行应用程序。在 Sandboxie 的监督下，应用程序可以正常全速地运行，但无法对计算机进行永久性更改。相反，更改仅在沙盒中生效。
 
 本入门教程将向您展示：
 
@@ -37,4 +37,4 @@ Sandboxie 通过 [Sandboxie Control](SandboxieControl.md) 程序运行. 该程�
 
 ![](../Media/OpenGettingStarted.png)
 
-本教程在[开始：第二部分](GettingStartedPartTwo.md) 继续
+本教程在[开始：第二部分](GettingStartedPartTwo.md) 继续。
