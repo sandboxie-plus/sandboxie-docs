@@ -1,36 +1,35 @@
-# Getting Started
+# 开始
 
-### Part One: Introduction
+### 第一部分: 介绍
 
-Sandboxie runs your applications in an isolated abstraction area called a sandbox. Under the supervision of Sandboxie, an application operates normally and at full speed, but can't effect permanent changes to your computer. Instead, the changes are effected only in the sandbox.
+Sandboxie 在称为沙盒的隔离抽象化区域中运行应用程序。在 Sandboxie 的监督下，应用程序可以正常全速地运行，但无法对计算机进行永久性更改。相反，更改仅在沙盒中生效。
 
-This Getting Started tutorial will show you:
+本入门教程将向您展示：
 
-  * How to to use Sandboxie to run your applications
-  * How the changes are trapped in the sandbox
-  * How to recover important files and documents out of the sandbox
-  * How to delete the sandbox
+  * 如何使用 Sandboxie 运行应用程序
+  * 更改如何被困在沙盒中
+  * 如何从沙盒中恢复重要文件和文档
+  * 如何删除沙盒 
 
 
-Or skip ahead to [Getting Started Part Six](GettingStartedPartSix.md) which discusses a few final points.
-
-You can also review the [External Tutorials](ExternalTutorials.md) page for more links to tutorials about Sandboxie, some in languages other than English, others are in video form rather than text.
+或者跳转到 [开始：第六部分](GettingStartedPartSix.md) 其中讨论了起决定性的几点。
+你也可以查看 [外部教程](ExternalTutorials.md) 页面以获取有关 Sandboxie 的更多教程链接，其中一些是英语以外的语言，另一些是视频形式而不是文本。
 
 * * *
 
-### Sandboxie Control
+### Sandboxie Control（Sandboxie 的图形前端）
 
-Sandboxie is operated primarily through the [Sandboxie Control](SandboxieControl.md) program. This program adds the yellow Sandboxie icon to the system notification ("tray") area of your taskbar:
+Sandboxie 通过 [Sandboxie Control](SandboxieControl.md) 程序运行. 该程序将一个黄色 Sandboxie 图标添加到任务栏的系统通知(“托盘”) 区域:
 ![](../Media/TrayIconEmpty.png)
 
-If [Sandboxie Control](SandboxieControl.md) is not already active, you can find it and launch it from the Sandboxie program group in your Windows Start menu:
+如果[Sandboxie Control](SandboxieControl.md) 程序没有运行，你可以在 Windows “开始”菜单 里的 “Sandboxie” 程序组里启动它:
 
 ![](../Media/StartMenuStartControlVista.png)
 
 
-When active, you can use the Sandboxie tray icon to hide and show the main window of [Sandboxie Control](SandboxieControl.md), by double-clicking the icon. Or, you can right-click the icon and select the first command, which alternates between _Hide Window_ and _Show Window_.
+运行后，您可以在 Sandboxie 的托盘图标上双击来隐藏和显示[Sandboxie Control](SandboxieControl.md)的主窗口 , 您可以右键单击该图标并选择第一个命令，该命令在 _隐藏窗口_ 和 _显示窗口_ 之间切换。
 
-For this tutorial, make sure the main window of [Sandboxie Control](SandboxieControl.md) is visible.
+在本教程中，请确保 [Sandboxie Control](SandboxieControl.md) 的主窗口可见。
 
 * * *
 
