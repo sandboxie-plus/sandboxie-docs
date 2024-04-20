@@ -15,7 +15,7 @@ Sandboxie 是一款基于沙盒的 Windows 隔离软件，可让您尝试运行�
 
 * [Sandboxie 入门](Content/GettingStarted.md)
 * [使用提示总览](Content/UsageTips.md)
-* [Sandboxie Control （Sandboxie 图形用户界面） 使用手册](Content/SandboxieControl.md)
+* [Sandboxie Control （Sandboxie 控制面板/图形用户界面） 使用手册](Content/SandboxieControl.md)
 * [已知的 Sandboxie 与部分软件的冲突](Content/KnownConflicts.md)
 * [常见问题（FAQ）](Content/FrequentlyAskedQuestions.md)
 * [高级内容](Content/AdvancedTopics.md)
