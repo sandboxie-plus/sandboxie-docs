@@ -28,7 +28,7 @@ Sandboxie 是一款基于沙盒的 Windows 隔离软件。它可让您尝试运�
 * [Sandboxie Plus 功能](PlusContent/Plus-Features.md)
 * [所有 Sandboxie-Docs 页面目录](Content/AllPages.md)
 
-## Get Sandboxie
+## 选择 Sandboxie
 从两个版本中选择:
 
 * 如果您需要 Sandboxie 的最新功能或者您第一次使用 Sandboxie 系列产品，请选择 Sandboxie Plus。
@@ -36,5 +36,5 @@ Sandboxie 是一款基于沙盒的 Windows 隔离软件。它可让您尝试运�
 
 [功能比较](Content/FeatureComparison.md) | [系统要求](https://github.com/sandboxie-plus/Sandboxie#sandboxie) | [更新日志/变更日志](https://github.com/sandboxie-plus/Sandboxie/blob/master/CHANGELOG.md) | [下载最新版本](https://github.com/sandboxie-plus/Sandboxie/releases/latest)
 
-## Contribute
+## 贡献
 如果您拥有开发，测试或翻译技巧，那么您可以随时查看我们的 [贡献指南](https://github.com/sandboxie-plus/Sandboxie/blob/master/CONTRIBUTING.md).
