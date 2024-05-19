@@ -1,6 +1,6 @@
 # ForceProcessChild
 
-It was introduced after 1.14.0. When you start a new program in Sandman, select “Run outside the sandbox” in the sandbox selection window, and you&#039;ll see this option later.
+It was introduced after 1.14.0. When you start a new program in Sandman, select “Run outside the sandbox” in the sandbox selection window, and you'll see this option later.
 
 ## How does it work?
 
