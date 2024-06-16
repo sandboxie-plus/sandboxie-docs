@@ -22,7 +22,7 @@ Sandboxie 在名为沙盒的隔离且抽象化的区域中运行应用程序。�
 Sandboxie 通过 [Sandboxie Control](SandboxieControl.md) 程序运行. 该程序将一个黄色 Sandboxie 图标添加到任务栏的系统通知(“托盘”) 区域:
 ![](../Media/TrayIconEmpty.png)
 
-如果[Sandboxie Control](SandboxieControl.md) 程序没有运行，你可以在 Windows “开始”菜单 里的 “Sandboxie” 程序组里启动它:
+如果 [Sandboxie Control](SandboxieControl.md) 程序没有运行，你可以在 Windows “开始”菜单 里的 “Sandboxie” 程序组里启动它:
 
 ![](../Media/StartMenuStartControlVista.png)
 
