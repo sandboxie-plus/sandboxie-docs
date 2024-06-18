@@ -1,4 +1,4 @@
-:pushpin: Table legend:
+:pushpin: Table legend:<br>
 :repeat: - repetition, the same issue as in the previous box
 <hr>:arrow_double_down:APPS
 
