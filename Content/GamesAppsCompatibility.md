@@ -1,45 +1,213 @@
-:pushpin: Table legend:
-<br>
-:repeat: - repetition, the same issue as in the previous box
-<hr>
-
-| Title | ![SbieCtrl_TRAYICON_EMPTY](https://github.com/sandboxie-plus/Sandboxie/assets/93145383/d08ad3c1-c4e3-4a91-a373-475bb0d6726b) Standard | ![sandbox-g-empty](https://github.com/sandboxie-plus/Sandboxie/assets/93145383/07c0361c-ed29-4090-8bcd-5d4d877f1e68) Application Compartment | ![SandMan_IDI_ICON1](https://github.com/sandboxie-plus/Sandboxie/assets/93145383/081e9dec-9e7f-4fdc-a1cc-cf6c2511adcd) Version | :computer: OS
-| :---: | :---: | :---: | :---: | :---: |
-| [EA App](https://www.ea.com/ea-app/) | :x:<br>#3260 | :x:<br>:repeat: | 1.11.0 | Win7x64
-| [Epic Games Launcher](https://store.epicgames.com/download/) | :white_check_mark:<br>#3261 | :white_check_mark:<br>:repeat: | 1.12.3 | Win7x64
-| [GOG Galaxy](https://www.gog.com/galaxy) | :x:<br>#3297 #1246 | :white_check_mark:<br>:repeat: | 1.12.6 | Win7x64
-| [Steam](https://store.steampowered.com/about/) | :white_check_mark:<br>#3484 | :white_check_mark: | 1.12.6 | Win7x64
-| [Ubisoft Connect](https://ubisoftconnect.com/) | :white_check_mark: | :white_check_mark: | 1.11.0 | Win7x64
-<hr>
-
-| Title | ![SbieCtrl_TRAYICON_EMPTY](https://github.com/sandboxie-plus/Sandboxie/assets/93145383/d08ad3c1-c4e3-4a91-a373-475bb0d6726b) Standard | ![sandbox-g-empty](https://github.com/sandboxie-plus/Sandboxie/assets/93145383/07c0361c-ed29-4090-8bcd-5d4d877f1e68) Application Compartment | ![SandMan_IDI_ICON1](https://github.com/sandboxie-plus/Sandboxie/assets/93145383/081e9dec-9e7f-4fdc-a1cc-cf6c2511adcd) Version | :computer: OS
-| :---: | :---: | :---: | :---: | :---: |
-| [Amerzone: The Explorer's Legacy](https://www.mobygames.com/game/3973/amerzone-the-explorers-legacy/)<br>• Retail | :white_check_mark: | :white_check_mark: | 1.10.1 | Win7x64
-| [Arma: Cold War Assault](https://www.mobygames.com/game/53252/arma-cold-war-assault/)<br>• Steam | :white_check_mark: | :white_check_mark: | 1.10.2 | Win7x64
-| [Battlefield 2](https://www.mobygames.com/game/18194/battlefield-2/)<br>• Retail<br>• BF2Hub | :white_check_mark:<br>#3136<br>:warning: _Block Internet Access_ preset causes the game to crash | :white_check_mark:<br>:repeat:<br>:repeat: | 1.11.0 | Win7x64
-| [Catan: Die Erste Insel](https://www.mobygames.com/game/16206/catan-die-erste-insel/)<br>• Retail | :white_check_mark: | :white_check_mark: | 1.10.1 | Win7x64
-| [Cue Club 2](https://www.mobygames.com/game/102939/cue-club-2/)<br>• Steam | :white_check_mark: | :white_check_mark: | 1.10.2 | Win7x64
-| [Devastation](https://www.mobygames.com/game/8823/devastation/)<br>• Retail | :white_check_mark: | :white_check_mark: | 1.9.7 | Win7x64
-| [Fast Food Tycoon](https://www.mobygames.com/game/2864/fast-food-tycoon/)<br>• Retail | :white_check_mark: | :white_check_mark: | 1.10.1 | Win7x64
-| [GRID 2](https://www.mobygames.com/game/60730/grid-2/)<br>• Steam | :x:<br>#3218 | :x:<br>:repeat:  | 1.11.0 | Win7x64
-| [GRID: Autosport](https://www.mobygames.com/game/72953/grid-autosport/)<br>• Steam | :white_check_mark: | :white_check_mark: | 1.12.9 | Win7x64
-| [Nosferatu: The Wrath of Malachi](https://www.mobygames.com/game/12130/nosferatu-the-wrath-of-malachi/)<br>• Retail<br>• GOG | :white_check_mark: | :white_check_mark: | 1.10.1 | Win7x64
-| [Operation Flashpoint GOTY](https://www.mobygames.com/game/12132/operation-flashpoint-game-of-the-year-edition/)<br>• GOG | :white_check_mark: | :white_check_mark: | 1.10.1 | Win7x64
-| [RC Cars](https://www.mobygames.com/game/12554/rc-cars/)<br>• GOG | :white_check_mark: | :white_check_mark: | 1.10.1 | Win7x64
-| [Söldner: Secret Wars](https://www.mobygames.com/game/15230/soldner-secret-wars/)<br>• Community Edition | :white_check_mark: | :white_check_mark: | 1.10.1 | Win7x64
-| [The Sacred Amulet](https://www.mobygames.com/game/3770/the-sacred-amulet/)<br>• Retail | :white_check_mark: | :white_check_mark: | 1.11.2 | Win7x64
-| [The Sting!](https://www.mobygames.com/game/4295/the-sting/)<br>• Retail | :white_check_mark: | :white_check_mark: | 1.10.1 | Win7x64
-| [TimeScape: Journey to Pompeii](https://www.mobygames.com/game/2482/timescape-journey-to-pompeii/)<br>• Retail | :white_check_mark: | :white_check_mark: | 1.10.1 | Win7x64
-| [Traitors Gate](https://www.mobygames.com/game/1863/traitors-gate/)<br>• Retail | :x:<br>:warning: QuickTime (version 2, 3 and 4) doesn't work. It is required to install QuickTime 7.7.9 or QuickTime Alternative 3.2.2<br>:warning: QuickTime videos are laggy<br>• Launches instantly | :white_check_mark:<br>• QuickTime (version 2, 3 and 4) works fine but it is recommended to install QuickTime 7.7.9 or QuickTime Alternative 3.2.2<br>• QuickTime videos work fine<br>:warning: Takes 60s to launch | 1.12.7 | Win7x64
-| [Unreal Gold](https://www.mobygames.com/game/4892/unreal-gold/)<br>• Retail<br>• GOG<br>• OldUnreal227j | :white_check_mark: | :white_check_mark: | 1.9.3 | Win7x64
-| [Unreal Tournament GOTY](https://www.mobygames.com/game/7158/unreal-tournament-game-of-the-year-edition/)<br>• Retail<br>• OldUnreal-UTPatch469d | :white_check_mark: | :white_check_mark: | 1.11.0 | Win7x64
-| [World Racing 2](https://www.mobygames.com/game/22600/world-racing-2/)<br>• Steam | :white_check_mark: | :white_check_mark: | 1.10.2 | Win7x64
-| [WWII Tank Commander](https://www.mobygames.com/game/18686/wwii-tank-commander/)<br>• Retail | :white_check_mark: | :white_check_mark: | 1.10.3 | Win7x64
-<hr>
-
-:gear:BENCHMARK
-| Title | ![SbieCtrl_TRAYICON_EMPTY](https://github.com/sandboxie-plus/Sandboxie/assets/93145383/d08ad3c1-c4e3-4a91-a373-475bb0d6726b) Standard | ![sandbox-g-empty](https://github.com/sandboxie-plus/Sandboxie/assets/93145383/07c0361c-ed29-4090-8bcd-5d4d877f1e68) Application Compartment | :open_file_folder: Unsandboxed | ![SandMan_IDI_ICON1](https://github.com/sandboxie-plus/Sandboxie/assets/93145383/081e9dec-9e7f-4fdc-a1cc-cf6c2511adcd) Version | :computer: OS
-| :---: | :---: | :---: | :---: | :---: | :---: |
-| [GRID 2](https://www.mobygames.com/game/60730/grid-2/)<br>• Steam | min_fps="105.671944"<br>max_fps="159.882614"<br>av_fps="129.760391" | min_fps="137.505951"<br>max_fps="237.419540"<br>av_fps="173.295853  | N/A | 1.12.6 | Win7x64
-| [GRID: Autosport](https://www.mobygames.com/game/72953/grid-autosport/)<br>• Steam | min_fps="83.408981"<br>max_fps="113.926949"<br>av_fps="101.507591" | min_fps="115.546089"<br>max_fps="203.296005"<br>av_fps="150.188889"  | N/A | 1.12.6 | Win7x64
-| [Operation Flashpoint GOTY](https://www.mobygames.com/game/12132/operation-flashpoint-game-of-the-year-edition/)<br>• GOG | 2449 points | 2548 points | 5034 points | 1.12.7 | Win7x64
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col"><img src="https://github.com/sandboxie-plus/Sandboxie/assets/93145383/d08ad3c1-c4e3-4a91-a373-475bb0d6726b">Standard</th>
+      <th scope="col"><img src="https://github.com/sandboxie-plus/Sandboxie/assets/93145383/07c0361c-ed29-4090-8bcd-5d4d877f1e68">Application Compartment</th>
+      <th scope="col"><img src="https://github.com/sandboxie-plus/Sandboxie/assets/93145383/081e9dec-9e7f-4fdc-a1cc-cf6c2511adcd">Version</th>
+      <th scope="col">:computer:OS</th>
+    </tr>
+  </thead>
+  <tbody align="center">
+    <tr>
+      <td colspan="5" align="left">:arrow_double_down:APPS</td>
+    </tr>
+    <tr>
+      <td align="left"><a href="https://www.ea.com/ea-app/">EA App</a></td>
+      <td colspan="2">:x:<br><a href="https://github.com/sandboxie-plus/Sandboxie/issues/3260">#3260</a></td>
+      <td>1.11.0</td>
+      <td>Win7x64</td>
+    </tr>
+    <tr>
+      <td align="left"><a href="https://store.epicgames.com/download/">Epic Games Launcher</a></td>
+      <td colspan="2">:white_check_mark:<br><a href="https://github.com/sandboxie-plus/Sandboxie/issues/3261">#3261</a></td>
+      <td>1.12.3</td>
+      <td>Win7x64</td>
+    </tr>
+    <tr>
+      <td align="left"><a href="https://www.gog.com/galaxy">GOG Galaxy</a></td>
+      <td>:x:<br><a href="https://github.com/sandboxie-plus/Sandboxie/issues/3297">#3297</a><br><a href="https://github.com/sandboxie-plus/Sandboxie/issues/1246">#1246</a></td>
+      <td>:white_check_mark:<br>:repeat:</td>
+      <td>1.12.6</td>
+      <td>Win7x64</td>
+    </tr>
+    <tr>
+      <td align="left"><a href="https://store.steampowered.com/about/">Steam</a></td>
+      <td>:white_check_mark:<br><a href="https://github.com/sandboxie-plus/Sandboxie/issues/3484">#3484</a></td>
+      <td>:white_check_mark:</td>
+      <td>1.12.6</td>
+      <td>Win7x64</td>
+    </tr>
+    <tr>
+      <td align="left"><a href="https://ubisoftconnect.com/">Ubisoft Connect</a></td>
+      <td colspan="2">:white_check_mark:</td>
+      <td>1.11.0</td>
+      <td>Win7x64</td>
+    </tr>
+    <tr>
+      <td colspan="5" align="left">:arrow_double_down:GAMES</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.mobygames.com/game/3973/amerzone-the-explorers-legacy/">Amerzone: The Explorer's Legacy</a><br>• Retail</td>
+      <td colspan="2">:white_check_mark:</td>
+      <td>1.10.1</td>
+      <td>Win7x64</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.mobygames.com/game/53252/arma-cold-war-assault/">Arma: Cold War Assault</a><br>• GOG</td>
+      <td colspan="2">:white_check_mark:</td>
+      <td>1.10.2</td>
+      <td>Win7x64</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.mobygames.com/game/18194/battlefield-2/">Battlefield 2</a><br>• Retail<br>• BF2Hub</td>
+      <td colspan="2">:white_check_mark:<br><a href="https://github.com/sandboxie-plus/Sandboxie/issues/3136">#3136</a><br>:warning: <i>Block Internet Access</i> preset causes the game to crash</td>
+      <td>1.11.0</td>
+      <td>Win7x64</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.mobygames.com/game/16206/catan-die-erste-insel/">Catan: Die Erste Insel</a><br>• Retail</td>
+      <td colspan="2">:white_check_mark:</td>
+      <td>1.10.1</td>
+      <td>Win7x64</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.mobygames.com/game/102939/cue-club-2/">Cue Club 2</a><br>• Steam</td>
+      <td colspan="2">:white_check_mark:</td>
+      <td>1.10.2</td>
+      <td>Win7x64</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.mobygames.com/game/8823/devastation/">Devastation</a><br>• Retail</td>
+      <td colspan="2">:white_check_mark:</td>
+      <td>1.9.7</td>
+      <td>Win7x64</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.mobygames.com/game/2864/fast-food-tycoon/">Fast Food Tycoon</a><br>• Retail</td>
+      <td colspan="2">:white_check_mark:</td>
+      <td>1.10.1</td>
+      <td>Win7x64</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.mobygames.com/game/60730/grid-2/">GRID 2</a><br>• Steam</td>
+      <td colspan="2">:x:<br><a href="https://github.com/sandboxie-plus/Sandboxie/issues/3218">#3218</a></td>
+      <td>1.11.0</td>
+      <td>Win7x64</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.mobygames.com/game/72953/grid-autosport/">GRID: Autosport</a><br>• Steam</td>
+      <td colspan="2">:white_check_mark:</td>
+      <td>1.12.9</td>
+      <td>Win7x64</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.mobygames.com/game/12130/nosferatu-the-wrath-of-malachi/">Nosferatu: The Wrath of Malachi</a><br>• Retail<br>• GOG</td>
+      <td colspan="2">:white_check_mark:</td>
+      <td>1.10.1</td>
+      <td>Win7x64</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.mobygames.com/game/12132/operation-flashpoint-game-of-the-year-edition/">Operation Flashpoint GOTY</a><br>• GOG</td>
+      <td colspan="2">:white_check_mark:</td>
+      <td>1.10.1</td>
+      <td>Win7x64</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.mobygames.com/game/12554/rc-cars/">RC Cars</a><br>• GOG</td>
+      <td colspan="2">:white_check_mark:</td>
+      <td>1.10.1</td>
+      <td>Win7x64</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.mobygames.com/game/15230/soldner-secret-wars/">Söldner: Secret Wars</a><br>• Community Edition</td>
+      <td colspan="2">:white_check_mark:</td>
+      <td>1.10.1</td>
+      <td>Win7x64</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.mobygames.com/game/3770/the-sacred-amulet/">The Sacred Amulet</a><br>• Retail</td>
+      <td colspan="2">:white_check_mark:</td>
+      <td>1.11.2</td>
+      <td>Win7x64</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.mobygames.com/game/4295/the-sting/">The Sting!</a><br>• Retail</td>
+      <td colspan="2">:white_check_mark:</td>
+      <td>1.10.1</td>
+      <td>Win7x64</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.mobygames.com/game/2482/timescape-journey-to-pompeii/">TimeScape: Journey to Pompeii</a><br>• Retail</td>
+      <td colspan="2">:white_check_mark:</td>
+      <td>1.10.1</td>
+      <td>Win7x64</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.mobygames.com/game/1863/traitors-gate/">Traitors Gate</a><br>• Retail</td>
+      <td>:x:<br>:warning: QuickTime (version 2, 3 and 4) doesn't work. It is required to install QuickTime 7.7.9 or QuickTime Alternative 3.2.2<br>:warning: QuickTime videos are laggy<br>• Launches instantly</td>
+      <td>:white_check_mark:<br>• QuickTime (version 2, 3 and 4) works fine but it is recommended to install QuickTime 7.7.9 or QuickTime Alternative 3.2.2<br>• QuickTime videos work fine<br>:warning: Takes 60s to launch</td>
+      <td>1.12.7</td>
+      <td>Win7x64</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.mobygames.com/game/4892/unreal-gold/">Unreal Gold</a><br>• Retail<br>• GOG<br>• OldUnreal227j</td>
+      <td colspan="2">:white_check_mark:</td>
+      <td>1.9.3</td>
+      <td>Win7x64</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.mobygames.com/game/7158/unreal-tournament-game-of-the-year-edition/">Unreal Tournament GOTY</a><br>• Retail<br>• OldUnreal-UTPatch469d</td>
+      <td colspan="2">:white_check_mark:</td>
+      <td>1.11.0</td>
+      <td>Win7x64</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.mobygames.com/game/22600/world-racing-2/">World Racing 2</a><br>• Steam</td>
+      <td colspan="2">:white_check_mark:</td>
+      <td>1.10.2</td>
+      <td>Win7x64</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.mobygames.com/game/18686/wwii-tank-commander/">WWII Tank Commander</a><br>• Retail</td>
+      <td colspan="2">:white_check_mark:</td>
+      <td>1.10.3</td>
+      <td>Win7x64</td>
+    </tr>
+    <tr>
+      <td colspan="5" align="left">:arrow_double_down:BENCHMARK</td>
+    </tr>
+     <tr>
+      <td scope="col">Title</td>
+      <td scope="col"><img src="https://github.com/sandboxie-plus/Sandboxie/assets/93145383/d08ad3c1-c4e3-4a91-a373-475bb0d6726b">Standard</td>
+      <td scope="col"><img src="https://github.com/sandboxie-plus/Sandboxie/assets/93145383/07c0361c-ed29-4090-8bcd-5d4d877f1e68">Application Compartment</td>
+      <td scope="col">:open_file_folder:Unsanboxed</td>
+      <td scope="col"><img src="https://github.com/sandboxie-plus/Sandboxie/assets/93145383/081e9dec-9e7f-4fdc-a1cc-cf6c2511adcd">Version</td>
+      <td scope="col">:computer:OS</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.mobygames.com/game/60730/grid-2/">GRID 2</a><br>• Steam</td>
+      <td>min_fps="105.671944"<br>max_fps="159.882614"<br>av_fps="129.760391"</td>
+      <td>min_fps="137.505951"<br>max_fps="237.419540"<br>av_fps="173.295853"</td>
+      <td>N/A</td>
+      <td>1.12.6</td>
+      <td>Win7x64</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.mobygames.com/game/72953/grid-autosport/">GRID: Autosport</a><br>• Steam</td>
+      <td>min_fps="83.408981"<br>max_fps="113.926949"<br>av_fps="101.507591"</td>
+      <td>min_fps="115.546089"<br>max_fps="203.296005"<br>av_fps="150.188889"</td>
+      <td>N/A</td>
+      <td>1.12.6</td>
+      <td>Win7x64</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.mobygames.com/game/12132/operation-flashpoint-game-of-the-year-edition/">Operation Flashpoint GOTY</a><br>• GOG</td>
+      <td>2449 points</td>
+      <td>2548 points</td>
+      <td>5034 points</td>
+      <td>1.12.7</td>
+      <td>Win7x64</td>
+    </tr>
+  </tbody>
+</table>
