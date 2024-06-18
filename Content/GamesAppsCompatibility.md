@@ -1,3 +1,5 @@
+# Compatibility with games and applications
+
 :pushpin: Table legend:<br>
 :repeat: - repetition, the same issue as in the previous box
 <hr>:arrow_double_down:APPS
