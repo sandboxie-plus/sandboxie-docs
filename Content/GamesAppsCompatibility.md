@@ -1,4 +1,5 @@
 :pushpin: Table legend:
+<br>
 :repeat: - repetition, the same issue as in the previous box
 <hr>
 
@@ -34,8 +35,9 @@
 | [Unreal Tournament GOTY](https://www.mobygames.com/game/7158/unreal-tournament-game-of-the-year-edition/)<br>• Retail<br>• OldUnreal-UTPatch469d | :white_check_mark: | :white_check_mark: | 1.11.0 | Win7x64
 | [World Racing 2](https://www.mobygames.com/game/22600/world-racing-2/)<br>• Steam | :white_check_mark: | :white_check_mark: | 1.10.2 | Win7x64
 | [WWII Tank Commander](https://www.mobygames.com/game/18686/wwii-tank-commander/)<br>• Retail | :white_check_mark: | :white_check_mark: | 1.10.3 | Win7x64
-<hr>:gear:BENCHMARK
+<hr>
 
+:gear:BENCHMARK
 | Title | ![SbieCtrl_TRAYICON_EMPTY](https://github.com/sandboxie-plus/Sandboxie/assets/93145383/d08ad3c1-c4e3-4a91-a373-475bb0d6726b) Standard | ![sandbox-g-empty](https://github.com/sandboxie-plus/Sandboxie/assets/93145383/07c0361c-ed29-4090-8bcd-5d4d877f1e68) Application Compartment | :open_file_folder: Unsandboxed | ![SandMan_IDI_ICON1](https://github.com/sandboxie-plus/Sandboxie/assets/93145383/081e9dec-9e7f-4fdc-a1cc-cf6c2511adcd) Version | :computer: OS
 | :---: | :---: | :---: | :---: | :---: | :---: |
 | [GRID 2](https://www.mobygames.com/game/60730/grid-2/)<br>• Steam | min_fps="105.671944"<br>max_fps="159.882614"<br>av_fps="129.760391" | min_fps="137.505951"<br>max_fps="237.419540"<br>av_fps="173.295853  | N/A | 1.12.6 | Win7x64
