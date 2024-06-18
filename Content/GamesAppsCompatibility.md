@@ -21,21 +21,21 @@
     <tr>
       <td align="left"><a href="https://store.epicgames.com/download/">Epic Games Launcher</a></td>
       <td colspan="2">:white_check_mark:<br><a href="https://github.com/sandboxie-plus/Sandboxie/issues/3261">#3261</a></td>
-      <td>1.12.3</td>
+      <td>1.13.7</td>
       <td>Win7x64</td>
     </tr>
     <tr>
       <td align="left"><a href="https://www.gog.com/galaxy">GOG Galaxy</a></td>
       <td>:x:<br><a href="https://github.com/sandboxie-plus/Sandboxie/issues/3297">#3297</a><br><a href="https://github.com/sandboxie-plus/Sandboxie/issues/1246">#1246</a></td>
       <td>:white_check_mark:</td>
-      <td>1.12.6</td>
+      <td>1.13.7</td>
       <td>Win7x64</td>
     </tr>
     <tr>
       <td align="left"><a href="https://store.steampowered.com/about/">Steam</a></td>
       <td>:white_check_mark:<br><a href="https://github.com/sandboxie-plus/Sandboxie/issues/3484">#3484</a></td>
       <td>:white_check_mark:</td>
-      <td>1.12.6</td>
+      <td>1.13.7</td>
       <td>Win7x64</td>
     </tr>
     <tr>
