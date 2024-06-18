@@ -10,7 +10,7 @@
   </thead>
   <tbody align="center">
     <tr>
-      <td colspan="5" align="left"><hr>:arrow_double_down:APPS</td>
+      <td colspan="5" align="left"><br>:arrow_double_down:APPS</td>
     </tr>
     <tr>
       <td align="left"><a href="https://www.ea.com/ea-app/">EA App</a></td>
@@ -45,7 +45,7 @@
       <td>Win7x64</td>
     </tr>
     <tr>
-      <td colspan="5" align="left"><hr>:arrow_double_down:GAMES</td>
+      <td colspan="5" align="left"><br>:arrow_double_down:GAMES</td>
     </tr>
     <tr>
       <td align="left"><a href="https://www.mobygames.com/game/3973/amerzone-the-explorers-legacy/">Amerzone: The Explorer's Legacy</a><br>• Retail</td>
@@ -175,7 +175,7 @@
       <td>Win7x64</td>
     </tr>
     <tr>
-      <td colspan="6" align="left"><hr>:arrow_double_down:BENCHMARK</td>
+      <td colspan="6" align="left"><br>:arrow_double_down:BENCHMARK</td>
     </tr>
      <tr>
       <td scope="col">Title</td>
