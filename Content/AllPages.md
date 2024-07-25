@@ -36,6 +36,8 @@
 
 ~~[Block Port](BlockPort.md)~~ (removed since Sandboxie v0.9.0 / 5.51.0)
 
+[Block Screen Capture](BlockScreenCapture.md)
+
 ~~[Block Sys Param](BlockSysParam.md)~~ (removed since Sandboxie v4.xx)
 
 ~~[Block Win Hooks](BlockWinHooks.md)~~ (removed since Sandboxie v4.xx)
@@ -87,6 +89,8 @@
 [Copy Limit Kb](CopyLimitKb.md)
 
 [Copy Limit Silent](CopyLimitSilent.md)
+
+[Cover Boxed Windows](CoverBoxedWindows.md)
 
 ### D
 
@@ -197,10 +201,6 @@
 [Internet Explorer Tips](InternetExplorerTips.md)
 
 [Ipc Root Path](IpcRootPath.md)
-
-[Is Block Capture](IsBlockCapture.md)
-
-[Is Protect Screen](IsProtectScreen.md)
 
 [Isolation Mechanism](IsolationMechanism.md)
 
