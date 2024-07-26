@@ -10,6 +10,8 @@
 
 [Allow Raw Disk Read](AllowRawDiskRead.md)
 
+[Allow Spooler Print To File](AllowSpoolerPrintToFile.md)
+
 [Appearance Settings](AppearanceSettings.md)
 
 [Applications Settings](ApplicationsSettings.md)
@@ -63,6 +65,8 @@
 ~~[Byte Order Mark](ByteOrderMark.md)~~ (removed since Sandboxie v0.6.5 / 5.47.0)
 
 ### C
+
+[Close Print Spooler](ClosePrintSpooler.md)
 
 [Closed Clsid Path](ClosedClsid.md)
 
@@ -269,6 +273,8 @@
 [Open Key Path](OpenKeyPath.md)
 
 [Open Pipe Path](OpenPipePath.md)
+
+[Open Print Spooler](OpenPrintSpooler.md)
 
 [Open Protected Storage](OpenProtectedStorage.md)
 
