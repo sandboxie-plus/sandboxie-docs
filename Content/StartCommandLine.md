@@ -45,7 +45,7 @@ The parameter _/silent_ can be used to eliminate some pop-up error messages. For
 
 In both silent and normal operation, Start.exe exits with a zero exit code on success, or non-zero on failure. In batch files, the exit code can be examined using the _IF ERRORLEVEL_ condition.
 
-The parameter _/elevate_ can be used to run a program with Administartor privileges on a system where User Account Control (UAC) is enabled. For example:
+The parameter _/elevate_ can be used to run a program with Administrator privileges on a system where User Account Control (UAC) is enabled. For example:
 ```
   "C:\Program Files\Sandboxie\Start.exe"  /elevate cmd.exe
 ```

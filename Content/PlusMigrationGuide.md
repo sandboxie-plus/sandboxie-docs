@@ -86,7 +86,7 @@ Also the compatibility dialog is now integrated into the window with the global 
 
 ![](../Media/Migration/13.png)
 
-The setting protection options are available in the Global Settings window as well (tab "Config Protection").
+Starting with version 1.9.0 / 5.64.0, the [Configuration Protection](ConfigurationProtection.md) options are located in the sub tab "Sandboxie.ini Presets" of the tab "Advanced Config".
 
 ## Sandbox Context Menu
 
