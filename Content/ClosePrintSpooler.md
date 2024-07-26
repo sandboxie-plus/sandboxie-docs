@@ -1,6 +1,6 @@
 # Close Print Spooler
 
-_ClosePrintSpooler_ is a sandbox setting that provided nuanced control over how sandboxed applications interact with the print spooler service.
+_ClosePrintSpooler_ is a sandbox setting that provides nuanced control over how sandboxed applications interact with the print spooler service.
 
 ```
    .
