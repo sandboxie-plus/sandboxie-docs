@@ -8,9 +8,15 @@
 
 [Alert Process](AlertProcess.md)
 
+[Allow Raw Disk Read](AllowRawDiskRead.md)
+
+[Allow Spooler Print To File](AllowSpoolerPrintToFile.md)
+
 [Appearance Settings](AppearanceSettings.md)
 
 [Applications Settings](ApplicationsSettings.md)
+
+[Applying a Supporter Certificate](../PlusContent/applying-supporter-certificate.md)
 
 [Auto Delete](AutoDelete.md)
 
@@ -31,6 +37,8 @@
 ~~[Block Password](BlockPassword.md)~~ (obsolete)
 
 ~~[Block Port](BlockPort.md)~~ (removed since Sandboxie v0.9.0 / 5.51.0)
+
+[Block Screen Capture](BlockScreenCapture.md)
 
 ~~[Block Sys Param](BlockSysParam.md)~~ (removed since Sandboxie v4.xx)
 
@@ -58,6 +66,8 @@
 
 ### C
 
+[Close Print Spooler](ClosePrintSpooler.md)
+
 [Closed Clsid Path](ClosedClsid.md)
 
 [Closed File Path](ClosedFilePath.md)
@@ -83,6 +93,8 @@
 [Copy Limit Kb](CopyLimitKb.md)
 
 [Copy Limit Silent](CopyLimitSilent.md)
+
+[Cover Boxed Windows](CoverBoxedWindows.md)
 
 ### D
 
@@ -118,6 +130,8 @@
 
 [Expandable Variables](ExpandableVariables.md)
 
+[External Tutorials](ExternalTutorials.md)
+
 ### F
 
 [FAQ Email](FAQEmail.md)
@@ -144,6 +158,8 @@
 
 [Force Process](ForceProcess.md)
 
+[Forget Password](ForgetPassword.md)
+
 [Frequently Asked Questions](FrequentlyAskedQuestions.md)
 
 ### G
@@ -168,6 +184,10 @@
 
 [Help Topics](HelpTopics.md)
 
+[Hide Host Process](HideHostProcess.md)
+
+[Hide Other Boxes](HideOtherBoxes.md)
+
 [How It Works](HowitWorks.md)
 
 [How To Use Win Dbg](HowToUseWinDbg.md)
@@ -186,15 +206,21 @@
 
 [Ipc Root Path](IpcRootPath.md)
 
+[Isolation Mechanism](IsolationMechanism.md)
+
 ### J
 
 ### K
 
 [Key Root Path](KeyRootPath.md)
 
+[Known Conflicts](KnownConflicts.md)
+
 ### L
 
 [Leader Process](LeaderProcess.md)
+
+[Linger Exempt Wnds](LingerExemptWnds.md)
 
 [Linger Process](LingerProcess.md)
 
@@ -203,6 +229,8 @@
 [Messages From Sandboxie](MessagesFromSandboxie.md)
 
 [Monitor Admin Only](MonitorAdminOnly.md)
+
+[Msi Installer Exemptions](MsiInstallerExemptions.md)
 
 ### N
 
@@ -224,9 +252,13 @@
 
 [Notify Start Run Access Denied](NotifyStartRunAccessDenied.md)
 
+[Nt Namespace Isolation](NtNamespaceIsolation.md)
+
 [Nt Status Codes](NtStatusCodes.md)
 
 ### O
+
+[Open Clipboard](OpenClipboard.md)
 
 [Open Clsid](OpenClsid.md)
 
@@ -241,6 +273,8 @@
 [Open Key Path](OpenKeyPath.md)
 
 [Open Pipe Path](OpenPipePath.md)
+
+[Open Print Spooler](OpenPrintSpooler.md)
 
 [Open Protected Storage](OpenProtectedStorage.md)
 
@@ -273,6 +307,8 @@
 [Program Stop Settings](ProgramStopSettings.md)
 
 [Programs View](ProgramsView.md)
+
+[Protect Host Images](ProtectHostImages.md)
 
 [Protected Storage](ProtectedStorage.md)
 
@@ -318,6 +354,8 @@
 
 [Sandbox Settings](SandboxSettings.md)
 
+[Sandboxie](Sandboxie.md)
+
 [Sandboxie Control](SandboxieControl.md)
 
 [Sandboxie Ini](SandboxieIni.md)
@@ -326,6 +364,8 @@
 
 [Sandboxie Live](../PlusContent/Sandboxie-Live.md)
 
+[Sandboxie Plus](../PlusContent/sandboxie-plus.md)
+
 [Sandboxie Plus Features](../PlusContent/Plus-Features.md)
 
 [Sandboxie Plus Migration Guide](PlusMigrationGuide.md)
@@ -333,6 +373,8 @@
 [Sandboxie Portable](../PlusContent/sandboxie-portable.md)
 
 [Sandboxie Trace](SandboxieTrace.md)
+
+[SandboxieDrv use of undocumented kernel exports](TokenMagic.md)
 
 [SBIE DLL API](SBIEDLLAPI.md)
 
@@ -606,6 +648,8 @@
 
 [Security Mode](../PlusContent/security-mode.md)
 
+[Separate User Folders](SeparateUserFolders.md)
+
 [Service Programs](ServicePrograms.md)
 
 [Shell Folders](ShellFolders.md)
@@ -625,6 +669,8 @@
 [Technical Aspects](TechnicalAspects.md)
 
 [Test Email Configuration](TestEmailConfiguration.md)
+
+[Trace logging](../PlusContent/TraceLog.md)
 
 [Translations](../PlusContent/translations.md)
 

@@ -1,18 +1,21 @@
 # Configuration Protection
 
-Initially, anyone operating [Sandboxie Control](SandboxieControl.md) can change any aspect of the Sandboxie configuration, which is stored in the [Sandboxie Ini](SandboxieIni.md) configuration file. Additionally, anyone with access to the configuration text file can also manipulate the configuration and reload it into Sandboxie.
+Initially, anyone using [Sandboxie Control](SandboxieControl.md) or the [Sandman](PlusMigrationGuide.md) UI can change any aspect of the Sandboxie configuration, which is stored in the [Sandboxie Ini](SandboxieIni.md) configuration file. Additionally, anyone with access to the configuration text file can also manipulate the configuration and reload it into Sandboxie.
 
-It is possible to activate protection of [Sandboxie Ini](SandboxieIni.md) configuration file from unauthorized changes. Sandboxie offers two modes of protection:
+It is possible to activate protection of [Sandboxie Ini](SandboxieIni.md) configuration file from unauthorized changes. Sandboxie offers four modes of protection:
 
-*   Only Administrator user accounts can make changes (See also: [EditAdminOnly](EditAdminOnly.md).)
+* Only Administrator user accounts can make changes (See also: [EditAdminOnly](EditAdminOnly.md).)
+* Password must be entered in order to make changes (See also: [EditPassword](EditPassword.md).)
+* Only Administrator user accounts can use Pause Forcing Programs command (See also: [ForceDisableAdminOnly](ForceDisableAdminOnly.md).)
+* Clear password when main window becomes hidden (See also: ForgetPassword.)
 
-*   Password must be entered in order to make changes (See also: [EditPassword](EditPassword.md).)
-
-Either or both modes can be active at the same time.
+All modes can be active at the same time.
 
 The protection applies to the **Global Settings**, **Sandbox Settings** and **Template Settings** sections of the [Sandboxie Ini](SandboxieIni.md) configuration file. It does not apply to any **User Settings** sections, which store per-user preferences.
 
-To activate the protection, use the [Sandboxie Control > Configure menu > Lock Configuration](ConfigureMenu.md#lock-configuration) command.
+To activate the protection in [Sandboxie Control](SandboxieControl.md), use the [Configure menu > Lock Configuration](ConfigureMenu.md#lock-configuration) command.
+
+To activate the protection in [Sandman](PlusMigrationGuide.md), use the Options menu > Global Settings > Advanced Config > Sandboxie.ini Presets > Config Protection command.
 
 * * *
 

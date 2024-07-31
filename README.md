@@ -18,7 +18,7 @@ A GitHub Pages site based on this content is also available: [https://sandboxie-
 * [General Usage Tips](Content/UsageTips.md)
 * [Usage Manual for Sandboxie Control](Content/SandboxieControl.md)
 * [Known Conflicts](Content/KnownConflicts.md)
-* [Frequenty Asked Questions](Content/FrequentlyAskedQuestions.md)
+* [Frequently Asked Questions](Content/FrequentlyAskedQuestions.md)
 * [Advanced Topics](Content/AdvancedTopics.md)
 * [Technical Aspects](Content/TechnicalAspects.md)
 * [SBIE Messages](Content/SBIEMessages.md)
