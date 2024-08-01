@@ -1,6 +1,10 @@
 site_name: Sandboxie Documentation
 markdown_extensions:
 - pymdownx.tilde
+plugins:
+ RootReadme:
+  readme: README.md
+
 theme:
   name: readthedocs
   custom_dir: custom_theme
