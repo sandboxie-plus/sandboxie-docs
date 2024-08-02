@@ -1,1 +1,1 @@
-**Content will replaced by /README.md**
+**Content will be replaced by ../README.md**
