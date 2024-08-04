@@ -14,20 +14,20 @@ A GitHub Pages site based on this content is also available: [https://sandboxie-
 
 ## Help Topics
 
-* [Getting Started with Sandboxie](Content/GettingStarted.md)
-* [General Usage Tips](Content/UsageTips.md)
-* [Usage Manual for Sandboxie Control](Content/SandboxieControl.md)
-* [Known Conflicts](Content/KnownConflicts.md)
-* [Frequently Asked Questions](Content/FrequentlyAskedQuestions.md)
-* [Advanced Topics](Content/AdvancedTopics.md)
-* [Technical Aspects](Content/TechnicalAspects.md)
-* [SBIE Messages](Content/SBIEMessages.md)
-* [Command Line Usage](Content/StartCommandLine.md)
-* [Sandboxie Configuration File](Content/SandboxieIni.md)
-* [Resource Access Settings](Content/ResourceAccess.md)
-* [Sandboxie Plus Migration Guide](Content/PlusMigrationGuide.md)
-* [Sandboxie Plus Features](PlusContent/Plus-Features.md)
-* [All Pages Index](Content/AllPages.md)
+* [Getting Started with Sandboxie](docs/Content/GettingStarted.md)
+* [General Usage Tips](docs/Content/UsageTips.md)
+* [Usage Manual for Sandboxie Control](docs/Content/SandboxieControl.md)
+* [Known Conflicts](docs/Content/KnownConflicts.md)
+* [Frequently Asked Questions](docs/Content/FrequentlyAskedQuestions.md)
+* [Advanced Topics](docs/Content/AdvancedTopics.md)
+* [Technical Aspects](docs/Content/TechnicalAspects.md)
+* [SBIE Messages](docs/Content/SBIEMessages.md)
+* [Command Line Usage](docs/Content/StartCommandLine.md)
+* [Sandboxie Configuration File](docs/Content/SandboxieIni.md)
+* [Resource Access Settings](docs/Content/ResourceAccess.md)
+* [Sandboxie Plus Migration Guide](docs/Content/PlusMigrationGuide.md)
+* [Sandboxie Plus Features](docs/PlusContent/Plus-Features.md)
+* [All Pages Index](docs/Content/AllPages.md)
 
 ## Get Sandboxie
 Select from two editions:
@@ -35,7 +35,7 @@ Select from two editions:
 * Get Sandboxie Plus if you are a first-time user or want the latest features.
 * Get Sandboxie Classic if you have used Sandboxie for a long time.
 
-[Feature Comparison](Content/FeatureComparison.md) | [System requirements](https://github.com/sandboxie-plus/Sandboxie#sandboxie) | [Changelog](https://github.com/sandboxie-plus/Sandboxie/blob/master/CHANGELOG.md) | [Download the latest release](https://github.com/sandboxie-plus/Sandboxie/releases/latest)
+[Feature Comparison](docs/Content/FeatureComparison.md) | [System requirements](https://github.com/sandboxie-plus/Sandboxie#sandboxie) | [Changelog](https://github.com/sandboxie-plus/Sandboxie/blob/master/CHANGELOG.md) | [Download the latest release](https://github.com/sandboxie-plus/Sandboxie/releases/latest)
 
 ## Contribute
 If you have development, testing or translation skills, then feel free to check out our [Contribution guidelines](https://github.com/sandboxie-plus/Sandboxie/blob/master/CONTRIBUTING.md).
