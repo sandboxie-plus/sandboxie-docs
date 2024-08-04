@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Sandboxie-Plus Migration Guide - Sandboxie Documentation</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Sandboxie-Plus Migration Guide";
+        var mkdocs_page_input_path = "Content/PlusMigrationGuide.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../Media/SandDocs.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" 
+     href="../.."
+    >
+    Sandboxie documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Help Topics</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" 
+     href="../HelpTopics/"
+    >
+    Help Topics</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" 
+     href="../GettingStarted/"
+    >
+    Getting Started</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" 
+    
+    onclick="this.children[0].click()">
+    Sandboxie Control</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SandboxieControl/"
+    >
+    Sandboxie Control</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../FileMenu/"
+    >
+    File Menu</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../ViewMenu/"
+    >
+    View Menu</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SandboxMenu/"
+    >
+    Sandbox Menu</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../ConfigureMenu/"
+    >
+    Configure Menu</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../HelpMenu/"
+    >
+    Help Menu</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../TrayIconMenu/"
+    >
+    Tray Icon Menu</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" 
+     href="../UsageTips/"
+    >
+    Usage Tips</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" 
+     href="../StartCommandLine/"
+    >
+    Command Line Usage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" 
+     href="../SandboxieIni/"
+    >
+    Sandboxie Ini</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" 
+     href="../KnownConflicts/"
+    >
+    Known Conflicts</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Sandboxie-Plus</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" 
+    href="#"
+    >
+    Sandboxie-Plus Migration Guide</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#main-window">Main Window</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#file-and-sandbox-menus">File and Sandbox Menus</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#create-new-box-dialog">Create New Box dialog</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#copying-sandbox-configuration">Copying Sandbox Configuration</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#view-menu">View Menu</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#view-menu-files-and-folders">View Menu - Files and Folders</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#files-and-folders-view-window">Files and Folders - view / window</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#global-settings">Global Settings</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#file-system-root">File System Root</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#program-start-monitoring">Program Start monitoring</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#shell-integration">Shell Integration</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#create-sandbox-shortcut">Create Sandbox shortcut</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#software-compatibility">Software Compatibility</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#lock-configuration">Lock Configuration</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#sandbox-context-menu">Sandbox Context Menu</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#explore-contents">Explore Contents</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#sandbox-settings">Sandbox Settings</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#quick-and-immediate-recover">Quick and Immediate Recover</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#delete-options">Delete Options</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#delete-command">Delete Command</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#program-groups">Program Groups</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#forced-programs-and-folders">Forced Programs and Folders</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#lingering-programs-leader-programs">Lingering Programs &amp; Leader Programs</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#file-migration">File Migration</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#internet-access">Internet Access</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#network-access">Network Access</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#startrun-access">Start/Run Access</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#drop-rights">Drop Rights</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#network-files">Network Files</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#resource-access">Resource Access</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#application-compatibility-templates">Application Compatibility Templates</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#user-accounts">User Accounts</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#about-dialog">About Dialog</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" 
+     href="../../PlusContent/Plus-Features/"
+    >
+    Plus Features</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Advanced Topics</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" 
+     href="../AdvancedTopics/"
+    >
+    Advanced Topics</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" 
+     href="../SandboxHierarchy/"
+    >
+    Sandbox Hierarchy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" 
+     href="../PrivacyConcerns/"
+    >
+    Privacy Concerns</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" 
+     href="../ServicePrograms/"
+    >
+    Service Programs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" 
+     href="../ResourceAccessMonitor/"
+    >
+    Resource Access Monitor (for Sandboxie Classic)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" 
+     href="../../PlusContent/TraceLog/"
+    >
+    Trace logging (for Sandboxie Plus)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" 
+     href="../HowToUseWinDbg/"
+    >
+    How To Use Win Dbg</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" 
+    
+    onclick="this.children[0].click()">
+    SBIE Messages</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIEMessages/"
+    >
+    SBIE Messages</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIEDLLAPI/"
+    >
+    SBIE DLL API</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1101/"
+    >
+    SBIE1101</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1102/"
+    >
+    SBIE1102</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1103/"
+    >
+    SBIE1103</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1104/"
+    >
+    SBIE1104</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1105/"
+    >
+    SBIE1105</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1106/"
+    >
+    SBIE1106</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1108/"
+    >
+    SBIE1108</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1109/"
+    >
+    SBIE1109</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1110/"
+    >
+    SBIE1110</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1111/"
+    >
+    SBIE1111</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1112/"
+    >
+    SBIE1112</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1113/"
+    >
+    SBIE1113</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1114/"
+    >
+    SBIE1114</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1116/"
+    >
+    SBIE1116</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1119/"
+    >
+    SBIE1119</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1120/"
+    >
+    SBIE1120</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1121/"
+    >
+    SBIE1121</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1122/"
+    >
+    SBIE1122</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1151/"
+    >
+    SBIE1151</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1152/"
+    >
+    SBIE1152</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1153/"
+    >
+    SBIE1153</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1201/"
+    >
+    SBIE1201</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1202/"
+    >
+    SBIE1202</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1203/"
+    >
+    SBIE1203</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1204/"
+    >
+    SBIE1204</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1211/"
+    >
+    SBIE1211</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1212/"
+    >
+    SBIE1212</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1213/"
+    >
+    SBIE1213</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1214/"
+    >
+    SBIE1214</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1215/"
+    >
+    SBIE1215</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1216/"
+    >
+    SBIE1216</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1222/"
+    >
+    SBIE1222</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1223/"
+    >
+    SBIE1223</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1224/"
+    >
+    SBIE1224</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1241/"
+    >
+    SBIE1241</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1242/"
+    >
+    SBIE1242</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1301/"
+    >
+    SBIE1301</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1303/"
+    >
+    SBIE1303</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1304/"
+    >
+    SBIE1304</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1306/"
+    >
+    SBIE1306</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1307/"
+    >
+    SBIE1307</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1308/"
+    >
+    SBIE1308</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1309/"
+    >
+    SBIE1309</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1310/"
+    >
+    SBIE1310</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1311/"
+    >
+    SBIE1311</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1312/"
+    >
+    SBIE1312</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1313/"
+    >
+    SBIE1313</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1314/"
+    >
+    SBIE1314</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1401/"
+    >
+    SBIE1401</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1402/"
+    >
+    SBIE1402</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1403/"
+    >
+    SBIE1403</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1404/"
+    >
+    SBIE1404</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1405/"
+    >
+    SBIE1405</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1406/"
+    >
+    SBIE1406</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1408/"
+    >
+    SBIE1408</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1409/"
+    >
+    SBIE1409</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1410/"
+    >
+    SBIE1410</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1411/"
+    >
+    SBIE1411</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE1412/"
+    >
+    SBIE1412</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2102/"
+    >
+    SBIE2102</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2103/"
+    >
+    SBIE2103</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2104/"
+    >
+    SBIE2104</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2108/"
+    >
+    SBIE2108</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2111/"
+    >
+    SBIE2111</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2191/"
+    >
+    SBIE2191</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2192/"
+    >
+    SBIE2192</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2193/"
+    >
+    SBIE2193</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2202/"
+    >
+    SBIE2202</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2203/"
+    >
+    SBIE2203</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2204/"
+    >
+    SBIE2204</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2205/"
+    >
+    SBIE2205</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2206/"
+    >
+    SBIE2206</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2207/"
+    >
+    SBIE2207</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2208/"
+    >
+    SBIE2208</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2209/"
+    >
+    SBIE2209</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2210/"
+    >
+    SBIE2210</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2211/"
+    >
+    SBIE2211</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2212/"
+    >
+    SBIE2212</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2213/"
+    >
+    SBIE2213</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2214/"
+    >
+    SBIE2214</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2217/"
+    >
+    SBIE2217</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2218/"
+    >
+    SBIE2218</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2219/"
+    >
+    SBIE2219</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2220/"
+    >
+    SBIE2220</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2221/"
+    >
+    SBIE2221</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2222/"
+    >
+    SBIE2222</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2223/"
+    >
+    SBIE2223</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2303/"
+    >
+    SBIE2303</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2304/"
+    >
+    SBIE2304</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2305/"
+    >
+    SBIE2305</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2306/"
+    >
+    SBIE2306</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2307/"
+    >
+    SBIE2307</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2308/"
+    >
+    SBIE2308</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2309/"
+    >
+    SBIE2309</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2310/"
+    >
+    SBIE2310</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2311/"
+    >
+    SBIE2311</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2312/"
+    >
+    SBIE2312</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2313/"
+    >
+    SBIE2313</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2314/"
+    >
+    SBIE2314</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2315/"
+    >
+    SBIE2315</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2316/"
+    >
+    SBIE2316</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2317/"
+    >
+    SBIE2317</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2318/"
+    >
+    SBIE2318</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2321/"
+    >
+    SBIE2321</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2322/"
+    >
+    SBIE2322</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2323/"
+    >
+    SBIE2323</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2326/"
+    >
+    SBIE2326</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2327/"
+    >
+    SBIE2327</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2331/"
+    >
+    SBIE2331</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2332/"
+    >
+    SBIE2332</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE2334/"
+    >
+    SBIE2334</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE3207/"
+    >
+    SBIE3207</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE3208/"
+    >
+    SBIE3208</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE3209/"
+    >
+    SBIE3209</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE9101/"
+    >
+    SBIE9101</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE9153/"
+    >
+    SBIE9153</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE9154/"
+    >
+    SBIE9154</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE9156/"
+    >
+    SBIE9156</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE9201/"
+    >
+    SBIE9201</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE9202/"
+    >
+    SBIE9202</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE9203/"
+    >
+    SBIE9203</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE9204/"
+    >
+    SBIE9204</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE9205/"
+    >
+    SBIE9205</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE9206/"
+    >
+    SBIE9206</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE9207/"
+    >
+    SBIE9207</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE9208/"
+    >
+    SBIE9208</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE9251/"
+    >
+    SBIE9251</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE9252/"
+    >
+    SBIE9252</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE9253/"
+    >
+    SBIE9253</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE9302/"
+    >
+    SBIE9302</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE9304/"
+    >
+    SBIE9304</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" 
+     href="../SBIE9305/"
+    >
+    SBIE9305</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" 
+     href="../TechnicalAspects/"
+    >
+    Technical Aspects</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Sandboxie Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Sandboxie-Plus</li>
+      <li class="breadcrumb-item active">Sandboxie-Plus Migration Guide</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="sandboxie-plus-migration-guide">Sandboxie-Plus Migration Guide</h1>
+<p>This guide shows where all the known Sandboxie functions can be found in the new UI.</p>
+<h2 id="main-window">Main Window</h2>
+<p><img alt="" src="../../Media/Migration/0.png" /></p>
+<p>The overall layout of the main window of SandMan.exe is exactly the same as the old one in SbieCtrl.exe when the "Simple View" is chosen. If the "Advanced View" is chosen, there are three additional tabs on the bottom of the window ("Sbie Messages" etc.), so it corresponds with what can be seen in the right picture.</p>
+<h2 id="file-and-sandbox-menus">File and Sandbox Menus</h2>
+<p><img alt="" src="../../Media/Migration/1.png" /></p>
+<p>All important menu commands can be found in similar locations, although some have been moved.</p>
+<h2 id="create-new-box-dialog">Create New Box dialog</h2>
+<p><img alt="" src="../../Media/Migration/2.png" /></p>
+<p>The "Create New Box" command opens the new box dialog. Unlike in Classic, here a box type preset can be selected.</p>
+<p>The feature to copy an existing box can be found now on another place. (See the following unit.)</p>
+<h2 id="copying-sandbox-configuration">Copying Sandbox Configuration</h2>
+<p><img alt="" src="../../Media/Migration/3.png" /></p>
+<p>To copy a existing box configuration, the "Duplicate Sandbox" menu command can be used.</p>
+<h2 id="view-menu">View Menu</h2>
+<p><img alt="" src="../../Media/Migration/4.png" /></p>
+<p>The "View" menu  offers a few more functions, and the option to enable a simplified view mode. The recovery log is no longer a separate window but a tab at the bottom (visible when the "Advanced View" is chosen).</p>
+<h2 id="view-menu-files-and-folders">View Menu - Files and Folders</h2>
+<p><img alt="" src="../../Media/Migration/5.png" /></p>
+<p>The modern Sandboxie UI has replaced the "Files and Folders" view with a separate window that can be opened from the box context menu.</p>
+<h2 id="files-and-folders-view-window">Files and Folders - view / window</h2>
+<p><img alt="" src="../../Media/Migration/6.png" /></p>
+<p>The window "Files" offers the same functionality as the old view, but enhances it by providing a full context menu.</p>
+<h2 id="global-settings">Global Settings</h2>
+<p><img alt="" src="../../Media/Migration/7.png" /></p>
+<p>The new Sandboxie Plus UI has a global settings window (Options --&gt; Global Settings) where all options are located together on vertical tabs instead of having to open individual windows.</p>
+<h2 id="file-system-root">File System Root</h2>
+<p><img alt="" src="../../Media/Migration/8.png" /></p>
+<p>In the modern UI, it is possible to change not only the file system root path, but also the registry root and the IPC root.</p>
+<h2 id="program-start-monitoring">Program Start monitoring</h2>
+<p><img alt="" src="../../Media/Migration/9.png" /></p>
+<p>Sandboxie Plus can not only warn when unboxed processes are started, but it can also prevent them from starting at all.</p>
+<h2 id="shell-integration">Shell Integration</h2>
+<p><img alt="" src="../../Media/Migration/10.png" /></p>
+<p>On this tab, the shell integration can be configured. Most functions are available, although some deprecated features were dropped and other options were moved out.</p>
+<h2 id="create-sandbox-shortcut">Create Sandbox shortcut</h2>
+<p><img alt="" src="../../Media/Migration/11.png" /></p>
+<p>To create a shortcut to a boxed program, now an option in the box context menu is to be used, which can be reached quicker.</p>
+<h2 id="software-compatibility">Software Compatibility</h2>
+<p><img alt="" src="../../Media/Migration/12.png" /></p>
+<p>Also the compatibility dialog is now integrated into the window with the global settings (tab "Compatibility").</p>
+<h2 id="lock-configuration">Lock Configuration</h2>
+<p><img alt="" src="../../Media/Migration/13.png" /></p>
+<p>Starting with version 1.9.0 / 5.64.0, the <a href="../ConfigurationProtection/">Configuration Protection</a> options are located in the sub tab "Sandboxie.ini Presets" of the tab "Advanced Config".</p>
+<h2 id="sandbox-context-menu">Sandbox Context Menu</h2>
+<p><img alt="" src="../../Media/Migration/14.png" /></p>
+<p>The sandbox context menu is much more advanced, and contains all the options from the old menu. Double click on the sandbox name now opens the sandbox settings.</p>
+<h2 id="explore-contents">Explore Contents</h2>
+<p><img alt="" src="../../Media/Migration/15.png" /></p>
+<p>In addition to being able to explore contents, the "Box Content" sub menu allows to mount and browse the sandboxed registry.</p>
+<h2 id="sandbox-settings">Sandbox Settings</h2>
+<p><img alt="" src="../../Media/Migration/16.png" /></p>
+<p>All functionality from the old Sandbox Settings are now located in the Sandbox Options. Some areas are similar, but many have also been moved around.</p>
+<h2 id="quick-and-immediate-recover">Quick and Immediate Recover</h2>
+<p><img alt="" src="../../Media/Migration/17.png" /></p>
+<p>The options for Quick Recovery and Immediate Recovery have been merged into one tab ("File Recovery").</p>
+<h2 id="delete-options">Delete Options</h2>
+<p><img alt="" src="../../Media/Migration/18.png" /></p>
+<p>The Delete Options have been moved to the sub tab "File Options" of the tab "General Options".</p>
+<h2 id="delete-command">Delete Command</h2>
+<p><img alt="" src="../../Media/Migration/19.png" /></p>
+<p>The "Delete Command" option can now be found on the sub tab "Triggers" of the tab "Advanced Options".</p>
+<h2 id="program-groups">Program Groups</h2>
+<p><img alt="" src="../../Media/Migration/20.png" /></p>
+<p>The new UI supports groups just like the old one.</p>
+<h2 id="forced-programs-and-folders">Forced Programs and Folders</h2>
+<p><img alt="" src="../../Media/Migration/21.png" /></p>
+<p>Forced programs and folders are also merged into one tab ("Program Control", sub tab "Force* Programs").</p>
+<h2 id="lingering-programs-leader-programs">Lingering Programs &amp; Leader Programs</h2>
+<p><img alt="" src="../../Media/Migration/22.png" /></p>
+<p>Program stop behaviours are also merged into one tab.</p>
+<h2 id="file-migration">File Migration</h2>
+<p><img alt="" src="../../Media/Migration/23.png" /></p>
+<p>File Migration options have been integrated into the "File Options" sub tab of the "General Options" tab.</p>
+<h2 id="internet-access">Internet Access</h2>
+<p><img alt="" src="../../Media/Migration/24.png" /></p>
+<p>Sandboxie Plus can not only use the old method of blocking internet access but also the Windows Filtering Platform (WFP), which provides better compatibility.</p>
+<h2 id="network-access">Network Access</h2>
+<p><img alt="" src="../../Media/Migration/25.png" /></p>
+<p>Additionally, using the WFP facility, a per sandbox firewall can be configured (tab "Internet Restrictions" --&gt; sub tab "Network Firewall Rules").</p>
+<h2 id="startrun-access">Start/Run Access</h2>
+<p><img alt="" src="../../Media/Migration/26.png" /></p>
+<p>Start restriction options have been promoted to a top level tab.</p>
+<h2 id="drop-rights">Drop Rights</h2>
+<p><img alt="" src="../../Media/Migration/27.png" /></p>
+<p>The "Drop Admin Rights" option is in the new UI located on the "Security" sub tab of the "General Options" tab, together with additional security enhancements.</p>
+<h2 id="network-files">Network Files</h2>
+<p><img alt="" src="../../Media/Migration/28.png" /></p>
+<p>"Block network files and folders access" has been moved to the "Access Restrictions" sub tab of the "General Options" tab.</p>
+<h2 id="resource-access">Resource Access</h2>
+<p><img alt="" src="../../Media/Migration/29.png" /></p>
+<p>The "Resource Access" options have been integrated into a joined view which shows all presets in one list, the options can be edited as well as disabled without removing them.</p>
+<h2 id="application-compatibility-templates">Application Compatibility Templates</h2>
+<p><img alt="" src="../../Media/Migration/30.png" /></p>
+<p>The compatibility Templates are now also presented as a joined view (tab "App Templates", sub tab "Compatibility Templates").</p>
+<h2 id="user-accounts">User Accounts</h2>
+<p><img alt="" src="../../Media/Migration/31.png" /></p>
+<p>Last but not least, the ability to restrict a box to selected users has been moved to the sub tab "Users" of the tab "Advanced Options".</p>
+<h2 id="about-dialog">About Dialog</h2>
+<p><img alt="" src="../../Media/Migration/32.png" /></p>
+<p>And finally, we have the About dialog.</p>
+<p>As is apparent, Sandboxie Plus has much more additional options not shown here, as this guide is only meant to facilitate the migration from Sandboxie Classic to Sandboxie Plus.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../KnownConflicts/" class="btn btn-neutral float-left" title="Known Conflicts"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../PlusContent/Plus-Features/" class="btn btn-neutral float-right" title="Plus Features">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>sandboxie-docs is maintained by <a href="https://github.com/sandboxie-plus">sandboxie-plus</a>. If you want to contribute: <a href="https://github.com/sandboxie-plus/sandboxie-docs/edit/main/README.md">Improve this page!</a></p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../KnownConflicts/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../PlusContent/Plus-Features/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
