@@ -5,12 +5,13 @@
 [![Join our Discord Server](https://img.shields.io/badge/Join-Our%20Discord%20Server%20for%20bugs,%20feedback%20and%20more!-blue?style=for-the-badge&logo=discord)](https://discord.gg/S4tFu6Enne)
 
 ## Introduction
-Sandboxie is a sandbox-based isolation software for Windows that lets you try and run untrusted applications without worrying about unwanted changes to your files or registry.
+
+Sandboxie is a sandbox-based isolation software for Windows that lets you try to run untrusted applications without worrying about unwanted changes to your files or registry.
 
 After Sandboxie became [open source](https://news.sophos.com/en-us/2020/04/09/sandboxie-is-now-an-open-source-tool/), it was decided to release the documentation in the same way, in order to be accessible and easily updated from the community than the documentation available on [sandboxie-plus.com](https://sandboxie-plus.com) and other archived sources.
 
 A GitHub Pages site based on this content is also available: [https://sandboxie-plus.github.io/sandboxie-docs](https://sandboxie-plus.github.io/sandboxie-docs)
-<br>If you would like to improve it, please see [#102](https://github.com/sandboxie-plus/sandboxie-docs/issues/102)
+<br>If you would like to improve it, please see [#102](https://github.com/sandboxie-plus/sandboxie-docs/issues/102).
 
 ## Help Topics
 
@@ -30,6 +31,7 @@ A GitHub Pages site based on this content is also available: [https://sandboxie-
 * [All Pages Index](docs/Content/AllPages.md)
 
 ## Get Sandboxie
+
 Select from two editions:
 
 * Get Sandboxie Plus if you are a first-time user or want the latest features.
@@ -38,4 +40,11 @@ Select from two editions:
 [Feature Comparison](docs/Content/FeatureComparison.md) | [System requirements](https://github.com/sandboxie-plus/Sandboxie#sandboxie) | [Changelog](https://github.com/sandboxie-plus/Sandboxie/blob/master/CHANGELOG.md) | [Download the latest release](https://github.com/sandboxie-plus/Sandboxie/releases/latest)
 
 ## Contribute
+
 If you have development, testing or translation skills, then feel free to check out our [Contribution guidelines](https://github.com/sandboxie-plus/Sandboxie/blob/master/CONTRIBUTING.md).
+
+Specifically, for this repository:
+* Install `pre-commit` (`pip install pre-commit`; see more ways in https://pre-commit.com/#installation)
+* At the root of the repository, run `pre-commit install`
+
+This ensures that your commits are formatted according to project standards.
