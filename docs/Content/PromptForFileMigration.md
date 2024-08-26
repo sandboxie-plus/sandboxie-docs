@@ -1,7 +1,6 @@
 # Prompt For File Migration
 
-PromptForFileMigration is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It specifies whether Sandboxie will prompt for large file migration.
-For more information, see [SBIE2102](SBIE2102.md).
+PromptForFileMigration is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It specifies whether Sandboxie will prompt for large file migration. For more information, see [SBIE2102](SBIE2102.md).
 
 ```
    .
