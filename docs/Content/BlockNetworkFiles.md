@@ -1,6 +1,6 @@
 # Block Network Files
 
-BlockNetworkFiles is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It specifies whether Sandboxie will block sandboxed programs from accessing network files and folders without specifically opened
+BlockNetworkFiles is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It specifies whether Sandboxie will block sandboxed programs from accessing network files and folders without specifically opened.
 ```
    .
    .

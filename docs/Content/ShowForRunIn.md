@@ -1,6 +1,6 @@
 # Show For Run in 
 
-ShowForRunIn is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It specifies whether Sandboxie will show this box in "run in box" selection prompt
+ShowForRunIn is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It specifies whether Sandboxie will show this box in "run in box" selection prompt.
 ```
    .
    .
