@@ -25,7 +25,7 @@ The trace can be activated through different [Sandboxie Ini](SandboxieIni.md) se
 *   **GuiTrace** logs window-to-window communications;
 *   **ClsidTrace** logs COM communications;
 *   **NetFwTrace** traces the actions of the firewall components (since version 0.9.0 / 5.51.0);
-*   **LogAPI** library to get additional trace output (see [this thread](https://forum.xanasoft.com/viewtopic.php?f=12&t=143) for more information).
+*   **LogAPI** library to get additional trace output (see [this thread](https://forum.xanasoft.com/threads/how-to-get-malawre-trace-in-sandboxie.143/) for more information).
 
 Each setting accepts a sequence of characters which specifies what to log. The character _a_ logs requests which were allowed; the character _d_ logs requests which were denied. For the **FileTrace** and **PipeTrace** settings, the character _i_ logs requests which were allowed because they access a device which is ignored by Sandboxie, such as a CD-ROM.
 
