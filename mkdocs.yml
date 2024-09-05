@@ -13,6 +13,7 @@ theme:
   highlightjs: true
   sticky_navigation: true
   collapse_navigation: true
+use_directory_urls: false
 watch:
 - custom_theme
 copyright: 'sandboxie-docs is maintained by <a href="https://github.com/sandboxie-plus">sandboxie-plus</a>. If you want to contribute: <a href="https://github.com/sandboxie-plus/sandboxie-docs/">Improve this page!</a>'
