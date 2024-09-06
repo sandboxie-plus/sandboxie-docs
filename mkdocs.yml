@@ -17,7 +17,7 @@ theme:
 use_directory_urls: true
 watch:
 - custom_theme
-copyright: 'sandboxie-docs is maintained by <a href="https://github.com/sandboxie-plus">sandboxie-plus</a>. If you want to contribute: <a href="https://github.com/sandboxie-plus/sandboxie-docs/">Improve this page!</a>'
+copyright: 'This site is maintained by <a href="https://github.com/sandboxie-plus">sandboxie-plus</a>. If you want to contribute: <a href="https://github.com/sandboxie-plus/sandboxie-docs">Improve sandboxie-docs!</a>'
 nav:
 - README.md
 - Help Topics:
