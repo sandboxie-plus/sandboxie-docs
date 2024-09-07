@@ -11,7 +11,7 @@ SbieCtrl_HideMessage is a user setting in [Sandboxie Ini](SandboxieIni.md). It s
    SbieCtrl_HideMessage=1102,Example Message
 ```
 
-The first parameter is mandatory, specifies the id of the SBIE Messages to be hidden.
+The first parameter is mandatory and specifies the ID number of the [SBIE Messages](SBIEMessages.md) to be hidden.
 
 The second parameter is optional. If specified in Sandboxie Plus, only messages that match the text will be hidden, otherwise all occurrences of the message will be hidden.
 
