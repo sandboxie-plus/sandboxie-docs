@@ -16,3 +16,5 @@ The first parameter is mandatory and specifies the ID number of the [SBIE Messag
 The second parameter is optional. If specified in Sandboxie Plus, only messages that match the text will be hidden, otherwise all occurrences of the message will be hidden.
 
 Related Sandboxie Plus setting: Global Settings > General Config > Notifications > SBIE Messages
+
+Related [Sandboxie Control](SandboxieControl.md) setting: [Messages From Sandboxie](MessagesFromSandboxie.md) pop-up window
