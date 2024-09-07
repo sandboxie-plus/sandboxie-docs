@@ -10,7 +10,7 @@ PromptForFileMigration is a sandbox setting in [Sandboxie Ini](SandboxieIni.md).
    PromptForFileMigration=n
 ```
 
-Specifying _n_ indicates sandbox will not prompt user for file migration(the access will be read only).
+Specifying _n_ indicates sandbox will not prompt user for file migration (the access will be read-only).
 
 Related Sandboxie Plus setting: Sandbox Options > File Options > File Migration > Prompt user for large file migration
 
