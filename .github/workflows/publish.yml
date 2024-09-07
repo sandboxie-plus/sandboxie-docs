@@ -23,9 +23,16 @@ jobs:
         python-version: '3.12'
     - name: Setup Dependencies
       run: pip install -r requirements.txt
-    - name: Build & Publish
-      run: python -m mkdocs gh-deploy
-    - run: git config user.name 'github-actions[bot]' && git config user.email 'github-actions[bot]@users.noreply.github.com'
+    - name: Build
+      run: |-
+        python -m mkdocs build
+        python -m mkdocs build --no-directory-urls --site-dir site_
+        pwsh util/mix_use_directory_urls.ps1
+    - name: Publish
+      run: |-
+        git config user.name 'github-actions[bot]'
+        git config user.email 'github-actions[bot]@users.noreply.github.com'
+        ghp-import site --push
     - uses: actions/upload-artifact@v4.3.6
       with:
         path: './site'
