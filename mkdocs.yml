@@ -17,8 +17,7 @@ watch:
 - custom_theme
 copyright: 'This site is maintained by <a href="https://github.com/sandboxie-plus">sandboxie-plus</a>. If you want to contribute: <a href="https://github.com/sandboxie-plus/sandboxie-docs">Improve sandboxie-docs!</a>'
 nav:
-- README.md
-- Help Topics:
+- Sandboxie Basics:
   - Content/HelpTopics.md
   - Content/GettingStarted.md
   - Sandboxie Control:
@@ -33,7 +32,7 @@ nav:
   - Command Line Usage: Content/StartCommandLine.md
   - Content/SandboxieIni.md
 - Content/KnownConflicts.md
-- Sandboxie-Plus:
+- Sandboxie Plus:
   - Content/PlusMigrationGuide.md
   - PlusContent/Plus-Features.md
 - Advanced Topics:
