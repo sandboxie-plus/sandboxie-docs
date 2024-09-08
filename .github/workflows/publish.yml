@@ -24,10 +24,19 @@ jobs:
     - name: Setup Dependencies
       run: pip install -r requirements.txt
     - name: Build
+      shell: pwsh
       run: |-
         python -m mkdocs build
         python -m mkdocs build --no-directory-urls --site-dir site_
-        pwsh util/mix_use_directory_urls.ps1
+
+        foreach ($file in Get-ChildItem site_ -Recurse -File) {
+            $rp = Resolve-Path -Relative $file -RelativeBasePath site_
+            $match_path = Join-Path "./site" $rp
+            if (!(Test-Path $match_path)) {
+                Copy-Item $file $match_path
+            }
+        }
+
     - name: Publish
       run: |-
         git config user.name 'github-actions[bot]'
