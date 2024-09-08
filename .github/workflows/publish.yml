@@ -8,8 +8,6 @@ on:
     branches:
     - main
 
-
-
 jobs:
   pages:
     runs-on: ubuntu-22.04
@@ -23,9 +21,25 @@ jobs:
         python-version: '3.12'
     - name: Setup Dependencies
       run: pip install -r requirements.txt
-    - name: Build & Publish
-      run: python -m mkdocs gh-deploy
-    - run: git config user.name 'github-actions[bot]' && git config user.email 'github-actions[bot]@users.noreply.github.com'
+    - name: Build
+      shell: pwsh
+      run: |-
+        python -m mkdocs build
+        python -m mkdocs build --no-directory-urls --site-dir site_
+
+        foreach ($file in Get-ChildItem site_ -Recurse -File) {
+            $rp = Resolve-Path -Relative $file -RelativeBasePath site_
+            $match_path = Join-Path "./site" $rp
+            if (!(Test-Path $match_path)) {
+                Copy-Item $file $match_path
+            }
+        }
+
+    - name: Publish
+      run: |-
+        git config user.name 'github-actions[bot]'
+        git config user.email 'github-actions[bot]@users.noreply.github.com'
+        ghp-import site --push
     - uses: actions/upload-artifact@v4.3.6
       with:
         path: './site'
