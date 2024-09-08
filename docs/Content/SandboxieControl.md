@@ -2,7 +2,7 @@
 
 ### Overview
 
-Sandboxie Control is the graphical front end to Sandboxie, and can control most aspects of Sandboxie. These are some of the things that you can do with it:
+Sandboxie Control is the graphical front end to Sandboxie Classic, and can control most aspects of Sandboxie. These are some of the things that you can do with it:
 
 *   Start and stop programs under the supervision of Sandboxie
 *   View files inside the sandbox

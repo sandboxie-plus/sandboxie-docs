@@ -15,7 +15,7 @@ theme:
   collapse_navigation: true
 watch:
 - custom_theme
-copyright: 'This site is maintained by <a href="https://github.com/sandboxie-plus">sandboxie-plus</a>. If you want to contribute: <a href="https://github.com/sandboxie-plus/sandboxie-docs">Improve sandboxie-docs!</a>'
+copyright: 'This site is maintained by <a href="https://github.com/sandboxie-plus">sandboxie-plus</a>. If you wish to contribute: <a href="https://github.com/sandboxie-plus/sandboxie-docs">Improve sandboxie-docs!</a>'
 nav:
 - Sandboxie Basics:
   - Content/HelpTopics.md

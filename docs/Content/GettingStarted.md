@@ -18,9 +18,9 @@ You can also review the [External Tutorials](ExternalTutorials.md) page for more
 
 * * *
 
-### Sandboxie Control
+### Sandboxie Control interface
 
-Sandboxie is operated primarily through the [Sandboxie Control](SandboxieControl.md) program. This program adds the yellow Sandboxie icon to the system notification ("tray") area of your taskbar:
+Sandboxie Classic is operated through the [Sandboxie Control](SandboxieControl.md) program. This program adds the yellow Sandboxie icon to the system notification ("tray") area of your taskbar:
 ![](../Media/TrayIconEmpty.png)
 
 If [Sandboxie Control](SandboxieControl.md) is not already active, you can find it and launch it from the Sandboxie program group in your Windows Start menu:

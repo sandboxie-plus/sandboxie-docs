@@ -18,13 +18,13 @@ You should specify a full path to the DLL. If the DLL file itself resides within
 
 The order of DLLs loaded into the sandboxed program is thus:
 
-Ntdll.dll  
-KernelBase.dll (only on Windows 7)  
-Kernel32.dll  
-SbieDll.dll (on 64-bit Windows, this can be either the 64-bit SbieDll or the 32-bit SbieDll)  
-_InjectDlls_ (loaded in the order specified in Sandboxie.ini)  
-Optionally, ShimEng (or AppHelp on Windows 7) and related DLLs  
-All [statically-linked](https://msdn.microsoft.com/en-us/library/ms684184(VS.85).aspx) DLLs
+*   Ntdll.dll
+*   KernelBase.dll (on Windows 7 and later)
+*   Kernel32.dll
+*   SbieDll.dll (on 64-bit Windows, this can be either the 64-bit SbieDll or the 32-bit SbieDll)
+*   _InjectDlls_ (loaded in the order specified in Sandboxie.ini)
+*   Optionally, ShimEng (or AppHelp on Windows 7 and later) and related DLLs
+*   All [statically-linked](https://msdn.microsoft.com/en-us/library/ms684184(VS.85).aspx) DLLs
 
 The behavior described above applies to Sandboxie version 3.46 and later. Earlier versions of Sandboxie implemented a different behavior which is described below:
 

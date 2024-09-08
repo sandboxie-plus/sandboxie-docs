@@ -1,14 +1,12 @@
 # SBIE Messages
 
-Sandboxie messages may be issued to the [System Event Log](SystemEventLog.md) or the [Popup Message Log](PopupMessageLog.md). This is not an exhaustive list. For more information, please look in our Technical Support forum.
+Sandboxie messages may be issued to the [System Event Log](SystemEventLog.md) or the [Popup Message Log](PopupMessageLog.md). This is not an exhaustive list. For more information, please look in our [GitHub repository](https://github.com/sandboxie-plus/Sandboxie).
 
 Some messages are informational and notify of a common, or in some cases special, event that has occurred. Other messages indicate an error condition.
 
 To consult the documentation for a particular message, please use the navigation frame on the right.
 
 Some messages display details which include NT status codes, denoted in the help pages as _ntstatus_. For a list of common NT status codes, please consult [Nt Status Codes](NtStatusCodes.md).
-
-
 
 ## All documented Messages
 
@@ -143,4 +141,3 @@ Some messages display details which include NT status codes, denoted in the help
 [SBIE9302](SBIE9302.md)
 [SBIE9304](SBIE9304.md)
 [SBIE9305](SBIE9305.md)
-

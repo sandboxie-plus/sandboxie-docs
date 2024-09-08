@@ -10,7 +10,7 @@ Programs that run in a sandbox are generally not allowed to access system resour
 
 Examples where exceptions are convenient or necessary:
 
-*   Allow direct access to some specific folder. For example, let the Web browser place downloads directly in a _Downloads_ folder.  
+*   Allow direct access to some specific folder. For example, let the Web browser place downloads directly in a _Downloads_ folder.<br>
     See the [File Access](ResourceAccessSettings.md#file-access) category below.
 *   A program may need access to some resource for correct operation. If the program is known and trusted, it is reasonable to make such an exception. See [Known Conflicts](KnownConflicts.md) for some examples.
 

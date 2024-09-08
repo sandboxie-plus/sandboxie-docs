@@ -8,23 +8,29 @@ Known conflicts can be resolved by activating application configurations in Sand
 
 Problem: Some applications that invoke services or drivers may not install/run inside Sandboxie.
 
-Solution #1: You may have a conflict with a third-party security software installed on your system (see issue [#647](https://github.com/sandboxie-plus/Sandboxie/issues/647), [#619](https://github.com/sandboxie-plus/Sandboxie/issues/619), [#293](https://github.com/sandboxie-plus/Sandboxie/issues/293)). If you want to know more about which security suite could be involved, take a look at the [archived forums](https://sandboxie-website-archive.github.io/www.sandboxie.com/old-forums/viewtopica726a726.html?f=11&t=21539).
+Solution #1: You may have a conflict with a third-party security software installed on your system (see issue [#647](https://github.com/sandboxie-plus/Sandboxie/issues/647) and [#293](https://github.com/sandboxie-plus/Sandboxie/issues/293)). If you want to know more about which security suite could be involved, take a look at the [archived forums](https://sandboxie-website-archive.github.io/www.sandboxie.com/old-forums/viewtopica726a726.html?f=11&t=21539).
 
 Solution #2: If you have already tried to install your application in a new empty sandbox, then install it on your host and run it sandboxed.
 
-If problems persist, especially with applications working on previous Sandboxie versions, please let us know the details by posting on the official Github repository [here](https://github.com/sandboxie-plus/Sandboxie/issues).
+If problems persist, especially with applications working on previous Sandboxie versions, please let us know the details by posting on the [GitHub repository](https://github.com/sandboxie-plus/Sandboxie/issues).
 
-### UWP / Modern / Microsoft Store Apps
+### Microsoft Store apps
 
 Problem: Microsoft store apps will not work in Sandboxie Classic and Sandboxie Plus.
 
 Solution: None at this time. See issue [#19](https://github.com/sandboxie-plus/Sandboxie/issues/19) to track any possible change about this.
 
-### Office 2013 on up & Office 365 (C2R Versions only)
+### Office 2013/2016/2019 & Office 365 (C2R versions only)
 
-Problem: Click to Run versions of Microsoft Office 2013, 2016 and Office 365 will crash when sandboxed. This includes Outlook 2013 and up.
+Problem: Click to Run versions of Microsoft Office 2013, 2016, 2019 and Office 365 will crash when sandboxed. This includes Outlook 2013 and up.
 
-Solution: A fix was included on [v0.9.7 / 5.52.1](https://github.com/sandboxie-plus/Sandboxie/releases/tag/0.9.7). It can be applied manually with most recent Sandboxie versions, see [#428](https://github.com/sandboxie-plus/Sandboxie/issues/428#issuecomment-932708577).
+Solution: A fix was included on [v0.9.7 / 5.52.1](https://github.com/sandboxie-plus/Sandboxie/releases/tag/0.9.7).
+
+### Office 2021
+
+Problem: Office 2021 cannot be installed inside a sandbox.
+
+Solution: None at this time. See issue [#1675](https://github.com/sandboxie-plus/Sandboxie/issues/1675) or [#1900](https://github.com/sandboxie-plus/Sandboxie/issues/1900) to track any possible change about this.
 
 ### Tor Browser
 
@@ -49,31 +55,25 @@ Solution: Microsoft Edge was updated with a new setting (under System) called "S
 
 Problem: Not all Steam games will function while Sandboxed.
 
-Solution: Install the games on your computer, not in a sandbox. Most games can work. However, there are [known reports](https://github.com/sandboxie-plus/Sandboxie/labels/game%20issue) that some simply may not. If you run into a problem with a Steam game, you should make sure Steam client is updated on your host machine. Run Steam not sandboxed, download and install the game on your host computer and then "right click" on the game shortcut and select "Run Sandboxed" as a workaround. If problems persist, please let us know the details by posting on the official Github repository [here](https://github.com/sandboxie-plus/Sandboxie/issues).
+Solution: Install the games on your computer, not in a sandbox. Most games can work. However, there are [known reports](https://github.com/sandboxie-plus/Sandboxie/labels/game%20issue) that some simply may not. If you run into a problem with a Steam game, you should make sure Steam client is updated on your host machine. Run Steam not sandboxed, download and install the game on your host computer and then "right click" on the game shortcut and select "Run Sandboxed" as a workaround. If problems persist, please let us know the details by posting on the [GitHub repository](https://github.com/sandboxie-plus/Sandboxie/issues).
 
 ### GOG Games and Galaxy Beta
 
 Problem: Games from GOG Galaxy may not run while sandboxed.
 
-Solution: No fix yet, see [#1246](https://github.com/sandboxie-plus/Sandboxie/issues/1246). You can "force" GOG Program folder so that it works correctly within a sandbox. See also: [ForceFolder](ForceFolder.md).
+Solution: A partial workaround is available in [#1246](https://github.com/sandboxie-plus/Sandboxie/issues/1246). You can "force" GOG Program folder so that it works correctly within a sandbox. See also: [ForceFolder](ForceFolder.md).
 
-### MS Edge is stuck when you clean Media Foundation data
+### No access to microphone or camera on any sandbox in Windows 11
 
-Problem: MS Edge doesn't clear "Media Foundation data" while sandboxed.
+Problem: There is no access to microphone/camera on any sandbox in Windows 11 systems.
 
-Solution: You can uncheck the option for the time being, see [#867](https://github.com/sandboxie-plus/Sandboxie/issues/867).
-
-### Chromium browsers like Edge or Chrome can not access microphone in any sandbox
-
-Problem: Chromium-based browsers can not access microphone while sandboxed.
-
-Solution: No fix yet, see [#1208](https://github.com/sandboxie-plus/Sandboxie/issues/1208).
+Solution: A workaround is available in [#1669](https://github.com/sandboxie-plus/Sandboxie/issues/1669), but no permanent fix.
 
 ### Tabs sessions on Chromium browsers are sometimes not restored correctly in Sandboxie
 
 Problem: Tabs sessions are lost when a Chromium browser is running outside of the sandbox.
 
-Solution: No fix yet, see [#558](https://github.com/sandboxie-plus/Sandboxie/issues/558).
+Solution: No fix yet, but some workarounds are available in [#558](https://github.com/sandboxie-plus/Sandboxie/issues/558).
 
 ### Windows Explorer takes a long time to open folders, drives or context menus
 
@@ -81,17 +81,17 @@ Problem: Windows Explorer can take a long time to open while sandboxed on Window
 
 Solution: No fix yet, see [#69](https://github.com/sandboxie-plus/Sandboxie/issues/69).
 
-### "Open With" dialog not working in sandboxed Explorer instance
+### "Open With" dialog does not work in a sandboxed File Explorer instance
 
 Problem: "Open with" functionality is not working with Sandboxie.
 
 Solution: A fix was included on [v1.0.6 / 5.55.6](https://github.com/sandboxie-plus/Sandboxie/releases/tag/1.0.6).
 
-### Can't use the search box in File Explorer (or Windows Explorer)
+### Can't use the search box in File Explorer
 
 Problem: The search box in File Explorer doesn't get focused while sandboxed, and you can't input anything.
 
-Solution: A permanent fix was included on [v0.9.8c / 5.53.2](https://github.com/sandboxie-plus/Sandboxie/releases/tag/0.9.8c). It can be also applied manually on older versions, see [#1002](https://github.com/sandboxie-plus/Sandboxie/issues/1002).
+Solution: A fix was included on [v0.9.8c / 5.53.2](https://github.com/sandboxie-plus/Sandboxie/releases/tag/0.9.8c).
 
 ###  "Sandboxed service failed to start: BITS" or "Request to start service bits was denied" can appear while a program is sandboxed
 
@@ -101,4 +101,4 @@ Solution: A workaround was directly included on [v1.0.1 / 5.55.1](https://github
 
 ### I can't find my issue in this list
 
-If you would like to search further issues, please use the search box on the official Github repository [here](https://github.com/sandboxie-plus/Sandboxie/issues).
+If you would like to search for further issues, please refer to the [GitHub repository](https://github.com/sandboxie-plus/Sandboxie).

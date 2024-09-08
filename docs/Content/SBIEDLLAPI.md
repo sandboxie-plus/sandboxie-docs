@@ -14,19 +14,19 @@ The entrypoints described here are all exported by _SbieDll.dll_. To access an e
 	{
 		//
 	        // locate the address of SbieDll_Hook in SbieDll.dll
-	        //	
+	        //
 
 	        typedef void *(__stdcall *P_SbieDll_Hook)(
-	                const char *ApiName, void *ApiFunc, void *NewFunc);	
+	                const char *ApiName, void *ApiFunc, void *NewFunc);
 
-	        P_SbieDll_Hook p_SbieDll_Hook = GetProcAddress(hSbieDll, "SbieDll_Hook");	
+	        P_SbieDll_Hook p_SbieDll_Hook = GetProcAddress(hSbieDll, "SbieDll_Hook");
 
 		//
 	        // invoke SbieDll_Hook through the function pointer
-	        //	
+	        //
 
 	        p_SbieDll_Hook(...);
-	}	
+	}
 ```
 
 Note the use of _InjectDllMain_ (see [Inject Dll](InjectDll.md)) to get a handle to the loaded instance of SbieDll. That is the recommended approach. However, using LoadLibrary or GetModuleHandle to look up SbieDll by name is also fine.
@@ -477,7 +477,7 @@ Note the use of _InjectDllMain_ (see [Inject Dll](InjectDll.md)) to get a handle
         value [ini] is an optional parameter specifies the new value.
 
         If operation_code is 's' and value is omitted, the corresponding
-        setting in the specified section will be deleted.	
+        setting in the specified section will be deleted.
 
         If operation_code is 's' and setting_name is "*" (wildcard star)
         and value is omitted, this function deletes a complete section
