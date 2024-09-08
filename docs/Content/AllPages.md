@@ -34,6 +34,8 @@
 
 [Block Net Param](BlockNetParam.md)
 
+[Block Network Files](BlockNetworkFiles.md)
+
 ~~[Block Password](BlockPassword.md)~~ (obsolete)
 
 ~~[Block Port](BlockPort.md)~~ (removed since Sandboxie v0.9.0 / 5.51.0)
@@ -186,6 +188,8 @@
 
 [Hide Host Process](HideHostProcess.md)
 
+[Hide Message](SbieCtrl_HideMessage.md)
+
 [Hide Other Boxes](HideOtherBoxes.md)
 
 [How It Works](HowitWorks.md)
@@ -307,6 +311,8 @@
 [Program Stop Settings](ProgramStopSettings.md)
 
 [Programs View](ProgramsView.md)
+
+[Prompt For File Migration](PromptForFileMigration.md)
 
 [Protect Host Images](ProtectHostImages.md)
 
@@ -653,6 +659,8 @@
 [Service Programs](ServicePrograms.md)
 
 [Shell Folders](ShellFolders.md)
+
+[Show For Run In](ShowForRunIn.md)
 
 [Start Command Line](StartCommandLine.md)
 
