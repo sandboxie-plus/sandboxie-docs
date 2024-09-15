@@ -3,4 +3,3 @@
 Since the open sourcing, Sandboxie is being released in two flavors: the Classic build with a [MFC](https://en.wikipedia.org/wiki/Microsoft_Foundation_Class_Library)-based UI and a Plus build that incorporates new features with an entirely new [Qt](https://www.qt.io/)-based UI. All newly added features target the Plus branch, but can often be utilized in the Classic edition by manually editing the [Sandboxie Ini](../Content/SandboxieIni.md) file.
 
 The full Sandboxie documentation can be found through the [Support Page Index](../Content/AllPages.md), or you can start directly with the [Help Topics](../Content/HelpTopics.md) overview.
-

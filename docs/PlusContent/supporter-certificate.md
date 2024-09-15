@@ -13,4 +13,3 @@ A support certificate enables the use of new supporter exclusive features, like 
 <!-- If you have donated in the past already (before the shop was introduced), or are a Patreon member, you can get your supporter certificate [here](https://xanasoft.com/get_cert.php), just enter the email address used with Paypal or Patreon, and download your certificate.
 
 New donations must indicate that they want to receive a certificate (for bureaucratic reasons) and will be updated once or twice a month. To receive a Supporter Certificate instantly, use one of the [purchase options](https://sandboxie-plus.com/go.php?to=sbie-get-cert) provided. -->
-

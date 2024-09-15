@@ -104,4 +104,3 @@ The free utility [WinObj](https://docs.microsoft.com/en-us/sysinternals/download
 Unlike the case with files or registry keys, sandboxed programs are never permitted to access IPC objects outside the sandbox namespace, not even for read-only access. This behavior can be affected with the registry-related settings [OpenIpcPath](OpenIpcPath.md) and [ClosedIpcPath](ClosedIpcPath.md).
 
 Note that Sandboxie includes a number of built-in [OpenIpcPath](OpenIpcPath.md) settings to allow programs to function correctly, and in a typical system, more [OpenIpcPath](OpenIpcPath.md) settings are applied through compatibility settings for third-party software.
-

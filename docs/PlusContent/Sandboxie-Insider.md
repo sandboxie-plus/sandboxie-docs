@@ -24,4 +24,3 @@ Please note that:
 - Experimental things that may impact compatibility are tested in the public GitHub preview channel.
 - The Sandboxie Plus insider builds are based on stable final releases, with new functionality added on top.
 - The insider builds are compiled with Qt6 and provided as a unified x64/ARM64 installer.
-
