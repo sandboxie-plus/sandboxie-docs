@@ -25,7 +25,8 @@
 *   [How do I make Quick Recovery show my saved favorites and downloads?](#how-do-i-make-quick-recovery-show-my-saved-favorites-and-downloads)
 *   [I saved a downloaded file, a document or an email inside the sandbox, how do I get it out?](#i-saved-a-downloaded-file-a-document-or-an-email-inside-the-sandbox-how-do-i-get-it-out)
 *   [Why does the wrong program start when I run my default Web browser sandboxed?](#why-does-the-wrong-program-start-when-i-run-my-default-web-browser-sandboxed)
-*   If you have a program that doesn't work properly sandboxed, please look it up on the [Known Conflicts](KnownConflicts.md) page before posting a problem report.
+*   [Why does Sysinternals Process Monitor not work inside the sandbox?](#why-does-sysinternals-process-monitor-not-work-inside-the-sandbox)
+*   If you have a program that doesn't work properly sandboxed, please look it up on the [Known Conflicts](KnownConflicts.md) page before posting a [problem report](https://github.com/sandboxie-plus/Sandboxie/issues/new/choose).
 
 * * *
 
@@ -225,9 +226,8 @@ See full article: [Email Protection](EmailProtection.md).
 By default Sandboxie is configured to load and start automatically. To have Sandboxie load only when you need it, make the following changes.
 
 *   In [Sandboxie Control](SandboxieControl.md), open the _Configure -> Shell Integration_ window, and clear the checkbox _When Windows starts_ to stop Sandboxie Control from starting.
-
+*   In Sandboxie Plus, see the [Sandboxie-Plus Migration Guide](PlusMigrationGuide.md#shell-integration).
 *   Open the Windows Services configuration window: _Start menu -> Control Panel -> Administrative Tools -> Services_. Then locate the Sandboxie Service. Double click to bring up its properties window. Set its _Startup type_ to _Manual_ rather than automatic.
-
 *   The driver component of Sandboxie is started by the Sandboxie Service. Therefore, setting the service to start manually, indirectly also sets the driver to start manually.
 
 Starting Sandboxie Control will also start the service. (But note that Administrative rights are required to start a service.)
@@ -268,3 +268,8 @@ If using Windows 10/11, ensure that your default Web Browser for Windows is set 
 
 **Back to [Table of Contents](#problems)**
 
+### Why does Sysinternals Process Monitor not work inside the sandbox?
+
+While Process Monitor can't run sandboxed, it can monitor the activity inside the sandbox.
+
+**Back to [Table of Contents](#problems)**

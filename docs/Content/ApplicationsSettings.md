@@ -50,7 +50,7 @@ For detailed information, see [Sandboxie Ini](SandboxieIni.md) setting: [OpenCre
 
 [Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > Applications > Email Reader
 
-![](../Media/EmailReaderSettings.png)  
+![](../Media/EmailReaderSettings.png)
 
 This settings page offers quick configuration for the following email programs:
 

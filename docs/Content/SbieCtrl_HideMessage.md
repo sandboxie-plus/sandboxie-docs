@@ -1,4 +1,4 @@
-# SbieCtrl_HideMessage 
+# SbieCtrl_HideMessage
 
 SbieCtrl_HideMessage is a user setting in [Sandboxie Ini](SandboxieIni.md). It specifies which of the [SBIE Messages](SBIEMessages.md) should be hidden from popping up.
 

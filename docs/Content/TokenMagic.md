@@ -25,5 +25,3 @@ To eliminate the dependencies on unexported symbols, it would be required to pro
 I have not investigated if it would be feasible to do the token replacement before it gets officially frozen.
 
 Other than the above essential dependencies, Sandboxie gets the Clipboard object from the window station object in order to adjust the integrity level for the stored items such that they can be accessed by the sandboxed applications.
-
-

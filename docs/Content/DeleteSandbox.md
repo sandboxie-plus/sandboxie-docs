@@ -1,6 +1,7 @@
 # Delete Sandbox
 
-[Sandboxie Control](SandboxieControl.md) > [Sandbox Menu](SandboxMenu.md) > Delete Contents  
+[Sandboxie Control](SandboxieControl.md) > [Sandbox Menu](SandboxMenu.md) > Delete Contents
+
 [Sandboxie Control](SandboxieControl.md) > [Tray Icon Menu](TrayIconMenu.md) > Delete Contents
 
 ![](../Media/DeleteSandbox.png)

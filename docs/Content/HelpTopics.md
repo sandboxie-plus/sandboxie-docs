@@ -4,7 +4,7 @@
 
 #### General [Usage Tips](UsageTips.md) for using Sandboxie
 
-#### Usage Manual for [Sandboxie](SandboxieControl.md)
+#### Usage Manual for [Sandboxie Control](SandboxieControl.md)
 
 #### [Known Conflicts](KnownConflicts.md) with other programs
 

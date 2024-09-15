@@ -15,17 +15,9 @@ With Sandboxie, you can have a web browser which is isolated within its own sand
 Once _Windows XP Mode_ is installed into your Windows 7, here are step-by-step instructions to install Sandboxie and Firefox:
 
 *   Open the _Windows XP Mode_ operating system.
-
 *   Optionally, download and install Firefox. Make sure to let Firefox designate itself as the default web browser during its installation process. Optionally, also tweak Firefox preferences, and install any add-ons you wish to use.
-
 *   Download and install Sandboxie.
-
 *   Optionally download and install an anti-virus for your _Windows XP Mode_ operating system.
-
 *   Log out of the _Windows XP Mode_ operating system.
-
-*   In your Windows 7 Start Menu, you should now find the Sandboxie program group:
-
-Windows 7 Start Menu > All Programs > Windows Virtual PC > Windows XP Mode Applications > Sandboxie
-
+*   In your Windows 7 Start Menu, you should now find the Sandboxie program group: _Windows 7 Start Menu > All Programs > Windows Virtual PC > Windows XP Mode Applications > Sandboxie_
 *   Select _Run Web browser sandboxed_ to run Firefox within Sandboxie.

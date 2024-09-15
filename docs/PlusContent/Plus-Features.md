@@ -1,4 +1,4 @@
-Sandboxie Plus offers a multitude of new functionality which improves security, compatibility and the overall sandboxing experience.
+Sandboxie Plus user interface offers a multitude of new functionality which improves security, compatibility and the overall sandboxing experience.
 
 Some of these features (*) are however only available to users with a [Support Certificate](../PlusContent/supporter-certificate.md) which can be obtained by [contributing to the Sandboxie project](https://github.com/sandboxie-plus/Sandboxie/blob/master/CONTRIBUTING.md) or purchased in our [online shop](https://xanasoft.com/shop/).
 
@@ -96,4 +96,3 @@ Some more features (**) are available to participants of the [Sandboxie-Insider]
  - Support ARM64 natively
  - Support emulated x86
  - Support emulated x64 (ARM64EC)
-

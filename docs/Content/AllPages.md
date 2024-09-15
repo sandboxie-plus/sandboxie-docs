@@ -322,8 +322,6 @@
 
 ### Q
 
-[Questions](Questions.md)
-
 [Quick Recovery](QuickRecovery.md)
 
 ### R
@@ -372,9 +370,9 @@
 
 [Sandboxie Plus](../PlusContent/sandboxie-plus.md)
 
-[Sandboxie Plus Features](../PlusContent/Plus-Features.md)
-
 [Sandboxie Plus Migration Guide](PlusMigrationGuide.md)
+
+[Sandboxie Plus UI Features](../PlusContent/Plus-Features.md)
 
 [Sandboxie Portable](../PlusContent/sandboxie-portable.md)
 

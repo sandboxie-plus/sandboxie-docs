@@ -8,4 +8,4 @@ Not so with ransomware your important business data can be lost forever.
 
 Did you know that ransomware can hold your data hostage, and can't be stopped with anti-virus software alone?
 
-Sandboxie runs your programs in an isolated space which prevents malware - including ransomware - from making permanent changes to other programs and data in your computer. 
+Sandboxie runs your programs in an isolated space which prevents malware - including ransomware - from making permanent changes to other programs and data in your computer.

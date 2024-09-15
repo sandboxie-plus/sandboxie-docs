@@ -6,9 +6,9 @@ Sandboxie Control > Sandbox Settings > Appearance:
 
 Normally, Sandboxie inserts the Sandboxie marks [#] in the title bar of windows associated with sandboxed programs.
 
-* You can use the first checkbox to override this default behavior and prevent the Sandboxie marks from appearing. 
+* You can use the first checkbox to override this default behavior and prevent the Sandboxie marks from appearing.
 
-* You can use the second checkbox to extend this default behavior to also insert the name of the sandbox between the [#] marks. This is useful when you frequently use the same programs in more than one sandbox. 
+* You can use the second checkbox to extend this default behavior to also insert the name of the sandbox between the [#] marks. This is useful when you frequently use the same programs in more than one sandbox.
 
 Note: It is not possible to enable both checkboxes at the same time.
 

@@ -20,11 +20,9 @@ When [Sandboxie Control](SandboxieControl.md) updates the configuration, it rewr
 
 Configuration settings in the file are split into groups, or sections. A section begins with a line that specifies its name enclosed within square brackets. For example: [SomeSectionName]. The section continues to the end of the file, or until another section begins. There are three types of sections:
 
-* The Global Settings section contains settings global to Sandboxie. These apply in one way or another to all sandboxes and all user accounts. There can be only one Global Settings section, typically at the top of the configuration file. 
-
-* One Sandbox Settings section for each sandbox known to Sandboxie. A valid sandbox name is a string of letters and digits, and has a maximum length of 32 characters. The Sandbox Settings section should contain the setting [Enabled](Enabled.md)=y. 
-
-* One User Settings section for each user account. These settings record the state of [Sandboxie Control](SandboxieControl.md) for a particular user account, and include such information as the size of the window. These settings are not documented here, but see a brief discussion below. 
+* The Global Settings section contains settings global to Sandboxie. These apply in one way or another to all sandboxes and all user accounts. There can be only one Global Settings section, typically at the top of the configuration file.
+* One Sandbox Settings section for each sandbox known to Sandboxie. A valid sandbox name is a string of letters and digits, and has a maximum length of 32 characters. The Sandbox Settings section should contain the setting [Enabled](Enabled.md)=y.
+* One User Settings section for each user account. These settings record the state of [Sandboxie Control](SandboxieControl.md) for a particular user account, and include such information as the size of the window. These settings are not documented here, but see a brief discussion below.
 
 A simple Sandboxie.ini file may look like this.
 
@@ -61,27 +59,27 @@ The file is UNICODE-encoded, which means each character is composed of two bytes
 * Listed in the navigation bar on the right under the heading Global Settings.
 * Settings apply to the general operation of Sandboxie, not to any particular sandbox.
 * Global settings must be placed in the GlobalSettings section, and cannot be overridden by also including them in a sandbox section.
-* Sandbox settings may appear in the GlobalSettings section, and can be overridden by also including them in a sandbox section. 
+* Sandbox settings may appear in the GlobalSettings section, and can be overridden by also including them in a sandbox section.
 
 ### Sandbox Settings:
 
 * Listed in the navigation bar on the right under the heading Sandbox Settings.
 * Settings apply to a particular sandbox when specified in the associated sandbox section.
 * Settings apply to all sandboxes when specified in the [GlobalSettings] section.
-* Settings in the sandbox section override corresponding settings from [GlobalSettings]. 
+* Settings in the sandbox section override corresponding settings from [GlobalSettings].
 
 In the example above, the sandbox setting [FileRootPath](FileRootPath.md) appears in [GlobalSettings] and applies to all sandboxes, but note that it is overridden in section [InstallBox].
 
 * Sandbox settings can be applied to a specific program. See [Program Name Prefix](ProgramNamePrefix.md).
 * Some sandbox settings are [Yes Or No Settings](YesOrNoSettings.md).
-* Sandbox settings may specify [Expandable Variables](ExpandableVariables.md) that Sandboxie recognizes. 
+* Sandbox settings may specify [Expandable Variables](ExpandableVariables.md) that Sandboxie recognizes.
 
 ### User Settings
 
 * Settings record the state of [Sandboxie Control](SandboxieControl.md), for instance the position of the window.
 * Each user account is directed to a different [UserSettings_XXXXXXXX] section.
 * When a new [UserSettings_XXXXXXXX] is created, default values are taken from the [UserSettings_Default] section, if it exists.
-* If the section [UserSettings_Portable] exists, all user accounts are directed to use this section. 
+* If the section [UserSettings_Portable] exists, all user accounts are directed to use this section.
 
 ## Automation
 

@@ -18,7 +18,7 @@ Use this settings page to indicate when you want the sandbox deleted:
 
 * Deleted only by explicit request: Keep both checkboxes cleared
 * Deleted regularly and automatically: Mark the first checkbox
-* Never deleted: Mark the second checkbox 
+* Never deleted: Mark the second checkbox
 
 Note that while both checkboxes can be cleared, only one checkbox can be marked at any time.
 
