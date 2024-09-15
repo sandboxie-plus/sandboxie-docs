@@ -1,0 +1,34 @@
+name: pre-commit
+
+on:
+  # Triggers the workflow on ALL push or pull request events
+  # except for the `gh-pages`` branch
+  push:
+    branches-ignore:
+     - gh-pages
+  pull_request:
+    branches-ignore:
+     - gh-pages
+
+permissions:
+  contents: write
+
+jobs:
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-python@v5
+      with:
+        python-version: 3.x
+
+    - uses: pre-commit/action@v3.0.1
+
+    - name: Commit changes
+      if: ${{ !cancelled() && failure() }}
+      shell: bash
+      run: |
+        git config --local user.name "pre-commit-ci[bot]"
+        git config --local user.email "66853113+pre-commit-ci[bot]@users.noreply.github.com"
+        git commit -m "[pre-commit.ci] auto-fixes from pre-commit hooks" -a
+        git push origin HEAD:${{ github.head_ref || github.ref_name }}
