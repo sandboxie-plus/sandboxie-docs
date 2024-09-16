@@ -200,9 +200,9 @@
 
 [Hide Non System Processes](HideNonSystemProcesses.md)
 
-[Hide Sandboxie Processes](HideSbieProcesses.md)
-
 [Hide Other Boxes](HideOtherBoxes.md)
+
+[Hide Sandboxie Processes](HideSbieProcesses.md)
 
 [How It Works](HowitWorks.md)
 
