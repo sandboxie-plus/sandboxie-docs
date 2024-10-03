@@ -903,20 +903,24 @@ If you set "block internet access" for a given process and have the driver (for 
 <h3 id="implementing-network-access-rules-in-sandboxie-plus">Implementing network access rules in Sandboxie Plus</h3>
 <p>The Sandman UI provides us with a method for editing and testing network rules. Right-click on a box and select "Sandbox Options" from the drop-down menu (or simply double-click on a box) to bring up the Box Options UI. Then click on Network Options in the left panel and select the Network Firewall tab. The Test Rules row appears at the bottom, below the rule list (which may or may not be already populated). One can enter program name, port number, IP address and protocol to see which rules are in play and which rule will be applied in the end. The choice of blocking (using WFP or by denying access to network devices) is selected in the Process Restrictions tab.</p>
 <p><img alt="" src="../../Media/WFP_Rule_Editor.png" /></p>
-<p>The <strong>attributes</strong> at our disposal (with some examples of syntax) are:
-- <strong>Action</strong> = <code>Allow</code> | <code>Block</code> (selected from the Network Restrictions tab)
-- <strong>Program</strong> = <code>program.exe</code>
-- <strong>Port</strong> = <code>80,443,1000-2000</code>
-- <strong>Address</strong> = <code>111.222.333.444,0.0.0.0-255.255.255.255</code>
-- <strong>Protocol</strong> = <code>TCP</code> | <code>UDP</code></p>
-<p>The following <strong>rules precedence</strong> scheme determines rule hierarchy:
-1. A rule for a specified program trumps a rule for all programs except a given one, trumps rules for all programs.
-2. A rule with a Port number or IP address trumps a rule without:
-   - 2a. A rule with an IP address and Port number trumps a rule with an IP address only or Port number only.
-   - 2b. A rule with one IP address trumps a rule with an IP address range that is besides that on the same level.
-3. Block rules trump Allow rules.
-4. A rule without a Protocol means all protocols.
-   - 4a. A rule with a Protocol trumps a rule without, if it is the only difference.</p>
+<p>The <strong>attributes</strong> at our disposal (with some examples of syntax) are:</p>
+<ul>
+<li><strong>Action</strong> = <code>Allow</code> | <code>Block</code> (selected from the Network Restrictions tab)</li>
+<li><strong>Program</strong> = <code>program.exe</code></li>
+<li><strong>Port</strong> = <code>80,443,1000-2000</code></li>
+<li><strong>Address</strong> = <code>111.222.333.444,0.0.0.0-255.255.255.255</code></li>
+<li><strong>Protocol</strong> = <code>TCP</code> | <code>UDP</code></li>
+</ul>
+<p>The following <strong>rules precedence</strong> scheme determines rule hierarchy:</p>
+<ol>
+<li>A rule for a specified program trumps a rule for all programs except a given one, trumps rules for all programs.</li>
+<li>A rule with a Port number or IP address trumps a rule without:</li>
+<li>2a. A rule with an IP address and Port number trumps a rule with an IP address only or Port number only.</li>
+<li>2b. A rule with one IP address trumps a rule with an IP address range that is besides that on the same level.</li>
+<li>Block rules trump Allow rules.</li>
+<li>A rule without a Protocol means all protocols.</li>
+<li>4a. A rule with a Protocol trumps a rule without, if it is the only difference.</li>
+</ol>
 <p><strong>Some examples:</strong></p>
 <ul>
 <li>
