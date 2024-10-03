@@ -14,11 +14,13 @@ A **snapshot** saves the current state of a sandbox. You can create multiple sna
 ![](../Media/Box_AutoDelete.png)
 
 **Installing Software to a Box and Creating a Snapshot:**
+
 - Select a box, disable AutoDelete, install the software to this box, set it up just the way you like.
 - Then, close the box, create a snapshot and enable box AutoDelete.
 - Now, this box will revert to the snapshot you created whenever it is closed.
 
 **Updating Software Installed to a Box:**
+
 - Create a pre-update snapshot (for a baseline you can revert to, if need be).
 - Disable box AutoDelete, update the software and test.
 - If all is well, create a post-update snapshot, enable box AutoDelete.
@@ -31,6 +33,7 @@ You have the ability to create a snapshot, remove a snapshot, revert to a snapsh
 **Caveat:** It is wise to use the snapshot features only for boxes whose location is on a real disk (and not on a ramdisk).
 
 **Additional Details:**
+
 - Each snapshot is created its own folder, labeled snapshot-n,  where the number n is the snapshot id. You can change this label.
 - All snapshot folders for a given box are inside the box folder.
 - The snapshot layout and information on the current (default) snapshot are saved in the file **snapshot.ini** in the box folder.

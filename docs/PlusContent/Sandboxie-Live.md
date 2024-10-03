@@ -10,11 +10,13 @@ In the "Support & Updates" tab in the "Global Options", the user can now choose 
 There the user can also select how to behave when a "New Version" (where an installer is available) or a "Version Update" (where only individual files of the existing installation will be updated) is found.
 
 For a "New Version", the following options are available:
+
 - Notify
 - Download & Notify
 - Download & Install
 
 For a "Version Update", the following options are available:
+
 - Ignore
 - Notify
 - Download & Notify

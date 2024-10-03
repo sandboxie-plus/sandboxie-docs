@@ -19,6 +19,7 @@ The insider builds introduce several new features that are designed to improve t
  - [Document Breakout](../Content/BreakoutDocument.md) is an extension to the already well-known Breakout mechanism to allow to open selected file types saved to an open file path from within the sandbox in an unsandbox instance of the associated application.
 
 Please note that:
+
 - The Sandboxie Plus insider builds are not like the Windows insider builds which are buggy and rushed.
 - The new things in the insider builds are limited to new functionality and new features.
 - Experimental things that may impact compatibility are tested in the public GitHub preview channel.

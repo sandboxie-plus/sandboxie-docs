@@ -20,6 +20,7 @@ It's possible to log _Messages From Sandboxie_ to a file with a simple configura
 reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\SbieSvc" /t REG_SZ /v LogFile /d "2;C:\Windows\System32\LogFiles\Sandboxie.log" /f
 ```
 The `LogFile` value consists of two pieces of information:
+
 - `2` is the log level. Only two values are correct: `2` (classic log) or `3` (log with process SID)
 - `C:\Windows\System32\LogFiles\Sandboxie.log` is the full path of the log
 
@@ -45,5 +46,6 @@ reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\SbieSvc" /t REG_SZ /v LogFil
 reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\SbieSvc" /t REG_SZ /v MultiLog /d "1308,1307" /f
 ```
 This simple configuration will:
+
 - put all logs without filter inside `C:\Windows\System32\LogFiles\Sandboxie.log`
 - create _one file per box_ (ie: `C:\Windows\System32\LogFiles\Sandboxie_DefaultBox.log`) with only event 1308 and 1307

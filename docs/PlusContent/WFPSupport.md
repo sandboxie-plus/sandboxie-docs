@@ -43,6 +43,7 @@ The Sandman UI provides us with a method for editing and testing network rules. 
 ![](../Media/WFP_Rule_Editor.png)
 
 The **attributes** at our disposal (with some examples of syntax) are:
+
 - **Action** = `Allow` | `Block` (selected from the Network Restrictions tab)
 - **Program** = `program.exe`
 - **Port** = `80,443,1000-2000`
@@ -50,13 +51,17 @@ The **attributes** at our disposal (with some examples of syntax) are:
 - **Protocol** = `TCP` | `UDP`
 
 The following **rules precedence** scheme determines rule hierarchy:
+
 1. A rule for a specified program trumps a rule for all programs except a given one, trumps rules for all programs.
 2. A rule with a Port number or IP address trumps a rule without:
-   - 2a. A rule with an IP address and Port number trumps a rule with an IP address only or Port number only.
-   - 2b. A rule with one IP address trumps a rule with an IP address range that is besides that on the same level.
+
+    - 2a. A rule with an IP address and Port number trumps a rule with an IP address only or Port number only.
+    - 2b. A rule with one IP address trumps a rule with an IP address range that is besides that on the same level.
+
 3. Block rules trump Allow rules.
 4. A rule without a Protocol means all protocols.
-   - 4a. A rule with a Protocol trumps a rule without, if it is the only difference.
+
+    - 4a. A rule with a Protocol trumps a rule without, if it is the only difference.
 
 **Some examples:**
 
@@ -69,4 +74,5 @@ The following **rules precedence** scheme determines rule hierarchy:
   `NetworkAccess=chrome.exe,Allow;Port=80,443;Address=111.222.333.444` - allow chrome.exe to access one IP address
 
 **BlockPorts template:**
+
 - `NetworkAccess=*,Block;Port=137,138,139,445` - enabled by default since version [1.3.4 / 5.58.4](https://github.com/sandboxie-plus/Sandboxie/commit/4420ba4448a797b7369917058c34e8a78c2ec9fc)
