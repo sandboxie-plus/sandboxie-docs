@@ -916,21 +916,17 @@ If you set "block internet access" for a given process and have the driver (for 
 <li>A rule for a specified program trumps a rule for all programs except a given one, trumps rules for all programs.</li>
 <li>
 <p>A rule with a Port number or IP address trumps a rule without:</p>
-</li>
-<li>
-<p>2a. A rule with an IP address and Port number trumps a rule with an IP address only or Port number only.</p>
-</li>
-<li>
-<p>2b. A rule with one IP address trumps a rule with an IP address range that is besides that on the same level.</p>
+<ul>
+<li>2a. A rule with an IP address and Port number trumps a rule with an IP address only or Port number only.</li>
+<li>2b. A rule with one IP address trumps a rule with an IP address range that is besides that on the same level.</li>
+</ul>
 </li>
 <li>
 <p>Block rules trump Allow rules.</p>
 </li>
-<li>
-<p>A rule without a Protocol means all protocols.</p>
-</li>
-<li>
-<p>4a. A rule with a Protocol trumps a rule without, if it is the only difference.</p>
+<li>A rule without a Protocol means all protocols.<ul>
+<li>4a. A rule with a Protocol trumps a rule without, if it is the only difference.</li>
+</ul>
 </li>
 </ol>
 <p><strong>Some examples:</strong></p>

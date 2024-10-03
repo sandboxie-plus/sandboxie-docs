@@ -887,28 +887,26 @@ In addition, the registry does not allow reading of user root keys. In other wor
 <ol>
 <li>
 <p><strong>Allow read access to system resources:</strong></p>
-</li>
-<li>
-<p><code>C:\Windows</code></p>
-</li>
+<ul>
+<li><code>C:\Windows</code></li>
 <li><code>C:\Program Files</code></li>
 <li><code>C:\Program Files (x86)</code></li>
 <li><code>C:\ProgramData\Microsoft</code> (since <strong>Sandboxie Plus v1.12.7</strong>)</li>
 <li>Registry resources under HKLM (but not HKCU) are readable and can be sandboxed.</li>
-<li>
-<p><strong>Note:</strong> The read access provides a good balance between privacy and convenience. One could, of course, drill down to identify selected system resources that may leak private data and further restrict them (using <code>Write[File/Key]Path</code>) if desired.</p>
+<li><strong>Note:</strong> The read access provides a good balance between privacy and convenience. One could, of course, drill down to identify selected system resources that may leak private data and further restrict them (using <code>Write[File/Key]Path</code>) if desired.</li>
+</ul>
 </li>
 <li>
 <p><strong>Hide (and block access to) user space:</strong></p>
-</li>
-<li>
-<p>In user space, a privacy box works in <strong>default block</strong> mode: all drive paths are set to WriteFilePath. This hides all files and folders outside the sandbox, but allows new files and folders to be created in the sandbox (unless specifically allowed by an overriding rule). Access to selected paths is enabled by invoking <a href="../RuleSpecificity/">Rule Specificity</a>.</p>
+<ul>
+<li>In user space, a privacy box works in <strong>default block</strong> mode: all drive paths are set to WriteFilePath. This hides all files and folders outside the sandbox, but allows new files and folders to be created in the sandbox (unless specifically allowed by an overriding rule). Access to selected paths is enabled by invoking <a href="../RuleSpecificity/">Rule Specificity</a>.</li>
+</ul>
 </li>
 <li>
 <p><strong>Enable <a href="../RuleSpecificity/">Rule Specificity:</a></strong></p>
-</li>
-<li>
-<p>Internally, rule specificity is <strong>always enabled</strong> in privacy mode. It uses the <strong><a href="../../Content/NormalFilePath/">Normal</a></strong> path directive (<code>Normal[File/Ipc/Key]Path</code>) to open selected locations to be <strong>readable and sandboxed</strong>. Note that setting a path to normal is meaningful only when a parent path was first set to something else, as done in privacy mode. It is thus relevant not only for <strong>blue</strong>  boxes (based on privacy mode) but also for <strong>red</strong> boxes (with both privacy mode <strong>and</strong> <a href="../security-mode/">security mode</a> enabled).</p>
+<ul>
+<li>Internally, rule specificity is <strong>always enabled</strong> in privacy mode. It uses the <strong><a href="../../Content/NormalFilePath/">Normal</a></strong> path directive (<code>Normal[File/Ipc/Key]Path</code>) to open selected locations to be <strong>readable and sandboxed</strong>. Note that setting a path to normal is meaningful only when a parent path was first set to something else, as done in privacy mode. It is thus relevant not only for <strong>blue</strong>  boxes (based on privacy mode) but also for <strong>red</strong> boxes (with both privacy mode <strong>and</strong> <a href="../security-mode/">security mode</a> enabled).</li>
+</ul>
 </li>
 </ol>
 <p><strong>Recent Changes:</strong> Upon the introduction of privacy mode, a few built-in access rules were offered for some of the more common browsers and applications and these were augmented in later versions. Starting with <strong>Sandboxie Plus v1.8.0</strong>, all built-in access rules have been moved to a set of default templates (included in the file <strong>Templates.ini</strong> under the <code>[TemplatePModPaths]</code> section) for easier management.</p>
