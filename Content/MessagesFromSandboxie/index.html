@@ -887,9 +887,11 @@
 <p>It's possible to log <em>Messages From Sandboxie</em> to a file with a simple configuration inside the registry:</p>
 <pre><code class="language-cmd">reg.exe add &quot;HKLM\SYSTEM\CurrentControlSet\Services\SbieSvc&quot; /t REG_SZ /v LogFile /d &quot;2;C:\Windows\System32\LogFiles\Sandboxie.log&quot; /f
 </code></pre>
-<p>The <code>LogFile</code> value consists of two pieces of information:
-- <code>2</code> is the log level. Only two values are correct: <code>2</code> (classic log) or <code>3</code> (log with process SID)
-- <code>C:\Windows\System32\LogFiles\Sandboxie.log</code> is the full path of the log</p>
+<p>The <code>LogFile</code> value consists of two pieces of information:</p>
+<ul>
+<li><code>2</code> is the log level. Only two values are correct: <code>2</code> (classic log) or <code>3</code> (log with process SID)</li>
+<li><code>C:\Windows\System32\LogFiles\Sandboxie.log</code> is the full path of the log</li>
+</ul>
 <p>Example of output for a log level of 2:</p>
 <pre><code>2022-09-02 01:04:18 SBIE1308 Program cannot start due to restrictions - powershell.exe [ChromeBox]
 2022-09-02 01:04:18 SBIE1308 Program cannot start due to restrictions - powershell.exe [ChromeBox]
@@ -905,9 +907,11 @@
 <pre><code class="language-cmd">reg.exe add &quot;HKLM\SYSTEM\CurrentControlSet\Services\SbieSvc&quot; /t REG_SZ /v LogFile /d &quot;2;C:\Windows\System32\LogFiles\Sandboxie.log&quot; /f
 reg.exe add &quot;HKLM\SYSTEM\CurrentControlSet\Services\SbieSvc&quot; /t REG_SZ /v MultiLog /d &quot;1308,1307&quot; /f
 </code></pre>
-<p>This simple configuration will:
-- put all logs without filter inside <code>C:\Windows\System32\LogFiles\Sandboxie.log</code>
-- create <em>one file per box</em> (ie: <code>C:\Windows\System32\LogFiles\Sandboxie_DefaultBox.log</code>) with only event 1308 and 1307</p>
+<p>This simple configuration will:</p>
+<ul>
+<li>put all logs without filter inside <code>C:\Windows\System32\LogFiles\Sandboxie.log</code></li>
+<li>create <em>one file per box</em> (ie: <code>C:\Windows\System32\LogFiles\Sandboxie_DefaultBox.log</code>) with only event 1308 and 1307</li>
+</ul>
               
             </div>
           </div><footer>
