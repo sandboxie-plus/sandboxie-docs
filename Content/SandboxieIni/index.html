@@ -898,9 +898,11 @@
 <p>Some aspects of the operation of Sandboxie can be altered or fine-tuned through the use of a human-readable textual configuration file called Sandboxie.ini. This section describes the structure and contents of the file.</p>
 <p>As a general rule, manual editing of the configuration file is discouraged. You are advised to use <a href="../SandboxieControl/">Sandboxie Control</a> to make configuration changes. See <a href="../SandboxSettings/">Sandbox Settings</a>.</p>
 <h2 id="location">Location</h2>
-<p>Sandboxie looks for the file Sandboxie.ini in the following folders, in this order:
-* In the Windows folder: <code>C:\Windows</code> on most Windows installations
-* In the Sandboxie installation folder: typically <code>C:\Program Files\Sandboxie</code> or <code>C:\Program Files\Sandboxie-Plus</code></p>
+<p>Sandboxie looks for the file Sandboxie.ini in the following folders, in this order:</p>
+<ul>
+<li>In the Windows folder: <code>C:\Windows</code> on most Windows installations</li>
+<li>In the Sandboxie installation folder: typically <code>C:\Program Files\Sandboxie</code> or <code>C:\Program Files\Sandboxie-Plus</code></li>
+</ul>
 <p>The search for Sandboxie.ini ends when an instance of the file is found, and all other instances are ignored.</p>
 <p>When <a href="../SandboxieControl/">Sandboxie Control</a> updates the configuration, it rewrites the file Sandboxie.ini file in the folder from which the configuration was last read. Thus, if the file is manually moved, Sandboxie configuration must be manually <a href="../ConfigureMenu/#reload-configuration">reloaded</a>. (Restarting the computer would have the same effect.)</p>
 <p><strong>Note:</strong> Sandboxie does not support any other custom location for the Sandboxie.ini file.</p>
