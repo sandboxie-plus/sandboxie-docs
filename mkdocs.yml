@@ -3,7 +3,6 @@ markdown_extensions:
 - pymdownx.tilde
 plugins:
   search:
-  git-revision-date-localized:
   RootReadme:
     readme: README.md
 
