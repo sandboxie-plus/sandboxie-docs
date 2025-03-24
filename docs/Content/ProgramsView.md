@@ -34,7 +34,7 @@ For a program row, the context menu offers the following commands:
 
 *   The _Program Settings_ command displays the [Program Settings](ProgramSettings.md) window for the program.
 
-*   The _Resource Access_ command displays the [Sandbox Settings > Resource Access](ResourceAccessSettings.md) group of settings pages, where the program name is pre-selected in the program name filter (_The list above applies to_ filter).
+*   The _Resource Access_ command displays the [Sandbox Settings > Resource Access](ResourceAccessSettings.md) group of settings pages, where the program name is preselected in the program name filter (_The list above applies to_ filter).
 
 * * *
 
