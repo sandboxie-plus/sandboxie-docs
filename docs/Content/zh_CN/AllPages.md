@@ -363,7 +363,7 @@
 
 [Sandboxie](Sandboxie.md)
 
-[Sandboxie 控制](SandboxieControl.md)
+[沙盒控制](SandboxieControl.md)
 
 [Sandboxie Ini](SandboxieIni.md)
 

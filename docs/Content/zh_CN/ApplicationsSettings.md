@@ -25,7 +25,7 @@
 #### Firefox
 ![](../Media/WebBrowserSettings2.png)
 
-See also:  [Firefox Tips](FirefoxTips.md)
+另请参阅:  [Firefox Tips](FirefoxTips.md)
 
 #### 其他浏览器
 ![](../Media/WebBrowserSettings3.png)
@@ -33,7 +33,7 @@ See also:  [Firefox Tips](FirefoxTips.md)
 
 此设置页面为以下浏览器提供快速配置：Internet Explorer、Mozilla Firefox 和 SeaMonkey、Opera Web 浏览器、Maxthon 2 以及 Google Chrome。
 
-请选择（高亮）所需的配置，并点击 _添加_ 按钮，以便为该沙盒启用相应设置。如果你的网页浏览器数据（配置文件）文件夹使用了非默认位置，请务必访问 [应用程序 > 文件夹](ApplicationsSettings.md#folders) 设置页面，指定备用位置。
+请选择（高亮）所需的配置，并点击 _Add_ 按钮，以便为该沙盒启用相应设置。如果你的网页浏览器数据（配置文件）文件夹使用了非默认位置，请务必访问 [应用程序 > 文件夹](ApplicationsSettings.md#folders) 设置页面，指定备用位置。
 
 Internet Explorer 设置页面上的两个特殊设置：
 
@@ -65,7 +65,7 @@ Internet Explorer 设置页面上的两个特殊设置：
 *   Eudora
 *   The Bat!
 
-请选择（高亮）所需的配置，并点击 _添加_ 按钮以在该沙箱中启用它
+请选择（高亮）所需的配置，并点击 _Add_ 按钮以在该沙箱中启用它
 
 在以下情况下，您还需要告知 Sandboxie 您的邮箱数据文件存放位置：
 
@@ -88,7 +88,7 @@ Internet Explorer 设置页面上的两个特殊设置：
 
 选择（高亮）所需的配置后，点击 _打开网站_ 按钮，可访问由 Sandboxie 识别的特定程序的厂商网站。
 
-选择（高亮）所需的配置后，点击 _添加_ 按钮，即可为此沙盒启用该配置。在某些情况下，你还需要指定第三方软件所使用的数据文件位置。请使用 [应用程序 > 文件夹](ApplicationsSettings.md#folders) 设置页面，指定其他位置
+选择（高亮）所需的配置后，点击 _Add_ 按钮，即可为此沙盒启用该配置。在某些情况下，你还需要指定第三方软件所使用的数据文件位置。请使用 [应用程序 > 文件夹](ApplicationsSettings.md#folders) 设置页面，指定其他位置
 * * *
 
 #### 本地
@@ -111,12 +111,12 @@ Internet Explorer 设置页面上的两个特殊设置：
 
 可以使用本设置页面，指定已在沙盒中启用（或添加）的应用程序所使用的数据文件的任何备用（非默认）文件夹位置。
 
-首先，选择（高亮）所需应用程序，然后单击 _添加_ 按钮以指定备用位置
+首先，选择（高亮）所需应用程序，然后单击 _Add_ 按钮以指定备用位置
 * * *
 
 #### 辅助功能设置
 
-[Sandboxie 控制器](SandboxieControl.md) > [沙盒设置](SandboxSettings.md) > 应用程序 > 辅助功能
+[沙盒控制](SandboxieControl.md) > [沙盒设置](SandboxSettings.md) > 应用程序 > 辅助功能
 
 ![](../Media/AccessibilitySettings.png)
 

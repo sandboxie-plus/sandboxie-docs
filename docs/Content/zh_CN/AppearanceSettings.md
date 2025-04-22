@@ -1,6 +1,6 @@
 # 外观设置
 
-Sandboxie 控制 > 沙盒设置 > 外观：
+沙盒控制 > 沙盒设置 > 外观：
 
 ![](../Media/AppearanceSettings.png)
 
@@ -14,4 +14,4 @@ Sandboxie 控制 > 沙盒设置 > 外观：
 
 如果窗口属于沙盒中的程序，Sandboxie 还可以在活动（前台）窗口周围绘制彩色边框。勾选第三个复选框可启用此功能，并为该沙盒中的程序选择边框颜色
 
-相关 [Sandboxie Ini](SandboxieIni.md) 设置：[BoxNameTitle](BoxNameTitle.md)、[BorderColor](BorderColor.md)
+相关 [Sandboxie Ini](SandboxieIni.md) 设置：[沙盒名称标题](BoxNameTitle.md)、[边框颜色](BorderColor.md)
