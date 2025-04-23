@@ -12,7 +12,6 @@ _AlertFolder_ 是 [Sandboxie Ini](SandboxieIni.md) 中自 v0.5.0 / 5.45.0 版本
 ```
 
 相关的 Sandboxie Plus 设置：选项菜单 > 全局设置 > 程序控制 > 程序提醒
-<!-- Alert Process 需要查看实际UI界面的翻译，以便保持一致 -->
 
 
 另请参阅：[警报进程](AlertProcess.md)
