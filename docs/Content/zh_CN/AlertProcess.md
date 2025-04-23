@@ -12,11 +12,11 @@ _AlertProcess_ 是 [Sandboxie Ini](SandboxieIni.md) 文件中的一个全局设�
    AlertProcess=firefox.exe
 ```
 
-相关 [沙盒控制](SandboxieControl.md) 设置：  
-* [程序设置](ProgramSettings.md)  
+相关 [沙盒控制](SandboxieControl.md) 设置：
+* [程序设置](ProgramSettings.md)
 * [配置菜单 > 程序警报](ConfigureMenu.md#program-alerts)
 
-相关 Sandboxie Plus 设置：  
+相关 Sandboxie Plus 设置：
 * 选项菜单 > 全局设置 > 程序控制 > 程序警报
 
 另请参阅：[警报文件夹](AlertFolder.md)
