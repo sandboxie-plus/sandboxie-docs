@@ -13,3 +13,6 @@ A vital cornerstone in the security architecture is the SbieDrv driver. This gua
 ## Secure Data Exchange and Inherent Confidentiality:
 
 Root protection being activated mandates the definition of [OpenFilePath](../Content/OpenFilePath.md) paths for seamless data exchange between the host system and the encrypted sandbox. This method guarantees that file transfers occur within controlled parameters, maintaining the integrity of your data. Furthermore, the default setting of `ConfidentialBox=y` within an encrypted sandbox preserves the sanctity of your data by inhibiting host processes from accessing the memory of processes operating within the confines of the sandbox.
+
+asdasd
+[OpenFilePath](../Content/OpenFilePath.md)
