@@ -1,10 +1,10 @@
-# 封闭文件路径
+# Closed File Path
 
-_ClosedFilePath_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙盒设置项。它用于指定路径模式，对于这些路径，Sandboxie 会拒绝沙盒内程序的 _所有_ 访问权限，包括 _读取_ 权限。该设置本质上阻止沙盒程序访问指定的文件和文件夹。
+_ClosedFilePath_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It specifies path patterns for which Sandboxie will deny _all_ access by sandboxed programs, including _read_ access. This setting essentially blocks files and folders from being accessed by sandboxed programs.
 
-可以指定 [Shell 文件夹](ShellFolders.md)；也可以指定 [程序名称前缀](ProgramNamePrefix.md)。
+[Shell Folders](ShellFolders.md) may be specified. [Program Name Prefix](ProgramNamePrefix.md) may be specified.
 
-示例：
+Example:
 
 ```
    .
@@ -22,18 +22,18 @@ _ClosedFilePath_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙盒设置�
    ClosedFilePath=!iexplore.exe,\Device\Afd*
 ```
 
-上述第一个示例表示阻止除了 Internet Explorer（_iexplore.exe_）之外的任何程序访问当前用户账户下存放下载的 Internet Cookie 的文件夹。这样可以阻止任何下载的恶意软件窃取 Cookie。
+The example blocks any program _other than_ Internet Explorer (_iexplore.exe_) from accessing the folder containing downloaded Internet cookies for the active user account. This would block any downloaded malicious software from spying on cookies.
 
-（注意，这并不能阻止诸如附加工具栏之类的浏览器扩展程序访问 Cookies 文件夹，因为这些扩展是在 Internet Explorer 程序进程内执行的。）
+(Note that this does not stop browser extensions, like add-on toolbars, from looking into the Cookies folder, because these extensions execute inside the Internet Explorer program process.)
 
-第二个示例演示了如何配置 Sandboxie 阻止沙盒程序访问 _Documents_ 文件夹。
+The second example shows how to configure Sandboxie to block sandboxed programs from accessing the _Documents_ folder.
 
-为 ClosedFilePath 指定的值可以包含通配符。有关这部分的详细信息，包括带有通配符用法的示例，请参阅 [开放文件路径](OpenFilePath.md)。
+The value specified for ClosedFilePath can include wildcards. For more information on this, including examples that show the use of wildcards, see [OpenFilePath](OpenFilePath.md).
 
-第三个示例（包含四行）配置了在沙盒内禁用 Internet 访问，_除了_ Internet Explorer（_iexplore.exe_）外均不允许访问。另请参见 [沙盒设置 > 限制 > 互联网访问](RestrictionsSettings.md#internet-access)。
+The third example (spanning four lines) disables Internet access within a sandbox _except_ for Internet Explorer (_iexplore.exe_). See also [Sandbox Settings > Restrictions > Internet Access](RestrictionsSettings.md#internet-access).
 
-**注意：** 与对应的 开放文件路径 设置不同，_ClosedFilePath_ 设置始终对沙盒程序生效，无论程序的可执行文件是在沙盒内还是沙盒外。
+**Note:** Unlike the corresponding OpenFilePath setting, the _ClosedFilePath_ settings always applies to sandboxed programs, whether the program executable file resides within the sandbox, or out of it.
 
-相关 [Sandboxie 控制](SandboxieControl.md) 设置：[沙盒设置 > 资源访问 > 文件访问 > 封禁访问](ResourceAccessSettings.md#file-access--blocked-access)
+Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Resource Access > File Access > Blocked Access](ResourceAccessSettings.md#file-access--blocked-access)
 
-相关 Sandboxie Plus 设置：沙盒选项 > 资源访问 > 文件 > 添加文件/文件夹 > 访问 列 > 封禁
+Related Sandboxie Plus setting: Sandbox Options > Resource Access > Files > Add File/Folder > Access column > Closed
