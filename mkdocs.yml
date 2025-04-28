@@ -1,22 +1,152 @@
+# Project information
 site_name: Sandboxie Documentation
-markdown_extensions:
-- pymdownx.tilde
-plugins:
-  search:
-  RootReadme:
-    readme: README.md
+site_url: https://offhub.github.io/sandboxie-docs-test/
 
-theme:
-  name: readthedocs
-  custom_dir: custom_theme
-  logo: Media/SandDocs.png
-  highlightjs: true
-  sticky_navigation: true
-  collapse_navigation: true
-watch:
-- custom_theme
+# Repository
+repo_name: offhub/sandboxie-docs-test
+repo_url: https://github.com/offhub/sandboxie-docs-test
+edit_uri: edit/main/docs/
+
+# Copyright
 copyright: 'This site is maintained by <a href="https://github.com/sandboxie-plus">sandboxie-plus</a>. If you wish to contribute: <a href="https://github.com/sandboxie-plus/sandboxie-docs">Improve sandboxie-docs!</a>'
+
+# Configuration
+theme:
+  name: material
+  custom_dir: material/overrides
+  logo: Media/SandDocs.png
+  favicon: material/assets/images/favicon.ico
+  features:
+    - announce.dismiss
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    # - content.code.select             # insiders
+    # - content.footnote.tooltips
+    # - content.tabs.link
+    # - header.autohide
+    - content.tooltips
+    # - navigation.expand
+    - navigation.footer
+    - navigation.indexes
+    # - navigation.instant
+    # - navigation.instant.prefetch     # insiders
+    # - navigation.instant.progress
+    # - navigation.path                 # insiders
+    # - navigation.prune
+    # - navigation.sections
+    # - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+    - toc.integrate
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default 
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+  font: false
+
+watch:
+  - material/overrides
+
+# Plugins
+plugins:
+  - search:
+  # - RootReadme:
+      # readme: README.md
+  - i18n:
+      docs_structure: folder
+      # reconfigure_search: true
+      languages:
+        - locale: en
+          name: English
+          build: true
+          default: true
+        - locale: zh
+          name: 中文
+          build: true
+          site_name: Sandboxie 文档
+          nav_translations:
+            Home: 家
+            Sandboxie Basics: Sandboxie 基础知识
+            Sandboxie Control: Sandboxie 控制
+            Command Line Usage: 命令行用法
+            Sandboxie Plus: Sandboxie Plus
+            Advanced Topics: 高级主题
+            SBIE Messages: SBIE 消息
+
+# Hooks
+
+# Additional configuration
+extra:
+  alternate:
+    - name: English
+      link: /sandboxie-docs-test/
+      lang: en
+    - name: 中文
+      link: /sandboxie-docs-test/zh/
+      lang: zh
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/sandboxie-plus/Sandboxie
+      name: Sandboxie-Plus on Github
+
+extra_css:
+  - material/assets/stylesheets/extra.css
+
+extra_javascript:
+  - material/assets/javascripts/extra.js
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      # auto_title: true
+      default_lang: 'ini'
+      # guess_lang: true
+      line_spans: __span
+      pygments_lang_class: true
+      use_pygments: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - tables
+
+# Page tree
 nav:
+# - Home: README.md
 - Sandboxie Basics:
   - Content/HelpTopics.md
   - Content/GettingStarted.md
@@ -29,7 +159,8 @@ nav:
     - Content/HelpMenu.md
     - Content/TrayIconMenu.md
   - Content/UsageTips.md
-  - Command Line Usage: Content/StartCommandLine.md
+  - Command Line Usage:
+    - Content/StartCommandLine.md
   - Content/SandboxieIni.md
 - Content/KnownConflicts.md
 - Sandboxie Plus:

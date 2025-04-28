@@ -10,11 +10,11 @@ After Sandboxie became [open source](https://news.sophos.com/en-us/2020/04/09/sa
 
 ## Documentation Index
 
-[All pages (A-Z)](docs/Content/AllPages.md)
+[All pages (A-Z)](Content/AllPages.md)
 
 ## Get Sandboxie
 
-[Feature/Edition comparison](docs/Content/FeatureComparison.md) | [System requirements](https://github.com/sandboxie-plus/Sandboxie#sandboxie-plus--classic) | [Download the latest release](https://github.com/sandboxie-plus/Sandboxie/releases/latest)
+[Feature/Edition comparison](Content/FeatureComparison.md) | [System requirements](https://github.com/sandboxie-plus/Sandboxie#sandboxie-plus--classic) | [Download the latest release](https://github.com/sandboxie-plus/Sandboxie/releases/latest)
 
 ## Contribute
 

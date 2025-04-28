@@ -10,17 +10,19 @@ on:
 
 jobs:
   pages:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4.1.1
       with:
         fetch-depth: 0
     - name: Setup Python
-      uses: actions/setup-python@v5.2.0
+      uses: actions/setup-python@v5.6.0
       with:
-        python-version: '3.12'
+        python-version: 3.13
     - name: Setup Dependencies
-      run: pip install -r requirements.txt
+      run: |
+        pip install --upgrade pip
+        pip install -r requirements.txt
     - name: Build
       shell: pwsh
       run: |-
