@@ -16,7 +16,7 @@
 
 [应用程序设置](ApplicationsSettings.md)
 
-[应用支持者证书](../PlusContent/zh_CN/applying-supporter-certificate.md)
+[应用支持者证书](../PlusContent/applying-supporter-certificate.md)
 
 [自动删除](AutoDelete.md)
 
@@ -48,15 +48,15 @@
 
 [边框颜色](BorderColor.md)
 
-[沙盒加密](../PlusContent/zh_CN/BoxEncryption.md)
+[沙盒加密](../PlusContent/BoxEncryption.md)
 
 [沙盒名称标题](BoxNameTitle.md)
 
-[沙盒预设对比](../PlusContent/zh_CN/box-preset-comparison.md)
+[沙盒预设对比](../PlusContent/box-preset-comparison.md)
 
 ~~[沙盒根文件夹](BoxRootFolder.md)~~（自 Sandboxie v3.xx 起弃用）
 
-[沙盒快照](../PlusContent/zh_CN/BoxSnapshots.md)
+[沙盒快照](../PlusContent/BoxSnapshots.md)
 
 [突破文档](BreakoutDocument.md)
 
@@ -82,7 +82,7 @@
 
 [代码注入](CodeInjection.md)
 
-[隔离区模式](../PlusContent/zh_CN/compartment-mode.md)
+[隔离区模式](../PlusContent/compartment-mode.md)
 
 [机密沙盒](ConfidentialBox.md)
 
@@ -116,7 +116,7 @@
 
 [禁用 RT 黑名单](DisableRTBlacklist.md)
 
-[DNS 过滤](../PlusContent/zh_CN/DNSFilter.md)
+[DNS 过滤](../PlusContent/DNSFilter.md)
 
 [去除管理员权限](DropAdminRights.md)
 
@@ -198,7 +198,7 @@
 
 ### I
 
-[ImDisk 集成](../PlusContent/zh_CN/imdisk.md)
+[ImDisk 集成](../PlusContent/imdisk.md)
 
 [即时恢复](ImmediateRecovery.md)
 
@@ -296,7 +296,7 @@
 
 [隐私问题](PrivacyConcerns.md)
 
-[隐私模式](../PlusContent/zh_CN/privacy-mode.md)
+[隐私模式](../PlusContent/privacy-mode.md)
 
 [进程数量限制](ProcessLimit.md)
 
@@ -320,7 +320,7 @@
 
 [受保护存储](ProtectedStorage.md)
 
-[代理支持](../PlusContent/zh_CN/ProxySupport.md)
+[代理支持](../PlusContent/ProxySupport.md)
 
 ### Q
 
@@ -328,7 +328,7 @@
 
 ### R
 
-[RAM 磁盘支持](../PlusContent/zh_CN/RamDiskSupport.md)
+[RAM 磁盘支持](../PlusContent/RamDiskSupport.md)
 
 [勒索软件](Ransomware.md)
 
@@ -350,7 +350,7 @@
 
 [限制设置](RestrictionsSettings.md)
 
-[规则特异性](../PlusContent/zh_CN/RuleSpecificity.md)
+[规则特异性](../PlusContent/RuleSpecificity.md)
 
 ### S
 
@@ -366,17 +366,17 @@
 
 [Sandboxie Ini](SandboxieIni.md)
 
-[Sandboxie Insider](../PlusContent/zh_CN/Sandboxie-Insider.md)
+[Sandboxie Insider](../PlusContent/Sandboxie-Insider.md)
 
-[Sandboxie Live](../PlusContent/zh_CN/Sandboxie-Live.md)
+[Sandboxie Live](../PlusContent/Sandboxie-Live.md)
 
-[Sandboxie Plus](../PlusContent/zh_CN/sandboxie-plus.md)
+[Sandboxie Plus](../PlusContent/sandboxie-plus.md)
 
 [Sandboxie Plus 迁移指南](PlusMigrationGuide.md)
 
-[Sandboxie Plus 界面特性](../PlusContent/zh_CN/Plus-Features.md)
+[Sandboxie Plus 界面特性](../PlusContent/Plus-Features.md)
 
-[Sandboxie 便携版](../PlusContent/zh_CN/sandboxie-portable.md)
+[Sandboxie 便携版](../PlusContent/sandboxie-portable.md)
 
 [Sandboxie 跟踪](SandboxieTrace.md)
 
@@ -652,7 +652,7 @@
 
 [安全删除沙盒](SecureDeleteSandbox.md)
 
-[安全模式](../PlusContent/zh_CN/security-mode.md)
+[安全模式](../PlusContent/security-mode.md)
 
 [分离用户文件夹](SeparateUserFolders.md)
 
@@ -668,7 +668,7 @@
 
 [启动服务](StartService.md)
 
-[支持者证书](../PlusContent/zh_CN/supporter-certificate.md)
+[支持者证书](../PlusContent/supporter-certificate.md)
 
 [系统事件日志](SystemEventLog.md)
 
@@ -678,9 +678,9 @@
 
 [测试电子邮件配置](TestEmailConfiguration.md)
 
-[跟踪日志](../PlusContent/zh_CN/TraceLog.md)
+[跟踪日志](../PlusContent/TraceLog.md)
 
-[翻译](../PlusContent/zh_CN/translations.md)
+[翻译](../PlusContent/translations.md)
 
 [托盘图标菜单](TrayIconMenu.md)
 
@@ -688,7 +688,7 @@
 
 [使用技巧](UsageTips.md)
 
-[USB 沙盒化](../PlusContent/zh_CN/USBSandboxing.md)
+[USB 沙盒化](../PlusContent/USBSandboxing.md)
 
 [使用隐私模式](UsePrivacyMode.md)
 
@@ -706,7 +706,7 @@
 
 ### W
 
-[WFP 支持](../PlusContent/zh_CN/WFPSupport.md)
+[WFP 支持](../PlusContent/WFPSupport.md)
 
 [Windows 8](Windows8.md)
 

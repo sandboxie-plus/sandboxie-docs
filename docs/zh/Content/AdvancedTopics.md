@@ -10,7 +10,7 @@
 
 关于在 Sandboxie Classic 中使用 [资源访问监控器](ResourceAccessMonitor.md) 的说明
 
-关于在 Sandboxie Plus 中使用 [跟踪日志](../PlusContent/zh_CN/TraceLog.md) 的说明
+关于在 Sandboxie Plus 中使用 [跟踪日志](../PlusContent/TraceLog.md) 的说明
 
 阅读 [如何使用 Win Dbg](HowToUseWinDbg.md) 以识别 Sandboxie 的问题
 
