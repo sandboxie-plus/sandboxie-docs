@@ -22,8 +22,8 @@ _ClosedIpcPath_ 设置通常用于阻止那些 Sandboxie 默认识别的资源�
 
 **注意：** 与对应的 [开放 IPC 路径](OpenIpcPath.md) 设置不同，_ClosedKeyPath_ 设置始终适用于沙盒程序，无论程序的可执行文件是位于沙盒内部还是外部。
 
-相关 [Sandboxie 控制](SandboxieControl.md) 设置：  
+相关 [Sandboxie 控制](SandboxieControl.md) 设置：
 沙盒设置 > 资源访问 > IPC 访问 > 封禁访问 ([资源访问设置](ResourceAccessSettings.md#ipc-access--blocked-access))
 
-相关 Sandboxie Plus 设置：  
+相关 Sandboxie Plus 设置：
 沙盒选项 > 资源访问 > IPC > 添加 IPC 路径 > 访问 列 > 封禁
