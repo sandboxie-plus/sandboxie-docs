@@ -1,5 +1,7 @@
 # Sandboxie 文档
 
+<p align='center'><a href='./README.md'>英语</a> | 中文</p>
+
 [![Markdown links Status](https://github.com/sandboxie-plus/sandboxie-docs/actions/workflows/action.yml/badge.svg)](https://github.com/sandboxie-plus/sandboxie-docs/actions/workflows/action.yml) [![Codespell Status](https://github.com/sandboxie-plus/sandboxie-docs/actions/workflows/codespell.yml/badge.svg)](https://github.com/sandboxie-plus/sandboxie-docs/actions/workflows/codespell.yml) [![加入我们的 Discord 服务器](https://img.shields.io/badge/Join-Our%20Discord%20Server%20for%20bugs,%20feedback%20and%20more!-blue?style=flat&logo=discord)](https://discord.gg/S4tFu6Enne)
 
 ## 简介
