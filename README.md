@@ -1,5 +1,7 @@
 # Sandboxie Documentation
 
+<p align='center'>EN | <a href='./README_zh_CN.md'>中文</a></p>
+
 [![Markdown links Status](https://github.com/sandboxie-plus/sandboxie-docs/actions/workflows/action.yml/badge.svg)](https://github.com/sandboxie-plus/sandboxie-docs/actions/workflows/action.yml) [![Codespell Status](https://github.com/sandboxie-plus/sandboxie-docs/actions/workflows/codespell.yml/badge.svg)](https://github.com/sandboxie-plus/sandboxie-docs/actions/workflows/codespell.yml) [![Join our Discord Server](https://img.shields.io/badge/Join-Our%20Discord%20Server%20for%20bugs,%20feedback%20and%20more!-blue?style=flat&logo=discord)](https://discord.gg/S4tFu6Enne)
 
 ## Introduction
