@@ -84,7 +84,7 @@
 
 [隔离区模式](../PlusContent/compartment-mode.md)
 
-[机密沙盒](ConfidentialBox.md)
+[加密沙盒](ConfidentialBox.md)
 
 [配置级别](ConfigLevel.md)
 
