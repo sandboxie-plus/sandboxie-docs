@@ -1,10 +1,10 @@
 # Project information
 site_name: Sandboxie Documentation
-site_url: https://offhub.github.io/sandboxie-docs-test/
+site_url: https://sandboxie-plus.github.io/sandboxie-docs/
 
 # Repository
-repo_name: offhub/sandboxie-docs-test
-repo_url: https://github.com/offhub/sandboxie-docs-test
+repo_name: sandboxie-plus/sandboxie-docs
+repo_url: https://github.com/sandboxie-plus/sandboxie-docs
 edit_uri: edit/main/docs/
 
 # Copyright
@@ -100,10 +100,10 @@ plugins:
 extra:
   alternate:
     - name: English
-      link: /sandboxie-docs-test/
+      link: /sandboxie-docs/
       lang: en
     - name: 中文
-      link: /sandboxie-docs-test/zh/
+      link: /sandboxie-docs/zh/
       lang: zh
   social:
     - icon: fontawesome/brands/github
