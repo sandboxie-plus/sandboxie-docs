@@ -7,11 +7,10 @@
 [警报文件夹](AlertFolder.md)
 
 [警报进程](AlertProcess.md)
-<!-- 这里翻译成警报，还是警告，需要结合UI界面的翻译。 -->
 
 [允许原始磁盘读取](AllowRawDiskRead.md)
 
-[允许打印后台处理程序打印到文件](AllowSpoolerPrintToFile.md)
+[允许打印后台处理服务打印到文件](AllowSpoolerPrintToFile.md)
 
 [外观设置](AppearanceSettings.md)
 
@@ -69,7 +68,7 @@
 
 ### C
 
-[关闭打印后台处理程序](ClosePrintSpooler.md)
+[关闭打印后台处理服务](ClosePrintSpooler.md)
 
 [关闭 CLSID 路径](ClosedClsid.md)
 
@@ -281,7 +280,7 @@
 
 [打开管道路径](OpenPipePath.md)
 
-[打开打印后台处理程序](OpenPrintSpooler.md)
+[打开打印后台处理服务](OpenPrintSpooler.md)
 
 [打开受保护存储](OpenProtectedStorage.md)
 
