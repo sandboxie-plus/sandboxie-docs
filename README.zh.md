@@ -10,11 +10,11 @@ Sandboxie 是一款基于沙盒的 Windows 隔离软件，可以让你在无需�
 
 ## 文档索引
 
-[全部页面（按字母顺序）](docs/Content/zh_CN/AllPages.md)
+[全部页面（按字母顺序）](docs/zh/Content/AllPages.md)
 
 ## 获取 Sandboxie
 
-[功能/版本对比](docs/Content/FeatureComparison.md) | [系统要求](https://github.com/sandboxie-plus/Sandboxie#sandboxie-plus--classic) | [下载最新发行版](https://github.com/sandboxie-plus/Sandboxie/releases/latest)
+[功能/版本对比](docs/zh/Content/FeatureComparison.md) | [系统要求](https://github.com/sandboxie-plus/Sandboxie#sandboxie-plus--classic) | [下载最新发行版](https://github.com/sandboxie-plus/Sandboxie/releases/latest)
 
 ## 参与贡献
 
