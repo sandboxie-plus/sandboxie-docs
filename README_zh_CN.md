@@ -10,7 +10,7 @@ Sandboxie 是一款基于沙盒的 Windows 隔离软件，可以让你在无需�
 
 ## 文档索引
 
-[全部页面（按字母顺序）](docs/Content/AllPages.md)
+[全部页面（按字母顺序）](docs/Content/zh_CN/AllPages.md)
 
 ## 获取 Sandboxie
 
