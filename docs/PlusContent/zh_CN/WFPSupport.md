@@ -4,7 +4,7 @@
 
 ### WFP 实现
 
-要启用 WFP 功能，请在配置文件 **[Sandboxie Ini](./Content/zh_CN/SandboxieIni.md)** 的 `[GlobalSettings]` 部分添加 `NetworkEnableWFP=y`，并 **重启计算机或重新加载驱动程序** 以使更改生效。WFP 过滤 **同时适用于入站和出站** 流量。
+要启用 WFP 功能，请在配置文件 **[Sandboxie Ini](/docs/Content/zh_CN/SandboxieIni.md)** 的 `[GlobalSettings]` 部分添加 `NetworkEnableWFP=y`，并 **重启计算机或重新加载驱动程序** 以使更改生效。WFP 过滤 **同时适用于入站和出站** 流量。
 
 - 要全局启用阻止功能，请在 `[GlobalSettings]` 部分添加 `AllowNetworkAccess=n`。
 - 要为某个沙箱（如 DefaultBox）启用 WFP 阻止功能，请在 `[DefaultBox]` 部分添加 `AllowNetworkAccess=n`。
@@ -40,7 +40,7 @@
 
 Sandman 用户界面为我们提供了一种编辑和测试网络规则的方法。右键单击一个沙箱，然后从下拉菜单中选择“沙箱选项”（或者直接双击一个沙箱）以打开沙箱选项用户界面。然后点击左侧面板中的“网络选项”，并选择“网络防火墙”选项卡。“测试规则”行出现在规则列表下方（规则列表可能已经填充，也可能为空）。您可以输入程序名称、端口号、IP 地址和协议，以查看哪些规则正在起作用，以及最终将应用哪条规则。阻止方式（使用 WFP 或拒绝访问网络设备）的选择在“进程限制”选项卡中进行。
 
-![](../Media/WFP_Rule_Editor.png)
+![](/docs/Media/WFP_Rule_Editor.png)
 
 我们可以使用的 **属性**（附带一些语法示例）如下：
 
