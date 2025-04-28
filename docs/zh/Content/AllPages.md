@@ -58,11 +58,11 @@
 
 [沙盒快照](../PlusContent/BoxSnapshots.md)
 
-[突破文档](BreakoutDocument.md)
+[分离文档](BreakoutDocument.md)
 
-[突破文件夹](BreakoutFolder.md)
+[分离文件夹](BreakoutFolder.md)
 
-[突破进程](BreakoutProcess.md)
+[分离进程](BreakoutProcess.md)
 
 ~~[字节顺序标记](ByteOrderMark.md)~~（自 Sandboxie v0.6.5 / 5.47.0 起移除）
 
