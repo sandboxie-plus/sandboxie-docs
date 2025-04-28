@@ -4762,38 +4762,38 @@
   <h1>Plus Features</h1>
 
 <p>Sandboxie Plus 用户界面提供了许多全新的功能，以提升安全性、兼容性以及整体沙盒体验。</p>
-<p>然而，其中部分功能（*）仅对拥有<a href="../PlusContent/zh_CN/supporter-certificate.md">支持证书</a>的用户开放。您可以通过<a href="https://github.com/sandboxie-plus/Sandboxie/blob/master/CONTRIBUTING.md">为 Sandboxie 项目做贡献</a>或在我们的<a href="https://xanasoft.com/shop/">在线商城</a>购买支持证书。</p>
+<p>然而，其中部分功能（*）仅对拥有<a href="../supporter-certificate/">支持证书</a>的用户开放。您可以通过<a href="https://github.com/sandboxie-plus/Sandboxie/blob/master/CONTRIBUTING.md">为 Sandboxie 项目做贡献</a>或在我们的<a href="https://xanasoft.com/shop/">在线商城</a>购买支持证书。</p>
 <!-- https://github.com/sandboxie-plus/Sandboxie/blob/master/CONTRIBUTING.md 贡献者证书文档没有翻译，故没有修改md文件指向。等待后续翻译后，重新指定 -->
 
-<p>另外，还有部分功能（**）向 <a href="../PlusContent/zh_CN/Sandboxie-Insider.md">Sandboxie-Insider</a> 计划的参与者开放。</p>
-<h4 id="_1"><a href="../PlusContent/zh_CN/RuleSpecificity.md">规则特异性</a> *</h4>
+<p>另外，还有部分功能（**）向 <a href="../Sandboxie-Insider/">Sandboxie-Insider</a> 计划的参与者开放。</p>
+<h4 id="_1"><a href="../RuleSpecificity/">规则特异性</a> *</h4>
 <ul>
 <li>启用此选项后，规则会根据其特异性优先排序（详细内容请参考更新日志/文档）。这样可以允许子路径具有可读写权限，而父路径依然受到保护</li>
 </ul>
-<h4 id="_2"><a href="../PlusContent/zh_CN/security-mode.md">安全增强沙盒</a> *</h4>
+<h4 id="_2"><a href="../security-mode/">安全增强沙盒</a> *</h4>
 <ul>
 <li>将系统调用权限提升限制为已批准的安全或经过筛选的系统调用</li>
 <li>将设备端点访问权限限制为已知安全或经过筛选的端点</li>
 </ul>
-<h4 id="_3"><a href="../PlusContent/zh_CN/privacy-mode.md">隐私增强沙盒</a> *</h4>
+<h4 id="_3"><a href="../privacy-mode/">隐私增强沙盒</a> *</h4>
 <ul>
 <li>启用此功能后，通过应用预设规则集，可以保护所有可能包含个人数据的位置。在启用个人数据保护的沙盒中运行的应用程序将只能看到一台没有任何用户数据的空白电脑</li>
 </ul>
-<h4 id="_4"><a href="../PlusContent/zh_CN/compartment-mode.md">隔离模式</a> *</h4>
+<h4 id="_4"><a href="../compartment-mode/">隔离模式</a> *</h4>
 <ul>
 <li>此模式旨在以牺牲安全性为代价优化兼容性，在该模式下，Sandboxie 的基于令牌的隔离方案不会被使用。隔离仅限于文件系统迷你过滤器，以及注册表和对象回调机制。该方式有可能显著提升与各种应用程序的兼容性</li>
 </ul>
 <h4 id="_5">虚拟磁盘集成 **</h4>
 <ul>
-<li><a href="../PlusContent/zh_CN/RamDiskSupport.md">RamDisk 支持</a>自最新 Insider 版本起可用，允许你通过 ImDisk 驱动在系统内存中创建虚拟磁盘，这样可以加快文件访问速度，并增加机密性，因为所有沙盒内容将在磁盘卸载时（无论是手动还是重启时自动）被清除</li>
-<li><a href="../PlusContent/zh_CN/BoxEncryption.md">加密沙盒镜像支持</a>目前仍在开发中，可让你为机密数据创建加密的沙盒环境，进一步提升保护。这项功能会将沙盒文件根目录从 AES-XTS 加密的盒镜像挂载，此外也支持其他加密算法。即将推出的功能还包括安全的盒口令处理，以及驱动扩展功能，防止未在加密沙盒内运行的应用程序访问沙盒文件</li>
+<li><a href="../RamDiskSupport/">RamDisk 支持</a>自最新 Insider 版本起可用，允许你通过 ImDisk 驱动在系统内存中创建虚拟磁盘，这样可以加快文件访问速度，并增加机密性，因为所有沙盒内容将在磁盘卸载时（无论是手动还是重启时自动）被清除</li>
+<li><a href="../BoxEncryption/">加密沙盒镜像支持</a>目前仍在开发中，可让你为机密数据创建加密的沙盒环境，进一步提升保护。这项功能会将沙盒文件根目录从 AES-XTS 加密的盒镜像挂载，此外也支持其他加密算法。即将推出的功能还包括安全的盒口令处理，以及驱动扩展功能，防止未在加密沙盒内运行的应用程序访问沙盒文件</li>
 </ul>
 <h4 id="_6">增强的网络过滤与重定向 **</h4>
 <ul>
-<li><a href="../PlusContent/zh_CN/ProxySupport.md">代理注入</a> 是在内部版本中新增的一项功能，它允许强制任何应用程序使用 Socks5 代理，而非直接连接</li>
-<li><a href="../PlusContent/zh_CN/DNSFilter.md">DNS 查询日志记录、过滤与重定向</a> 功能允许你针对选定域名，阻止或重定向由沙盒程序发起的 DNS 查询</li>
+<li><a href="../ProxySupport/">代理注入</a> 是在内部版本中新增的一项功能，它允许强制任何应用程序使用 Socks5 代理，而非直接连接</li>
+<li><a href="../DNSFilter/">DNS 查询日志记录、过滤与重定向</a> 功能允许你针对选定域名，阻止或重定向由沙盒程序发起的 DNS 查询</li>
 </ul>
-<h4 id="wfp-windows-filtering-platform"><a href="../PlusContent/zh_CN/WFPSupport.md">WFP (Windows Filtering Platform) 支持</a></h4>
+<h4 id="wfp-windows-filtering-platform"><a href="../WFPSupport/">WFP (Windows Filtering Platform) 支持</a></h4>
 <ul>
 <li>通过此功能，Sandboxie 可以像一个应用防火墙一样，在每个沙盒级别应用规则，从而允许相同的应用程序在某个沙盒中访问互联网，同时在另一个沙盒中阻止其访问</li>
 </ul>
