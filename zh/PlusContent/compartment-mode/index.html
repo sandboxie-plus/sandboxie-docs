@@ -165,7 +165,7 @@
         
           <li class="md-select__item">
             <a href="./" hreflang="zh" class="md-select__link">
-              中文
+              简体中文
             </a>
           </li>
         
@@ -4530,7 +4530,7 @@
 <p><strong>注意：此功能需要 <a href="https://sandboxie-plus.com/supporter-certificate/">支持者证书</a>。</strong></p>
 <p>“应用隔离区”模式的概念首次在 <strong>Sandboxie Plus v1.0.0</strong> 中引入。启用此模式后，原本用于安全隔离的基于令牌的机制会被禁用，从而大幅提升兼容性，同时依然保留与其他同类沙盒产品相当的安全性。此举避免了许多因进程运行于深度受限令牌下而导致的典型 Sandboxie 问题。</p>
 <p>可以通过在 <strong><a href="../../Content/SandboxieIni/">Sandboxie Ini</a></strong> 的沙盒设置部分添加 <code>NoSecurityIsolation=y</code> 来启用沙盒应用隔间设置。同样地，也可在 Sandman 用户界面（UI）内启用。只需右键点击某个沙盒，从下拉菜单中选择 “沙盒选项”（或直接双击该沙盒）即可打开沙盒选项。将沙盒类型预设选择为 “应用隔间（无隔离）”（标识为<strong>绿色</strong>沙盒图标），然后点击 OK 应用更改。在 Sandman UI 的状态栏中，该沙盒会被标记为 <strong>应用隔间</strong>。</p>
-<p><img alt="" src="../../Media/Box_CompartmentMode.png" /></p>
+<p><img alt="" src="../../../Media/Box_CompartmentMode.png" /></p>
 <p>在隔离模式下，文件系统和注册表的过滤依然有效，以强制执行各项访问规则。因此，进程在运行时不会拥有管理员权限。若需进一步提升兼容性，可以通过在 <strong><a href="../../Content/SandboxieIni/">Sandboxie Ini</a></strong> 的沙盒设置部分添加 <code>NoSecurityFiltering=y</code> 来禁用该过滤。</p>
 <p>自 <strong>Sandboxie Plus v1.0.16</strong> 起，新安装默认启用全新对象访问过滤器，对进程隔离起到辅助作用，替代了 Sandboxie 旧有的进程/线程句柄过滤。如需在 <strong>Sandboxie Plus v1.0.0</strong> 起的早期版本中启用该功能，可在 <strong><a href="../../Content/SandboxieIni/">Sandboxie Ini</a></strong> 的 [GlobalSettings] 部分添加 <code>EnableObjectFiltering=y</code>。</p>
 <p><strong>注意：</strong> 虽然应用隔间会虚拟化文件系统和注册表，但并不会更改进程令牌，也不会施加其他更严格的限制。因此，进程有可能逃离虚拟环境。鉴于安全性有一定（尽管仅为轻微）的降低，<strong>对不受信任的应用程序应避免使用此模式</strong>。</p>
