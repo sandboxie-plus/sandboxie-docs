@@ -98,6 +98,8 @@
 
 [Cover Boxed Windows](CoverBoxedWindows.md)
 
+[Custom Locale/LangID](CustomLCID.md)
+
 ### D
 
 [Delete Command](DeleteCommand.md)
@@ -186,11 +188,21 @@
 
 [Help Topics](HelpTopics.md)
 
+[Hide Disk Serial Number](HideDiskSerialNumber.md)
+
+[Hide Firmware Info](HideFirmwareInfo.md)
+
 [Hide Host Process](HideHostProcess.md)
 
 [Hide Message](SbieCtrl_HideMessage.md)
 
+[Hide Network Adapter MAC Address](HideNetworkAdapterMAC.md)
+
+[Hide Non System Processes](HideNonSystemProcesses.md)
+
 [Hide Other Boxes](HideOtherBoxes.md)
+
+[Hide Sandboxie Processes](HideSbieProcesses.md)
 
 [How It Works](HowitWorks.md)
 
@@ -327,6 +339,8 @@
 ### R
 
 [RAM Disk Support](../PlusContent/RamDiskSupport.md)
+
+[Random Registry UID](RandomRegUID.md)
 
 [Ransomware](Ransomware.md)
 
