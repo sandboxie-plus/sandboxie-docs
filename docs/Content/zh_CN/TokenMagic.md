@@ -1,0 +1,23 @@
+# SandboxieDrv使用未公开的内核导出函数实现其令牌魔法
+
+Sandboxie通过让沙箱化进程使用严格受限的主令牌来运行，从而实现隔离。由于大多数应用程序无法以这种方式运行，它会钩住所有NTDLL.dll调用，并将它们重定向到SbieDrv中的一个接口。然后，驱动程序可以检查调用参数，使调用线程模拟原始的不受限令牌，执行系统调用，并在将控制权返回给用户模式之前取消线程的模拟。
+
+通过这种方式，在Sandboxie监督下运行的进程无法使用原始令牌发出系统调用，即使它撤销了ntdll.dll钩子也不行。
+
+为了使这个机制正常工作，Sandboxie利用了一些未公开的操作：
+
+1. 为了创建受限令牌，它目前使用未导出的函数SepFilterToken以及一些偏移量（RestrictedSidCount、RestrictedSids、UserAndGroups、UserAndGroupCount）。
+这个机制可以通过调用CreateToken或CreateTokenEx来替代，然而这些函数在内核中也未导出。
+为了消除对未导出符号的依赖，对于这部分处理，应该导出并使用ZwCreateTokenEx。
+
+2. 为了能够代表沙箱化进程调用任何系统调用，驱动程序必须知道每个系统调用索引的函数地址和参数数量。
+Sandboxie目前通过分析KeAddSystemServiceTable函数来找到未导出的系统调用表的地址，从而获取这些信息。
+为了消除对未导出符号的依赖，需要导出KeServiceDescriptorTableShadow。
+
+3. 由于PsImpersonateClient存在限制（从Windows XP SP2开始），需要以模拟级别SecurityIdentification调用它，然后在不透明的线程对象中将其更改为SecurityImpersonation。
+为了消除对未导出符号的依赖，需要为驱动程序提供一种文档化的机制来实现任何所需的模拟级别。
+
+4. 为了替换沙箱化进程的主令牌，需要清除EPROCESS结构中的PrimaryTokenFrozen位，这个操作是从使用PsSetLoadImageNotifyRoutine注册的回调中触发的。
+我尚未研究在令牌正式冻结之前进行令牌替换是否可行。
+
+除了上述基本依赖项之外，Sandboxie还从窗口站对象中获取剪贴板对象，以便调整存储项的完整性级别，使沙箱化应用程序能够访问它们。
