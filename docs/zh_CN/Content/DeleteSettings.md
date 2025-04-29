@@ -1,6 +1,6 @@
 # 删除设置
 
-## “删除”设置组
+## “删除”设置分组
 
 [沙盒控制](SandboxieControl.md) > [沙盒设置](SandboxSettings.md) > 删除：
 
