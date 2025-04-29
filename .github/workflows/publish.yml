@@ -16,10 +16,42 @@ jobs:
       with:
         fetch-depth: 0
 
-    # Copy zh_CN → zh before build
-    - name: Prepare zh directory
+    # Prepare zh/zh_CN directories
+    - name: Prepare zh/zh_CN directories
       shell: pwsh
       run: |
+        # Copy MD files from Content and PlusContent to zh_CN if they don't exist
+        $sourceContent = "./docs/Content"
+        $sourcePlusContent = "./docs/PlusContent"
+        $targetContent = "./docs/zh_CN/Content"
+        $targetPlusContent = "./docs/zh_CN/PlusContent"
+
+        # Create target directories if they don't exist
+        if (!(Test-Path $targetContent)) { New-Item -ItemType Directory -Path $targetContent }
+        if (!(Test-Path $targetPlusContent)) { New-Item -ItemType Directory -Path $targetPlusContent }
+
+        # Copy Content files
+        if (Test-Path $sourceContent) {
+            Get-ChildItem $sourceContent -Filter "*.md" | ForEach-Object {
+                $targetFile = Join-Path $targetContent $_.Name
+                if (!(Test-Path $targetFile)) {
+                    Write-Host "Copying $($_.FullName) to $targetFile"
+                    Copy-Item $_.FullName $targetFile
+                }
+            }
+        }
+
+        # Copy PlusContent files
+        if (Test-Path $sourcePlusContent) {
+            Get-ChildItem $sourcePlusContent -Filter "*.md" | ForEach-Object {
+                $targetFile = Join-Path $targetPlusContent $_.Name
+                if (!(Test-Path $targetFile)) {
+                    Write-Host "Copying $($_.FullName) to $targetFile"
+                    Copy-Item $_.FullName $targetFile
+                }
+            }
+        }
+
         # Remove existing zh directory if it exists
         if (Test-Path "./docs/zh") {
             Remove-Item -Recurse -Force "./docs/zh"
@@ -45,16 +77,16 @@ jobs:
       shell: pwsh
       run: |-
         python -m mkdocs build
-        python -m mkdocs build --no-directory-urls --site-dir site_
+        # python -m mkdocs build --no-directory-urls --site-dir site_
 
-        # Process the final site directory (not site_)
-        foreach ($file in Get-ChildItem site -Recurse -File) {
-            $rp = Resolve-Path -Relative $file -RelativeBasePath site
-            $match_path = Join-Path "./site" $rp
-            if (!(Test-Path $match_path)) {
-                Copy-Item $file $match_path
-            }
-        }
+        # # Process the final site directory (not site_)
+        # foreach ($file in Get-ChildItem site -Recurse -File) {
+            # $rp = Resolve-Path -Relative $file -RelativeBasePath site
+            # $match_path = Join-Path "./site" $rp
+            # if (!(Test-Path $match_path)) {
+                # Copy-Item $file $match_path
+            # }
+        # }
 
         # Rename zh to zh_CN in the final site directory
         $zhDirs = Get-ChildItem site -Recurse -Directory | Where-Object { $_.Name -eq "zh" }

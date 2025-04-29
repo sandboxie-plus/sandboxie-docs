@@ -2,6 +2,7 @@
 site_name: Sandboxie Documentation
 site_url: https://sandboxie-plus.github.io/sandboxie-docs/
 
+# Do not remove it, it is required for the preparation phase in publish.yml
 exclude_docs: zh_CN/
 
 # Repository
