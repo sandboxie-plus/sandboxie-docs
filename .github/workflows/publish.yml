@@ -15,6 +15,24 @@ jobs:
     - uses: actions/checkout@v4.1.1
       with:
         fetch-depth: 0
+
+    # Copy zh_CN → zh before build
+    - name: Prepare zh directory
+      shell: pwsh
+      run: |
+        # Remove existing zh directory if it exists
+        if (Test-Path "./docs/zh") {
+            Remove-Item -Recurse -Force "./docs/zh"
+        }
+        # Copy zh_CN to zh
+        if (Test-Path "./docs/zh_CN") {
+            Copy-Item -Recurse -Path "./docs/zh_CN" -Destination "./docs/zh"
+        }
+        else {
+            Write-Error "zh_CN directory not found!"
+            exit 1
+        }
+
     - name: Setup Python
       uses: actions/setup-python@v5.6.0
       with:
@@ -29,12 +47,111 @@ jobs:
         python -m mkdocs build
         python -m mkdocs build --no-directory-urls --site-dir site_
 
-        foreach ($file in Get-ChildItem site_ -Recurse -File) {
-            $rp = Resolve-Path -Relative $file -RelativeBasePath site_
+        # Process the final site directory (not site_)
+        foreach ($file in Get-ChildItem site -Recurse -File) {
+            $rp = Resolve-Path -Relative $file -RelativeBasePath site
             $match_path = Join-Path "./site" $rp
             if (!(Test-Path $match_path)) {
                 Copy-Item $file $match_path
             }
+        }
+
+        # Rename zh to zh_CN in the final site directory
+        $zhDirs = Get-ChildItem site -Recurse -Directory | Where-Object { $_.Name -eq "zh" }
+        foreach ($dir in $zhDirs) {
+            $newPath = Join-Path $dir.Parent.FullName "zh_CN"
+            Rename-Item -Path $dir.FullName -NewName "zh_CN"
+        }
+
+        # Update references in HTML files
+        $htmlFiles = Get-ChildItem site -Recurse -Filter "*.html"
+        foreach ($file in $htmlFiles) {
+            $content = Get-Content $file -Raw
+            $updatedContent = $content -replace '/zh/', '/zh_CN/'
+            if ($content -ne $updatedContent) {
+                Set-Content $file $updatedContent
+            }
+        }
+
+        # # Use extra.js
+        # # Process lunr language files
+        # $lunrFiles = Get-ChildItem site -Recurse -Filter "lunr.zh.min.js"
+        # Write-Host "Found $($lunrFiles.Count) lunr.zh.min.js files"
+        
+        # foreach ($lunrFile in $lunrFiles) {
+            # $newPath = Join-Path $lunrFile.Directory.FullName "lunr.zh_CN.min.js"
+            # Write-Host "Copying $($lunrFile) to $newPath"
+            # Copy-Item -Path $lunrFile -Destination $newPath
+        # }
+
+        # # Use extra.js
+        # # Process search_index.json files
+        # $searchIndexFiles = Get-ChildItem site -Recurse -Filter "search_index.json"
+        # Write-Host "Found $($searchIndexFiles.Count) search_index.json files"
+        
+        # foreach ($searchFile in $searchIndexFiles) {
+            # Write-Host "Processing search index: $($searchFile)"
+            
+            # try {
+                # $jsonContent = Get-Content $searchFile -Raw | ConvertFrom-Json
+                
+                # # Check and update lang array in config
+                # if ($jsonContent.config -and $jsonContent.config.lang -contains "zh") {
+                    # Write-Host "Found 'zh' in lang array, updating to 'zh_CN'"
+                    # $jsonContent.config.lang = $jsonContent.config.lang | ForEach-Object {
+                        # if ($_ -eq "zhXX") { "zh_CN" } else { $_ }
+                    # }
+                    
+                    # # Convert back to JSON and save
+                    # $jsonContent | ConvertTo-Json -Depth 10 | Set-Content $searchFile
+                    # Write-Host "Successfully updated $($searchFile)"
+                # } else {
+                    # Write-Host "No 'zh' found in lang array or config missing"
+                # }
+            # } catch {
+                # Write-Host "Error processing $($searchFile): $_"
+            # }
+        # }
+
+        # Process sitemap.xml files recursively
+        $sitemapFiles = Get-ChildItem site -Recurse -Filter "sitemap.xml"
+        Write-Host "Found $($sitemapFiles.Count) sitemap.xml files"
+        
+        foreach ($sitemap in $sitemapFiles) {
+            Write-Host "Processing sitemap: $($sitemap)"
+            
+            # Update references in sitemap.xml
+            $content = Get-Content $sitemap -Raw
+            $updatedContent = $content -replace '/zh/', '/zh_CN/'
+            
+            if ($content -ne $updatedContent) {
+                Write-Host "Updated zh→zh_CN references in $($sitemap)"
+                $updatedContent | Set-Content $sitemap
+            } else {
+                Write-Host "No zh→zh_CN references found in $($sitemap)"
+            }
+            
+            # Process corresponding .gz file
+            $gzPath = "$($sitemap).gz"
+            if (Test-Path $gzPath) {
+                Write-Host "Found existing gzip file: $gzPath - deleting it"
+                Remove-Item -Force $gzPath
+            }
+            
+            # Create new gzip file
+            Write-Host "Creating new gzip file: $gzPath"
+            $bytes = [System.Text.Encoding]::UTF8.GetBytes($updatedContent)
+            $ms = New-Object System.IO.MemoryStream
+            $gzip = New-Object System.IO.Compression.GZipStream($ms, [System.IO.Compression.CompressionMode]::Compress)
+            $gzip.Write($bytes, 0, $bytes.Length)
+            $gzip.Close()
+            [System.IO.File]::WriteAllBytes($gzPath, $ms.ToArray())
+            
+            Write-Host "Successfully processed $($sitemap)"
+        }
+
+        if ($sitemapFiles.Count -eq 0) {
+            Write-Warning "No sitemap.xml files found in the repository"
         }
 
     - name: Publish

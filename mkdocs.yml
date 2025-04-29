@@ -2,6 +2,8 @@
 site_name: Sandboxie Documentation
 site_url: https://sandboxie-plus.github.io/sandboxie-docs/
 
+exclude_docs: zh_CN/
+
 # Repository
 repo_name: sandboxie-plus/sandboxie-docs
 repo_url: https://github.com/sandboxie-plus/sandboxie-docs
@@ -13,6 +15,7 @@ copyright: 'This site is maintained by <a href="https://github.com/sandboxie-plu
 # Configuration
 theme:
   name: material
+  language: en
   custom_dir: material/overrides
   logo: Media/SandDocs.png
   favicon: material/assets/images/favicon.ico
@@ -30,7 +33,7 @@ theme:
     # - navigation.expand
     - navigation.footer
     - navigation.indexes
-    # - navigation.instant
+    # - navigation.instant              # NOT compatible with the multi-language switcher
     # - navigation.instant.prefetch     # insiders
     # - navigation.instant.progress
     # - navigation.path                 # insiders
@@ -71,19 +74,19 @@ watch:
 # Plugins
 plugins:
   - search:
+      lang: en
   # - RootReadme:
       # readme: README.md
   - i18n:
       docs_structure: folder
-      # reconfigure_search: true
+      fallback_to_default: true
+      reconfigure_material: true
+      reconfigure_search: true
       languages:
-        - locale: en
-          name: English
-          build: true
-          default: true
         - locale: zh
-          name: 中文
+          name: 简体中文
           build: true
+          default: false
           site_name: Sandboxie 文档
           nav_translations:
             Home: 家
@@ -93,6 +96,11 @@ plugins:
             Sandboxie Plus: Sandboxie Plus
             Advanced Topics: 高级主题
             SBIE Messages: SBIE 消息
+        # default language should be at the bottom
+        - locale: en
+          name: English
+          build: true
+          default: true
 
 # Hooks
 
@@ -102,8 +110,8 @@ extra:
     - name: English
       link: /sandboxie-docs/
       lang: en
-    - name: 中文
-      link: /sandboxie-docs/zh/
+    - name: 简体中文
+      link: /sandboxie-docs/zh_CN/
       lang: zh
   social:
     - icon: fontawesome/brands/github
