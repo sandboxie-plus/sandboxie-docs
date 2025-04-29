@@ -16,6 +16,7 @@ function load_navpane() {
 document.addEventListener("DOMContentLoaded", load_navpane);
 
 // AI
+// Replace search links /zh/ to /zh_CN/
 document.addEventListener("DOMContentLoaded", function() {
   const SEARCH_SELECTOR = '[data-md-component="search"]';
   const RESULTS_SELECTOR = '.md-search-result';
