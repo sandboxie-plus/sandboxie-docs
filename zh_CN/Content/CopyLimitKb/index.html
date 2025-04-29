@@ -18,7 +18,7 @@
     
     
       
-        <title>Copy Limit Kb - Sandboxie 文档</title>
+        <title>复制限制 Kb - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#copy-limit-kb" class="md-skip">
+        <a href="#kb" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Copy Limit Kb
+              复制限制 Kb
             
           </span>
         </div>
@@ -4526,20 +4526,20 @@
   
 
 
-<h1 id="copy-limit-kb">Copy Limit Kb</h1>
-<p><em>CopyLimitKb</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. Existing files that are modified by sandboxed programs have to be copied into the sandbox first. This setting specifies the file size limit for this copy operation. Files larger than the limit will not be copied into the sandbox, and cannot be modified by sandboxd programs. The limit is specified in units of kilobytes (1 kilobyte = 1024 bytes).</p>
-<p>For more information, see <a href="../SBIE2102/">SBIE2102</a>.</p>
-<p>Usage:</p>
+<h1 id="kb">复制限制 Kb</h1>
+<p><em>CopyLimitKb</em> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 文件中的一个沙盒设置项。要在沙盒中修改现有文件，必须首先将文件复制到沙盒中。本设置用于指定此复制操作的文件大小上限。大于此限制的文件将不会被复制进沙盒，沙盒程序也无法对其进行修改。该限制的单位为千字节（1 千字节 = 1024 字节）。</p>
+<p>欲了解更多信息，请参阅 <a href="../SBIE2102/">SBIE2102</a>。</p>
+<p>用法示例：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">CopyLimitKb</span><span class="o">=</span><span class="s">128000</span>
 </span></code></pre></div>
-<p>This example specifies that only files smaller than (approx.) 128MB will be copied into the sandbox <em>DefaultBox</em>, when needed. Files larger than this limit can only be read, not updated, by sandboxed programs.</p>
-<p>The default setting is 49152 kilobytes, or 48 megabytes. Setting <em>CopyLimitKb</em> to some value for one sandbox does not change the default value for other sandboxes.</p>
-<p>The size limit and alert message can be configured in <a href="../FileMigrationSettings/">SandboxSettings &gt; File Migration</a>.</p>
-<p>Related <a href="../SandboxieIni/">Sandboxie Ini</a> setting: <a href="../CopyLimitSilent/">CopyLimitSilent</a></p>
+<p>此示例表示，仅当所需文件小于（约）128 MB 时，才会被复制进 <em>DefaultBox</em> 沙盒。超过此限制的文件，沙盒程序只能读取，无法更新。</p>
+<p>默认设置为 49152 千字节，即 48 兆字节。为某个沙盒单独设置 <em>CopyLimitKb</em> 并不会影响其他沙盒的默认值。</p>
+<p>可在 <a href="../FileMigrationSettings/">沙盒设置 &gt; 文件迁移</a> 中配置大小限制及警告消息。</p>
+<p>相关的 <a href="../SandboxieIni/">Sandboxie Ini</a> 设置项：<a href="../CopyLimitSilent/">复制限制静默</a></p>
 
 
 

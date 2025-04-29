@@ -18,7 +18,7 @@
     
     
       
-        <title>Delete Settings - Sandboxie 文档</title>
+        <title>删除设置 - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#delete-settings" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Delete Settings
+              删除设置
             
           </span>
         </div>
@@ -4526,30 +4526,30 @@
   
 
 
-<h1 id="delete-settings">Delete Settings</h1>
-<h2 id="delete-settings-group">"Delete" Settings Group</h2>
-<p><a href="../SandboxieControl/">Sandboxie Control</a> &gt; <a href="../SandboxSettings/">Sandbox Settings</a> &gt; Delete:</p>
+<h1 id="_1">删除设置</h1>
+<h2 id="_2">“删除”设置分组</h2>
+<p><a href="../SandboxieControl/">沙盒控制</a> &gt; <a href="../SandboxSettings/">沙盒设置</a> &gt; 删除：</p>
 <p><img alt="" src="../../Media/DeleteSettings.png" /></p>
-<p>Here you configure when and how Sandboxie deletes the sandbox.</p>
-<h2 id="invocation">Invocation</h2>
-<p><a href="../SandboxieControl/">Sandboxie Control</a> &gt; <a href="../SandboxSettings/">Sandbox Settings</a> &gt; Delete &gt; Invocation:</p>
+<p>在此页面，您可以配置 Sandboxie 删除沙盒的时间和方式</p>
+<h2 id="_3">调用方式</h2>
+<p><a href="../SandboxieControl/">沙盒控制</a> &gt; <a href="../SandboxSettings/">沙盒设置</a> &gt; 删除 &gt; 调用方式：</p>
 <p><img alt="" src="../../Media/DeleteInvocationSettings.png" /></p>
-<p>Use this settings page to indicate when you want the sandbox deleted:</p>
+<p>该设置页面用于指示您希望在何时删除沙盒：</p>
 <ul>
-<li>Deleted only by explicit request: Keep both checkboxes cleared</li>
-<li>Deleted regularly and automatically: Mark the first checkbox</li>
-<li>Never deleted: Mark the second checkbox</li>
+<li>仅在明确请求时删除：请保持两个复选框均未选中  </li>
+<li>定期自动删除：请选中第一个复选框  </li>
+<li>永不删除：请选中第二个复选框</li>
 </ul>
-<p>Note that while both checkboxes can be cleared, only one checkbox can be marked at any time.</p>
-<p>As long as the second checkbox is marked, Sandboxie will not initiate any delete operation on the sandbox, even if you explicitly ask for it. Important: This does not protect the sandbox from being deleted by other programs.</p>
-<p>Related <a href="../SandboxieIni/">Sandboxie Ini</a> settings: <a href="../AutoDelete/">AutoDelete</a>, <a href="../NeverDelete/">NeverDelete</a>, <a href="../DeleteCommand/">DeleteCommand</a>.</p>
-<h2 id="command">Command</h2>
-<p><a href="../SandboxieControl/">Sandboxie Control</a> &gt; <a href="../SandboxSettings/">Sandbox Settings</a> &gt; Delete &gt; Command:</p>
+<p>请注意，虽然两个复选框都可以被清除，但任何时候都只能选中一个复选框。</p>
+<p>只要第二个复选框被选中，Sandboxie 将不会对沙盒执行任何删除操作，即使您明确要求删除也不会执行。重要提示：这无法防止其他程序删除沙盒。</p>
+<p>相关的 <a href="../SandboxieIni/">Sandboxie Ini</a> 设置： <a href="../AutoDelete/">自动删除</a>、<a href="../NeverDelete/">从不删除</a>、<a href="../DeleteCommand/">删除命令</a>。</p>
+<h2 id="_4">命令</h2>
+<p><a href="../SandboxieControl/">沙盒控制</a> &gt; <a href="../SandboxSettings/">沙盒设置</a> &gt; 删除 &gt; 命令：</p>
 <p><img alt="" src="../../Media/DeleteCommandSettings.png" /></p>
-<p>Use this settings page to specify the system command that will be used to delete the sandbox. By default this is a simple RMDIR (remove directory) command. People who are concerned with privacy issues may choose to use secure deletion instead, as described in more detail in <a href="../SecureDeleteSandbox/">Secure Delete Sandbox</a>.</p>
-<p>You can use the buttons to select a preset command. The RMDIR button selects the simple RMDIR noted above.</p>
-<p>The SDelete button uses <a href="https://docs.microsoft.com/en-us/sysinternals/downloads/sdelete">SDelete by SysInternals/Microsoft</a> to delete the contents of sandbox. Note that you will need to adjust the path to the command.</p>
-<p>The Eraserl button uses <a href="https://eraser.heidi.ie/">Eraser by Heidi Computers</a> to delete the contents of sandbox.</p>
+<p>本设置页用于指定用于删除沙盒的系统命令。默认情况下为 RMDIR（删除目录）命令。关心隐私问题的用户可以选择使用更安全的删除方式，详细说明参见 <a href="../SecureDeleteSandbox/">安全删除沙盒</a>。</p>
+<p>您可以使用页面上的按钮来选择预定义命令。RMDIR 按钮会选择上述的简单 RMDIR 命令。</p>
+<p>SDelete 按钮会调用由 <a href="https://docs.microsoft.com/en-us/sysinternals/downloads/sdelete">SysInternals/Microsoft 提供的 SDelete</a> 以删除沙盒内容。请注意，您需要自行调整命令路径。</p>
+<p>Eraserl 按钮会调用由 <a href="https://eraser.heidi.ie/">Heidi Computers 提供的 Eraser</a> 以删除沙盒内容。</p>
 
 
 
