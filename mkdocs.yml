@@ -2,6 +2,8 @@
 site_name: Sandboxie Documentation
 site_url: https://sandboxie-plus.github.io/sandboxie-docs/
 
+exclude_docs: zh_CN/
+
 # Repository
 repo_name: sandboxie-plus/sandboxie-docs
 repo_url: https://github.com/sandboxie-plus/sandboxie-docs
@@ -109,7 +111,7 @@ extra:
       link: /sandboxie-docs/
       lang: en
     - name: 简体中文
-      link: /sandboxie-docs/zh/
+      link: /sandboxie-docs/zh_CN/
       lang: zh
   social:
     - icon: fontawesome/brands/github
