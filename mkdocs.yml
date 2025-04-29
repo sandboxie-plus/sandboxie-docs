@@ -90,13 +90,39 @@ plugins:
           default: false
           site_name: Sandboxie 文档
           nav_translations:
-            Home: 家
+            Home: 主页
             Sandboxie Basics: Sandboxie 基础知识
             Sandboxie Control: Sandboxie 控制
             Command Line Usage: 命令行用法
             Sandboxie Plus: Sandboxie Plus
             Advanced Topics: 高级主题
             SBIE Messages: SBIE 消息
+        # - locale: tr
+          # name: Türkçe
+          # build: true
+          # default: false
+          # site_name: Sandboxie Belgeleri
+          # nav_translations:
+            # Home: Ana Sayfa
+            # Sandboxie Basics: Sandboxie Temelleri
+            # Sandboxie Control: Sandboxie Control
+            # Command Line Usage: Komut Satırı Kullanımı
+            # Sandboxie Plus: Sandboxie Plus
+            # Advanced Topics: İleri Seviye Konular
+            # SBIE Messages: SBIE Mesajları
+        # - locale: de
+          # name: Deutsch
+          # build: true
+          # default: false
+          # site_name: Sandboxie-Dokumente
+          # nav_translations:
+            # Home: Startseite
+            # Sandboxie Basics: Sandboxie-Grundlagen
+            # Sandboxie Control: Sandboxie Control
+            # Command Line Usage: Verwendung der Befehlszeile
+            # Sandboxie Plus: Sandboxie Plus
+            # Advanced Topics: Fortgeschrittene Themen
+            # SBIE Messages: SBIE-Nachrichten
         # default language should be at the bottom
         - locale: en
           name: English
@@ -114,6 +140,12 @@ extra:
     - name: 简体中文
       link: /sandboxie-docs/zh_CN/
       lang: zh
+    # - name: Türkçe
+      # link: /sandboxie-docs/tr/
+      # lang: tr
+    # - name: Deutsch
+      # link: /sandboxie-docs/de/
+      # lang: de      
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/sandboxie-plus/Sandboxie
