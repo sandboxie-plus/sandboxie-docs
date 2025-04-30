@@ -2,7 +2,7 @@
 
 ## 内存盘支持
 
-通过与 [ImDisk 驱动程序](/PlusContent/imdisk.md) 无缝对接，Sandboxie Plus 引入了一种变革性的方式，可将系统内存的一部分分配用于动态内存盘。这种机制彻底改变了沙箱的速度和效率，同时还带来了独特的隐私优势。
+通过与 [ImDisk 驱动程序](../PlusContent/imdisk.md) 无缝对接，Sandboxie Plus 引入了一种变革性的方式，可将系统内存的一部分分配用于动态内存盘。这种机制彻底改变了沙箱的速度和效率，同时还带来了独特的隐私优势。
 
 ## 性能提升
 
@@ -18,13 +18,13 @@
 
 ### 更新沙箱配置：
 
-打开您希望增强功能的沙箱的 **[Sandboxie 配置文件](/Content/SandboxieIni.md)**。要为该沙箱启用内存盘，请在相应沙箱的部分中添加以下行：
+打开您希望增强功能的沙箱的 **[Sandboxie 配置文件](../Content/SandboxieIni.md)**。要为该沙箱启用内存盘，请在相应沙箱的部分中添加以下行：
 
     UseRamDisk=y
 
 ### 配置全局设置：
 
-要在所有沙箱中启用内存盘支持，请导航至 **[Sandboxie 配置文件](/Content/SandboxieIni.md)** 中的 [GlobalSettings] 部分。通过添加以下行来为内存盘分配适当的内存：
+要在所有沙箱中启用内存盘支持，请导航至 **[Sandboxie 配置文件](../Content/SandboxieIni.md)** 中的 [GlobalSettings] 部分。通过添加以下行来为内存盘分配适当的内存：
 
     RamDiskSizeKb=2097152
 
