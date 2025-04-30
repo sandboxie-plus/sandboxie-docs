@@ -36,4 +36,4 @@ _ClosedFilePath_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置�
 
 相关 [Sandboxie 控制](SandboxieControl.md) 设置：[沙箱设置 > 资源访问 > 文件访问 > 封禁访问](ResourceAccessSettings.md#file-access--blocked-access)
 
-相关 Sandboxie Plus 设置：沙箱选项 > 资源访问 > 文件 > 添加文件/文件夹 > 访问 列 > 封禁
+相关 Sandboxie Plus 设置：沙箱选项 > 资源访问 > 文件 > 添加文件/文件夹 > 访问列 > 封禁

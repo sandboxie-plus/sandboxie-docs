@@ -26,4 +26,4 @@ _ClosedIpcPath_ 设置通常用于阻止那些 Sandboxie 默认识别的资源�
 沙箱设置 > 资源访问 > IPC 访问 > 封禁访问 ([资源访问设置](ResourceAccessSettings.md#ipc-access--blocked-access))
 
 相关 Sandboxie Plus 设置：
-沙箱选项 > 资源访问 > IPC > 添加 IPC 路径 > 访问 列 > 封禁
+沙箱选项 > 资源访问 > IPC > 添加 IPC 路径 > 访问列 > 封禁
