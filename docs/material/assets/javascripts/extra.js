@@ -76,7 +76,7 @@ document$.subscribe(function() {
   function processMark(mark) {
     if (processedNodes.has(mark)) return;
     
-    const cleanText = mark.textContent.replace(/k?(>|&gt;)/g, '');
+    const cleanText = mark.textContent.replace(/r?k?(>|&gt;)/g, '');
     if (cleanText !== mark.textContent) {
       const newMark = document.createElement('mark');
       newMark.textContent = cleanText;
