@@ -64,3 +64,82 @@ document.addEventListener("DOMContentLoaded", function() {
   // Initial run (in case results exist before observer starts)
   replaceZhUrls();
 });
+
+// AI
+// Fixes broken search result highlights
+document$.subscribe(function() {
+  // Debounce with cleanup tracking
+  let debounceTimer;
+  let observer;
+  const processedNodes = new WeakSet();
+
+  function processMark(mark) {
+    if (processedNodes.has(mark)) return;
+    
+    const cleanText = mark.textContent.replace(/k?(>|&gt;)/g, '');
+    if (cleanText !== mark.textContent) {
+      const newMark = document.createElement('mark');
+      newMark.textContent = cleanText;
+      mark.replaceWith(newMark);
+      processedNodes.add(newMark);
+    }
+    processedNodes.add(mark);
+  }
+
+  function processMarks(mutations) {
+    // Clear any pending debounce
+    clearTimeout(debounceTimer);
+    
+    // Process either all marks or just mutations
+    if (!mutations) {
+      document.querySelectorAll('mark').forEach(processMark);
+    } else {
+      mutations.forEach(mutation => {
+        mutation.addedNodes.forEach(node => {
+          if (node.nodeType === Node.ELEMENT_NODE) {
+            if (node.matches('mark')) {
+              processMark(node);
+            }
+            node.querySelectorAll('mark').forEach(processMark);
+          }
+        });
+      });
+    }
+  }
+
+  // Optimized search result handler
+  function setupSearchObserver() {
+    const searchContainer = document.querySelector('.md-search-result');
+    if (!searchContainer) return;
+
+    // Cleanup previous observer if exists
+    if (observer) observer.disconnect();
+
+    observer = new MutationObserver(mutations => {
+      // Use idle callback if available
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(
+          () => processMarks(mutations),
+          { timeout: 200 }
+        );
+      } else {
+        debounceTimer = setTimeout(
+          () => processMarks(mutations), 
+          300
+        );
+      }
+    });
+
+    observer.observe(searchContainer, {
+      childList: true,
+      subtree: true
+    });
+  }
+
+  // Initial setup
+  setupSearchObserver();
+  processMarks();
+
+  // Re-setup observer when search is reopened
+  document.addEventListener('search', setupSearchObserver);
+});

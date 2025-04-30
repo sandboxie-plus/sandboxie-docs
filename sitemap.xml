@@ -589,13 +589,6 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh_CN/Content/HelpTopics/"/>
     </url>
     <url>
-        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/HelpTopics.zh/</loc>
-        <lastmod>2025-04-30</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/HelpTopics.zh/"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh_CN/Content/HelpTopics.zh/"/>
-    </url>
-    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/HideHostProcess/</loc>
         <lastmod>2025-04-30</lastmod>
         <changefreq>daily</changefreq>
@@ -2988,13 +2981,6 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh_CN/Content/HelpTopics/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/HelpTopics/"/>
-    </url>
-    <url>
-        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh_CN/Content/HelpTopics.zh/</loc>
-        <lastmod>2025-04-30</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh_CN/Content/HelpTopics.zh/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/HelpTopics.zh/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh_CN/Content/HideHostProcess/</loc>
