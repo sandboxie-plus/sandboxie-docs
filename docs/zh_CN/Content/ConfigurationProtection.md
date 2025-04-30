@@ -1,6 +1,6 @@
 # 配置保护
 
-最初，任何使用 [沙盒控制](SandboxieControl.md) 或 [Sandman](PlusMigrationGuide.md) 界面的人都可以更改任何 Sandboxie 配置的内容，这些配置被存储在 [Sandboxie Ini](SandboxieIni.md) 配置文件中。此外，任何能够访问该配置文本文件的人也可以操作该配置，并将其重新加载到 Sandboxie 中。
+最初，任何使用 [沙箱控制](SandboxieControl.md) 或 [Sandman](PlusMigrationGuide.md) 界面的人都可以更改任何 Sandboxie 配置的内容，这些配置被存储在 [Sandboxie Ini](SandboxieIni.md) 配置文件中。此外，任何能够访问该配置文本文件的人也可以操作该配置，并将其重新加载到 Sandboxie 中。
 
 可以启用对 [Sandboxie Ini](SandboxieIni.md) 配置文件的保护，以防止未经授权的更改。Sandboxie 提供了四种保护模式：
 
@@ -13,7 +13,7 @@
 
 保护措施适用于 [Sandboxie Ini](SandboxieIni.md) 配置文件中的 **Global Settings**、**Sandbox Settings** 和 **Template Settings** 部分。不适用于任何存储每用户偏好的 **User Settings** 部分。
 
-要在 [沙盒控制](SandboxieControl.md) 中启用保护，请使用 [配置菜单 > 锁定配置](ConfigureMenu.md#lock-configuration) 命令。
+要在 [沙箱控制](SandboxieControl.md) 中启用保护，请使用 [配置菜单 > 锁定配置](ConfigureMenu.md#lock-configuration) 命令。
 
 要在 [Sandman](PlusMigrationGuide.md) 中启用保护，请使用 菜单选项 > 全局设置 > 高级配置 > Sandboxie.ini 预设 > 配置保护 命令。
 

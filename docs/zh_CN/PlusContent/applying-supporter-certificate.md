@@ -4,8 +4,7 @@
 
 ![](../Media/PlusCert1.png)
 
-在全局选项中，请前往 “Support & Updates” 页面：
-//需要实际确认中文界面的翻译
+在全局选项中，请前往 “支持 & 更新” 页面：
 
 ![](../Media/PlusCert2.png)
 

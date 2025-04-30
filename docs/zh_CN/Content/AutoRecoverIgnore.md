@@ -1,6 +1,6 @@
 # 自动恢复忽略
 
-_AutoRecoverIgnore_ 是 [Sandboxie Ini](SandboxieIni.md) 配置文件中的一个沙盒设置。它用于指定哪些文件夹或文件类型应当被 [快速恢复](QuickRecovery.md) 的即时恢复扩展功能所忽略。例如：
+_AutoRecoverIgnore_ 是 [Sandboxie Ini](SandboxieIni.md) 配置文件中的一个沙箱设置。它用于指定哪些文件夹或文件类型应当被 [快速恢复](QuickRecovery.md) 的即时恢复扩展功能所忽略。例如：
 
 ```
    .
@@ -16,4 +16,4 @@ _AutoRecoverIgnore_ 是 [Sandboxie Ini](SandboxieIni.md) 配置文件中的一�
 
 第二和第三个示例将指定的文件夹从即时恢复范围中排除。
 
-相关的 [Sandboxie控制](SandboxieControl.md) 设置：[沙盒设置 > 恢复 > 即时恢复](RecoverySettings.md#immediate-recovery)
+相关的 [Sandboxie控制](SandboxieControl.md) 设置：[沙箱设置 > 恢复 > 即时恢复](RecoverySettings.md#immediate-recovery)

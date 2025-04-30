@@ -1,6 +1,6 @@
-# 加密沙盒
+# 加密沙箱
 
-_ConfidentialBox_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙盒设置。
+_ConfidentialBox_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置。
 
 ```
    .
@@ -14,4 +14,4 @@ _ConfidentialBox_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙盒设置�
 
 **技术细节**
 
-更多信息，请参见 [加密沙盒](../PlusContent/BoxEncryption.md) 和 [预设沙盒对比](../PlusContent/box-preset-comparison.md)
+更多信息，请参见 [加密沙箱](../PlusContent/BoxEncryption.md) 和 [预设沙箱对比](../PlusContent/box-preset-comparison.md)
