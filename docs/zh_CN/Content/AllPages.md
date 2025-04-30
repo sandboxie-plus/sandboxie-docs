@@ -44,7 +44,7 @@
 
 ~~[阻止系统参数](BlockSysParam.md)~~（自 Sandboxie v4.xx 起移除）
 
-~~[阻止 Windows 挂钩](BlockWinHooks.md)~~（自 Sandboxie v4.xx 起移除）
+~~[阻止 WinHooks](BlockWinHooks.md)~~（自 Sandboxie v4.xx 起移除）
 
 [边框颜色](BorderColor.md)
 
