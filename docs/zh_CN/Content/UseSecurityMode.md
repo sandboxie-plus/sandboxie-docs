@@ -1,6 +1,6 @@
 # 使用安全模式
 
-_使用安全模式_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一项沙盒设置，自 v1.3.0 / 5.58.0 版本起可用。
+_使用安全模式_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一项沙箱设置，自 v1.3.0 / 5.58.0 版本起可用。
 
 用法：
 

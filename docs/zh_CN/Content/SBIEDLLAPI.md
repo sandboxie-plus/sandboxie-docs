@@ -1,12 +1,12 @@
 # SBIE DLL API
 
-本页面描述了 _SbieDll.dll_ 动态链接库（DLL）中可调用的入口点。这些入口点暴露了沙盒工具（Sandboxie）的一些功能，这些功能可以通过编程方式访问，即通过其他程序而非用户与沙盒工具进行交互来访问。
+本页面描述了 _SbieDll.dll_ 动态链接库（DLL）中可调用的入口点。这些入口点暴露了沙箱工具（Sandboxie）的一些功能，这些功能可以通过编程方式访问，即通过其他程序而非用户与沙箱工具进行交互来访问。
 
-以编程方式使用沙盒工具涉及三个方面：
+以编程方式使用沙箱工具涉及三个方面：
 
 * 使用 Start.exe 程序驱动某些功能。请参阅 [Start 命令行](StartCommandLine.md)。
-* 将自定义 DLL 注入到沙盒程序中。请参阅 [InjectDll](InjectDll.md)。
-* 从正在运行的程序（无论是否在沙盒中）调用沙盒工具的入口点。本文将对此进行描述。
+* 将自定义 DLL 注入到沙箱程序中。请参阅 [InjectDll](InjectDll.md)。
+* 从正在运行的程序（无论是否在沙箱中）调用沙箱工具的入口点。本文将对此进行描述。
 
 本文描述的入口点均由 _SbieDll.dll_ 导出。要访问某个入口点，你应该将此 DLL 动态加载到你的程序中，并获取所需入口点的地址。例如：
 ```
@@ -33,7 +33,7 @@
 
 * * *
 
-### 枚举沙盒名称
+### 枚举沙箱名称
 
 * 原型：
 ```
@@ -49,12 +49,12 @@
 
 * 参数：
 ```
-        index [in] 指定要返回的沙盒。初始化为 -1。
-        沙盒按照它们在 Sandboxie.ini 中出现的顺序进行枚举。
+        index [in] 指定要返回的沙箱。初始化为 -1。
+        沙箱按照它们在 Sandboxie.ini 中出现的顺序进行枚举。
 
-        box_name [out] 接收沙盒名称。
+        box_name [out] 接收沙箱名称。
 
-        注意：此函数不能由沙盒程序使用。
+        注意：此函数不能由沙箱程序使用。
 ```
 
 * 返回值：
@@ -79,7 +79,7 @@
 
 * * *
 
-### 按沙盒名称查询沙盒路径
+### 按沙箱名称查询沙箱路径
 
 * 原型：
 ```
@@ -100,15 +100,15 @@
 
 * 参数：
 ```
-        box_name [in] 指定要返回路径信息的沙盒名称。
+        box_name [in] 指定要返回路径信息的沙箱名称。
 
-        file_path [out] 接收沙盒根目录的路径，该路径由 FileRootPath 设置指定。
+        file_path [out] 接收沙箱根目录的路径，该路径由 FileRootPath 设置指定。
         该缓冲区最多接收 file_path_len 参数指定的字节数。传入 NULL 以忽略此参数。
 
-        key_path [out] 接收沙盒注册表根键的路径，该路径由 KeyRootPath 设置指定。
+        key_path [out] 接收沙箱注册表根键的路径，该路径由 KeyRootPath 设置指定。
         该缓冲区最多接收 key_path_len 参数指定的字节数。传入 NULL 以忽略此参数。
 
-        ipc_path [out] 接收沙盒根对象目录的路径，该路径由 IpcRootPath 设置指定。
+        ipc_path [out] 接收沙箱根对象目录的路径，该路径由 IpcRootPath 设置指定。
         该缓冲区最多接收 ipc_path_len 参数指定的字节数。传入 NULL 以忽略此参数。
 
         file_path_len [in/out] 指定 file_path 缓冲区的字节长度。返回时，接收完整缓冲区所需的字节长度。
@@ -150,7 +150,7 @@
 
 * * *
 
-### 按进程 ID 查询沙盒路径
+### 按进程 ID 查询沙箱路径
 
 * 原型：
 ```
@@ -171,7 +171,7 @@
 
 * 参数：
 ```
-        process_id [in] 指定要查询的沙盒进程的 ID。
+        process_id [in] 指定要查询的沙箱进程的 ID。
 
         file_path [out]
 
@@ -186,9 +186,9 @@
         ipc_path_len [in/out]
 
         最后六个参数与上面讨论的 QueryBoxPath 函数的最后六个参数类似。
-        然而，QueryProcessPath（此函数）返回正在运行的程序所使用的沙盒路径，而 QueryBoxPath 返回沙盒配置中记录的路径。
+        然而，QueryProcessPath（此函数）返回正在运行的程序所使用的沙箱路径，而 QueryBoxPath 返回沙箱配置中记录的路径。
 
-        换句话说：假设一个沙盒程序以 PID 124 启动，然后某个沙盒路径（例如 FileRootPath）被设置为新值。
+        换句话说：假设一个沙箱程序以 PID 124 启动，然后某个沙箱路径（例如 FileRootPath）被设置为新值。
         此时，QueryBoxPath 将返回新值，但 PID 124 的 QueryProcessPath 将返回旧值。
 ```
 
@@ -218,7 +218,7 @@
 
 * 参数：
 ```
-        box_name [in] 指定要枚举其中进程的沙盒名称。
+        box_name [in] 指定要枚举其中进程的沙箱名称。
 
         all_sessions [in] 指定为 TRUE 以枚举所有登录会话中的进程，或仅枚举特定登录会话中的进程。
 
@@ -256,9 +256,9 @@
 
 * 参数：
 ```
-        process_id [in] 指定要查询的沙盒进程的 ID。
+        process_id [in] 指定要查询的沙箱进程的 ID。
 
-        box_name [out] 接收进程正在其中运行的沙盒名称。传入 NULL 以忽略此参数。
+        box_name [out] 接收进程正在其中运行的沙箱名称。传入 NULL 以忽略此参数。
 
         image_name [out] 接收进程名称。传入 NULL 以忽略此参数。
 
@@ -275,7 +275,7 @@
 
 * * *
 
-### 终止单个沙盒进程
+### 终止单个沙箱进程
 
 * 原型：
 ```
@@ -292,7 +292,7 @@
 
 * 参数：
 ```
-        process_id [in] 指定应终止的沙盒进程的进程 ID。
+        process_id [in] 指定应终止的沙箱进程的进程 ID。
 ```
 
 
@@ -300,13 +300,13 @@
 ```
         成功时返回 TRUE，失败时返回 FALSE。
 
-        目标进程由沙盒服务 (SbieSvc) 通过调用 Windows API TerminateProcess (ProcessId, 1) 以退出代码 1 终止。
+        目标进程由沙箱服务 (SbieSvc) 通过调用 Windows API TerminateProcess (ProcessId, 1) 以退出代码 1 终止。
 ```
 
 
 * * *
 
-### 终止所有沙盒进程
+### 终止所有沙箱进程
 
 *    原型：
 ```
@@ -324,9 +324,9 @@
 
 *    参数：
 ```
-        session_id [in] 指定应终止沙盒程序的登录会话编号。
+        session_id [in] 指定应终止沙箱程序的登录会话编号。
 
-        box_name [in] 指定应终止沙盒程序的沙盒名称。指定 -1 表示当前登录会话。
+        box_name [in] 指定应终止沙箱程序的沙箱名称。指定 -1 表示当前登录会话。
 ```
 
 
@@ -481,7 +481,7 @@
 
 *    参数：
 ```
-        name [in] 指定要挂钩的入口点的 ASCII 字符串名称。如果出错，SbieDll_Hook 会记录包含此描述性名称的沙盒错误消息。
+        name [in] 指定要挂钩的入口点的 ASCII 字符串名称。如果出错，SbieDll_Hook 会记录包含此描述性名称的沙箱错误消息。
 
         source_func [in] 指向要挂钩的函数的指针。
 

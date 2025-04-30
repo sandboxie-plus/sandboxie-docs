@@ -3,9 +3,9 @@
 根据为 Sandboxie Start 程序指定的命令行参数，它可以执行以下任何操作：
 
 *   [启动](#启动程序)受 Sandboxie 监管的程序
-*   [停止](#停止程序)沙盒内的程序
-*   [列出](#列出程序)沙盒内的程序
-*   [删除](#删除沙盒内容)沙盒的内容
+*   [停止](#停止程序)沙箱内的程序
+*   [列出](#列出程序)沙箱内的程序
+*   [删除](#删除沙箱内容)沙箱的内容
 *   [重新加载](#重新加载配置) Sandboxie 配置
 *   启动[禁用强制程序](#禁用强制程序)模式
 *   [相关](#相关阅读材料)阅读材料
@@ -31,12 +31,12 @@
   "C:\Program Files\Sandboxie\Start.exe"  start_menu
 ```
 
-在所有形式中，参数 _/box:沙盒名称_ 都适用，并且可以在 Start.exe 和参数之间指定，以指示除默认的 _DefaultBox_ 之外的沙盒名称。例如：
+在所有形式中，参数 _/box:沙箱名称_ 都适用，并且可以在 Start.exe 和参数之间指定，以指示除默认的 _DefaultBox_ 之外的沙箱名称。例如：
 ```
   "C:\Program Files\Sandboxie\Start.exe"  /box:TestBox  run_dialog
 ```
 
-/box 参数的一种特殊形式是 _/box:__ask___，它会使 Start.exe 显示沙盒选择对话框。
+/box 参数的一种特殊形式是 _/box:__ask___，它会使 Start.exe 显示沙箱选择对话框。
 
 参数 _/silent_ 可用于消除一些弹出错误消息。例如：
 ```
@@ -82,35 +82,35 @@
 
 ### 停止程序
 
-终止在特定沙盒中运行的所有程序。请注意，该请求会传输到 Sandboxie 服务 SbieSvc，该服务实际执行终止操作。
+终止在特定沙箱中运行的所有程序。请注意，该请求会传输到 Sandboxie 服务 SbieSvc，该服务实际执行终止操作。
 ```
   "C:\Program Files\Sandboxie\Start.exe"  /terminate
   "C:\Program Files\Sandboxie\Start.exe"  /box:TestBox  /terminate
   "C:\Program Files\Sandboxie\Start.exe"  /terminate_all
 ```
 
-如果省略参数 _/box:沙盒名称_，则将停止在默认沙盒 _DefaultBox_ 中运行的程序。
+如果省略参数 _/box:沙箱名称_，则将停止在默认沙箱 _DefaultBox_ 中运行的程序。
 
-形式 _/terminate_all_ 会终止所有沙盒中的所有程序。
+形式 _/terminate_all_ 会终止所有沙箱中的所有程序。
 
 * * *
 
-### 卸载沙盒镜像
+### 卸载沙箱镜像
 
-这些命令用于卸载由 Sandboxie Plus 创建的加密沙盒镜像或 RAM 磁盘。这些参数从 v1.11.0 / 5.66.0 版本开始可用。
+这些命令用于卸载由 Sandboxie Plus 创建的加密沙箱镜像或 RAM 磁盘。这些参数从 v1.11.0 / 5.66.0 版本开始可用。
 ```
   "C:\Program Files\Sandboxie-Plus\Start.exe"  /unmount
   "C:\Program Files\Sandboxie-Plus\Start.exe"  /box:EncryptedBox  /unmount
   "C:\Program Files\Sandboxie-Plus\Start.exe"  /unmount_all
 ```
 
-如果省略参数 _/box:沙盒名称_，则将卸载默认沙盒 _DefaultBox_ 的镜像。
+如果省略参数 _/box:沙箱名称_，则将卸载默认沙箱 _DefaultBox_ 的镜像。
 
-形式 _/unmount_all_ 会终止所有加密沙盒中的所有程序，并卸载所有加密沙盒镜像，包括由 Sandboxie Plus 创建的 RAM 磁盘。
+形式 _/unmount_all_ 会终止所有加密沙箱中的所有程序，并卸载所有加密沙箱镜像，包括由 Sandboxie Plus 创建的 RAM 磁盘。
 
-### 挂载沙盒镜像
+### 挂载沙箱镜像
 
-这些命令用于挂载由 Sandboxie Plus 创建的加密沙盒镜像。这些参数从 v1.11.0 / 5.66.0 版本开始可用。
+这些命令用于挂载由 Sandboxie Plus 创建的加密沙箱镜像。这些参数从 v1.11.0 / 5.66.0 版本开始可用。
 ```
   "C:\Program Files\Sandboxie-Plus\Start.exe"  /key:[box image password] /mount_protected
   "C:\Program Files\Sandboxie-Plus\Start.exe"  /key:[box image password] /mount
@@ -118,21 +118,21 @@
   "C:\Program Files\Sandboxie-Plus\Start.exe"  /box:EncryptedBox  /key:[box image password] /mount
 ```
 
-如果省略参数 _/box:沙盒名称_，则将挂载默认沙盒 _DefaultBox_ 的镜像。
+如果省略参数 _/box:沙箱名称_，则将挂载默认沙箱 _DefaultBox_ 的镜像。
 
-形式 _/mount_protected_ 会以“沙盒根保护”模式挂载加密沙盒镜像。“沙盒根保护”可防止在沙盒外部运行的进程访问加密沙盒的根文件夹。
+形式 _/mount_protected_ 会以“沙箱根保护”模式挂载加密沙箱镜像。“沙箱根保护”可防止在沙箱外部运行的进程访问加密沙箱的根文件夹。
 
 * * *
 
 ### 列出程序
 
-列出在特定沙盒中运行的所有程序的系统进程 ID 号。
+列出在特定沙箱中运行的所有程序的系统进程 ID 号。
 ```
   "C:\Program Files\Sandboxie\Start.exe"  /listpids
   "C:\Program Files\Sandboxie\Start.exe"  /box:TestBox  /listpids
 ```
 
-如果省略参数 _/box:沙盒名称_，则将列出在默认沙盒 _DefaultBox_ 中运行的程序。
+如果省略参数 _/box:沙箱名称_，则将列出在默认沙箱 _DefaultBox_ 中运行的程序。
 
 输出格式为每行一个数字。第一行包含程序的数量，随后每行一个进程 ID。示例输出：
 ```
@@ -147,29 +147,29 @@
 
 * * *
 
-### 删除沙盒内容
+### 删除沙箱内容
 ```
   "C:\Program Files\Sandboxie\Start.exe"  delete_sandbox
   "C:\Program Files\Sandboxie\Start.exe"  delete_sandbox_silent
 ```
 
-可以在 Start.exe 和删除命令之间指定 _/box:沙盒名称_ 参数。
+可以在 Start.exe 和删除命令之间指定 _/box:沙箱名称_ 参数。
 
 删除命令中的 __silent_ 后缀表示 Sandboxie Start 应静默忽略任何错误，并且不显示任何错误消息。
 
 删除操作分两个阶段进行：
 
-*   阶段 1：扫描沙盒的内容，并处理在第二阶段可能会造成问题的文件：
+*   阶段 1：扫描沙箱的内容，并处理在第二阶段可能会造成问题的文件：
     *   删除符号链接（也称为重解析点）。
     *   使只读文件和目录具有完全访问权限。
     *   将名称非常长的文件和目录重命名为较短的名称。
-    *   将沙盒重命名为 `__Delete_(沙盒名称)_(某个随机数)` 格式。例如，如果沙盒是 DefaultBox，则可能会重命名为 `__Delete_DefaultBox_01C4012345678912`。
+    *   将沙箱重命名为 `__Delete_(沙箱名称)_(某个随机数)` 格式。例如，如果沙箱是 DefaultBox，则可能会重命名为 `__Delete_DefaultBox_01C4012345678912`。
 
-*   阶段 2：删除在阶段 1 中处理过的任何沙盒。
-    *   在阶段 1 中处理过的沙盒是那些已按上述方式重命名的沙盒。
-    *   在阶段 2 中可能会删除多个沙盒。
-    *   默认情况下，使用标准系统命令 RMDIR 来删除重命名后的沙盒文件夹。
-    *   或者，可以使用第三方删除实用程序。请参阅[安全删除沙盒](SecureDeleteSandbox.md)。
+*   阶段 2：删除在阶段 1 中处理过的任何沙箱。
+    *   在阶段 1 中处理过的沙箱是那些已按上述方式重命名的沙箱。
+    *   在阶段 2 中可能会删除多个沙箱。
+    *   默认情况下，使用标准系统命令 RMDIR 来删除重命名后的沙箱文件夹。
+    *   或者，可以使用第三方删除实用程序。请参阅[安全删除沙箱](SecureDeleteSandbox.md)。
 
 发出 _delete_sandbox_ 命令会使 Start.exe 依次调用阶段 1 和阶段 2。Start.exe 还接受以下命令来调用特定阶段：
 ```
@@ -188,19 +188,19 @@
   "C:\Program Files\Sandboxie\Start.exe"  /reload
 ```
 
-请注意，重新加载配置对在发出此命令时已经在运行的沙盒程序不会生效。
+请注意，重新加载配置对在发出此命令时已经在运行的沙箱程序不会生效。
 
 * * *
 
 ### 禁用强制程序
 
-以下命令可使程序在沙盒外部运行，即使该程序是被强制在沙盒内运行的。这类似于在“运行沙盒程序”命令的沙盒选择窗口中使用“在沙盒外部运行”选项。
+以下命令可使程序在沙箱外部运行，即使该程序是被强制在沙箱内运行的。这类似于在“运行沙箱程序”命令的沙箱选择窗口中使用“在沙箱外部运行”选项。
 ```
   "C:\Program Files\Sandboxie\Start.exe"  /dfp            c:\path\to\program.exe
   "C:\Program Files\Sandboxie\Start.exe"  /disable_force  c:\path\to\program.exe
 ```
 
-请注意，/dfp 和 /disable_force 是相同的。您还可以在单击“运行沙盒程序”命令时按住 Ctrl 和 Shift 键来选择此选项。
+请注意，/dfp 和 /disable_force 是相同的。您还可以在单击“运行沙箱程序”命令时按住 Ctrl 和 Shift 键来选择此选项。
 
 此命令的旧形式可以临时为所有程序禁用强制程序模式。其功能类似于在 Sandboxie Control 的[托盘图标菜单](TrayIconMenu.md#禁用强制程序)（而不是[文件菜单](FileMenu.md#禁用强制程序)）中使用“禁用强制程序”命令。
 ```

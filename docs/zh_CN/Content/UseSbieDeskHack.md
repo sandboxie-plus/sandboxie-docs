@@ -1,6 +1,6 @@
 # 使用 SbieDesk Hack
 
-_UseSbieDeskHack_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙盒设置。
+_UseSbieDeskHack_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置。
 
 ```
    .
@@ -20,4 +20,4 @@ _UseSbieDeskHack_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙盒设置�
 
 现在默认启用此设置。这使得 Electron 应用程序无需设置 'SpecialImage=chrome,program.exe' 选项即可运行。
 
-相关的 Sandboxie Plus 设置：沙盒选项 > 各种选项 > 兼容性 > 对所有进程使用桌面对象解决方法
+相关的 Sandboxie Plus 设置：沙箱选项 > 各种选项 > 兼容性 > 对所有进程使用桌面对象解决方法

@@ -8,7 +8,7 @@
 
 “Windows XP 模式”比独立运行 Windows XP 的虚拟机更易于使用，因为它能更好地集成到 Windows 7 中。它还包含一个获得许可的 Windows XP 副本。然而，这种更紧密的集成也使你的 Windows 7 系统和文档面临来自“Windows XP 模式”操作系统的恶意更改风险。
 
-使用 Sandboxie，你可以让网络浏览器在其独立的沙盒中运行，这比直接在 Windows 7 上运行网络浏览器更安全。
+使用 Sandboxie，你可以让网络浏览器在其独立的沙箱中运行，这比直接在 Windows 7 上运行网络浏览器更安全。
 
 > [Windows XP 模式 - 安装与设置](https://www.sevenforums.com/tutorials/8247-windows-xp-mode-install-setup.html)
 
@@ -20,4 +20,4 @@
 * 可选择为你的“Windows XP 模式”操作系统下载并安装一款杀毒软件。
 * 退出“Windows XP 模式”操作系统。
 * 在你的 Windows 7 开始菜单中，现在应该能找到 Sandboxie 程序组：“Windows 7 开始菜单 > 所有程序 > Windows 虚拟 PC > Windows XP 模式应用程序 > Sandboxie”
-* 选择“在沙盒中运行网络浏览器”以在 Sandboxie 中运行 Firefox。
+* 选择“在沙箱中运行网络浏览器”以在 Sandboxie 中运行 Firefox。
