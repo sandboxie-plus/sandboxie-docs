@@ -4527,7 +4527,7 @@
 
 
 <h1 id="_1">封闭文件路径</h1>
-<p><em>ClosedFilePath</em> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 中的一个沙盒设置项。它用于指定路径模式，对于这些路径，Sandboxie 会拒绝沙盒内程序的 <em>所有</em> 访问权限，包括 <em>读取</em> 权限。该设置本质上阻止沙盒程序访问指定的文件和文件夹。</p>
+<p><em>ClosedFilePath</em> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 中的一个沙箱设置项。它用于指定路径模式，对于这些路径，Sandboxie 会拒绝沙箱内程序的 <em>所有</em> 访问权限，包括 <em>读取</em> 权限。该设置本质上阻止沙箱程序访问指定的文件和文件夹。</p>
 <p>可以指定 <a href="../ShellFolders/">Shell 文件夹</a>；也可以指定 <a href="../ProgramNamePrefix/">程序名称前缀</a>。</p>
 <p>示例：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
@@ -4544,12 +4544,12 @@
 </span></code></pre></div>
 <p>上述第一个示例表示阻止除了 Internet Explorer（<em>iexplore.exe</em>）之外的任何程序访问当前用户账户下存放下载的 Internet Cookie 的文件夹。这样可以阻止任何下载的恶意软件窃取 Cookie。</p>
 <p>（注意，这并不能阻止诸如附加工具栏之类的浏览器扩展程序访问 Cookies 文件夹，因为这些扩展是在 Internet Explorer 程序进程内执行的。）</p>
-<p>第二个示例演示了如何配置 Sandboxie 阻止沙盒程序访问 <em>Documents</em> 文件夹。</p>
+<p>第二个示例演示了如何配置 Sandboxie 阻止沙箱程序访问 <em>Documents</em> 文件夹。</p>
 <p>为 ClosedFilePath 指定的值可以包含通配符。有关这部分的详细信息，包括带有通配符用法的示例，请参阅 <a href="../OpenFilePath/">开放文件路径</a>。</p>
-<p>第三个示例（包含四行）配置了在沙盒内禁用 Internet 访问，<em>除了</em> Internet Explorer（<em>iexplore.exe</em>）外均不允许访问。另请参见 <a href="../RestrictionsSettings/#internet-access">沙盒设置 &gt; 限制 &gt; 互联网访问</a>。</p>
-<p><strong>注意：</strong> 与对应的 开放文件路径 设置不同，<em>ClosedFilePath</em> 设置始终对沙盒程序生效，无论程序的可执行文件是在沙盒内还是沙盒外。</p>
-<p>相关 <a href="../SandboxieControl/">Sandboxie 控制</a> 设置：<a href="../ResourceAccessSettings/#file-access--blocked-access">沙盒设置 &gt; 资源访问 &gt; 文件访问 &gt; 封禁访问</a></p>
-<p>相关 Sandboxie Plus 设置：沙盒选项 &gt; 资源访问 &gt; 文件 &gt; 添加文件/文件夹 &gt; 访问 列 &gt; 封禁</p>
+<p>第三个示例（包含四行）配置了在沙箱内禁用 Internet 访问，<em>除了</em> Internet Explorer（<em>iexplore.exe</em>）外均不允许访问。另请参见 <a href="../RestrictionsSettings/#internet-access">沙箱设置 &gt; 限制 &gt; 互联网访问</a>。</p>
+<p><strong>注意：</strong> 与对应的 开放文件路径 设置不同，<em>ClosedFilePath</em> 设置始终对沙箱程序生效，无论程序的可执行文件是在沙箱内还是沙箱外。</p>
+<p>相关 <a href="../SandboxieControl/">Sandboxie 控制</a> 设置：<a href="../ResourceAccessSettings/#file-access--blocked-access">沙箱设置 &gt; 资源访问 &gt; 文件访问 &gt; 封禁访问</a></p>
+<p>相关 Sandboxie Plus 设置：沙箱选项 &gt; 资源访问 &gt; 文件 &gt; 添加文件/文件夹 &gt; 访问列 &gt; 封禁</p>
 
 
 

@@ -4527,7 +4527,7 @@
 
 
 <h1 id="auto-exec">Auto Exec</h1>
-<p><em>AutoExec</em> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 中的一个沙盒设置。它指定了一组命令，这些命令会在沙盒每次被初始填充时执行。</p>
+<p><em>AutoExec</em> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 中的一个沙箱设置。它指定了一组命令，这些命令会在沙箱每次被初始填充时执行。</p>
 <p>示例：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
@@ -4536,13 +4536,13 @@
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">AutoExec</span><span class="o">=</span><span class="s">regedit /s c:\defaultbox.reg</span>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">   </span><span class="na">AutoExec</span><span class="o">=</span><span class="s">cmd /c del /f &quot;%windir%\system32\someExploitableDLL.dll&quot;</span>
 </span></code></pre></div>
-<p>第一个示例展示了如何使用 <em>AutoExec</em> 以某种方式填充沙盒注册表。第二个示例则展示了如何使用 <em>AutoExec</em> 删除不需要的 DLL 文件。在这两种情况下，所有定制操作都只发生在沙盒内部。</p>
-<p>对于同一个沙盒，可以指定多个 <em>AutoExec</em> 设置。列出的命令会依次执行。这些命令（无论是一条还是多条）在某个特定沙盒的生命周期内只会执行 <em>一次</em>。如果希望 Sandboxie 再次执行这些命令，必须删除该沙盒。</p>
-<p>即使命令执行失败，也不会再次执行，除非删除该沙盒。</p>
+<p>第一个示例展示了如何使用 <em>AutoExec</em> 以某种方式填充沙箱注册表。第二个示例则展示了如何使用 <em>AutoExec</em> 删除不需要的 DLL 文件。在这两种情况下，所有定制操作都只发生在沙箱内部。</p>
+<p>对于同一个沙箱，可以指定多个 <em>AutoExec</em> 设置。列出的命令会依次执行。这些命令（无论是一条还是多条）在某个特定沙箱的生命周期内只会执行 <em>一次</em>。如果希望 Sandboxie 再次执行这些命令，必须删除该沙箱。</p>
+<p>即使命令执行失败，也不会再次执行，除非删除该沙箱。</p>
 <p>目前，对于该设置，没有对应的 <a href="../SandboxieControl/">Sandboxie Control</a> 配置选项</p>
 <p><strong>技术细节</strong></p>
-<p>每个 <em>AutoExec</em> 命令在被 Sandboxie 执行时，都会被记录到该沙盒的注册表中，具体路径为 <em>HKEY_CURRENT_USER\Software\SandboxieAutoExec</em>。</p>
-<p>如果某个命令已经被记录在沙盒注册表中，则不会再次执行。因此，清除沙盒会删除所有已记录的 <em>AutoExec</em> 命令，这样在下次有任何程序以沙盒模式启动时，这些命令会再次被执行。同时，也可以通过手动从该沙盒注册表键中删除相应命令，使其再次执行。</p>
+<p>每个 <em>AutoExec</em> 命令在被 Sandboxie 执行时，都会被记录到该沙箱的注册表中，具体路径为 <em>HKEY_CURRENT_USER\Software\SandboxieAutoExec</em>。</p>
+<p>如果某个命令已经被记录在沙箱注册表中，则不会再次执行。因此，清除沙箱会删除所有已记录的 <em>AutoExec</em> 命令，这样在下次有任何程序以沙箱模式启动时，这些命令会再次被执行。同时，也可以通过手动从该沙箱注册表键中删除相应命令，使其再次执行。</p>
 
 
 

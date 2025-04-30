@@ -4527,7 +4527,7 @@
 
 
 <h1 id="_1">分离文件夹</h1>
-<p><em>BreakoutFolder</em> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 中的一个沙盒设置项，自 v1.0.8 / 5.55.8 版本起提供。它强制指定文件夹内的内容，即使在沙盒内启动，也以非沙盒方式运行。</p>
+<p><em>BreakoutFolder</em> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 中的一个沙箱设置项，自 v1.0.8 / 5.55.8 版本起提供。它强制指定文件夹内的内容，即使在沙箱内启动，也以非沙箱方式运行。</p>
 <p>用法如下：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
@@ -4539,7 +4539,7 @@
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">   </span><span class="na">BreakoutFolder</span><span class="o">=</span><span class="s">C:\App?</span>
 </span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">   </span><span class="na">BreakoutFolder</span><span class="o">=</span><span class="s">C:\?pp\*</span>
 </span></code></pre></div>
-<p>第一个示例指定 “C:\Downloads” 文件夹中的任何内容都将以非沙盒方式启动。</p>
+<p>第一个示例指定 “C:\Downloads” 文件夹中的任何内容都将以非沙箱方式启动。</p>
 <p>如第二个示例所示，也可以指定整个驱动器。</p>
 <p>第三行和第四行展示了基本的通配符用法。</p>
 <ul>
@@ -4548,9 +4548,9 @@
 </ul>
 <p>此外，你可以组合多个通配符来匹配指定文件夹名及其子文件夹。</p>
 <p>注意事项：
- * 指向非指定文件夹之外程序的快捷方式，仍会以沙盒方式启动。例如：如果你将快捷方式放在已设置的分离文件夹内，但其目标程序位于未被设置分离文件夹的位置，则该快捷方式将以沙盒方式启动。</p>
+ * 指向非指定文件夹之外程序的快捷方式，仍会以沙箱方式启动。例如：如果你将快捷方式放在已设置的分离文件夹内，但其目标程序位于未被设置分离文件夹的位置，则该快捷方式将以沙箱方式启动。</p>
 <p>有关分离程序启动的详细信息，请参阅 <a href="../BreakoutProcess/">分离进程</a>。</p>
-<p>另请参考 <a href="../ForceFolder/">强制文件夹</a>，该设置与本功能相对，用于强制文件夹内内容以沙盒方式启动。</p>
+<p>另请参考 <a href="../ForceFolder/">强制文件夹</a>，该设置与本功能相对，用于强制文件夹内内容以沙箱方式启动。</p>
 
 
 

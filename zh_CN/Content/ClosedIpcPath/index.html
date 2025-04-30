@@ -4527,7 +4527,7 @@
 
 
 <h1 id="ipc">封禁 IPC 路径</h1>
-<p><em>ClosedIpcPath</em> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 中的一个沙盒设置项。它指定了路径模式，Sandboxie 将拒绝沙盒程序对这些路径的_所有_访问，包括_读取_访问。该设置本质上阻止了沙盒程序访问指定的资源。</p>
+<p><em>ClosedIpcPath</em> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 中的一个沙箱设置项。它指定了路径模式，Sandboxie 将拒绝沙箱程序对这些路径的_所有_访问，包括_读取_访问。该设置本质上阻止了沙箱程序访问指定的资源。</p>
 <p>可以指定 <a href="../ProgramNamePrefix/">程序名称前缀</a>。</p>
 <p>示例：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
@@ -4536,14 +4536,14 @@
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">ClosedIpcPath</span><span class="o">=</span><span class="s">\RPC Control\AudioSrv</span>
 </span></code></pre></div>
-<p>与沙盒内的文件、文件夹和注册表键不同，Sandboxie 通常不允许沙盒程序访问非沙盒资源。该规则的例外情况是资源被指定在 <a href="../OpenIpcPath/">开放 IPC 路径</a> 设置中，或者 Sandboxie 默认识别该资源并允许在沙盒内使用。</p>
-<p><em>ClosedIpcPath</em> 设置通常用于阻止那些 Sandboxie 默认识别的资源。在上述示例中，AudioSrv 资源被阻止。该资源提供访问音频硬件的能力，换言之，它使沙盒程序能够产生声音。通过屏蔽它，沙盒程序实际上被静音。</p>
+<p>与沙箱内的文件、文件夹和注册表键不同，Sandboxie 通常不允许沙箱程序访问非沙箱资源。该规则的例外情况是资源被指定在 <a href="../OpenIpcPath/">开放 IPC 路径</a> 设置中，或者 Sandboxie 默认识别该资源并允许在沙箱内使用。</p>
+<p><em>ClosedIpcPath</em> 设置通常用于阻止那些 Sandboxie 默认识别的资源。在上述示例中，AudioSrv 资源被阻止。该资源提供访问音频硬件的能力，换言之，它使沙箱程序能够产生声音。通过屏蔽它，沙箱程序实际上被静音。</p>
 <p>该设置支持通配符。关于在 <em>OpenXxxPath</em> 和 <em>ClosedXxxPath</em> 设置中使用通配符的详细信息，请参见 <a href="../OpenFilePath/">开放文件路径</a>。</p>
-<p><strong>注意：</strong> 与对应的 <a href="../OpenIpcPath/">开放 IPC 路径</a> 设置不同，<em>ClosedKeyPath</em> 设置始终适用于沙盒程序，无论程序的可执行文件是位于沙盒内部还是外部。</p>
+<p><strong>注意：</strong> 与对应的 <a href="../OpenIpcPath/">开放 IPC 路径</a> 设置不同，<em>ClosedKeyPath</em> 设置始终适用于沙箱程序，无论程序的可执行文件是位于沙箱内部还是外部。</p>
 <p>相关 <a href="../SandboxieControl/">Sandboxie 控制</a> 设置：
-沙盒设置 &gt; 资源访问 &gt; IPC 访问 &gt; 封禁访问 (<a href="../ResourceAccessSettings/#ipc-access--blocked-access">资源访问设置</a>)</p>
+沙箱设置 &gt; 资源访问 &gt; IPC 访问 &gt; 封禁访问 (<a href="../ResourceAccessSettings/#ipc-access--blocked-access">资源访问设置</a>)</p>
 <p>相关 Sandboxie Plus 设置：
-沙盒选项 &gt; 资源访问 &gt; IPC &gt; 添加 IPC 路径 &gt; 访问 列 &gt; 封禁</p>
+沙箱选项 &gt; 资源访问 &gt; IPC &gt; 添加 IPC 路径 &gt; 访问列 &gt; 封禁</p>
 
 
 

@@ -4528,12 +4528,12 @@
 
 <h1 id="_1">应用程序设置</h1>
 <h3 id="_2">应用程序设置组</h3>
-<p><a href="../SandboxieControl/">沙盒控制</a> &gt; <a href="../SandboxSettings/">沙盒设置</a> &gt; 应用程序</p>
+<p><a href="../SandboxieControl/">沙箱控制</a> &gt; <a href="../SandboxSettings/">沙箱设置</a> &gt; 应用程序</p>
 <p><img alt="" src="../../Media/ApplicationsSettings.png" /></p>
 <p>此设置页面组为 Sandboxie 与其他应用程序的协同使用提供了快速配置，特别是众所周知的各类 Web 浏览器和电子邮件程序，同时也包括一些已知在 Sandboxie 中需要特殊配置的第三方应用程序。</p>
 <hr />
 <h3 id="web">Web 浏览器</h3>
-<p><a href="../SandboxieControl/">沙盒控制</a> &gt; <a href="../SandboxSettings/">沙盒设置</a> &gt; 应用程序 &gt; Web 浏览器</p>
+<p><a href="../SandboxieControl/">沙箱控制</a> &gt; <a href="../SandboxSettings/">沙箱设置</a> &gt; 应用程序 &gt; Web 浏览器</p>
 <p>该设置子组本身又分为三个子组</p>
 <h4 id="internet-explorer">Internet Explorer</h4>
 <p><img alt="" src="../../Media/WebBrowserSettings1.png" /></p>
@@ -4544,22 +4544,22 @@
 <h4 id="_3">其他浏览器</h4>
 <p><img alt="" src="../../Media/WebBrowserSettings3.png" /></p>
 <p>此设置页面为以下浏览器提供快速配置：Internet Explorer、Mozilla Firefox 和 SeaMonkey、Opera Web 浏览器、Maxthon 2 以及 Google Chrome。</p>
-<p>请选择（高亮）所需的配置，并点击 <em>Add</em> 按钮，以便为该沙盒启用相应设置。如果你的网页浏览器数据（配置文件）文件夹使用了非默认位置，请务必访问 <a href="./#folders">应用程序 &gt; 文件夹</a> 设置页面，指定备用位置。</p>
+<p>请选择（高亮）所需的配置，并点击 <em>Add</em> 按钮，以便为该沙箱启用相应设置。如果你的网页浏览器数据（配置文件）文件夹使用了非默认位置，请务必访问 <a href="./#folders">应用程序 &gt; 文件夹</a> 设置页面，指定备用位置。</p>
 <p>Internet Explorer 设置页面上的两个特殊设置：</p>
 <ul>
 <li>
-<p>沙盒外保存：搜索字符串历史记录和已调用命令的历史<br>
+<p>沙箱外保存：搜索字符串历史记录和已调用命令的历史<br>
 如需详细信息，请参阅 <a href="../SandboxieIni/">Sandboxie Ini</a> 设置项：<a href="../OpenProtectedStorage/">打开受保护存储</a></p>
 </li>
 <li>
-<p><del>沙盒外保存：Hotmail 和 Messenger 的账户信息</del>（自 Sandboxie v0.8.0 / 5.50.0 起已不再提供）<br>
+<p><del>沙箱外保存：Hotmail 和 Messenger 的账户信息</del>（自 Sandboxie v0.8.0 / 5.50.0 起已不再提供）<br>
 如需详细信息，请参阅 <a href="../SandboxieIni/">Sandboxie Ini</a> 设置项：<a href="../OpenCredentials/">OpenCredentials</a></p>
 </li>
-<li>另请参阅 <a href="../InternetExplorerTips/#save-outside-sandbox">Internet Explorer 技巧中的沙盒外保存</a>，获取更多信息与建议</li>
+<li>另请参阅 <a href="../InternetExplorerTips/#save-outside-sandbox">Internet Explorer 技巧中的沙箱外保存</a>，获取更多信息与建议</li>
 </ul>
 <hr />
 <h4 id="_4">邮件阅读器</h4>
-<p><a href="../SandboxieControl/">沙盒控制</a> &gt; <a href="../SandboxSettings/">沙盒设置</a> &gt; 应用程序 &gt; 邮件阅读器</p>
+<p><a href="../SandboxieControl/">沙箱控制</a> &gt; <a href="../SandboxSettings/">沙箱设置</a> &gt; 应用程序 &gt; 邮件阅读器</p>
 <p><img alt="" src="../../Media/EmailReaderSettings.png" /></p>
 <p>此设置页面为以下邮件程序提供了快速配置：</p>
 <ul>
@@ -4580,30 +4580,30 @@
 <li>如果您的邮箱存放在非默认或非常规位置</li>
 <li>如果您使用 Eudora 或 The-Bat! 电子邮件软件</li>
 </ul>
-<p>为此，请打开 <a href="./#folders">沙盒设置 &gt; 应用程序 &gt; 文件夹</a>，从下拉列表中选择您的电子邮件软件，然后选择要与其关联的文件夹位置</p>
+<p>为此，请打开 <a href="./#folders">沙箱设置 &gt; 应用程序 &gt; 文件夹</a>，从下拉列表中选择您的电子邮件软件，然后选择要与其关联的文件夹位置</p>
 <p>完成邮箱配置后，您可能需要进行测试，以确保即使在 Sandboxie 下运行时，新邮件在删除沙箱后也不会丢失。请按照 <a href="../TestEmailConfiguration/">测试邮件配置</a> 中的步骤进行操作</p>
-<p>如果您的电子邮件程序未被 Sandboxie 识别，您可以通过 <a href="../ResourceAccessSettings/#file-access--direct-access">沙盒设置 &gt; 资源访问 &gt; 文件访问 &gt; 直接访问</a> 显式添加对存放邮箱数据文件的文件夹的直接访问权限</p>
+<p>如果您的电子邮件程序未被 Sandboxie 识别，您可以通过 <a href="../ResourceAccessSettings/#file-access--direct-access">沙箱设置 &gt; 资源访问 &gt; 文件访问 &gt; 直接访问</a> 显式添加对存放邮箱数据文件的文件夹的直接访问权限</p>
 <p>另请参阅消息 <a href="../SBIE2212/">SBIE2212</a>、<a href="../EmailProtection/">邮件保护</a> 和 <a href="../FAQEmail/">常见问题 邮件</a></p>
 <hr />
 <h3 id="_5"><a name="misc" id="misc"></a>其他</h3>
 <p>以下设置页面用于为第三方软件启用相关配置，并按主题进行分类。这些设置页面涵盖 PDF 与打印软件、密码与安全软件、桌面实用程序以及其他各种程序和设置。</p>
 <p>选择（高亮）所需的配置后，点击 <em>打开网站</em> 按钮，可访问由 Sandboxie 识别的特定程序的厂商网站。</p>
-<p>选择（高亮）所需的配置后，点击 <em>Add</em> 按钮，即可为此沙盒启用该配置。在某些情况下，你还需要指定第三方软件所使用的数据文件位置。请使用 <a href="./#folders">应用程序 &gt; 文件夹</a> 设置页面，指定其他位置</p>
+<p>选择（高亮）所需的配置后，点击 <em>Add</em> 按钮，即可为此沙箱启用该配置。在某些情况下，你还需要指定第三方软件所使用的数据文件位置。请使用 <a href="./#folders">应用程序 &gt; 文件夹</a> 设置页面，指定其他位置</p>
 <hr />
 <h4 id="_6">本地</h4>
-<p><a href="../SandboxieControl/">沙盒控制</a> &gt; <a href="../SandboxSettings/">沙盒设置</a> &gt; 应用程序 &gt; 本地</p>
+<p><a href="../SandboxieControl/">沙箱控制</a> &gt; <a href="../SandboxSettings/">沙箱设置</a> &gt; 应用程序 &gt; 本地</p>
 <p><img alt="" src="../../Media/LocalApplicationsSettings.png" /></p>
-<p>可以使用本设置页面，将您自定义的设置作为应用程序配置包输入，以便在特定沙盒中轻松启用或禁用。</p>
+<p>可以使用本设置页面，将您自定义的设置作为应用程序配置包输入，以便在特定沙箱中轻松启用或禁用。</p>
 <p>有关设计自定义应用程序配置包或模板的更多信息，请查阅 Sandboxie 安装目录下的 <em>Templates.ini</em> 文件。</p>
 <hr />
 <h4 id="_7">文件夹</h4>
-<p><a href="../SandboxieControl/">沙盒控制</a> &gt; <a href="../SandboxSettings/">沙盒设置</a> &gt; 应用程序 &gt; 文件夹</p>
+<p><a href="../SandboxieControl/">沙箱控制</a> &gt; <a href="../SandboxSettings/">沙箱设置</a> &gt; 应用程序 &gt; 文件夹</p>
 <p><img alt="" src="../../Media/FolderApplicationsSettings.png" /></p>
-<p>可以使用本设置页面，指定已在沙盒中启用（或添加）的应用程序所使用的数据文件的任何备用（非默认）文件夹位置。</p>
+<p>可以使用本设置页面，指定已在沙箱中启用（或添加）的应用程序所使用的数据文件的任何备用（非默认）文件夹位置。</p>
 <p>首先，选择（高亮）所需应用程序，然后单击 <em>Add</em> 按钮以指定备用位置</p>
 <hr />
 <h4 id="_8">辅助功能设置</h4>
-<p><a href="../SandboxieControl/">沙盒控制</a> &gt; <a href="../SandboxSettings/">沙盒设置</a> &gt; 应用程序 &gt; 辅助功能</p>
+<p><a href="../SandboxieControl/">沙箱控制</a> &gt; <a href="../SandboxSettings/">沙箱设置</a> &gt; 应用程序 &gt; 辅助功能</p>
 <p><img alt="" src="../../Media/AccessibilitySettings.png" /></p>
 <p>此设置页面为以下屏幕阅读程序提供了快速配置选项：</p>
 <ul>
@@ -4613,9 +4613,9 @@
 <li>System Access</li>
 </ul>
 <p>Windows 的辅助功能支持允许任意程序提供其正在显示内容的提示和信息。屏幕阅读软件通常利用这些提示，为用户提供关于屏幕内容的更多细节。</p>
-<p>通常情况下，Sandboxie 的隔离机制会阻止屏幕阅读器访问沙盒内程序提供的辅助功能提示。</p>
-<p>启用此设置后，会削弱 Sandboxie 的防护，以便允许屏幕阅读程序与沙盒内程序进行双向通信。</p>
-<p>您可以启用 <a href="../RestrictionsSettings/#drop-rights">沙盒设置 &gt; 限制 &gt; 降低权限</a> 来补偿失去的防护能力。</p>
+<p>通常情况下，Sandboxie 的隔离机制会阻止屏幕阅读器访问沙箱内程序提供的辅助功能提示。</p>
+<p>启用此设置后，会削弱 Sandboxie 的防护，以便允许屏幕阅读程序与沙箱内程序进行双向通信。</p>
+<p>您可以启用 <a href="../RestrictionsSettings/#drop-rights">沙箱设置 &gt; 限制 &gt; 降低权限</a> 来补偿失去的防护能力。</p>
 
 
 
