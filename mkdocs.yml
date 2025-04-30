@@ -126,9 +126,8 @@ plugins:
             Sandboxie Plus: Sandboxie Plus
             Advanced Topics: Fortgeschrittene Themen
             SBIE Messages: SBIE-Nachrichten
-        # 
+        # Arabic
         - locale: ar
-          direction: rtl
           name: العَرَبِيَّة
           build: false
           default: false
