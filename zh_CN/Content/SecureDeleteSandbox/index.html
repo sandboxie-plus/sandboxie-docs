@@ -18,7 +18,7 @@
     
     
       
-        <title>Secure Delete Sandbox - Sandboxie 文档</title>
+        <title>安全删除沙箱 - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#secure-delete-sandbox" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Secure Delete Sandbox
+              安全删除沙箱
             
           </span>
         </div>
@@ -494,7 +494,7 @@
   
   
   <span class="md-ellipsis">
-    View Menu
+    视图菜单
     
   </span>
   
@@ -586,7 +586,7 @@
   
   
   <span class="md-ellipsis">
-    Tray Icon Menu
+    系统托盘图标菜单
     
   </span>
   
@@ -617,7 +617,7 @@
   
   
   <span class="md-ellipsis">
-    Usage Tips
+    使用提示
     
   </span>
   
@@ -682,7 +682,7 @@
   
   
   <span class="md-ellipsis">
-    Start Command Line
+    启动命令行
     
   </span>
   
@@ -987,7 +987,7 @@
   
   
   <span class="md-ellipsis">
-    Service Programs
+    服务程序
     
   </span>
   
@@ -1033,7 +1033,7 @@
   
   
   <span class="md-ellipsis">
-    Trace logging (for Sandboxie Plus)
+    跟踪日志（适用于 Sandboxie Plus）
     
   </span>
   
@@ -1387,7 +1387,7 @@
   
   
   <span class="md-ellipsis">
-    SBIE Messages
+    SBIE 消息
     
   </span>
   
@@ -4484,7 +4484,7 @@
   
   
   <span class="md-ellipsis">
-    Technical Aspects
+    技术方面
     
   </span>
   
@@ -4526,33 +4526,33 @@
   
 
 
-<h1 id="secure-delete-sandbox">Secure Delete Sandbox</h1>
-<p>Typical file deletion makes data inaccessible to the operating system and programs, but the data is not physically wiped from the hard drive storage medium, and may be recovered by by a data recovery technician. To make this recovery more difficult, third-party software exists that can perform a <em>secure deletion.</em> This is typically accomplished by overwriting the data multiple times before deleting it.</p>
-<p>For more information, see <a href="https://en.wikipedia.org/wiki/Data_remanence">Data remanence in Wikipedia</a>.</p>
-<p>By default, Sandboxie deletes the sandbox using a standard Windows command to delete folders -- <em>RMDIR</em>. This makes sure the contents of the sandbox (including malicious software) are properly removed from the operating system. But as mentioned above, it leaves the data vulnerable to inspection and recovery by forensics experts.</p>
-<p>People who are concerned about the privacy of their sensitive data can plug a third-party secure deletion utility into Sandboxie, to be used instead of the standard command.</p>
-<p>You can configure a custom delete command through Sandboxie Control or by manually editing the <a href="../SandboxieIni/">Sandboxie Ini</a> configuration file.</p>
-<p><strong>In Sandboxie Control</strong></p>
-<p>Use <a href="../DeleteSettings/#command">Sandbox Settings &gt; Delete &gt; Command</a>. A couple of examples for the Delete Command:</p>
+<h1 id="_1">安全删除沙箱</h1>
+<p>典型的文件删除操作会使操作系统和程序无法访问数据，但数据实际上并未从硬盘存储介质中物理擦除，数据恢复技术人员仍有可能恢复这些数据。为了增加数据恢复的难度，存在一些第三方软件可以执行“安全删除”操作。这通常是通过在删除数据之前多次覆盖数据来实现的。</p>
+<p>更多信息，请参阅<a href="https://en.wikipedia.org/wiki/Data_remanence">维基百科上的数据残留</a>。</p>
+<p>默认情况下，Sandboxie 使用标准的 Windows 命令（<em>RMDIR</em>）来删除沙箱。这确保了沙箱的内容（包括恶意软件）能从操作系统中正确移除。但如上所述，这会使数据容易被取证专家检查和恢复。</p>
+<p>担心敏感数据隐私的用户可以将第三方安全删除工具集成到 Sandboxie 中，以替代标准的删除命令。</p>
+<p>您可以通过 Sandboxie 控制界面或手动编辑 <a href="../SandboxieIni/">Sandboxie 配置文件</a> 来配置自定义删除命令。</p>
+<p><strong>在 Sandboxie 控制界面中</strong></p>
+<p>使用 <a href="../DeleteSettings/#command">沙箱设置 &gt; 删除 &gt; 命令</a>。以下是一些删除命令的示例：</p>
 <ul>
 <li>
-<p>Invoke <a href="https://eraser.heidi.ie/">Eraser by Heidi Computers</a> to delete the contents securely:
+<p>调用 <a href="https://eraser.heidi.ie/">Heidi Computers 公司的 Eraser</a> 来安全删除内容：
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span><span class="na">%SystemRoot%\System32\eraserl.exe -folder &quot;%SANDBOX%&quot; -subfolders -method DoD_E -resultsonerror -queue</span>
 </span></code></pre></div></p>
 </li>
 <li>
-<p>Invoke <a href="https://technet.microsoft.com/en-us/sysinternals/bb897443.aspx">SDelete by SysInternals/Microsoft</a> to delete the contents securely.
+<p>调用 <a href="https://technet.microsoft.com/en-us/sysinternals/bb897443.aspx">SysInternals/Microsoft 公司的 SDelete</a> 来安全删除内容。
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">    </span><span class="na">&quot;C</span><span class="o">:</span><span class="s">\Program Files\Sysinternals\SDelete\sdelete.exe&quot; -p 3 -s -q &quot;%SANDBOX%&quot;</span>
 </span></code></pre></div></p>
 </li>
 </ul>
-<p><strong>In the Sandboxie.ini Configuration File</strong></p>
-<p>To configure a custom delete command for a particular sandbox, edit or insert the <a href="../DeleteCommand/">DeleteCommand</a> setting in the sandbox section of <a href="../SandboxieIni/">Sandboxie Ini</a>.</p>
-<p>To configure a global custom delete command, edit or insert the <a href="../DeleteCommand/">DeleteCommand</a> setting in the [GlobalSettings] section of <a href="../SandboxieIni/">Sandboxie Ini</a>.</p>
-<p>When specifying this setting, make sure to include <strong>"%SANDBOX%"</strong> (with quote marks) in the command.</p>
-<p>Before launching the delete command, Sandboxie scans the sandbox to make sure all files can be properly deleted, as described in <a href="../StartCommandLine/#delete-contents-of-sandbox">Delete Contents of Sandbox</a>.</p>
+<p><strong>在 Sandboxie.ini 配置文件中</strong></p>
+<p>要为特定沙箱配置自定义删除命令，请在 <a href="../SandboxieIni/">Sandboxie 配置文件</a> 的沙箱部分编辑或插入 <a href="../DeleteCommand/">DeleteCommand</a> 设置。</p>
+<p>要配置全局自定义删除命令，请在 <a href="../SandboxieIni/">Sandboxie 配置文件</a> 的 [GlobalSettings] 部分编辑或插入 <a href="../DeleteCommand/">DeleteCommand</a> 设置。</p>
+<p>指定此设置时，请确保在命令中包含 <strong>"%SANDBOX%"</strong>（带引号）。</p>
+<p>在启动删除命令之前，Sandboxie 会扫描沙箱，以确保所有文件都能被正确删除，具体请参阅 <a href="../StartCommandLine/#delete-contents-of-sandbox">删除沙箱内容</a>。</p>
 <hr />
-<p>Go to <a href="../HelpTopics/">Help Topics</a>.</p>
+<p>前往 <a href="../HelpTopics/">帮助主题</a>。</p>
 
 
 

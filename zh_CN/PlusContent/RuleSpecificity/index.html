@@ -18,7 +18,7 @@
     
     
       
-        <title>Rule Specificity - Sandboxie 文档</title>
+        <title>规则特异性 - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#rule-specificity" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Rule Specificity
+              规则特异性
             
           </span>
         </div>
@@ -494,7 +494,7 @@
   
   
   <span class="md-ellipsis">
-    View Menu
+    视图菜单
     
   </span>
   
@@ -586,7 +586,7 @@
   
   
   <span class="md-ellipsis">
-    Tray Icon Menu
+    系统托盘图标菜单
     
   </span>
   
@@ -617,7 +617,7 @@
   
   
   <span class="md-ellipsis">
-    Usage Tips
+    使用提示
     
   </span>
   
@@ -682,7 +682,7 @@
   
   
   <span class="md-ellipsis">
-    Start Command Line
+    启动命令行
     
   </span>
   
@@ -987,7 +987,7 @@
   
   
   <span class="md-ellipsis">
-    Service Programs
+    服务程序
     
   </span>
   
@@ -1033,7 +1033,7 @@
   
   
   <span class="md-ellipsis">
-    Trace logging (for Sandboxie Plus)
+    跟踪日志（适用于 Sandboxie Plus）
     
   </span>
   
@@ -1387,7 +1387,7 @@
   
   
   <span class="md-ellipsis">
-    SBIE Messages
+    SBIE 消息
     
   </span>
   
@@ -4484,7 +4484,7 @@
   
   
   <span class="md-ellipsis">
-    Technical Aspects
+    技术方面
     
   </span>
   
@@ -4526,12 +4526,12 @@
   
 
 
-<h1 id="rule-specificity">Rule Specificity</h1>
-<p>Sandboxie prior to build 5.55.0 handled rules exclusively in a very simple way, a path may be <a href="../../Content/ClosedFilePath/">Closed</a>, <a href="../../Content/ReadFilePath/">Read Only</a>, <a href="../../Content/WriteFilePath/">Write Only</a>, or <a href="../../Content/OpenFilePath/">Open</a> and the priority of rule application was the same, when a closed rule matched a particular path it overruled all other rules.</p>
-<p>Starting with build 1.0.0, Sandboxie-Plus has introduced a new mechanism to evaluate and apply rules, based on how specific they are and which match level they have.</p>
-<p>The rule specificity is a measure to how well a given rule matches a particular path, simply put the specificity is the length of characters from the begin of the path up to and including the last matching non-wildcard substring. A rule which matches only file types like "*.tmp" would have the highest specificity as it would always match the entire file path.</p>
-<p>The process match level has a higher priority than the specificity and describes how a rule applies to a given process. Rules applying by process name or group have the strongest match level, followed by the match by negation (i.e. rules applying to all processes but the given one), while the lowest match levels have global matches, i.e. rules that apply to any process.</p>
-<p>For this feature, a new type of path directive has been introduced <a href="../../Content/NormalFilePath/">Normal</a>, which allows to restore default sandboxing behaviour for a path whose parent have been set to one of the prior 4 types.</p>
+<h1 id="_1">规则特异性</h1>
+<p>在5.55.0版本之前，Sandboxie以非常简单的方式处理规则，某个路径可以是<a href="../../Content/ClosedFilePath/">封闭的</a>、<a href="../../Content/ReadFilePath/">只读的</a>、<a href="../../Content/WriteFilePath/">只写的</a>或<a href="../../Content/OpenFilePath/">开放的</a>，并且规则应用的优先级是相同的。当一个封闭规则匹配到特定路径时，它会覆盖所有其他规则。</p>
+<p>从1.0.0版本开始，Sandboxie-Plus引入了一种新的机制来评估和应用规则，该机制基于规则的特异性和匹配级别。</p>
+<p>规则特异性是衡量给定规则与特定路径匹配程度的指标。简单来说，特异性是从路径开头到最后一个匹配的非通配符子字符串（包括该子字符串）的字符长度。像“*.tmp”这样仅匹配文件类型的规则将具有最高的特异性，因为它总是能匹配整个文件路径。</p>
+<p>进程匹配级别比特异性具有更高的优先级，它描述了规则如何应用于给定进程。按进程名称或组应用的规则具有最强的匹配级别，其次是按否定方式匹配的规则（即应用于除给定进程之外的所有进程的规则），而全局匹配（即适用于任何进程的规则）具有最低的匹配级别。</p>
+<p>为此功能，引入了一种新的路径指令类型<a href="../../Content/NormalFilePath/">正常的</a>，它允许为其父路径已设置为上述四种类型之一的路径恢复默认的沙箱行为。</p>
 
 
 

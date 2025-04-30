@@ -18,7 +18,7 @@
     
     
       
-        <title>Security Hardened Mode - Sandboxie 文档</title>
+        <title>安全强化模式 - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#security-hardened-mode" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Security Hardened Mode
+              安全强化模式
             
           </span>
         </div>
@@ -494,7 +494,7 @@
   
   
   <span class="md-ellipsis">
-    View Menu
+    视图菜单
     
   </span>
   
@@ -586,7 +586,7 @@
   
   
   <span class="md-ellipsis">
-    Tray Icon Menu
+    系统托盘图标菜单
     
   </span>
   
@@ -617,7 +617,7 @@
   
   
   <span class="md-ellipsis">
-    Usage Tips
+    使用提示
     
   </span>
   
@@ -682,7 +682,7 @@
   
   
   <span class="md-ellipsis">
-    Start Command Line
+    启动命令行
     
   </span>
   
@@ -987,7 +987,7 @@
   
   
   <span class="md-ellipsis">
-    Service Programs
+    服务程序
     
   </span>
   
@@ -1033,7 +1033,7 @@
   
   
   <span class="md-ellipsis">
-    Trace logging (for Sandboxie Plus)
+    跟踪日志（适用于 Sandboxie Plus）
     
   </span>
   
@@ -1387,7 +1387,7 @@
   
   
   <span class="md-ellipsis">
-    SBIE Messages
+    SBIE 消息
     
   </span>
   
@@ -4484,7 +4484,7 @@
   
   
   <span class="md-ellipsis">
-    Technical Aspects
+    技术方面
     
   </span>
   
@@ -4526,12 +4526,12 @@
   
 
 
-<h1 id="security-hardened-mode">Security Hardened Mode</h1>
-<p><strong>NOTE: This feature requires a <a href="https://sandboxie-plus.com/supporter-certificate/">supporter certificate</a>.</strong></p>
-<p>The security hardened box and the concept of security hardened mode was introduced in <strong>Sandboxie Plus v1.3.0</strong>. It restricts NT syscall elevation to approved known safe/filtered syscalls. It also provides device security by restricting device access to known safe/filtered endpoints.</p>
-<p>The setting for a security hardened box can be enabled by adding <code>UseSecurityMode=y</code> to the box settings section of <strong><a href="../../Content/SandboxieIni/">Sandboxie Ini</a></strong>. It can also be enabled in the Sandman UI. Right-click on a box and select "Sandbox Options" from the drop-down menu (or simply double-click on a box) to bring up the Box Options UI. Select the box type preset as "Security Hardened Sandbox" (with an <strong>orange</strong> box icon) and click OK to apply changes. The status column of Sandman UI labels this box as <strong>Enhanced Isolation</strong>.</p>
+<h1 id="_1">安全强化模式</h1>
+<p><strong>注意：此功能需要 <a href="https://sandboxie-plus.com/supporter-certificate/">支持者证书</a>。</strong></p>
+<p>安全强化沙箱和安全强化模式的概念在 <strong>Sandboxie Plus v1.3.0</strong> 中引入。它将 NT 系统调用提升限制为已批准的已知安全/经过过滤的系统调用。它还通过将设备访问限制为已知安全/经过过滤的端点来提供设备安全性。</p>
+<p>可以通过在 <strong><a href="../../Content/SandboxieIni/">Sandboxie Ini</a></strong> 的沙箱设置部分添加 <code>UseSecurityMode=y</code> 来启用安全强化沙箱的设置。也可以在 Sandman 用户界面中启用该设置。右键单击一个沙箱，然后从下拉菜单中选择“沙箱选项”（或者直接双击一个沙箱）以打开沙箱选项用户界面。选择沙箱类型预设为“安全强化沙箱”（带有 <strong>橙色</strong> 沙箱图标），然后单击“确定”以应用更改。Sandman 用户界面的状态列将此沙箱标记为 <strong>增强隔离</strong>。</p>
 <p><img alt="" src="../../Media/Box_SecurityMode.png" /></p>
-<p>Internally, the security hardened mode is based on four settings:</p>
+<p>在内部，安全强化模式基于以下四个设置：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">DropAdminRights</span><span class="o">=</span><span class="s">y</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">RestrictDevices</span><span class="o">=</span><span class="s">y</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">SysCallLockDown</span><span class="o">=</span><span class="s">y</span>
@@ -4539,20 +4539,20 @@
 </span></code></pre></div>
 <ol>
 <li>
-<p><strong><a href="../../Content/DropAdminRights/">DropAdminRights</a>:</strong> Prior to <strong>Sandboxie Plus v1.3.0</strong>, any box with <code>DropAdminRights=y</code> was considered <strong>hardened</strong> and labeled "Enhanced Isolation" in the Sandman UI status column. Starting with <strong>Sandboxie Plus v1.3.0</strong>, only boxes with <code>UseSecurityMode=y</code> have their status listed as "Enhanced Isolation".</p>
+<p><strong><a href="../../Content/DropAdminRights/">DropAdminRights</a>：</strong> 在 <strong>Sandboxie Plus v1.3.0</strong> 之前，任何设置了 <code>DropAdminRights=y</code> 的沙箱都被视为 <strong>强化</strong> 沙箱，并在 Sandman 用户界面的状态列中标记为“增强隔离”。从 <strong>Sandboxie Plus v1.3.0</strong> 开始，只有设置了 <code>UseSecurityMode=y</code> 的沙箱其状态才会显示为“增强隔离”。</p>
 </li>
 <li>
-<p><strong>SysCallLockDown:</strong> The setting <code>SysCallLockDown=y</code> limits the use of NT system calls. Only those calls that are included as defaults in the file <strong>Templates.ini</strong> or calls configured in the [GlobalSettings] section of <strong><a href="../../Content/SandboxieIni/">Sandboxie Ini</a></strong> as <code>ApproveWinNtSysCall=...</code> or <code>ApproveWin32SysCall=...</code> are executed with the original token. Any NT syscalls that are not approved are executed with the sandboxed token and may break compatibility in certain scenarios. To find which syscalls may be needed to make a particular program work is tedious and involves trial and error.  But once these syscalls are found, they can be added to the [GlobalSettings] section of <strong><a href="../../Content/SandboxieIni/">Sandboxie Ini</a></strong>. Note that <strong>the configuration must be reloaded using "Options -&gt; Reload configuration" for these settings to take effect</strong>.</p>
+<p><strong>SysCallLockDown：</strong> 设置 <code>SysCallLockDown=y</code> 会限制 NT 系统调用的使用。只有那些包含在 <strong>Templates.ini</strong> 文件中的默认调用，或者在 <strong><a href="../../Content/SandboxieIni/">Sandboxie Ini</a></strong> 的 <code>[GlobalSettings]</code> 部分配置为 <code>ApproveWinNtSysCall=...</code> 或 <code>ApproveWin32SysCall=...</code> 的调用，才会使用原始令牌执行。任何未获批准的 NT 系统调用将使用沙箱化令牌执行，这在某些情况下可能会破坏兼容性。要找出使特定程序正常运行所需的系统调用是一项繁琐的工作，需要反复试验。但一旦找到这些系统调用，就可以将它们添加到 <strong><a href="../../Content/SandboxieIni/">Sandboxie Ini</a></strong> 的 <code>[GlobalSettings]</code> 部分。请注意，<strong>必须使用“选项 -&gt; 重新加载配置”来重新加载配置，这些设置才能生效</strong>。</p>
 </li>
 <li>
-<p><strong>RestrictDevices:</strong> An earlier <strong>"DeviceSecurity"</strong> template was replaced by a dedicated setting <code>RestrictDevices=y</code> in <strong>Sandboxie Plus v1.3.0</strong> to harden box security even further. A security enhanced sandbox does not have access to drivers installed on the host. However, the use of appropriate <strong><a href="../../Content/NormalFilePath/">Normal</a></strong> path directives can allow one to open specific devices as needed.</p>
+<p><strong>RestrictDevices：</strong> 在 <strong>Sandboxie Plus v1.3.0</strong> 中，早期的 <strong>“DeviceSecurity”</strong> 模板被专门的设置 <code>RestrictDevices=y</code> 所取代，以进一步强化沙箱的安全性。安全增强型沙箱无法访问主机上安装的驱动程序。但是，使用适当的 <strong><a href="../../Content/NormalFilePath/">Normal</a></strong> 路径指令可以根据需要允许打开特定设备。</p>
 </li>
 <li>
-<p><strong><a href="../RuleSpecificity/">Rule Specificity</a>:</strong> The setting <code>UseRuleSpecificity=y</code> allows rules to be prioritized based on their "specificity". When rule specificity is combined with <code>Normal[File/Key/Ipc]Path</code> entries, selected subpaths can be made readable/writeable while parent paths are still protected. A security hardened box works in a <strong>default allow</strong> mode: every path is a <code>Normal[File/Key/Ipc]Path</code> (which allows read/write changes to a sandbox) unless specifically blocked by an overriding rule.</p>
+<p><strong><a href="../RuleSpecificity/">规则特异性</a>：</strong> 设置 <code>UseRuleSpecificity=y</code> 允许根据规则的“特异性”对规则进行优先级排序。当规则特异性与 <code>Normal[File/Key/Ipc]Path</code> 条目结合使用时，可以使选定的子路径可读写，同时父路径仍然受到保护。安全强化沙箱以 <strong>默认允许</strong> 模式工作：每个路径都是 <code>Normal[File/Key/Ipc]Path</code>（允许对沙箱进行读写更改），除非被覆盖规则专门阻止。</p>
 </li>
 </ol>
-<p><strong>Comparison with Other Box Types:</strong> RuleSpecificity along with <code>Normal[File/Key/Ipc]Path</code> entries is also used in <strong>blue</strong> (<a href="../privacy-mode/">privacy enhanced</a>) boxes and in <strong>red</strong> boxes (that combine enhanced privacy and enhanced security). These two box types work in a <strong>default block</strong> mode: all drive paths are set to <code>WriteFilePath</code>. This hides all files and folders outside the sandbox, but allows new files and folders to be created in the sandbox (unless specifically allowed by an overriding rule).</p>
-<p><strong>Recent Changes:</strong> Starting with <strong>Sandboxie Plus v1.8.0</strong>, all built-in access rules for a security hardened box have been moved to a dedicated template (included in the file <strong>Templates.ini</strong> under the <code>[TemplateSModPaths]</code> section) for easier management.</p>
+<p><strong>与其他沙箱类型的比较：</strong> 规则特异性以及 <code>Normal[File/Key/Ipc]Path</code> 条目也用于 <strong>蓝色</strong>（<a href="../privacy-mode/">隐私增强</a>）沙箱和 <strong>红色</strong> 沙箱（结合了增强的隐私和增强的安全性）。这两种沙箱类型以 <strong>默认阻止</strong> 模式工作：所有驱动器路径都设置为 <code>WriteFilePath</code>。这会隐藏沙箱外部的所有文件和文件夹，但允许在沙箱中创建新的文件和文件夹（除非被覆盖规则专门允许）。</p>
+<p><strong>近期更改：</strong> 从 <strong>Sandboxie Plus v1.8.0</strong> 开始，安全强化沙箱的所有内置访问规则都已移至一个专门的模板（包含在 <strong>Templates.ini</strong> 文件的 <code>[TemplateSModPaths]</code> 部分）中，以便于管理。</p>
 
 
 

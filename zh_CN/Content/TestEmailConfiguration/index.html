@@ -18,7 +18,7 @@
     
     
       
-        <title>Test Email Configuration - Sandboxie 文档</title>
+        <title>测试电子邮件配置 - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#test-email-configuration" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Test Email Configuration
+              测试电子邮件配置
             
           </span>
         </div>
@@ -494,7 +494,7 @@
   
   
   <span class="md-ellipsis">
-    View Menu
+    视图菜单
     
   </span>
   
@@ -586,7 +586,7 @@
   
   
   <span class="md-ellipsis">
-    Tray Icon Menu
+    系统托盘图标菜单
     
   </span>
   
@@ -617,7 +617,7 @@
   
   
   <span class="md-ellipsis">
-    Usage Tips
+    使用提示
     
   </span>
   
@@ -682,7 +682,7 @@
   
   
   <span class="md-ellipsis">
-    Start Command Line
+    启动命令行
     
   </span>
   
@@ -987,7 +987,7 @@
   
   
   <span class="md-ellipsis">
-    Service Programs
+    服务程序
     
   </span>
   
@@ -1033,7 +1033,7 @@
   
   
   <span class="md-ellipsis">
-    Trace logging (for Sandboxie Plus)
+    跟踪日志（适用于 Sandboxie Plus）
     
   </span>
   
@@ -1387,7 +1387,7 @@
   
   
   <span class="md-ellipsis">
-    SBIE Messages
+    SBIE 消息
     
   </span>
   
@@ -4484,7 +4484,7 @@
   
   
   <span class="md-ellipsis">
-    Technical Aspects
+    技术方面
     
   </span>
   
@@ -4526,26 +4526,26 @@
   
 
 
-<h1 id="test-email-configuration">Test Email Configuration</h1>
-<h3 id="test-and-confirm-configuration">Test and Confirm Configuration</h3>
-<p>Sandboxie offers quick configuration for most email programs. Please see <a href="../ApplicationsSettings/#email-reader">Sandbox Settings &gt; Applications &gt; Email Reader</a> for more information.</p>
-<p>After completing the email configuration, you may want to test it to make sure that new emails will not be lost when you delete the sandbox. To do that, follow these steps:</p>
+<h1 id="_1">测试电子邮件配置</h1>
+<h3 id="_2">测试并确认配置</h3>
+<p>Sandboxie 为大多数电子邮件程序提供了快速配置。更多信息请参阅 <a href="../ApplicationsSettings/#email-reader">沙箱设置 &gt; 应用程序 &gt; 电子邮件阅读器</a>。</p>
+<p>完成电子邮件配置后，你可能需要对其进行测试，以确保在删除沙箱时不会丢失新邮件。请按照以下步骤操作：</p>
 <ul>
-<li>Disable Internet access in the sandbox. This is a precaution measure, to make sure that your sandboxed email program cannot retrieve new mail messages before you confirm the configuration is correct:<br>
-    Open <a href="../RestrictionsSettings/#internet-access">Sandbox Settings &gt; Restrictions &gt; Internet Access</a>, then click <em>Block All Programs</em>, and finally click <em>OK</em>.</li>
-<li>Run your email program <em>sandboxed</em> under Sandboxie. (You can use the <em>Run Email Reader</em> command from the <a href="../TrayIconMenu/">Tray Icon Menu</a> of <a href="../SandboxieControl/">Sandboxie Control</a>.)</li>
-<li>Compose a test draft message to yourself. Don't send it.</li>
-<li>Quit your email program. If your email program suggests to send the test message, disregard the suggestion.</li>
-<li>Delete the sandbox. (See <a href="../DeleteSandbox/">Delete Sandbox</a>.)</li>
-<li>Run your email program normally, that is, <em>outside the supervision</em> of Sandboxie.</li>
-<li>Confirm that you can use the normal (unsandboxed) instance of the mail program to see and edit the test message you created.</li>
+<li>禁用沙箱中的互联网访问。这是一项预防措施，以确保在确认配置正确之前，沙箱中的电子邮件程序无法检索新邮件：
+  打开 <a href="../RestrictionsSettings/#internet-access">沙箱设置 &gt; 限制 &gt; 互联网访问</a>，然后点击 <em>阻止所有程序</em>，最后点击 <em>确定</em>。</li>
+<li>在 Sandboxie 沙箱环境中运行你的电子邮件程序。（你可以使用 <a href="../SandboxieControl/">Sandboxie 控制</a> 的 <a href="../TrayIconMenu/">托盘图标菜单</a> 中的 <em>运行电子邮件阅读器</em> 命令。）</li>
+<li>撰写一封给自己的测试草稿邮件。不要发送它。</li>
+<li>退出你的电子邮件程序。如果你的电子邮件程序建议发送测试邮件，请忽略该建议。</li>
+<li>删除沙箱。（请参阅 <a href="../DeleteSandbox/">删除沙箱</a>。）</li>
+<li>正常运行你的电子邮件程序，即 <em>不在 Sandboxie 的监管下</em> 运行。</li>
+<li>确认你可以使用正常（未在沙箱中）的邮件程序实例查看和编辑你创建的测试邮件。</li>
 </ul>
-<p>If the email message that you created in a sandboxed instance of your email program is also accessible in the normal (unsandboxed) instance, even after the sandbox has been deleted, then the configuration is correct.</p>
+<p>如果在沙箱环境中创建的电子邮件消息在沙箱删除后仍可在正常（未在沙箱中）的实例中访问，则配置正确。</p>
 <ul>
-<li>When done, re-enable Internet access in the sandbox:<br>
-    Open <a href="../RestrictionsSettings/#internet-access">Sandbox Settings &gt; Restrictions &gt; Internet Access</a>, then click <em>Remove</em> (to remove the restriction), and finally click <em>OK</em>.</li>
+<li>完成后，重新启用沙箱中的互联网访问：
+  打开 <a href="../RestrictionsSettings/#internet-access">沙箱设置 &gt; 限制 &gt; 互联网访问</a>，然后点击 <em>移除</em>（以移除限制），最后点击 <em>确定</em>。</li>
 </ul>
-<p>For more information, see <a href="../EmailProtection/">Email Protection</a> and <a href="../FAQEmail/">FAQ Email</a>.</p>
+<p>更多信息，请参阅 <a href="../EmailProtection/">电子邮件保护</a> 和 <a href="../FAQEmail/">常见问题 - 电子邮件</a>。</p>
 
 
 

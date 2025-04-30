@@ -22,7 +22,7 @@
     
     
       
-        <title>Service Programs - Sandboxie 文档</title>
+        <title>服务程序 - Sandboxie 文档</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#service-programs" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -105,7 +105,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Service Programs
+              服务程序
             
           </span>
         </div>
@@ -498,7 +498,7 @@
   
   
   <span class="md-ellipsis">
-    View Menu
+    视图菜单
     
   </span>
   
@@ -590,7 +590,7 @@
   
   
   <span class="md-ellipsis">
-    Tray Icon Menu
+    系统托盘图标菜单
     
   </span>
   
@@ -621,7 +621,7 @@
   
   
   <span class="md-ellipsis">
-    Usage Tips
+    使用提示
     
   </span>
   
@@ -686,7 +686,7 @@
   
   
   <span class="md-ellipsis">
-    Start Command Line
+    启动命令行
     
   </span>
   
@@ -1002,7 +1002,7 @@
   
   
   <span class="md-ellipsis">
-    Service Programs
+    服务程序
     
   </span>
   
@@ -1015,7 +1015,7 @@
   
   
   <span class="md-ellipsis">
-    Service Programs
+    服务程序
     
   </span>
   
@@ -1038,63 +1038,63 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      Overview
+      概述
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#remote-procedure-call-rpc" class="md-nav__link">
+  <a href="#rpc" class="md-nav__link">
     <span class="md-ellipsis">
-      Remote Procedure Call (RPC)
+      远程过程调用 (RPC)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#dcom-server-process-launcher" class="md-nav__link">
+  <a href="#dcom" class="md-nav__link">
     <span class="md-ellipsis">
-      DCOM Server Process Launcher
+      DCOM 服务器进程启动器
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#cryptographic-services" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      Cryptographic Services
+      加密服务
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#background-intelligent-transfer-service" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      Background Intelligent Transfer Service
+      后台智能传输服务
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#automatic-updates" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
-      Automatic Updates
+      自动更新
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#windows-installer" class="md-nav__link">
+  <a href="#windows" class="md-nav__link">
     <span class="md-ellipsis">
-      Windows Installer
+      Windows 安装程序
     </span>
   </a>
   
@@ -1144,7 +1144,7 @@
   
   
   <span class="md-ellipsis">
-    Trace logging (for Sandboxie Plus)
+    跟踪日志（适用于 Sandboxie Plus）
     
   </span>
   
@@ -1498,7 +1498,7 @@
   
   
   <span class="md-ellipsis">
-    SBIE Messages
+    SBIE 消息
     
   </span>
   
@@ -4595,7 +4595,7 @@
   
   
   <span class="md-ellipsis">
-    Technical Aspects
+    技术方面
     
   </span>
   
@@ -4637,51 +4637,51 @@
   
 
 
-<h1 id="service-programs">Service Programs</h1>
-<h3 id="overview">Overview</h3>
-<p>A Windows computers includes several service programs which are designed to accept requests from application programs. Many service programs run inside special <em>svchost.exe</em> processes (programs), although some others run as standalone processes.</p>
-<p>Programs running under Sandboxie are not allowed to reach those system service programs, due to the isolation of the sandbox. Instead, Sandboxie provides its own service programs, which run in the same sandbox as the program requesting the service.</p>
-<p>The Sandboxie service programs are started on demand. It is not an error or a problem if any of the service programs listed below are not running at any given moment.</p>
+<h1 id="_1">服务程序</h1>
+<h3 id="_2">概述</h3>
+<p>Windows 计算机包含多个服务程序，这些程序旨在接受应用程序的请求。许多服务程序在特殊的 <em>svchost.exe</em> 进程（程序）中运行，不过也有一些作为独立进程运行。</p>
+<p>由于沙箱的隔离机制，在沙箱中运行的程序无法访问这些系统服务程序。取而代之的是，沙箱浏览器（Sandboxie）提供了自己的服务程序，这些程序与请求服务的程序在同一个沙箱中运行。</p>
+<p>沙箱浏览器的服务程序是按需启动的。如果下面列出的任何服务程序在任何给定时刻没有运行，这既不是错误也不是问题。</p>
 <hr />
-<h3 id="remote-procedure-call-rpc">Remote Procedure Call (RPC)</h3>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span><span class="na">Program Name</span><span class="o">:</span><span class="w">  </span><span class="s">SandboxieRpcSs.exe</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="na">Service Name</span><span class="o">:</span><span class="w">  </span><span class="s">rpcss</span>
+<h3 id="rpc">远程过程调用 (RPC)</h3>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span><span class="na">程序名称</span><span class="o">:</span><span class="w"> </span><span class="s">SandboxieRpcSs.exe</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="na">服务名称</span><span class="o">:</span><span class="w"> </span><span class="s">rpcss</span>
 </span></code></pre></div>
-<p>The Component Object Model (COM) main service. This service provides a wide range of services to applications in the sandbox, including mechanisms for one application to start another application. Depending on the programs you run sandboxed, the service may or may not need to start.</p>
-<p>This service, along with the <em>DCOM Server Process Launcher</em> (see below) makes it possible for other service programs to start in the sandbox.</p>
+<p>组件对象模型 (COM) 主服务。此服务为沙箱中的应用程序提供广泛的服务，包括一个应用程序启动另一个应用程序的机制。根据你在沙箱中运行的程序，该服务可能需要启动，也可能不需要启动。</p>
+<p>此服务与 <em>DCOM 服务器进程启动器</em>（见下文）一起，使得其他服务程序能够在沙箱中启动。</p>
 <hr />
-<h3 id="dcom-server-process-launcher">DCOM Server Process Launcher</h3>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">    </span><span class="na">Program Name</span><span class="o">:</span><span class="w">  </span><span class="s">SandboxieDcomLaunch.exe</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="na">Service Name</span><span class="o">:</span><span class="w">  </span><span class="s">dcomlaunch</span>
+<h3 id="dcom">DCOM 服务器进程启动器</h3>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">    </span><span class="na">程序名称</span><span class="o">:</span><span class="w"> </span><span class="s">SandboxieDcomLaunch.exe</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="na">服务名称</span><span class="o">:</span><span class="w"> </span><span class="s">dcomlaunch</span>
 </span></code></pre></div>
-<p>This service, along with the <em>Remote Procedure Call (RPC)</em> (see above) makes it possible for other service programs to start in the sandbox.</p>
-<p>Note that this service is available on Windows XP Service Pack 2 and later operating systems.</p>
+<p>此服务与 <em>远程过程调用 (RPC)</em>（见上文）一起，使得其他服务程序能够在沙箱中启动。</p>
+<p>请注意，此服务在 Windows XP Service Pack 2 及更高版本的操作系统中可用。</p>
 <hr />
-<h3 id="cryptographic-services">Cryptographic Services</h3>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">    </span><span class="na">Program Name</span><span class="o">:</span><span class="w">  </span><span class="s">SandboxieCrypto.exe</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="na">Service Name</span><span class="o">:</span><span class="w">  </span><span class="s">cryptsvc</span>
+<h3 id="_3">加密服务</h3>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">    </span><span class="na">程序名称</span><span class="o">:</span><span class="w"> </span><span class="s">SandboxieCrypto.exe</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="na">服务名称</span><span class="o">:</span><span class="w"> </span><span class="s">cryptsvc</span>
 </span></code></pre></div>
-<p>Manages software signing, security certificates and software catalogs.. This service manages and stores in the sandbox any digital certificates or catalog information that was installed by other programs running in the same sandbox.</p>
-<p>This service occasionally connects to the Internet address <em>mscrl.microsoft.com</em>. This connection is initiated by Microsoft code running within SandboxieCrypto.exe and it is part of the procedure which verifies or revokes digital certificates for Web sites and programs.</p>
-<p>This connection is not unique to <em>SandboxieCrypto.exe</em> and is initiated also by the "real" service program running under one of the <em>svchost.exe</em> processes. It is possible to block this connection through <a href="../RestrictionsSettings/#internet-access">Restrictions &gt; Internet Access</a> or through a firewall. However, this is not recommended. Please see <a href="https://en.wikipedia.org/wiki/Certificate_revocation_list">Certificate revocation list on Wikipedia</a> for more information about certificate revocation.</p>
+<p>管理软件签名、安全证书和软件目录。此服务管理并存储在沙箱中由在同一沙箱中运行的其他程序安装的任何数字证书或目录信息。</p>
+<p>此服务偶尔会连接到 Internet 地址 <em>mscrl.microsoft.com</em>。此连接由在 SandboxieCrypto.exe 中运行的 Microsoft 代码发起，它是验证或撤销网站和程序数字证书过程的一部分。</p>
+<p>此连接并非 <em>SandboxieCrypto.exe</em> 所独有，在 <em>svchost.exe</em> 进程之一中运行的“真实”服务程序也会发起此连接。可以通过<a href="../RestrictionsSettings/#internet-access">限制 &gt; 互联网访问</a>或防火墙阻止此连接。但是，不建议这样做。有关证书撤销的更多信息，请参阅<a href="https://en.wikipedia.org/wiki/Certificate_revocation_list">维基百科上的证书撤销列表</a>。</p>
 <hr />
-<h3 id="background-intelligent-transfer-service">Background Intelligent Transfer Service</h3>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="w">    </span><span class="na">Program Name</span><span class="o">:</span><span class="w">  </span><span class="s">SandboxieBITS.exe</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="na">Service Name</span><span class="o">:</span><span class="w">  </span><span class="s">bits</span>
+<h3 id="_4">后台智能传输服务</h3>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="w">    </span><span class="na">程序名称</span><span class="o">:</span><span class="w"> </span><span class="s">SandboxieBITS.exe</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="na">服务名称</span><span class="o">:</span><span class="w"> </span><span class="s">bits</span>
 </span></code></pre></div>
-<p>Downloads files in the background on behalf of a requesting applications. Some installation programs (most commonly for Microsoft and Google products) ask this service to download additional resource files on their behalf. The service downloads these files into the sandbox.</p>
+<p>代表请求的应用程序在后台下载文件。一些安装程序（最常见的是 Microsoft 和 Google 产品的安装程序）会要求此服务代表它们下载额外的资源文件。该服务会将这些文件下载到沙箱中。</p>
 <hr />
-<h3 id="automatic-updates">Automatic Updates</h3>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="w">    </span><span class="na">Program Name</span><span class="o">:</span><span class="w">  </span><span class="s">SandboxieWUAU.exe</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="na">Service Name</span><span class="o">:</span><span class="w">  </span><span class="s">wuauserv</span>
+<h3 id="_5">自动更新</h3>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="w">    </span><span class="na">程序名称</span><span class="o">:</span><span class="w"> </span><span class="s">SandboxieWUAU.exe</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="na">服务名称</span><span class="o">:</span><span class="w"> </span><span class="s">wuauserv</span>
 </span></code></pre></div>
-<p>Checks for Windows updates and downloads them using the <em>Background Intelligent Transfer Service</em> (see above). Once the updates are downloaded into the sandbox, this service will try to install them into the sandbox. Note that in some cases, updates to Windows involve the modification of core system files. Such modification might fail or have no effect, when carried out under the supervision of Sandboxie.</p>
+<p>检查 Windows 更新，并使用 <em>后台智能传输服务</em>（见上文）下载它们。一旦更新下载到沙箱中，此服务将尝试将它们安装到沙箱中。请注意，在某些情况下，Windows 更新涉及对核心系统文件的修改。在沙箱浏览器的监管下进行此类修改可能会失败或无效。</p>
 <hr />
-<h3 id="windows-installer">Windows Installer</h3>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="w">    </span><span class="na">Program Name</span><span class="o">:</span><span class="w">  </span><span class="s">msiexec.exe</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="na">Service Name</span><span class="o">:</span><span class="w">  </span><span class="s">msiserver</span>
+<h3 id="windows">Windows 安装程序</h3>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="w">    </span><span class="na">程序名称</span><span class="o">:</span><span class="w"> </span><span class="s">msiexec.exe</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="na">服务名称</span><span class="o">:</span><span class="w"> </span><span class="s">msiserver</span>
 </span></code></pre></div>
-<p>Installs software packages that were prepared using Windows Installer technology. The software will be installed into the sandbox. It is typical to see several instances of <em>msiexec.exe</em> start and stop during software installation.</p>
+<p>安装使用 Windows 安装程序技术准备的软件包。软件将安装到沙箱中。在软件安装过程中，通常会看到多个 <em>msiexec.exe</em> 实例启动和停止。</p>
 
 
 

@@ -22,7 +22,7 @@
     
     
       
-        <title>Trace logging (for Sandboxie Plus) - Sandboxie 文档</title>
+        <title>跟踪日志（适用于 Sandboxie Plus） - Sandboxie 文档</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#trace-logging-for-sandboxie-plus" class="md-skip">
+        <a href="#sandboxie-plus" class="md-skip">
           跳转至
         </a>
       
@@ -105,7 +105,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Trace logging (for Sandboxie Plus)
+              跟踪日志（适用于 Sandboxie Plus）
             
           </span>
         </div>
@@ -498,7 +498,7 @@
   
   
   <span class="md-ellipsis">
-    View Menu
+    视图菜单
     
   </span>
   
@@ -590,7 +590,7 @@
   
   
   <span class="md-ellipsis">
-    Tray Icon Menu
+    系统托盘图标菜单
     
   </span>
   
@@ -621,7 +621,7 @@
   
   
   <span class="md-ellipsis">
-    Usage Tips
+    使用提示
     
   </span>
   
@@ -686,7 +686,7 @@
   
   
   <span class="md-ellipsis">
-    Start Command Line
+    启动命令行
     
   </span>
   
@@ -993,7 +993,7 @@
   
   
   <span class="md-ellipsis">
-    Service Programs
+    服务程序
     
   </span>
   
@@ -1048,7 +1048,7 @@
   
   
   <span class="md-ellipsis">
-    Trace logging (for Sandboxie Plus)
+    跟踪日志（适用于 Sandboxie Plus）
     
   </span>
   
@@ -1061,7 +1061,7 @@
   
   
   <span class="md-ellipsis">
-    Trace logging (for Sandboxie Plus)
+    跟踪日志（适用于 Sandboxie Plus）
     
   </span>
   
@@ -1084,27 +1084,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#using-the-trace-log" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Using the Trace Log
+      使用跟踪日志
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#performance-impact" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      Performance Impact
+      性能影响
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#additional-improvements" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      Additional Improvements
+      其他改进
     </span>
   </a>
   
@@ -1462,7 +1462,7 @@
   
   
   <span class="md-ellipsis">
-    SBIE Messages
+    SBIE 消息
     
   </span>
   
@@ -4559,7 +4559,7 @@
   
   
   <span class="md-ellipsis">
-    Technical Aspects
+    技术方面
     
   </span>
   
@@ -4601,28 +4601,30 @@
   
 
 
-<h1 id="trace-logging-for-sandboxie-plus">Trace logging (for Sandboxie Plus)</h1>
-<p>The Trace Log tool displays the names of any system resources that are accessed by programs running under the supervision of Sandboxie Plus. Designed to make it easy to identify those system resources which should be excluded from sandboxing, this tool can be used with the <a href="../../Content/SandboxieTrace/">Sandboxie Trace</a> options.</p>
-<p><strong>Important:</strong> Please consider to use the Trace Log before opening a new issue.</p>
+<h1 id="sandboxie-plus">跟踪日志（适用于 Sandboxie Plus）</h1>
+<p>跟踪日志工具会显示在 Sandboxie Plus 监管下运行的程序所访问的任何系统资源的名称。该工具旨在方便识别那些应排除在沙箱化之外的系统资源，可与 <a href="../../Content/SandboxieTrace/">Sandboxie 跟踪</a> 选项配合使用。</p>
+<p><strong>重要提示：</strong> 在开启新问题之前，请考虑使用跟踪日志。</p>
 <p><img alt="" src="../../Media/TraceLog.png" /></p>
-<h3 id="using-the-trace-log">Using the Trace Log</h3>
-<p>1. Enable <strong>Trace Log</strong> tab by opening <strong>View</strong> menu -&gt; <strong>Trace Logging</strong>.</p>
-<p>2. When the Trace Log tab is activated, it immediately starts to collect and display resource access information from all sandboxed programs that are running.</p>
-<p>3. At this point, perform any specific tasks that fail when done under the supervision of Sandboxie Plus.</p>
-<p>4. Finally, right click on the collected data and select the entry named <strong>Copy Panel</strong>. This copies the collected data into the clipboard.</p>
-<p>5. You can now paste (Ctrl+V) the collected data somewhere and make it available for analysis.</p>
-<p>6. Optionally, the keyboard shortcut CTRL+F can be used to search for specific entries within the Trace Log tab.</p>
-<h3 id="performance-impact">Performance Impact</h3>
-<p>When inactive, the Trace Log does not use any system resources and does not have any performance impact on any running programs. When active, the Trace Log has a small performance penalty on sandboxed programs.</p>
-<h3 id="additional-improvements">Additional Improvements</h3>
+<h3 id="_1">使用跟踪日志</h3>
+<ol>
+<li>打开 <strong>视图</strong> 菜单 -&gt; <strong>跟踪日志记录</strong>，启用 <strong>跟踪日志</strong> 选项卡。</li>
+<li>当跟踪日志选项卡激活后，它会立即开始收集并显示所有正在运行的沙箱程序的资源访问信息。</li>
+<li>此时，执行在 Sandboxie Plus 监管下会失败的任何特定任务。</li>
+<li>最后，右键单击收集到的数据，选择名为 <strong>复制面板</strong> 的条目。这会将收集到的数据复制到剪贴板。</li>
+<li>现在你可以将收集到的数据粘贴（Ctrl+V）到某个地方，以便进行分析。</li>
+<li>可选操作：可以使用键盘快捷键 CTRL+F 在跟踪日志选项卡中搜索特定条目。</li>
+</ol>
+<h3 id="_2">性能影响</h3>
+<p>当跟踪日志处于非活动状态时，它不会使用任何系统资源，也不会对任何正在运行的程序产生性能影响。当处于活动状态时，跟踪日志会对沙箱程序产生轻微的性能损耗。</p>
+<h3 id="_3">其他改进</h3>
 <blockquote>
-<p><strong>Sandboxie Plus v0.7.0</strong> adds the ability to adjust the buffer size with <code>TraceBufferPages=2560</code>.</p>
-<p><strong>Sandboxie Plus v0.8.0</strong> adds the ability to disable resource access monitor for selected sandboxes with <code>DisableResourceMonitor=y</code>.</p>
-<p><strong>Sandboxie Plus v0.9.8b</strong> adds the ability to save the trace log output into a new .log file (via the floppy disk icon).</p>
-<p><strong>Sandboxie Plus v0.9.8d</strong> adds the ability to select multiple access types at once.</p>
-<p><strong>Sandboxie Plus v1.0.16</strong> adds a monitor mode to the resource access trace.</p>
-<p><strong>Sandboxie Plus v1.9.6</strong> adds a full stack trace to all trace messages. Note that activating the Trace Log also turns on the Keep Terminated feature. This is not a bug, but a new intended behaviour. Without it, the stack trace in the Trace Log would not work properly, as it uses the process objects to cache the symbols.</p>
-<p><strong>Sandboxie Plus v1.10.1</strong> adds an auto scroll functionality (enabled by default in the monitor mode).</p>
+<p><strong>Sandboxie Plus v0.7.0</strong> 增加了使用 <code>TraceBufferPages=2560</code> 调整缓冲区大小的功能。</p>
+<p><strong>Sandboxie Plus v0.8.0</strong> 增加了使用 <code>DisableResourceMonitor=y</code> 为选定沙箱禁用资源访问监控的功能。</p>
+<p><strong>Sandboxie Plus v0.9.8b</strong> 增加了将跟踪日志输出保存到新的 .log 文件的功能（通过软盘图标）。</p>
+<p><strong>Sandboxie Plus v0.9.8d</strong> 增加了一次选择多种访问类型的功能。</p>
+<p><strong>Sandboxie Plus v1.0.16</strong> 为资源访问跟踪添加了监控模式。</p>
+<p><strong>Sandboxie Plus v1.9.6</strong> 为所有跟踪消息添加了完整的堆栈跟踪。请注意，激活跟踪日志也会开启“保留终止程序”功能。这不是一个错误，而是一种新的预期行为。如果不这样做，跟踪日志中的堆栈跟踪将无法正常工作，因为它使用进程对象来缓存符号。</p>
+<p><strong>Sandboxie Plus v1.10.1</strong> 增加了自动滚动功能（在监控模式下默认启用）。</p>
 </blockquote>
 
 

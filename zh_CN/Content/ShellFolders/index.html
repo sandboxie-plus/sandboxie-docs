@@ -18,7 +18,7 @@
     
     
       
-        <title>Shell Folders - Sandboxie 文档</title>
+        <title>外壳文件夹 - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#shell-folders" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Shell Folders
+              外壳文件夹
             
           </span>
         </div>
@@ -494,7 +494,7 @@
   
   
   <span class="md-ellipsis">
-    View Menu
+    视图菜单
     
   </span>
   
@@ -586,7 +586,7 @@
   
   
   <span class="md-ellipsis">
-    Tray Icon Menu
+    系统托盘图标菜单
     
   </span>
   
@@ -617,7 +617,7 @@
   
   
   <span class="md-ellipsis">
-    Usage Tips
+    使用提示
     
   </span>
   
@@ -682,7 +682,7 @@
   
   
   <span class="md-ellipsis">
-    Start Command Line
+    启动命令行
     
   </span>
   
@@ -987,7 +987,7 @@
   
   
   <span class="md-ellipsis">
-    Service Programs
+    服务程序
     
   </span>
   
@@ -1033,7 +1033,7 @@
   
   
   <span class="md-ellipsis">
-    Trace logging (for Sandboxie Plus)
+    跟踪日志（适用于 Sandboxie Plus）
     
   </span>
   
@@ -1387,7 +1387,7 @@
   
   
   <span class="md-ellipsis">
-    SBIE Messages
+    SBIE 消息
     
   </span>
   
@@ -4484,7 +4484,7 @@
   
   
   <span class="md-ellipsis">
-    Technical Aspects
+    技术方面
     
   </span>
   
@@ -4526,28 +4526,28 @@
   
 
 
-<h1 id="shell-folders">Shell Folders</h1>
-<p>In Windows, each user account has associated personal folders, typically known as <em>Documents</em>, <em>Music</em> and so on. The Windows shell records each user's personal folders, in the following registry keys.
+<h1 id="_1">外壳文件夹</h1>
+<p>在 Windows 系统中，每个用户账户都有与之关联的个人文件夹，通常被称为“文档”、“音乐”等。Windows 外壳会在以下注册表项中记录每个用户的个人文件夹：
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">  </span><span class="na">HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">     </span><span class="na">. . . User Shell Folders</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">     </span><span class="na">. . . Shell Folders</span>
 </span></code></pre></div></p>
-<p>This key contains several <em>registry values</em>, each identifies a specific personal folder, and contains its absolute folder path. Most registry values in this key are named the same as the "friendly" name of the folder: <em>Desktop</em>, <em>Favorites</em>, <em>Music</em>, and so on.</p>
-<p>However, in some cases, the registry value differs:</p>
+<p>此键包含多个“注册表值”，每个值标识一个特定的个人文件夹，并包含其绝对文件夹路径。此键中的大多数注册表值的名称与文件夹的“友好”名称相同，如“桌面”、“收藏夹”、“音乐”等。</p>
+<p>然而，在某些情况下，注册表值有所不同：</p>
 <ul>
-<li><em>Personal</em> stands for the <em>Documents</em> folder.</li>
-<li><em>AppData</em> stands for the primary <em>Application Data</em> folder.</li>
-<li><em>Local AppData</em> stands for the secondary <em>Application Data</em> folder, located below the <em>Local Settings</em> folder.</li>
+<li>“个人”代表“文档”文件夹。</li>
+<li>“应用程序数据”代表主要的“应用程序数据”文件夹。</li>
+<li>“本地应用程序数据”代表位于“本地设置”文件夹下的次要“应用程序数据”文件夹。</li>
 </ul>
-<p>Please see the registry key noted above for a complete list of possible folder names.</p>
-<p>For example, for the user joe, the registry value <em>Personal</em> (which identifies the <em>Documents</em> folder), may specify:
+<p>有关可能的文件夹名称的完整列表，请参阅上述注册表项。</p>
+<p>例如，对于用户 joe，注册表值“个人”（它标识“文档”文件夹）可能指定为：
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">  </span><span class="na">C</span><span class="o">:</span><span class="s">\Users\joe\Documents</span>
 </span></code></pre></div></p>
-<p>Configuration settings in Sandboxie that specify folder paths generally accept references to registry values in the Shell Folders key. This is more useful than specifying explicit folder locations. For example:
+<p>沙箱软件（Sandboxie）中指定文件夹路径的配置设置通常接受对“外壳文件夹”键中注册表值的引用。这比指定明确的文件夹位置更有用。例如：
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">  </span><span class="k">[DefaultBox]</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="na">RecoverFolder</span><span class="o">=</span><span class="s">%Desktop%</span>
 </span></code></pre></div></p>
-<p>Indicates that <a href="../QuickRecovery/">Quick Recovery</a> should look for sandboxed items in the desktop folder of whichever user is making the request.</p>
+<p>这表明<a href="../QuickRecovery/">快速恢复</a>应在发出请求的用户的桌面文件夹中查找沙箱化项目。</p>
 
 
 

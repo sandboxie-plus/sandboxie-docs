@@ -18,7 +18,7 @@
     
     
       
-        <title>Start Program - Sandboxie 文档</title>
+        <title>启动程序 - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#start-program" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Start Program
+              启动程序
             
           </span>
         </div>
@@ -494,7 +494,7 @@
   
   
   <span class="md-ellipsis">
-    View Menu
+    视图菜单
     
   </span>
   
@@ -586,7 +586,7 @@
   
   
   <span class="md-ellipsis">
-    Tray Icon Menu
+    系统托盘图标菜单
     
   </span>
   
@@ -617,7 +617,7 @@
   
   
   <span class="md-ellipsis">
-    Usage Tips
+    使用提示
     
   </span>
   
@@ -682,7 +682,7 @@
   
   
   <span class="md-ellipsis">
-    Start Command Line
+    启动命令行
     
   </span>
   
@@ -987,7 +987,7 @@
   
   
   <span class="md-ellipsis">
-    Service Programs
+    服务程序
     
   </span>
   
@@ -1033,7 +1033,7 @@
   
   
   <span class="md-ellipsis">
-    Trace logging (for Sandboxie Plus)
+    跟踪日志（适用于 Sandboxie Plus）
     
   </span>
   
@@ -1387,7 +1387,7 @@
   
   
   <span class="md-ellipsis">
-    SBIE Messages
+    SBIE 消息
     
   </span>
   
@@ -4484,7 +4484,7 @@
   
   
   <span class="md-ellipsis">
-    Technical Aspects
+    技术方面
     
   </span>
   
@@ -4526,18 +4526,18 @@
   
 
 
-<h1 id="start-program">Start Program</h1>
-<p><em>StartProgram</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. It provides an automatic start for the specified program. For example:</p>
+<h1 id="_1">启动程序</h1>
+<p><em>StartProgram</em> 是 <a href="../SandboxieIni/">Sandboxie 配置文件</a>中的一项沙箱设置。它用于自动启动指定的程序。例如：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">StartProgram</span><span class="o">=</span><span class="s">%ProgramFiles%\Google\Chrome\Application\chrome.exe</span>
 </span></code></pre></div>
-<p>The example specifies that Google Chrome (chrome.exe) will be forced to run sandboxed in the sandbox <em>DefaultBox</em>.</p>
-<p><strong>Technical Details</strong></p>
-<p><em>StartProgram</em> is processed by <a href="../ServicePrograms/#remote-procedure-call-rpc">SandboxieRpcSs</a>, which runs just once in every sandbox. Like the <a href="../AutoExec/">AutoExec</a> setting, it is processed when the first program begins to run in a sandbox. Note that <em>StartProgram</em> launches the specified application in hidden mode, if supported.</p>
-<p>For services, see <a href="../StartService/">StartService</a>.</p>
+<p>此示例指定谷歌浏览器（chrome.exe）将被强制在名为 <em>DefaultBox</em> 的沙箱中运行。</p>
+<p><strong>技术细节</strong></p>
+<p><em>StartProgram</em> 由 <a href="../ServicePrograms/#远程过程调用-rpc">SandboxieRpcSs</a> 处理，该服务在每个沙箱中仅运行一次。与 <a href="../AutoExec/">AutoExec</a> 设置类似，它会在沙箱中第一个程序开始运行时进行处理。请注意，如果支持的话，<em>StartProgram</em> 会以隐藏模式启动指定的应用程序。</p>
+<p>有关服务的设置，请参阅 <a href="../StartService/">StartService</a>。</p>
 
 
 

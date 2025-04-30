@@ -18,7 +18,7 @@
     
     
       
-        <title>WFP (Windows Filtering Platform) support - Sandboxie 文档</title>
+        <title>WFP（Windows 过滤平台）支持 - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#wfp-windows-filtering-platform-support" class="md-skip">
+        <a href="#wfpwindows" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              WFP (Windows Filtering Platform) support
+              WFP（Windows 过滤平台）支持
             
           </span>
         </div>
@@ -494,7 +494,7 @@
   
   
   <span class="md-ellipsis">
-    View Menu
+    视图菜单
     
   </span>
   
@@ -586,7 +586,7 @@
   
   
   <span class="md-ellipsis">
-    Tray Icon Menu
+    系统托盘图标菜单
     
   </span>
   
@@ -617,7 +617,7 @@
   
   
   <span class="md-ellipsis">
-    Usage Tips
+    使用提示
     
   </span>
   
@@ -682,7 +682,7 @@
   
   
   <span class="md-ellipsis">
-    Start Command Line
+    启动命令行
     
   </span>
   
@@ -987,7 +987,7 @@
   
   
   <span class="md-ellipsis">
-    Service Programs
+    服务程序
     
   </span>
   
@@ -1033,7 +1033,7 @@
   
   
   <span class="md-ellipsis">
-    Trace logging (for Sandboxie Plus)
+    跟踪日志（适用于 Sandboxie Plus）
     
   </span>
   
@@ -1387,7 +1387,7 @@
   
   
   <span class="md-ellipsis">
-    SBIE Messages
+    SBIE 消息
     
   </span>
   
@@ -4484,7 +4484,7 @@
   
   
   <span class="md-ellipsis">
-    Technical Aspects
+    技术方面
     
   </span>
   
@@ -4526,78 +4526,78 @@
   
 
 
-<h1 id="wfp-windows-filtering-platform-support">WFP (Windows Filtering Platform) support</h1>
-<p><strong>Sandboxie Plus v0.9.3</strong> introduced a unique approach to manage network connectivity by implementing not only a <strong>kernel mode</strong> (using a driver) "per box" firewall built on Windows Filtering Platform (WFP) but also a <strong>user mode</strong>, outbound rule-based packet filter.</p>
-<h3 id="wfp-implementation">WFP implementation</h3>
-<p>To enable WFP functionality, add <code>NetworkEnableWFP=y</code> to the [GlobalSettings] section of the configuration file <strong><a href="../../Content/SandboxieIni/">Sandboxie Ini</a></strong> and <strong>reboot the machine or reload the driver</strong> for it to take effect. WFP filtering <strong>works for both inbound and outbound</strong> traffic.</p>
+<h1 id="wfpwindows">WFP（Windows 过滤平台）支持</h1>
+<p><strong>Sandboxie Plus v0.9.3</strong> 引入了一种独特的网络连接管理方法，不仅实现了基于 Windows 过滤平台（WFP）的 <strong>内核模式</strong>（使用驱动程序）“按沙箱”防火墙，还实现了基于规则的 <strong>用户模式</strong> 出站数据包过滤器。</p>
+<h3 id="wfp">WFP 实现</h3>
+<p>要启用 WFP 功能，请在配置文件 <strong><a href="../../Content/SandboxieIni/">Sandboxie Ini</a></strong> 的 <code>[GlobalSettings]</code> 部分添加 <code>NetworkEnableWFP=y</code>，并 <strong>重启计算机或重新加载驱动程序</strong> 以使更改生效。WFP 过滤 <strong>同时适用于入站和出站</strong> 流量。</p>
 <ul>
-<li>To enable blocking globally, add <code>AllowNetworkAccess=n</code> to the [GlobalSettings] section.</li>
-<li>To enable WFP blocking for a box, such as DefaultBox, add <code>AllowNetworkAccess=n</code> to the [DefaultBox] section.</li>
-<li>To exempt blocking for a box, such as DefaultBox, add <code>AllowNetworkAccess=y</code> to the [DefaultBox] section.</li>
-<li>To allow a selected program in a box, such as DefaultBox, add <code>AllowNetworkAccess=program.exe,y</code> to the [DefaultBox] section.</li>
-<li>To block a selected program in a box, such as DefaultBox, add <code>AllowNetworkAccess=program.exe,n</code> to the [DefaultBox] section.</li>
+<li>要全局启用阻止功能，请在 <code>[GlobalSettings]</code> 部分添加 <code>AllowNetworkAccess=n</code>。</li>
+<li>要为某个沙箱（如 DefaultBox）启用 WFP 阻止功能，请在 <code>[DefaultBox]</code> 部分添加 <code>AllowNetworkAccess=n</code>。</li>
+<li>要豁免某个沙箱（如 DefaultBox）的阻止功能，请在 <code>[DefaultBox]</code> 部分添加 <code>AllowNetworkAccess=y</code>。</li>
+<li>要允许某个沙箱（如 DefaultBox）中的特定程序访问网络，请在 <code>[DefaultBox]</code> 部分添加 <code>AllowNetworkAccess=program.exe,y</code>。</li>
+<li>要阻止某个沙箱（如 DefaultBox）中的特定程序访问网络，请在 <code>[DefaultBox]</code> 部分添加 <code>AllowNetworkAccess=program.exe,n</code>。</li>
 </ul>
-<p><strong>Limitations of the WFP implementation:</strong> WFP will filter <strong>only</strong> TCP/UDP protocols. The WFP filter rules can be implemented by restricting communication only to <strong>specified IP addresses or selected port numbers</strong> by using a rule based hierarchy based on <strong>"NetworkAccess=..."</strong> (as described later). Restricted boxed processes will still be able to resolve domain names using the system service but will not be able to send or receive data packets directly.</p>
-<h3 id="user-mode-packet-filter-implementation">User Mode Packet Filter implementation</h3>
-<p><strong>Sandboxie Plus v0.9.3</strong> also added a fully functional rule-based packet filter in user mode for the case when <strong>NetworkEnableWFP=y</strong> is not set. This mechanism also replaces the primitive <strong>"BlockPort=..."</strong> functionality of older versions.</p>
-<p><strong>Limitations of the user mode filter:</strong>
-If WFP support is not enabled, the same rules can still be set and used, but they will be applied only by means of user mode hooks. Unlike the WFP implementation, they will <strong>apply only to outgoing connections</strong> and there are no enforcement guarantees as user mode hooks can be bypassed or disabled by a malicious application.</p>
-<p><strong>Caveat:</strong> For reliable isolation, <strong>the use of kernel mode WFP-based filtering is strongly recommended</strong>.</p>
-<p><strong>The rationale for two filtering modes:</strong>
-The rationale for implementing network functionality in both user mode and kernel mode (driver) is twofold. First, it allows for easier debugging of the rule processing code (simpler to debug in user mode) as both modes use the same code to make decisions based on the preset rules.
-Second, the WFP callouts are global i.e. they are triggered for any process on the system whether sandboxed or not. In the latter case they don't do anything and the use of a hash map to identify sandboxed programs that require action can provide optimal performance.</p>
-<p><strong>Combining WFP with user mode filtering:</strong>
-If you set "block internet access" for a given process and have the driver (for WFP) enabled, you can select for that box which method to apply: using WFP or blocking network devices. Even though the approach of blocking the network device endpoints is more absolute, it has been known to cause some applications to crash.</p>
-<h3 id="wfp-and-multiple-firewalls">WFP and multiple firewalls</h3>
-<p>Commercially available firewalls implement the Windows Filtering Platform (WFP) by installing a <strong>provider</strong> of filter rules. Some use the standard Windows Firewall's provider, while others create their own. Some use WFP at the user mode level (no drivers), while others use WFP in kernel mode (based on their own driver). If several firewalls are installed and active at the same time, each driver installs its own callout functions at the positions in the network stack it wants to control and all those functions are then called by the kernel for ALL the drivers (providers). This results in an amalgamation of rules set by each firewall. An inbuilt arbitration mechanism in WFP then decides which rules take precedence. Some firewalls recommend turning off the native Windows firewall in order to work effectively, while others can work even with the Windows firewall active. Users who have found a firewall they like are typically very reluctant to switch.</p>
-<p><strong>Does Sandboxie Plus conflict with other firewalls?</strong> Another firewall installed on a system (including the Windows firewall) does not conflict with Sandboxie Plus and can be used to block programs (sandboxed or not), but its rules are typically global and based on absolute program paths. The WFP implementation in Sandboxie Plus, on the other hand, offers the added advantage of "per box" rules which affect only processes within a given sandbox (without specifying program paths). For example, Box1 may allow network access for Program1, while in Box2 the same Program1 may be blocked or even allowed but with a different set of rules for network access.</p>
-<h3 id="implementing-network-access-rules-in-sandboxie-plus">Implementing network access rules in Sandboxie Plus</h3>
-<p>The Sandman UI provides us with a method for editing and testing network rules. Right-click on a box and select "Sandbox Options" from the drop-down menu (or simply double-click on a box) to bring up the Box Options UI. Then click on Network Options in the left panel and select the Network Firewall tab. The Test Rules row appears at the bottom, below the rule list (which may or may not be already populated). One can enter program name, port number, IP address and protocol to see which rules are in play and which rule will be applied in the end. The choice of blocking (using WFP or by denying access to network devices) is selected in the Process Restrictions tab.</p>
+<p><strong>WFP 实现的局限性：</strong> WFP <strong>仅</strong> 过滤 TCP/UDP 协议。WFP 过滤规则可以通过基于 <strong>"NetworkAccess=..."</strong> 的规则层次结构（后文将详细描述），将通信限制为 <strong>指定的 IP 地址或选定的端口号</strong> 来实现。受限的沙箱进程仍然可以使用系统服务解析域名，但无法直接发送或接收数据包。</p>
+<h3 id="_1">用户模式数据包过滤器实现</h3>
+<p>当未设置 <strong>NetworkEnableWFP=y</strong> 时，<strong>Sandboxie Plus v0.9.3</strong> 还在用户模式下添加了一个功能齐全的基于规则的数据包过滤器。此机制还取代了旧版本中原始的 <strong>"BlockPort=..."</strong> 功能。</p>
+<p><strong>用户模式过滤器的局限性：</strong>
+如果未启用 WFP 支持，仍然可以设置和使用相同的规则，但这些规则将仅通过用户模式挂钩应用。与 WFP 实现不同，它们 <strong>仅适用于出站连接</strong>，并且由于用户模式挂钩可能会被恶意应用绕过或禁用，因此无法保证强制实施。</p>
+<p><strong>注意事项：</strong> 为了实现可靠的隔离，<strong>强烈建议使用基于内核模式 WFP 的过滤</strong>。</p>
+<p><strong>两种过滤模式的原理：</strong>
+在用户模式和内核模式（驱动程序）中实现网络功能的原理有两个方面。首先，这允许更轻松地调试规则处理代码（在用户模式下调试更简单），因为两种模式都使用相同的代码根据预设规则做出决策。
+其次，WFP 回调是全局的，即无论进程是否在沙箱中，系统上的任何进程都会触发这些回调。在非沙箱进程的情况下，它们不执行任何操作，并且使用哈希映射来识别需要采取行动的沙箱程序可以提供最佳性能。</p>
+<p><strong>结合 WFP 和用户模式过滤：</strong>
+如果为给定进程设置了“阻止互联网访问”并启用了（用于 WFP 的）驱动程序，您可以为该沙箱选择应用哪种方法：使用 WFP 或阻止网络设备。尽管阻止网络设备端点的方法更为绝对，但已知这种方法会导致某些应用程序崩溃。</p>
+<h3 id="wfp_1">WFP 和多个防火墙</h3>
+<p>商业可用的防火墙通过安装过滤规则的 <strong>提供程序</strong> 来实现 Windows 过滤平台（WFP）。有些使用标准的 Windows 防火墙提供程序，而其他的则创建自己的提供程序。有些在用户模式级别使用 WFP（无驱动程序），而其他的则在内核模式下使用 WFP（基于自己的驱动程序）。如果同时安装并激活了多个防火墙，每个驱动程序都会在网络堆栈中它想要控制的位置安装自己的回调函数，然后内核会为所有驱动程序（提供程序）调用这些函数。这会导致每个防火墙设置的规则合并在一起。WFP 中的内置仲裁机制会决定哪些规则具有更高的优先级。有些防火墙建议关闭原生 Windows 防火墙以有效工作，而其他的则即使在 Windows 防火墙激活的情况下也能正常工作。找到自己喜欢的防火墙的用户通常非常不愿意更换。</p>
+<p><strong>Sandboxie Plus 是否与其他防火墙冲突？</strong> 系统上安装的其他防火墙（包括 Windows 防火墙）与 Sandboxie Plus 不冲突，可以用于阻止程序（无论是否在沙箱中），但其规则通常是全局的，并且基于绝对的程序路径。另一方面，Sandboxie Plus 中的 WFP 实现提供了“按沙箱”规则的额外优势，这些规则仅影响给定沙箱内的进程（无需指定程序路径）。例如，Box1 可能允许 Program1 访问网络，而在 Box2 中，同一个 Program1 可能被阻止，或者即使被允许访问网络，也会有不同的网络访问规则。</p>
+<h3 id="sandboxie-plus">在 Sandboxie Plus 中实现网络访问规则</h3>
+<p>Sandman 用户界面为我们提供了一种编辑和测试网络规则的方法。右键单击一个沙箱，然后从下拉菜单中选择“沙箱选项”（或者直接双击一个沙箱）以打开沙箱选项用户界面。然后点击左侧面板中的“网络选项”，并选择“网络防火墙”选项卡。“测试规则”行出现在规则列表下方（规则列表可能已经填充，也可能为空）。您可以输入程序名称、端口号、IP 地址和协议，以查看哪些规则正在起作用，以及最终将应用哪条规则。阻止方式（使用 WFP 或拒绝访问网络设备）的选择在“进程限制”选项卡中进行。</p>
 <p><img alt="" src="../../Media/WFP_Rule_Editor.png" /></p>
-<p>The <strong>attributes</strong> at our disposal (with some examples of syntax) are:</p>
+<p>我们可以使用的 <strong>属性</strong>（附带一些语法示例）如下：</p>
 <ul>
-<li><strong>Action</strong> = <code>Allow</code> | <code>Block</code> (selected from the Network Restrictions tab)</li>
-<li><strong>Program</strong> = <code>program.exe</code></li>
-<li><strong>Port</strong> = <code>80,443,1000-2000</code></li>
-<li><strong>Address</strong> = <code>111.222.333.444,0.0.0.0-255.255.255.255</code></li>
-<li><strong>Protocol</strong> = <code>TCP</code> | <code>UDP</code></li>
+<li><strong>操作</strong> = <code>允许</code> | <code>阻止</code>（从“网络限制”选项卡中选择）</li>
+<li><strong>程序</strong> = <code>program.exe</code></li>
+<li><strong>端口</strong> = <code>80,443,1000-2000</code></li>
+<li><strong>地址</strong> = <code>111.222.333.444,0.0.0.0-255.255.255.255</code></li>
+<li><strong>协议</strong> = <code>TCP</code> | <code>UDP</code></li>
 </ul>
-<p>The following <strong>rules precedence</strong> scheme determines rule hierarchy:</p>
+<p>以下 <strong>规则优先级</strong> 方案确定规则层次结构：</p>
 <ol>
-<li>A rule for a specified program trumps a rule for all programs except a given one, trumps rules for all programs.</li>
+<li>针对指定程序的规则优先于除给定程序外的所有程序的规则，而这些规则又优先于所有程序的规则。</li>
 <li>
-<p>A rule with a Port number or IP address trumps a rule without:</p>
+<p>包含端口号或 IP 地址的规则优先于不包含这些信息的规则：</p>
 <ul>
-<li>2a. A rule with an IP address and Port number trumps a rule with an IP address only or Port number only.</li>
-<li>2b. A rule with one IP address trumps a rule with an IP address range that is besides that on the same level.</li>
+<li>2a. 同时包含 IP 地址和端口号的规则优先于仅包含 IP 地址或仅包含端口号的规则。</li>
+<li>2b. 包含单个 IP 地址的规则优先于包含 IP 地址范围且处于同一层次的规则。</li>
 </ul>
 </li>
 <li>
-<p>Block rules trump Allow rules.</p>
+<p>阻止规则优先于允许规则。</p>
 </li>
 <li>
-<p>A rule without a Protocol means all protocols.</p>
+<p>不包含协议的规则意味着适用于所有协议。</p>
 <ul>
-<li>4a. A rule with a Protocol trumps a rule without, if it is the only difference.</li>
+<li>4a. 如果唯一的区别是是否包含协议，那么包含协议的规则优先于不包含协议的规则。</li>
 </ul>
 </li>
 </ol>
-<p><strong>Some examples:</strong></p>
+<p><strong>一些示例：</strong></p>
 <ul>
 <li>
-<p><code>NetworkAccess=*,Block;Port=80,443</code> - block rule for selected port numbers<br>
-  <code>NetworkAccess=*,Block;Port=80,443;Protocol=TCP</code> - block rule for all TCP connections<br>
-  <code>NetworkAccess=*,Block;Port=80,443;Address=0.0.0.0-255.255.255.255</code> - block rule to deny network access</p>
+<p><code>NetworkAccess=*,Block;Port=80,443</code> - 针对选定端口号的阻止规则<br>
+  <code>NetworkAccess=*,Block;Port=80,443;Protocol=TCP</code> - 针对所有 TCP 连接的阻止规则<br>
+  <code>NetworkAccess=*,Block;Port=80,443;Address=0.0.0.0-255.255.255.255</code> - 拒绝网络访问的阻止规则</p>
 </li>
 <li>
-<p><code>NetworkAccess=*,Allow;Port=80,443;Address=111.222.333.444</code> - allow any program to access this IP address<br>
-  <code>NetworkAccess=chrome.exe,Allow;Port=80,443</code> - allow chrome.exe to access any IP address<br>
-  <code>NetworkAccess=chrome.exe,Allow;Port=80,443;Address=111.222.333.444</code> - allow chrome.exe to access one IP address</p>
+<p><code>NetworkAccess=*,Allow;Port=80,443;Address=111.222.333.444</code> - 允许任何程序访问此 IP 地址<br>
+  <code>NetworkAccess=chrome.exe,Allow;Port=80,443</code> - 允许 chrome.exe 访问任何 IP 地址<br>
+  <code>NetworkAccess=chrome.exe,Allow;Port=80,443;Address=111.222.333.444</code> - 允许 chrome.exe 访问一个 IP 地址</p>
 </li>
 </ul>
-<p><strong>BlockPorts template:</strong></p>
+<p><strong>阻止端口模板：</strong></p>
 <ul>
-<li><code>NetworkAccess=*,Block;Port=137,138,139,445</code> - enabled by default since version <a href="https://github.com/sandboxie-plus/Sandboxie/commit/4420ba4448a797b7369917058c34e8a78c2ec9fc">1.3.4 / 5.58.4</a></li>
+<li><code>NetworkAccess=*,Block;Port=137,138,139,445</code> - 自版本 <a href="https://github.com/sandboxie-plus/Sandboxie/commit/4420ba4448a797b7369917058c34e8a78c2ec9fc">1.3.4 / 5.58.4</a> 起默认启用</li>
 </ul>
 
 

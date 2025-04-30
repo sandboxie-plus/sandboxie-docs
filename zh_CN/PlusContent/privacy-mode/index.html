@@ -18,7 +18,7 @@
     
     
       
-        <title>Privacy Mode - Sandboxie 文档</title>
+        <title>隐私模式 - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#privacy-mode" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Privacy Mode
+              隐私模式
             
           </span>
         </div>
@@ -494,7 +494,7 @@
   
   
   <span class="md-ellipsis">
-    View Menu
+    视图菜单
     
   </span>
   
@@ -586,7 +586,7 @@
   
   
   <span class="md-ellipsis">
-    Tray Icon Menu
+    系统托盘图标菜单
     
   </span>
   
@@ -617,7 +617,7 @@
   
   
   <span class="md-ellipsis">
-    Usage Tips
+    使用提示
     
   </span>
   
@@ -682,7 +682,7 @@
   
   
   <span class="md-ellipsis">
-    Start Command Line
+    启动命令行
     
   </span>
   
@@ -987,7 +987,7 @@
   
   
   <span class="md-ellipsis">
-    Service Programs
+    服务程序
     
   </span>
   
@@ -1033,7 +1033,7 @@
   
   
   <span class="md-ellipsis">
-    Trace logging (for Sandboxie Plus)
+    跟踪日志（适用于 Sandboxie Plus）
     
   </span>
   
@@ -1387,7 +1387,7 @@
   
   
   <span class="md-ellipsis">
-    SBIE Messages
+    SBIE 消息
     
   </span>
   
@@ -4484,7 +4484,7 @@
   
   
   <span class="md-ellipsis">
-    Technical Aspects
+    技术方面
     
   </span>
   
@@ -4526,41 +4526,41 @@
   
 
 
-<h1 id="privacy-mode">Privacy Mode</h1>
-<p><strong>NOTE: This feature requires a <a href="https://sandboxie-plus.com/supporter-certificate/">supporter certificate</a>.</strong></p>
-<p>The concept of privacy mode and privacy enhanced (or Data Protection) boxes was introduced in <strong>Sandboxie Plus v1.0.0</strong>.
-In this mode, most of the locations on a PC are set to be treated like a Write[File/Key]Path, which means the sandboxed locations are writable, but the unsandboxed locations are not readable.
-In addition, the registry does not allow reading of user root keys. In other words, even though sandboxed processes can continue to work, they cannot access private user data.</p>
-<p>The setting for a privacy enhanced box can be enabled by adding <code>UsePrivacyMode=y</code> to the box settings section of <strong><a href="../../Content/SandboxieIni/">Sandboxie Ini</a></strong>. It can also be enabled in the Sandman UI. Right-click on a box and select "Sandbox Options" from the drop-down menu (or simply double-click on a box) to bring up the Box Options UI. Select the box type preset as "Sandbox with Data Protection" (with a <strong>blue</strong> box icon) and click OK to apply changes. The status column of Sandman UI labels this box as <strong>Privacy Enhanced</strong>.</p>
+<h1 id="_1">隐私模式</h1>
+<p><strong>注意：此功能需要 <a href="https://sandboxie-plus.com/supporter-certificate/">支持者证书</a>。</strong></p>
+<p>隐私模式和隐私增强（或数据保护）沙箱的概念在 <strong>Sandboxie Plus v1.0.0</strong> 版本中引入。
+在此模式下，计算机上的大多数位置被设置为像 Write[File/Key]Path 那样处理，这意味着沙箱内的位置可写，但沙箱外的位置不可读。
+此外，注册表不允许读取用户根键。换句话说，即使沙箱内的进程可以继续运行，它们也无法访问用户的私人数据。</p>
+<p>要启用隐私增强沙箱的设置，可以在 <strong><a href="../../Content/SandboxieIni/">Sandboxie 配置文件</a></strong> 的沙箱设置部分添加 <code>UsePrivacyMode=y</code>。也可以在 Sandman 用户界面中启用该设置。右键单击一个沙箱，从下拉菜单中选择“沙箱选项”（或者直接双击一个沙箱），以打开沙箱选项界面。选择沙箱类型预设为“带有数据保护的沙箱”（带有 <strong>蓝色</strong> 沙箱图标），然后点击“确定”应用更改。Sandman 用户界面的状态列会将此沙箱标记为 <strong>隐私增强</strong>。</p>
 <p><img alt="" src="../../Media/Box_PrivacyMode.png" /></p>
-<p><strong>What is User Space?</strong> AppGuard refers to <a href="https://malwaretips.com/threads/run-by-smartscreen-utility.65145/post-561364">user space</a> as "computer storage space that is typically accessible by non-admin Windows users. It contains the user's profile directory (which includes the My Documents folder and Desktop), removable storage devices, network shares, and all non-system hard drives such as additional external and internal disk drives." Think of "user space" as everything outside the <strong>system</strong> (where the core operating system and programs live), in other words, outside the <code>C:\Windows</code>, <code>C:\Program Files</code>, and <code>C:\Program Files (x86)</code> folders!</p>
-<p>Internally, a privacy enhanced box is based on three defaults:</p>
+<p><strong>什么是用户空间？</strong> AppGuard 将 <a href="https://malwaretips.com/threads/run-by-smartscreen-utility.65145/post-561364">用户空间</a> 定义为“通常可供非管理员 Windows 用户访问的计算机存储空间。它包含用户的配置文件目录（包括我的文档文件夹和桌面）、可移动存储设备、网络共享以及所有非系统硬盘，如额外的外部和内部磁盘驱动器”。可以将“用户空间”视为 <strong>系统</strong> 之外的所有内容（即核心操作系统和程序所在的位置之外），换句话说，就是 <code>C:\Windows</code>、<code>C:\Program Files</code> 和 <code>C:\Program Files (x86)</code> 文件夹之外的所有内容！</p>
+<p>从内部实现来看，隐私增强沙箱基于三个默认设置：</p>
 <ol>
 <li>
-<p><strong>Allow read access to system resources:</strong></p>
+<p><strong>允许对系统资源进行读取访问：</strong></p>
 <ul>
 <li><code>C:\Windows</code></li>
 <li><code>C:\Program Files</code></li>
 <li><code>C:\Program Files (x86)</code></li>
-<li><code>C:\ProgramData\Microsoft</code> (since <strong>Sandboxie Plus v1.12.7</strong>)</li>
-<li>Registry resources under HKLM (but not HKCU) are readable and can be sandboxed.</li>
-<li><strong>Note:</strong> The read access provides a good balance between privacy and convenience. One could, of course, drill down to identify selected system resources that may leak private data and further restrict them (using <code>Write[File/Key]Path</code>) if desired.</li>
+<li><code>C:\ProgramData\Microsoft</code>（从 <strong>Sandboxie Plus v1.12.7</strong> 版本开始）</li>
+<li>HKLM（但不包括 HKCU）下的注册表资源是可读的，并且可以进行沙箱化处理。</li>
+<li><strong>注意：</strong> 这种读取访问在隐私和便利性之间取得了良好的平衡。当然，如果需要，用户可以进一步细化，识别出可能泄露私人数据的特定系统资源，并使用 <code>Write[File/Key]Path</code> 进一步限制访问。</li>
 </ul>
 </li>
 <li>
-<p><strong>Hide (and block access to) user space:</strong></p>
+<p><strong>隐藏（并阻止访问）用户空间：</strong></p>
 <ul>
-<li>In user space, a privacy box works in <strong>default block</strong> mode: all drive paths are set to WriteFilePath. This hides all files and folders outside the sandbox, but allows new files and folders to be created in the sandbox (unless specifically allowed by an overriding rule). Access to selected paths is enabled by invoking <a href="../RuleSpecificity/">Rule Specificity</a>.</li>
+<li>在用户空间中，隐私沙箱以 <strong>默认阻止</strong> 模式工作：所有驱动器路径都被设置为 WriteFilePath。这会隐藏沙箱外的所有文件和文件夹，但允许在沙箱内创建新的文件和文件夹（除非有覆盖规则特别允许访问）。可以通过调用 <a href="../RuleSpecificity/">规则特异性</a> 来启用对特定路径的访问。</li>
 </ul>
 </li>
 <li>
-<p><strong>Enable <a href="../RuleSpecificity/">Rule Specificity:</a></strong></p>
+<p><strong>启用 <a href="../RuleSpecificity/">规则特异性：</a></strong></p>
 <ul>
-<li>Internally, rule specificity is <strong>always enabled</strong> in privacy mode. It uses the <strong><a href="../../Content/NormalFilePath/">Normal</a></strong> path directive (<code>Normal[File/Ipc/Key]Path</code>) to open selected locations to be <strong>readable and sandboxed</strong>. Note that setting a path to normal is meaningful only when a parent path was first set to something else, as done in privacy mode. It is thus relevant not only for <strong>blue</strong>  boxes (based on privacy mode) but also for <strong>red</strong> boxes (with both privacy mode <strong>and</strong> <a href="../security-mode/">security mode</a> enabled).</li>
+<li>在内部，隐私模式下 <strong>始终启用</strong> 规则特异性。它使用 <strong><a href="../../Content/NormalFilePath/">普通</a></strong> 路径指令 (<code>Normal[File/Ipc/Key]Path</code>) 来打开特定位置，使其 <strong>可读并可进行沙箱化处理</strong>。请注意，只有当父路径首先被设置为其他值时，将路径设置为普通才有意义，就像在隐私模式中所做的那样。因此，这不仅适用于基于隐私模式的 <strong>蓝色</strong> 沙箱，也适用于同时启用了隐私模式和 <a href="../security-mode/">安全模式</a> 的 <strong>红色</strong> 沙箱。</li>
 </ul>
 </li>
 </ol>
-<p><strong>Recent Changes:</strong> Upon the introduction of privacy mode, a few built-in access rules were offered for some of the more common browsers and applications and these were augmented in later versions. Starting with <strong>Sandboxie Plus v1.8.0</strong>, all built-in access rules have been moved to a set of default templates (included in the file <strong>Templates.ini</strong> under the <code>[TemplatePModPaths]</code> section) for easier management.</p>
+<p><strong>近期更改：</strong> 隐私模式引入后，为一些常见的浏览器和应用程序提供了一些内置访问规则，并且在后续版本中进行了扩展。从 <strong>Sandboxie Plus v1.8.0</strong> 版本开始，所有内置访问规则都已移至一组默认模板中（包含在 <strong>Templates.ini</strong> 文件的 <code>[TemplatePModPaths]</code> 部分），以便于管理。</p>
 
 
 
