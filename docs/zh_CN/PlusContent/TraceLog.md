@@ -1,6 +1,6 @@
 # 跟踪日志（适用于 Sandboxie Plus）
 
-跟踪日志工具会显示在 Sandboxie Plus 监管下运行的程序所访问的任何系统资源的名称。该工具旨在方便识别那些应排除在沙盒化之外的系统资源，可与 [Sandboxie 跟踪](./Content/SandboxieTrace.md) 选项配合使用。
+跟踪日志工具会显示在 Sandboxie Plus 监管下运行的程序所访问的任何系统资源的名称。该工具旨在方便识别那些应排除在沙盒化之外的系统资源，可与 [Sandboxie 跟踪](../Content/SandboxieTrace.md) 选项配合使用。
 
 **重要提示：** 在开启新问题之前，请考虑使用跟踪日志。
 

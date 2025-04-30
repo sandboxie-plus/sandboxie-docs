@@ -1,6 +1,6 @@
 # 规则特异性
 
-在5.55.0版本之前，Sandboxie以非常简单的方式处理规则，某个路径可以是[封闭的](./Content/ClosedFilePath.md)、[只读的](./Content/ReadFilePath.md)、[只写的](./Content/WriteFilePath.md)或[开放的](./Content/OpenFilePath.md)，并且规则应用的优先级是相同的。当一个封闭规则匹配到特定路径时，它会覆盖所有其他规则。
+在5.55.0版本之前，Sandboxie以非常简单的方式处理规则，某个路径可以是[封闭的](../Content/ClosedFilePath.md)、[只读的](../Content/ReadFilePath.md)、[只写的](../Content/WriteFilePath.md)或[开放的](../Content/OpenFilePath.md)，并且规则应用的优先级是相同的。当一个封闭规则匹配到特定路径时，它会覆盖所有其他规则。
 
 从1.0.0版本开始，Sandboxie-Plus引入了一种新的机制来评估和应用规则，该机制基于规则的特异性和匹配级别。
 
@@ -8,4 +8,4 @@
 
 进程匹配级别比特异性具有更高的优先级，它描述了规则如何应用于给定进程。按进程名称或组应用的规则具有最强的匹配级别，其次是按否定方式匹配的规则（即应用于除给定进程之外的所有进程的规则），而全局匹配（即适用于任何进程的规则）具有最低的匹配级别。
 
-为此功能，引入了一种新的路径指令类型[正常的](./Content/NormalFilePath.md)，它允许为其父路径已设置为上述四种类型之一的路径恢复默认的沙盒行为。
+为此功能，引入了一种新的路径指令类型[正常的](../Content/NormalFilePath.md)，它允许为其父路径已设置为上述四种类型之一的路径恢复默认的沙盒行为。

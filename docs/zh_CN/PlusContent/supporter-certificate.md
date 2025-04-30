@@ -2,7 +2,7 @@
 
 让 Sandboxie 与 Windows 的滚动更新保持同步，并与所有网页浏览器兼容，这是一项永无止境的工作。请考虑通过 [PayPal 捐赠](https://sandboxie-plus.com/go.php?to=donate) 来支持这项工作，或者购买 [Sandboxie Plus 支持者证书](https://sandboxie-plus.com/go.php?to=sbie-get-cert)，你也可以通过 [Patreon 订阅](https://sandboxie-plus.com/go.php?to=patreon) 提供持续支持。
 
-支持者证书可让你使用新的仅限支持者的功能，如 [隐私模式](./PlusContent/zh_CN/privacy-mode.md) 或 [应用隔离箱](./PlusContent/compartment-mode.md)，更多详情和证书选项请参阅 [功能比较表](https://sandboxie-plus.com/feature-comparison/)。
+支持者证书可让你使用新的仅限支持者的功能，如 [隐私模式](./PlusContent/privacy-mode.md) 或 [应用隔离箱](./PlusContent/compartment-mode.md)，更多详情和证书选项请参阅 [功能比较表](https://sandboxie-plus.com/feature-comparison/)。
 
 **请注意，在商业或教育环境中使用 Sandboxie Plus 需要 [商业证书](https://xanasoft.com/product/sandboxie-plus-business/)！**
 
