@@ -2,7 +2,7 @@
 
 ### 应用程序设置组
 
-[沙盒控制](SandboxieControl.md) > [沙盒设置](SandboxSettings.md) > 应用程序
+[沙箱控制](SandboxieControl.md) > [沙箱设置](SandboxSettings.md) > 应用程序
 
 ![](../Media/ApplicationsSettings.png)
 
@@ -12,7 +12,7 @@
 
 ### Web 浏览器
 
-[沙盒控制](SandboxieControl.md) > [沙盒设置](SandboxSettings.md) > 应用程序 > Web 浏览器
+[沙箱控制](SandboxieControl.md) > [沙箱设置](SandboxSettings.md) > 应用程序 > Web 浏览器
 
 该设置子组本身又分为三个子组
 
@@ -33,22 +33,22 @@
 
 此设置页面为以下浏览器提供快速配置：Internet Explorer、Mozilla Firefox 和 SeaMonkey、Opera Web 浏览器、Maxthon 2 以及 Google Chrome。
 
-请选择（高亮）所需的配置，并点击 _Add_ 按钮，以便为该沙盒启用相应设置。如果你的网页浏览器数据（配置文件）文件夹使用了非默认位置，请务必访问 [应用程序 > 文件夹](ApplicationsSettings.md#folders) 设置页面，指定备用位置。
+请选择（高亮）所需的配置，并点击 _Add_ 按钮，以便为该沙箱启用相应设置。如果你的网页浏览器数据（配置文件）文件夹使用了非默认位置，请务必访问 [应用程序 > 文件夹](ApplicationsSettings.md#folders) 设置页面，指定备用位置。
 
 Internet Explorer 设置页面上的两个特殊设置：
 
-*   沙盒外保存：搜索字符串历史记录和已调用命令的历史<br>
+*   沙箱外保存：搜索字符串历史记录和已调用命令的历史<br>
 如需详细信息，请参阅 [Sandboxie Ini](SandboxieIni.md) 设置项：[打开受保护存储](OpenProtectedStorage.md)
 
-*   ~~沙盒外保存：Hotmail 和 Messenger 的账户信息~~（自 Sandboxie v0.8.0 / 5.50.0 起已不再提供）<br>
+*   ~~沙箱外保存：Hotmail 和 Messenger 的账户信息~~（自 Sandboxie v0.8.0 / 5.50.0 起已不再提供）<br>
 如需详细信息，请参阅 [Sandboxie Ini](SandboxieIni.md) 设置项：[OpenCredentials](OpenCredentials.md)
-*   另请参阅 [Internet Explorer 技巧中的沙盒外保存](InternetExplorerTips.md#save-outside-sandbox)，获取更多信息与建议
+*   另请参阅 [Internet Explorer 技巧中的沙箱外保存](InternetExplorerTips.md#save-outside-sandbox)，获取更多信息与建议
 
 * * *
 
 #### 邮件阅读器
 
-[沙盒控制](SandboxieControl.md) > [沙盒设置](SandboxSettings.md) > 应用程序 > 邮件阅读器
+[沙箱控制](SandboxieControl.md) > [沙箱设置](SandboxSettings.md) > 应用程序 > 邮件阅读器
 
 ![](../Media/EmailReaderSettings.png)
 
@@ -72,11 +72,11 @@ Internet Explorer 设置页面上的两个特殊设置：
 * 如果您的邮箱存放在非默认或非常规位置
 * 如果您使用 Eudora 或 The-Bat! 电子邮件软件
 
-为此，请打开 [沙盒设置 > 应用程序 > 文件夹](ApplicationsSettings.md#folders)，从下拉列表中选择您的电子邮件软件，然后选择要与其关联的文件夹位置
+为此，请打开 [沙箱设置 > 应用程序 > 文件夹](ApplicationsSettings.md#folders)，从下拉列表中选择您的电子邮件软件，然后选择要与其关联的文件夹位置
 
 完成邮箱配置后，您可能需要进行测试，以确保即使在 Sandboxie 下运行时，新邮件在删除沙箱后也不会丢失。请按照 [测试邮件配置](TestEmailConfiguration.md) 中的步骤进行操作
 
-如果您的电子邮件程序未被 Sandboxie 识别，您可以通过 [沙盒设置 > 资源访问 > 文件访问 > 直接访问](ResourceAccessSettings.md#file-access--direct-access) 显式添加对存放邮箱数据文件的文件夹的直接访问权限
+如果您的电子邮件程序未被 Sandboxie 识别，您可以通过 [沙箱设置 > 资源访问 > 文件访问 > 直接访问](ResourceAccessSettings.md#file-access--direct-access) 显式添加对存放邮箱数据文件的文件夹的直接访问权限
 
 另请参阅消息 [SBIE2212](SBIE2212.md)、[邮件保护](EmailProtection.md) 和 [常见问题 邮件](FAQEmail.md)
 
@@ -88,16 +88,16 @@ Internet Explorer 设置页面上的两个特殊设置：
 
 选择（高亮）所需的配置后，点击 _打开网站_ 按钮，可访问由 Sandboxie 识别的特定程序的厂商网站。
 
-选择（高亮）所需的配置后，点击 _Add_ 按钮，即可为此沙盒启用该配置。在某些情况下，你还需要指定第三方软件所使用的数据文件位置。请使用 [应用程序 > 文件夹](ApplicationsSettings.md#folders) 设置页面，指定其他位置
+选择（高亮）所需的配置后，点击 _Add_ 按钮，即可为此沙箱启用该配置。在某些情况下，你还需要指定第三方软件所使用的数据文件位置。请使用 [应用程序 > 文件夹](ApplicationsSettings.md#folders) 设置页面，指定其他位置
 * * *
 
 #### 本地
 
-[沙盒控制](SandboxieControl.md) > [沙盒设置](SandboxSettings.md) > 应用程序 > 本地
+[沙箱控制](SandboxieControl.md) > [沙箱设置](SandboxSettings.md) > 应用程序 > 本地
 
 ![](../Media/LocalApplicationsSettings.png)
 
-可以使用本设置页面，将您自定义的设置作为应用程序配置包输入，以便在特定沙盒中轻松启用或禁用。
+可以使用本设置页面，将您自定义的设置作为应用程序配置包输入，以便在特定沙箱中轻松启用或禁用。
 
 有关设计自定义应用程序配置包或模板的更多信息，请查阅 Sandboxie 安装目录下的 _Templates.ini_ 文件。
 
@@ -105,18 +105,18 @@ Internet Explorer 设置页面上的两个特殊设置：
 
 #### 文件夹
 
-[沙盒控制](SandboxieControl.md) > [沙盒设置](SandboxSettings.md) > 应用程序 > 文件夹
+[沙箱控制](SandboxieControl.md) > [沙箱设置](SandboxSettings.md) > 应用程序 > 文件夹
 
 ![](../Media/FolderApplicationsSettings.png)
 
-可以使用本设置页面，指定已在沙盒中启用（或添加）的应用程序所使用的数据文件的任何备用（非默认）文件夹位置。
+可以使用本设置页面，指定已在沙箱中启用（或添加）的应用程序所使用的数据文件的任何备用（非默认）文件夹位置。
 
 首先，选择（高亮）所需应用程序，然后单击 _Add_ 按钮以指定备用位置
 * * *
 
 #### 辅助功能设置
 
-[沙盒控制](SandboxieControl.md) > [沙盒设置](SandboxSettings.md) > 应用程序 > 辅助功能
+[沙箱控制](SandboxieControl.md) > [沙箱设置](SandboxSettings.md) > 应用程序 > 辅助功能
 
 ![](../Media/AccessibilitySettings.png)
 
@@ -129,8 +129,8 @@ Internet Explorer 设置页面上的两个特殊设置：
 
 Windows 的辅助功能支持允许任意程序提供其正在显示内容的提示和信息。屏幕阅读软件通常利用这些提示，为用户提供关于屏幕内容的更多细节。
 
-通常情况下，Sandboxie 的隔离机制会阻止屏幕阅读器访问沙盒内程序提供的辅助功能提示。
+通常情况下，Sandboxie 的隔离机制会阻止屏幕阅读器访问沙箱内程序提供的辅助功能提示。
 
-启用此设置后，会削弱 Sandboxie 的防护，以便允许屏幕阅读程序与沙盒内程序进行双向通信。
+启用此设置后，会削弱 Sandboxie 的防护，以便允许屏幕阅读程序与沙箱内程序进行双向通信。
 
-您可以启用 [沙盒设置 > 限制 > 降低权限](RestrictionsSettings.md#drop-rights) 来补偿失去的防护能力。
+您可以启用 [沙箱设置 > 限制 > 降低权限](RestrictionsSettings.md#drop-rights) 来补偿失去的防护能力。

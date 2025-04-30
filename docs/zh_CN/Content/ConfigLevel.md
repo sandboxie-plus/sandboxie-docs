@@ -2,9 +2,9 @@
 
 **注意：在 Sandboxie 3.xx 版本之前，ConfigLevel 是 [GlobalSettings] 部分的全局设置。全局 ConfigLevel 设置现已不再使用，如果配置文件中存在则会被忽略。**
 
-_ConfigLevel_ 是 [Sandboxie Ini](SandboxieIni.md) 中的沙盒设置，由 [沙盒控制](SandboxieControl.md) 用于管理沙盒的默认配置。
+_ConfigLevel_ 是 [Sandboxie Ini](SandboxieIni.md) 中的沙箱设置，由 [沙箱控制](SandboxieControl.md) 用于管理沙箱的默认配置。
 
-当 ConfigLevel 缺失、不是数字或数字低于 9 时，沙盒控制 会向沙盒添加以下配置：
+当 ConfigLevel 缺失、不是数字或数字低于 9 时，沙箱控制 会向沙箱添加以下配置：
 
 ```
    .

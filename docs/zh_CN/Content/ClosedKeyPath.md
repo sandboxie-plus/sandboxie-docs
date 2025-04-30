@@ -22,6 +22,6 @@ _ClosedKeyPath_ 指定的值可以包含通配符，尽管对于注册表键而�
 
 **注意：** 与对应的 [开放注册表路径](OpenKeyPath.md) 设置不同，_ClosedKeyPath_ 设置始终应用于沙箱中的程序，无论该程序的可执行文件是在沙箱内还是沙箱外。
 
-相关的 [沙盒控制](SandboxieControl.md) 设置: [沙盒设置 > 资源访问 > 注册表访问 > 封禁](ResourceAccessSettings.md#registry-access--blocked-access)
+相关的 [沙箱控制](SandboxieControl.md) 设置: [沙箱设置 > 资源访问 > 注册表访问 > 封禁](ResourceAccessSettings.md#registry-access--blocked-access)
 
 相关的 Sandboxie Plus 设置：沙箱选项 > 资源访问 > 注册表 > 添加注册表键 > 访问列 > 封禁

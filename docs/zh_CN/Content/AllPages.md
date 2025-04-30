@@ -48,15 +48,15 @@
 
 [边框颜色](BorderColor.md)
 
-[沙盒加密](../PlusContent/BoxEncryption.md)
+[沙箱加密](../PlusContent/BoxEncryption.md)
 
-[沙盒名称标题](BoxNameTitle.md)
+[沙箱名称标题](BoxNameTitle.md)
 
-[沙盒预设对比](../PlusContent/box-preset-comparison.md)
+[沙箱预设对比](../PlusContent/box-preset-comparison.md)
 
-~~[沙盒根文件夹](BoxRootFolder.md)~~（自 Sandboxie v3.xx 起弃用）
+~~[沙箱根文件夹](BoxRootFolder.md)~~（自 Sandboxie v3.xx 起弃用）
 
-[沙盒快照](../PlusContent/BoxSnapshots.md)
+[沙箱快照](../PlusContent/BoxSnapshots.md)
 
 [分离文档](BreakoutDocument.md)
 
@@ -84,7 +84,7 @@
 
 [隔离区模式](../PlusContent/compartment-mode.md)
 
-[加密沙盒](ConfidentialBox.md)
+[加密沙箱](ConfidentialBox.md)
 
 [配置级别](ConfigLevel.md)
 
@@ -96,13 +96,13 @@
 
 [复制限制静默](CopyLimitSilent.md)
 
-[覆盖沙盒窗口](CoverBoxedWindows.md)
+[覆盖沙箱窗口](CoverBoxedWindows.md)
 
 ### D
 
 [删除命令](DeleteCommand.md)
 
-[删除沙盒](DeleteSandbox.md)
+[删除沙箱](DeleteSandbox.md)
 
 [删除设置](DeleteSettings.md)
 
@@ -190,7 +190,7 @@
 
 [隐藏消息](SbieCtrl_HideMessage.md)
 
-[隐藏其他沙盒](HideOtherBoxes.md)
+[隐藏其他沙箱](HideOtherBoxes.md)
 
 [工作原理](HowitWorks.md)
 
@@ -292,7 +292,7 @@
 
 [弹出消息日志](PopupMessageLog.md)
 
-[便携式沙盒](PortableSandbox.md)
+[便携式沙箱](PortableSandbox.md)
 
 [隐私问题](PrivacyConcerns.md)
 
@@ -354,15 +354,15 @@
 
 ### S
 
-[沙盒层级](SandboxHierarchy.md)
+[沙箱层级](SandboxHierarchy.md)
 
-[沙盒菜单](SandboxMenu.md)
+[沙箱菜单](SandboxMenu.md)
 
-[沙盒设置](SandboxSettings.md)
+[沙箱设置](SandboxSettings.md)
 
 [Sandboxie](Sandboxie.md)
 
-[沙盒控制](SandboxieControl.md)
+[沙箱控制](SandboxieControl.md)
 
 [Sandboxie Ini](SandboxieIni.md)
 
@@ -650,7 +650,7 @@
 
 [SBIE9305](SBIE9305.md)
 
-[安全删除沙盒](SecureDeleteSandbox.md)
+[安全删除沙箱](SecureDeleteSandbox.md)
 
 [安全模式](../PlusContent/security-mode.md)
 
@@ -660,7 +660,7 @@
 
 [Shell 文件夹](ShellFolders.md)
 
-[在“运行沙盒”中显示](ShowForRunIn.md)
+[在“运行沙箱”中显示](ShowForRunIn.md)
 
 [启动命令行](StartCommandLine.md)
 
@@ -688,7 +688,7 @@
 
 [使用技巧](UsageTips.md)
 
-[USB 沙盒化](../PlusContent/USBSandboxing.md)
+[USB 沙箱化](../PlusContent/USBSandboxing.md)
 
 [使用隐私模式](UsePrivacyMode.md)
 

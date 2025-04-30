@@ -14,7 +14,7 @@
 
 [阻止 WinHooks](BlockWinHooks.md) （在开源发布前已移除）
 
-[沙盒根文件夹](BoxRootFolder.md) （已弃用）
+[沙箱根文件夹](BoxRootFolder.md) （已弃用）
 
 [字节顺序标记](ByteOrderMark.md) （已移除）
 

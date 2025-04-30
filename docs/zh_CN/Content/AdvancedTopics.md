@@ -1,6 +1,6 @@
 # 高级主题
 
-[沙盒层级结构](SandboxHierarchy.md) 介绍了 Sandboxie 如何隔离程序
+[沙箱层级结构](SandboxHierarchy.md) 介绍了 Sandboxie 如何隔离程序
 
 在 Sandboxie 下运行程序的[隐私问题](PrivacyConcerns.md)
 
