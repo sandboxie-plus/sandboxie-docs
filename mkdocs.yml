@@ -3,7 +3,7 @@ site_name: Sandboxie Documentation
 site_url: https://sandboxie-plus.github.io/sandboxie-docs/
 
 # Do not remove it, it is required for the preparation phase in publish.yml
-exclude_docs: zh_CN/
+exclude_docs: zh-CN/
 
 # Repository
 repo_name: sandboxie-plus/sandboxie-docs
@@ -383,7 +383,7 @@ extra:
       lang: en
     # Chinese (Simplified)
     - name: 简体中文
-      link: /sandboxie-docs/zh_CN/
+      link: /sandboxie-docs/zh-CN/
       lang: zh
     # # Arabic
     # - name: العَرَبِيَّة
