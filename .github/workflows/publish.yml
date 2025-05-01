@@ -16,15 +16,15 @@ jobs:
       with:
         fetch-depth: 0
 
-    # Prepare zh/zh_CN directories
-    - name: Prepare zh/zh_CN directories
+    # Prepare zh/zh-CN directories
+    - name: Prepare zh/zh-CN directories
       shell: pwsh
       run: |
-        # Copy MD files from Content and PlusContent to zh_CN if they don't exist
+        # Copy MD files from Content and PlusContent to zh-CN if they don't exist
         $sourceContent = "./docs/Content"
         $sourcePlusContent = "./docs/PlusContent"
-        $targetContent = "./docs/zh_CN/Content"
-        $targetPlusContent = "./docs/zh_CN/PlusContent"
+        $targetContent = "./docs/zh-CN/Content"
+        $targetPlusContent = "./docs/zh-CN/PlusContent"
 
         # Create target directories if they don't exist
         if (!(Test-Path $targetContent)) { New-Item -ItemType Directory -Path $targetContent }
@@ -56,12 +56,12 @@ jobs:
         if (Test-Path "./docs/zh") {
             Remove-Item -Recurse -Force "./docs/zh"
         }
-        # Copy zh_CN to zh
-        if (Test-Path "./docs/zh_CN") {
-            Copy-Item -Recurse -Path "./docs/zh_CN" -Destination "./docs/zh"
+        # Copy zh-CN to zh
+        if (Test-Path "./docs/zh-CN") {
+            Copy-Item -Recurse -Path "./docs/zh-CN" -Destination "./docs/zh"
         }
         else {
-            Write-Error "zh_CN directory not found!"
+            Write-Error "zh-CN directory not found!"
             exit 1
         }
 
@@ -88,18 +88,18 @@ jobs:
             # }
         # }
 
-        # Rename zh to zh_CN in the final site directory
+        # Rename zh to zh-CN in the final site directory
         $zhDirs = Get-ChildItem site -Recurse -Directory | Where-Object { $_.Name -eq "zh" }
         foreach ($dir in $zhDirs) {
-            $newPath = Join-Path $dir.Parent.FullName "zh_CN"
-            Rename-Item -Path $dir.FullName -NewName "zh_CN"
+            $newPath = Join-Path $dir.Parent.FullName "zh-CN"
+            Rename-Item -Path $dir.FullName -NewName "zh-CN"
         }
 
         # Update references in HTML files
         $htmlFiles = Get-ChildItem site -Recurse -Filter "*.html"
         foreach ($file in $htmlFiles) {
             $content = Get-Content $file -Raw
-            $updatedContent = $content -replace '/zh/', '/zh_CN/'
+            $updatedContent = $content -replace '/zh/', '/zh-CN/'
             if ($content -ne $updatedContent) {
                 Set-Content $file $updatedContent
             }
@@ -111,7 +111,7 @@ jobs:
         # Write-Host "Found $($lunrFiles.Count) lunr.zh.min.js files"
         
         # foreach ($lunrFile in $lunrFiles) {
-            # $newPath = Join-Path $lunrFile.Directory.FullName "lunr.zh_CN.min.js"
+            # $newPath = Join-Path $lunrFile.Directory.FullName "lunr.zh-CN.min.js"
             # Write-Host "Copying $($lunrFile) to $newPath"
             # Copy-Item -Path $lunrFile -Destination $newPath
         # }
@@ -129,9 +129,9 @@ jobs:
                 
                 # # Check and update lang array in config
                 # if ($jsonContent.config -and $jsonContent.config.lang -contains "zh") {
-                    # Write-Host "Found 'zh' in lang array, updating to 'zh_CN'"
+                    # Write-Host "Found 'zh' in lang array, updating to 'zh-CN'"
                     # $jsonContent.config.lang = $jsonContent.config.lang | ForEach-Object {
-                        # if ($_ -eq "zhXX") { "zh_CN" } else { $_ }
+                        # if ($_ -eq "zhXX") { "zh-CN" } else { $_ }
                     # }
                     
                     # # Convert back to JSON and save
@@ -154,13 +154,13 @@ jobs:
             
             # Update references in sitemap.xml
             $content = Get-Content $sitemap -Raw
-            $updatedContent = $content -replace '/zh/', '/zh_CN/'
+            $updatedContent = $content -replace '/zh/', '/zh-CN/'
             
             if ($content -ne $updatedContent) {
-                Write-Host "Updated zh→zh_CN references in $($sitemap)"
+                Write-Host "Updated zh→zh-CN references in $($sitemap)"
                 $updatedContent | Set-Content $sitemap
             } else {
-                Write-Host "No zh→zh_CN references found in $($sitemap)"
+                Write-Host "No zh→zh-CN references found in $($sitemap)"
             }
             
             # Process corresponding .gz file
