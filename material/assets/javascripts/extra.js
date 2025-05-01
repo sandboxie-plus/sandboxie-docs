@@ -30,8 +30,8 @@ document.addEventListener("DOMContentLoaded", function() {
   const replaceZhUrls = () => {
     const links = document.querySelectorAll(TARGET_LINKS);
     links.forEach(link => {
-      if (!link.href.includes("/zh_CN/")) { // Avoid double-processing
-        link.href = link.href.replace('/zh/', '/zh_CN/');
+      if (!link.href.includes("/zh-CN/")) { // Avoid double-processing
+        link.href = link.href.replace('/zh/', '/zh-CN/');
       }
     });
   };
