@@ -16,11 +16,13 @@ function load_navpane() {
 document.addEventListener("DOMContentLoaded", load_navpane);
 
 // AI
-// Replace search links /zh/ to /zh_CN/
+// Replace search links zh to zh-CN
 document.addEventListener("DOMContentLoaded", function() {
+  const DIR_ZH = '/zh/';
+  const DIR_ZHCN = '/zh-CN/';
   const SEARCH_SELECTOR = '[data-md-component="search"]';
   const RESULTS_SELECTOR = '.md-search-result';
-  const TARGET_LINKS = '.md-search-result__link[href*="/zh/"]';
+  const TARGET_LINKS = `.md-search-result__link[href*="${DIR_ZH}"]`;
 
   // Check if search exists
   const searchComponent = document.querySelector(SEARCH_SELECTOR);
@@ -30,8 +32,8 @@ document.addEventListener("DOMContentLoaded", function() {
   const replaceZhUrls = () => {
     const links = document.querySelectorAll(TARGET_LINKS);
     links.forEach(link => {
-      if (!link.href.includes("/zh-CN/")) { // Avoid double-processing
-        link.href = link.href.replace('/zh/', '/zh-CN/');
+      if (!link.href.includes(DIR_ZHCN)) { // Avoid double-processing
+        link.href = link.href.replace(DIR_ZH, DIR_ZHCN);
       }
     });
   };
