@@ -81,16 +81,71 @@ jobs:
       shell: pwsh
       run: |-
         python -m mkdocs build
-        # python -m mkdocs build --no-directory-urls --site-dir site_
-
-        # # Process the final site directory (not site_)
-        # foreach ($file in Get-ChildItem site -Recurse -File) {
-            # $rp = Resolve-Path -Relative $file -RelativeBasePath site
-            # $match_path = Join-Path "./site" $rp
-            # if (!(Test-Path $match_path)) {
-                # Copy-Item $file $match_path
-            # }
-        # }
+        python -m mkdocs build --no-directory-urls --site-dir site_
+        
+        # Process HTML files in both root and /zh language folders
+        $languagePaths = "", "zh"  # "" for root, "zh" for Chinese
+        $contentFolders = "Content", "PlusContent"
+        
+        Write-Host "=== Starting file copy process ===" -ForegroundColor Cyan
+        
+        foreach ($lang in $languagePaths) {
+            foreach ($folder in $contentFolders) {
+                # Construct source and destination paths
+                $sourcePath = if ($lang) { Join-Path "site_" $lang | Join-Path -ChildPath $folder } 
+                             else { Join-Path "site_" $folder }
+                
+                $destPath = if ($lang) { Join-Path "./site" $lang | Join-Path -ChildPath $folder } 
+                           else { Join-Path "./site" $folder }
+        
+                Write-Host "`nProcessing folder: $sourcePath" -ForegroundColor Yellow
+                Write-Host "Destination folder: $destPath" -ForegroundColor Yellow
+        
+                # Skip if source doesn't exist
+                if (!(Test-Path $sourcePath)) {
+                    Write-Host "Source path not found. Skipping." -ForegroundColor DarkYellow
+                    continue
+                }
+        
+                # Get all HTML files
+                $htmlFiles = Get-ChildItem -Path $sourcePath -Filter "*.html" -Recurse -File
+        
+                if ($htmlFiles.Count -eq 0) {
+                    Write-Host "No HTML files found." -ForegroundColor DarkYellow
+                    continue
+                }
+        
+                Write-Host "Found $($htmlFiles.Count) HTML files to process" -ForegroundColor Green
+        
+                foreach ($file in $htmlFiles) {
+                    # Get relative path (e.g., "subdir/file.html") from source folder
+                    $relativePath = $file.FullName.Substring((Resolve-Path $sourcePath).Path.Length + 1)
+                    $destinationFile = Join-Path $destPath $relativePath
+        
+                    Write-Host "`n[File] Source: $($file.FullName)" -ForegroundColor Gray
+                    Write-Host "       Destination: $destinationFile" -ForegroundColor Gray
+        
+                    # Ensure destination directory exists
+                    $destinationDir = [System.IO.Path]::GetDirectoryName($destinationFile)
+                    if (!(Test-Path $destinationDir)) {
+                        Write-Host "Creating directory: $destinationDir" -ForegroundColor Blue
+                        New-Item -ItemType Directory -Path $destinationDir -Force | Out-Null
+                    }
+        
+                    # Copy file
+                    Write-Host "Copying file..." -ForegroundColor DarkCyan
+                    Copy-Item -Path $file.FullName -Destination $destinationFile -Force
+        
+                    if (Test-Path $destinationFile) {
+                        Write-Host "Successfully copied." -ForegroundColor Green
+                    } else {
+                        Write-Host "Failed to copy!" -ForegroundColor Red
+                    }
+                }
+            }
+        }
+        
+        Write-Host "`n=== Copy process completed ===" -ForegroundColor Cyan
 
         # Rename target language directory to source language directory in the final site directory
         $langDirs = Get-ChildItem site -Recurse -Directory | Where-Object { $_.Name -eq "$env:DIR_ZH" }
