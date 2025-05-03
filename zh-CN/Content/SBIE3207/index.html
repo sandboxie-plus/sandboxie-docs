@@ -4545,18 +4545,18 @@
 
 
 <h1 id="sbie3207">SBIE3207</h1>
-<p><strong>Message:</strong> SBIE3207 Cannot find the Internet Explorer executable</p>
-<p><strong>Logged To:</strong> <a href="../PopupMessageLog/">Popup Message Log</a>.</p>
-<p><strong>Explanation:</strong></p>
-<p>The Sandboxie Start.exe program attempts to identify the location for Internet Explorer executable program file by looking at information contained under the following registry key:
+<p><strong>消息：</strong> SBIE3207 找不到 Internet Explorer 可执行文件</p>
+<p><strong>记录位置：</strong> <a href="../PopupMessageLog/">弹出消息日志</a>。</p>
+<p><strong>解释：</strong></p>
+<p>Sandboxie Start.exe 程序会尝试通过查看以下注册表项中的信息来确定 Internet Explorer 可执行程序文件的位置：
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span><span class="na">HKEY_CLASSES_ROOT\Applications\iexplore.exe</span>
 </span></code></pre></div></p>
-<p>Typically, the information is contained in the default value of this registry key:
+<p>通常，此信息包含在该注册表项的默认值中：
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">    </span><span class="na">HKEY_CLASSES_ROOT\Applications\iexplore.exe\shell\open\command</span>
 </span></code></pre></div></p>
-<p>This error message indicates that the required information could not be extracted from the registry.</p>
-<p><strong>Resolution:</strong></p>
-<p>Consider working around this problem by using the <a href="../ConfigureMenu/#windows-shell-integration">Add Shortcut Icons</a> function in <a href="../SandboxieControl/">Sandboxie Control</a> to create a shortcut directly to Internet Explorer.</p>
+<p>此错误消息表明无法从注册表中提取所需信息。</p>
+<p><strong>解决方法：</strong></p>
+<p>考虑通过使用 <a href="../SandboxieControl/">Sandboxie 控制</a> 中的 <a href="../ConfigureMenu/#windows-shell-integration">添加快捷方式图标</a> 功能直接创建指向 Internet Explorer 的快捷方式来解决此问题。</p>
 
 
 

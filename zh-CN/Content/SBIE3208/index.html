@@ -4545,23 +4545,23 @@
 
 
 <h1 id="sbie3208">SBIE3208</h1>
-<p><strong>Message:</strong> SBIE3208 Cannot find the executable for the default Web browser</p>
-<p><strong>Logged To:</strong> <a href="../PopupMessageLog/">Popup Message Log</a>.</p>
-<p><strong>Explanation:</strong></p>
-<p>The Sandboxie Start.exe program attempts to identify the location for the Web browser executable program file by looking at information contained under the following registry key:
+<p><strong>消息：</strong> SBIE3208 找不到默认 Web 浏览器的可执行文件</p>
+<p><strong>记录位置：</strong> <a href="../PopupMessageLog/">弹出消息日志</a>。</p>
+<p><strong>解释：</strong></p>
+<p>Sandboxie Start.exe 程序试图通过查看以下注册表项中的信息来确定 Web 浏览器可执行程序文件的位置：
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span><span class="na">HKEY_CLASSES_ROOT\.html</span>
 </span></code></pre></div></p>
-<p>Typically, that registry key points to further information to be found in the following registry key:
+<p>通常，该注册表项会指向以下注册表项中的更多信息：
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">    </span><span class="na">HKEY_CLASSES_ROOT\htmlfile</span>
 </span></code></pre></div></p>
-<p>And the actual information comes from either of these registry keys:
+<p>而实际信息来自以下两个注册表项之一：
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">    </span><span class="na">HKEY_CLASSES_ROOT\htmlfile\shell\opennew\command</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="na">HKEY_CLASSES_ROOT\htmlfile\shell\open\command</span>
 </span></code></pre></div></p>
-<p>This error message indicates that the required information could not be extracted from the registry.</p>
-<p><strong>Resolution:</strong></p>
-<p>It may be possible to fix this problem by forcing your web browser to reset itself as the default web browser for the system. Different browsers provide this feature in different ways, so please consult the documentation for your particular web browser.</p>
-<p>Alternatively, consider working around this problem by using the <a href="../ConfigureMenu/#windows-shell-integration">Add Shortcut Icons</a> function in <a href="../SandboxieControl/">Sandboxie Control</a> to create a shortcut directly to the web browser program.</p>
+<p>此错误消息表明无法从注册表中提取所需信息。</p>
+<p><strong>解决方法：</strong></p>
+<p>可以尝试通过强制您的 Web 浏览器将自身重置为系统的默认 Web 浏览器来解决此问题。不同的浏览器提供此功能的方式不同，因此请查阅您所使用的特定 Web 浏览器的文档。</p>
+<p>或者，考虑使用 <a href="../SandboxieControl/">Sandboxie 控制</a> 中的 <a href="../ConfigureMenu/#windows-shell-integration">添加快捷方式图标</a> 功能直接创建指向 Web 浏览器程序的快捷方式，以绕过此问题。</p>
 
 
 
