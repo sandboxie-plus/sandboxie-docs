@@ -4545,14 +4545,14 @@
 
 
 <h1 id="sbie2111">SBIE2111</h1>
-<p><strong>Message:</strong> SBIE2111 Process is not accessible: <em>program</em>, call <em>call</em></p>
-<p><strong>Logged To:</strong> <a href="../PopupMessageLog/">Popup Message Log</a>.</p>
-<p><strong>Explanation:</strong></p>
-<p>This is an informational message.</p>
-<p>Before v1.0.16 / 5.55.16, Sandboxie allowed sandboxed programs to read the memory of any unsandboxed program belonging to the current user, this is obviously a bad idea if your goals is not only infection prevention but also data protection. Hence, from v1.0.16 / 5.55.16 onwards Sandboxie will not allow for <em>PROCESS_VM_READ</em> on unsandboxed processes or processes belonging to other sandboxes.
-To facilitate compatibility, this build introduces a <a href="../ReadIpcPath/">ReadIpcPath</a> sandbox setting.</p>
-<p>Related Sandboxie Plus setting: Sandbox Options &gt; General Options &gt; Restrictions &gt; Other restrictions &gt; Issue message 2111 when a process access is denied</p>
-<p>See also: <a href="../NotifyProcessAccessDenied/">Notify Process Access Denied</a>.</p>
+<p><strong>消息：</strong> SBIE2111 进程不可访问：<em>program</em>，调用 <em>call</em></p>
+<p><strong>记录位置：</strong> <a href="../PopupMessageLog/">弹出消息日志</a>。</p>
+<p><strong>解释：</strong></p>
+<p>这是一条信息性消息。</p>
+<p>在 v1.0.16 / 5.55.16 版本之前，沙盘允许沙箱内的程序读取当前用户所属的任何未在沙箱内运行的程序的内存。如果你的目标不仅是防止感染，还包括数据保护，那么这显然不是一个好做法。因此，从 v1.0.16 / 5.55.16 版本开始，沙盘将不允许对未在沙箱内运行的进程或属于其他沙箱的进程进行 <em>PROCESS_VM_READ</em> 操作。
+为了提高兼容性，此版本引入了一个 <a href="../ReadIpcPath/">ReadIpcPath</a> 沙箱设置。</p>
+<p>相关的沙盘增强版设置：沙箱选项 &gt; 常规选项 &gt; 限制 &gt; 其他限制 &gt; 当进程访问被拒绝时发出消息 2111</p>
+<p>另请参阅：<a href="../NotifyProcessAccessDenied/">通知进程访问被拒绝</a>。</p>
 
 
 

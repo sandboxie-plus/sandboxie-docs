@@ -4545,17 +4545,17 @@
 
 
 <h1 id="sbie1106">SBIE1106</h1>
-<p><strong>Message:</strong> SBIE1106 error <em>[<a href="NtStatusCodes.html">ntstatus</a> / yy]</em>, detail <em>zzz</em></p>
-<p><strong>Logged To:</strong> <a href="SystemEventLog.html">System Event Log</a></p>
-<p><strong>Explanation:</strong></p>
-<p>The driver component of Sandboxie could not complete initialization. This messages indicates the driver experienced an error while trying to determine the installation folder for Sandboxie. The particular problem depends on the <em>yy</em> value in the message.</p>
-<p>When yy = 11, there was a problem accessing the following registry key:
+<p><strong>消息：</strong> SBIE1106 错误 <em>[<a href="NtStatusCodes.html">ntstatus</a> / yy]</em>，详细信息 <em>zzz</em></p>
+<p><strong>记录位置：</strong> <a href="SystemEventLog.html">系统事件日志</a></p>
+<p><strong>解释：</strong></p>
+<p>沙盘的驱动程序组件无法完成初始化。此消息表明驱动程序在尝试确定沙盘的安装文件夹时遇到了错误。具体问题取决于消息中的 <em>yy</em> 值。</p>
+<p>当 yy = 11 时，访问以下注册表项时出现问题：
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span><span class="na">HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SbieDrv</span>
 </span></code></pre></div></p>
-<p>When yy = 22 or 33, there was a problem querying the value <strong>ImagePath</strong> from the registry key noted above.</p>
-<p>When yy = 44, there was not enough memory to complete the operation.</p>
-<p>When yy = 55 or 66 or 77, there was some problem accessing the folder specified in the value of <strong>ImagePath</strong> from the registry key noted above.</p>
-<p>This message is followed by message <a href="SBIE1103.html">SBIE1103</a>.</p>
+<p>当 yy = 22 或 33 时，从上述注册表项中查询 <strong>ImagePath</strong> 值时出现问题。</p>
+<p>当 yy = 44 时，没有足够的内存来完成操作。</p>
+<p>当 yy = 55 或 66 或 77 时，访问上述注册表项中 <strong>ImagePath</strong> 值指定的文件夹时出现了一些问题。</p>
+<p>此消息之后会跟着消息 <a href="SBIE1103.html">SBIE1103</a>。</p>
 
 
 

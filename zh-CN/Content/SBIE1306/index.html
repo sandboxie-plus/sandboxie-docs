@@ -4545,13 +4545,13 @@
 
 
 <h1 id="sbie1306">SBIE1306</h1>
-<p><strong>Message:</strong> SBIE1306 Sandboxie driver (SbieDrv) cannot be unloaded now</p>
-<p><strong>Logged To:</strong> <a href="../PopupMessageLog/">Popup Message Log</a>.</p>
-<p><strong>Explanation:</strong></p>
-<p>The Sandboxie driver component is in use and cannot be unloaded at this time.</p>
-<p>Note that the Sandboxie driver component does not respond to the standard, generic "Stop Service" request, until a Sandboxie-specific "Prepare to Stop" request has been issued. The Sandboxie-specific request may fail if the driver is in use by any other program at the time the request is issued.</p>
-<p>If the Sandboxie-specific request succeeds, the driver component disables itself, and waits for the generic "Stop Service" request before it is unloaded from memory.</p>
-<p>Note also that the driver component does not honor stop requests from a program that is running under the supervision of Sandboxie.</p>
+<p><strong>消息：</strong> SBIE1306 沙盘驱动程序（SbieDrv）目前无法卸载</p>
+<p><strong>记录位置：</strong> <a href="../PopupMessageLog/">弹出消息日志</a>。</p>
+<p><strong>解释：</strong></p>
+<p>沙盘驱动程序组件正在被使用，此时无法卸载。</p>
+<p>请注意，沙盘驱动程序组件不会响应标准的通用“停止服务”请求，直到发出了特定于沙盘的“准备停止”请求。如果在发出请求时，驱动程序正被其他程序使用，那么特定于沙盘的请求可能会失败。</p>
+<p>如果特定于沙盘的请求成功，驱动程序组件将禁用自身，并在从内存中卸载之前等待通用的“停止服务”请求。</p>
+<p>此外，驱动程序组件不会响应在沙盘监管下运行的程序发出的停止请求。</p>
 
 
 

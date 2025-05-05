@@ -18,7 +18,7 @@
     
     
       
-        <title>Byte Order Mark - Sandboxie 文档</title>
+        <title>字节顺序标记 - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#byte-order-mark" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Byte Order Mark
+              字节顺序标记
             
           </span>
         </div>
@@ -4526,21 +4526,21 @@
   
 
 
-<h1 id="byte-order-mark">Byte Order Mark</h1>
-<p><strong>This feature was removed since v0.6.5 / 5.47.0.</strong></p>
-<p><em>ByteOrderMark</em> was a global setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It was typically specified as ByteOrderMark=y (see <a href="YesOrNoSettings.html">Yes Or No Settings</a>), and indicated that <a href="SandboxieControl.html">Sandboxie Control</a> should insert a UTF-16 UNICODE Byte Order Mark (BOM) character at the top of the configuration file.</p>
-<p>Usage:</p>
+<h1 id="_1">字节顺序标记</h1>
+<p><strong>此功能自 v0.6.5 / 5.47.0 起已移除。</strong></p>
+<p><em>ByteOrderMark</em> 是 <a href="SandboxieIni.html">沙盘配置文件</a> 中的一个全局设置。它通常指定为 ByteOrderMark=y（请参阅 <a href="YesOrNoSettings.html">是或否设置</a>），表示 <a href="SandboxieControl.html">沙盘控制</a> 应在配置文件的顶部插入一个 UTF-16 统一码字节顺序标记 (BOM) 字符。</p>
+<p>用法：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[GlobalSettings]</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">ByteOrderMark</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>This setting must be edited into <a href="SandboxieIni.html">Sandboxie Ini</a>, then Sandboxie configuration must be manually <a href="ConfigureMenu.html#reload-configuration">reloaded</a>. Following this, the next time <a href="SandboxieControl.html">Sandboxie Control</a> rewrites the configuration, it will insert the UNICODE BOM character into the very first two bytes in the <a href="SandboxieIni.html">Sandboxie Ini</a> configuration file, thus: (hex.) FF FE.</p>
-<p>You need only bother with this setting if both these statements are true:</p>
+<p>此设置必须手动编辑到 <a href="SandboxieIni.html">沙盘配置文件</a> 中，然后必须手动 <a href="ConfigureMenu.html#reload-configuration">重新加载</a> 沙盘配置。此后，下次 <a href="SandboxieControl.html">沙盘控制</a> 重写配置时，它将在 <a href="SandboxieIni.html">沙盘配置文件</a> 的前两个字节中插入统一码 BOM 字符，即：（十六进制）FF FE。</p>
+<p>只有在以下两个条件都满足时，你才需要关注此设置：</p>
 <ul>
-<li>You plan to edit the <a href="SandboxieIni.html">Sandboxie Ini</a> file manually;</li>
-<li>Your text editor cannot recognize that <a href="SandboxieIni.html">Sandboxie Ini</a> file is a UNICODE text file.</li>
+<li>你计划手动编辑 <a href="SandboxieIni.html">沙盘配置文件</a>；</li>
+<li>你的文本编辑器无法识别 <a href="SandboxieIni.html">沙盘配置文件</a> 是一个统一码文本文件。</li>
 </ul>
 
 

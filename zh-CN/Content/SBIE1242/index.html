@@ -4545,14 +4545,14 @@
 
 
 <h1 id="sbie1242">SBIE1242</h1>
-<p><strong>OBSOLETE SINCE 0.9.0 / 5.51.0</strong></p>
-<p><strong>Message:</strong> SBIE1242 Monitor buffer overflow</p>
-<p><strong>Logged To:</strong> <a href="../PopupMessageLog/">Popup Message Log</a>.</p>
-<p><strong>Explanation:</strong></p>
-<p>When enabled, the <a href="../ResourceAccessMonitor/">Resource Access Monitor</a> component of Sandboxie records every access attempt by a sandboxed program to some system resource. The name and type of the resource are stored in a "monitor buffer". The monitor buffer uses only 64KB of memory.</p>
-<p>Because of the small size of the monitor buffer, it can keep only a limited number of access attempts at the same time. This error indicates the Resource Access Monitor detected more attempts to access resources than the monitor buffer can handle.</p>
-<p>Effectively, this means that some resource accesses will not be displayed by the Resource Access Monitor. This may or may not be important.</p>
-<p>A possible solution is to lower the priority level of the sandboxed program, or, in the case of a multiple-processor system, restrict it to just one processor. This would ideally reduce the number of resource accesses that the program can carry out at once.</p>
+<p><strong>自 0.9.0 / 5.51.0 版本起已弃用</strong></p>
+<p><strong>消息：</strong> SBIE1242 监控缓冲区溢出</p>
+<p><strong>记录位置：</strong> <a href="../PopupMessageLog/">弹出消息日志</a>。</p>
+<p><strong>解释：</strong></p>
+<p>启用后，沙盘的<a href="../ResourceAccessMonitor/">资源访问监控器</a>组件会记录沙箱程序对某些系统资源的每次访问尝试。资源的名称和类型存储在一个“监控缓冲区”中。该监控缓冲区仅使用 64KB 的内存。</p>
+<p>由于监控缓冲区的大小较小，它只能同时保存有限数量的访问尝试。此错误表明资源访问监控器检测到的资源访问尝试数量超过了监控缓冲区的处理能力。</p>
+<p>实际上，这意味着资源访问监控器可能不会显示某些资源访问情况。这可能重要，也可能不重要。</p>
+<p>一个可能的解决方案是降低沙箱程序的优先级，或者在多处理器系统中，将其限制在单个处理器上运行。理想情况下，这样可以减少程序一次能够执行的资源访问数量。</p>
 
 
 

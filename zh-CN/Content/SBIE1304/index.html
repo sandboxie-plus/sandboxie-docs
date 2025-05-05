@@ -4545,16 +4545,16 @@
 
 
 <h1 id="sbie1304">SBIE1304</h1>
-<p><strong>OBSOLETE</strong></p>
-<p><strong>Message:</strong> SBIE1304 Blocked simulated keyboard or mouse input by process <em>program.exe</em></p>
-<p><strong>Logged To:</strong> <a href="../PopupMessageLog/">Popup Message Log</a>.</p>
-<p><strong>Explanation:</strong></p>
-<p>This warning message appeared when a sandboxed program had simulated keyboard or mouse action which would have been received by a window running in another sandbox or outside any sandboxes. As a result, the keyboard or mouse action was discarded.</p>
-<p>The point of this protection was to block a scenario where a malicious program running in a sandbox managed to circumvent Sandboxie by communicating with programs outside Sandboxie, such as the Windows Explorer. The malicious program could simulate keyboard actions that would instruct Windows Explorer to navigate into the sandbox and launch a malicious program.</p>
-<p><strong>Games and Full Screen Applications:</strong></p>
-<p>Sometimes this message was issued while launching a game or an application. In that case the message was not an indication of malicious activity, and it was safe to hide message SBIE1304, or to disable this protection.</p>
-<p>Related <a href="../SandboxieControl/">Sandboxie Control</a> setting: <a href="../RestrictionsSettings/#hardware-access-has-been-removed-from-sandboxie-v4-and-up">Sandbox Settings &gt; Restrictions &gt; Hardware Access</a></p>
-<p>Related <a href="../SandboxieIni/">Sandboxie Ini</a> setting: <a href="../BlockFakeInput/">BlockFakeInput</a>.</p>
+<p><strong>已过时</strong></p>
+<p><strong>消息：</strong> SBIE1304 阻止了进程 <em>program.exe</em> 的模拟键盘或鼠标输入</p>
+<p><strong>记录位置：</strong> <a href="../PopupMessageLog/">弹出消息日志</a>。</p>
+<p><strong>解释：</strong></p>
+<p>当沙箱内的程序模拟键盘或鼠标操作，而这些操作本应被另一个沙箱内或未在任何沙箱内运行的窗口接收时，会出现此警告消息。因此，该键盘或鼠标操作被丢弃。</p>
+<p>此保护机制的目的是阻止这样一种情况：沙箱内运行的恶意程序试图绕过沙盘，与沙盘外的程序（如 Windows 资源管理器）进行通信。恶意程序可以模拟键盘操作，指示 Windows 资源管理器进入沙箱并启动恶意程序。</p>
+<p><strong>游戏和全屏应用程序：</strong></p>
+<p>有时在启动游戏或应用程序时会发出此消息。在这种情况下，该消息并不表示存在恶意活动，可以安全地隐藏消息 SBIE1304 或禁用此保护。</p>
+<p>相关的 <a href="../SandboxieControl/">沙盘控制</a> 设置：<a href="../RestrictionsSettings/#hardware-access-has-been-removed-from-sandboxie-v4-and-up">沙箱设置 &gt; 限制 &gt; 硬件访问</a></p>
+<p>相关的 <a href="../SandboxieIni/">沙盘配置文件</a> 设置：<a href="../BlockFakeInput/">阻止模拟输入</a>。</p>
 
 
 
