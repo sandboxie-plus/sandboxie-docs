@@ -4545,20 +4545,20 @@
 
 
 <h1 id="sbie2205">SBIE2205</h1>
-<p><strong>Message:</strong> SBIE2205 Service not implemented: <em>name</em></p>
-<p><strong>Logged To:</strong> <a href="PopupMessageLog.html">Popup Message Log</a>.</p>
-<p><strong>Explanation:</strong></p>
-<p>Some little-used system service, which is identified by <em>name</em>, is not implemented by Sandboxie. This is a warning/notification message from Sandboxie. The sandboxed program may or may not fail.</p>
-<p><strong>Missing functionality related to Protected Storage and Windows Credentials</strong></p>
-<p>The explanation below applies to these missing services:</p>
+<p><strong>消息：</strong> SBIE2205 服务未实现：<em>名称</em></p>
+<p><strong>记录位置：</strong> <a href="PopupMessageLog.html">弹出消息日志</a>。</p>
+<p><strong>解释：</strong></p>
+<p>某些很少使用的系统服务（由 <em>名称</em> 标识）未由沙盘实现。这是沙盘发出的警告/通知消息。沙箱化程序可能会失败，也可能不会。</p>
+<p><strong>与受保护存储和 Windows 凭据相关的缺失功能</strong></p>
+<p>以下解释适用于这些缺失的服务：</p>
 <ul>
 <li>CredReadA</li>
 <li>IPStore::GetTypeInfo</li>
 </ul>
-<p><a href="ProtectedStorage.html">Protected Storage</a> is a facility that some Windows programs use to collect history of typed text. <strong>Windows credentials</strong> is a facility that some Windows programs (like Windows Messenger), and some Microsoft web sites (like Hotmail) use to remember user/password information.</p>
-<p>Sandboxie provides its own implementation for these facilities, which store any collected information in the sandbox rather than in the real Protected Storage. This is part of the overall approach of Sandboxie which aims to contain any effects by a programs into the sandbox.</p>
-<p>This Sandboxie implementation is complete enough that it enables most programs to work as expected. However, it is not 100% compatible with the real implementation of the facilities in Windows. Few programs use services which are not implemented. In this cases, Sandboxie issues message SBIE2205 to report that a program tried to do something which was not supported, and that the operation failed. The message does <strong>not</strong> imply that any information was stored outside the sandbox.</p>
-<p>More information: <a href="ProtectedStorage.html">Protected Storage</a>, <a href="OpenProtectedStorage.html">Open Protected Storage</a>, <a href="OpenCredentials.html">Open Credentials</a>, and <a href="InternetExplorerTips.html#save-outside-sandbox">Save Outside Sandbox in Internet Explorer Tips</a>.</p>
+<p><a href="ProtectedStorage.html">受保护存储</a> 是一些 Windows 程序用于收集输入文本历史记录的功能。<strong>Windows 凭据</strong> 是一些 Windows 程序（如 Windows Messenger）和一些微软网站（如 Hotmail）用于记住用户/密码信息的功能。</p>
+<p>沙盘为这些功能提供了自己的实现，它会将收集到的任何信息存储在沙箱中，而不是实际的受保护存储中。这是沙盘整体方法的一部分，旨在将程序的任何影响限制在沙箱内。</p>
+<p>这个沙盘实现足够完善，能让大多数程序按预期运行。然而，它与 Windows 中这些功能的实际实现并非 100% 兼容。少数程序会使用未实现的服务。在这种情况下，沙盘会发出消息 SBIE2205，以报告程序尝试执行了不受支持的操作，并且该操作失败。此消息 <strong>并不</strong> 意味着任何信息被存储在沙箱之外。</p>
+<p>更多信息：<a href="ProtectedStorage.html">受保护存储</a>、<a href="OpenProtectedStorage.html">打开受保护存储</a>、<a href="OpenCredentials.html">打开凭据</a> 以及 <a href="InternetExplorerTips.html#save-outside-sandbox">Internet Explorer 技巧：在沙箱外保存</a>。</p>
 
 
 

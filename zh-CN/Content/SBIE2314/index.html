@@ -4545,18 +4545,18 @@
 
 
 <h1 id="sbie2314">SBIE2314</h1>
-<p><strong>Message:</strong> SBIE2314 Canceling process <em>program.exe</em></p>
-<p><strong>Logged To:</strong> <a href="../PopupMessageLog/">Popup Message Log</a>.</p>
-<p><strong>Explanation:</strong></p>
-<p>An update to Windows may cause Sandboxie to issue this message on Windows 7.</p>
-<p><strong>COM Servers</strong></p>
-<p>In some specific cases, Sandboxie might need to launch an instance of Internet Explorer, Window Media Player or other media players, to receive the file name that should be opened in the sandbox, when the requester is outside the sandbox.</p>
-<p>For instance, when Window Media Player is forced to run in the sandbox, and a request is made through Windows Explorer (running outside the sandbox) to open a media file, then Sandboxie needs to launch an instance of Windows Media Player to receive the file name for the media file, so it can then open a properly sandboxed instance of Window Media Player and play the file.</p>
-<p>This message indicates that a program that was launched in this way to receive the file name experienced some error, and had to be closed.</p>
-<p><strong>For Internet Explorer and Media Players:</strong></p>
-<p>As of version 3.32 this message can only be issued for the Internet Explorer program, <em>iexplore.exe</em>, and only when Internet Explorer has been configured as a <a href="../ProgramStartSettings/#forced-programs">forced program</a>.</p>
-<p>The message indicates that a special instance of a Internet Explorer, which has been started in order to accept an Internet address (a URL) from a program running outside the sandbox, has encountered an error.</p>
-<p>You should be able to work around this problem by invoking the <a href="../FileMenu/#disable-forced-programs">Disable Forced Programs</a> command and retrying the operation that opens an Internet address.</p>
+<p><strong>消息：</strong> SBIE2314 正在取消进程 <em>program.exe</em></p>
+<p><strong>记录位置：</strong> <a href="../PopupMessageLog/">弹出消息日志</a>。</p>
+<p><strong>解释：</strong></p>
+<p>Windows 更新可能会导致沙盘在 Windows 7 系统上发出此消息。</p>
+<p><strong>COM 服务器</strong></p>
+<p>在某些特定情况下，当请求方在沙箱外部时，沙盘可能需要启动一个 Internet Explorer、Windows Media Player 或其他媒体播放器的实例，以接收应在沙箱中打开的文件名。</p>
+<p>例如，当 Windows Media Player 被强制在沙箱中运行，并且通过 Windows 资源管理器（在沙箱外部运行）发出打开媒体文件的请求时，沙盘需要启动一个 Windows Media Player 实例来接收媒体文件的文件名，以便随后打开一个正确运行在沙箱中的 Windows Media Player 实例并播放该文件。</p>
+<p>此消息表明，以这种方式启动以接收文件名的程序遇到了一些错误，必须关闭。</p>
+<p><strong>对于 Internet Explorer 和媒体播放器：</strong></p>
+<p>从 3.32 版本开始，此消息仅可能针对 Internet Explorer 程序 <em>iexplore.exe</em> 发出，并且仅当 Internet Explorer 已被配置为<a href="../ProgramStartSettings/#forced-programs">强制程序</a>时才会出现。</p>
+<p>该消息表明，为了从运行在沙箱外部的程序接收 Internet 地址（URL）而启动的 Internet Explorer 特殊实例遇到了错误。</p>
+<p>您可以通过调用<a href="../FileMenu/#disable-forced-programs">禁用强制程序</a>命令并重新尝试打开 Internet 地址的操作来解决此问题。</p>
 
 
 

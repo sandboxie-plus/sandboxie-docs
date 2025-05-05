@@ -4545,18 +4545,18 @@
 
 
 <h1 id="sbie2306">SBIE2306</h1>
-<p><strong>Message:</strong> SBIE2306 Could not locate user directory: <em>[<a href="NtStatusCodes.html">ntstatus</a> / yy]</em></p>
-<p><strong>Logged To:</strong> <a href="PopupMessageLog.html">Popup Message Log</a>.</p>
-<p><strong>Explanation:</strong></p>
-<p>Sandboxie attempts to enhance the portability of the sandbox by storing personal (also known as "user profile") files in a folder that has a generic name rather than a specific one.</p>
-<p>For example, instead of storing files in
+<p><strong>消息：</strong> SBIE2306 无法找到用户目录：<em>[<a href="NtStatusCodes.html">ntstatus</a> / yy]</em></p>
+<p><strong>记录到：</strong> <a href="PopupMessageLog.html">弹出消息日志</a>。</p>
+<p><strong>解释：</strong></p>
+<p>沙盘（Sandboxie）试图通过将个人（也称为“用户配置文件”）文件存储在一个通用名称而非特定名称的文件夹中，来增强沙箱的可移植性。</p>
+<p>例如，沙盘不会将文件存储在
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span><span class="na">\sandbox\drive\c\Users\joe\Documents</span>
 </span></code></pre></div></p>
-<p>Sandboxie prefers to store files in
+<p>而是更倾向于将文件存储在
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">    </span><span class="na">\sandbox\drive\c\user\current\Documents</span>
 </span></code></pre></div></p>
-<p>This means you can use the same sandbox with some other user account or even some other computer.</p>
-<p>This message indicates that Sandboxie failed to find the user profile folder, and does not know which folder to associate with the sandbox folder <em>user\current</em>.</p>
+<p>这意味着你可以将同一个沙箱与其他用户账户甚至其他计算机一起使用。</p>
+<p>此消息表明沙盘未能找到用户配置文件文件夹，并且不知道要将哪个文件夹与沙箱文件夹 <em>user\current</em> 关联起来。</p>
 
 
 

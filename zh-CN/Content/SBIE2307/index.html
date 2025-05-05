@@ -4545,17 +4545,17 @@
 
 
 <h1 id="sbie2307">SBIE2307</h1>
-<p><strong>Message:</strong> SBIE2307 Could not map drive <em>x__[<a href="../NtStatusCodes/">ntstatus</a>]</em></p>
-<p><strong>Logged To:</strong> <a href="../PopupMessageLog/">Popup Message Log</a>.</p>
-<p><strong>Explanation:</strong></p>
-<p>Internally, Windows does not recognize drive letters such as A: or C: and instead uses a naming scheme that identifies devices. For example
+<p><strong>消息：</strong> SBIE2307 无法映射驱动器 <em>x</em> [<a href="../NtStatusCodes/">ntstatus</a>]</p>
+<p><strong>记录位置：</strong> <a href="../PopupMessageLog/">弹出消息日志</a>。</p>
+<p><strong>解释：</strong></p>
+<p>在 Windows 系统内部，并不直接识别诸如 A: 或 C: 这样的驱动器盘符，而是采用一种用于标识设备的命名方案。例如：
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span><span class="na">\Device\Floppy0</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="na">\Device\HarddiskVolume1</span>
 </span></code></pre></div></p>
-<p>May be the internal name for drives A: and C: respectively.</p>
-<p>Sandboxie works in this lower level of Windows and uses the internal names. But for convenience, when files are stored in the sandbox folder, they are stored as <em>\sandbox\drive\a</em> and <em>\sandbox\drive\c</em>.</p>
-<p>Therefore for every drive, Sandboxie needs to know its associated internal name, so it can map, for example, between C: and <em>\Device\HarddiskVolume1</em>.</p>
-<p>This message indicates that Sandboxie failed to find the internal name for the drive <em>x</em> noted in the message.</p>
+<p>它们可能分别是驱动器 A: 和 C: 的内部名称。</p>
+<p>沙盘（Sandboxie）在 Windows 系统的底层运行，并使用这些内部名称。但为了方便起见，当文件存储在沙箱文件夹中时，它们会以 <em>\sandbox\drive\a</em> 和 <em>\sandbox\drive\c</em> 的形式存储。</p>
+<p>因此，对于每个驱动器，沙盘需要知道其关联的内部名称，以便进行映射操作，例如在 C: 和 <em>\Device\HarddiskVolume1</em> 之间建立映射。</p>
+<p>此消息表明，沙盘未能找到消息中所提及的驱动器 <em>x</em> 的内部名称。</p>
 
 
 

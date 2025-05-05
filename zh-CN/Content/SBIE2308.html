@@ -4545,21 +4545,21 @@
 
 
 <h1 id="sbie2308">SBIE2308</h1>
-<p><strong>Message:</strong> SBIE2308 Could not create object directory: <em>[yy / xxxx]</em></p>
-<p><strong>Logged To:</strong> <a href="PopupMessageLog.html">Popup Message Log</a>.</p>
-<p><strong>Explanation:</strong></p>
-<p>Inter-process communication (IPC) objects are logical objects which are used for various forms of communication between programs. The IPC objects have identifying names and are organized into a hierarchial structure of directories.</p>
-<p>Sandboxie redirects all IPC objects created by sandboxed programs to an isolated directory in the hierarchial structure, in order to guarantee separation of communications between programs inside and outside the sandbox.</p>
-<p>This message indicates that Sandboxie failed to create the isolated directory.</p>
-<p><strong>Guest or Limited Account</strong></p>
-<p>If you are running Sandboxie under a guest or limited user account, make sure the user account is allowed to create IPC objects:</p>
+<p><strong>消息：</strong> SBIE2308 无法创建对象目录：<em>[yy / xxxx]</em></p>
+<p><strong>记录位置：</strong> <a href="PopupMessageLog.html">弹出消息日志</a>。</p>
+<p><strong>解释：</strong></p>
+<p>进程间通信 (IPC) 对象是用于程序之间各种通信形式的逻辑对象。IPC 对象具有标识名称，并组织成一个层次化的目录结构。</p>
+<p>沙盘会将沙箱内程序创建的所有 IPC 对象重定向到层次结构中的一个隔离目录，以确保沙箱内外程序之间的通信相互隔离。</p>
+<p>此消息表明沙盘无法创建隔离目录。</p>
+<p><strong>来宾或受限账户</strong></p>
+<p>如果您在来宾或受限用户账户下运行沙盘，请确保该用户账户被允许创建 IPC 对象：</p>
 <ul>
-<li>Open Control Panel &gt; Administrative Tools &gt; Local Security Policy</li>
-<li>Expand Security Settings &gt; Local Policies &gt; User Rights Assignment</li>
-<li>Find the entry named "Create global objects"</li>
-<li>Make sure the guest or limited user account is listed for that entry</li>
-<li>Find the entry named "Create permanent shared objects"</li>
-<li>Make sure the guest or limited user account is listed for that entry</li>
+<li>打开控制面板 &gt; 管理工具 &gt; 本地安全策略</li>
+<li>展开安全设置 &gt; 本地策略 &gt; 用户权限分配</li>
+<li>找到名为“创建全局对象”的条目</li>
+<li>确保来宾或受限用户账户列在该条目中</li>
+<li>找到名为“创建永久共享对象”的条目</li>
+<li>确保来宾或受限用户账户列在该条目中</li>
 </ul>
 
 
