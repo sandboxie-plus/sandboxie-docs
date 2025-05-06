@@ -98,6 +98,8 @@
 
 [覆盖沙箱窗口](CoverBoxedWindows.md)
 
+[自定义区域设置/语言ID](CustomLCID.md)
+
 ### D
 
 [删除命令](DeleteCommand.md)
@@ -186,11 +188,21 @@
 
 [帮助主题](HelpTopics.md)
 
+[隐藏磁盘序列号](HideDiskSerialNumber.md)
+
+[隐藏固件信息](HideFirmwareInfo.md)
+
 [隐藏宿主进程](HideHostProcess.md)
 
 [隐藏消息](SbieCtrl_HideMessage.md)
 
+[隐藏网络适配器MAC地址](HideNetworkAdapterMAC.md)
+
+[隐藏非系统进程](HideNonSystemProcesses.md)
+
 [隐藏其他沙箱](HideOtherBoxes.md)
+
+[隐藏沙盘进程](HideSbieProcesses.md)
 
 [工作原理](HowitWorks.md)
 
@@ -213,8 +225,6 @@
 [隔离机制](IsolationMechanism.md)
 
 ### J
-
-（空）
 
 ### K
 
@@ -329,6 +339,8 @@
 ### R
 
 [RAM 磁盘支持](../PlusContent/RamDiskSupport.md)
+
+[随机注册表UID](RandomRegUID.md)
 
 [勒索软件](Ransomware.md)
 
@@ -718,12 +730,8 @@
 
 ### X
 
-（空）
-
 ### Y
 
 [是或否设置](YesOrNoSettings.md)
 
 ### Z
-
-（空）
