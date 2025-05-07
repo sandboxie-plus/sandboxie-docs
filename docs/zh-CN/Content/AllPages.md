@@ -120,7 +120,7 @@
 
 [DNS 过滤](../PlusContent/DNSFilter.md)
 
-[去除管理员权限](DropAdminRights.md)
+[撤销管理员权限](DropAdminRights.md)
 
 ### E
 
