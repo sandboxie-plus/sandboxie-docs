@@ -18,4 +18,4 @@ _DropAdminRights_ 是 [Sandboxie Ini](SandboxieIni.md) 文件中的一个沙箱�
 
 请注意，如果你本身就是以非管理员用户账户运行，该设置影响很小。
 
-相关的 [沙盒控制](SandboxieControl.md) 设置：[沙箱设置 > 限制 > 去除权限](RestrictionsSettings.md#drop-rights)。
+相关的 [沙盒控制](SandboxieControl.md) 设置：[沙箱设置 > 限制 > 撤销权限](RestrictionsSettings.md#drop-rights)。
