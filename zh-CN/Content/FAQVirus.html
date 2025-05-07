@@ -18,7 +18,7 @@
     
     
       
-        <title>FAQ Virus - Sandboxie 文档</title>
+        <title>常见问题 - 病毒 - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#faq-virus" class="md-skip">
+        <a href="#-" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              FAQ Virus
+              常见问题 - 病毒
             
           </span>
         </div>
@@ -4526,44 +4526,46 @@
   
 
 
-<h1 id="faq-virus">FAQ Virus</h1>
-<p>Questions and answers regarding Sandboxie and viruses and malware. For brevity, the text below mentions only viruses, but it equally applies to malware.</p>
-<p>Sandboxie protects your from viruses, malware, ransom-ware, zero day threats, etc. Sandboxie does not need to rely on virus database signature updates, heuristics, etc.</p>
-<p>If you get a virus in your sandbox, you simply delete the contents of that sandbox and move along. Your host machine, software and browser is not touched. Nothing on your host machine is harmed.</p>
-<h3 id="q-what-does-malicious-software-do">Q. What does malicious software do?</h3>
-<p>A. Malicious software is typically designed to infect your computer. This infection is accomplished by the integration with, or the taking over of, various aspects of your Windows operating system. Following this infection, different types of malicious software have different goals. For example, a virus program might spread to more computers, and a spyware program might record your keyboard activity.</p>
-<h3 id="q-how-does-sandboxie-protect-against-computer-viruses">Q. How does Sandboxie protect against computer viruses?</h3>
-<p>A. Sandboxie considers the program it supervises as potentially harmful, and keeps the programs bound within a <em>sandbox</em>, which is a kind of protective bubble. The program cannot escape the sandbox, and therefore cannot change, harm or infect your computer in any way. When you're done with the program, you delete the sandbox.</p>
-<h3 id="q-does-sandboxie-remove-viruses">Q. Does Sandboxie remove viruses?</h3>
-<p>A. Yes, but not in the sense that Sandboxie discards just the viruses, and leaves everything else intact. What Sandboxie does is delete the entire sandbox, which deletes any viruses trapped within the sandbox, as well as any other changes (good or bad) that were attempted by the program running under the supervision of Sandboxie.</p>
-<h3 id="q-is-sandboxie-an-anti-virus">Q. Is Sandboxie an anti-virus?</h3>
-<p>A. No. While Sandboxie is a countermeasure against malicious software, it works differently from traditional anti-virus software. Unlike an anti-virus, Sandboxie does not attempt to identify or differentiate between "good" and "bad" (or harmful) programs. An anti-virus might not identify a new virus, and might let it slip by and infect your computer. Sandboxie, on the other hand, considers all programs as potentially harmful, and does not let any program modify your computer in any way.</p>
-<h3 id="q-should-i-use-sandboxie-instead-of-anti-virus-software">Q. Should I use Sandboxie instead of anti-virus software?</h3>
-<p>A. No. Sandboxie can prevent a virus in the sandbox from escaping into your real computer. However, common sense dictates that it is preferable to prevent the virus from running in the first place. Therefore it is a good idea to use anti-virus software to prevent known threats, while relying on Sandboxie to be your first line of defense against threats that are not yet known to the anti-virus.</p>
-<h3 id="q-is-sandboxie-100-fool-proof">Q. Is Sandboxie 100% fool-proof?</h3>
-<p>A. No, but it tries to be as close as possible to 100%. At the same time, it is important to remember that Sandboxie is never the only software in your computer. Your other software, including your Windows operating system, might have security holes that could be abused by viruses in ways that no security software can prevent. Therefore it is always important to keep up with software updates. As the saying goes: "The only truly secure computer is one buried in concrete, with the power turned off and the network cable cut."</p>
-<h3 id="q-can-the-anti-virus-detect-a-virus-in-the-sandbox">Q. Can the anti-virus detect a virus in the sandbox?</h3>
-<p>A. Yes. Files contained in the sandbox are stored in the hard disk, typically in the folder SANDBOX in drive C. Programs under the supervision of Sandboxie can only operate within this folder, but there is nothing special about the folder itself. The anti-virus software may detect viruses as they arrive into this folder, or at any later time.</p>
-<h3 id="q-how-should-i-respond-to-the-anti-virus-detecting-a-virus">Q. How should I respond to the anti-virus detecting a virus</h3>
-<p>A. Your anti-virus should tell you where the virus was identified. If the virus was identified within the sandbox (typically, in the SANDBOX folder in drive C), there is little cause for alarm. You can immediately invoke the <a href="DeleteSandbox.html">Delete Sandbox</a> command, or you may direct the anti-virus to delete the virus file, or move it to quarantine.</p>
-<h3 id="q-when-the-anti-virus-moves-a-virus-file-out-of-the-sandbox-and-into-quarantine-does-it-bypass-sandboxie">Q. When the anti-virus moves a virus file out of the sandbox and into quarantine, does it bypass Sandboxie?</h3>
-<p>A. No. The anti-virus itself is not operating under the supervision of Sandboxie, even if the virus alert seems to indicate otherwise. Operating outside the sandbox, the anti-virus can reach into the sandbox folder, pull the virus file, and move it into quarantine. The process is similar to Sandboxie <a href="QuickRecovery.html">Quick Recovery</a>, wherein <a href="SandboxieControl.html">Sandboxie Control</a> reaches inside the sandbox to pull some file out of it.</p>
-<h3 id="q-will-viruses-remain-in-the-sandbox-after-i-close-all-programs-in-the-sandbox">Q. Will viruses remain in the sandbox after I close all programs in the sandbox?</h3>
-<p>A. Yes and no:</p>
-<p>1. No, if your sandbox is set to <a href="DeleteSettings.html#invocation">automatically</a> delete;
-2. Yes, in the configuration, but only until you <a href="DeleteSandbox.html">manually</a> delete the contents of the sandbox.</p>
-<p>It is important to note that a virus file in the sandbox is just that -- <em>a file</em>, not much different from your average text file. Unless you move the file out of the sandbox and invoke it, there is little cause for alarm.</p>
-<h3 id="q-do-i-have-to-securely-wipe-the-contents-of-the-sandbox-to-make-sure-the-virus-is-gone">Q. Do I have to securely wipe the contents of the sandbox to make sure the virus is gone?</h3>
-<p>A. No. Although you can <a href="SecureDeleteSandbox.html">configure</a> Sandboxie to use a third-party data wiping utility, the key point is to make the virus file itself inaccessible, and this is accomplished even with non-secure deletion. There is, however, an advantage to secure deletion, as discussed in the next answer.</p>
-<h3 id="q-why-does-my-anti-virus-detect-a-virus-in-the-system-volume-information-folder">Q. Why does my anti-virus detect a virus in the <em>System Volume Information</em> folder?</h3>
-<p>A. The System Restore component in Windows collects various files into the <em>System Volume Information</em> when they are deleted. While the intention is to protect your system, sometimes System Restore ends up making copies of virus files. These virus files are inactive, and even if restored, will be restored into the sandbox, so there is little cause for alarm. Nevertheless, it is a good idea to let your anti-virus get rid of any such virus files.
-Note that this will not occur if you securely wipe the contents of the sandbox (see previous question).</p>
-<h3 id="q-my-computer-is-already-infected-with-a-virus-will-sandboxie-protect-against-that-virus">Q. My computer is already infected with a virus, will Sandboxie protect against that virus?</h3>
-<p>A. No. Sandboxie can only protect your computer from the programs that run under the supervision of Sandboxie. The virus which has already infected your computer is running unencumbered outside the supervision of Sandboxie. It might also serve as an infection channel and assist other viruses in the sandbox to break out of the sandbox and infect your computer. It is strongly recommended that you dis-infect your computer as soon as possible, then install Sandboxie to protect against future threats.</p>
-<h3 id="q-does-sandboxie-protect-against-the-killdisk-virus">Q. Does Sandboxie protect against the KillDisk virus?</h3>
-<p>A. Yes. The KillDisk virus works by modifying the hard disk partition directly, bypassing any file systems. This kind of access has been blocked since Sandboxie version 2.33 (early 2006).</p>
-<h3 id="q-can-i-install-an-anti-virus-or-firewalls-or-other-security-software-into-the-sandbox">Q. Can I install an anti-virus (or firewalls or other security software) into the sandbox?</h3>
-<p>A. For most security software, the answer is no. This type of software wants to integrate with Windows in order to monitor access to files and network connections. Sandboxie is designed to isolate programs in the sandbox from the rest of the system, which means the security software will be unable to monitor the system correctly. Note that virus scanner software which does not include active ("real time") monitoring should be able to function correctly under Sandboxie. Please note: Not all Anti-virus "suites" will work. Sandboxie may not function with certain suites (Kaspersky.)</p>
+<h1 id="-">常见问题 - 病毒</h1>
+<p>关于沙盒和病毒及恶意软件的常见问题及解答。为了简洁，以下文字仅提及病毒，但同样适用于恶意软件。</p>
+<p>沙盒能够保护你免受病毒、恶意软件、勒索软件、零日威胁等侵害。沙盒无需依赖病毒数据库签名更新、启发式分析等传统手段。</p>
+<p>如果你在沙箱中感染了病毒，只需删除该沙箱的内容即可恢复正常。你的主机、软件及浏览器都不会受到影响，主机上的任何数据都不会被破坏。</p>
+<h3 id="_1">问：恶意软件通常会做什么？</h3>
+<p>答：恶意软件通常被设计用来感染你的计算机。病毒通过与 Windows 操作系统的各个部分整合或接管这些部分来实现感染。感染之后，不同类型的恶意软件有不同的目的。例如，病毒程序可能会传播到更多的计算机，而间谍软件可能会记录你的键盘操作。</p>
+<h3 id="_2">问：沙盒如何防护电脑病毒？</h3>
+<p>答：沙盒会将其所监管的程序视为潜在的威胁，并将这些程序限制在一个 <em>沙箱</em> 内，这相当于一个保护性“泡泡”。程序无法逃离沙箱，因此也无法以任何方式更改、损害或感染你的计算机。当你不再需要该程序时，只需删除沙箱即可。</p>
+<h3 id="_3">问：沙盒能清除病毒吗？</h3>
+<p>答：可以，但方式并不是只清除病毒，同时保留其他内容。沙盒的做法是删除整个沙箱，这将一并删除沙箱中被困的任何病毒，以及在沙盒监管下程序尝试进行的所有（无论是正面还是负面的）更改。</p>
+<h3 id="_4">问：沙盒是杀毒软件吗？</h3>
+<p>答：不是。虽然沙盒能够对抗恶意软件，但其工作方式与传统杀毒软件不同。沙盒不会试图识别或区分“好”与“坏”（或有害）的程序。杀毒软件可能无法发现新的病毒，导致其避过检测并感染你的电脑。而沙盒则将所有程序都视为潜在威胁，不允许任何程序以任何方式修改你的计算机。</p>
+<h3 id="_5">问：我应该用沙盒代替杀毒软件吗？</h3>
+<p>答：不建议。沙盒确实能防止沙箱内的病毒蔓延到真实电脑。但从常理来说，最好是让病毒根本无法运行。因此，建议使用杀毒软件来防护已知威胁，同时依靠沙盒作为抵御杀毒软件尚未识别的新威胁的第一道防线。</p>
+<h3 id="_6">问：沙盒的防护是否百分之百万无一失？</h3>
+<p>答：不是，但沙盒尽量做到接近百分之百。同时，重要的是要记住，沙盒从不是你电脑上唯一的软件。你的其他软件，包括 Windows 操作系统本身，都可能存在安全漏洞，病毒有可能利用这些漏洞以绕开所有安全软件。因此，始终及时更新软件非常重要。正如那句名言：“唯一真正安全的电脑就是埋在混凝土中、断电且切断网线的电脑。”</p>
+<h3 id="_7">问：杀毒软件能检测到沙箱中的病毒吗？</h3>
+<p>答：可以。沙箱中的文件会被存储在硬盘上，通常在 C 盘下的 SANDBOX 文件夹里。沙盒监管下的程序只能在这个文件夹操作，但该文件夹本身没有特殊之处。杀毒软件可以在病毒到达该文件夹时进行检测，也可以在之后的任意时间检测到。</p>
+<h3 id="_8">问：我该如何应对杀毒软件检测到病毒？</h3>
+<p>答：你的杀毒软件会告知病毒被检测到的位置。如果病毒是在沙箱（通常是 C 盘 SANDBOX 文件夹）中被检测到，无需过分担心。你可以立即执行 <a href="DeleteSandbox.html">删除沙箱</a> 命令，也可以让杀毒软件删除病毒文件或将其移动到隔离区。</p>
+<h3 id="_9">问：杀毒软件将病毒文件从沙箱移至隔离区时，是否绕过了沙盒？</h3>
+<p>答：没有。杀毒软件本身并不在沙盒的监管之下，即使病毒警告表面上让你感觉是如此。当杀毒软件操作时，它可以在沙箱外部进入沙箱文件夹，将病毒文件提取出来并移入隔离区。其过程类似于沙盒的 <a href="QuickRecovery.html">快速恢复</a>，即 <a href="SandboxieControl.html">沙盒控制</a> 可以从沙箱内部提取某些文件。</p>
+<h3 id="_10">问：关闭了沙箱中的所有程序后，病毒还会留在沙箱里吗？</h3>
+<p>答：答案是“视情况而定”：</p>
+<ol>
+<li>如果你的沙箱设置为<a href="DeleteSettings.html#invocation">自动</a>删除，则不会残留；</li>
+<li>如果没有自动删除，病毒会一直存在，直到你<a href="DeleteSandbox.html">手动</a>删除沙箱内容。</li>
+</ol>
+<p>需要注意的是，沙箱中的病毒文件本质上只是 <em>一个文件</em>，和普通文本文件没多大区别。如果你不把文件移出沙箱并执行它，基本没有什么可担心的。</p>
+<h3 id="_11">问：我需要安全擦除沙箱内容才能确保病毒彻底被清除吗？</h3>
+<p>答：不需要。虽然你可以<a href="SecureDeleteSandbox.html">设置</a>沙盒使用第三方数据擦除工具，但关键是让病毒文件本身变得不可访问，即使是普通删除也能做到这一点。当然，安全删除确实有额外优势，详见下一个问题。</p>
+<h3 id="system-volume-information">问：为什么杀毒软件会在 <em>System Volume Information</em> 文件夹中检测到病毒？</h3>
+<p>答：Windows 的系统还原（System Restore）会在 <em>System Volume Information</em> 文件夹中收集删除的文件。尽管原意是保护系统，有时系统还原也会把病毒文件复制进去。这些病毒文件是非活动（失效）的，即便恢复也只会恢复到沙箱，因此不必过于担心。但最好还是让杀毒软件清除这些文件。
+需要注意的是，如果你安全擦除沙箱内容（见上一个问题），这种情况就不会发生。</p>
+<h3 id="_12">问：我的电脑已经感染了病毒，沙盒还能防护这个病毒吗？</h3>
+<p>答：无法防护。沙盒只能保护运行在其监管下的程序。已感染你电脑的病毒是在沙盒监管之外活动的，可能还会为其他病毒提供感染途径甚至帮助沙箱内的病毒逃逸并感染真实系统。强烈建议尽快清除电脑现有病毒，然后使用沙盒防范未来的威胁。</p>
+<h3 id="killdisk">问：沙盒能防护 KillDisk 病毒吗？</h3>
+<p>答：可以。KillDisk 病毒通过直接修改硬盘分区而规避文件系统。这类访问自 2006 年初的沙盒 2.33 版本起就已被阻止。</p>
+<h3 id="_13">问：我可以在沙箱中安装杀毒软件（或防火墙、其他安全软件）吗？</h3>
+<p>答：对于大多数安全软件，答案是否定的。这类软件需要与 Windows 深度集成，以监控文件和网络访问。沙盒的设计目标是将沙箱中的程序同系统其余部分隔离，这会导致安全软件无法正确地监控系统。需要注意的是，不带有主动（“实时”）监控功能的病毒扫描软件，在沙盒内可以正确运行。请注意：并非所有杀毒“套件”都能正常运行。沙盒可能无法与某些套件（如 Kaspersky）兼容。</p>
 
 
 

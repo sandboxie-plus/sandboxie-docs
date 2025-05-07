@@ -18,7 +18,7 @@
     
     
       
-        <title>Drop Admin Rights - Sandboxie 文档</title>
+        <title>撤销管理员权限 - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#drop-admin-rights" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Drop Admin Rights
+              撤销管理员权限
             
           </span>
         </div>
@@ -4526,19 +4526,19 @@
   
 
 
-<h1 id="drop-admin-rights">Drop Admin Rights</h1>
-<p><em>DropAdminRights</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It specifies whether Sandboxie will strip Administrator rights from programs running in this sandbox.</p>
-<p>Usage:</p>
+<h1 id="_1">撤销管理员权限</h1>
+<p><em>DropAdminRights</em> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 文件中的一个沙箱设置项。它指定沙盒是否会为在该沙箱中运行的程序撤销管理员权限。</p>
+<p>用法示例：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">DropAdminRights</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>The setting in this page causes Sandboxie to strip administrative rights from programs running in this sandbox.</p>
-<p>Specifically, the security credentials used to start the sandboxed program will not include membership in the Administrators and Power Users groups.</p>
-<p>Note that this has little effect if you are already running under a non-Administrator user account.</p>
-<p>Related <a href="SandboxieControl.html">Sandboxie Control</a> setting: <a href="RestrictionsSettings.html#drop-rights">Sandbox Settings &gt; Restrictions &gt; Drop Rights</a></p>
+<p>本页面的设置会导致沙盒去除在该沙箱中运行的程序的管理员权限。</p>
+<p>具体而言，启动沙箱程序时所使用的安全凭据将不会包含 Administrators 和 Power Users 组的账户权限。</p>
+<p>请注意，如果你本身就是以非管理员用户账户运行，该设置影响很小。</p>
+<p>相关的 <a href="SandboxieControl.html">沙盒控制</a> 设置：<a href="RestrictionsSettings.html#drop-rights">沙箱设置 &gt; 限制 &gt; 撤销权限</a>。</p>
 
 
 

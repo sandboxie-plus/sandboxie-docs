@@ -18,7 +18,7 @@
     
     
       
-        <title>Email Protection - Sandboxie 文档</title>
+        <title>邮件防护 - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#email-protection" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Email Protection
+              邮件防护
             
           </span>
         </div>
@@ -4526,31 +4526,31 @@
   
 
 
-<h1 id="email-protection">Email Protection</h1>
-<p>For a shorter version of this discussion, see <a href="FAQEmail.html">FAQ Email</a>.</p>
+<h1 id="_1">邮件防护</h1>
+<p>简要讨论请参见 <a href="FAQEmail.html">常见问题-电子邮件</a>。</p>
 <hr />
-<p>It is not uncommon to receive virus in an email message. Traditionally, your anti-virus and anti-spyware software works with your email software to identify malicious software as soon as it is received, or at least, as soon as it begins to execute in your computer. That works well for well-known viruses and spyware, but leaves you vulnerable to <a href="https://en.wikipedia.org/wiki/Zero-day_(computing)">zero-day exploits</a>, that is, vulnerable to malicious software that is not yet properly identified by the security software.</p>
-<p>Sandboxie offers another approach. If you run your email reader program <em>sandboxed</em> under the control of Sandboxie, this protection will also extend to any software spawned by the email reader, such as viruses and spyware, thus severely limiting the effects of the malicious software on your computer.</p>
-<p>For example, suppose you get an email message with the a virus that presents itself as an attachment called <em>Click_Me_For_Best_Joke_Ever.exe</em>. Suppose you don't know this is a virus, and further suppose that your anti-virus has not yet been updated to identify this particular virus. You click the attachment, and it delivers the best joke ever, but it also secretly installs malicious software.</p>
-<p>This example may not specifically name any known virus, but it is not at all farfetched. <a href="https://en.wikipedia.org/wiki/Malware#Purposes">Quoting Wikipedia on Malware</a>: <em>"Since 2003, the majority of widespread viruses and worms have been designed to take control of users' computers for illicit purposes ..."</em> See also: <a href="https://en.wikipedia.org/wiki/Botnet#Construction">Construction (from Wikipedia)</a>.</p>
-<p>If you run your email program sandboxed, then <em>Click_Me_For_Best_Joke_Ever.exe</em> also runs sandboxed, and any changes it makes to the computer, or software it installs, will be confined to the sandbox. These changes will be discarded in their entirety as soon as you delete the sandbox.</p>
-<h4 id="sandboxie-is-not-an-anti-virus-and-will-neither-identify-or-warn-about-viruses-however-sandboxie-treats-all-software-it-runs-as-potentially-malicious-software-which-cannot-be-trusted-and-will-not-let-any-program-malicious-or-legitimate-to-break-out-of-the-sandbox-and-make-permanent-changes-to-your-computer">Sandboxie is not an anti-virus, and will neither identify or warn about viruses. However, Sandboxie treats all software it runs as potentially malicious software which cannot be trusted, and will not let any program -- malicious or legitimate -- to break out of the sandbox and make permanent changes to your computer.</h4>
-<p>Note that the virus itself, in its original form as an email attachment, will remain in your mailbox even after you delete the sandbox. However, a computer virus is a piece of software, not a living creature: It cannot cause any harm your computer by merely being stored in your mailbox. It must be invoked before it can cause harm. Thus if you always run your email program sandboxed, the worst that can happen is that you will rerun the virus inside the sandbox, and then delete the sandbox again. Eventually, your anti-virus will be updated to identify this attachment as malicious software.</p>
+<p>收到包含病毒的电子邮件并不罕见。传统上，您的杀毒和反间谍软件会与您的邮件软件协作，在邮件刚被接收时，或者至少在恶意软件开始在您的计算机上执行时，就能识别到这些威胁。这对于已知的病毒和间谍软件效果良好，但对于 <a href="https://en.wikipedia.org/wiki/Zero-day_(computing)">零日漏洞</a>，即尚未被安全软件正确识别的恶意程序，则难以防护。</p>
+<p>沙盒提供了另一种解决方案。如果您在沙盒的控制下 <em>沙箱化</em> 运行邮件阅读程序，这种保护同样会扩展到由邮件阅读程序启动的任何软件，包括病毒和间谍软件，从而极大地限制了恶意软件对您计算机造成的影响。</p>
+<p>例如，假设您收到一封邮件，附件中有一个名为 <em>Click_Me_For_Best_Joke_Ever.exe</em> 的病毒。假如您并不知道这是一个病毒，并且您的杀毒软件尚未更新以识别此病毒。您点击了该附件，它虽然送上了一个最佳笑话，但也在暗中安装了恶意软件。</p>
+<p>这个例子虽然未点名任何已知病毒，但实际并不罕见。正如 <a href="https://en.wikipedia.org/wiki/Malware#Purposes">维基百科对恶意软件的引用</a> 所说：“自 2003 年以来，绝大多数广为传播的病毒和蠕虫，都是为了非法目的控制用户的计算机……” 另请参见：<a href="https://en.wikipedia.org/wiki/Botnet#Construction">Construction（维基百科）</a>。</p>
+<p>如果您沙箱化运行邮件程序，那么 <em>Click_Me_For_Best_Joke_Ever.exe</em> 也会在沙箱中运行，其对计算机进行的任何更改或安装的软件，都将限定在沙箱内。这些更改将在您删除沙箱时全部被清除。</p>
+<h4 id="-">沙盒并不是杀毒软件，也不会对病毒进行识别或发出警告。然而，沙盒会将其运行的所有软件都视为潜在的恶意软件，无法被信任，并且不会允许任何程序 -- 无论是恶意还是合法 -- 突破沙箱，对你的计算机做出永久性更改。</h4>
+<p>请注意，病毒本身以其原始形式作为电子邮件附件，即使你删除了沙箱，它仍会保留在你的邮箱中。不过，计算机病毒只是一段软件代码，而不是有生命的生物：仅仅被存储在邮箱中，并不会对你的计算机造成任何伤害。病毒必须被激活才会造成危害。因此，如果你始终在沙箱中运行你的电子邮件程序，最糟糕的情况也只是你会在沙箱内重复运行该病毒，然后再删除沙箱即可。最终，你的杀毒软件会更新，从而识别该附件为恶意软件。</p>
 <hr />
-<p>The following section is concerned with configuring the use of email software with Sandboxie.</p>
-<p>You may access your email online via a Web browser running under Sandboxie, as is the case with Hotmail, Yahoo! or Gmail, to name three of the many Web mail services. In that case, no special configuration is necessary, and the following section is not relevant.</p>
+<p>以下内容主要介绍如何配置在沙盒中使用电子邮件软件。</p>
+<p>你可以通过在沙盒中运行的 Web 浏览器在线访问你的电子邮件，例如 Hotmail、Yahoo! 或 Gmail，只是众多 Web 邮件服务中的三个例子。这种情况下，无需进行特殊配置，以下内容也就无需参考。</p>
 <hr />
-<p>The Sandboxie protection comes at a small cost: You should always keep in mind that Sandboxie considers all content created within the sandbox as discardable content.</p>
-<p>This means for example, that a malicious program installed by a virus is placed in the sandbox and considered discardable. But it also means that if you save an email message to a file, then that file is also put in the sandbox and will be discarded when the sandbox is deleted. <strong>And most importantly,</strong> this means that Sandboxie will treat incoming new mail as discardable content.</p>
-<p>For this reason, you <em>must</em> configure Sandboxie to treat your mailbox data files as trusted content, or you stand to lose important information. To protect against accidental loss of data, Sandboxie will issue message <a href="SBIE2212.html">SBIE2212</a> if you run your email program without first properly configuring Sandboxie.</p>
-<p>Sandboxie offers easy configuration for most popular email reader programs. See <a href="ApplicationsSettings.html#email-reader">Sandbox Settings &gt; Applications &gt; Email Reader</a>.</p>
-<p>You may also need to tell Sandboxie where your mailbox data files reside, in the following cases:</p>
+<p>沙盒的防护有一个小小的代价：你需时刻牢记，沙盒会将沙箱内创建的所有内容都视为可丢弃内容。</p>
+<p>这意味着，例如，由病毒安装的恶意程序会被置于沙箱中，并被视为可丢弃内容。但这也意味着，如果你将一封电子邮件另存为文件，那么该文件同样会被放入沙箱，并且在沙箱被删除时将一并被丢弃。<strong>最重要的是，</strong>这意味着沙盒会将收到的新邮件视为可丢弃内容。</p>
+<p>因此，你_必须_将你的邮箱数据文件在沙盒中配置为受信任内容，否则可能会丢失重要信息。为防止数据意外丢失，如果你在未正确配置沙箱的情况下运行电子邮件程序，沙盒将会发出 <a href="SBIE2212.html">SBIE2212</a> 提示信息。</p>
+<p>沙盒为大多数主流电子邮件阅读程序提供了简单的配置方法。请参阅 <a href="ApplicationsSettings.html#email-reader">沙箱设置 &gt; 应用程序 &gt; 电子邮件阅读器</a>。</p>
+<p>在以下情况下，你还需要告知沙盒你的邮箱数据文件所在的位置：</p>
 <ul>
-<li>If your mailbox resides in a non-default or non-standard location.</li>
-<li>If you use the Eudora or The-Bat! email software.</li>
+<li>如果你的邮箱位于非默认或非常规位置</li>
+<li>如果你使用 Eudora 或 The-Bat! 电子邮件软件</li>
 </ul>
-<p>To do that, open <a href="ApplicationsSettings.html#folders">Sandbox Settings &gt; Applications &gt; Folders</a>, select your email software from the drop-down list, and then select a folder location to be associated with it.</p>
-<p>After completing the email configuration, you may want to test it, to make sure that even when running under Sandboxie, new emails are not lost when you delete the sandbox. To do that, follow the steps outlined in <a href="TestEmailConfiguration.html">Test Email Configuration</a>.</p>
+<p>为此，请打开 <a href="ApplicationsSettings.html#folders">沙箱设置 &gt; 应用程序 &gt; 文件夹</a>，在下拉列表中选择你的电子邮件软件，然后选择要关联的文件夹位置。</p>
+<p>完成电子邮件配置后，你可能希望进行测试，以确保即使在沙箱下运行，新邮件在删除沙箱时不会丢失。具体操作，请参照 <a href="TestEmailConfiguration.html">测试电子邮件配置</a> 中的步骤。</p>
 
 
 
