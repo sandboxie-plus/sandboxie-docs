@@ -70,7 +70,7 @@
 
 [关闭打印后台处理服务](ClosePrintSpooler.md)
 
-[关闭 CLSID 路径](ClosedClsid.md)
+[关闭 CLSID](ClosedClsid.md)
 
 [关闭文件路径](ClosedFilePath.md)
 
@@ -374,7 +374,7 @@
 
 [Sandboxie](Sandboxie.md)
 
-[沙箱控制](SandboxieControl.md)
+[沙箱控制面板](SandboxieControl.md)
 
 [Sandboxie Ini](SandboxieIni.md)
 
