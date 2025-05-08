@@ -1,6 +1,6 @@
-# 复制限制静默模式
+# 静默复制限制
 
-_CopyLimitSilent_ 是 [沙盘配置文件](SandboxieIni.md) 中的一项沙箱设置。通常将其指定为 _CopyLimitSilent=y_（请参阅 [是或否设置](YesOrNoSettings.md)），这表示沙盘不应发出警报消息 [SBIE2102](SBIE2102.md)。
+_CopyLimitSilent_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙盒设置。它通常指定为 _CopyLimitSilent=y_（参见 [是或否设置](YesOrNoSettings.md)），表示 Sandboxie 不应发出警报消息 [SBIE2102](SBIE2102.md)。
 
 用法：
 
@@ -12,4 +12,4 @@ _CopyLimitSilent_ 是 [沙盘配置文件](SandboxieIni.md) 中的一项沙箱�
    CopyLimitSilent=y
 ```
 
-相关的 [沙盘配置文件](SandboxieIni.md) 设置：[CopyLimitKb](CopyLimitKb.md)。
+相关的 [Sandboxie Ini](SandboxieIni.md) 设置：[复制限制 KB](CopyLimitKb.md)。 

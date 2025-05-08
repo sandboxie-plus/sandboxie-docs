@@ -1,8 +1,8 @@
 # 仅管理员可编辑
 
-_EditAdminOnly_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个全局设置。如果指定了该设置，则在非 Administrators 组成员的用户账户下运行的 [沙盒控制](SandboxieControl.md) 或 [Sandman](PlusMigrationGuide.md) 将无法对全局设置部分或任何沙盒部分进行配置更改。然而，即使在这种情况下，用户仍然可以对用户设置部分进行更改。
+_EditAdminOnly_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个全局设置。如果指定此设置，在非管理员组成员的用户账户下运行的 [Sandboxie Control](SandboxieControl.md) 或 [Sandman](PlusMigrationGuide.md) 将无法在全局设置部分或任何沙盒部分进行任何配置更改。但是，即使在这种情况下，他们仍然可以在用户设置部分进行更改。
 
-用法示例：
+用法：
 
 ```
    .
@@ -12,4 +12,4 @@ _EditAdminOnly_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个全局设置。
    EditAdminOnly=y
 ```
 
-此设置适用于网络管理员使用。
+此设置专为网络管理员使用而设计。 

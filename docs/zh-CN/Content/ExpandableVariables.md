@@ -1,43 +1,43 @@
 # 可扩展变量
 
-某些沙盒设置可能包含 _变量_。这些是占位名称，将被替换为可能针对特定计算机和用户账户的实际文本。例如：
+一些 Sandboxie 设置可能包含_变量_。这些是占位符名称，它们会被扩展（替换）为特定计算机和用户账户的文本。例如：
 
 ```
 RecoverFolder=%Personal%\Song_Lyrics
 ```
 
-在这个简单的示例中，沙盒会将 _Personal_ 变量扩展为 _文档_ 文件夹的实际路径。
+在这个简单的例子中，Sandboxie 将变量 _Personal_ 扩展为实际的 _Documents_ 文件夹。
 
 ```
 RecoverFolder=C:\Users\joe\Documents\Song_Lyrics
 ```
 
-下表列出了沙盒能够识别的变量。
+下表列出了 Sandboxie 识别的变量。
 
-| 变量名称 | 展开为 |
-| :--- | :--- |
-| SbieHome | 沙盒安装的根路径 |
-| sandbox | 程序运行所在的沙箱名称。<br>示例：DefaultBox |
-| user <br> username | 程序运行所在的用户账户。<br>示例：joe |
-| sid | 标识程序运行用户账户的 SID 字符串。<br>示例：S-1-5-21-414-171-1981-1005 |
-| session | 程序运行所在的登录会话编号。<br>示例：1 |
-| ProgramFiles | 程序文件夹的位置。<br>示例：C:\Program Files |
-| SystemRoot | Windows 安装文件夹的位置。<br>示例：C:\Windows |
-| SystemDrive | %SystemRoot% 的前两个字符。<br>示例：C: |
-| DefaultSpoolDirectory | 打印缓冲文件夹的位置。<br>示例：C:\Windows\System32\spool\printers |
-| UserProfile | 用户账户根文件夹的位置。<br>示例：C:\Users\joe |
-| AllUsersProfile | 共享用户账户根文件夹的位置。<br>示例：C:\ProgramData |
-| HomeDrive <br> HomePath <br> HomeShare | 由注册表键 HKEY_CURRENT_USER\Volatile Environment 定义的用户账户根文件夹的部分位置。|
-| temp <br> tmp | 由注册表键 HKEY_CURRENT_USER\Environment 定义的 Windows 临时文件夹位置。<br>示例：C:\Windows\Temp |
-| Personal <br> AppData <br> Local AppData <br> Favorites <br> 及其他 | Windows 资源管理器已知的用户账户和系统文件夹的位置。详情请参见 [Shell Folders](ShellFolders.md) |
+| 变量名称 | 扩展为 |
+| :---     | :---   |
+| SbieHome | Sandboxie 安装的根路径 |
+| sandbox | 程序运行的沙盒名称。<br> 示例：DefaultBox |
+| user <br> username | 程序运行的用户账户。<br> 示例：joe |
+| sid | 标识程序运行用户账户的 SID 字符串。<br> 示例：S-1-5-21-414-171-1981-1005 |
+| session | 程序运行的登录会话编号。<br> 示例：1 |
+| ProgramFiles | 程序文件文件夹的位置。<br> 示例：C:\Program Files |
+| SystemRoot | Windows 安装文件夹的位置。<br> 示例：C:\Windows |
+| SystemDrive | %SystemRoot% 的前两个字符。<br> 示例：C: |
+| DefaultSpoolDirectory | 打印假脱机文件夹的位置。<br> 示例：C:\Windows\System32\spool\printers |
+| UserProfile | 用户账户根文件夹的位置。<br> 示例：C:\Users\joe |
+| AllUsersProfile | 共享用户账户根文件夹的位置。<br> 示例：C:\ProgramData |
+| HomeDrive <br> HomePath <br> HomeShare | 用户账户根文件夹的部分位置，在注册表项中定义：<br> HKEY_CURRENT_USER\Volatile Environment |
+| temp <br> tmp | Windows 临时文件文件夹的位置，在注册表项中定义：<br> HKEY_CURRENT_USER\Environment。<br> 示例：C:\Windows\Temp |
+| Personal <br> AppData <br> Local AppData <br> Favorites <br> 等等 | Windows 资源管理器已知的用户账户和系统文件夹位置。更多信息，请参见 [Shell Folders](ShellFolders.md)。 |
 
 ### 模板变量
 
-全局模板是沙盒安装的一部分，位于沙盒安装文件夹的 _Templates.ini_ 文件中。可以在 [Sandboxie Ini](SandboxieIni.md) 中另行添加本地模板。任何模板都可以以 _%Tmpl.SomeVariableName%_ 形式引用模板变量。这些变量名不是沙盒核心自带的，必须在 _Templates.ini_ 或 _Sandboxie.ini_ 文件的 [TemplateSettings] 节中定义。
+全局模板是 Sandboxie 安装的一部分，位于 Sandboxie 安装文件夹中的 _Templates.ini_ 文件中。可以在 [Sandboxie Ini](SandboxieIni.md) 中添加额外的本地模板。任何模板都可以引用模板变量，形式为 _%Tmpl.SomeVariableName%_。这些变量名称不是 Sandboxie 核心内置的。它们必须在 _Templates.ini_ 或 _Sandboxie.ini_ 的 [TemplateSettings] 部分中定义。
 
-### 变量覆盖
+### 覆盖变量
 
-上表中的任何变量，包括 [Shell 文件夹](ShellFolders.md) 和模板变量，都可以通过 [Sandboxie Ini](SandboxieIni.md) 配置文件进行覆盖。要覆盖变量，只需添加以 **Ovr.** 前缀开头的参数。
+上表中的任何变量，包括 [Shell Folders](ShellFolders.md) 和模板变量，都可以被 [Sandboxie Ini](SandboxieIni.md) 配置文件覆盖。要覆盖变量，添加以 **Ovr.** 为前缀的参数。
 
 例如：
 
@@ -54,11 +54,11 @@ RecoverFolder=C:\Users\joe\Documents\Song_Lyrics
     OpenFilePath=%SystemRoot%\Temp
 ```
 
-当以这种方式覆盖变量时，其展开值将始终与配置文件中指定的值一致。
+当以这种方式覆盖变量时，其扩展值将始终匹配配置文件中指定的值。
 
 ### 注册表回退
 
-上表中的某些变量取自系统注册表。这些变量包括 _ProgramFiles_ 及其后所有出现在表内的变量。对于这些变量，可以在 [Sandboxie Ini](SandboxieIni.md) 配置文件中指定“回退”值。要为变量指定回退方式，添加以 **Reg.** 前缀开头的参数。
+上表中的一些变量是从系统注册表中获取的。这些变量是 _ProgramFiles_ 和表中 _ProgramFiles_ 以下的任何其他变量。对于这些变量，可以在 [Sandboxie Ini](SandboxieIni.md) 配置文件中指定"回退"值。要指定变量的回退值，添加以 **Reg.** 为前缀的参数。
 
 例如：
 
@@ -72,6 +72,6 @@ RecoverFolder=C:\Users\joe\Documents\Song_Lyrics
     Reg.Cookies=%USERPROFILE%\Cookies
 ```
 
-请注意，上文描述的 “Ovr.” 覆盖方式会让沙盒忽略注册表。另一方面，只有当在注册表中找不到需要展开的变量时，沙盒才会检查 “Reg.” 的回退值。这意味着，如果为同一个变量 X 同时指定了 Ovr.X 和 Reg.X，则变量展开时始终使用 Ovr.X，Reg.X 则不会生效。
+请注意，"Ovr." 样式的覆盖（如上所述）将导致 Sandboxie 忽略注册表。另一方面，Sandboxie 只有在注册表中找不到扩展变量时才会检查 "Reg." 样式的回退。这意味着如果为同一变量 X 同时指定了 Ovr.X 和 Reg.X，则在扩展 X 时始终应用 Ovr.X 形式，而 Reg.X 形式永远不会应用。
 
-通常建议首选 “Ovr.” 覆盖方式，而不是 “Reg.” 回退方式。
+通常，使用 "Ovr." 样式的覆盖比 "Reg." 样式的回退更可取。 
