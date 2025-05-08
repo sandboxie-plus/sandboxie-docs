@@ -18,7 +18,7 @@
     
     
       
-        <title>Sandboxie Trace - Sandboxie 文档</title>
+        <title>沙盘跟踪 - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sandboxie-trace" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Sandboxie Trace
+              沙盘跟踪
             
           </span>
         </div>
@@ -448,7 +448,7 @@
   
   
   <span class="md-ellipsis">
-    Sandboxie Control
+    沙盘控制面板
     
   </span>
   
@@ -517,7 +517,7 @@
   
   
   <span class="md-ellipsis">
-    Sandbox Menu
+    沙盘菜单
     
   </span>
   
@@ -713,7 +713,7 @@
   
   
   <span class="md-ellipsis">
-    Sandboxie Ini
+    沙盘配置文件（Sandboxie.ini）
     
   </span>
   
@@ -941,7 +941,7 @@
   
   
   <span class="md-ellipsis">
-    Sandbox Hierarchy
+    沙箱层级
     
   </span>
   
@@ -1010,7 +1010,7 @@
   
   
   <span class="md-ellipsis">
-    Resource Access Monitor (for Sandboxie Classic)
+    资源访问监视器（适用于沙盘经典版）
     
   </span>
   
@@ -4526,43 +4526,43 @@
   
 
 
-<h1 id="sandboxie-trace">Sandboxie Trace</h1>
-<h3 id="please-see-resource-access-monitor-for-sandboxie-classic">Please see <a href="../ResourceAccessMonitor/">Resource Access Monitor</a> for Sandboxie Classic.</h3>
-<h3 id="please-see-trace-logging-for-sandboxie-plus">Please see <a href="../../PlusContent/TraceLog/">Trace Logging</a> for Sandboxie Plus.</h3>
+<h1 id="_1">沙盘跟踪</h1>
+<h3 id="_2">对于沙盘经典版，请参阅<a href="../ResourceAccessMonitor/">资源访问监视器</a>。</h3>
+<h3 id="_3">对于沙盘增强版，请参阅<a href="../../PlusContent/TraceLog/">跟踪日志</a>。</h3>
 <hr />
-<h3 id="overview">Overview</h3>
-<p>In some cases, a program may not function correctly within the sandbox, because it needs access to a system resource which is, by default, protected by Sandboxie, and access to that resource is denied.</p>
-<p>Note that in this case, the sandboxed program is not creating the resource itself; rather, it expects the resource to already be available for access and use.</p>
-<p>The trace displays access attempts and makes it possible to somewhat easily identify which resources that are needed for correct operation, have been blocked.</p>
-<h3 id="enable-the-trace">Enable the Trace</h3>
-<p>The trace can be activated through different <a href="../SandboxieIni/">Sandboxie Ini</a> settings:</p>
+<h3 id="_4">概述</h3>
+<p>在某些情况下，程序在沙箱内可能无法正常运行，因为它需要访问某个系统资源，而该资源默认受沙盘保护，访问会被拒绝。</p>
+<p>请注意，在这种情况下，沙箱内的程序并非自行创建该资源；相反，它期望该资源已经可供访问和使用。</p>
+<p>跟踪功能会显示访问尝试，从而能够较为轻松地识别出哪些为确保程序正常运行所需的资源被阻止了。</p>
+<h3 id="_5">启用跟踪</h3>
+<p>可以通过不同的<a href="../SandboxieIni/">沙盘配置文件</a>设置来激活跟踪功能：</p>
 <ul>
-<li><strong>FileTrace</strong> logs access to files, folders, and filesystem volumes;</li>
-<li><strong>KeyTrace</strong> logs access to registry keys (but not values within keys);</li>
-<li><strong>PipeTrace</strong> logs access to named pipes and mail slot objects which are used for inter-process communication;</li>
-<li><strong>IpcTrace</strong> logs access to other objects used for inter-process communication, and also logs access attempts by one process to another process;</li>
-<li><strong>GuiTrace</strong> logs window-to-window communications;</li>
-<li><strong>ClsidTrace</strong> logs COM communications;</li>
-<li><strong>NetFwTrace</strong> traces the actions of the firewall components (since version 0.9.0 / 5.51.0);</li>
-<li><strong>LogAPI</strong> library to get additional trace output (see <a href="https://forum.xanasoft.com/threads/how-to-get-malawre-trace-in-sandboxie.143/">this thread</a> for more information).</li>
+<li><strong>文件跟踪（FileTrace）</strong>：记录对文件、文件夹和文件系统卷的访问；</li>
+<li><strong>注册表项跟踪（KeyTrace）</strong>：记录对注册表项的访问（但不包括注册表项内的值）；</li>
+<li><strong>命名管道跟踪（PipeTrace）</strong>：记录对用于进程间通信的命名管道和邮件槽对象的访问；</li>
+<li><strong>进程间通信跟踪（IpcTrace）</strong>：记录对其他用于进程间通信的对象的访问，还会记录一个进程对另一个进程的访问尝试；</li>
+<li><strong>图形用户界面跟踪（GuiTrace）</strong>：记录窗口间的通信；</li>
+<li><strong>COM 类标识符跟踪（ClsidTrace）</strong>：记录 COM 通信；</li>
+<li><strong>防火墙跟踪（NetFwTrace）</strong>：跟踪防火墙组件的操作（自 0.9.0 / 5.51.0 版本起）；</li>
+<li><strong>日志 API（LogAPI）</strong>：用于获取额外跟踪输出的库（有关更多信息，请参阅<a href="https://forum.xanasoft.com/threads/how-to-get-malawre-trace-in-sandboxie.143/">此线程</a>）。</li>
 </ul>
-<p>Each setting accepts a sequence of characters which specifies what to log. The character <em>a</em> logs requests which were allowed; the character <em>d</em> logs requests which were denied. For the <strong>FileTrace</strong> and <strong>PipeTrace</strong> settings, the character <em>i</em> logs requests which were allowed because they access a device which is ignored by Sandboxie, such as a CD-ROM.</p>
-<p>The settings <strong>PipeTrace</strong>, <strong>IpcTrace</strong> and <strong>GuiTrace</strong> are more relevant to the discussion in this page. <strong>FileTrace</strong> and <strong>KeyTrace</strong> will usually not be able to provide insight as to why a sandboxed program is malfunctioning.</p>
-<p>Thus, typically you enable the trace by making this change in <a href="../SandboxieIni/">Sandboxie Ini</a>:
+<p>每个设置都接受一个字符序列，用于指定要记录的内容。字符 <em>a</em> 记录被允许的请求；字符 <em>d</em> 记录被拒绝的请求。对于 <strong>文件跟踪（FileTrace）</strong> 和 <strong>命名管道跟踪（PipeTrace）</strong> 设置，字符 <em>i</em> 记录因访问被沙盘忽略的设备（如 CD - ROM）而被允许的请求。</p>
+<p><strong>命名管道跟踪（PipeTrace）</strong>、<strong>进程间通信跟踪（IpcTrace）</strong> 和 <strong>图形用户界面跟踪（GuiTrace）</strong> 设置与本页面的讨论更为相关。<strong>文件跟踪（FileTrace）</strong> 和 <strong>注册表项跟踪（KeyTrace）</strong> 通常无法提供有关沙箱内程序为何出现故障的信息。</p>
+<p>因此，通常通过在<a href="../SandboxieIni/">沙盘配置文件</a>中进行以下更改来启用跟踪：
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="k">[GlobalSettings]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">IpcTrace</span><span class="o">=</span><span class="s">ad</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">PipeTrace</span><span class="o">=</span><span class="s">ad</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="na">GuiTrace</span><span class="o">=</span><span class="s">ad</span>
 </span></code></pre></div></p>
-<p>Then use Sandboxie to reload the configuration:
-* <strong>Configure</strong> menu -&gt; <strong>Reload Configuration</strong> on Sandboxie Classic
-* <strong>Options</strong> menu -&gt; <strong>Reload ini file</strong> on Sandboxie Plus</p>
-<p>Trace options can be set on a per box basis such that only the boxes you need will generate trace logs.</p>
-<p>You can also adjust the buffer size by adding <code>TraceBufferPages=2560</code> that will increase it tenfold.</p>
-<h3 id="review-the-trace-for-netfwtrace-ipctrace-and-pipetrace">Review the Trace for <strong>NetFwTrace</strong>, <strong>IpcTrace</strong> and <strong>PipeTrace</strong></h3>
-<p>Since version 0.9.0 / 5.51.0, a new option <code>NetFwTrace=*</code> was added to trace the actions of the firewall components. Please note that the driver only logs to the kernel debug output, which you can view with <a href="https://docs.microsoft.com/en-us/sysinternals/downloads/debugview">DbgView.exe</a>.</p>
-<p>On Windows Vista and later, output from the system debugger log is disabled by default. <a href="https://web.archive.org/web/20080731211018/http://blogs.msdn.com:80/doronh/archive/2006/11/14/where-did-my-debug-output-go-in-vista.aspx">This blog post</a> and <a href="https://web.archive.org/web/20230324011501/https://stackoverflow.com/questions/65015739/outputdebugstring-not-showing-message-in-debugview-windows-10-x64">this thread</a> explain how to enable it.</p>
-<p>The following trace will display output in the following format. (Assuming <strong>IpcTrace</strong>, and <strong>PipeTrace</strong> enabled.)
+<p>然后使用沙盘重新加载配置：
+* 在沙盘经典版中，选择“配置”菜单 -&gt; “重新加载配置”
+* 在沙盘增强版中，选择“选项”菜单 -&gt; “重新加载 ini 文件”</p>
+<p>可以按沙箱设置跟踪选项，这样只有需要的沙箱才会生成跟踪日志。</p>
+<p>还可以通过添加 <code>跟踪缓冲区页面（TraceBufferPages）=2560</code> 来调整缓冲区大小，这将使其增大 10 倍。</p>
+<h3 id="netfwtraceipctrace-pipetrace">查看 <strong>防火墙跟踪（NetFwTrace）</strong>、<strong>进程间通信跟踪（IpcTrace）</strong> 和 <strong>命名管道跟踪（PipeTrace）</strong> 的跟踪信息</h3>
+<p>自 0.9.0 / 5.51.0 版本起，添加了一个新选项 <code>防火墙跟踪（NetFwTrace）=*</code> 来跟踪防火墙组件的操作。请注意，驱动程序仅将日志记录到内核调试输出，你可以使用 <a href="https://docs.microsoft.com/en-us/sysinternals/downloads/debugview">DbgView.exe</a> 查看。</p>
+<p>在 Windows Vista 及更高版本中，系统调试器日志的输出默认是禁用的。<a href="https://web.archive.org/web/20080731211018/http://blogs.msdn.com:80/doronh/archive/2006/11/14/where-did-my-debug-output-go-in-vista.aspx">这篇博客文章</a> 和 <a href="https://web.archive.org/web/20230324011501/https://stackoverflow.com/questions/65015739/outputdebugstring-not-showing-message-in-debugview-windows-10-x64">这个线程</a> 解释了如何启用它。</p>
+<p>以下跟踪信息将以以下格式显示输出（假设启用了 <strong>进程间通信跟踪（IpcTrace）</strong> 和 <strong>命名管道跟踪（PipeTrace）</strong>）：
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">...</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">(001404) SBIE (FA) 00120116.01.00000000 \Device\NamedPipe\ShimViewer</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="na">...</span>
@@ -4577,24 +4577,24 @@
 </span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="na">(001404) SBIE (ID) 001F0001 \RPC Control\protected_storage</span>
 </span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="na">...</span>
 </span></code></pre></div>
-The format is this:</p>
-<p><code>(pid) SBIE (ca) (access) (resource)</code></p>
+格式如下：</p>
+<p><code>(进程 ID) 沙盘（类别访问标识）（访问请求）（资源）</code></p>
 <ul>
-<li><code>pid</code> identifies the process attempting the access;</li>
-<li><code>c</code> indicates the Sandboxie class for the resource -- more on this later;</li>
-<li><code>a</code> indicates if the access was allowed (A) or denied (D);</li>
-<li><code>access</code> indicates the access requested to the object, and is typically not interesting or important;</li>
-<li><code>resource</code> identifies the resource to which access is desired; in the case of process-to-process access, where <em>ca</em> is (PA) or (PD), the resource name is the process id of the process being accessed.</li>
+<li><code>进程 ID</code> 标识尝试进行访问的进程；</li>
+<li><code>类别</code> 表示该资源的沙盘类别 —— 稍后会详细介绍；</li>
+<li><code>访问标识</code> 表示访问是否被允许（A 表示允许，D 表示拒绝）；</li>
+<li><code>访问请求</code> 表示对对象请求的访问，通常不太重要或不感兴趣；</li>
+<li><code>资源</code> 标识所需访问的资源；在进程间访问的情况下，当 <code>类别访问标识</code> 为 (PA) 或 (PD) 时，资源名称是被访问进程的进程 ID。</li>
 </ul>
-<p>Some examples:</p>
+<p>一些示例：</p>
 <p><code>(001404) SBIE (IA) 001F0001 \ThemeApiPort</code></p>
-<p>Here the process making the request is process id 1404, and was allowed to access the resource named <em>ThemeApiPort</em>. The resource class is I, so this is an inter-process object. The access was allowed because by default, Sandboxie allows this specific access.</p>
+<p>在此示例中，发起请求的进程的进程 ID 为 1404，并且被允许访问名为 <em>ThemeApiPort</em> 的资源。资源类别为 I，因此这是一个进程间对象。该访问被允许是因为默认情况下，沙盘允许此特定访问。</p>
 <p><code>(001404) SBIE (ID) 001F0001 \RPC Control\protected_storage</code></p>
-<p>Here the access to the resource <em>protected_storage</em> was denied. By default Sandboxie does not allow this access; however the OpenProtectedStorage setting changes this behavior.</p>
+<p>在此示例中，对资源 <em>protected_storage</em> 的访问被拒绝。默认情况下，沙盘不允许此访问；但是，<code>打开受保护存储（OpenProtectedStorage）</code> 设置会更改此行为。</p>
 <p><code>(001404) SBIE (FA) 00000001.0F.FFFFFFFF \Device\Afd\Endpoint</code></p>
-<p>Here the access is allowed to the resource <em>Endpoint</em>. The resource class is F, so this is a named pipe or a mail slot resource. The access is allowed by default, because the <em>\Device\Afd</em> prefix names resources needed for Internet access.</p>
-<h3 id="review-guitrace-entries">Review <strong>GuiTrace</strong> Entries</h3>
-<p>When <strong>GuiTrace</strong> is enabled, the trace also produces entries like the following:
+<p>在此示例中，对资源 <em>Endpoint</em> 的访问被允许。资源类别为 F，因此这是一个命名管道或邮件槽资源。该访问默认被允许，因为 <em>\Device\Afd</em> 前缀命名了 Internet 访问所需的资源。</p>
+<h3 id="guitrace">查看 <strong>图形用户界面跟踪（GuiTrace）</strong> 条目</h3>
+<p>当启用 <strong>图形用户界面跟踪（GuiTrace）</strong> 时，跟踪还会生成如下条目：
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">...</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">(001404) SBIE (GA) WinHook 0002 on tid</span><span class="o">=</span><span class="s">001484 pid=001960</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="na">(001404) SBIE (GA) AccHook on tid</span><span class="o">=</span><span class="s">000000 pid=000000</span>
@@ -4605,29 +4605,33 @@ The format is this:</p>
 </span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="na">(001404) SBIE (GD) SendInput</span>
 </span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="na">(001404) SBIE (GA) SendInput</span>
 </span></code></pre></div>
-These entries have a few formats. The first word after (GA) or (GD) identifies the type of the entry.</p>
-<p>When the first word is <em>WinHook</em> or <em>AccHook</em>, the entry indicates installation of a hook. Its installation is permitted for (GA) entries, and denied for (GD) entries. <em>WinHook</em> is a standard Windows hook, followed by the type of the hook (see <a href="https://www.google.com/search?hl=en&amp;q=setwindowshookex+msdn">SetWidowsHookEx in MSDN</a>). <em>AccHook</em> is an accessibility hook (see <a href="https://www.google.com/search?hl=en&amp;q=setwineventhook+msdn">SetWinEventHook in MSDN</a>).</p>
-<p>Both entries identify the thread number (tid) process number (pid) into which the hook was to be installed.</p>
-<p>When the first word is <em>PostMessage</em>, <em>SendMessage</em> or <em>ThrdMessage</em>, the entry shows denied window communication. The following two numbers indicate the window message number, in decimal and hexadecimal. The entry also indicates the window handle (hwnd) of the target window, the process number (pid) which owns this window, and finally, the internal window class name for the window.</p>
-<h3 id="analyze-the-trace">Analyze the Trace</h3>
-<p>The point of using the trace is usually to identify the resource that is keeping the sandboxed program from functioning correctly.</p>
-<p>Consider for example the following trace record:</p>
+这些条目有几种格式。(GA) 或 (GD) 之后的第一个单词标识条目的类型。</p>
+<p>当第一个单词是 <em>窗口钩子（WinHook）</em> 或 <em>辅助功能钩子（AccHook）</em> 时，该条目表示钩子的安装。对于 (GA) 条目，钩子安装被允许；对于 (GD) 条目，钩子安装被拒绝。<em>窗口钩子（WinHook）</em> 是标准的 Windows 钩子，后面跟着钩子的类型（请参阅 <a href="https://www.google.com/search?hl=en&amp;q=setwindowshookex+msdn">MSDN 中的 SetWindowsHookEx</a>）。<em>辅助功能钩子（AccHook）</em> 是辅助功能钩子（请参阅 <a href="https://www.google.com/search?hl=en&amp;q=setwineventhook+msdn">MSDN 中的 SetWinEventHook</a>）。</p>
+<p>这两种条目都标识了钩子要安装到的线程号（线程 ID）和进程号（进程 ID）。</p>
+<p>当第一个单词是 <em>投递消息（PostMessage）</em>、<em>发送消息（SendMessage）</em> 或 <em>线程消息（ThrdMessage）</em> 时，该条目显示被拒绝的窗口通信。接下来的两个数字表示窗口消息编号，分别为十进制和十六进制。该条目还表示目标窗口的窗口句柄（窗口句柄）、拥有此窗口的进程号（进程 ID），最后是窗口的内部窗口类名。</p>
+<h3 id="_6">分析跟踪信息</h3>
+<p>使用跟踪功能的目的通常是识别出导致沙箱内程序无法正常运行的资源。</p>
+<p>例如，考虑以下跟踪记录：</p>
 <p><code>(001404) SBIE (ID) 001F0001 \BaseNamedObjects\Xyzzy</code></p>
 <p>This shows that access to some <em>Xyzzy</em> resource was denied. Sandboxie does not know this resource, and by default, it denies access to unknown resources.</p>
 <p>If a sandboxed program begins to malfunction (it may lock up, or it may end abruptly, or just complain about something) soon after this record appears in the trace, it stands to reason that the program was expecting the resource to be accessible.</p>
 <p>The next step is to add an <a href="../OpenIpcPath/">OpenIpcPath</a> setting for this resource:</p>
 <p><code>OpenIpcPath=\BaseNamedObjects\Xyzzy</code></p>
-<p>This setting tells Sandboxie that access to the <em>Xyzzy</em> resource should not be blocked.</p>
-<p>Then reload the Sandboxie configuration, clear the old contents of the trace display, and restart the sandboxed program. If the program now performs better, <em>Xyzzy</em> was indeed the problematic resource.</p>
-<p>But if the program still fails, the trace log can be inspected again for later (or possibly earlier) failed access attempts.</p>
-<h3 id="resource-class">Resource Class</h3>
-<p>The trace record shows the Sandboxie resource class of the object. This indicates which OpenXxxPath setting is needed to allow access to the object.</p>
+<p>这表明对某个 <em>Xyzzy</em> 资源的访问被拒绝。沙盘不识别此资源，并且默认情况下，它会拒绝访问未知资源。</p>
+<p>如果沙箱内的程序在这条记录出现在跟踪信息中后不久开始出现故障（可能会锁定、突然结束或只是抱怨某些问题），那么很可能该程序原本期望该资源是可访问的。</p>
+<p>下一步是为该资源添加一个 <a href="../OpenIpcPath/">打开进程间通信路径（OpenIpcPath）</a> 设置：</p>
+<p><code>打开进程间通信路径（OpenIpcPath）=\BaseNamedObjects\Xyzzy</code></p>
+<p>此设置告诉沙盘，对 <em>Xyzzy</em> 资源的访问不应被阻止。</p>
+<p>然后重新加载沙盘配置，清除跟踪显示中的旧内容，并重新启动沙箱内的程序。如果程序现在运行得更好，那么 <em>Xyzzy</em> 确实是有问题的资源。</p>
+<p>但如果程序仍然失败，可以再次检查跟踪日志，查找后续（或可能更早）的失败访问尝试。</p>
+<h3 id="_7">资源类别</h3>
+<p>跟踪记录显示了对象的沙盘资源类别。这表明需要哪个 <code>打开xxx路径（OpenXxxPath）</code> 设置来允许访问该对象。</p>
 <ul>
-<li>When resource class is F, as in (FA) or (FD), the relevant settings are <a href="../OpenFilePath/">OpenFilePath</a> and <a href="../ClosedFilePath/">ClosedFilePath</a>.</li>
-<li>When resource class is K, as in (KA) or (KD), the relevant settings are <a href="../OpenKeyPath/">OpenKeyPath</a> and <a href="../ClosedKeyPath/">ClosedKeyPath</a>.</li>
-<li>When resource class is I, as in (IA) or (ID), the relevant settings are <a href="../OpenIpcPath/">OpenIpcPath</a> and <a href="../ClosedIpcPath/">ClosedIpcPath</a>.</li>
-<li>When resource class is G, as in (GA) or (GD), the relevant setting is <a href="../OpenWinClass/">OpenWinClass</a>.</li>
-<li>For COM objects displayed by ClsidTrace, the relevant setting is <a href="../OpenClsid/">OpenClsid</a>.</li>
+<li>当资源类别为 F，如 (FA) 或 (FD) 时，相关设置是 <a href="../OpenFilePath/">打开文件路径（OpenFilePath）</a> 和 <a href="../ClosedFilePath/">关闭文件路径（ClosedFilePath）</a>。</li>
+<li>当资源类别为 K，如 (KA) 或 (KD) 时，相关设置是 <a href="../OpenKeyPath/">打开注册表项路径（OpenKeyPath）</a> 和 <a href="../ClosedKeyPath/">关闭注册表项路径（ClosedKeyPath）</a>。</li>
+<li>当资源类别为 I，如 (IA) 或 (ID) 时，相关设置是 <a href="../OpenIpcPath/">打开进程间通信路径（OpenIpcPath）</a> 和 <a href="../ClosedIpcPath/">关闭进程间通信路径（ClosedIpcPath）</a>。</li>
+<li>当资源类别为 G，如 (GA) 或 (GD) 时，相关设置是 <a href="../OpenWinClass/">打开窗口类（OpenWinClass）</a>。</li>
+<li>对于 <strong>COM 类标识符跟踪（ClsidTrace）</strong> 显示的 COM 对象，相关设置是 <a href="../OpenClsid/">打开 COM 类标识符（OpenClsid）</a>。</li>
 </ul>
 
 

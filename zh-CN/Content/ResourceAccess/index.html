@@ -18,7 +18,7 @@
     
     
       
-        <title>Resource Access - Sandboxie 文档</title>
+        <title>资源访问 - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#resource-access" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Resource Access
+              资源访问
             
           </span>
         </div>
@@ -448,7 +448,7 @@
   
   
   <span class="md-ellipsis">
-    Sandboxie Control
+    沙盘控制面板
     
   </span>
   
@@ -517,7 +517,7 @@
   
   
   <span class="md-ellipsis">
-    Sandbox Menu
+    沙盘菜单
     
   </span>
   
@@ -713,7 +713,7 @@
   
   
   <span class="md-ellipsis">
-    Sandboxie Ini
+    沙盘配置文件（Sandboxie.ini）
     
   </span>
   
@@ -941,7 +941,7 @@
   
   
   <span class="md-ellipsis">
-    Sandbox Hierarchy
+    沙箱层级
     
   </span>
   
@@ -1010,7 +1010,7 @@
   
   
   <span class="md-ellipsis">
-    Resource Access Monitor (for Sandboxie Classic)
+    资源访问监视器（适用于沙盘经典版）
     
   </span>
   
@@ -4526,126 +4526,126 @@
   
 
 
-<h1 id="resource-access">Resource Access</h1>
-<p>In Sandboxie, various <a href="../ResourceAccessSettings/">Resource Access Settings</a> apply only to programs installed outside of Sandboxie, as not to be bypassed by sandboxed programs changing their exe name.</p>
-<p>The following table shows which settings apply to what installation locations.</p>
+<h1 id="_1">资源访问</h1>
+<p>在沙盘中，各种<a href="../ResourceAccessSettings/">资源访问设置</a>仅适用于安装在沙盘外部的程序，以防止沙箱内的程序通过更改其可执行文件名称来绕过这些设置。</p>
+<p>下表显示了哪些设置适用于哪些安装位置。</p>
 <table>
 <thead>
 <tr>
 <th></th>
-<th>Outside</th>
-<th>Inside</th>
+<th>外部</th>
+<th>内部</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="../ClosedFilePath/">ClosedFilePath</a></td>
-<td>Yes</td>
-<td>Yes</td>
+<td><a href="../ClosedFilePath/">关闭文件路径</a></td>
+<td>是</td>
+<td>是</td>
 </tr>
 <tr>
-<td><a href="../ClosedIpcPath/">ClosedIpcPath</a></td>
-<td>Yes</td>
-<td>Yes</td>
+<td><a href="../ClosedIpcPath/">关闭 IPC 路径</a></td>
+<td>是</td>
+<td>是</td>
 </tr>
 <tr>
-<td><a href="../ClosedKeyPath/">ClosedKeyPath</a></td>
-<td>Yes</td>
-<td>Yes</td>
+<td><a href="../ClosedKeyPath/">关闭注册表项路径</a></td>
+<td>是</td>
+<td>是</td>
 </tr>
 <tr>
-<td><a href="../ClosedRT/">ClosedRT</a></td>
-<td>Yes</td>
-<td>Yes</td>
+<td><a href="../ClosedRT/">关闭 RT</a></td>
+<td>是</td>
+<td>是</td>
 </tr>
 <tr>
-<td><a href="../OpenClsid/">OpenClsid</a></td>
-<td>Yes</td>
-<td>Yes</td>
+<td><a href="../OpenClsid/">打开 CLSID</a></td>
+<td>是</td>
+<td>是</td>
 </tr>
 <tr>
-<td><a href="../ClosedClsid/">ClosedClsid</a></td>
-<td>Yes</td>
-<td>Yes</td>
+<td><a href="../ClosedClsid/">关闭 CLSID</a></td>
+<td>是</td>
+<td>是</td>
 </tr>
 <tr>
-<td><a href="../OpenConfPath/">OpenConfPath</a></td>
-<td>Yes</td>
-<td>Yes</td>
+<td><a href="../OpenConfPath/">打开配置路径</a></td>
+<td>是</td>
+<td>是</td>
 </tr>
 <tr>
-<td><a href="../OpenFilePath/">OpenFilePath</a></td>
-<td>Yes</td>
-<td>No</td>
+<td><a href="../OpenFilePath/">打开文件路径</a></td>
+<td>是</td>
+<td>否</td>
 </tr>
 <tr>
-<td><a href="../OpenIpcPath/">OpenIpcPath</a></td>
-<td>Yes</td>
-<td>Yes</td>
+<td><a href="../OpenIpcPath/">打开 IPC 路径</a></td>
+<td>是</td>
+<td>是</td>
 </tr>
 <tr>
-<td><a href="../OpenKeyPath/">OpenKeyPath</a></td>
-<td>Yes</td>
-<td>No</td>
+<td><a href="../OpenKeyPath/">打开注册表项路径</a></td>
+<td>是</td>
+<td>否</td>
 </tr>
 <tr>
-<td><a href="../OpenPipePath/">OpenPipePath</a></td>
-<td>Yes</td>
-<td>Yes</td>
+<td><a href="../OpenPipePath/">打开管道路径</a></td>
+<td>是</td>
+<td>是</td>
 </tr>
 <tr>
-<td><a href="../OpenWinClass/">OpenWinClass</a></td>
-<td>Yes</td>
-<td>Yes</td>
+<td><a href="../OpenWinClass/">打开窗口类</a></td>
+<td>是</td>
+<td>是</td>
 </tr>
 <tr>
-<td><a href="../NoRenameWinClass/">NoRenameWinClass</a></td>
-<td>Yes</td>
-<td>Yes</td>
+<td><a href="../NoRenameWinClass/">不重命名窗口类</a></td>
+<td>是</td>
+<td>是</td>
 </tr>
 <tr>
-<td><a href="../NormalFilePath/">NormalFilePath</a></td>
-<td>Read-only</td>
-<td>Yes</td>
+<td><a href="../NormalFilePath/">普通文件路径</a></td>
+<td>只读</td>
+<td>是</td>
 </tr>
 <tr>
-<td><a href="../NormalIpcPath/">NormalIpcPath</a></td>
-<td>Read-only</td>
-<td>Yes</td>
+<td><a href="../NormalIpcPath/">普通 IPC 路径</a></td>
+<td>只读</td>
+<td>是</td>
 </tr>
 <tr>
-<td><a href="../NormalKeyPath/">NormalKeyPath</a></td>
-<td>Read-only</td>
-<td>Yes</td>
+<td><a href="../NormalKeyPath/">普通注册表项路径</a></td>
+<td>只读</td>
+<td>是</td>
 </tr>
 <tr>
-<td><a href="../ReadFilePath/">ReadFilePath</a></td>
-<td>Read-only</td>
-<td>No</td>
+<td><a href="../ReadFilePath/">读取文件路径</a></td>
+<td>只读</td>
+<td>否</td>
 </tr>
 <tr>
-<td><a href="../ReadIpcPath/">ReadIpcPath</a></td>
-<td>Read-only</td>
-<td>No</td>
+<td><a href="../ReadIpcPath/">读取 IPC 路径</a></td>
+<td>只读</td>
+<td>否</td>
 </tr>
 <tr>
-<td><a href="../ReadKeyPath/">ReadKeyPath</a></td>
-<td>Read-only</td>
-<td>No</td>
+<td><a href="../ReadKeyPath/">读取注册表项路径</a></td>
+<td>只读</td>
+<td>否</td>
 </tr>
 <tr>
-<td><a href="../WriteFilePath/">WriteFilePath</a></td>
-<td>No</td>
-<td>Yes</td>
+<td><a href="../WriteFilePath/">写文件路径</a></td>
+<td>否</td>
+<td>是</td>
 </tr>
 <tr>
-<td><a href="../WriteKeyPath/">WriteKeyPath</a></td>
-<td>No</td>
-<td>Yes</td>
+<td><a href="../WriteKeyPath/">写注册表项路径</a></td>
+<td>否</td>
+<td>是</td>
 </tr>
 </tbody>
 </table>
-<p><del>Note that all <code>Close...=!&lt;program&gt;,...</code> excludes only programs from outside the sandbox.</del></p>
+<p><del>请注意，所有 <code>Close...=!&lt;程序&gt;,...</code> 仅排除沙盘外部的程序。</del></p>
 
 
 

@@ -22,7 +22,7 @@
     
     
       
-        <title>Resource Access Monitor (for Sandboxie Classic) - Sandboxie 文档</title>
+        <title>资源访问监视器（适用于沙盘经典版） - Sandboxie 文档</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#resource-access-monitor-for-sandboxie-classic" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -105,7 +105,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Resource Access Monitor (for Sandboxie Classic)
+              资源访问监视器（适用于沙盘经典版）
             
           </span>
         </div>
@@ -452,7 +452,7 @@
   
   
   <span class="md-ellipsis">
-    Sandboxie Control
+    沙盘控制面板
     
   </span>
   
@@ -521,7 +521,7 @@
   
   
   <span class="md-ellipsis">
-    Sandbox Menu
+    沙盘菜单
     
   </span>
   
@@ -717,7 +717,7 @@
   
   
   <span class="md-ellipsis">
-    Sandboxie Ini
+    沙盘配置文件（Sandboxie.ini）
     
   </span>
   
@@ -947,7 +947,7 @@
   
   
   <span class="md-ellipsis">
-    Sandbox Hierarchy
+    沙箱层级
     
   </span>
   
@@ -1025,7 +1025,7 @@
   
   
   <span class="md-ellipsis">
-    Resource Access Monitor (for Sandboxie Classic)
+    资源访问监视器（适用于沙盘经典版）
     
   </span>
   
@@ -1038,7 +1038,7 @@
   
   
   <span class="md-ellipsis">
-    Resource Access Monitor (for Sandboxie Classic)
+    资源访问监视器（适用于沙盘经典版）
     
   </span>
   
@@ -1061,18 +1061,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#using-the-monitor" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      Using the Monitor
+      使用监视器
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#performance-impact" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      Performance Impact
+      性能影响
     </span>
   </a>
   
@@ -4592,19 +4592,21 @@
   
 
 
-<h1 id="resource-access-monitor-for-sandboxie-classic">Resource Access Monitor (for Sandboxie Classic)</h1>
-<p>The Resource Access Monitor tool displays the names of any system resources that are accessed by programs running under the supervision of Sandboxie. Designed to make it easy to identify those system resources which should be excluded from sandboxing, this tool can be used with the <a href="SandboxieTrace.html">Sandboxie Trace</a> options.</p>
-<p><strong>Important:</strong> Please consider to use the Resource Access Monitor before opening a new issue.</p>
+<h1 id="_1">资源访问监视器（适用于沙盘经典版）</h1>
+<p>资源访问监视器工具会显示在沙盘监控下运行的程序所访问的任何系统资源的名称。该工具旨在便于识别那些应排除在沙箱之外的系统资源，可与<a href="SandboxieTrace.html">沙盘跟踪</a>选项配合使用。</p>
+<p><strong>重要提示：</strong> 在开启新问题之前，请考虑使用资源访问监视器。</p>
 <p><img alt="" src="../Media/ResourceAccessMonitor.png" /></p>
-<h3 id="using-the-monitor">Using the Monitor</h3>
-<p>1. To activate the monitor, expand or open the <a href="SandboxieControl.html">Sandboxie Control</a> window, then select the <a href="FileMenu.html">File Menu</a> -&gt; Resource Access Monitor command.</p>
-<p>2. You should typically activate the monitor before any programs are running in any sandbox. Note that the Resource Access Monitor window blocks access to the <a href="SandboxieControl.html">Sandboxie Control</a> main window, including its menu, so you will have to start sandboxed programs through the <a href="TrayIconMenu.html">Tray Icon Menu</a>.</p>
-<p>3. When the monitor is activated and its window appears on the screen, it immediately starts to collect and display resource access information from all sandboxed programs that are running.</p>
-<p>4. At this point, perform any specific tasks that fail when done under the supervision of Sandboxie.</p>
-<p>5. Finally, click the button labeled <strong>Copy Contents to Clipboard and Close Window</strong>. This copies the collected data into the clipboard, and de-activates the monitor.</p>
-<p>6. You can now paste (Ctrl+V) the collected data somewhere and make it available for analysis.</p>
-<h3 id="performance-impact">Performance Impact</h3>
-<p>When inactive, the Resource Access Monitor does not use any system resources and does not have any performance impact on any running programs. When active, the Resource Access Monitor consumes 64K bytes of system memory and has a small performance penalty on sandboxed programs. Network Administrators may want to use the <a href="MonitorAdminOnly.html">MonitorAdminOnly</a> setting to restrict the use of this tool for user accounts which are not members of the Administrators group.</p>
+<h3 id="_2">使用监视器</h3>
+<ol>
+<li>要激活监视器，请展开或打开<a href="SandboxieControl.html">沙盘控制</a>窗口，然后选择<a href="FileMenu.html">文件菜单</a> -&gt; 资源访问监视器命令。</li>
+<li>通常应在任何程序在任何沙箱中运行之前激活监视器。请注意，资源访问监视器窗口会阻止对<a href="SandboxieControl.html">沙盘控制</a>主窗口（包括其菜单）的访问，因此您必须通过<a href="TrayIconMenu.html">托盘图标菜单</a>启动沙箱中的程序。</li>
+<li>当监视器激活且其窗口出现在屏幕上时，它会立即开始收集并显示所有正在运行的沙箱程序的资源访问信息。</li>
+<li>此时，执行在沙盘监控下失败的任何特定任务。</li>
+<li>最后，点击标有“将内容复制到剪贴板并关闭窗口”的按钮。这会将收集的数据复制到剪贴板，并停用监视器。</li>
+<li>现在您可以将收集的数据粘贴（Ctrl+V）到某个位置，以便进行分析。</li>
+</ol>
+<h3 id="_3">性能影响</h3>
+<p>当监视器处于非活动状态时，它不使用任何系统资源，并且不会对任何正在运行的程序产生性能影响。当处于活动状态时，资源访问监视器会消耗64K字节的系统内存，并且会对沙箱程序产生轻微的性能损失。网络管理员可能希望使用<a href="MonitorAdminOnly.html">仅管理员可监控</a>设置来限制非管理员组成员的用户账户使用此工具。</p>
 
 
 

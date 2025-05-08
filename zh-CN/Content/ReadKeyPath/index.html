@@ -18,7 +18,7 @@
     
     
       
-        <title>Read Key Path - Sandboxie 文档</title>
+        <title>读取注册表项路径 - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#read-key-path" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Read Key Path
+              读取注册表项路径
             
           </span>
         </div>
@@ -448,7 +448,7 @@
   
   
   <span class="md-ellipsis">
-    Sandboxie Control
+    沙盘控制面板
     
   </span>
   
@@ -517,7 +517,7 @@
   
   
   <span class="md-ellipsis">
-    Sandbox Menu
+    沙盘菜单
     
   </span>
   
@@ -713,7 +713,7 @@
   
   
   <span class="md-ellipsis">
-    Sandboxie Ini
+    沙盘配置文件（Sandboxie.ini）
     
   </span>
   
@@ -941,7 +941,7 @@
   
   
   <span class="md-ellipsis">
-    Sandbox Hierarchy
+    沙箱层级
     
   </span>
   
@@ -1010,7 +1010,7 @@
   
   
   <span class="md-ellipsis">
-    Resource Access Monitor (for Sandboxie Classic)
+    资源访问监视器（适用于沙盘经典版）
     
   </span>
   
@@ -4526,20 +4526,20 @@
   
 
 
-<h1 id="read-key-path">Read Key Path</h1>
-<p><em>ReadKeyPath</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. It specifies a path patterns, for which Sandboxie will not apply sandboxing for registry keys, and will not allow writing.</p>
-<p><a href="../ProgramNamePrefix/">Program Name Prefix</a> may be specified.</p>
-<p>Example:
+<h1 id="_1">读取注册表项路径</h1>
+<p><em>读取注册表项路径</em> 是 <a href="../SandboxieIni/">沙盘配置文件（Sandboxie Ini）</a> 中的一项沙箱设置。它指定了注册表键的路径模式，对于这些路径，沙盘不会对注册表键应用沙箱处理，并且不允许写入操作。</p>
+<p>可以指定 <a href="../ProgramNamePrefix/">程序名称前缀</a>。</p>
+<p>示例：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">ReadKeyPath</span><span class="o">=</span><span class="s">HKEY_LOCAL_MACHINE\SOFTWARE\Policies</span>
-</span></code></pre></div></p>
-<p>This example forces the <em>Policies</em> key, and everything below it, to be readable, but not writable (or deletable) by sandboxed programs.</p>
-<p>Note: <em>ReadKeyPath</em> is a restricted form of <a href="../OpenKeyPath/">OpenKeyPath</a>. As with <em>OpenKeyPath</em>, any already-existing sandboxed contents for the specified file or folder locations, are ignored.</p>
-<p>Related <a href="../SandboxieControl/">Sandboxie Control</a> setting: <a href="../ResourceAccessSettings/#registry-access--read-only-access">Sandbox Settings &gt; Resource Access &gt; Registry Access &gt; Read-Only Access</a></p>
-<p>Related Sandboxie Plus setting: Sandbox Options &gt; Resource Access &gt; Registry &gt; Add Reg Key &gt; Access column &gt; Read Only</p>
+</span></code></pre></div>
+<p>此示例强制使 <em>Policies</em> 键及其以下的所有内容可被沙箱程序读取，但不可写入（或删除）。</p>
+<p>注意：<em>读取注册表项路径</em> 是 <a href="../OpenKeyPath/">打开注册表项路径</a> 的一种受限形式。与 <em>打开注册表项路径</em> 一样，指定文件或文件夹位置的任何已存在的沙箱内容将被忽略。</p>
+<p>相关的 <a href="../SandboxieControl/">沙盘控制面板</a> 设置：<a href="../ResourceAccessSettings/#registry-access--read-only-access">沙箱设置 &gt; 资源访问 &gt; 注册表访问 &gt; 只读访问</a></p>
+<p>相关的沙盘增强版（Sandboxie Plus）设置：沙箱选项 &gt; 资源访问 &gt; 注册表 &gt; 添加注册表键 &gt; 访问列 &gt; 只读</p>
 
 
 

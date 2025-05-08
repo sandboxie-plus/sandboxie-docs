@@ -18,7 +18,7 @@
     
     
       
-        <title>Restrictions Settings - Sandboxie 文档</title>
+        <title>限制设置 - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#restrictions-settings" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Restrictions Settings
+              限制设置
             
           </span>
         </div>
@@ -448,7 +448,7 @@
   
   
   <span class="md-ellipsis">
-    Sandboxie Control
+    沙盘控制面板
     
   </span>
   
@@ -517,7 +517,7 @@
   
   
   <span class="md-ellipsis">
-    Sandbox Menu
+    沙盘菜单
     
   </span>
   
@@ -713,7 +713,7 @@
   
   
   <span class="md-ellipsis">
-    Sandboxie Ini
+    沙盘配置文件（Sandboxie.ini）
     
   </span>
   
@@ -941,7 +941,7 @@
   
   
   <span class="md-ellipsis">
-    Sandbox Hierarchy
+    沙箱层级
     
   </span>
   
@@ -1010,7 +1010,7 @@
   
   
   <span class="md-ellipsis">
-    Resource Access Monitor (for Sandboxie Classic)
+    资源访问监视器（适用于沙盘经典版）
     
   </span>
   
@@ -4526,105 +4526,105 @@
   
 
 
-<h1 id="restrictions-settings">Restrictions Settings</h1>
-<h3 id="restrictions-settings-group">"Restrictions" Settings Group</h3>
-<p><a href="../SandboxieControl/">Sandboxie Control</a> &gt; <a href="../SandboxSettings/">Sandbox Settings</a> &gt; Restrictions</p>
+<h1 id="_1">限制设置</h1>
+<h3 id="_2">“限制”设置组</h3>
+<p><a href="../SandboxieControl/">沙盘控制面板</a> &gt; <a href="../SandboxSettings/">沙箱设置</a> &gt; 限制</p>
 <p><img alt="" src="../../Media/RestrictionsSettings.png" /></p>
-<p>Settings in this section are intended to alter the default set of restrictions that Sandboxie places on programs running in the sandbox.</p>
+<p>此部分的设置旨在更改沙盘对运行在沙箱中的程序施加的默认限制集。</p>
 <ul>
-<li>You can place additional restrictions on programs, to tighten the security of the sandbox.</li>
-<li>You can relax some of the default restrictions, which is normally not recommended, but may enable some esoteric programs to work.</li>
+<li>你可以对程序施加额外的限制，以增强沙箱的安全性。</li>
+<li>你可以放宽一些默认限制，通常不建议这样做，但可能会使一些特殊程序能够正常工作。</li>
 </ul>
 <hr />
-<h3 id="internet-access">Internet Access</h3>
-<p><a href="../SandboxieControl/">Sandboxie Control</a> &gt; <a href="../SandboxSettings/">Sandbox Settings</a> &gt; Restrictions &gt; Internet Access</p>
+<h3 id="_3">互联网访问</h3>
+<p><a href="../SandboxieControl/">沙盘控制面板</a> &gt; <a href="../SandboxSettings/">沙箱设置</a> &gt; 限制 &gt; 互联网访问</p>
 <p><img alt="" src="../../Media/InternetAccessSettings.png" /></p>
-<p>Use these settings to select which programs, if any, will be allowed to access the Internet in the sandbox. Initially, all programs in the sandbox can access the Internet.</p>
-<p>Use the <em>Add by Name</em> button to add a program by typing its explicit executable name. Alternatively, use the <em>Add by File</em> button to navigate to the program folder and select its program executable. <del>Blocking of SMB/CIFS which you can block as well by visiting <a href="../BlockPort/">BlockPort</a></del></p>
-<p>When <em>any</em> restrictions are in effect, programs that are installed (or downloaded) into the sandbox will never be allowed to access the Internet.</p>
-<p>Use the <em>Remove</em> button to remove some program previously added to the list.</p>
-<p>The button <em>Block All Programs</em> prevents all programs in the sandbox from accessing the Internet. When this mode is in effect, the button changes to <em>Allow All Programs</em>, and when clicked, will undo the effect of blocking all programs.</p>
-<p><em>Issue message <a href="../SBIE1307/">SBIE1307</a> when access is denied</em>: When a program is restricted due to this setting, Sandboxie can issue a notification message. Use this checkbox setting to indicate whether you would like to receive these notifications. See also message <a href="../SBIE1307/">SBIE1307</a>.</p>
-<p>You can also configure this setting in the <a href="../ProgramSettings/">Program Settings</a> window.</p>
-<p>Related <a href="../SandboxieIni/">Sandboxie Ini</a> settings: <a href="../ClosedFilePath/">ClosedFilePath</a>, <a href="../NotifyInternetAccessDenied/">Notify Internet Access Denied</a>.</p>
+<p>使用这些设置来选择哪些程序（如果有的话）将被允许在沙箱中访问互联网。最初，沙箱中的所有程序都可以访问互联网。</p>
+<p>使用“按名称添加”按钮，通过输入程序的显式可执行文件名来添加程序。或者，使用“按文件添加”按钮导航到程序文件夹并选择其程序可执行文件。<del>你也可以通过访问<a href="../BlockPort/">阻止端口</a>来阻止SMB/CIFS</del></p>
+<p>当_任何_限制生效时，安装（或下载）到沙箱中的程序将永远不被允许访问互联网。</p>
+<p>使用“移除”按钮移除之前添加到列表中的某个程序。</p>
+<p>“阻止所有程序”按钮可阻止沙箱中的所有程序访问互联网。当此模式生效时，该按钮将变为“允许所有程序”，点击后将取消阻止所有程序的效果。</p>
+<p>“访问被拒绝时发出消息<a href="../SBIE1307/">SBIE1307</a>”：当某个程序由于此设置而受到限制时，沙盘可以发出通知消息。使用此复选框设置来指示你是否希望接收这些通知。另请参阅消息<a href="../SBIE1307/">SBIE1307</a>。</p>
+<p>你也可以在<a href="../ProgramSettings/">程序设置</a>窗口中配置此设置。</p>
+<p>相关<a href="../SandboxieIni/">沙盘配置文件</a>设置：<a href="../ClosedFilePath/">封闭文件路径</a>、<a href="../NotifyInternetAccessDenied/">通知互联网访问被拒绝</a>。</p>
 <hr />
-<h3 id="startrun-access">Start/Run Access</h3>
-<p><a href="../SandboxieControl/">Sandboxie Control</a> &gt; <a href="../SandboxSettings/">Sandbox Settings</a> &gt; Restrictions &gt; Start/Run Access</p>
+<h3 id="_4">启动/运行访问</h3>
+<p><a href="../SandboxieControl/">沙盘控制面板</a> &gt; <a href="../SandboxSettings/">沙箱设置</a> &gt; 限制 &gt; 启动/运行访问</p>
 <p><img alt="" src="../../Media/StartRunAccessSettings.png" /></p>
-<p>Use these settings to select which programs, if any, will be allowed to start and run in the sandbox. Initially, all programs in the sandbox can start and run in the sandbox.</p>
-<p>Use the <em>Add by Name</em> button to add a program by typing its explicit executable name. Alternatively, use the <em>Add by File</em> button to navigate to the program folder and select its program executable.</p>
-<p>When <em>any</em> Start/Run restrictions are in effect, programs that are installed (or downloaded) into the sandbox will never be allowed to start or run.</p>
-<p>Use the <em>Remove</em> button to remove some program previously added to the list. The <em>Allow All Programs</em> has the same effect as clicking <em>Remove</em> on each and every entry that appears in the list.</p>
-<p><em>Issue message <a href="../SBIE1308/">SBIE1308</a> when access is denied</em>: When a program is restricted due to this setting, Sandboxie can issue a notification message. Use this checkbox setting to indicate whether you would like to receive these notifications. See also message <a href="../SBIE1308/">SBIE1308</a>.</p>
-<p>You can also configure this setting in the <a href="../ProgramSettings/">Program Settings</a> window.</p>
-<p>Related <a href="../SandboxieIni/">Sandboxie Ini</a> settings: <a href="../ClosedIpcPath/">ClosedIpcPath</a>, <a href="../NotifyStartRunAccessDenied/">Notify Start Run Access Denied</a>.</p>
+<p>使用这些设置来选择哪些程序（如果有的话）将被允许在沙箱中启动和运行。最初，沙箱中的所有程序都可以在沙箱中启动和运行。</p>
+<p>使用“按名称添加”按钮，通过输入程序的显式可执行文件名来添加程序。或者，使用“按文件添加”按钮导航到程序文件夹并选择其程序可执行文件。</p>
+<p>当_任何_启动/运行限制生效时，安装（或下载）到沙箱中的程序将永远不被允许启动或运行。</p>
+<p>使用“移除”按钮移除之前添加到列表中的某个程序。“允许所有程序”按钮的效果与对列表中出现的每个条目点击“移除”相同。</p>
+<p>“访问被拒绝时发出消息<a href="../SBIE1308/">SBIE1308</a>”：当某个程序由于此设置而受到限制时，沙盘可以发出通知消息。使用此复选框设置来指示你是否希望接收这些通知。另请参阅消息<a href="../SBIE1308/">SBIE1308</a>。</p>
+<p>你也可以在<a href="../ProgramSettings/">程序设置</a>窗口中配置此设置。</p>
+<p>相关<a href="../SandboxieIni/">沙盘配置文件</a>设置：<a href="../ClosedIpcPath/">封闭IPC路径</a>、<a href="../NotifyStartRunAccessDenied/">通知启动/运行访问被拒绝</a>。</p>
 <hr />
-<h3 id="drop-rights">Drop Rights</h3>
-<p><a href="../SandboxieControl/">Sandboxie Control</a> &gt; <a href="../SandboxSettings/">Sandbox Settings</a> &gt; Restrictions &gt; Drop Rights</p>
+<h3 id="_5">放弃权限</h3>
+<p><a href="../SandboxieControl/">沙盘控制面板</a> &gt; <a href="../SandboxSettings/">沙箱设置</a> &gt; 限制 &gt; 放弃权限</p>
 <p><img alt="" src="../../Media/DropRightsSettings.png" /></p>
-<p>The setting in this page causes Sandboxie to strip administrative rights from programs running in this sandbox.</p>
-<p>Specifically, the security credentials used to start the sandboxed program will not include membership in the Administrators and Power Users groups.</p>
-<p>Note that this has little effect if you are already running under a non-Administrator user account.</p>
-<p>Related <a href="../SandboxieIni/">Sandboxie Ini</a> settings: <a href="../DropAdminRights/">DropAdminRights</a>.</p>
+<p>此页面上的设置会使沙盘从运行在该沙箱中的程序中剥离管理员权限。</p>
+<p>具体来说，用于启动沙箱化程序的安全凭证将不包括管理员和高级用户组的成员身份。</p>
+<p>请注意，如果你已经在非管理员用户账户下运行，则此设置几乎没有效果。</p>
+<p>相关<a href="../SandboxieIni/">沙盘配置文件</a>设置：<a href="../DropAdminRights/">放弃管理员权限</a>。</p>
 <hr />
-<h3 id="low-level-access-removed">Low-Level Access -REMOVED</h3>
-<h2 id="hardware-access-has-been-removed-from-sandboxie-v4-and-up">Hardware Access has been removed from Sandboxie v4 and up.</h2>
-<h3 id="previous-versions-of-sandboxie-should-not-be-used-and-they-may-not-function">Previous versions of Sandboxie should not be used and they may not function.</h3>
-<p><a href="../SandboxieControl/">Sandboxie Control</a> &gt; <a href="../SandboxSettings/">Sandbox Settings</a> &gt; Restrictions &gt; Low-Level Access</p>
+<h3 id="-">低级访问 - 已移除</h3>
+<h2 id="v4">从沙盘v4及更高版本开始，硬件访问功能已被移除。</h2>
+<h3 id="_6">不建议使用之前版本的沙盘，它们可能无法正常工作。</h3>
+<p><a href="../SandboxieControl/">沙盘控制面板</a> &gt; <a href="../SandboxSettings/">沙箱设置</a> &gt; 限制 &gt; 低级访问</p>
 <p><img alt="" src="../../Media/LowLevelAccessSettings.png" /></p>
-<p>This category manages restrictions for several types of global operations which are restricted in some way within the sandbox. Please see the associated <a href="../SandboxieIni/">Sandboxie Ini</a> settings for more information.</p>
+<p>此类别管理对几种类型的全局操作的限制，这些操作在沙箱内以某种方式受到限制。有关更多信息，请参阅关联的<a href="../SandboxieIni/">沙盘配置文件</a>设置。</p>
 <ul>
 <li>
-<p><em>Permit programs in this sandbox to load kernel mode drivers into the operating system</em></p>
+<p>“允许此沙箱中的程序将内核模式驱动程序加载到操作系统中”</p>
 <ul>
-<li>Related <a href="../SandboxieIni/">Sandboxie Ini</a> settings: <a href="../BlockDrivers/">BlockDrivers</a></li>
+<li>相关<a href="../SandboxieIni/">沙盘配置文件</a>设置：<a href="../BlockDrivers/">阻止驱动程序</a></li>
 </ul>
 </li>
 <li>
-<p><em>Permit programs in this sandbox to load application (Win32) hooks into other programs</em></p>
+<p>“允许此沙箱中的程序将应用程序（Win32）钩子加载到其他程序中”</p>
 <ul>
-<li>Related <a href="../SandboxieIni/">Sandboxie Ini</a> settings: <a href="../BlockWinHooks/">BlockWinHooks</a></li>
+<li>相关<a href="../SandboxieIni/">沙盘配置文件</a>设置：<a href="../BlockWinHooks/">阻止Win钩子</a></li>
 </ul>
 </li>
 <li>
-<p><em>Permit programs in this sandbox to change desktop wallpaper and other system parameters</em></p>
+<p>“允许此沙箱中的程序更改桌面壁纸和其他系统参数”</p>
 <ul>
-<li>Related <a href="../SandboxieIni/">Sandboxie Ini</a> settings: <a href="../BlockSysParam/">BlockSysParam</a></li>
+<li>相关<a href="../SandboxieIni/">沙盘配置文件</a>设置：<a href="../BlockSysParam/">阻止系统参数</a></li>
 </ul>
 </li>
 <li>
-<p><em>Permit programs in this sandbox to change user account password</em></p>
+<p>“允许此沙箱中的程序更改用户账户密码”</p>
 <ul>
-<li>Related <a href="../SandboxieIni/">Sandboxie Ini</a> settings: <a href="../BlockPassword/">BlockPassword</a></li>
-<li>See also message <a href="../SBIE1309/">SBIE1309</a>.</li>
+<li>相关<a href="../SandboxieIni/">沙盘配置文件</a>设置：<a href="../BlockPassword/">阻止密码更改</a></li>
+<li>另请参阅消息<a href="../SBIE1309/">SBIE1309</a>。</li>
 </ul>
 </li>
 </ul>
 <hr />
-<h3 id="hardware-access-removed">Hardware Access -REMOVED</h3>
-<h2 id="hardware-access-has-been-removed-from-sandboxie-v4-and-up_1">Hardware Access has been removed from Sandboxie v4 and up.</h2>
-<h3 id="previous-versions-of-sandboxie-should-not-be-used-and-they-may-not-function_1">Previous versions of Sandboxie should not be used and they may not function.</h3>
-<p><a href="../SandboxieControl/">Sandboxie Control</a> &gt; <a href="../SandboxSettings/">Sandbox Settings</a> &gt; Restrictions &gt; Hardware Access</p>
+<h3 id="-_1">硬件访问 - 已移除</h3>
+<h2 id="v4_1">从沙盘v4及更高版本开始，硬件访问功能已被移除。</h2>
+<h3 id="_7">不建议使用之前版本的沙盘，它们可能无法正常工作。</h3>
+<p><a href="../SandboxieControl/">沙盘控制面板</a> &gt; <a href="../SandboxSettings/">沙箱设置</a> &gt; 限制 &gt; 硬件访问</p>
 <p><img alt="" src="../../Media/HardwareAccessSettings.png" /></p>
-<p>This category manages restrictions for three types of global operations which are restricted in some way within the sandbox. Please see the associated <a href="../SandboxieIni/">Sandboxie Ini</a> settings for more information.</p>
+<p>此类别管理对三种类型的全局操作的限制，这些操作在沙箱内以某种方式受到限制。有关更多信息，请参阅关联的<a href="../SandboxieIni/">沙盘配置文件</a>设置。</p>
 <ul>
 <li>
-<p><em>Permit programs in this sandbox to simulate keyboard and mouse input</em></p>
+<p>“允许此沙箱中的程序模拟键盘和鼠标输入”</p>
 <ul>
-<li>Related <a href="../SandboxieIni/">Sandboxie Ini</a> settings: <a href="../BlockFakeInput/">BlockFakeInput</a></li>
-<li>See also message <a href="../SBIE1304/">SBIE1304</a>.</li>
+<li>相关<a href="../SandboxieIni/">沙盘配置文件</a>设置：<a href="../BlockFakeInput/">阻止模拟输入</a></li>
+<li>另请参阅消息<a href="../SBIE1304/">SBIE1304</a>。</li>
 </ul>
 </li>
 <li>
-<p><em>Permit programs in this sandbox to manage hardware device configuration</em></p>
+<p>“允许此沙箱中的程序管理硬件设备配置”</p>
 <ul>
-<li>Related <a href="../SandboxieIni/">Sandboxie Ini</a> settings: <em>Template=PlugPlay</em></li>
-<li>This setting permits a program to update configuration and drivers for hardware devices.</li>
+<li>相关<a href="../SandboxieIni/">沙盘配置文件</a>设置：<em>模板=即插即用</em></li>
+<li>此设置允许程序更新硬件设备的配置和驱动程序。</li>
 </ul>
 </li>
 </ul>
-<p>You are advised to keep the hardware access settings in their default, disabled state.</p>
-<p>However, when running games or other full screen applications in the sandbox, it may be useful to permit the simulation of keyboard and mouse input.</p>
+<p>建议将硬件访问设置保持在其默认的禁用状态。</p>
+<p>但是，当在沙箱中运行游戏或其他全屏应用程序时，允许模拟键盘和鼠标输入可能会很有用。</p>
 
 
 

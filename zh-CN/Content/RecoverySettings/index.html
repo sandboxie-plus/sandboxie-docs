@@ -18,7 +18,7 @@
     
     
       
-        <title>Recovery Settings - Sandboxie 文档</title>
+        <title>恢复设置 - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#recovery-settings" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Recovery Settings
+              恢复设置
             
           </span>
         </div>
@@ -448,7 +448,7 @@
   
   
   <span class="md-ellipsis">
-    Sandboxie Control
+    沙盘控制面板
     
   </span>
   
@@ -517,7 +517,7 @@
   
   
   <span class="md-ellipsis">
-    Sandbox Menu
+    沙盘菜单
     
   </span>
   
@@ -713,7 +713,7 @@
   
   
   <span class="md-ellipsis">
-    Sandboxie Ini
+    沙盘配置文件（Sandboxie.ini）
     
   </span>
   
@@ -941,7 +941,7 @@
   
   
   <span class="md-ellipsis">
-    Sandbox Hierarchy
+    沙箱层级
     
   </span>
   
@@ -1010,7 +1010,7 @@
   
   
   <span class="md-ellipsis">
-    Resource Access Monitor (for Sandboxie Classic)
+    资源访问监视器（适用于沙盘经典版）
     
   </span>
   
@@ -4526,35 +4526,35 @@
   
 
 
-<h1 id="recovery-settings">Recovery Settings</h1>
-<h3 id="recovery-settings-group">"Recovery" Settings Group</h3>
-<p><a href="../SandboxieControl/">Sandboxie Control</a> &gt; <a href="../SandboxSettings/">Sandbox Settings</a> &gt; Recovery:</p>
+<h1 id="_1">恢复设置</h1>
+<h3 id="_2">“恢复”设置组</h3>
+<p><a href="../SandboxieControl/">沙盘控制面板</a> &gt; <a href="../SandboxSettings/">沙箱设置</a> &gt; 恢复：</p>
 <p><img alt="" src="../../Media/RecoverySettings.png" /></p>
-<p>While you can manually explore the contents of the sandbox and extract the files you need, Sandboxie has a <a href="../QuickRecovery/">Quick Recovery</a> tool that scans particular folders and informs you if any files are available for recovery out of the sandbox. The Recovery group configures this tool.</p>
+<p>虽然你可以手动浏览沙箱的内容并提取所需的文件，但沙盘有一个<a href="../QuickRecovery/">快速恢复</a>工具，该工具会扫描特定文件夹，并告知你是否有任何文件可以从沙箱中恢复。恢复组用于配置此工具。</p>
 <hr />
-<h3 id="quick-recovery">Quick Recovery</h3>
-<p><a href="../SandboxieControl/">Sandboxie Control</a> &gt; <a href="../SandboxSettings/">Sandbox Settings</a> &gt; Recovery &gt; Quick Recovery:</p>
+<h3 id="_3">快速恢复</h3>
+<p><a href="../SandboxieControl/">沙盘控制面板</a> &gt; <a href="../SandboxSettings/">沙箱设置</a> &gt; 恢复 &gt; 快速恢复：</p>
 <p><img alt="" src="../../Media/QuickRecoverySettings.png" /></p>
-<p>Use this settings page to add and remove folders that should be scanned by Sandboxie.</p>
-<p>You can also influence this setting indirectly:</p>
+<p>使用此设置页面添加和移除应由沙盘扫描的文件夹。</p>
+<p>你也可以间接影响此设置：</p>
 <ul>
 <li>
-<p>In <a href="../FilesAndFoldersView/">Files And Folders View</a>, by right-clicking on <em>folder</em> items and invoking the actions <em>Add Folder to Quick Recovery</em> or <em>Remove Folder from Quick Recovery</em>.</p>
+<p>在<a href="../FilesAndFoldersView/">文件和文件夹视图</a>中，右键单击_文件夹_项并调用_添加文件夹到快速恢复_或_从快速恢复中移除文件夹_操作。</p>
 </li>
 <li>
-<p>In the <a href="../DeleteSandbox/">Delete Sandbox</a> or <a href="../QuickRecovery/">Quick Recovery</a> windows, by clicking the <em>Add Folder</em> button.</p>
+<p>在<a href="../DeleteSandbox/">删除沙箱</a>或<a href="../QuickRecovery/">快速恢复</a>窗口中，点击_添加文件夹_按钮。</p>
 </li>
 </ul>
-<p>Related <a href="../SandboxieIni/">Sandboxie Ini</a> setting: <a href="../RecoverFolder/">RecoverFolder</a>.</p>
+<p>相关<a href="../SandboxieIni/">沙盘配置文件</a>设置：<a href="../RecoverFolder/">恢复文件夹</a>。</p>
 <hr />
-<h3 id="immediate-recovery">Immediate Recovery</h3>
-<p><a href="../SandboxieControl/">Sandboxie Control</a> &gt; <a href="../SandboxSettings/">Sandbox Settings</a> &gt; Recovery &gt; Immediate Recovery:</p>
+<h3 id="_4">即时恢复</h3>
+<p><a href="../SandboxieControl/">沙盘控制面板</a> &gt; <a href="../SandboxSettings/">沙箱设置</a> &gt; 恢复 &gt; 即时恢复：</p>
 <p><img alt="" src="../../Media/ImmediateRecoverySettings.png" /></p>
-<p>The Quick Recovery tool scans folders only when invoked, which is either explicitly, or when the sandbox is about to be deleted. <a href="../ImmediateRecovery/">Immediate Recovery</a> is an extension which notifies you about recoverable files as soon as they are created by a sandboxed program.</p>
-<p>This behavior is usually useful and is enabled by default, but it may be disabled if so desired.</p>
-<p>It may also be desirable to keep Immediate Recovery enabled, but exclude some file types from Immediate Recovery. For example: You may want to receive Immediate Recovery notifications about document files saved to the (sandboxed) desktop, but not about shortcuts (<em>.LNK</em>) files that may be created on the desktop during the installation of sandboxed programs.</p>
-<p>Use this settings page to enable or disable the Immediate Recovery extension, and configure exclusions to Immediate Recovery.</p>
-<p>Related <a href="../SandboxieIni/">Sandboxie Ini</a> settings: <a href="../AutoRecover/">AutoRecover</a>, <a href="../AutoRecoverIgnore/">AutoRecoverIgnore</a>.</p>
+<p>快速恢复工具仅在被调用时扫描文件夹，调用方式可以是显式调用，也可以是在沙箱即将被删除时调用。<a href="../ImmediateRecovery/">即时恢复</a>是一个扩展功能，一旦沙箱程序创建了可恢复的文件，它就会通知你。</p>
+<p>此行为通常很有用，并且默认情况下是启用的，但如果需要，也可以禁用它。</p>
+<p>也可能需要保持即时恢复功能启用，但将某些文件类型排除在即时恢复之外。例如：你可能希望收到关于保存到（沙箱化）桌面的文档文件的即时恢复通知，但不希望收到关于在安装沙箱程序期间可能在桌面上创建的快捷方式（<em>.LNK</em>）文件的通知。</p>
+<p>使用此设置页面启用或禁用即时恢复扩展，并配置即时恢复的排除项。</p>
+<p>相关<a href="../SandboxieIni/">沙盘配置文件</a>设置：<a href="../AutoRecover/">自动恢复</a>、<a href="../AutoRecoverIgnore/">自动恢复忽略项</a>。</p>
 
 
 
