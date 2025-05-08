@@ -1,8 +1,8 @@
 # 字节顺序标记
 
-**此功能自 v0.6.5 / 5.47.0 起已移除。**
+**此功能自 v0.6.5 / 5.47.0 版本起已移除。**
 
-_ByteOrderMark_ 是 [沙盘配置文件](SandboxieIni.md) 中的一个全局设置。它通常指定为 ByteOrderMark=y（请参阅 [是或否设置](YesOrNoSettings.md)），表示 [沙盘控制](SandboxieControl.md) 应在配置文件的顶部插入一个 UTF-16 统一码字节顺序标记 (BOM) 字符。
+_ByteOrderMark_ 曾是 [Sandboxie Ini](SandboxieIni.md) 中的全局设置。它通常指定为 ByteOrderMark=y（参见 [是或否设置](YesOrNoSettings.md)），表示 [Sandboxie 控制器](SandboxieControl.md) 应在配置文件顶部插入 UTF-16 UNICODE 字节顺序标记（BOM）字符。
 
 用法：
 
@@ -14,9 +14,9 @@ _ByteOrderMark_ 是 [沙盘配置文件](SandboxieIni.md) 中的一个全局设�
    ByteOrderMark=y
 ```
 
-此设置必须手动编辑到 [沙盘配置文件](SandboxieIni.md) 中，然后必须手动 [重新加载](ConfigureMenu.md#reload-configuration) 沙盘配置。此后，下次 [沙盘控制](SandboxieControl.md) 重写配置时，它将在 [沙盘配置文件](SandboxieIni.md) 的前两个字节中插入统一码 BOM 字符，即：（十六进制）FF FE。
+必须将此设置手动编辑到 [Sandboxie Ini](SandboxieIni.md) 中，然后手动[重新加载](ConfigureMenu.md#reload-configuration) Sandboxie 配置。之后，下次 [Sandboxie 控制器](SandboxieControl.md) 重写配置时，它将在 [Sandboxie Ini](SandboxieIni.md) 配置文件的最前面两个字节插入 UNICODE BOM 字符，即：（十六进制）FF FE。
 
-只有在以下两个条件都满足时，你才需要关注此设置：
+只有当以下两个条件都成立时，您才需要关注此设置：
 
-* 你计划手动编辑 [沙盘配置文件](SandboxieIni.md)；
-* 你的文本编辑器无法识别 [沙盘配置文件](SandboxieIni.md) 是一个统一码文本文件。
+* 您计划手动编辑 [Sandboxie Ini](SandboxieIni.md) 文件；
+* 您的文本编辑器无法识别 [Sandboxie Ini](SandboxieIni.md) 文件是 UNICODE 文本文件。 

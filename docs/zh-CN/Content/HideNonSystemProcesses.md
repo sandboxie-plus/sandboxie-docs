@@ -1,6 +1,6 @@
 # 隐藏非系统进程
 
-“隐藏非系统进程”（HideNonSystemProcesses）是[沙盘配置文件](SandboxieIni.md)中的一个设置。
+HideNonSystemProcesses 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙盒设置。
 
 ```
    .
@@ -10,8 +10,8 @@
    HideNonSystemProcesses=y
 ```
 
-使用 'HideNonSystemProcesses=y' 选项可防止沙箱内的进程看到沙箱外运行的进程。
+使用 'HideNonSystemProcesses=y' 选项可以防止沙盒化进程看到在沙盒外运行的进程。
 
-相关的沙盘增强版设置：沙箱选项 > 高级选项 > 隐私 > 隐藏非系统进程
+相关 Sandboxie Plus 设置：沙盒选项 > 高级选项 > 隐私 > 隐藏非系统进程
 
-相关的[沙盘配置文件](SandboxieIni.md)设置：[隐藏主机进程](HideHostProcess.md)，[隐藏沙盘进程](HideSbieProcesses.md)
+相关 [Sandboxie Ini](SandboxieIni.md) 设置：[HideHostProcess](HideHostProcess.md)、[HideSbieProcesses](HideSbieProcesses.md) 

@@ -1,6 +1,6 @@
-# 隐藏网卡 MAC 地址
+# 隐藏网络适配器 MAC 地址
 
-隐藏网卡 MAC 地址 是 [沙盘配置文件](SandboxieIni.md) 中的一个设置。
+_HideNetworkAdapterMAC_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙盒设置。
 
 ```
    .
@@ -10,6 +10,6 @@
    HideNetworkAdapterMAC=y
 ```
 
-使用 `HideNetworkAdapterMAC=y` 选项，当应用程序尝试获取网卡 MAC 地址时返回一个随机值。
+使用 'HideNetworkAdapterMAC=y' 选项可以在应用程序尝试获取网络适配器 MAC 地址时返回一个随机值。
 
-相关的沙盘增强版设置：沙箱选项 > 高级选项 > 隐私 > 隐藏网卡 MAC 地址
+相关 Sandboxie Plus 设置：沙盒选项 > 高级选项 > 隐私 > 隐藏网络适配器 MAC 地址 

@@ -1,6 +1,6 @@
-# 允许后台打印程序打印到文件
+# 允许打印机打印到文件
 
-`AllowSpoolerPrintToFile` 是一个沙箱设置，用于细致地控制沙箱应用程序与打印后台处理程序的交互方式。
+`AllowSpoolerPrintToFile` 是一个沙盒设置，用于对沙盒化应用程序如何与打印后台处理程序服务交互进行精细控制。
 
 ```
    .
@@ -10,4 +10,4 @@
    AllowSpoolerPrintToFile=n
 ```
 
-此设置可用于防止沙箱应用程序进行文件打印。默认情况下，Sandboxie 会阻止沙箱中的 `spoolsv.exe` 发起的所有请求写入权限的 `CreateFile` 调用。
+此设置可用于阻止沙盒化应用程序打印到文件。默认情况下，Sandboxie 会阻止所有请求写入访问权限的沙盒化 `spoolsv.exe` 的 `CreateFile` 调用。 
