@@ -22,7 +22,7 @@
     
     
       
-        <title>How To Use Win Dbg - Sandboxie 文档</title>
+        <title>如何使用 WinDbg - Sandboxie 文档</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#how-to-use-win-dbg" class="md-skip">
+        <a href="#windbg" class="md-skip">
           跳转至
         </a>
       
@@ -105,7 +105,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              How To Use Win Dbg
+              如何使用 WinDbg
             
           </span>
         </div>
@@ -352,7 +352,7 @@
   
   
   <span class="md-ellipsis">
-    Help Topics
+    帮助主题
     
   </span>
   
@@ -747,7 +747,7 @@
   
   
   <span class="md-ellipsis">
-    Known Conflicts
+    已知冲突
     
   </span>
   
@@ -970,7 +970,7 @@
   
   
   <span class="md-ellipsis">
-    Privacy Concerns
+    隐私问题
     
   </span>
   
@@ -1071,7 +1071,7 @@
   
   
   <span class="md-ellipsis">
-    How To Use Win Dbg
+    如何使用 WinDbg
     
   </span>
   
@@ -4542,56 +4542,61 @@
   
 
 
-<h1 id="how-to-use-win-dbg">How To Use Win Dbg</h1>
-<p>In some rare cases, programs running under the supervision of Sandboxie might not work correctly, without providing any hint to the cause of the malfunction. In these cases, Microsoft's free <a href="https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/debugger-download-tools">Debugging Tools for Windows</a> can help to shed more light on the problem or even to identify the cause of the problem.</p>
+<h1 id="windbg">如何使用 WinDbg</h1>
+<p>在某些极少数情况下，在 Sandboxie 中运行的程序可能会异常工作，而且没有任何错误提示或线索。这时，微软免费的 <a href="https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/debugger-download-tools">Windows 调试工具</a> 可以帮助你进一步分析问题，甚至找出根本原因。</p>
 <hr />
-<p>Download and install the latest release of <a href="https://developer.microsoft.com/en-us/windows/downloads/windows-sdk"><em>Windows SDK</em></a> (both 32-bit and 64-bit).</p>
-<p>If you just need the <em>Debugging Tools for Windows</em>, you can install the debugging tools as a standalone component.</p>
-<p>The package installs into <em>C:\Program Files (x86)\Windows Kits\10\Debuggers</em> by default.</p>
-<p>The package creates an application group called <em>Windows Kits</em> in the Windows Start menu. The application group contains the program <em>WinDbg</em>.</p>
-<p>You probably should use the 32-bit debugger, even on 64-bit Windows. You only need to use the 64-bit debugger to debug 64-bit programs. For more information, see <a href="https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/choosing-a-32-bit-or-64-bit-debugger-package">Choosing the 32-Bit or 64-Bit Debugging Tools</a>.</p>
+<p>请下载并安装最新版的 <a href="https://developer.microsoft.com/en-us/windows/downloads/windows-sdk"><em>Windows SDK</em></a>（包括 32 位和 64 位版本）。</p>
+<p>如果你只需要 <em>调试工具</em>，也可以只安装调试组件（Debugging Tools）。</p>
+<p>安装包默认安装在路径：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">C</span><span class="o">:</span><span class="s">\Program Files (x86)\Windows Kits\10\Debuggers</span>
+</span></code></pre></div></p>
+<p>它会在开始菜单中创建一个名为 <em>Windows Kits</em> 的应用组，组中包含名为 <em>WinDbg</em> 的调试器程序。</p>
+<p>一般建议使用 32 位调试器，即便你的系统是 64 位。只有在调试 64 位程序时才需要使用 64 位调试器。详细说明可参考：<a href="https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/choosing-a-32-bit-or-64-bit-debugger-package">如何选择 32 位或 64 位调试器工具包</a>。</p>
 <hr />
-<p><strong>Scenario 1: Start a program from the debugger</strong></p>
-<p>Start the debugger under Sandboxie by using the Sandboxie Start menu.</p>
+<p><strong>场景一：从调试器中启动程序</strong></p>
+<p>使用 Sandboxie 启动调试器：</p>
 <ul>
 <li>
-<p><a href="../SandboxieControl/">Sandboxie Control</a> &gt; <a href="../SandboxMenu/">Sandbox Menu</a> &gt; Run From Start Menu</p>
+<p>打开 <a href="../SandboxieControl/">Sandboxie 控制面板</a> &gt; <a href="../SandboxMenu/">沙盒菜单</a> &gt; 从开始菜单运行  </p>
 </li>
 <li>
-<p>Sandboxie Plus window &gt; right click on your sandbox &gt; Run &gt; Run From Start Menu</p>
+<p>或在 Sandboxie Plus 窗口中右键你的沙盒 &gt; 运行 &gt; 从开始菜单运行</p>
 </li>
 </ul>
-<p>Then navigate the Sandboxie Start menu to locate and invoke the <em>WinDbg</em> program within the <em>Windows Kits</em> group.</p>
-<p>The WinDbg debugger should start and open its main window.</p>
-<p>In the debugger, invoke the File menu &gt; Open Executable command. Then navigate to and select the EXE file for the program that you want to run in the debugger.</p>
-<p>For example, navigate to and select <em>C:\Windows\System32\notepad.exe</em></p>
-<p>The debugger will open a command window, to control (or to debug) the new program.</p>
-<p>Use the Debug menu &gt; Go command to begin the execution of the program. (You can also press F5.) At this time the debugger status line will change to say <em>BUSY</em>. Proceed to read the section below titled <strong>Final Step</strong>.</p>
+<p>然后，在沙盒开始菜单中找到 <em>Windows Kits</em> 组并运行 <em>WinDbg</em>。</p>
+<p>WinDbg 启动后会显示主窗口。</p>
+<p>在调试器中点击“文件”菜单 &gt; 打开可执行文件，然后选择你想要调试的程序的 EXE 文件。</p>
+<p>例如，你可以选择：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">C</span><span class="o">:</span><span class="s">\Windows\System32\notepad.exe</span>
+</span></code></pre></div></p>
+<p>调试器会打开一个命令窗口用于控制（或调试）你启动的程序。</p>
+<p>使用“调试”菜单 &gt; 运行 命令（或按下 F5）开始执行程序。此时调试器的状态行将变为 <em>BUSY（忙）</em>。接下来请阅读下方的 <strong>最后一步</strong>。</p>
 <hr />
-<p><strong>Scenario 2: Attach the debugger to a running program</strong></p>
-<p>In this scenario, you already used Sandboxie to start the program, and the program is already running.</p>
-<p>Start the debugger normally from the Windows Start menu: Locate and invoke the <em>WinDbg</em> program within the <em>Windows Kits</em> group.</p>
-<p>The WinDbg debugger should start and open its main window.</p>
-<p>In the debugger, invoke the File menu &gt; Attach to a Process command. (You can also press F6.) Then identify the EXE file for the program to which you want to attach the debugger.</p>
-<p>The debugger will open a command window, to control (or to debug) the attached program.</p>
-<p>If you attached to the a program after it was already exhibiting the problem, then proceed to read the section below titled <strong>Final Step</strong>.</p>
-<p>Otherwise use the Debug menu &gt; Go command to continue the execution of the program. (You can also press F5.) At this time the debugger status line will change to say <em>BUSY</em>. Proceed to read the section below titled <strong>Final Step</strong>.</p>
+<p><strong>场景二：附加到已运行的程序</strong></p>
+<p>在这种情况下，你已经使用 Sandboxie 启动了目标程序，并且它正在运行中。</p>
+<p>正常启动 WinDbg（无需通过 Sandboxie）——在开始菜单中找到 <em>Windows Kits</em> 组下的 <em>WinDbg</em> 并运行它。</p>
+<p>WinDbg 启动后会显示主窗口。</p>
+<p>在调试器中点击“文件”菜单 &gt; 附加到进程（或按下 F6），然后选择你要调试的目标程序（EXE 文件）。</p>
+<p>调试器会打开一个命令窗口用于控制该程序。</p>
+<p>如果你是在程序出现问题<strong>之后</strong>才附加的调试器，请继续阅读下方的 <strong>最后一步</strong>。</p>
+<p>如果程序还没有出问题，使用“调试”菜单 &gt; 运行（或按 F5）继续程序执行。调试器状态行会变为 <em>BUSY</em>。然后继续阅读 <strong>最后一步</strong>。</p>
 <hr />
-<p><strong>Final Step</strong></p>
-<p>This section assumes the program in question has already exhibited the problem:</p>
+<p><strong>最后一步</strong></p>
+<p>本节假设程序已出现问题：</p>
 <ul>
-<li>If the program gets stuck in a loop, then it should already be stuck.</li>
-<li>If the program crashes, then it should already have crashed.</li>
+<li>如果程序卡住了，现在它应该已经卡住；</li>
+<li>如果程序崩溃了，现在它应该已经崩溃。</li>
 </ul>
-<p>If the problem condition has not yet occurred, you should now cause the program to malfunction.</p>
-<p>Once the program exhibits the problem, switch back to the WinDbg debugger command window. If the debugger status line still says <em>BUSY</em>, use the Debug menu &gt; Break command to stop the program. (You can also press Ctrl+Break.)</p>
-<p>When the debugger status line no longer says <em>BUSY</em>, enter the following commands. Enter one command at a time, then press Enter.</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span><span class="na">.sympath srv*C</span><span class="o">:</span><span class="s">\Symbols*https://msdl.microsoft.com/download/symbols</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="na">.reload</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="na">~* k 99</span>
+<p>如果问题尚未出现，你现在可以让程序触发错误。</p>
+<p>一旦程序表现出问题，切换回 WinDbg 的命令窗口。如果状态栏仍显示 <em>BUSY</em>，请点击“调试”菜单 &gt; 中断（或按下 Ctrl+Break）暂停程序。</p>
+<p>当状态不再是 <em>BUSY</em>，依次输入以下命令，每行一条，输入后按 Enter：</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">.sympath srv*C</span><span class="o">:</span><span class="s">\Symbols*https://msdl.microsoft.com/download/symbols</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">.reload</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="na">~* k 99</span>
 </span></code></pre></div>
-<p>The third command will cause the debugger to produce some output. When the command completes, please copy the entire debug log. Use the Edit menu &gt; <em>Copy Window Text to Clipboard</em> command to copy the entire debug log to your clipboard, then go back to the Sandboxie support and paste this debug log into your comment.</p>
-<p>Thank you in advance.</p>
+<p>第三条命令将输出一段调试信息。命令完成后，请复制全部日志：点击“编辑”菜单 &gt; 复制窗口文本到剪贴板。</p>
+<p>然后回到 Sandboxie 的支持页面，在评论中粘贴这段日志。</p>
+<p>非常感谢你的配合！</p>
 
 
 

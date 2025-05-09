@@ -22,7 +22,7 @@
     
     
       
-        <title>Privacy Concerns - Sandboxie 文档</title>
+        <title>隐私问题 - Sandboxie 文档</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#privacy-concerns" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -105,7 +105,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Privacy Concerns
+              隐私问题
             
           </span>
         </div>
@@ -352,7 +352,7 @@
   
   
   <span class="md-ellipsis">
-    Help Topics
+    帮助主题
     
   </span>
   
@@ -747,7 +747,7 @@
   
   
   <span class="md-ellipsis">
-    Known Conflicts
+    已知冲突
     
   </span>
   
@@ -979,7 +979,7 @@
   
   
   <span class="md-ellipsis">
-    Privacy Concerns
+    隐私问题
     
   </span>
   
@@ -1072,7 +1072,7 @@
   
   
   <span class="md-ellipsis">
-    How To Use Win Dbg
+    如何使用 WinDbg
     
   </span>
   
@@ -4542,76 +4542,97 @@
   
 
 
-<h1 id="privacy-concerns">Privacy Concerns</h1>
-<p>This is an advanced topic, which explains that even after running a program under Sandboxie, your computer may still record <em>which</em> programs were executed or what they did. It is important to emphasize that this is not a security breach as it will never allow sandboxed programs to infect or otherwise abuse your computer. However, this may be interesting reading for those concerned with the privacy aspects of using Sandboxie.</p>
-<p><strong>Overview</strong></p>
-<p>The guiding principle of Sandboxie is to isolate and contain any actions taken by programs that Sandboxie supervises, for the purpose of keeping your computer and operating system in a clean and healthy state.</p>
-<p>Most of the side effects of running a program under Sandboxie are in fact caused by the very program that is running under Sandboxie, and are gone when the sandbox is deleted. For example, a Web browser running under Sandboxie will record your browsing history in the sandbox, and this history will be completely erased when you delete the sandbox.</p>
-<p>Thus it is easy to make a small leap of logic from the guiding principle above, and assume that a principle of Sandboxie is to protect your privacy and clean any all traces caused directly or indirectly by any program running under its supervision. However, this assumption would not be correct.</p>
-<p>Sandboxie puts a great deal of effort into containing the actions taken by the program it supervises, however Sandboxie makes no effect at all to prevent your own Windows operating system from keeping records of what you do in your computer.</p>
-<p>One who makes the incorrect assumption of extreme concern for privacy on the part of Sandboxie might be surprised to find several kinds of traces and logs in Windows that record which programs have been running, even inside the sandbox.</p>
-<p>This page will explain the various known mechanisms that record information about the programs you run, either inside or outside the supervision of Sandboxie.</p>
-<p><strong>Prefetch and SuperFetch</strong></p>
-<p>Prefetch, introduced in Windows XP, and SuperFetch, introduced in Windows Vista, make up the <a href="https://en.wikipedia.org/wiki/Prefetcher">prefetcher</a> component in Windows.</p>
-<p>This component is designed to improve application start up time by keeping copies of program files in a location that can be quickly accessed. The copies are kept in a folder called <em>Prefetch</em> that resides within the main Windows folder; typically that is <em>C:\Windows\Prefetch</em>.</p>
-<p>Windows may store copies of programs files in this Prefetch folder even when the programs were executed under Sandboxie.</p>
-<p>Prefetch behavior can be reduced to caching only programs using during the boot sequence, or to not cache anything at all. Follow these links for more information:</p>
+<h1 id="_1">隐私问题</h1>
+<hr />
+<p>这是一个高级主题，说明即使你在 Sandboxie 中运行了程序，你的计算机仍可能记录<strong>运行了哪些程序</strong>以及它们的行为。这并不代表出现了安全漏洞，因为这些记录<strong>不会</strong>让沙盒程序感染或滥用你的计算机。但如果你关心使用 Sandboxie 时的隐私问题，这篇文章值得一读。</p>
+<hr />
+<p><strong>概述</strong></p>
+<p>Sandboxie 的核心原则是：隔离并控制其监督下程序的行为，目的是保持计算机和操作系统的干净与健康。</p>
+<p>大多数在 Sandboxie 中运行程序的“副作用”，其实来自程序本身，并且会在沙盒被删除后一起消失。例如，在沙盒中运行的浏览器会将浏览记录保存在沙盒内，而这些记录在删除沙盒时会被完全清除。</p>
+<p>因此，用户很容易从上述原则中得出推论：Sandboxie 的目标是保护你的隐私，并清除所有由其监管程序直接或间接产生的痕迹。但这种假设是不准确的。</p>
+<p>Sandboxie 虽然非常注重控制程序行为，但它<strong>不会试图阻止 Windows 操作系统本身</strong>记录你在计算机上的活动。</p>
+<p>如果有人错误地认为 Sandboxie 会极度保护隐私，他们可能会惊讶地发现 Windows 系统中仍然可以找到一些记录程序运行痕迹（哪怕是在沙盒中运行）。</p>
+<p>本文将解释在 Windows 中用于记录程序活动的各种机制——无论程序是否在 Sandboxie 的监督下运行。</p>
+<hr />
+<p><strong>Prefetch 与 SuperFetch</strong></p>
+<p>Prefetch（预取）最早出现在 Windows XP，SuperFetch 出现在 Windows Vista，它们共同构成了 Windows 的 <a href="https://en.wikipedia.org/wiki/Prefetcher">预取器</a> 组件。</p>
+<p>这个组件用于加快程序启动速度，它会将程序文件的副本保存在一个可快速访问的位置。副本通常被存储在 Windows 主目录下的 <code>Prefetch</code> 文件夹中，通常路径是 <code>C:\Windows\Prefetch</code></p>
+<p>即使是在 Sandboxie 中运行的程序，Windows 也可能会将其文件副本写入 Prefetch 文件夹。</p>
+<p>你可以通过修改设置，限制预取器只缓存启动时使用的程序，甚至完全禁用预取功能。更多信息请见：</p>
 <ul>
 <li><a href="https://www.ghacks.net/2008/01/13/enableprefetcher-in-prefetchparameters">https://www.ghacks.net/2008/01/13/enableprefetcher-in-prefetchparameters</a></li>
 <li><a href="https://www.howtogeek.com/998/change-superfetch-to-only-cache-system-boot-files-in-vista">https://www.howtogeek.com/998/change-superfetch-to-only-cache-system-boot-files-in-vista</a></li>
 <li><a href="https://www.howtogeek.com/989/how-to-disable-superfetch-on-windows-vista">https://www.howtogeek.com/989/how-to-disable-superfetch-on-windows-vista</a></li>
 </ul>
-<p><strong>MUI Cache</strong></p>
-<p>Windows Explorer records in the registry the names of programs that are launched directly through it. This includes launching programs through the Start menu, the desktop, the quick launch area, or any folder views. It is true even if the right-click "Run Sandboxed" action is used to launch the program under Sandboxie.</p>
-<p>The recorded information is kept in this registry key:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">HKEY_CURRENT_USER\Software\Microsoft\Windows\ShellNoRoam\MUICache</span>
+<hr />
+<p><strong>MUI 缓存</strong></p>
+<p>Windows 资源管理器会在注册表中记录通过它启动的程序名称。这包括从开始菜单、桌面、快速启动栏或文件夹中启动程序的情况。即使使用右键“沙盒运行”功能，也会被记录。</p>
+<p>记录信息存储在以下注册表项中：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">HKEY_CURRENT_USER\Software\Microsoft\Windows\ShellNoRoam\MUICache</span>
 </span></code></pre></div></p>
-<p>If launch a program through a Sandboxie facility (such as the Sandboxie Start menu) or through a program which is already running under Sandboxie, then this information is kept in the registry inside the sandbox.</p>
-<p>There are various third-party registry cleaning tools that can erase this information.</p>
-<p><strong>Windows Taskbar</strong></p>
-<p>On Windows 7 and later, Windows Explorer stores information associated with icons on the taskbar. This information includes the icon for the program and the command used to launch it. The information is stored in files in the following folder, within the user profile folder:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">   </span><span class="na">%Appdata%\Microsoft\Internet Explorer\Quick Launch\User Pinned\ImplicitAppShortcuts</span>
+<p>如果你是通过 Sandboxie 的界面（如 Sandboxie 内的启动菜单）或通过一个已在沙盒中运行的程序来启动其他程序，那么这些记录就会被保存在沙盒的注册表中。</p>
+<p>你可以使用第三方注册表清理工具来清除这些信息。</p>
+<hr />
+<p><strong>Windows 任务栏</strong></p>
+<p>在 Windows 7 及更高版本中，资源管理器会记录任务栏图标相关信息，包括图标及其启动命令。这些信息存储在用户配置文件夹的以下路径中：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">%Appdata%\Microsoft\Internet Explorer\Quick Launch\User Pinned\ImplicitAppShortcuts</span>
 </span></code></pre></div></p>
-<p>The <a href="../ApplicationsSettings/#miscellaneous">Sandbox Settings &gt; Applications &gt; Miscellaneous</a> settings page includes the setting "Permit programs to update jump lists in the Windows 7 taskbar". If this setting is enabled, additional files are created in the following folders, within the user profile folder:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">   </span><span class="na">%Appdata%\Microsoft\Windows\Recent\CustomDestinations</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">   </span><span class="na">%Appdata%\Microsoft\Windows\Recent\AutomaticDestinations</span>
+<p>若在 <a href="../ApplicationsSettings/#miscellaneous">Sandbox 设置 &gt; 应用程序 &gt; 杂项</a> 中启用了“允许程序更新 Windows 7 任务栏跳转列表”选项，还会在以下文件夹中生成其他记录：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">%Appdata%\Microsoft\Windows\Recent\CustomDestinations</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">%Appdata%\Microsoft\Windows\Recent\AutomaticDestinations</span>
 </span></code></pre></div></p>
-<p><strong>Windows Page File</strong></p>
-<p>During its normal course of operation, Windows sometimes needs to put away the contents of memory used by one program in order to make room for another program. The memory contents are stored in the Windows <a href="https://www.howtogeek.com/126430/what-is-the-windows-page-file">page file</a>.</p>
-<p>Programs that run under Sandboxie are still running in the same Windows operating system as any other program in the computer, so portions of sandboxed and normal programs may end up sitting side by side in the same page file.</p>
-<p>It is possible to configure Windows to clear the contents of the page file at shutdown. More information <a href="https://winaero.com/clear-pagefile-shutdown-windows-10">here</a> and <a href="https://www.vistax64.com/threads/virtual-memory-paging-file-clear-at-shutdown.157323">here</a>.</p>
-<p>It is possible to configure Windows to encrypt the contents of the page file:</p>
-<ul>
-<li>Run <em>secpol.msc</em> to open the <em>Local Security Policy</em> editor</li>
-<li>Expand the group labeled <em>Public Key Policies</em></li>
-<li>Right-click <em>Properties</em> on the item labeled <em>Encrypting File System</em></li>
-<li>Select <em>Allow</em> to enable Encrypting File System (EFS)</li>
-<li>Click <em>Apply</em> and then <em>OK</em></li>
-<li>Reboot to put the new setting into effect</li>
-</ul>
-<p><strong>Windows Hibernate File</strong></p>
-<p>Similar to the Windows Page File, the hibernate file stores a copy of the memory and state of the system before the computer is turned off as part of the hibernate process. Thus the hibernate file may contain bits of memory that were used by a sandboxed program.</p>
-<p><strong>System Restore</strong></p>
-<p>Restore points are snapshots of the state of the operating system at some points in time. The System Restore component in Windows XP and later versions records and restores these snapshots.</p>
-<p>Snapshots are recorded in the (typically inaccessible) folder called <em>System Volume Information</em> and may include <a href="https://docs.microsoft.com/en-us/windows/win32/sr/monitored-file-extensions">many types of files</a> found throughout the system, including within the folders of the sandbox.</p>
-<p>Thus it is possible that System Restore will create backup copies in its folders for files or programs that exist only in the sandbox.</p>
-<p>The System Restore component can be set to ignore files and folders in temporary folders, so <a href="../FileRootPath/">moving the sandbox</a> to <em>%TEMP%\SANDBOX</em> (instead of the default <em>C:\SANDBOX</em>) and adding the path within the registry key <a href="https://learn.microsoft.com/en-us/windows/win32/vss/excluding-files-from-shadow-copies#using-the-filesnottosnapshot-registry-key">FilesNotToSnapshot</a>, System Restore should ignore the sandbox when creating a Shadow Copy snapshot. More information <a href="https://learn.microsoft.com/en-us/windows/win32/backup/registry-keys-for-backup-and-restore">here</a>.</p>
-<p><strong>System, Audit and Other Event Logs</strong></p>
-<p>Windows sometimes records bits of information about running programs in its various <a href="https://en.wikipedia.org/wiki/Event_Viewer">event logs</a>. Typically, very little if any information is logged about a program. However, if security auditing has been enabled for some aspects of the system, Windows will have no trouble logging the details of any actions taken by a program running under Sandboxie.</p>
-<p>Windows has an Event Viewer program which can be used to view and delete the event logs. More information <a href="https://www.howtogeek.com/123646/htg-explains-what-the-windows-event-viewer-is-and-how-you-can-use-it">here</a>.</p>
-<p><strong>Windows System Tray Icons</strong></p>
-<p>When a programs which is running under Sandboxie asks to place an icon in the <a href="https://www.computerhope.com/issues/chsys.htm">system tray area</a>, Sandboxie lets the program place the icon in the real system tray, which is typically located at the bottom right corner of the display.</p>
-<p>This has the advantage that interaction with the tray icon of the sandboxed program is as easy as interacting with any other tray icon. However, it also means that Windows will record this icon and its description in the history of all tray icons it has ever displayed.</p>
-<p>It is possible to manually clear this history in <a href="https://www.howtogeek.com/739/clean-up-past-notification-icons-in-windows-vista">Windows</a>. There may also be third-party registry cleaning tools that can erase this information.</p>
-<p><strong>Disk Defragmentation</strong></p>
-<p>Disk defragmenter software can be used to organize the contents of the hard disk at the level of data blocks, so that files may be accessed faster by the operating system.</p>
-<p>Although this is not a privacy concern, the issue of sandboxed programs being able to defragment the disk has been raised and should be addressed.</p>
-<p>Sandboxie isolation occurs at the higher file level rather than the lower level of data blocks. Moving data blocks around on the disk has no impact on the isolation of the sandbox, and cannot be used by a malicious program to somehow "move" its data out of the sandbox.</p>
-<p><strong>IP Privacy</strong></p>
-<p>Sandboxie isolation and protection occurs entirely within the local computer and is not visible to any other remote computer. Thus accessing the Internet using a sandboxed program looks the same as accessing the Internet using a program that is not running under Sandboxie. In both cases the remote computer identifies the accessing computer by its IP address.</p>
-<p>There are various third-party solutions for anonymous Web access. More information <a href="https://en.wikipedia.org/wiki/Anonymous_web_browsing">here</a>.</p>
-<p><strong>Windows DNS Host Cache</strong></p>
-<p>Sandboxie does not prevent the logging and storage of the <em>hosts</em> file (DNS cache) on your Windows machine. This is written to <em>C:\Windows\System32\drivers\etc</em>.</p>
+<hr />
+<p><strong>Windows 页面文件</strong></p>
+<p>在正常操作中，Windows 会将部分程序使用的内存内容写入 <a href="https://www.howtogeek.com/126430/what-is-the-windows-page-file">页面文件</a>，以便为其他程序腾出内存。</p>
+<p>由于沙盒程序仍运行于操作系统之中，因此其内存内容可能与普通程序一起被写入同一个页面文件。</p>
+<p>你可以设置 Windows 在关机时清除页面文件的内容。参考：
+* <a href="https://winaero.com/clear-pagefile-shutdown-windows-10">关机时清理页面文件（Win 10）</a>
+* <a href="https://www.vistax64.com/threads/virtual-memory-paging-file-clear-at-shutdown.157323">关机时清理页面文件（Vista）</a></p>
+<p>你也可以加密页面文件内容：</p>
+<ol>
+<li>运行 <code>secpol.msc</code> 打开“本地安全策略”</li>
+<li>展开“<code>公钥策略</code>”组</li>
+<li>右键“<code>加密文件系统</code>”，选择“<code>属性</code>”</li>
+<li>选择“<code>允许</code>”</li>
+<li>点击“<code>应用</code>”和“<code>确定</code>”</li>
+<li>重启电脑生效</li>
+</ol>
+<hr />
+<p><strong>Windows 休眠文件</strong></p>
+<p>与页面文件类似，休眠文件会在电脑休眠前保存系统状态及内存内容。因此，它也可能包含沙盒程序使用过的内存数据。</p>
+<hr />
+<p><strong>系统还原</strong></p>
+<p>还原点是操作系统在某一时间点的状态快照。从 Windows XP 起的系统还原功能会记录并可恢复这些快照。</p>
+<p>这些快照会被保存到一个名为 <em>System Volume Information</em> 的（通常无法访问的）文件夹中，其中可能包含系统各处的<a href="https://docs.microsoft.com/en-us/windows/win32/sr/monitored-file-extensions">多种类型文件</a>，包括沙盒中的内容。</p>
+<p>因此，系统还原有可能会为<strong>只存在于沙盒中的文件或程序</strong>创建备份副本。</p>
+<p>你可以设置系统还原组件忽略临时文件夹中的文件和目录。只需将沙盒位置<a href="../FileRootPath/">移动</a>到 <code>%TEMP%\SANDBOX</code>（而非默认的 <code>C:\SANDBOX</code>），并在注册表键 <a href="https://learn.microsoft.com/en-us/windows/win32/vss/excluding-files-from-shadow-copies#using-the-filesnottosnapshot-registry-key">FilesNotToSnapshot</a> 中添加该路径，系统还原在创建影子副本快照时就会跳过沙盒内容。更多信息请见 <a href="https://learn.microsoft.com/en-us/windows/win32/backup/registry-keys-for-backup-and-restore">此处</a>。</p>
+<hr />
+<p><strong>系统、审计与事件日志</strong></p>
+<p>Windows 会在其 <a href="https://en.wikipedia.org/wiki/Event_Viewer">事件日志</a> 中记录某些程序行为。通常记录不多，但如果开启了安全审计功能，Windows 将详细记录沙盒内程序的行为。</p>
+<p>你可以使用“事件查看器”来查看和删除日志，详见：
+* <a href="https://www.howtogeek.com/123646/htg-explains-what-the-windows-event-viewer-is-and-how-you-can-use-it">如何使用事件查看器</a></p>
+<hr />
+<p><strong>系统托盘图标</strong></p>
+<p>当沙盒程序尝试在<a href="https://www.computerhope.com/issues/chsys.htm">系统托盘</a>放置图标时，Sandboxie 会允许其真实显示在右下角的托盘区。</p>
+<p>这样做的好处是用户可以方便地与图标交互。但这也意味着 Windows 会将图标及其说明记录到历史中。</p>
+<p>你可以通过以下方法清除这些历史：
+* <a href="https://www.howtogeek.com/739/clean-up-past-notification-icons-in-windows-vista">手动清除通知图标历史</a>
+* 也可以使用第三方注册表清理工具来删除这些记录。</p>
+<hr />
+<p><strong>磁盘碎片整理</strong></p>
+<p>磁盘碎片整理工具可以在磁盘底层对数据块重新排序，以提升读写性能。</p>
+<p>虽然这并不是隐私问题，但确实有人关心沙盒程序是否能影响磁盘数据。</p>
+<p>Sandboxie 的隔离是在文件系统层完成的，而非底层数据块。因此磁盘碎片整理<strong>不会</strong>影响沙盒隔离，也不会被恶意程序用来“转移”数据到沙盒外。</p>
+<hr />
+<p><strong>IP 隐私</strong></p>
+<p>Sandboxie 的隔离只在本地计算机上起作用，远程服务器无法感知你是否使用了沙盒。无论是否沙盒运行，访问互联网的行为在远端看来是一样的，远程主机会通过你的 IP 地址识别你。</p>
+<p>如果你希望匿名访问网络，可以使用第三方匿名解决方案。参考：
+* <a href="https://en.wikipedia.org/wiki/Anonymous_web_browsing">匿名上网</a></p>
+<hr />
+<p><strong>Windows DNS 主机缓存</strong></p>
+<p>Sandboxie 并不会阻止 Windows 保存或使用 DNS 缓存（hosts 文件），该文件位于：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">C</span><span class="o">:</span><span class="s">\Windows\System32\drivers\etc</span>
+</span></code></pre></div></p>
 
 
 
