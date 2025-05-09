@@ -25,7 +25,7 @@
 * **图形用户界面跟踪（GuiTrace）**：记录窗口间的通信；
 * **COM 类标识符跟踪（ClsidTrace）**：记录 COM 通信；
 * **防火墙跟踪（NetFwTrace）**：跟踪防火墙组件的操作（自 0.9.0 / 5.51.0 版本起）；
-* **日志 API（LogAPI）**：用于获取额外跟踪输出的库（有关更多信息，请参阅[此线程](https://forum.xanasoft.com/threads/how-to-get-malawre-trace-in-sandboxie.143/)）。
+* **日志 API（LogAPI）**：用于获取额外跟踪输出的库（有关更多信息，请参阅[这篇帖子](https://forum.xanasoft.com/threads/how-to-get-malawre-trace-in-sandboxie.143/)）。
 
 每个设置都接受一个字符序列，用于指定要记录的内容。字符 _a_ 记录被允许的请求；字符 _d_ 记录被拒绝的请求。对于 **文件跟踪（FileTrace）** 和 **命名管道跟踪（PipeTrace）** 设置，字符 _i_ 记录因访问被沙盘忽略的设备（如 CD - ROM）而被允许的请求。
 
@@ -51,7 +51,7 @@
 
 自 0.9.0 / 5.51.0 版本起，添加了一个新选项 `防火墙跟踪（NetFwTrace）=*` 来跟踪防火墙组件的操作。请注意，驱动程序仅将日志记录到内核调试输出，你可以使用 [DbgView.exe](https://docs.microsoft.com/en-us/sysinternals/downloads/debugview) 查看。
 
-在 Windows Vista 及更高版本中，系统调试器日志的输出默认是禁用的。[这篇博客文章](https://web.archive.org/web/20080731211018/http://blogs.msdn.com:80/doronh/archive/2006/11/14/where-did-my-debug-output-go-in-vista.aspx) 和 [这个线程](https://web.archive.org/web/20230324011501/https://stackoverflow.com/questions/65015739/outputdebugstring-not-showing-message-in-debugview-windows-10-x64) 解释了如何启用它。
+在 Windows Vista 及更高版本中，系统调试器日志的输出默认是禁用的。[这篇博客文章](https://web.archive.org/web/20080731211018/http://blogs.msdn.com:80/doronh/archive/2006/11/14/where-did-my-debug-output-go-in-vista.aspx) 和 [这篇帖子](https://web.archive.org/web/20230324011501/https://stackoverflow.com/questions/65015739/outputdebugstring-not-showing-message-in-debugview-windows-10-x64) 解释了如何启用它。
 
 以下跟踪信息将以以下格式显示输出（假设启用了 **进程间通信跟踪（IpcTrace）** 和 **命名管道跟踪（PipeTrace）**）：
 ```
