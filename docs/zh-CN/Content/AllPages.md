@@ -68,17 +68,17 @@
 
 ### C
 
-[关闭打印后台处理服务](ClosePrintSpooler.md)
+[封禁打印后台处理服务](ClosePrintSpooler.md)
 
-[关闭 CLSID](ClosedClsid.md)
+[封禁 CLSID](ClosedClsid.md)
 
-[关闭文件路径](ClosedFilePath.md)
+[封禁文件路径](ClosedFilePath.md)
 
-[关闭 IPC 路径](ClosedIpcPath.md)
+[封禁 IPC 路径](ClosedIpcPath.md)
 
-[关闭注册表项路径](ClosedKeyPath.md)
+[封禁注册表项路径](ClosedKeyPath.md)
 
-[关闭 RT](ClosedRT.md)
+[封禁 RT](ClosedRT.md)
 
 [代码注入](CodeInjection.md)
 
