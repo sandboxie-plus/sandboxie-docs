@@ -12,7 +12,7 @@ _InjectDll_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置。它�
 
 你应当指定 DLL 的完整路径。如果 DLL 文件本身位于沙箱内，应指定沙箱内部的完整路径。
 
-**注意：** InjectDll 设置是用于指定 32 位 DLL，并且在 64 位 Windows 的 64 位进程中会被忽略。要指定 64 位 DLL，请使用 [InjectDll64](InjectDll64.md) 设置。
+**注意：** 注入 Dll 设置是用于指定 32 位 DLL，并且在 64 位 Windows 的 64 位进程中会被忽略。要指定 64 位 DLL，请使用 [注入 64 位 Dll](InjectDll64.md) 设置。
 
 * * *
 
