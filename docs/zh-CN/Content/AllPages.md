@@ -274,27 +274,27 @@
 
 ### O
 
-[打开剪贴板](OpenClipboard.md)
+[开放剪贴板](OpenClipboard.md)
 
-[打开 CLSID](OpenClsid.md)
+[开放 CLSID](OpenClsid.md)
 
-[打开配置路径](OpenConfPath.md)
+[开放配置路径](OpenConfPath.md)
 
-[打开凭据](OpenCredentials.md)
+[开放凭据](OpenCredentials.md)
 
-[打开文件路径](OpenFilePath.md)
+[开放文件路径](OpenFilePath.md)
 
-[打开 IPC 路径](OpenIpcPath.md)
+[开放 IPC 路径](OpenIpcPath.md)
 
-[打开注册表项路径](OpenKeyPath.md)
+[开放注册表项路径](OpenKeyPath.md)
 
-[打开管道路径](OpenPipePath.md)
+[开放管道路径](OpenPipePath.md)
 
-[打开打印后台处理服务](OpenPrintSpooler.md)
+[开放打印后台处理服务](OpenPrintSpooler.md)
 
-[打开受保护存储](OpenProtectedStorage.md)
+[开放受保护存储](OpenProtectedStorage.md)
 
-[打开窗口类](OpenWinClass.md)
+[开放窗口类](OpenWinClass.md)
 
 ### P
 
