@@ -1,23 +1,23 @@
 # 帮助主题
 
-#### 教程：[开始使用](GettingStarted.md) Sandboxie
+#### 教程：[沙盒入门](GettingStarted.md)
 
-#### Sandboxie 的一般性 [使用技巧](UsageTips.md) 
+#### 一般[使用技巧](UsageTips.md) 用于使用沙盒
 
-#### [Sandboxie 控制面板](SandboxieControl.md) 使用手册
+#### [沙盒控制](SandboxieControl.md) 使用手册
 
-#### 与其他程序的 [已知冲突](KnownConflicts.md)
+#### 与其他程序的[已知冲突](KnownConflicts.md)
 
-#### [常见问题解答 FAQ](FrequentlyAskedQuestions.md)
+#### [常见问题解答](FrequentlyAskedQuestions.md)
 
 #### [高级主题](AdvancedTopics.md)
 
 #### [技术细节](TechnicalAspects.md)
 
-#### Reference for error and informational [SBIE 消息](SBIEMessages.md) 参考说明
+#### 错误与信息性 [SBIE 消息](SBIEMessages.md) 参考
 
-#### Sandboxie [启动命令行](StartCommandLine.md) 参数
+#### 沙盒 [启动命令行](StartCommandLine.md) 参数
 
-#### 通过 [Sandboxie Ini](SandboxieIni.md) 进行配置
+#### 通过 [Sandboxie Ini](SandboxieIni.md) 配置沙盒
 
-#### [文档目录](AllPages.md)
+#### [文档索引](AllPages.md)
