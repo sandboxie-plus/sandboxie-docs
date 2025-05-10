@@ -1,6 +1,6 @@
 # 隐藏磁盘序列号
 
-**隐藏磁盘序列号（HideDiskSerialNumber）** 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置。
+**隐藏磁盘序列号** 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置。
 
 ```
    .
