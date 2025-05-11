@@ -1,6 +1,6 @@
 # 注入 Dll
 
-_InjectDll_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置。它指示沙盒向沙箱内的每个程序“注入”一个或多个 DLL。所谓“注入”，即 DLL 被加载至进程，例如：
+_InjectDll_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置。它指示沙盘向沙箱内的每个程序“注入”一个或多个 DLL。所谓“注入”，即 DLL 被加载至进程，例如：
 
 ```
    .
@@ -32,7 +32,7 @@ _InjectDll_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置。它�
 
 * * *
 
-如果该 DLL 导出符号 **InjectDllMain** 或 **InjectDllMain@8**，沙盒会在 DLL 加载完成后调用此过程，并传递 SbieDll 模块的地址。可以如下方式在你的代码中声明 InjectDllMain：
+如果该 DLL 导出符号 **InjectDllMain** 或 **InjectDllMain@8**，沙盘会在 DLL 加载完成后调用此过程，并传递 SbieDll 模块的地址。可以如下方式在你的代码中声明 InjectDllMain：
 
 ```
    __declspec(dllexport) void __stdcall InjectDllMain(
@@ -43,6 +43,6 @@ _InjectDll_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置。它�
 
 * * *
 
-目前，该设置无法通过 [沙盒控制](SandboxieControl.md) 进行操作。你需要手动在 [Sandboxie Ini](SandboxieIni.md) 中编辑此项。
+目前，该设置无法通过 [沙盘控制](SandboxieControl.md) 进行操作。你需要手动在 [Sandboxie Ini](SandboxieIni.md) 中编辑此项。
 
-参见：[注入 Dll64](InjectDll64.md)、[沙盒 DLL API](SBIEDLLAPI.md)、[启动命令行](StartCommandLine.md)。
+参见：[注入 Dll64](InjectDll64.md)、[沙盘 DLL API](SBIEDLLAPI.md)、[启动命令行](StartCommandLine.md)。

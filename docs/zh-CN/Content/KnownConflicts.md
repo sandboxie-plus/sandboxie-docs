@@ -8,11 +8,11 @@
 
 问题：某些调用服务或驱动程序的应用程序可能无法在沙箱中安装/运行。
 
-解决方法一：你系统中安装的第三方安全软件可能与沙盒存在冲突（参见问题 [#647](https://github.com/sandboxie-plus/Sandboxie/issues/647) 和 [#293](https://github.com/sandboxie-plus/Sandboxie/issues/293)）。如果你想了解可能涉及哪些安全套件，可查阅 [已归档论坛](https://sandboxie-website-archive.github.io/www.sandboxie.com/old-forums/viewtopica726a726.html?f=11&t=21539)。
+解决方法一：你系统中安装的第三方安全软件可能与沙盘存在冲突（参见问题 [#647](https://github.com/sandboxie-plus/Sandboxie/issues/647) 和 [#293](https://github.com/sandboxie-plus/Sandboxie/issues/293)）。如果你想了解可能涉及哪些安全套件，可查阅 [已归档论坛](https://sandboxie-website-archive.github.io/www.sandboxie.com/old-forums/viewtopica726a726.html?f=11&t=21539)。
 
 解决方法二：若你已尝试在新的空沙箱中安装应用，但仍失败，请在主机上安装该应用后使用沙箱方式运行。
 
-如果问题依然存在，特别是以前版本的沙盒中可正常运行的应用，请通过在 [GitHub 仓库](https://github.com/sandboxie-plus/Sandboxie/issues) 发表详细信息与我们沟通。
+如果问题依然存在，特别是以前版本的沙盘中可正常运行的应用，请通过在 [GitHub 仓库](https://github.com/sandboxie-plus/Sandboxie/issues) 发表详细信息与我们沟通。
 
 ### Microsoft Store 应用
 
@@ -83,7 +83,7 @@
 
 ### “打开方式”对话框在沙箱中的资源管理器实例不能用
 
-问题：“打开方式”功能在沙盒中无法正常使用。
+问题：“打开方式”功能在沙盘中无法正常使用。
 
 解决方法：已于 [v1.0.6 / 5.55.6](https://github.com/sandboxie-plus/Sandboxie/releases/tag/1.0.6) 版本中修复。
 

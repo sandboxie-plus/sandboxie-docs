@@ -1,16 +1,16 @@
 # 快速恢复
 
-[沙盒控制](SandboxieControl.md) > [沙箱菜单](SandboxMenu.md) > 快速恢复
+[沙盘控制](SandboxieControl.md) > [沙箱菜单](SandboxMenu.md) > 快速恢复
 
-[沙盒控制](SandboxieControl.md) > [托盘图标菜单](TrayIconMenu.md) > 快速恢复
+[沙盘控制](SandboxieControl.md) > [托盘图标菜单](TrayIconMenu.md) > 快速恢复
 
 ![](../Media/QuickRecoverSandbox.png)
 
-沙盒程序会在沙箱内创建文件和文件夹。您可能希望将其中的一些文件移出沙箱。例如，通过沙箱浏览器下载的文档会保存在沙箱内，但应当将该文件提取出来，放置到沙箱外部的 _文档_ 文件夹中。
+沙盘程序会在沙箱内创建文件和文件夹。您可能希望将其中的一些文件移出沙箱。例如，通过沙箱浏览器下载的文档会保存在沙箱内，但应当将该文件提取出来，放置到沙箱外部的 _文档_ 文件夹中。
 
 基本的方法是使用常规的、非沙箱的 Windows 资源管理器，直接浏览构成沙箱的文件夹。通过 [沙箱菜单 > 沙箱 > 浏览内容](SandboxMenu.md#sandbox-menu) 命令，您可以打开一个非沙箱的文件夹窗口，从而查看沙箱内的内容。然后，您可以深入沙箱文件夹结构，并通过 _剪切_ 沙箱中的文件来将其 _粘贴_ 到其他位置。
 
-快速恢复功能则能够更轻松地提取由沙盒程序创建和保存的文件（甚至整个文件夹）。它会扫描几个需要预先选定的沙箱内文件夹，然后列出其中发现的文件（和文件夹）。这些文件（和文件夹）可以恢复到沙箱外相应的位置，或恢复到任意位置。
+快速恢复功能则能够更轻松地提取由沙盘程序创建和保存的文件（甚至整个文件夹）。它会扫描几个需要预先选定的沙箱内文件夹，然后列出其中发现的文件（和文件夹）。这些文件（和文件夹）可以恢复到沙箱外相应的位置，或恢复到任意位置。
 
 要打开“快速恢复”窗口，请使用 [沙箱菜单 > 沙箱 > 快速恢复](SandboxMenu.md#sandbox-menu) 命令（或通过[托盘图标菜单](TrayIconMenu.md)中的相应命令）。快速恢复也会出现在[删除沙箱](DeleteSandbox.md)窗口中。
 
@@ -29,8 +29,8 @@
 
 *   您可以通过 _添加文件夹_ 按钮添加更多文件夹
 *   可通过 [沙箱设置 > 恢复 > 快速恢复](RecoverySettings.md#quick-recovery) 来添加和移除文件夹
-*   当 [沙盒控制](SandboxieControl.md) 处于[文件和文件夹视图](FilesAndFoldersView.md)时，可以右键点击某个文件夹，选择 _添加文件夹到快速恢复_
+*   当 [沙盘控制](SandboxieControl.md) 处于[文件和文件夹视图](FilesAndFoldersView.md)时，可以右键点击某个文件夹，选择 _添加文件夹到快速恢复_
 
 * * *
 
-前往 [删除沙箱](DeleteSandbox.md)、[即时恢复](ImmediateRecovery.md)、[沙盒控制](SandboxieControl.md)、[帮助主题](HelpTopics.md)。
+前往 [删除沙箱](DeleteSandbox.md)、[即时恢复](ImmediateRecovery.md)、[沙盘控制](SandboxieControl.md)、[帮助主题](HelpTopics.md)。

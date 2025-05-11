@@ -1,6 +1,6 @@
 # 开放文件路径
 
-_OpenFilePath_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置。它用于指定某些路径模式下，沙盒不会对文件应用沙箱限制。通过这个功能，被沙箱化的程序可以直接访问并更新**沙箱之外**的文件和文件夹。该设置本质上是在特定的文件夹位置为沙箱“打了一个洞”。
+_OpenFilePath_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置。它用于指定某些路径模式下，沙盘不会对文件应用沙箱限制。通过这个功能，被沙箱化的程序可以直接访问并更新**沙箱之外**的文件和文件夹。该设置本质上是在特定的文件夹位置为沙箱“打了一个洞”。
 
 可以指定 [Shell 文件夹](ShellFolders.md)。也可以指定 [程序名称前缀](ProgramNamePrefix.md)。
 
@@ -16,7 +16,7 @@ OpenFilePath=iexplore.exe,%Favorites%
 OpenFilePath=msimn.exe,*.eml
 ```
 
-在查看上述示例时，请注意：除非值中已经出现星号，否则沙盒会在该值末尾自动添加一个通配星号。因此，例如 _C:\Downloads\_ 会变为 _C:\Downloads\*_，而 _*.eml_ 则保持不变。
+在查看上述示例时，请注意：除非值中已经出现星号，否则沙盘会在该值末尾自动添加一个通配星号。因此，例如 _C:\Downloads\_ 会变为 _C:\Downloads\*_，而 _*.eml_ 则保持不变。
 
 通配星号用于指定具有可变或未知部分的路径模式。例如，_a.eml_ 只匹配该单一文件，而 _*.eml_ 则匹配 _a.eml_、_test.eml_、_important message.eml_ 等。需要注意的是，这两种形式都不会匹配 _a.txt_。
 
@@ -32,6 +32,6 @@ OpenFilePath=msimn.exe,*.eml
 
 一个与 _OpenFilePath_ 类似、但**始终**生效的设置是 [OpenPipePath](OpenPipePath.md)。
 
-相关的 [沙盒控制](SandboxieControl.md) 设置：[沙盒设置 > 资源访问 > 文件访问 > 直接访问](ResourceAccessSettings.md#file-access--direct-access)
+相关的 [沙盘控制](SandboxieControl.md) 设置：[沙盘设置 > 资源访问 > 文件访问 > 直接访问](ResourceAccessSettings.md#file-access--direct-access)
 
 相关的 Sandboxie Plus 设置：沙箱选项 > 资源访问 > 文件 > 添加文件/文件夹 > 访问列 > 开放

@@ -19,8 +19,8 @@ _jusched.exe_ 是 Sun Java 框架的一部分。当 Internet Explorer 启动 Jav
    LingerProcess=acrord32.exe
 ```
 
-然而，如果你手动在沙箱中启动 Adobe Acrobat Reader，例如通过沙盒开始菜单运行该程序，则 驻留进程 设置不会对该进程生效。
+然而，如果你手动在沙箱中启动 Adobe Acrobat Reader，例如通过沙盘开始菜单运行该程序，则 驻留进程 设置不会对该进程生效。
 
-相关 [沙盒控制](SandboxieControl.md) 设置：[沙箱设置 -> 程序控制 -> 停止行为 -> 驻留进程](ProgramStopSettings.md#lingering-programs)
+相关 [沙盘控制](SandboxieControl.md) 设置：[沙箱设置 -> 程序控制 -> 停止行为 -> 驻留进程](ProgramStopSettings.md#lingering-programs)
 
 另见：[程序设置](ProgramSettings.md#linger)。

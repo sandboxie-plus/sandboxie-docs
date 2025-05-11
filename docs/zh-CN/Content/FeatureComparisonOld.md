@@ -1,9 +1,9 @@
 # 功能对比（已废弃）
 
-沙盒 Plus 与沙盒 Classic 共享相同的核心组件，主要区别在于 Classic 用户界面已不再开发。因此，只有在沙盒 Plus 的 SandMan 用户界面中才能使用新的核心功能的界面。同样，其他各类新功能也仅在 SandMan 用户界面中实现。另一个区别在于，沙盒 Plus 采用[自定义许可证](https://github.com/sandboxie-plus/Sandboxie/blob/master/LICENSE.Plus)发布，而沙盒 Classic 则依据 [GPL-3.0+ 许可证](https://github.com/sandboxie-plus/Sandboxie/blob/master/LICENSE.Classic)发布。
+沙盘 Plus 与沙盘 Classic 共享相同的核心组件，主要区别在于 Classic 用户界面已不再开发。因此，只有在沙盘 Plus 的 SandMan 用户界面中才能使用新的核心功能的界面。同样，其他各类新功能也仅在 SandMan 用户界面中实现。另一个区别在于，沙盘 Plus 采用[自定义许可证](https://github.com/sandboxie-plus/Sandboxie/blob/master/LICENSE.Plus)发布，而沙盘 Classic 则依据 [GPL-3.0+ 许可证](https://github.com/sandboxie-plus/Sandboxie/blob/master/LICENSE.Classic)发布。
 
 某些专属功能仅对持有有效[支持者证书](https://sandboxie-plus.com/supporter-certificate/)的项目支持者开放。  
-请注意，在商业或教育环境中使用沙盒 Plus 必须获得企业证书！
+请注意，在商业或教育环境中使用沙盘 Plus 必须获得企业证书！
 
 | ⚠️  警告         |
 |:------------------|

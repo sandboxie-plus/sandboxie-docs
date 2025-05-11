@@ -1,22 +1,22 @@
 # 可扩展变量
 
-某些沙盒设置可能包含 _变量_。这些是占位名称，将被替换为可能针对特定计算机和用户账户的实际文本。例如：
+某些沙盘设置可能包含 _变量_。这些是占位名称，将被替换为可能针对特定计算机和用户账户的实际文本。例如：
 
 ```
 RecoverFolder=%Personal%\Song_Lyrics
 ```
 
-在这个简单的示例中，沙盒会将 _Personal_ 变量扩展为 _文档_ 文件夹的实际路径。
+在这个简单的示例中，沙盘会将 _Personal_ 变量扩展为 _文档_ 文件夹的实际路径。
 
 ```
 RecoverFolder=C:\Users\joe\Documents\Song_Lyrics
 ```
 
-下表列出了沙盒能够识别的变量。
+下表列出了沙盘能够识别的变量。
 
 | 变量名称 | 展开为 |
 | :--- | :--- |
-| SbieHome | 沙盒安装的根路径 |
+| SbieHome | 沙盘安装的根路径 |
 | sandbox | 程序运行所在的沙箱名称。<br>示例：DefaultBox |
 | user <br> username | 程序运行所在的用户账户。<br>示例：joe |
 | sid | 标识程序运行用户账户的 SID 字符串。<br>示例：S-1-5-21-414-171-1981-1005 |
@@ -33,7 +33,7 @@ RecoverFolder=C:\Users\joe\Documents\Song_Lyrics
 
 ### 模板变量
 
-全局模板是沙盒安装的一部分，位于沙盒安装文件夹的 _Templates.ini_ 文件中。可以在 [Sandboxie Ini](SandboxieIni.md) 中另行添加本地模板。任何模板都可以以 _%Tmpl.SomeVariableName%_ 形式引用模板变量。这些变量名不是沙盒核心自带的，必须在 _Templates.ini_ 或 _Sandboxie.ini_ 文件的 [TemplateSettings] 节中定义。
+全局模板是沙盘安装的一部分，位于沙盘安装文件夹的 _Templates.ini_ 文件中。可以在 [Sandboxie Ini](SandboxieIni.md) 中另行添加本地模板。任何模板都可以以 _%Tmpl.SomeVariableName%_ 形式引用模板变量。这些变量名不是沙盘核心自带的，必须在 _Templates.ini_ 或 _Sandboxie.ini_ 文件的 [TemplateSettings] 节中定义。
 
 ### 变量覆盖
 
@@ -72,6 +72,6 @@ RecoverFolder=C:\Users\joe\Documents\Song_Lyrics
     Reg.Cookies=%USERPROFILE%\Cookies
 ```
 
-请注意，上文描述的 “Ovr.” 覆盖方式会让沙盒忽略注册表。另一方面，只有当在注册表中找不到需要展开的变量时，沙盒才会检查 “Reg.” 的回退值。这意味着，如果为同一个变量 X 同时指定了 Ovr.X 和 Reg.X，则变量展开时始终使用 Ovr.X，Reg.X 则不会生效。
+请注意，上文描述的 “Ovr.” 覆盖方式会让沙盘忽略注册表。另一方面，只有当在注册表中找不到需要展开的变量时，沙盘才会检查 “Reg.” 的回退值。这意味着，如果为同一个变量 X 同时指定了 Ovr.X 和 Reg.X，则变量展开时始终使用 Ovr.X，Reg.X 则不会生效。
 
 通常建议首选 “Ovr.” 覆盖方式，而不是 “Reg.” 回退方式。

@@ -10,17 +10,17 @@
 
 [favicon.ico](https://github.com/sandboxie-plus/sandboxie-docs/raw/main/Media/favicon.ico)
 
-在默认及推荐的配置下，沙盒会检测到有文件被保存到了重要位置——在本例中为您的桌面——并会为该文件提供[即时恢复](ImmediateRecovery.md)功能：
+在默认及推荐的配置下，沙盘会检测到有文件被保存到了重要位置——在本例中为您的桌面——并会为该文件提供[即时恢复](ImmediateRecovery.md)功能：
 
 ![](../Media/ImmediateRecoverFavIcon.png)
 
-本练习的重点是演示，在未恢复的情况下，文件会一直保留在沙箱中。因此请点击上述窗口中的 _关闭_ 按钮，告知沙盒将文件保留在沙箱中。
+本练习的重点是演示，在未恢复的情况下，文件会一直保留在沙箱中。因此请点击上述窗口中的 _关闭_ 按钮，告知沙盘将文件保留在沙箱中。
 
 您保存下来的文件 _favicon.ico_ 应以如下图标出现在您的桌面上：![](../Media/TrayIconEmpty.png)
 
 如果您最小化所有窗口并检查桌面，应该**看不到**这个新图标，因为此文件实际上是被保存**在沙箱中**，尚未恢复。
 
-沙盒控制最初以[程序视图](ProgramsView.md)运行，列出了在沙箱中运行的程序，但您可以通过[视图菜单](ViewMenu.md)将视图模式切换为[文件和文件夹视图](FilesAndFoldersView.md)，以显示沙箱的内容。在 _视图_ 菜单中点击 _文件和文件夹_。
+沙盘控制最初以[程序视图](ProgramsView.md)运行，列出了在沙箱中运行的程序，但您可以通过[视图菜单](ViewMenu.md)将视图模式切换为[文件和文件夹视图](FilesAndFoldersView.md)，以显示沙箱的内容。在 _视图_ 菜单中点击 _文件和文件夹_。
 
 ![](../Media/FileViewFavIcon.png)
 
@@ -34,7 +34,7 @@
 
 ![](../Media/TrayPopupRunAny.png)
 
-沙盒会显示其 _运行..._ 对话框。请输入 **notepad**：
+沙盘会显示其 _运行..._ 对话框。请输入 **notepad**：
 
 ![](../Media/RunAnyNotepad.png)
 

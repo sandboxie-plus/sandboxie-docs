@@ -26,8 +26,8 @@ _KeyRootPath_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置。�
 
 *   _\REGISTRY\USER\Sandbox_%USER%_%SANDBOX%_
 
-该值必须以 **\REGISTRY\USER\** 为前缀，否则沙盒将无法挂载注册表配置单元。
+该值必须以 **\REGISTRY\USER\** 为前缀，否则沙盘将无法挂载注册表配置单元。
 
 通常没有理由修改该设置的默认值，并且不建议这样做。
 
-如果沙盒无法成功挂载或卸载沙箱注册表配置单元，分别会发出消息 [SBIE1241](SBIE1241.md) 和 [SBIE2208](SBIE2208.md)。
+如果沙盘无法成功挂载或卸载沙箱注册表配置单元，分别会发出消息 [SBIE1241](SBIE1241.md) 和 [SBIE2208](SBIE2208.md)。

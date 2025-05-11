@@ -16,7 +16,7 @@ _FileRootPath_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置。�
    FileRootPath=C:\Sandbox\MySandbox
 ```
 
-相关的 [沙盒控制](SandboxieControl.md) 设置：[沙盒菜单 > 设置容器文件夹](SandboxMenu.md#set-container-folder)
+相关的 [沙盘控制](SandboxieControl.md) 设置：[沙盘菜单 > 设置容器文件夹](SandboxMenu.md#set-container-folder)
 
 相关的 Sandboxie Plus 设置：选项菜单 > 全局设置 > 高级配置 > Sandboxie 配置 > 沙箱文件系统根目录
 

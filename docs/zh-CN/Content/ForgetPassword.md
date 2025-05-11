@@ -1,6 +1,6 @@
 # 忘记密码
 
-_ForgetPassword_ 是 [Sandboxie Ini](SandboxieIni.md) 中的全局设置。如果在 [沙盒控制](SandboxieControl.md) 或 [Sandman](PlusMigrationGuide.md) 中设置，当主窗口被隐藏时，配置密码会被清除 —— 之后需要重新输入密码才能修改配置设置。
+_ForgetPassword_ 是 [Sandboxie Ini](SandboxieIni.md) 中的全局设置。如果在 [沙盘控制](SandboxieControl.md) 或 [Sandman](PlusMigrationGuide.md) 中设置，当主窗口被隐藏时，配置密码会被清除 —— 之后需要重新输入密码才能修改配置设置。
 
 用法如下：
 

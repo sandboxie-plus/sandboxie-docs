@@ -25,6 +25,6 @@ _ForceProcess_ 是 [Sandboxie Ini](SandboxieIni.md) 文件中的一个沙箱设�
 
 另见：[ForceFolder](ForceFolder.md)。如果某个正在启动的程序同时匹配 _ForceFolder_ 和 _ForceProcess_ 设定，则优先应用 ForceFolder 设置。
 
-相关 [沙盒控制](SandboxieControl.md) 设置：[沙箱设置 > 程序启动 > 强制程序](ProgramStartSettings.md#forced-programs)。
+相关 [沙盘控制](SandboxieControl.md) 设置：[沙箱设置 > 程序启动 > 强制程序](ProgramStartSettings.md#forced-programs)。
 
 另见：[程序设置](ProgramSettings.md#page-1)

@@ -18,4 +18,4 @@
 
 * * *
 
-前往 [快速恢复](QuickRecovery.md)、[沙盒控制](SandboxieControl.md)、[帮助主题](HelpTopics.md)。
+前往 [快速恢复](QuickRecovery.md)、[沙盘控制](SandboxieControl.md)、[帮助主题](HelpTopics.md)。

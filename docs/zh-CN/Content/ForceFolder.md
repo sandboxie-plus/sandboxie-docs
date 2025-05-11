@@ -21,4 +21,4 @@ _ForceFolder_ 是 [Sandboxie.ini](SandboxieIni.md) 中的一个沙箱设置项�
 
 另请参阅：[强制进程](ForceProcess.md)。如果在一个程序启动时，_ForceFolder_ 和 _ForceProcess_ 条件同时适用，则优先采用 ForceFolder 设置。
 
-相关 [沙盒控制](SandboxieControl.md) 设置：[沙箱设置 > 程序启动 > 强制文件夹](ProgramStartSettings.md#forced-folders)
+相关 [沙盘控制](SandboxieControl.md) 设置：[沙箱设置 > 程序启动 > 强制文件夹](ProgramStartSettings.md#forced-folders)

@@ -1,6 +1,6 @@
 # 标准注册表路径
 
-_标准注册表路径_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置。它用于指定那些将被沙盒应用默认沙箱化策略的路径模式。该设置在与 [规则特定性](../PlusContent/RuleSpecificity.md) 配合使用时尤其有用，此时能够为父路径已被配置为开放、仅写甚至封禁的路径恢复到默认沙箱行为。
+_标准注册表路径_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置。它用于指定那些将被沙盘应用默认沙箱化策略的路径模式。该设置在与 [规则特定性](../PlusContent/RuleSpecificity.md) 配合使用时尤其有用，此时能够为父路径已被配置为开放、仅写甚至封禁的路径恢复到默认沙箱行为。
 
 可以指定 [程序名称前缀](ProgramNamePrefix.md)。
 

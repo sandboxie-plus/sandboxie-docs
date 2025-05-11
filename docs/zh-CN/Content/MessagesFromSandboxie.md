@@ -1,6 +1,6 @@
-# 来自沙盒的消息
+# 来自沙盘的消息
 
-每当沙盒日志记录至少一条错误或信息消息时，_来自沙盒的消息_ 窗口会自动显示。（关于沙盒消息的更多信息，请参见 [SBIE 消息](SBIEMessages.md)）。
+每当沙盘日志记录至少一条错误或信息消息时，_来自沙盘的消息_ 窗口会自动显示。（关于沙盘消息的更多信息，请参见 [SBIE 消息](SBIEMessages.md)）。
 
 该窗口每行显示一条消息，如下图所示。
 
@@ -16,7 +16,7 @@
 
 ## 记录日志消息到文件
 
-可以通过在注册表中的简单配置，将 _来自沙盒的消息_ 日志记录到文件：
+可以通过在注册表中的简单配置，将 _来自沙盘的消息_ 日志记录到文件：
 
 ```cmd
 reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\SbieSvc" /t REG_SZ /v LogFile /d "2;C:\Windows\System32\LogFiles\Sandboxie.log" /f
