@@ -32,3 +32,4 @@ DNS Query Logging, Filtering, and Redirection transcends traditional sandboxing 
 - DNS filtering will **NOT** work when a secure DNS is configured within an application.
 - DNS filtering will **NOT** work when "Proxy DNS when using SOCKS 4/5" or similar setting is configured within an application.
 - Third party applications may also cause this filtering to not work.
+- DNS filtering will **NOT** work when given host not found. See [this issue.](https://github.com/sandboxie-plus/Sandboxie/issues/4359)
