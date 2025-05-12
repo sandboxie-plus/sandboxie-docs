@@ -18,7 +18,7 @@
     
     
       
-        <title>Program Stop Settings - Sandboxie 文档</title>
+        <title>程序停止设置 - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#program-stop-settings" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Program Stop Settings
+              程序停止设置
             
           </span>
         </div>
@@ -371,7 +371,7 @@
   
   
   <span class="md-ellipsis">
-    Getting Started
+    入门指南
     
   </span>
   
@@ -471,7 +471,7 @@
   
   
   <span class="md-ellipsis">
-    File Menu
+    文件菜单
     
   </span>
   
@@ -563,7 +563,7 @@
   
   
   <span class="md-ellipsis">
-    Help Menu
+    帮助菜单
     
   </span>
   
@@ -809,7 +809,7 @@
   
   
   <span class="md-ellipsis">
-    Sandboxie-Plus Migration Guide
+    沙盘增强版（Sandboxie Plus）迁移指南
     
   </span>
   
@@ -4526,31 +4526,31 @@
   
 
 
-<h1 id="program-stop-settings">Program Stop Settings</h1>
-<h3 id="program-stop-settings-group">"Program Stop" Settings Group</h3>
-<p><a href="SandboxieControl.html">Sandboxie Control</a> &gt; <a href="SandboxSettings.html">Sandbox Settings</a> &gt; Program Stop:</p>
+<h1 id="_1">程序停止设置</h1>
+<h3 id="_2">“程序停止”设置组</h3>
+<p><a href="SandboxieControl.html">沙盘控制</a> &gt; <a href="SandboxSettings.html">沙箱设置</a> &gt; 程序停止：</p>
 <p><img alt="" src="../Media/ProgramStopSettings.png" /></p>
-<p>Settings in this section control when Sandboxie automatically ends programs that run in the sandbox.</p>
+<p>此部分的设置用于控制沙盘何时自动终止在沙箱中运行的程序。</p>
 <hr />
-<h3 id="lingering-programs">Lingering Programs</h3>
-<p><a href="SandboxieControl.html">Sandboxie Control</a> &gt; <a href="SandboxSettings.html">Sandbox Settings</a> &gt; Program Stop &gt; Lingering Programs</p>
+<h3 id="_3">残留程序</h3>
+<p><a href="SandboxieControl.html">沙盘控制</a> &gt; <a href="SandboxSettings.html">沙箱设置</a> &gt; 程序停止 &gt; 残留程序</p>
 <p><img alt="" src="../Media/LingeringProgramsSettings.png" /></p>
-<p>When one sandboxed program starts another program, that other program will be started in the same sandbox. However, the end of first program does not necessarily mean that the second program ends as well. This means that the sandbox can still be active after the primary program in the sandbox has been stopped.</p>
-<p>For example, viewing a PDF file in Internet Explorer may cause the Adobe Acrobat Reader program (acrord32.exe) to start in the sandbox. The Reader program will linger in the sandbox even after the Internet Explorer program has ended. This behavior is usually not desired.</p>
-<p>Use this settings page to identify the programs that Sandboxie should automatically stop, if they are lingering in the sandbox after all other (non-lingering) programs have ended.</p>
-<p>You can also configure this setting in the <a href="ProgramSettings.html">Program Settings</a> window.</p>
-<p>(Note that acrord32.exe is already a default setting.)</p>
-<p>Note: When no program is running in the sandbox, and you explicitly start one of the lingering programs, then that program will not be considered a lingering program, and will not be stopped automatically. For example, if nothing is running in the sandbox, and you explicitly start Adobe Acrobat Reader sandboxed, then Sandboxie will not immediately stop this program.</p>
-<p>Related <a href="SandboxieIni.html">Sandboxie Ini</a> setting: <a href="LingerProcess.html">LingerProcess</a>.</p>
+<p>当一个沙箱化程序启动另一个程序时，另一个程序将在同一个沙箱中启动。然而，第一个程序的结束并不一定意味着第二个程序也会结束。这意味着在沙箱中的主程序停止后，沙箱仍可能处于活动状态。</p>
+<p>例如，在 Internet Explorer 中查看 PDF 文件可能会导致 Adobe Acrobat Reader 程序（acrord32.exe）在沙箱中启动。即使 Internet Explorer 程序已结束，Reader 程序仍会残留在沙箱中。这种行为通常是不希望出现的。</p>
+<p>使用此设置页面来指定，如果在所有其他（非残留）程序结束后这些程序仍残留在沙箱中，沙盘应自动停止它们。</p>
+<p>你也可以在<a href="ProgramSettings.html">程序设置</a>窗口中配置此设置。</p>
+<p>（请注意，acrord32.exe 已经是默认设置。）</p>
+<p>注意：当沙箱中没有程序运行，并且你显式启动其中一个残留程序时，该程序将不被视为残留程序，也不会被自动停止。例如，如果沙箱中没有任何程序运行，并且你显式地在沙箱中启动 Adobe Acrobat Reader，那么沙盘不会立即停止该程序。</p>
+<p>相关的<a href="SandboxieIni.html">沙盘配置文件</a>设置：<a href="LingerProcess.html">LingerProcess</a>。</p>
 <hr />
-<h3 id="leader-programs">Leader Programs</h3>
-<p><a href="SandboxieControl.html">Sandboxie Control</a> &gt; <a href="SandboxSettings.html">Sandbox Settings</a> &gt; Program Stop &gt; Leader Programs</p>
+<h3 id="_4">主导程序</h3>
+<p><a href="SandboxieControl.html">沙盘控制</a> &gt; <a href="SandboxSettings.html">沙箱设置</a> &gt; 程序停止 &gt; 主导程序</p>
 <p><img alt="" src="../Media/LeaderProgramsSettings.png" /></p>
-<p>When this sandboxed program ends, Sandboxie will stop all other programs in the sandbox.</p>
-<p>Use this settings page to identify those programs that should be considered primary programs in the sandbox, such that whenever they finish and stop, all other programs in the sandbox are stopped as well.</p>
-<p>For example, if you have a sandbox dedicated for Web browsing, then rather than listing all possible lingering programs (see <a href="ProgramStopSettings.html#lingering-programs">Lingering Programs</a> above for a discussion of a lingering program),you can list just the Web browser program as the leader program.</p>
-<p>You can also configure this setting in the <a href="ProgramSettings.html">Program Settings</a> window.</p>
-<p>Related <a href="SandboxieIni.html">Sandboxie Ini</a> setting: <a href="LeaderProcess.html">LeaderProcess</a>.</p>
+<p>当这个沙箱化程序结束时，沙盘将停止沙箱中的所有其他程序。</p>
+<p>使用此设置页面来指定那些应被视为沙箱中主程序的程序，这样每当它们完成并停止时，沙箱中的所有其他程序也会停止。</p>
+<p>例如，如果你有一个专门用于网页浏览的沙箱，那么你可以只将网页浏览器程序列为主导程序，而不是列出所有可能的残留程序（有关残留程序的讨论，请参阅上面的<a href="ProgramStopSettings.html#lingering-programs">残留程序</a>）。</p>
+<p>你也可以在<a href="ProgramSettings.html">程序设置</a>窗口中配置此设置。</p>
+<p>相关的<a href="SandboxieIni.html">沙盘配置文件</a>设置：<a href="LeaderProcess.html">LeaderProcess</a>。</p>
 
 
 

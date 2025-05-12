@@ -18,7 +18,7 @@
     
     
       
-        <title>Program Name Prefix - Sandboxie 文档</title>
+        <title>程序名称前缀 - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#program-name-prefix" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Program Name Prefix
+              程序名称前缀
             
           </span>
         </div>
@@ -371,7 +371,7 @@
   
   
   <span class="md-ellipsis">
-    Getting Started
+    入门指南
     
   </span>
   
@@ -471,7 +471,7 @@
   
   
   <span class="md-ellipsis">
-    File Menu
+    文件菜单
     
   </span>
   
@@ -563,7 +563,7 @@
   
   
   <span class="md-ellipsis">
-    Help Menu
+    帮助菜单
     
   </span>
   
@@ -809,7 +809,7 @@
   
   
   <span class="md-ellipsis">
-    Sandboxie-Plus Migration Guide
+    沙盘增强版（Sandboxie Plus）迁移指南
     
   </span>
   
@@ -4526,16 +4526,16 @@
   
 
 
-<h1 id="program-name-prefix">Program Name Prefix</h1>
-<p>In several settings in the <a href="../SandboxieIni/">Sandboxie Ini</a> configuration file, a program name can be specified. This tells the setting to take effect only for sandboxed processes that match the program name criteria.</p>
-<p>The prefix is specified as the name of the executable, with an extension, but <em>without</em> a folder path:</p>
+<h1 id="_1">程序名称前缀</h1>
+<p>在 <a href="../SandboxieIni/">沙盘配置文件（Sandboxie Ini）</a> 的多个设置中，可以指定程序名称。这表示该设置仅对符合程序名称条件的沙箱化进程生效。</p>
+<p>前缀指定为可执行文件的名称，需包含扩展名，但<strong>不包含</strong>文件夹路径：</p>
 <ul>
-<li><em>iexplore.exe</em> - right</li>
-<li><em>C:\Program Files\Internet Explorer\iexplore.exe</em> - wrong</li>
+<li><em>iexplore.exe</em> - 正确</li>
+<li><em>C:\Program Files\Internet Explorer\iexplore.exe</em> - 错误</li>
 </ul>
-<p>The prefix may start with an exclamation point (!) to indicate negative criteria.</p>
-<p>A comma (,) separates the prefix from the rest of the setting specification.</p>
-<p>For example:
+<p>前缀可以以感叹号 (!) 开头，表示否定条件。</p>
+<p>逗号 (,) 用于将前缀与设置规范的其余部分分隔开。</p>
+<p>例如：
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="na">.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="na">.</span>
@@ -4543,8 +4543,8 @@
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="na">OpenFilePath</span><span class="o">=</span><span class="s">iexplore.exe,%Favorites%</span>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="na">ClosedFilePath</span><span class="o">=</span><span class="s">!iexplore.exe,%Favorites%</span>
 </span></code></pre></div></p>
-<p>This combination means that Internet Explorer (<em>iexplore.exe</em>) has direct access to the Favorites folder and the shortcuts within it.</p>
-<p>On the other hand, any <em>other</em> program (NOT <em>iexplore.exe</em>, note the exclamation point) is denied <em>any</em> kind of access to that same folder.</p>
+<p>这种组合意味着 Internet Explorer（<em>iexplore.exe</em>）可以直接访问收藏夹文件夹及其内的快捷方式。</p>
+<p>另一方面，任何<strong>其他</strong>程序（非 <em>iexplore.exe</em>，注意感叹号）都被拒绝访问该文件夹的<strong>任何</strong>权限。</p>
 
 
 

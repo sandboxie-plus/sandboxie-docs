@@ -18,7 +18,7 @@
     
     
       
-        <title>Open File Path - Sandboxie 文档</title>
+        <title>开放文件路径 - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#open-file-path" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Open File Path
+              开放文件路径
             
           </span>
         </div>
@@ -371,7 +371,7 @@
   
   
   <span class="md-ellipsis">
-    Getting Started
+    入门指南
     
   </span>
   
@@ -471,7 +471,7 @@
   
   
   <span class="md-ellipsis">
-    File Menu
+    文件菜单
     
   </span>
   
@@ -563,7 +563,7 @@
   
   
   <span class="md-ellipsis">
-    Help Menu
+    帮助菜单
     
   </span>
   
@@ -809,7 +809,7 @@
   
   
   <span class="md-ellipsis">
-    Sandboxie-Plus Migration Guide
+    沙盘增强版（Sandboxie Plus）迁移指南
     
   </span>
   
@@ -4526,29 +4526,29 @@
   
 
 
-<h1 id="open-file-path">Open File Path</h1>
-<p><em>OpenFilePath</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. It specifies path patterns for which Sandboxie will not apply sandboxing for files. This lets sandboxed programs have direct access to update files and folders <em>outside the sandbox</em>. This setting essentially <em>punches a hole</em> in the sandbox, at a particular folder location.</p>
-<p><a href="../ShellFolders/">Shell Folders</a> may be specified. <a href="../ProgramNamePrefix/">Program Name Prefix</a> may be specified.</p>
-<p>Examples:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">OpenFilePath</span><span class="o">=</span><span class="s">C:\Downloads</span>\
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">   </span><span class="s">OpenFilePath=*.eml</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">   </span><span class="na">OpenFilePath</span><span class="o">=</span><span class="s">iexplore.exe,%Favorites%</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">   </span><span class="na">OpenFilePath</span><span class="o">=</span><span class="s">msimn.exe,*.eml</span>
+<h1 id="_1">开放文件路径</h1>
+<p><em>OpenFilePath</em> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 中的一个沙箱设置。它用于指定某些路径模式下，沙盘不会对文件应用沙箱限制。通过这个功能，被沙箱化的程序可以直接访问并更新<strong>沙箱之外</strong>的文件和文件夹。该设置本质上是在特定的文件夹位置为沙箱“打了一个洞”。</p>
+<p>可以指定 <a href="../ShellFolders/">Shell 文件夹</a>。也可以指定 <a href="../ProgramNamePrefix/">程序名称前缀</a>。</p>
+<p>示例：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">.</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">.</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">.</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="na">OpenFilePath</span><span class="o">=</span><span class="s">C:\Downloads</span>\
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="s">OpenFilePath=*.eml</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="na">OpenFilePath</span><span class="o">=</span><span class="s">iexplore.exe,%Favorites%</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="na">OpenFilePath</span><span class="o">=</span><span class="s">msimn.exe,*.eml</span>
 </span></code></pre></div></p>
-<p>When reviewing these examples, keep in mind that Sandboxie places a <em>wildcard star</em> at the end of the value, <em>unless a star already appears anywhere in the value</em>. So for example, <em>C:\Downloads_ becomes _C:\Downloads*</em>, while <em>*.eml</em> remains unchanged.</p>
-<p><em>Wildcard stars</em> are used to specify patterns with variable, unknown parts. For example, <em>a.eml</em> matches only that one file, whereas <em>*.eml</em> matches <em>a.eml</em>, <em>test.eml</em>, <em>important message.eml</em> and so on. But note that neither form matches <em>a.txt</em>.</p>
-<p>The first example setting specifies that any files (or folders) created in the folder <em>C:\Downloads</em> (and in any folder below it) will not be sandboxed. Note that the final backslash character is important, because a star will be placed at the end of the string.</p>
-<p>The second example shows how wildcards can be used to exempt <em>*.eml</em> files from sandboxing, regardless of where they are created. <em>.eml</em> files are typically created by Outlook and Outlook Express, when a message is explicitly saved to disk.</p>
-<p>The third example setting specifies that the Favorites folder of the active user account should be exempted. This means that new Favorite shortcuts will added outside the sandbox. In this example, a ProgramNamePrefix is used, so the setting only applies to the Internet Explorer program, <em>iexplore.exe</em></p>
-<p>The fourth example combines the previous two examples, by showing a path containing a wildcard, applied only to a specific program.</p>
-<p><strong>Note:</strong> For security reasons, this setting does not apply when the program executable file resides within the sandbox. This means that (potentially malicious) software downloaded into your computer and executed, cannot take advantage of this setting.</p>
-<p>A setting similar to <em>OpenFilePath</em>, which is <em>always</em> applied, is <a href="../OpenPipePath/">OpenPipePath</a>.</p>
-<p>Related <a href="../SandboxieControl/">Sandboxie Control</a> setting: <a href="../ResourceAccessSettings/#file-access--direct-access">Sandbox Settings &gt; Resource Access &gt; File Access &gt; Direct Access</a></p>
-<p>Related Sandboxie Plus setting: Sandbox Options &gt; Resource Access &gt; Files &gt; Add File/Folder &gt; Access column &gt; Open</p>
+<p>在查看上述示例时，请注意：除非值中已经出现星号，否则沙盘会在该值末尾自动添加一个通配星号。因此，例如 <em>C:\Downloads_ 会变为 _C:\Downloads*</em>，而 <em>*.eml</em> 则保持不变。</p>
+<p>通配星号用于指定具有可变或未知部分的路径模式。例如，<em>a.eml</em> 只匹配该单一文件，而 <em>*.eml</em> 则匹配 <em>a.eml</em>、<em>test.eml</em>、<em>important message.eml</em> 等。需要注意的是，这两种形式都不会匹配 <em>a.txt</em>。</p>
+<p>第一个示例设置指定，在文件夹 <em>C:\Downloads</em>（以及其下的所有子文件夹）中新建的任意文件或文件夹都不会被沙箱限制。请注意，末尾的反斜杠非常重要，因为系统会在字符串末尾自动添加星号。</p>
+<p>第二个示例展示了如何使用通配符，使得 <em>*.eml</em> 文件无论在何处创建，都不受沙箱限制。<em>.eml</em> 文件通常由 Outlook 和 Outlook Express 创建，例如当邮件被直接保存到磁盘时。</p>
+<p>第三个示例设置指定了当前用户帐户的收藏夹文件夹应当排除在沙箱限制之外。这意味着新添加的收藏夹快捷方式会保存在沙箱之外。该示例中使用了程序名称前缀，因此该设置仅适用于 Internet Explorer 程序 <em>iexplore.exe</em>。</p>
+<p>第四个示例结合了前两个示例，展示了仅对指定程序应用包含通配符的路径设置。</p>
+<p><strong>注意：</strong> 出于安全考虑，当程序可执行文件本身位于沙箱内时，此设置不生效。这意味着下载到计算机并在沙箱中执行的（潜在恶意）软件无法利用该设置。</p>
+<p>一个与 <em>OpenFilePath</em> 类似、但<strong>始终</strong>生效的设置是 <a href="../OpenPipePath/">OpenPipePath</a>。</p>
+<p>相关的 <a href="../SandboxieControl/">沙盘控制</a> 设置：<a href="../ResourceAccessSettings/#file-access--direct-access">沙盘设置 &gt; 资源访问 &gt; 文件访问 &gt; 直接访问</a></p>
+<p>相关的 Sandboxie Plus 设置：沙箱选项 &gt; 资源访问 &gt; 文件 &gt; 添加文件/文件夹 &gt; 访问列 &gt; 开放</p>
 
 
 

@@ -18,7 +18,7 @@
     
     
       
-        <title>File Root Path - Sandboxie 文档</title>
+        <title>文件根路径 - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#file-root-path" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              File Root Path
+              文件根路径
             
           </span>
         </div>
@@ -371,7 +371,7 @@
   
   
   <span class="md-ellipsis">
-    Getting Started
+    入门指南
     
   </span>
   
@@ -471,7 +471,7 @@
   
   
   <span class="md-ellipsis">
-    File Menu
+    文件菜单
     
   </span>
   
@@ -563,7 +563,7 @@
   
   
   <span class="md-ellipsis">
-    Help Menu
+    帮助菜单
     
   </span>
   
@@ -809,7 +809,7 @@
   
   
   <span class="md-ellipsis">
-    Sandboxie-Plus Migration Guide
+    沙盘增强版（Sandboxie Plus）迁移指南
     
   </span>
   
@@ -4526,34 +4526,34 @@
   
 
 
-<h1 id="file-root-path">File Root Path</h1>
-<p><em>FileRootPath</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It specifies the root folder for a particular sandbox.</p>
-<p>As with all sandbox settings, it may also be specified in the global section, and in that case will apply for all sandboxes where the setting is not also specified in the sandbox section.</p>
-<p>See <a href="SandboxHierarchy.html">Sandbox Hierarchy</a> for more information.</p>
-<p>Usage:</p>
+<h1 id="_1">文件根路径</h1>
+<p><em>FileRootPath</em> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 中的一个沙箱设置。它用于指定特定沙箱的根文件夹。</p>
+<p>与所有沙箱设置一样，该项也可以在全局部分进行指定。在此情况下，对于所有未在沙箱部分单独指定该项的沙箱，该配置将适用。</p>
+<p>更多信息请参见 <a href="SandboxHierarchy.html">沙箱层次结构</a>。</p>
+<p>用法示例：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">FileRootPath</span><span class="o">=</span><span class="s">C:\Sandbox\MySandbox</span>
 </span></code></pre></div>
-<p>Related <a href="SandboxieControl.html">Sandboxie Control</a> setting: <a href="SandboxMenu.html#set-container-folder">Sandbox menu &gt; Set Container Folder</a></p>
-<p>Related Sandboxie Plus setting: Options menu &gt; Global Settings &gt; Advanced Config &gt; Sandboxie Config &gt; Sandbox file system root</p>
-<p><strong>Technical Details</strong></p>
-<p>The following substitution variables may be useful in this path.</p>
+<p>相关的 <a href="SandboxieControl.html">沙盘控制</a> 设置：<a href="SandboxMenu.html#set-container-folder">沙盘菜单 &gt; 设置容器文件夹</a></p>
+<p>相关的 Sandboxie Plus 设置：选项菜单 &gt; 全局设置 &gt; 高级配置 &gt; Sandboxie 配置 &gt; 沙箱文件系统根目录</p>
+<p><strong>技术细节</strong></p>
+<p>下列替换变量在此路径中可能会有用：</p>
 <ul>
-<li><a href="ShellFolders.html">Shell Folders</a> variables such as %Personal% which expands to the user's Documents folder</li>
-<li>The variable %SBIEHOME% which expands to the root of the Sandboxie installation</li>
-<li>The variable %SANDBOX% which expands to the name of the sandbox</li>
-<li>The variable %USER% which expands to the user name</li>
-<li>The variable %SID% which expands to the user security ID (SID)</li>
-<li>The variable %SESSION% which expands to the Terminal Services session number</li>
+<li><a href="ShellFolders.html">Shell Folders</a> 变量，例如 %Personal%，其会展开为用户的文档文件夹</li>
+<li>变量 %SBIEHOME%，其会展开为 Sandboxie 安装的根目录</li>
+<li>变量 %SANDBOX%，其会展开为沙箱的名称</li>
+<li>变量 %USER%，其会展开为用户名</li>
+<li>变量 %SID%，其会展开为用户的安全标识（SID）</li>
+<li>变量 %SESSION%，其会展开为终端服务会话号</li>
 </ul>
-<p>If <em>FileRootPath</em> is not specified, its default value is constructed using the <em>deprecated</em> <a href="BoxRootFolder.html">BoxRootFolder</a> setting, thus:</p>
+<p>如果未指定 <em>FileRootPath</em>，其默认值将通过已弃用的 <a href="BoxRootFolder.html">BoxRootFolder</a> 设置构造，如下所示：</p>
 <ul>
 <li><code>BoxRootFolder\Sandbox\%SANDBOX%</code></li>
 </ul>
-<p>If <em>BoxRootFolder</em> is also not specified, then the default setting is:</p>
+<p>如果也未指定 <em>BoxRootFolder</em>，则默认设置为：</p>
 <ul>
 <li><code>C:\Sandbox\%USER%\%SANDBOX%</code></li>
 </ul>

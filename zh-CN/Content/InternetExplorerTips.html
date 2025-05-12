@@ -18,7 +18,7 @@
     
     
       
-        <title>Internet Explorer Tips - Sandboxie 文档</title>
+        <title>Internet Explorer 使用技巧 - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#internet-explorer-tips" class="md-skip">
+        <a href="#internet-explorer" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Internet Explorer Tips
+              Internet Explorer 使用技巧
             
           </span>
         </div>
@@ -371,7 +371,7 @@
   
   
   <span class="md-ellipsis">
-    Getting Started
+    入门指南
     
   </span>
   
@@ -471,7 +471,7 @@
   
   
   <span class="md-ellipsis">
-    File Menu
+    文件菜单
     
   </span>
   
@@ -563,7 +563,7 @@
   
   
   <span class="md-ellipsis">
-    Help Menu
+    帮助菜单
     
   </span>
   
@@ -809,7 +809,7 @@
   
   
   <span class="md-ellipsis">
-    Sandboxie-Plus Migration Guide
+    沙盘增强版（Sandboxie Plus）迁移指南
     
   </span>
   
@@ -4526,81 +4526,81 @@
   
 
 
-<h1 id="internet-explorer-tips">Internet Explorer Tips</h1>
-<h2 id="tips-specific-to-internet-explorer">Tips Specific to Internet Explorer</h2>
-<p><a href="SandboxieControl.html">Sandboxie Control</a> &gt; <a href="SandboxSettings.html">Sandbox Settings</a> &gt; <a href="ApplicationsSettings.html#web-browser">Applications &gt; Web Browser &gt; Internet Explorer</a></p>
+<h1 id="internet-explorer">Internet Explorer 使用技巧</h1>
+<h2 id="internet-explorer_1">Internet Explorer 专属提示</h2>
+<p><a href="SandboxieControl.html">沙盘控制</a> &gt; <a href="SandboxSettings.html">沙箱设置</a> &gt; <a href="ApplicationsSettings.html#web-browser">应用程序 &gt; 网络浏览器 &gt; Internet Explorer</a></p>
 <p><img alt="" src="../Media/WebBrowserSettings1.png" /></p>
 <hr />
-<h4 id="always-run-in-sandbox">Always Run In Sandbox</h4>
+<h4 id="_1">总是以沙箱方式运行</h4>
 <ul>
-<li>Setting: Force Internet Explorer to run in this sandbox</li>
+<li>设置：强制 Internet Explorer 在此沙箱中运行</li>
 </ul>
-<p>This setting tells Sandboxie to automatically supervise any instance of Internet Explorer as it starts, even if it was not started directly through a Sandboxie facility or command.</p>
+<p>此设置会指示沙盘自动监督每一个启动的 Internet Explorer 实例，即便它不是通过沙盘的功能或命令直接启动的。</p>
 <hr />
-<h4 id="internet-explorer-with-uac-enabled">Internet Explorer with UAC Enabled</h4>
-<p>In Windows Vista/7/8/8.1 with UAC enabled, Internet Explorer maintains two sets of configurations: Normal configuration and administrator configuration. Each set contains its own cookies, home pages and some other settings. When you normally launch Internet Explorer, you get the normal configuration. When you right-click Internet Explorer and select the <em>Run as administrator</em> action, you get the administrator configuration.</p>
-<p>Under Sandboxie, Internet Explorer selects the Administrator configuration. (But Internet Explorer does not necessarily run as Administrator under Sandboxie.) To fine-tune the administrator configuration, use the <em>Run as administrator</em> right-click action when you run Internet Explorer outside the sandbox.</p>
+<h4 id="uac-internet-explorer">启用 UAC 的 Internet Explorer</h4>
+<p>在启用 UAC 的 Windows Vista/7/8/8.1 系统中，Internet Explorer 存在两套配置：普通配置和管理员配置。每套配置包含各自的 Cookie、主页及其它一些设置。正常启动 Internet Explorer 时，会获得普通配置。当你右键点击 Internet Explorer 并选择 <em>以管理员身份运行</em> 时，则会获得管理员配置。</p>
+<p>在沙盘下，Internet Explorer 会选择管理员配置。（但在沙盘下，Internet Explorer 不一定以管理员身份运行。）如果需要微调管理员配置，请在沙箱外通过右键菜单选择 <em>以管理员身份运行</em> 启动 Internet Explorer。</p>
 <hr />
-<h4 id="windows-update-on-windows-xp">Windows Update on Windows XP</h4>
-<p>When you wish to visit the Windows Update web site, you should run Internet Explorer outside the sandbox. If Internet Explorer is forced to always run under Sandboxie (as discussed above), then use the <a href="FileMenu.html#disable-forced-programs">Disable Forced Programs</a> command to disable forced sandboxing before and after visiting the Windows Update web site.</p>
-<p>Note the Automatic Updates facility in Windows does not rely on Internet Explorer and should not be affected by any Sandboxie settings related to Internet Explorer. Similarly, the Windows Updates window in Windows Vista also does not rely on Internet Explorer and is also not affected by Sandboxie.</p>
+<h4 id="windows-xp-windows-update">Windows XP 下的 Windows Update</h4>
+<p>当你需要访问 Windows Update 网站时，建议在沙箱外运行 Internet Explorer。如果 Internet Explorer 被设置为始终在沙盘下运行（如上文所述），请在访问 Windows Update 网站前后，通过 <a href="FileMenu.html#disable-forced-programs">禁用强制程序</a> 命令临时禁用强制沙盘功能。</p>
+<p>请注意，Windows 的自动更新功能并不依赖于 Internet Explorer，因此不会受任何与 Internet Explorer 相关的沙盘设置影响。同样，Windows Vista 中的 Windows 更新窗口也不依赖 Internet Explorer，也不会受沙盘影响。</p>
 <hr />
-<h4 id="favorites">Favorites</h4>
+<h4 id="_2">收藏夹</h4>
 <ul>
-<li>Setting: Allow direct access to Internet Explorer favorites</li>
-<li>Setting: Add Internet Explorer favorites to Quick Recovery folders</li>
+<li>设置：允许对 Internet Explorer 收藏夹的直接访问</li>
+<li>设置：将 Internet Explorer 收藏夹添加到快速恢复文件夹</li>
 </ul>
-<p>These settings allows Internet Explorer running under Sandboxie to store favorites outside the sandbox, so they can persist even after the sandbox is deleted. When this option is not set, favorites are stored only in the sandbox, and will be deleted when the sandbox is deleted.</p>
-<p>The first setting (direct access) stores favorites directly outside the sandbox. The second setting (<a href="QuickRecovery.html">Quick Recovery</a>) initially keeps the favorites in the sandbox but offers to recover (move out of the sandbox) any new favorites as they are added.</p>
-<p>The first setting is more flexible in that you can add, edit and delete favorites freely. The second setting is more secure, but at the cost of some measure of convenience.</p>
-<p><strong>Bottom line:</strong> For greater convenience, select the setting "Allow direct access to Internet Explorer favorites."</p>
+<p>这些设置允许在沙盘下运行的 Internet Explorer 将收藏夹保存至沙箱之外，使得即便沙箱被删除，收藏夹依然保留。如果未启用该选项，收藏夹仅会被保存在沙箱内，当沙箱被删除时，这些收藏夹也会一起被删除。</p>
+<p>第一个设置（直接访问收藏夹），会将收藏夹直接存储到沙箱外。第二个选项（<a href="QuickRecovery.html">快速恢复</a>）则是暂时保存在沙箱内，但当你新增收藏夹时，会提示你将其恢复（移出沙箱）。</p>
+<p>第一个设置更为灵活，你可以自由添加、编辑、删除收藏夹。第二个设置则更安全，但会牺牲一部分便利性。</p>
+<p><strong>结论：</strong> 为了更便捷地使用，建议选择“允许对 Internet Explorer 收藏夹的直接访问”。</p>
 <hr />
-<h4 id="cookies">Cookies</h4>
+<h4 id="cookie">Cookie</h4>
 <ul>
-<li>Setting: Allow direct access to Internet Explorer cookies</li>
+<li>设置：允许对 Internet Explorer Cookie 的直接访问</li>
 </ul>
-<p>This setting allows Internet Explorer running under Sandboxie to store cookies outside the sandbox, so they can persist even after the sandbox is deleted. When this option is not set, cookies are stored only in the sandbox, and will be deleted when the sandbox is deleted.</p>
-<p>An alternative approach is to this setting is to visit your favorite sites once with a normal Internet Explorer, to get these sites to remember you in their cookies. Then switch to an Internet Explorer under Sandboxie, so any new cookies are kept the sandbox until you delete the sandbox.</p>
-<p><strong>Bottom line:</strong></p>
+<p>此设置允许在沙盘下运行的 Internet Explorer 将 Cookie 保存在沙箱外，使其即使在沙箱被删除后仍能保留。如果未启用此选项，Cookie 仅会被保存在沙箱内，删除沙箱时也会被清除。</p>
+<p>另一种可选方式是，先用正常的 Internet Explorer 浏览你常用的网站，使这些网站通过 Cookie 记住你，然后再使用沙盘下的 Internet Explorer，这样新产生的 Cookie 会一直留在沙箱内，直到你删除沙箱。</p>
+<p><strong>结论：</strong></p>
 <ul>
-<li>If you regularly delete cookies, and plan to start regularly using Sandboxie, then you can keep this setting unselected, and you will not have to keep regularly deleting cookies.</li>
-<li>If you need web sites that you visit in a sandboxed Internet Explorer to remember you, then select this setting.</li>
+<li>如果你习惯定期清理 Cookie，且打算经常使用沙盘，那么可以不勾选此选项，这样就无需频繁清理 Cookie 了。</li>
+<li>如果你希望在沙箱中访问的网站能记住你的身份，请勾选此选项。</li>
 </ul>
 <hr />
-<h4 id="feeds">Feeds</h4>
+<h4 id="_3">订阅源</h4>
 <ul>
-<li>Setting: Allow direct access to Internet Explorer feeds</li>
+<li>设置：允许对 Internet Explorer 订阅源的直接访问</li>
 </ul>
-<p>This setting allows Internet Explorer running under Sandboxie to store feed links outside the sandbox, so they can persist even after the sandbox is deleted. When this option is not set, feed links are stored only in the sandbox, and will be deleted when the sandbox is deleted.</p>
-<p>Internet Explorer perdiocally checks its feeds from a component which is running outside the web browser. That component will not see (and will not check or refresh) feeds that are created in the sandbox when this setting is not in effect. (Technically, the component is a scheduled task. The task is created and altered whenever you use the Feed Settings tab in the Internet Options dialog.)</p>
-<p><strong>Bottom line:</strong> If you work with Internet Explorer feeds, it is recommended that you select this setting.</p>
+<p>此设置允许在沙盘下运行的 Internet Explorer 将订阅源链接保存在沙箱外，使其即便沙箱被删除仍能保留。如果未启用此选项，订阅源链接仅会被保存在沙箱内，删除沙箱时会一并删除。</p>
+<p>Internet Explorer 会定期由一个运行在浏览器外部的组件检查订阅源。若未启用此设置，由于该组件无法访问沙箱内新建的订阅源，因此不会检查或刷新这些内容。（技术上讲，该组件是一个计划任务。每当你在 Internet 选项对话框中的“订阅源设置”标签页进行操作时，该任务会被创建或更改。）</p>
+<p><strong>结论：</strong> 如果你需要使用 Internet Explorer 的订阅源功能，建议启用此设置。</p>
 <hr />
-<h4 id="save-outside-sandbox">Save Outside Sandbox</h4>
+<h4 id="_4">在沙箱外保存</h4>
 <ul>
-<li>Setting: Save outside sandbox: History of search strings and invoked commands.</li>
-<li><del>Setting: Save outside sandbox: Account information for Hotmail and Messenger.</del> (replaced with <a href="OpenCredentials.html">OpenCredentials</a> since Sandboxie v0.8.0 / 5.50.0)</li>
+<li>设置：在沙盘外保存：搜索字符串和输入命令历史</li>
+<li><del>设置：在沙盘外保存：Hotmail 和 Messenger 的账户信息</del>（自沙盘 v0.8.0 / 5.50.0 起已由 <a href="OpenCredentials.html">OpenCredentials</a> 替代）</li>
 </ul>
-<p>The first setting allows Internet Explorer running under Sandboxie to store "AutoComplete" information, which is typically used for keeping history: History of search strings, or history of commands typed into an input box.</p>
-<p><del>The second setting allows Internet Explorer running under Sandboxie to store "Credentials" information, which is typically used by Microsoft web sites, such as Hotmail, to remember your Windows Live ID. It is also used by Windows (Live) Messenger.</del></p>
-<p><strong>Bottom line:</strong> These settings are concerned with privacy more than security. Information that you enter into web sites can be kept permanently (as with a normal browser) or only until you delete the sandbox. To keep it permanently, select these settings. Otherwise, leave the settings unselected.</p>
+<p>第一个设置允许沙盘下运行的 Internet Explorer 保存“自动完成”信息，通常用于保留历史记录：包括搜索字符串以及输入框的命令历史。</p>
+<p><del>第二个设置允许沙盘下运行的 Internet Explorer 保存“凭据”信息，通常供 Microsoft 网站（如 Hotmail）记住你的 Windows Live ID，也用于 Windows（Live）Messenger。</del></p>
+<p><strong>结论：</strong> 这些设置更多地关注隐私而非安全。你可以选择将网站信息永久保存（像普通浏览器那样），或者只保存到你删除沙箱时。如需永久保存，请启用这些设置，否则请保持未选中。</p>
 <hr />
-<h2 id="general-tips">General Tips</h2>
-<h4 id="automatic-delete-sandbox">Automatic Delete Sandbox</h4>
-<p><a href="SandboxieControl.html">Sandboxie Control</a> &gt; <a href="SandboxSettings.html">Sandbox Settings</a> &gt; <a href="DeleteSettings.html">Delete</a> &gt; <a href="DeleteSettings.html#invocation">Invocation</a></p>
+<h2 id="_5">通用提示</h2>
+<h4 id="_6">自动删除沙箱</h4>
+<p><a href="SandboxieControl.html">沙盘控制</a> &gt; <a href="SandboxSettings.html">沙箱设置</a> &gt; <a href="DeleteSettings.html">删除</a> &gt; <a href="DeleteSettings.html#invocation">触发方式</a></p>
 <p><img alt="" src="../Media/DeleteInvocationSettings.png" /></p>
 <ul>
-<li>Setting: Automatically delete contents of sandbox</li>
+<li>设置：自动删除沙箱内容</li>
 </ul>
-<p>This setting tells Sandboxie to delete the sandbox whenever all programs in the sandbox stop running.</p>
+<p>该设置指示沙盘在沙箱中的所有程序停止运行后自动删除整个沙箱。</p>
 <hr />
-<h4 id="highlight-windows-of-programs-running-under-sandboxie">Highlight Windows of Programs Running Under Sandboxie</h4>
-<p><a href="SandboxieControl.html">Sandboxie Control</a> &gt; <a href="SandboxSettings.html">Sandbox Settings</a> &gt; <a href="AppearanceSettings.html">Appearance Settings</a></p>
+<h4 id="_7">高亮显示在沙盘下运行的程序窗口</h4>
+<p><a href="SandboxieControl.html">沙盘控制</a> &gt; <a href="SandboxSettings.html">沙箱设置</a> &gt; <a href="AppearanceSettings.html">外观设置</a></p>
 <p><img alt="" src="../Media/AppearanceSettings.png" /></p>
 <ul>
-<li>Setting: Display a border around the window</li>
+<li>设置：为窗口显示边框</li>
 </ul>
-<p>This setting tells Sandboxie to draw a color border around windows that belong to programs running in this sandbox. The default color is yellow, but you can select a different color for every sandbox.</p>
-<p>Alternatively, if you wish to blur the distinction between programs running under the supervision of Sandboxie and those that are not, select the setting "Don't show Sandboxie indicator in the window title."</p>
+<p>该设置会指示沙盘在属于此沙箱中运行的程序窗口周围绘制彩色边框。默认颜色为黄色，也可以为每个沙箱选择不同的颜色。</p>
+<p>或者，如果你希望弱化沙盘内外程序间的界限，可以选择“在窗口标题中不显示沙盘指示器”选项。</p>
 
 
 

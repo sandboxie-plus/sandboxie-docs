@@ -18,7 +18,7 @@
     
     
       
-        <title>Open Win Class - Sandboxie 文档</title>
+        <title>开放窗口类 - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#open-win-class" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Open Win Class
+              开放窗口类
             
           </span>
         </div>
@@ -371,7 +371,7 @@
   
   
   <span class="md-ellipsis">
-    Getting Started
+    入门指南
     
   </span>
   
@@ -471,7 +471,7 @@
   
   
   <span class="md-ellipsis">
-    File Menu
+    文件菜单
     
   </span>
   
@@ -563,7 +563,7 @@
   
   
   <span class="md-ellipsis">
-    Help Menu
+    帮助菜单
     
   </span>
   
@@ -809,7 +809,7 @@
   
   
   <span class="md-ellipsis">
-    Sandboxie-Plus Migration Guide
+    沙盘增强版（Sandboxie Plus）迁移指南
     
   </span>
   
@@ -4526,9 +4526,9 @@
   
 
 
-<h1 id="open-win-class">Open Win Class</h1>
-<p><em>OpenWinClass</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. It specifies the class names for unsandboxed windows that should be accessible by a sandboxed program.</p>
-<p>Examples:
+<h1 id="_1">开放窗口类</h1>
+<p><em>OpenWinClass</em> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 中的一个沙箱设置。它用于指定应允许沙盘程序访问的非沙箱窗口的类名。</p>
+<p>示例：
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
@@ -4538,28 +4538,28 @@
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">   </span><span class="na">OpenWinClass</span><span class="o">=</span><span class="c1">#</span>
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">   </span><span class="na">OpenWinClass</span><span class="o">=</span><span class="s">*</span>
 </span></code></pre></div></p>
-<p>The first example makes console windows created by the <em>cmd.exe</em> process accessible to sandboxed programs.</p>
-<p>Normally, Sandboxie will not permit a sandboxed program to access, communicate, close or destroy a window outside the sandbox. The <em>OpenWinClass</em> settings makes an exception to this rule, and allows specific unsandboxed windows to be accessible.</p>
-<p><strong>Special Forms</strong>
+<p>第一个示例允许 <em>cmd.exe</em> 进程创建的控制台窗口可被沙盘中的程序访问。</p>
+<p>通常情况下，沙盘不会允许沙箱内的程序访问、通信、关闭或销毁沙箱外的窗口。<em>OpenWinClass</em> 设置为这一规则提供了例外，允许访问特定的非沙箱窗口。</p>
+<p><strong>特殊形式</strong>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">   </span><span class="na">OpenWinClass</span><span class="o">=</span><span class="s">$:program.exe/IgnoreUIPI</span>
 </span></code></pre></div></p>
-<p>This permits a program running inside the sandbox to use the PostThreadMessage API to send a message directly to a thread in a target process running outside the sandbox. This form of the <em>OpenWinClass</em> setting does not support wildcards, so the process name of the target process must match the name specified in the setting.
+<p>此设置允许在沙箱中运行的程序使用 <code>PostThreadMessage API</code>，直接向运行在沙箱之外目标进程中的线程发送消息。此种 <em>OpenWinClass</em> 设置形式不支持通配符，因此，目标进程的进程名必须与设置中指定的名称相匹配。
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">   </span><span class="na">OpenWinClass</span><span class="o">=</span><span class="c1">#</span>
 </span></code></pre></div></p>
-<p>This setting tells Sandboxie to not alter window class names created by sandboxed programs. Normally, Sandboxie translates class names such as <em>IEFrame</em> to <em>Sandbox:DefaultBox::IEFrame</em> in order to better separate windows that belong to sandboxed programs from the rest of the windows in the system.</p>
-<p>However, in some cases, a program outside the sandbox might expect window class names to have a specific name, and therefore might not recognize the windows created by a sandboxed program. Specifying OpenWinClass=# resolves this problem, at the cost of a lesser degree of separation.</p>
-<p>Note that OpenWinClass=# does not allow communication with any windows outside the sandbox, and may interfere with some drag-and-drop operations.
+<p>此设置指示沙盘不要更改由沙箱程序创建的窗口类名。通常，沙盘会将 <em>IEFrame</em> 这样的类名转换为 <em>Sandbox:DefaultBox::IEFrame</em>，以便更好地区分沙箱程序的窗口和系统中其他窗口。</p>
+<p>然而，在某些情况下，沙箱外的程序可能期望窗口类名为特定名称，因此可能无法识别由沙箱程序创建的窗口。指定 <code>OpenWinClass=#</code> 可解决此问题，但会降低隔离度。</p>
+<p>请注意，<code>OpenWinClass=#</code> 不允许与任何沙箱外的窗口通信，并且可能会干扰某些拖放操作。
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="w">   </span><span class="na">OpenWinClass</span><span class="o">=</span><span class="s">*</span>
 </span></code></pre></div></p>
-<p>This setting tells Sandboxie to not translate window class names as described above, and also makes all windows in the system accessible to sandboxed programs, and goes a step further to disable a few other windowing-related Sandboxie functions. This may also cause the Sandboxie indicator [#] to not appear in window titles.</p>
-<p>Note that OpenWinClass=* allows full communication with all windows outside the sandbox, but may interfere with some drag-and-drop operations.</p>
-<p><strong>Identifying Window Class Names</strong></p>
-<p>The unsandboxed windows are identified by their <em>window class name</em>, which is an internal name given to the window by the application that created it. You can use a tool like <a href="https://www.catch22.net/software/winspy">WinSpy</a> to identify window class names. The <a href="../ResourceAccessMonitor/">Resource Access Monitor</a> tool in Sandboxie Classic and the <a href="../../PlusContent/TraceLog/">Trace Logging</a> tool in Sandboxie Plus also display window class names.</p>
-<p>Related Sandboxie Plus settings:</p>
-<p>Sandbox Options &gt; Resource Access &gt; Wnd &gt; Add Wnd Class &gt; Access column &gt; Open</p>
-<p>Sandbox Options &gt; Resource Access &gt; Wnd &gt; Add Wnd Class &gt; Access column &gt; Ignore UIPI</p>
-<p>Sandbox Options &gt; Resource Access &gt; Wnd &gt; Don't alter window class names created by sandboxed programs</p>
-<p>See also: <a href="../NoRenameWinClass/">No Rename Win Class</a>.</p>
+<p>此设置指示沙盘不要像上述方式转换窗口类名，同时使沙箱程序能够访问系统中的所有窗口，并进一步禁用与窗口相关的其他部分沙盘功能。此时，窗口标题可能不再显示沙盘标志 [#]。</p>
+<p>请注意，OpenWinClass=* 允许与所有沙箱外窗口的完全通信，但同样可能干扰一些拖放操作。</p>
+<p><strong>识别窗口类名</strong></p>
+<p>非沙箱窗口通过其 <em>窗口类名</em> 进行识别，该类名是创建该窗口的应用程序分配的内部名称。你可以使用 <a href="https://www.catch22.net/software/winspy">WinSpy</a> 这类工具来识别窗口类名。<a href="../ResourceAccessMonitor/">Sandboxie Classic</a> 中的 [资源访问监视器] 工具以及 Sandboxie Plus 中的 <a href="../../PlusContent/TraceLog/">跟踪日志</a> 工具也能显示窗口类名。</p>
+<p>相关 Sandboxie Plus 设置：</p>
+<p>沙箱选项 &gt; 资源访问 &gt; 窗口 &gt; 添加窗口类 &gt; 访问列 &gt; 开放</p>
+<p>沙箱选项 &gt; 资源访问 &gt; 窗口 &gt; 添加窗口类 &gt; 访问列 &gt; 忽略 UIPI</p>
+<p>沙箱选项 &gt; 资源访问 &gt; 窗口 &gt; 不更改沙盘程序创建的窗口类名</p>
+<p>另请参阅：<a href="../NoRenameWinClass/">不要重命名窗口类</a>。</p>
 
 
 

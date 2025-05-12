@@ -375,7 +375,7 @@
   
   
   <span class="md-ellipsis">
-    Getting Started
+    入门指南
     
   </span>
   
@@ -475,7 +475,7 @@
   
   
   <span class="md-ellipsis">
-    File Menu
+    文件菜单
     
   </span>
   
@@ -567,7 +567,7 @@
   
   
   <span class="md-ellipsis">
-    Help Menu
+    帮助菜单
     
   </span>
   
@@ -813,7 +813,7 @@
   
   
   <span class="md-ellipsis">
-    Sandboxie-Plus Migration Guide
+    沙盘增强版（Sandboxie Plus）迁移指南
     
   </span>
   
@@ -4544,14 +4544,14 @@
 
 <h1 id="_1">隐私问题</h1>
 <hr />
-<p>这是一个高级主题，说明即使你在 Sandboxie 中运行了程序，你的计算机仍可能记录<strong>运行了哪些程序</strong>以及它们的行为。这并不代表出现了安全漏洞，因为这些记录<strong>不会</strong>让沙盒程序感染或滥用你的计算机。但如果你关心使用 Sandboxie 时的隐私问题，这篇文章值得一读。</p>
+<p>这是一个高级主题，说明即使你在 Sandboxie 中运行了程序，你的计算机仍可能记录<strong>运行了哪些程序</strong>以及它们的行为。这并不代表出现了安全漏洞，因为这些记录<strong>不会</strong>让沙盘程序感染或滥用你的计算机。但如果你关心使用 Sandboxie 时的隐私问题，这篇文章值得一读。</p>
 <hr />
 <p><strong>概述</strong></p>
 <p>Sandboxie 的核心原则是：隔离并控制其监督下程序的行为，目的是保持计算机和操作系统的干净与健康。</p>
-<p>大多数在 Sandboxie 中运行程序的“副作用”，其实来自程序本身，并且会在沙盒被删除后一起消失。例如，在沙盒中运行的浏览器会将浏览记录保存在沙盒内，而这些记录在删除沙盒时会被完全清除。</p>
+<p>大多数在 Sandboxie 中运行程序的“副作用”，其实来自程序本身，并且会在沙盘被删除后一起消失。例如，在沙盘中运行的浏览器会将浏览记录保存在沙盘内，而这些记录在删除沙盘时会被完全清除。</p>
 <p>因此，用户很容易从上述原则中得出推论：Sandboxie 的目标是保护你的隐私，并清除所有由其监管程序直接或间接产生的痕迹。但这种假设是不准确的。</p>
 <p>Sandboxie 虽然非常注重控制程序行为，但它<strong>不会试图阻止 Windows 操作系统本身</strong>记录你在计算机上的活动。</p>
-<p>如果有人错误地认为 Sandboxie 会极度保护隐私，他们可能会惊讶地发现 Windows 系统中仍然可以找到一些记录程序运行痕迹（哪怕是在沙盒中运行）。</p>
+<p>如果有人错误地认为 Sandboxie 会极度保护隐私，他们可能会惊讶地发现 Windows 系统中仍然可以找到一些记录程序运行痕迹（哪怕是在沙盘中运行）。</p>
 <p>本文将解释在 Windows 中用于记录程序活动的各种机制——无论程序是否在 Sandboxie 的监督下运行。</p>
 <hr />
 <p><strong>Prefetch 与 SuperFetch</strong></p>
@@ -4566,11 +4566,11 @@
 </ul>
 <hr />
 <p><strong>MUI 缓存</strong></p>
-<p>Windows 资源管理器会在注册表中记录通过它启动的程序名称。这包括从开始菜单、桌面、快速启动栏或文件夹中启动程序的情况。即使使用右键“沙盒运行”功能，也会被记录。</p>
+<p>Windows 资源管理器会在注册表中记录通过它启动的程序名称。这包括从开始菜单、桌面、快速启动栏或文件夹中启动程序的情况。即使使用右键“沙盘运行”功能，也会被记录。</p>
 <p>记录信息存储在以下注册表项中：
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">HKEY_CURRENT_USER\Software\Microsoft\Windows\ShellNoRoam\MUICache</span>
 </span></code></pre></div></p>
-<p>如果你是通过 Sandboxie 的界面（如 Sandboxie 内的启动菜单）或通过一个已在沙盒中运行的程序来启动其他程序，那么这些记录就会被保存在沙盒的注册表中。</p>
+<p>如果你是通过 Sandboxie 的界面（如 Sandboxie 内的启动菜单）或通过一个已在沙盘中运行的程序来启动其他程序，那么这些记录就会被保存在沙盘的注册表中。</p>
 <p>你可以使用第三方注册表清理工具来清除这些信息。</p>
 <hr />
 <p><strong>Windows 任务栏</strong></p>
@@ -4584,7 +4584,7 @@
 <hr />
 <p><strong>Windows 页面文件</strong></p>
 <p>在正常操作中，Windows 会将部分程序使用的内存内容写入 <a href="https://www.howtogeek.com/126430/what-is-the-windows-page-file">页面文件</a>，以便为其他程序腾出内存。</p>
-<p>由于沙盒程序仍运行于操作系统之中，因此其内存内容可能与普通程序一起被写入同一个页面文件。</p>
+<p>由于沙盘程序仍运行于操作系统之中，因此其内存内容可能与普通程序一起被写入同一个页面文件。</p>
 <p>你可以设置 Windows 在关机时清除页面文件的内容。参考：
 * <a href="https://winaero.com/clear-pagefile-shutdown-windows-10">关机时清理页面文件（Win 10）</a>
 * <a href="https://www.vistax64.com/threads/virtual-memory-paging-file-clear-at-shutdown.157323">关机时清理页面文件（Vista）</a></p>
@@ -4599,21 +4599,21 @@
 </ol>
 <hr />
 <p><strong>Windows 休眠文件</strong></p>
-<p>与页面文件类似，休眠文件会在电脑休眠前保存系统状态及内存内容。因此，它也可能包含沙盒程序使用过的内存数据。</p>
+<p>与页面文件类似，休眠文件会在电脑休眠前保存系统状态及内存内容。因此，它也可能包含沙盘程序使用过的内存数据。</p>
 <hr />
 <p><strong>系统还原</strong></p>
 <p>还原点是操作系统在某一时间点的状态快照。从 Windows XP 起的系统还原功能会记录并可恢复这些快照。</p>
-<p>这些快照会被保存到一个名为 <em>System Volume Information</em> 的（通常无法访问的）文件夹中，其中可能包含系统各处的<a href="https://docs.microsoft.com/en-us/windows/win32/sr/monitored-file-extensions">多种类型文件</a>，包括沙盒中的内容。</p>
-<p>因此，系统还原有可能会为<strong>只存在于沙盒中的文件或程序</strong>创建备份副本。</p>
-<p>你可以设置系统还原组件忽略临时文件夹中的文件和目录。只需将沙盒位置<a href="FileRootPath.html">移动</a>到 <code>%TEMP%\SANDBOX</code>（而非默认的 <code>C:\SANDBOX</code>），并在注册表键 <a href="https://learn.microsoft.com/en-us/windows/win32/vss/excluding-files-from-shadow-copies#using-the-filesnottosnapshot-registry-key">FilesNotToSnapshot</a> 中添加该路径，系统还原在创建影子副本快照时就会跳过沙盒内容。更多信息请见 <a href="https://learn.microsoft.com/en-us/windows/win32/backup/registry-keys-for-backup-and-restore">此处</a>。</p>
+<p>这些快照会被保存到一个名为 <em>System Volume Information</em> 的（通常无法访问的）文件夹中，其中可能包含系统各处的<a href="https://docs.microsoft.com/en-us/windows/win32/sr/monitored-file-extensions">多种类型文件</a>，包括沙盘中的内容。</p>
+<p>因此，系统还原有可能会为<strong>只存在于沙盘中的文件或程序</strong>创建备份副本。</p>
+<p>你可以设置系统还原组件忽略临时文件夹中的文件和目录。只需将沙盘位置<a href="FileRootPath.html">移动</a>到 <code>%TEMP%\SANDBOX</code>（而非默认的 <code>C:\SANDBOX</code>），并在注册表键 <a href="https://learn.microsoft.com/en-us/windows/win32/vss/excluding-files-from-shadow-copies#using-the-filesnottosnapshot-registry-key">FilesNotToSnapshot</a> 中添加该路径，系统还原在创建影子副本快照时就会跳过沙盘内容。更多信息请见 <a href="https://learn.microsoft.com/en-us/windows/win32/backup/registry-keys-for-backup-and-restore">此处</a>。</p>
 <hr />
 <p><strong>系统、审计与事件日志</strong></p>
-<p>Windows 会在其 <a href="https://en.wikipedia.org/wiki/Event_Viewer">事件日志</a> 中记录某些程序行为。通常记录不多，但如果开启了安全审计功能，Windows 将详细记录沙盒内程序的行为。</p>
+<p>Windows 会在其 <a href="https://en.wikipedia.org/wiki/Event_Viewer">事件日志</a> 中记录某些程序行为。通常记录不多，但如果开启了安全审计功能，Windows 将详细记录沙盘内程序的行为。</p>
 <p>你可以使用“事件查看器”来查看和删除日志，详见：
 * <a href="https://www.howtogeek.com/123646/htg-explains-what-the-windows-event-viewer-is-and-how-you-can-use-it">如何使用事件查看器</a></p>
 <hr />
 <p><strong>系统托盘图标</strong></p>
-<p>当沙盒程序尝试在<a href="https://www.computerhope.com/issues/chsys.htm">系统托盘</a>放置图标时，Sandboxie 会允许其真实显示在右下角的托盘区。</p>
+<p>当沙盘程序尝试在<a href="https://www.computerhope.com/issues/chsys.htm">系统托盘</a>放置图标时，Sandboxie 会允许其真实显示在右下角的托盘区。</p>
 <p>这样做的好处是用户可以方便地与图标交互。但这也意味着 Windows 会将图标及其说明记录到历史中。</p>
 <p>你可以通过以下方法清除这些历史：
 * <a href="https://www.howtogeek.com/739/clean-up-past-notification-icons-in-windows-vista">手动清除通知图标历史</a>
@@ -4621,11 +4621,11 @@
 <hr />
 <p><strong>磁盘碎片整理</strong></p>
 <p>磁盘碎片整理工具可以在磁盘底层对数据块重新排序，以提升读写性能。</p>
-<p>虽然这并不是隐私问题，但确实有人关心沙盒程序是否能影响磁盘数据。</p>
-<p>Sandboxie 的隔离是在文件系统层完成的，而非底层数据块。因此磁盘碎片整理<strong>不会</strong>影响沙盒隔离，也不会被恶意程序用来“转移”数据到沙盒外。</p>
+<p>虽然这并不是隐私问题，但确实有人关心沙盘程序是否能影响磁盘数据。</p>
+<p>Sandboxie 的隔离是在文件系统层完成的，而非底层数据块。因此磁盘碎片整理<strong>不会</strong>影响沙盘隔离，也不会被恶意程序用来“转移”数据到沙盘外。</p>
 <hr />
 <p><strong>IP 隐私</strong></p>
-<p>Sandboxie 的隔离只在本地计算机上起作用，远程服务器无法感知你是否使用了沙盒。无论是否沙盒运行，访问互联网的行为在远端看来是一样的，远程主机会通过你的 IP 地址识别你。</p>
+<p>Sandboxie 的隔离只在本地计算机上起作用，远程服务器无法感知你是否使用了沙盘。无论是否沙盘运行，访问互联网的行为在远端看来是一样的，远程主机会通过你的 IP 地址识别你。</p>
 <p>如果你希望匿名访问网络，可以使用第三方匿名解决方案。参考：
 * <a href="https://en.wikipedia.org/wiki/Anonymous_web_browsing">匿名上网</a></p>
 <hr />

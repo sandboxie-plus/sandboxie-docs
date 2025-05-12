@@ -18,7 +18,7 @@
     
     
       
-        <title>Messages From Sandboxie - Sandboxie 文档</title>
+        <title>来自沙盘的消息 - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#messages-from-sandboxie" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Messages From Sandboxie
+              来自沙盘的消息
             
           </span>
         </div>
@@ -371,7 +371,7 @@
   
   
   <span class="md-ellipsis">
-    Getting Started
+    入门指南
     
   </span>
   
@@ -471,7 +471,7 @@
   
   
   <span class="md-ellipsis">
-    File Menu
+    文件菜单
     
   </span>
   
@@ -563,7 +563,7 @@
   
   
   <span class="md-ellipsis">
-    Help Menu
+    帮助菜单
     
   </span>
   
@@ -809,7 +809,7 @@
   
   
   <span class="md-ellipsis">
-    Sandboxie-Plus Migration Guide
+    沙盘增强版（Sandboxie Plus）迁移指南
     
   </span>
   
@@ -4526,42 +4526,42 @@
   
 
 
-<h1 id="messages-from-sandboxie">Messages From Sandboxie</h1>
-<p>The <em>Messages From Sandboxie</em> window is displayed automatically whenever Sandboxie logs at least one error or informational message. (For more information about Sandboxie messages, <a href="SBIEMessages.html">SBIE Messages</a>.)</p>
-<p>The window displays one message per line, as in the example below.</p>
+<h1 id="_1">来自沙盘的消息</h1>
+<p>每当沙盘日志记录至少一条错误或信息消息时，<em>来自沙盘的消息</em> 窗口会自动显示。（关于沙盘消息的更多信息，请参见 <a href="SBIEMessages.html">SBIE 消息</a>）。</p>
+<p>该窗口每行显示一条消息，如下图所示。</p>
 <p><img alt="" src="../Media/MessagesFromSandboxie.png" /></p>
-<p>Clicking the <em>Help</em> button opens the Web browser and navigates to the documentation page for the highlighted message.</p>
-<p>Clicking the <em>Hide</em> button indicates that you don't wish to receive this message again. If the message contains an information detail, the <em>Hide</em> button hides the message only in combination with that particular detail.</p>
-<p>For example, the <a href="SBIE1304.html">SBIE1304</a> message shown above has the detail <em>osk.exe</em>. In this case, the <em>Hide</em> button will hide future occurrences of <a href="SBIE1304.html">SBIE1304</a> for <em>osk.exe</em>. If <a href="SBIE1304.html">SBIE1304</a> is issued for some other program name, it will still be displayed.</p>
-<p>Clicking the <em>Close</em> button closes the window.</p>
-<h2 id="log-messages-to-a-file">Log Messages To A File</h2>
-<p>It's possible to log <em>Messages From Sandboxie</em> to a file with a simple configuration inside the registry:
+<p>点击 <em>帮助</em> 按钮会打开网页浏览器，并跳转到所选消息的文档页面。</p>
+<p>点击 <em>隐藏</em> 按钮表示你不希望再次收到该消息。如果该消息包含信息详情，<em>隐藏</em> 按钮仅会针对该特定详情隐藏消息。</p>
+<p>例如，上图所示的 <a href="SBIE1304.html">SBIE1304</a> 消息详细信息为 <em>osk.exe</em>。在此情况下，<em>隐藏</em> 按钮将隐藏所有与 <em>osk.exe</em> 相关的 <a href="SBIE1304.html">SBIE1304</a> 后续消息。如果某一条 <a href="SBIE1304.html">SBIE1304</a> 消息出现在其他程序名下，则仍然会显示出来。</p>
+<p>点击 <em>关闭</em> 按钮可关闭该窗口。</p>
+<h2 id="_2">记录日志消息到文件</h2>
+<p>可以通过在注册表中的简单配置，将 <em>来自沙盘的消息</em> 日志记录到文件：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">reg.exe add &quot;HKLM\SYSTEM\CurrentControlSet\Services\SbieSvc&quot; /t REG_SZ /v LogFile /d &quot;2;C</span><span class="o">:</span><span class="s">\Windows\System32\LogFiles\Sandboxie.log&quot; /f</span>
 </span></code></pre></div>
-The <code>LogFile</code> value consists of two pieces of information:</p>
+<p><code>LogFile</code> 值包含两部分信息：</p>
 <ul>
-<li><code>2</code> is the log level. Only two values are correct: <code>2</code> (classic log) or <code>3</code> (log with process SID)</li>
-<li><code>C:\Windows\System32\LogFiles\Sandboxie.log</code> is the full path of the log</li>
+<li><code>2</code> 是日志级别。只允许两个值：<code>2</code>（经典日志）或 <code>3</code>（包含进程 SID 的日志）</li>
+<li><code>C:\Windows\System32\LogFiles\Sandboxie.log</code> 是日志的完整路径</li>
 </ul>
-<p>Example of output for a log level of 2:
+<p>日志级别为 2 时的输出示例：
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">2022-09-02 01</span><span class="o">:</span><span class="s">04:18 SBIE1308 Program cannot start due to restrictions - powershell.exe [ChromeBox]</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">2022-09-02 01</span><span class="o">:</span><span class="s">04:18 SBIE1308 Program cannot start due to restrictions - powershell.exe [ChromeBox]</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="na">2022-09-02 01</span><span class="o">:</span><span class="s">04:18 SBIE1308 Program cannot start due to restrictions - HelpPane.exe [ChromeBox]</span>
 </span></code></pre></div></p>
-<p>Since version 1.3.3 / 5.58.3, it is possible to pass logs in verbose mode to have the SID of the account used by the target process.</p>
-<p>Example of output for a log level of 3:
+<p>自 1.3.3 / 5.58.3 版本起，可以通过详细模式输出日志，以显示目标进程所用账户的 SID。</p>
+<p>日志级别为 3 时的输出示例：
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">2022-09-02 01</span><span class="o">:</span><span class="s">04:18 SBIE1308 Program cannot start due to restrictions - powershell.exe [ChromeBox] (DESKTOP-RZ4242\administrator)</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">2022-09-02 01</span><span class="o">:</span><span class="s">04:18 SBIE1308 Program cannot start due to restrictions - powershell.exe [ChromeBox] (DESKTOP-RZ4242\administrator)</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="na">2022-09-02 01</span><span class="o">:</span><span class="s">04:18 SBIE1308 Program cannot start due to restrictions - HelpPane.exe [ChromeBox] (DESKTOP-RZ4242\administrator)</span>
 </span></code></pre></div></p>
-<p>Another registry key allows to filter and split logs on specific messages:
+<p>另一个注册表键可用于对特定消息进行过滤与分日志：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">reg.exe add &quot;HKLM\SYSTEM\CurrentControlSet\Services\SbieSvc&quot; /t REG_SZ /v LogFile /d &quot;2;C</span><span class="o">:</span><span class="s">\Windows\System32\LogFiles\Sandboxie.log&quot; /f</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">reg.exe add &quot;HKLM\SYSTEM\CurrentControlSet\Services\SbieSvc&quot; /t REG_SZ /v MultiLog /d &quot;1308,1307&quot; /f</span>
 </span></code></pre></div>
-This simple configuration will:</p>
+<p>此简单配置将会：</p>
 <ul>
-<li>put all logs without filter inside <code>C:\Windows\System32\LogFiles\Sandboxie.log</code></li>
-<li>create <em>one file per box</em> (ie: <code>C:\Windows\System32\LogFiles\Sandboxie_DefaultBox.log</code>) with only event 1308 and 1307</li>
+<li>无筛选地将所有日志输出到 <code>C:\Windows\System32\LogFiles\Sandboxie.log</code></li>
+<li>针对事件 1308 和 1307，为每个沙箱单独创建一个文件（如：<code>C:\Windows\System32\LogFiles\Sandboxie_DefaultBox.log</code>），日志中只包含这两类事件</li>
 </ul>
 
 

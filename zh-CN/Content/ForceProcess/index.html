@@ -18,7 +18,7 @@
     
     
       
-        <title>Force Process - Sandboxie 文档</title>
+        <title>强制进程 - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#force-process" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Force Process
+              强制进程
             
           </span>
         </div>
@@ -371,7 +371,7 @@
   
   
   <span class="md-ellipsis">
-    Getting Started
+    入门指南
     
   </span>
   
@@ -471,7 +471,7 @@
   
   
   <span class="md-ellipsis">
-    File Menu
+    文件菜单
     
   </span>
   
@@ -563,7 +563,7 @@
   
   
   <span class="md-ellipsis">
-    Help Menu
+    帮助菜单
     
   </span>
   
@@ -809,7 +809,7 @@
   
   
   <span class="md-ellipsis">
-    Sandboxie-Plus Migration Guide
+    沙盘增强版（Sandboxie Plus）迁移指南
     
   </span>
   
@@ -4526,8 +4526,8 @@
   
 
 
-<h1 id="force-process">Force Process</h1>
-<p><em>ForceProcess</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. It specifies names of programs. If any of these programs are started outside any sandbox, they will be automatically sandboxed in a particular sandbox. For example:</p>
+<h1 id="_1">强制进程</h1>
+<p><em>ForceProcess</em> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 文件中的一个沙箱设置。它用于指定程序的名称。如果这些程序从任何非沙箱环境启动，则会自动在指定的沙箱中运行。例如：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
@@ -4541,14 +4541,14 @@
 </span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">   </span><span class="na">ForceProcess</span><span class="o">=</span><span class="s">cl?cke?.exe</span>
 </span></code></pre></div>
 <ul>
-<li><code>*</code> defines any character.</li>
-<li><code>?</code> defines one character.</li>
+<li><code>*</code> 代表任意多个字符</li>
+<li><code>?</code> 代表一个字符</li>
 </ul>
-<p>The example specifies that Internet Explorer (iexplore.exe), Firefox (firefox.exe), App* (Appga, App03 and etc.). and App? (App1, Appg, Appa and etc.). will be forced to run sandboxed in the sandbox <em>DefaultBox</em>. Outlook.exe and cl?cke? (clicker, clicked and etc.). will be forced to run sandboxed in the sandbox <em>MailBox</em>.</p>
-<p>Note that the <em>ForceProcess</em> settings only apply to programs that start unsandboxed. If a program is specifically started in a sandbox, or started by a program that is already sandboxed, then <em>ForceProcess</em> settings are not applied.</p>
-<p>See also: <a href="../ForceFolder/">ForceFolder</a>. If both a <em>ForceFolder</em> and a <em>ForceProcess</em> are applicable to a program that is starting, the ForceFolder setting takes precedence.</p>
-<p>Related <a href="../SandboxieControl/">Sandboxie Control</a> setting: <a href="../ProgramStartSettings/#forced-programs">Sandbox Settings &gt; Program Start &gt; Forced Programs</a></p>
-<p>See also: <a href="../ProgramSettings/#page-1">Program Settings</a>.</p>
+<p>这个示例指定了 Internet Explorer（iexplore.exe）、Firefox（firefox.exe）、App* （如 Appga、App03 等），以及 App?（如 App1、Appg、Appa 等）将被强制在 <em>DefaultBox</em> 沙箱中运行。Outlook.exe 和 cl?cke?（如 clicker、clicked 等）将被强制在 <em>MailBox</em> 沙箱中运行。</p>
+<p>请注意，<em>ForceProcess</em> 设置仅对那些从未沙箱环境启动的程序生效。如果某个程序是专门在沙箱中启动，或者由已经在沙箱中运行的程序启动，那么 <em>ForceProcess</em> 设置将不会应用。</p>
+<p>另见：<a href="../ForceFolder/">ForceFolder</a>。如果某个正在启动的程序同时匹配 <em>ForceFolder</em> 和 <em>ForceProcess</em> 设定，则优先应用 ForceFolder 设置。</p>
+<p>相关 <a href="../SandboxieControl/">沙盘控制</a> 设置：<a href="../ProgramStartSettings/#forced-programs">沙箱设置 &gt; 程序启动 &gt; 强制程序</a>。</p>
+<p>另见：<a href="../ProgramSettings/#page-1">程序设置</a></p>
 
 
 

@@ -18,7 +18,7 @@
     
     
       
-        <title>Open Ipc Path - Sandboxie 文档</title>
+        <title>开放 IPC 路径 - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#open-ipc-path" class="md-skip">
+        <a href="#ipc" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Open Ipc Path
+              开放 IPC 路径
             
           </span>
         </div>
@@ -371,7 +371,7 @@
   
   
   <span class="md-ellipsis">
-    Getting Started
+    入门指南
     
   </span>
   
@@ -471,7 +471,7 @@
   
   
   <span class="md-ellipsis">
-    File Menu
+    文件菜单
     
   </span>
   
@@ -563,7 +563,7 @@
   
   
   <span class="md-ellipsis">
-    Help Menu
+    帮助菜单
     
   </span>
   
@@ -809,7 +809,7 @@
   
   
   <span class="md-ellipsis">
-    Sandboxie-Plus Migration Guide
+    沙盘增强版（Sandboxie Plus）迁移指南
     
   </span>
   
@@ -4526,10 +4526,10 @@
   
 
 
-<h1 id="open-ipc-path">Open Ipc Path</h1>
-<p><em>OpenIpcPath</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. It specifies path patterns for which Sandboxie will not apply sandboxing for inter-process objects. This lets sandboxed programs access resources and services provided by programs running outside the sandbox.</p>
-<p><a href="../ProgramNamePrefix/">Program Name Prefix</a> may be specified.</p>
-<p>Example:
+<h1 id="ipc">开放 IPC 路径</h1>
+<p><em>OpenIpcPath</em> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 文件中的一个沙箱设置。它用于指定路径模式，使沙盘不会对这些进程间对象进行沙箱处理。借此，被沙箱化的程序能够访问由沙箱外程序提供的资源与服务。</p>
+<p>可以指定 <a href="../ProgramNamePrefix/">程序名前缀</a>。</p>
+<p>示例：
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
@@ -4538,20 +4538,20 @@
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">   </span><span class="na">OpenIpcPath</span><span class="o">=</span><span class="s">\RPC Control\seclogon</span>
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">   </span><span class="na">OpenIpcPath</span><span class="o">=</span><span class="s">$:program.exe</span>
 </span></code></pre></div></p>
-<p>As described in <a href="../SandboxieTrace/">Sandboxie Trace</a>, some sandboxed programs may need access to system resources outside the sandbox, in order to function correctly. After using the Sandboxie trace facility to isolate the needed resources, this setting is used to expose the resources for use by a sandboxed program.</p>
+<p>如 <a href="../SandboxieTrace/">沙盘跟踪</a> 所述，某些被沙箱化的程序可能需要访问沙箱外的系统资源，以便正常运行。在通过沙盘追踪功能隔离出所需资源后，可以使用此设置，将相关资源暴露给沙箱内程序使用。</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">OpenIpcPath</span><span class="o">=</span><span class="s">\RPC Control\IcaApi</span>
 </span></code></pre></div>
-<p>The first example exposes a resource provided by the Terminal Services subsystem. It can let a sandboxed program talk to that subsystem and discover other Terminal Server sessions active in the computer. But this resource can also be used to terminate programs outside the control of Sandboxie.</p>
+<p>第一个示例暴露了终端服务子系统所提供的一个资源。这允许沙箱内程序与该子系统进行通信，并发现计算机上处于活动状态的其他终端服务器会话。但该资源也可能被用于终止沙盘外控制的程序。</p>
 <p><div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">OpenIpcPath</span><span class="o">=</span><span class="s">\RPC Control\seclogon</span>
 </span></code></pre></div>
-The second example exposes the resource provided by the Windows <em>Run As</em> service. It can let a sandboxed program launch another program using the credentials of a different user. The launched program was executed outside of the control of Sandboxie until <a href="https://github.com/sandboxie-plus/Sandboxie/releases/tag/0.7.3">v0.7.3 / 5.49.5</a>, which runs it inside the sandbox.</p>
-<p>This setting accepts wildcards. For more information on the use of wildcards in the <em>OpenXxxPath</em> and <em>ClosedXxxPath</em> settings, see <a href="../OpenFilePath/">OpenFilePath</a>.</p>
+第二个示例暴露了由 Windows <em>以其他身份运行</em> 服务提供的资源。这允许沙箱内的程序使用不同用户的凭据启动另一个程序。在 <a href="https://github.com/sandboxie-plus/Sandboxie/releases/tag/0.7.3">v0.7.3 / 5.49.5</a> 之前，启动的程序会在沙盘控制之外运行；而自该版本起，会在沙箱中运行。</p>
+<p>该设置支持通配符。关于 <em>OpenXxxPath</em> 和 <em>ClosedXxxPath</em> 设置中通配符的用法，请参见 <a href="../OpenFilePath/">OpenFilePath</a>。</p>
 <p><div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">OpenIpcPath</span><span class="o">=</span><span class="s">$:program.exe</span>
 </span></code></pre></div>
-The third example permits a program running inside the sandbox to have full access into the address space of a target process running outside the sandbox. The process name of the target process must match the name specified in the setting. When this setting is not specified, Sandboxie allows only read-access by a sandboxed process into a process outside the sandbox. This form of the <em>OpenIpcPath</em> setting does not support wildcards.</p>
-<p><strong>Note:</strong> The examples in this page, if applied, will create vulnerabilities within the sandbox. They are meant only to show why some resources are blocked, and how they can be un-blocked and exposed for use, if necessary.</p>
-<p>Related <a href="../SandboxieControl/">Sandboxie Control</a> setting: <a href="../ResourceAccessSettings/#ipc-access--direct-access">Sandbox Settings &gt; Resource Access &gt; IPC Access &gt; Direct Access</a></p>
-<p>Related Sandboxie Plus setting: Sandbox Options &gt; Resource Access &gt; IPC &gt; Add IPC Path &gt; Access column &gt; Open</p>
+第三个示例允许在沙箱中运行的程序完整访问沙箱外指定目标进程的地址空间。被访问目标进程的进程名称需与设置中指定的名称完全匹配。若未作此设置，沙盘内程序对沙盘外进程仅有只读访问权限。这种 <em>OpenIpcPath</em> 的设置形式不支持通配符。</p>
+<p><strong>注意：</strong> 本页中的这些示例若实际应用，会在沙箱之内产生安全漏洞。它们仅用于说明为何某些资源会被阻止，以及在需要时如何解除阻止并暴露资源用以访问。</p>
+<p>相关 <a href="../SandboxieControl/">沙盘控制</a> 设置：<a href="../ResourceAccessSettings/#ipc-access--direct-access">沙箱设置 &gt; 资源访问 &gt; IPC 访问 &gt; 直接访问</a></p>
+<p>相关 Sandboxie Plus 设置：沙箱选项 &gt; 资源访问 &gt; IPC &gt; 添加 IPC 路径 &gt; 访问列 &gt; 开放</p>
 
 
 

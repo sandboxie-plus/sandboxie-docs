@@ -18,7 +18,7 @@
     
     
       
-        <title>Protected Storage - Sandboxie 文档</title>
+        <title>受保护存储 - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#protected-storage" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Protected Storage
+              受保护存储
             
           </span>
         </div>
@@ -371,7 +371,7 @@
   
   
   <span class="md-ellipsis">
-    Getting Started
+    入门指南
     
   </span>
   
@@ -471,7 +471,7 @@
   
   
   <span class="md-ellipsis">
-    File Menu
+    文件菜单
     
   </span>
   
@@ -563,7 +563,7 @@
   
   
   <span class="md-ellipsis">
-    Help Menu
+    帮助菜单
     
   </span>
   
@@ -809,7 +809,7 @@
   
   
   <span class="md-ellipsis">
-    Sandboxie-Plus Migration Guide
+    沙盘增强版（Sandboxie Plus）迁移指南
     
   </span>
   
@@ -4526,14 +4526,14 @@
   
 
 
-<h1 id="protected-storage">Protected Storage</h1>
-<p>Protected Storage (hereafter PStore) was a small memory space available until Windows 7, managed by the system security component, and usable by applications. Applications that needed to store sensitive information, such as passwords, could use PStore rather than implement means to encrypt and protect that information.</p>
-<p>Note that PStore memory of one user account is not accessible by another user account; but all programs running in the same user account can see and change information entered into the memory store by any other application.</p>
-<p>The best application example is Internet Explorer version 6, which uses PStore to store AutoComplete history (such as the Google search box) and passwords in Web forms.</p>
-<p>(Note that Internet Explorer version 7 still encrypts this information, but no longer uses PStore to do it. Presumably this is an effort to hide the sensitive information from other programs -- most likely spyware that may be running in the same user account.)</p>
-<p>Sandboxie can provide its own implementation of PStore, for sandboxed applications. This is the default setting, unless altered in <a href="ApplicationsSettings.html#web-browser">Sandbox Settings &gt; Applications &gt; Web Browser</a>.</p>
-<p>The Sandboxie PStore is stored in the file <em>SbiePst.dat</em> in the <strong>sandboxed</strong> <em>Windows</em> folder.</p>
-<p>The Sandboxie implementation of PStore encrypts data using a <em>much weaker</em> method than what the system security component would have done. However, information entered into the Sandboxie PStore will likely disappear quickly, as part of the process of deleting the sandbox.</p>
+<h1 id="_1">受保护存储</h1>
+<p>受保护存储（以下简称PStore）是Windows 7及之前版本中可用的一小块内存空间，由系统安全组件管理，可供应用程序使用。需要存储密码等敏感信息的应用程序可以使用PStore，而不必自行实现加密和保护这些信息的方法。</p>
+<p>请注意，一个用户账户的PStore内存不能被另一个用户账户访问；但在同一用户账户中运行的所有程序都可以查看和更改任何其他应用程序存入该内存存储区的信息。</p>
+<p>最佳应用示例是Internet Explorer 6版本，它使用PStore存储自动完成历史记录（如Google搜索框中的内容）和Web表单中的密码。</p>
+<p>（请注意，Internet Explorer 7版本仍然会加密这些信息，但不再使用PStore来实现这一点。据推测，这是为了向其他程序（很可能是同一用户账户中可能运行的间谍软件）隐藏敏感信息而做出的努力。）</p>
+<p>沙盘可以为沙箱化应用程序提供自己的PStore实现。这是默认设置，除非在<a href="ApplicationsSettings.html#web-browser">沙箱设置 &gt; 应用程序 &gt; 网页浏览器</a>中进行了更改。</p>
+<p>沙盘的PStore存储在<strong>沙箱化</strong>的_Windows_文件夹中的_SbiePst.dat_文件中。</p>
+<p>沙盘对PStore的实现使用的加密方法比系统安全组件使用的方法<strong>弱得多</strong>。但是，存入沙盘PStore的信息可能会随着沙箱的删除过程很快消失。</p>
 
 
 

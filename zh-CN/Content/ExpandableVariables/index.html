@@ -371,7 +371,7 @@
   
   
   <span class="md-ellipsis">
-    Getting Started
+    入门指南
     
   </span>
   
@@ -471,7 +471,7 @@
   
   
   <span class="md-ellipsis">
-    File Menu
+    文件菜单
     
   </span>
   
@@ -563,7 +563,7 @@
   
   
   <span class="md-ellipsis">
-    Help Menu
+    帮助菜单
     
   </span>
   
@@ -809,7 +809,7 @@
   
   
   <span class="md-ellipsis">
-    Sandboxie-Plus Migration Guide
+    沙盘增强版（Sandboxie Plus）迁移指南
     
   </span>
   
@@ -4527,13 +4527,13 @@
 
 
 <h1 id="_1">可扩展变量</h1>
-<p>某些沙盒设置可能包含 <em>变量</em>。这些是占位名称，将被替换为可能针对特定计算机和用户账户的实际文本。例如：</p>
+<p>某些沙盘设置可能包含 <em>变量</em>。这些是占位名称，将被替换为可能针对特定计算机和用户账户的实际文本。例如：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">RecoverFolder</span><span class="o">=</span><span class="s">%Personal%\Song_Lyrics</span>
 </span></code></pre></div>
-<p>在这个简单的示例中，沙盒会将 <em>Personal</em> 变量扩展为 <em>文档</em> 文件夹的实际路径。</p>
+<p>在这个简单的示例中，沙盘会将 <em>Personal</em> 变量扩展为 <em>文档</em> 文件夹的实际路径。</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">RecoverFolder</span><span class="o">=</span><span class="s">C:\Users\joe\Documents\Song_Lyrics</span>
 </span></code></pre></div>
-<p>下表列出了沙盒能够识别的变量。</p>
+<p>下表列出了沙盘能够识别的变量。</p>
 <table>
 <thead>
 <tr>
@@ -4544,7 +4544,7 @@
 <tbody>
 <tr>
 <td style="text-align: left;">SbieHome</td>
-<td style="text-align: left;">沙盒安装的根路径</td>
+<td style="text-align: left;">沙盘安装的根路径</td>
 </tr>
 <tr>
 <td style="text-align: left;">sandbox</td>
@@ -4601,7 +4601,7 @@
 </tbody>
 </table>
 <h3 id="_2">模板变量</h3>
-<p>全局模板是沙盒安装的一部分，位于沙盒安装文件夹的 <em>Templates.ini</em> 文件中。可以在 <a href="../SandboxieIni/">Sandboxie Ini</a> 中另行添加本地模板。任何模板都可以以 <em>%Tmpl.SomeVariableName%</em> 形式引用模板变量。这些变量名不是沙盒核心自带的，必须在 <em>Templates.ini</em> 或 <em>Sandboxie.ini</em> 文件的 [TemplateSettings] 节中定义。</p>
+<p>全局模板是沙盘安装的一部分，位于沙盘安装文件夹的 <em>Templates.ini</em> 文件中。可以在 <a href="../SandboxieIni/">Sandboxie Ini</a> 中另行添加本地模板。任何模板都可以以 <em>%Tmpl.SomeVariableName%</em> 形式引用模板变量。这些变量名不是沙盘核心自带的，必须在 <em>Templates.ini</em> 或 <em>Sandboxie.ini</em> 文件的 [TemplateSettings] 节中定义。</p>
 <h3 id="_3">变量覆盖</h3>
 <p>上表中的任何变量，包括 <a href="../ShellFolders/">Shell 文件夹</a> 和模板变量，都可以通过 <a href="../SandboxieIni/">Sandboxie Ini</a> 配置文件进行覆盖。要覆盖变量，只需添加以 <strong>Ovr.</strong> 前缀开头的参数。</p>
 <p>例如：</p>
@@ -4624,7 +4624,7 @@
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="w">    </span><span class="k">[DefaultBox]</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="na">Reg.Cookies</span><span class="o">=</span><span class="s">%USERPROFILE%\Cookies</span>
 </span></code></pre></div>
-<p>请注意，上文描述的 “Ovr.” 覆盖方式会让沙盒忽略注册表。另一方面，只有当在注册表中找不到需要展开的变量时，沙盒才会检查 “Reg.” 的回退值。这意味着，如果为同一个变量 X 同时指定了 Ovr.X 和 Reg.X，则变量展开时始终使用 Ovr.X，Reg.X 则不会生效。</p>
+<p>请注意，上文描述的 “Ovr.” 覆盖方式会让沙盘忽略注册表。另一方面，只有当在注册表中找不到需要展开的变量时，沙盘才会检查 “Reg.” 的回退值。这意味着，如果为同一个变量 X 同时指定了 Ovr.X 和 Reg.X，则变量展开时始终使用 Ovr.X，Reg.X 则不会生效。</p>
 <p>通常建议首选 “Ovr.” 覆盖方式，而不是 “Reg.” 回退方式。</p>
 
 

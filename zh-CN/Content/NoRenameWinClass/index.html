@@ -18,7 +18,7 @@
     
     
       
-        <title>No Rename Win Class - Sandboxie 文档</title>
+        <title>不重命名窗口类 - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#no-rename-win-class" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              No Rename Win Class
+              不重命名窗口类
             
           </span>
         </div>
@@ -371,7 +371,7 @@
   
   
   <span class="md-ellipsis">
-    Getting Started
+    入门指南
     
   </span>
   
@@ -471,7 +471,7 @@
   
   
   <span class="md-ellipsis">
-    File Menu
+    文件菜单
     
   </span>
   
@@ -563,7 +563,7 @@
   
   
   <span class="md-ellipsis">
-    Help Menu
+    帮助菜单
     
   </span>
   
@@ -809,7 +809,7 @@
   
   
   <span class="md-ellipsis">
-    Sandboxie-Plus Migration Guide
+    沙盘增强版（Sandboxie Plus）迁移指南
     
   </span>
   
@@ -4526,9 +4526,9 @@
   
 
 
-<h1 id="no-rename-win-class">No Rename Win Class</h1>
-<p><em>NoRenameWinClass</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. It specifies the window class names that should not be translated by Sandboxie.</p>
-<p>Usage:
+<h1 id="_1">不重命名窗口类</h1>
+<p><em>NoRenameWinClass</em> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 中的一个沙箱设置。该选项用于指定不应被沙盘重命名的窗口类名。</p>
+<p>用法示例：
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
@@ -4536,9 +4536,9 @@
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">NoRenameWinClass</span><span class="o">=</span><span class="s">ExampleWinClass</span>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">   </span><span class="na">NoRenameWinClass</span><span class="o">=</span><span class="s">program.exe,*</span>
 </span></code></pre></div></p>
-<p>The first setting tells Sandboxie to not translate <em>ExampleWinClass</em> window class name by making it accessible to sandboxed programs, and goes a step further to disable a few other windowing-related Sandboxie functions. This may also cause the Sandboxie indicator [#] to not appear in window titles.</p>
-<p>The second setting tells Sandboxie to not translate window class names created by <em>program.exe</em> by making them accessible to sandboxed programs, and goes a step further to disable a few other windowing-related Sandboxie functions. This may also cause the Sandboxie indicator [#] to not appear in window titles.</p>
-<p>Related Sandboxie Plus setting: Sandbox Options &gt; Resource Access &gt; Wnd &gt; Add Wnd Class &gt; Access column &gt; No Rename</p>
+<p>第一个设置指示沙盘不要重命名 <em>ExampleWinClass</em> 窗口类名，从而允许沙箱内的程序直接访问该窗口类名，同时会进一步禁用与窗口相关的部分沙箱功能。这样可能会导致窗口标题栏不再显示沙盘指示符 [#]。</p>
+<p>第二个设置指示沙盘不要重命名 <em>program.exe</em> 程序创建的窗口类名，从而允许沙箱内的程序直接访问这些窗口类名，同时会进一步禁用与窗口相关的部分沙箱功能。这样也可能导致窗口标题栏不再显示沙盘指示符 [#]。</p>
+<p>相关的 Sandboxie Plus 设置：沙盘选项 &gt; 资源访问 &gt; 窗口 &gt; 添加窗口类 &gt; 访问列 &gt; 禁止重命名</p>
 
 
 

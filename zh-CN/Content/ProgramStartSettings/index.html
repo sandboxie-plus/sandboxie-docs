@@ -18,7 +18,7 @@
     
     
       
-        <title>Program Start Settings - Sandboxie 文档</title>
+        <title>程序启动设置 - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#program-start-settings" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Program Start Settings
+              程序启动设置
             
           </span>
         </div>
@@ -371,7 +371,7 @@
   
   
   <span class="md-ellipsis">
-    Getting Started
+    入门指南
     
   </span>
   
@@ -471,7 +471,7 @@
   
   
   <span class="md-ellipsis">
-    File Menu
+    文件菜单
     
   </span>
   
@@ -563,7 +563,7 @@
   
   
   <span class="md-ellipsis">
-    Help Menu
+    帮助菜单
     
   </span>
   
@@ -809,7 +809,7 @@
   
   
   <span class="md-ellipsis">
-    Sandboxie-Plus Migration Guide
+    沙盘增强版（Sandboxie Plus）迁移指南
     
   </span>
   
@@ -4526,54 +4526,54 @@
   
 
 
-<h1 id="program-start-settings">Program Start Settings</h1>
-<h3 id="program-start-settings-group">"Program Start" Settings Group</h3>
-<p><a href="../SandboxieControl/">Sandboxie Control</a> &gt; <a href="../SandboxSettings/">Sandbox Settings</a> &gt; Program Start:</p>
+<h1 id="_1">程序启动设置</h1>
+<h3 id="_2">“程序启动”设置组</h3>
+<p><a href="../SandboxieControl/">沙盘控制面板</a> &gt; <a href="../SandboxSettings/">沙箱设置</a> &gt; 程序启动：</p>
 <p><img alt="" src="../../Media/ProgramStartSettings.png" /></p>
-<p>Settings in this section control which programs will be automatically sandboxed when started outside any sandbox. Put another way, here you select the program which Sandboxie will "force" to run sandboxed.</p>
+<p>本节中的设置控制哪些程序在未在任何沙箱中启动时将自动在沙箱中运行。换句话说，在这里你可以选择沙盘（Sandboxie）将“强制”在沙箱中运行的程序。</p>
 <hr />
-<h3 id="forced-folders">Forced Folders</h3>
-<p><a href="../SandboxieControl/">Sandboxie Control</a> &gt; <a href="../SandboxSettings/">Sandbox Settings</a> &gt; Program Start &gt; Forced Folders</p>
+<h3 id="_3">强制文件夹</h3>
+<p><a href="../SandboxieControl/">沙盘控制面板</a> &gt; <a href="../SandboxSettings/">沙箱设置</a> &gt; 程序启动 &gt; 强制文件夹</p>
 <p><img alt="" src="../../Media/ForcedFoldersSettings.png" /></p>
-<p>You may designate some folders for automatic, or forced, sandboxing. This means that if any program from that folder starts unsandboxed, then Sandboxie will automatically force that program to run in the sandbox. Some examples where this is useful:</p>
+<p>你可以指定某些文件夹进行自动或强制沙箱化。这意味着如果该文件夹中的任何程序在未在沙箱中启动，那么沙盘（Sandboxie）将自动强制该程序在沙箱中运行。以下是一些适用场景示例：</p>
 <ul>
-<li>On your "download" folder, where you typically download software from the Internet</li>
-<li>On your CDROM or DVD drive, so "AutoRun" programs on CDs and DVDs will start sandboxed.</li>
-<li>If you install several versions of the same program in separate folders, and wish to isolate each version to a separate sandbox.</li>
+<li>在你的“下载”文件夹中，通常你会从互联网下载软件。</li>
+<li>在你的 CD-ROM 或 DVD 驱动器上，这样 CD 和 DVD 上的“自动运行”程序将在沙箱中启动。</li>
+<li>如果你在不同的文件夹中安装了同一程序的多个版本，并希望将每个版本隔离到不同的沙箱中。</li>
 </ul>
-<p>Use this settings page to select the folders (or drives) to which Forced Folders should apply.</p>
-<p>Notes:</p>
+<p>使用此设置页面选择强制文件夹应应用的文件夹（或驱动器）。</p>
+<p>注意事项：</p>
 <ul>
 <li>
-<p>Forced Folders can be temporarily suspended using the <a href="../FileMenu/#disable-forced-programs">Disable Forced Programs</a> command.</p>
+<p>可以使用<a href="../FileMenu/#disable-forced-programs">禁用强制程序</a>命令暂时暂停强制文件夹设置。</p>
 </li>
 <li>
-<p>Forced Folders take precedence over <a href="./#forced-programs">Forced Programs</a>. In other words, when a program matches both a Forced Folders and a Forced Programs setting, the Forced Folder setting will apply, and the Forced Programs setting will be ignored.</p>
+<p>强制文件夹设置优先于<a href="./#forced-programs">强制程序</a>设置。换句话说，当一个程序同时匹配强制文件夹和强制程序设置时，将应用强制文件夹设置，而忽略强制程序设置。</p>
 </li>
 </ul>
-<p>Related <a href="../SandboxieIni/">Sandboxie Ini</a> setting: <a href="../ForceFolder/">ForceFolder</a>.</p>
+<p>相关<a href="../SandboxieIni/">沙盘配置文件</a>设置：<a href="../ForceFolder/">强制文件夹</a>。</p>
 <hr />
-<h3 id="forced-programs">Forced Programs</h3>
-<p><a href="../SandboxieControl/">Sandboxie Control</a> &gt; <a href="../SandboxSettings/">Sandbox Settings</a> &gt; Program Start &gt; Forced Programs</p>
+<h3 id="_4">强制程序</h3>
+<p><a href="../SandboxieControl/">沙盘控制面板</a> &gt; <a href="../SandboxSettings/">沙箱设置</a> &gt; 程序启动 &gt; 强制程序</p>
 <p><img alt="" src="../../Media/ForcedProgramsSettings.png" /></p>
-<p>You may designate some program names for automatic, or forced, sandboxing. This means that if that program starts unsandboxed, then Sandboxie will automatically force that program to run in the sandbox. The most common use for the Forced Programs setting is to set the Web browser to automatically run sandboxed.</p>
-<p>Use this settings page to select the programs that will be forced to run in the sandbox. Use the <em>Add By Name</em> button to enter the program name, or the <em>Add By File</em> button to select the program file through folder navigation.</p>
-<p>You can also configure this setting in the <a href="../ProgramSettings/">Program Settings</a> window.</p>
+<p>你可以指定某些程序名称进行自动或强制沙箱化。这意味着如果该程序在未在沙箱中启动，那么沙盘（Sandboxie）将自动强制该程序在沙箱中运行。强制程序设置最常见的用途是将 Web 浏览器设置为自动在沙箱中运行。</p>
+<p>使用此设置页面选择将被强制在沙箱中运行的程序。使用“按名称添加”按钮输入程序名称，或使用“按文件添加”按钮通过文件夹导航选择程序文件。</p>
+<p>你也可以在<a href="../ProgramSettings/">程序设置</a>窗口中配置此设置。</p>
 <ul>
-<li>On your "download" folder, where you typically download software from the Internet</li>
-<li>On your CDROM or DVD drive, so "AutoRun" programs on the CD or DVD will start sandboxed.</li>
-<li>If you install several versions of the same program in separate folders, and wish to isolate each version to a separate sandbox.</li>
+<li>在你的“下载”文件夹中，通常你会从互联网下载软件。</li>
+<li>在你的 CD-ROM 或 DVD 驱动器上，这样 CD 或 DVD 上的“自动运行”程序将在沙箱中启动。</li>
+<li>如果你在不同的文件夹中安装了同一程序的多个版本，并希望将每个版本隔离到不同的沙箱中。</li>
 </ul>
-<p>Notes:</p>
+<p>注意事项：</p>
 <ul>
 <li>
-<p>Forced Programs can be temporarily suspended using the <a href="../FileMenu/#disable-forced-programs">Disable Forced Programs</a> command.</p>
+<p>可以使用<a href="../FileMenu/#disable-forced-programs">禁用强制程序</a>命令暂时暂停强制程序设置。</p>
 </li>
 <li>
-<p><a href="./#forced-folders">Forced Folders</a> take precedence over Forced Programs. In other words, when a program matches both a Forced Folders and a Forced Programs setting, the Forced Folder setting will apply, and the Forced Programs setting will be ignored.</p>
+<p><a href="./#forced-folders">强制文件夹</a>设置优先于强制程序设置。换句话说，当一个程序同时匹配强制文件夹和强制程序设置时，将应用强制文件夹设置，而忽略强制程序设置。</p>
 </li>
 </ul>
-<p>Related <a href="../SandboxieIni/">Sandboxie Ini</a> setting: <a href="../ForceProcess/">ForceProcess</a>.</p>
+<p>相关<a href="../SandboxieIni/">沙盘配置文件</a>设置：<a href="../ForceProcess/">强制进程</a>。</p>
 
 
 

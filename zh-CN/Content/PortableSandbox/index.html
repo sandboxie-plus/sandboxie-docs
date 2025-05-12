@@ -18,7 +18,7 @@
     
     
       
-        <title>Portable Sandbox - Sandboxie 文档</title>
+        <title>便携式沙箱 - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#portable-sandbox" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Portable Sandbox
+              便携式沙箱
             
           </span>
         </div>
@@ -371,7 +371,7 @@
   
   
   <span class="md-ellipsis">
-    Getting Started
+    入门指南
     
   </span>
   
@@ -471,7 +471,7 @@
   
   
   <span class="md-ellipsis">
-    File Menu
+    文件菜单
     
   </span>
   
@@ -563,7 +563,7 @@
   
   
   <span class="md-ellipsis">
-    Help Menu
+    帮助菜单
     
   </span>
   
@@ -809,7 +809,7 @@
   
   
   <span class="md-ellipsis">
-    Sandboxie-Plus Migration Guide
+    沙盘增强版（Sandboxie Plus）迁移指南
     
   </span>
   
@@ -4526,12 +4526,12 @@
   
 
 
-<h1 id="portable-sandbox">Portable Sandbox</h1>
-<p>The revised <a href="../SandboxHierarchy/">layout of the sandbox</a> that is introduced in version 2.80 allows for greater portability of the sandbox across computers. By redirecting programs to create sandboxed objects which have a nonspecific path, it is possible to populate a sandbox on one computer, then carry this sandbox to another computer and keep using it.</p>
-<p>For example, consider installing a game program to a portable device such as a USB memory stick which is mounted as drive P. The game may install its files to a folder on drive P, but any menu shortcuts it creates will be installed in the Windows Start menu of the local computer, outside drive P. And any registry keys it creates will also be created in the Windows registry, also outside the USB device.</p>
-<p>By contrast, if you set the <a href="../SandboxMenu/#set-container-folder">container folder</a> to drive P (for instance <em>P:\Sandbox</em>), then install the game into the (sandboxed) drive C, then <em>all</em> objects created by the installation will be redirected to drive P.</p>
-<p>You can then carry the USB drive to another computer where Sandboxie is installed, and set the container folder on that other computer to drive P. Through the Sandboxie Start menu, you will see the menu shortcuts installed by the game, and when you start it, the game will find its settings as they were recorded in the sandboxed registry.</p>
-<p>Note that Sandboxie itself is not portable software, but it facilitates the portability of a large number of applications.</p>
+<h1 id="_1">便携式沙箱</h1>
+<p>2.80 版本引入的修订后的<a href="../SandboxHierarchy/">沙箱布局</a>允许沙箱在不同计算机之间具有更高的可移植性。通过将程序重定向到创建具有非特定路径的沙箱化对象，可以在一台计算机上填充沙箱，然后将此沙箱转移到另一台计算机并继续使用。</p>
+<p>例如，考虑将游戏程序安装到便携式设备（如作为 P 盘挂载的 USB 记忆棒）上。游戏可能会将其文件安装到 P 盘的某个文件夹中，但它创建的任何菜单快捷方式都将安装在本地计算机的 Windows 开始菜单中，而不是 P 盘内。并且它创建的任何注册表项也将在 Windows 注册表中创建，同样不在 USB 设备内。</p>
+<p>相比之下，如果将<a href="../SandboxMenu/#set-container-folder">容器文件夹</a>设置为 P 盘（例如 <em>P:\Sandbox</em>），然后将游戏安装到（沙箱化的）C 盘，那么安装过程中创建的 <em>所有</em> 对象都将被重定向到 P 盘。</p>
+<p>然后，你可以将 USB 驱动器带到另一台安装了沙盘的计算机上，并将该计算机上的容器文件夹设置为 P 盘。通过沙盘的开始菜单，你将看到游戏安装的菜单快捷方式，并且当你启动游戏时，游戏将找到其在沙箱化注册表中记录的设置。</p>
+<p>请注意，沙盘本身不是便携式软件，但它有助于大量应用程序的可移植性。</p>
 
 
 

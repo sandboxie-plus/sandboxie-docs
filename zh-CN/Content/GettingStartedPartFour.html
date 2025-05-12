@@ -18,7 +18,7 @@
     
     
       
-        <title>Getting Started Part Four - Sandboxie 文档</title>
+        <title>入门指南第四部分 - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#getting-started-part-four" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Getting Started Part Four
+              入门指南第四部分
             
           </span>
         </div>
@@ -371,7 +371,7 @@
   
   
   <span class="md-ellipsis">
-    Getting Started
+    入门指南
     
   </span>
   
@@ -471,7 +471,7 @@
   
   
   <span class="md-ellipsis">
-    File Menu
+    文件菜单
     
   </span>
   
@@ -563,7 +563,7 @@
   
   
   <span class="md-ellipsis">
-    Help Menu
+    帮助菜单
     
   </span>
   
@@ -809,7 +809,7 @@
   
   
   <span class="md-ellipsis">
-    Sandboxie-Plus Migration Guide
+    沙盘增强版（Sandboxie Plus）迁移指南
     
   </span>
   
@@ -4526,51 +4526,41 @@
   
 
 
-<h1 id="getting-started-part-four">Getting Started Part Four</h1>
-<h3 id="part-four-quick-recovery">Part Four: Quick Recovery</h3>
-<p>You may have noticed that when you saved the file <em>favicon.ico</em> to your desktop folder, earlier, Sandboxie offered <a href="ImmediateRecovery.html">Immediate Recovery</a> for that file. However, no such offer was made when you saved <em>test1.txt</em> to the root folder of drive C.</p>
-<p>This is because the desktop folder is (by default) configured as a <em>recoverable</em> folder location, from which you will typically want to recover files. The root folder of drive C is not considered a recoverable location.</p>
-<p>The <a href="QuickRecovery.html">Quick Recovery</a> command scans the recoverable folders and displays a summary of all recoverable files:</p>
+<h1 id="_1">入门指南第四部分</h1>
+<h3 id="_2">第四部分：快速恢复</h3>
+<p>您可能已经注意到，在之前将 <em>favicon.ico</em> 文件保存到桌面文件夹时，沙盘提供了<a href="ImmediateRecovery.html">即时恢复</a>功能。然而，当您将 <em>test1.txt</em> 文件保存到 C 盘根目录时，并未出现此提示。</p>
+<p>这是因为桌面文件夹（默认情况下）被配置为 <em>可恢复</em> 文件夹位置，通常您希望从这些位置恢复文件。而 C 盘根目录则不被视为可恢复位置。</p>
+<p><a href="QuickRecovery.html">快速恢复</a>命令会扫描所有可恢复文件夹，并显示所有可恢复文件的摘要：</p>
 <p><img alt="" src="../Media/QuickRecoverSandbox.png" /></p>
-<p>You can invoke the <strong>Quick Recovery</strong> command:</p>
+<p>您可以通过以下方式调用 <strong>快速恢复</strong> 命令：</p>
 <ul>
-<li>
-<p>From the <a href="SandboxMenu.html">Sandbox Menu</a> in the main window of Sandboxie Control.</p>
-</li>
-<li>
-<p>By right-clicking the <a href="TrayIconMenu.html">Tray Icon Menu</a> at the corner of the screen.</p>
-</li>
+<li>在沙盘控制主窗口的<a href="SandboxMenu.html">沙盘菜单</a>中</li>
+<li>通过右键点击屏幕角落的<a href="TrayIconMenu.html">托盘图标菜单</a></li>
 </ul>
 <hr />
-<p>The picture above shows <em>favicon.ico</em> as the only recoverable file, because it was the only file saved to a recoverable location -- the desktop folder in this case.</p>
-<p>Other folder locations that are set as recoverable folders by default are your <em>Documents</em> folder, the Windows <em>Favorites</em> folder. Where applicable, your <em>Downloads</em> folder is also considered a recoverable folder. Since these folders don't contain any files eligible for recovery, they are not listed at all in the picture above.</p>
-<p>You can use the <em>Add Folder</em> button to add more folders to Quick Recovery.</p>
+<p>上图中只显示了 <em>favicon.ico</em> 为唯一可恢复文件，因为它是唯一被保存到可恢复位置（此处为桌面文件夹）的文件。</p>
+<p>其他被默认设置为可恢复文件夹的位置还包括 <em>Documents</em> 文件夹、Windows 的 <em>Favorites</em> 文件夹。如果适用，您的 <em>Downloads</em> 文件夹也会被视为可恢复文件夹。由于这些文件夹当前没有可恢复的文件，因此没有在上图中列出。</p>
+<p>您可以使用 <em>添加文件夹</em> 按钮，将更多文件夹添加到“快速恢复”中。</p>
 <ul>
-<li>You can switch <a href="SandboxieControl.html">Sandboxie Control</a> to the <a href="FilesAndFoldersView.html">Files And Folders View</a> to view and recover any file that resides anywhere in the sandbox.</li>
+<li>您还可以将<a href="SandboxieControl.html">沙盘控制</a>切换至<a href="FilesAndFoldersView.html">文件与文件夹视图</a>，以查看并恢复沙箱中任意位置的文件。</li>
 </ul>
 <hr />
-<p>When recovering a file (or a folder), you can choose to recover the file to the corresponding location outside the sandbox -- for example, from the sandboxed desktop folder, to the real desktop. The <em>Recover to Same Folder</em> command (shown as a button in the picture above) does that.</p>
-<p>Alternatively, you can use the <em>Recover to Any Folder</em> command, which can move the sandboxed file to any folder location in your computer system.</p>
+<p>恢复文件（或文件夹）时，您可以选择将文件恢复到沙箱外的对应位置——例如，从沙箱中的桌面文件夹恢复到真实桌面。上图中的 <em>恢复到同一文件夹</em> 命令（以按钮形式展示）就是执行此操作。</p>
+<p>另外，您还可以使用 <em>恢复到任意文件夹</em> 命令，将沙箱内的文件移动到计算机系统中的任何文件夹位置。</p>
 <hr />
-<h3 id="immediate-recovery">Immediate Recovery</h3>
-<p>The <a href="ImmediateRecovery.html">Immediate Recovery</a> feature, which was mentioned briefly in the previous part of this guide, is an extension of <a href="QuickRecovery.html">Quick Recovery</a>. Immediate Recovery keeps scanning the same set of recoverable folders, and will enable you to recover files as soon as they are created:</p>
+<h3 id="_3">即时恢复</h3>
+<p>在本指南的上一部分中简要提及的<a href="ImmediateRecovery.html">即时恢复</a>功能，是<a href="QuickRecovery.html">快速恢复</a>的扩展。即时恢复会持续扫描同一组可恢复文件夹，使您能够在文件被创建后立即进行恢复：</p>
 <p><img alt="" src="../Media/ImmediateRecoverFavIcon.png" /></p>
-<p>As with Quick Recovery, you can <em>Recover to Same Folder</em> or <em>Recover to Any Folder</em>.</p>
+<p>与快速恢复类似，您可以选择 <em>恢复到同一文件夹</em> 或 <em>恢复到任意文件夹</em>。</p>
 <hr />
-<p>Summary:</p>
+<p>总结：</p>
 <ul>
-<li>
-<p>Files must be created in recoverable folders if they are to be noticed by <a href="QuickRecovery.html">Quick Recovery</a> and <a href="ImmediateRecovery.html">Immediate Recovery</a>.</p>
-</li>
-<li>
-<p>You can customize the set of recoverable folders.</p>
-</li>
-<li>
-<p>You can use <a href="FilesAndFoldersView.html">Files And Folders View</a> to recover files that do not reside in any recoverable folder.</p>
-</li>
+<li>只有在可恢复文件夹中创建的文件，才会被<a href="QuickRecovery.html">快速恢复</a>和<a href="ImmediateRecovery.html">即时恢复</a>功能检测到</li>
+<li>您可以自定义可恢复文件夹的范围</li>
+<li>可以通过<a href="FilesAndFoldersView.html">文件与文件夹视图</a>恢复不在任何可恢复文件夹中的文件</li>
 </ul>
 <hr />
-<p>The tutorial continues in <a href="GettingStartedPartFive.html">Getting Started Part Five</a>.</p>
+<p>教程将在<a href="GettingStartedPartFive.html">入门指南第五部分</a>继续</p>
 
 
 

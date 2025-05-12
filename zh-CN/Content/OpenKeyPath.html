@@ -18,7 +18,7 @@
     
     
       
-        <title>Open Key Path - Sandboxie 文档</title>
+        <title>开放注册表路径 - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#open-key-path" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Open Key Path
+              开放注册表路径
             
           </span>
         </div>
@@ -371,7 +371,7 @@
   
   
   <span class="md-ellipsis">
-    Getting Started
+    入门指南
     
   </span>
   
@@ -471,7 +471,7 @@
   
   
   <span class="md-ellipsis">
-    File Menu
+    文件菜单
     
   </span>
   
@@ -563,7 +563,7 @@
   
   
   <span class="md-ellipsis">
-    Help Menu
+    帮助菜单
     
   </span>
   
@@ -809,7 +809,7 @@
   
   
   <span class="md-ellipsis">
-    Sandboxie-Plus Migration Guide
+    沙盘增强版（Sandboxie Plus）迁移指南
     
   </span>
   
@@ -4526,10 +4526,10 @@
   
 
 
-<h1 id="open-key-path">Open Key Path</h1>
-<p><em>OpenKeyPath</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It specifies a path patterns, for which Sandboxie will not apply sandboxing for registry keys. This lets sandboxed programs have direct access to update system settings <em>outside the sandbox</em>. This setting essentially <em>punches a hole</em> in the sandbox, at a particular registry key location.</p>
-<p><a href="ProgramNamePrefix.html">Program Name Prefix</a> may be specified.</p>
-<p>Example:
+<h1 id="_1">开放注册表路径</h1>
+<p><em>OpenKeyPath</em> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 中的一个沙箱设置。它用于指定一个路径模式，沙盘不会对该路径下的注册表键应用沙箱隔离，从而允许受沙箱保护的程序直接访问并更新 <em>沙箱外部</em> 的系统设置。此设置本质上是在特定的注册表键位置为沙箱“打了一个洞”。</p>
+<p>可以指定 <a href="ProgramNamePrefix.html">程序名称前缀</a>。</p>
+<p>示例：
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
@@ -4537,11 +4537,11 @@
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">OpenKeyPath</span><span class="o">=</span><span class="s">firefox.exe,HKEY_LOCAL_MACHINE\Software\Mozilla</span>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">   </span><span class="na">OpenKeyPath</span><span class="o">=</span><span class="s">firefox.exe,HKEY_CURRENT_USER\Software\Mozilla</span>
 </span></code></pre></div></p>
-<p>These examples let the Firefox program, <em>firefox.exe</em>, have direct access to the Mozilla registry key trees (both system-wide and per-user registry trees).</p>
-<p>The value specified for <em>OpenKeyPath</em> can include wildcards, although for registry keys, the use of wildcards is rarely needed. For more information on this, including examples that show the use of wildcards, see <a href="OpenFilePath.html">OpenFilePath</a>. (<em>OpenFilePath</em> deals with files, not registry keys, but the principle of using wildcards remains the same.)</p>
-<p><strong>Note:</strong> For security reasons, this setting does not apply when the program executable file resides within the sandbox. This means that (potentially malicious) software downloaded into your computer and executed, cannot take advantage of this setting.</p>
-<p>Related <a href="SandboxieControl.html">Sandboxie Control</a> setting: <a href="ResourceAccessSettings.html#registry-access--direct-access">Sandbox Settings &gt; Resource Access &gt; Registry Access &gt; Direct Access</a></p>
-<p>Related Sandboxie Plus setting: Sandbox Options &gt; Resource Access &gt; Registry &gt; Add Reg Key &gt; Access column &gt; Open</p>
+<p>上述示例允许 Firefox 程序（firefox.exe）可以直接访问 Mozilla 的注册表键树（包括系统范围和当前用户范围的注册表树）。</p>
+<p><em>OpenKeyPath</em> 的取值支持通配符，虽然对于注册表键，通常很少需要使用通配符。关于更多信息，包括使用通配符的示例，请参考 <a href="OpenFilePath.html">OpenFilePath</a>。(<em>OpenFilePath</em> 针对的是文件，而不是注册表键，但通配符的使用原理是相同的。)</p>
+<p><strong>注意：</strong>出于安全原因，当程序可执行文件位于沙箱内部时，此设置不会生效。这意味着在你的计算机上下载并运行的（潜在恶意的）软件无法利用该设置。</p>
+<p>相关的 <a href="SandboxieControl.html">沙盘控制</a> 设置： <a href="ResourceAccessSettings.html#registry-access--direct-access">沙箱设置 &gt; 资源访问 &gt; 注册表访问 &gt; 直接访问</a></p>
+<p>相关的 Sandboxie Plus 设置： 沙箱选项 &gt; 资源访问 &gt; 注册表 &gt; 添加注册表键 &gt; 访问列 &gt; 开放</p>
 
 
 

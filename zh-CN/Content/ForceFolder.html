@@ -18,7 +18,7 @@
     
     
       
-        <title>Force Folder - Sandboxie 文档</title>
+        <title>强制文件夹 - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#force-folder" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Force Folder
+              强制文件夹
             
           </span>
         </div>
@@ -371,7 +371,7 @@
   
   
   <span class="md-ellipsis">
-    Getting Started
+    入门指南
     
   </span>
   
@@ -471,7 +471,7 @@
   
   
   <span class="md-ellipsis">
-    File Menu
+    文件菜单
     
   </span>
   
@@ -563,7 +563,7 @@
   
   
   <span class="md-ellipsis">
-    Help Menu
+    帮助菜单
     
   </span>
   
@@ -809,7 +809,7 @@
   
   
   <span class="md-ellipsis">
-    Sandboxie-Plus Migration Guide
+    沙盘增强版（Sandboxie Plus）迁移指南
     
   </span>
   
@@ -4526,8 +4526,8 @@
   
 
 
-<h1 id="force-folder">Force Folder</h1>
-<p><em>ForceFolder</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie.ini</a> which allows to force folder contents to run inside a specific sandbox. If any files or programs in these folders* (or in a sub-folder of one of these folders) are started outside any sandbox, they will be automatically sandboxed into a particular sandbox. For example:</p>
+<h1 id="_1">强制文件夹</h1>
+<p><em>ForceFolder</em> 是 <a href="SandboxieIni.html">Sandboxie.ini</a> 中的一个沙箱设置项，用于强制文件夹内的内容在特定沙箱内运行。如果任何这些文件夹*（或其子文件夹）中的文件或程序在未处于沙箱的情况下启动，它们将自动被放入特定沙箱中运行。例如：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
@@ -4535,14 +4535,14 @@
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">ForceFolder</span><span class="o">=</span><span class="s">C:\Download</span>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">   </span><span class="na">ForceFolder</span><span class="o">=</span><span class="s">E:</span>\
 </span></code></pre></div>
-<p>The first example specifies that files/programs started from the C:\Download folder (or any folders below contained in those folders) will be forced to run sandboxed in the sandbox <em>DefaultBox</em>.</p>
-<p>The second example specifies that any files/programs started from drive E will be forced to run sandboxed in the sandbox <em>DefaultBox</em>. For CDROM and DVD drives, this includes forcing the <em>AutoRun</em> programs that are automatically started by Windows.</p>
+<p>第一个示例指定，从 C:\Download 文件夹（以及该文件夹下的所有子文件夹）启动的文件或程序将被强制在 <em>DefaultBox</em> 沙箱中运行。</p>
+<p>第二个示例指定，从 E 盘启动的任何文件或程序都将被强制在 <em>DefaultBox</em> 沙箱中运行。对于 CDROM 和 DVD 驱动器，这也包括被 Windows 自动启动的 <em>AutoRun</em> 程序。</p>
 <ul>
-<li>Please keep in mind that shortcuts located inside a ForceFolder, that are pointing to a path that is not a ForceFolder, will not start a Sandboxed application. For example: if you place a shortcut inside C:\ForcedFolder and it points to C:\SomeOtherPathThatIsNotForced, then the shortcut will trigger a non-sandboxed application.</li>
+<li>请注意，如果位于强制文件夹（ForceFolder）中的快捷方式所指向的路径不是受强制保护的文件夹，则不会启动沙箱化的应用程序。例如：如果你在 C:\ForcedFolder 内放置一个快捷方式，但它指向 C:\SomeOtherPathThatIsNotForced，那么该快捷方式将启动一个非沙箱化的应用程序。</li>
 </ul>
-<p>Another consideration is that Modern / Store Apps are not supported. If your default application for opening a specific file type is a Windows Modern app (such as the Photos app in Windows 10), the application will not launch at all. For more information, please see the <a href="KnownConflicts.html#uwp--modern--microsoft-store-apps">Known Conflicts</a> page.</p>
-<p>See also: <a href="ForceProcess.html">ForceProcess</a>. If both a <em>ForceFolder</em> and a <em>ForceProcess</em> are applicable to a program that is starting, the ForceFolder setting takes precedence.</p>
-<p>Related <a href="SandboxieControl.html">Sandboxie Control</a> setting: <a href="ProgramStartSettings.html#forced-folders">Sandbox Settings &gt; Program Start &gt; Forced Folders</a></p>
+<p>另一个需要注意的是，不支持现代应用/商店应用。如果你用于打开特定文件类型的默认应用是 Windows 现代应用（如 Windows 10 下的 Photos 应用），则该应用将无法启动。有关详细信息，请参见 <a href="KnownConflicts.html#uwp--modern--microsoft-store-apps">已知冲突</a> 页面。</p>
+<p>另请参阅：<a href="ForceProcess.html">强制进程</a>。如果在一个程序启动时，<em>ForceFolder</em> 和 <em>ForceProcess</em> 条件同时适用，则优先采用 ForceFolder 设置。</p>
+<p>相关 <a href="SandboxieControl.html">沙盘控制</a> 设置：<a href="ProgramStartSettings.html#forced-folders">沙箱设置 &gt; 程序启动 &gt; 强制文件夹</a></p>
 
 
 

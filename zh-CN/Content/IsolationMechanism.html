@@ -18,7 +18,7 @@
     
     
       
-        <title>Isolation Mechanism - Sandboxie 文档</title>
+        <title>隔离机制 - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#isolation-mechanism" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Isolation Mechanism
+              隔离机制
             
           </span>
         </div>
@@ -371,7 +371,7 @@
   
   
   <span class="md-ellipsis">
-    Getting Started
+    入门指南
     
   </span>
   
@@ -471,7 +471,7 @@
   
   
   <span class="md-ellipsis">
-    File Menu
+    文件菜单
     
   </span>
   
@@ -563,7 +563,7 @@
   
   
   <span class="md-ellipsis">
-    Help Menu
+    帮助菜单
     
   </span>
   
@@ -809,7 +809,7 @@
   
   
   <span class="md-ellipsis">
-    Sandboxie-Plus Migration Guide
+    沙盘增强版（Sandboxie Plus）迁移指南
     
   </span>
   
@@ -4526,13 +4526,13 @@
   
 
 
-<h1 id="isolation-mechanism">Isolation Mechanism</h1>
-<p>Processes started under Sandboxie's supervision are created with a very restricted user token, such that they basically don't have the right to access almost anything. In this state, they would be pretty much useless and would crash right away.</p>
-<p>This token manipulation is done using half a dozen <a href="TokenMagic.html">undocumented symbols</a> in the Windows kernel.</p>
-<p>In a next step, Sandboxie tries to repair that by hooking most ntdll.dll syscalls and replacing them with a redirection to the own SbieDrv driver. The driver then evaluates the calls and enforces the sandboxing rules, for example, no write access outside the sandbox and no read access to closed resources.</p>
-<p>When a malicious application would unhook ntdll.dll, for example, by trying to use direct syscalls to the Windows kernel, the kernel would see the restricted user token and operations would fail with an access denied.</p>
-<p>Not all functionality can be restored this way, so Sandboxie also hooks a myriad of other functions in standard Windows DLLs, providing workarounds and redirects through the helper service SbieSvc, although sometimes it opts for disabling some functionality outright.</p>
-<p>The file system and registry virtualization is implemented on the user level in SbieDll, which is responsible for combining the data from the real system with the ones from the sandbox and for properly redirecting all access attempts. If that mechanism is improperly bypassed, it results in an access denied error.</p>
+<h1 id="_1">隔离机制</h1>
+<p>在沙盘的监管下启动的进程，会以极为受限的用户令牌创建，这样它们几乎没有权利访问任何资源。在这种状态下，这些进程基本上毫无用处，并且会立即崩溃。</p>
+<p>这种令牌操作是使用 Windows 内核中的大约六种 <a href="TokenMagic.html">undocumented symbols</a> 方式实现的。</p>
+<p>接下来，沙盘会通过挂钩大多数 ntdll.dll 的系统调用，并将其重定向到自身的 SbieDrv 驱动，以此尝试修复受限制的权限。驱动程序随后会评估这些调用，并强制执行沙箱规则，例如：禁止对沙箱外部的写入访问，以及禁止对受限资源的读取访问。</p>
+<p>当恶意应用试图解除 ntdll.dll 的挂钩，譬如通过直接系统调用访问 Windows 内核时，内核会检测到受限的用户令牌，相关操作将因为权限不足而失败。</p>
+<p>并非所有功能都能通过这种方式恢复，因此沙盘还会挂钩标准 Windows DLL 中的大量其他函数，并通过辅助服务 SbieSvc 提供替代方案和重定向，尽管有时会选择直接禁用部分功能。</p>
+<p>文件系统和注册表的虚拟化由用户级的 SbieDll 实现，负责将真实系统中的数据与沙箱中的数据进行合并，并正确重定向所有访问尝试。如果该机制被不当绕过，则会返回访问被拒绝的错误。</p>
 
 
 

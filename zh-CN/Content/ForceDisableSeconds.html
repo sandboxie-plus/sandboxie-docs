@@ -18,7 +18,7 @@
     
     
       
-        <title>Force Disable Seconds - Sandboxie 文档</title>
+        <title>强制禁用秒数 - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#force-disable-seconds" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Force Disable Seconds
+              强制禁用秒数
             
           </span>
         </div>
@@ -371,7 +371,7 @@
   
   
   <span class="md-ellipsis">
-    Getting Started
+    入门指南
     
   </span>
   
@@ -471,7 +471,7 @@
   
   
   <span class="md-ellipsis">
-    File Menu
+    文件菜单
     
   </span>
   
@@ -563,7 +563,7 @@
   
   
   <span class="md-ellipsis">
-    Help Menu
+    帮助菜单
     
   </span>
   
@@ -809,7 +809,7 @@
   
   
   <span class="md-ellipsis">
-    Sandboxie-Plus Migration Guide
+    沙盘增强版（Sandboxie Plus）迁移指南
     
   </span>
   
@@ -4526,9 +4526,9 @@
   
 
 
-<h1 id="force-disable-seconds">Force Disable Seconds</h1>
-<p><em>ForceDisableSeconds</em> is a global setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It specifies the time, in seconds, that the <a href="FileMenu.html#disable-forced-programs">Disable Forced Programs</a> mode will stay in effect.</p>
-<p>Usage:
+<h1 id="_1">强制禁用秒数</h1>
+<p><em>ForceDisableSeconds</em> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 中的一个全局设置项。它用于指定 <a href="FileMenu.html#disable-forced-programs">禁用强制程序</a> 模式保持生效的时间（以秒为单位）。</p>
+<p>用法如下：
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
@@ -4536,9 +4536,9 @@
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">ForceDisableSeconds</span><span class="o">=</span><span class="s">25</span>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">   </span><span class="na">ForceDisableSeconds</span><span class="o">=</span><span class="s">0</span>
 </span></code></pre></div></p>
-<p>The default value for this setting is 10 seconds. Setting the value to zero effectively disables the <em>Disable Forced Programs</em> feature itself. See also: <a href="ForceDisableAdminOnly.html">ForceDisableAdminOnly</a>.</p>
-<p>The <em>Disable Forced Programs</em> mode is engaged through <a href="SandboxieControl.html">Sandboxie Control</a>, which can also configure the number of seconds. Use the <a href="FileMenu.html#disable-forced-programs">FileMenu &gt; Disable Forced Programs</a> command, or the same command from the <a href="TrayIconMenu.html">Tray Icon Menu</a>.</p>
-<p>When active, the <em>Disable Forced Programs</em> mode causes Sandboxie to issue message <a href="SBIE1301.html">SBIE1301</a> whenever a forced program is started.</p>
+<p>该设置项的默认值为 10 秒。如果将其设置为零，则实际上会禁用 <em>禁用强制程序</em> 功能。另请参阅：<a href="ForceDisableAdminOnly.html">ForceDisableAdminOnly</a>。</p>
+<p><em>禁用强制程序</em> 模式可通过 <a href="SandboxieControl.html">沙盘控制</a> 启用，该界面也可配置生效的时间秒数。请使用 <a href="FileMenu.html#disable-forced-programs">文件菜单 &gt; 禁用强制程序</a> 命令，或通过 <a href="TrayIconMenu.html">托盘图标菜单</a> 执行相同命令。</p>
+<p>当该模式处于活动状态时，每当启动强制进程时，沙盘会发出消息 <a href="SBIE1301.html">SBIE1301</a>。</p>
 
 
 

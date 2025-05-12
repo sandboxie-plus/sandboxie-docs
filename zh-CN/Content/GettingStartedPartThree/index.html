@@ -18,7 +18,7 @@
     
     
       
-        <title>Getting Started Part Three - Sandboxie 文档</title>
+        <title>入门指南 第三部分 - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#getting-started-part-three" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Getting Started Part Three
+              入门指南 第三部分
             
           </span>
         </div>
@@ -371,7 +371,7 @@
   
   
   <span class="md-ellipsis">
-    Getting Started
+    入门指南
     
   </span>
   
@@ -471,7 +471,7 @@
   
   
   <span class="md-ellipsis">
-    File Menu
+    文件菜单
     
   </span>
   
@@ -563,7 +563,7 @@
   
   
   <span class="md-ellipsis">
-    Help Menu
+    帮助菜单
     
   </span>
   
@@ -809,7 +809,7 @@
   
   
   <span class="md-ellipsis">
-    Sandboxie-Plus Migration Guide
+    沙盘增强版（Sandboxie Plus）迁移指南
     
   </span>
   
@@ -4526,42 +4526,38 @@
   
 
 
-<h1 id="getting-started-part-three">Getting Started Part Three</h1>
-<h3 id="part-three-the-sandbox">Part Three: The Sandbox</h3>
-<p>You should now have your Web browser running <em>sandboxed</em>. It can be Internet Explorer or any other browser.</p>
-<p>The browser program may make changes to your computer. These changes will all be trapped in the sandbox.</p>
-<p>Try it now. Right-click on the following link, and save the file to your desktop. If you're using Internet Explorer, this is the <em>Save Target As</em> command in the right-click menu. If you're using Firefox, this is the <em>Save Link As</em> command in the right-click menu:</p>
+<h1 id="_1">入门指南 第三部分</h1>
+<h3 id="_2">第三部分：沙箱</h3>
+<p>现在，您的网页浏览器应该已经在沙箱中运行了。这可以是 Internet Explorer，也可以是其他任意浏览器。</p>
+<p>浏览器程序可能会对您的计算机做出更改，但所有这些更改都会被限制在沙箱中。</p>
+<p>现在请尝试操作。右击下面的链接，然后将文件保存到您的桌面。如果您使用的是 Internet Explorer，请在右键菜单中选择 <em>目标另存为</em> 命令；如果使用的是 Firefox，请选择 <em>链接另存为</em> 命令：</p>
 <p><a href="https://github.com/sandboxie-plus/sandboxie-docs/raw/main/Media/favicon.ico">favicon.ico</a></p>
-<p>In the default and recommended configuration, Sandboxie will identify that a file was saved to an interesting location -- your desktop, in this case -- and will offer <a href="../ImmediateRecovery/">Immediate Recovery</a> for the file:</p>
+<p>在默认及推荐的配置下，沙盘会检测到有文件被保存到了重要位置——在本例中为您的桌面——并会为该文件提供<a href="../ImmediateRecovery/">即时恢复</a>功能：</p>
 <p><img alt="" src="../../Media/ImmediateRecoverFavIcon.png" /></p>
-<p>Because the point of this exercise is to show that files remain in the sandbox unless recovered, click the <em>Close</em> button on the window above, to tell Sandboxie to keep the file in the sandbox.</p>
-<p>The file you saved, <em>favicon.ico</em> would appear on your desktop as this icon: <img alt="" src="../../Media/TrayIconEmpty.png" /></p>
-<p>If you minimize all windows and examine your desktop, you should <em>not</em> be able to see the new icon, because the file was in fact saved <em>in the sandbox</em>, and not yet recovered.</p>
-<p><a href="../SandboxieControl/">Sandboxie Control</a> initially operates in <a href="../ProgramsView/">Programs View</a> where it lists the programs running in the sandbox, but you can use the <a href="../ViewMenu/">View Menu</a> to switch the view mode to <a href="../FilesAndFoldersView/">Files And Folders View</a> which shows the contents of the sandbox. Click <em>Files and Folders</em> in the <em>View</em> menu.</p>
+<p>本练习的重点是演示，在未恢复的情况下，文件会一直保留在沙箱中。因此请点击上述窗口中的 <em>关闭</em> 按钮，告知沙盘将文件保留在沙箱中。</p>
+<p>您保存下来的文件 <em>favicon.ico</em> 应以如下图标出现在您的桌面上：<img alt="" src="../../Media/TrayIconEmpty.png" /></p>
+<p>如果您最小化所有窗口并检查桌面，应该<strong>看不到</strong>这个新图标，因为此文件实际上是被保存<strong>在沙箱中</strong>，尚未恢复。</p>
+<p>沙盘控制最初以<a href="../ProgramsView/">程序视图</a>运行，列出了在沙箱中运行的程序，但您可以通过<a href="../ViewMenu/">视图菜单</a>将视图模式切换为<a href="../FilesAndFoldersView/">文件和文件夹视图</a>，以显示沙箱的内容。在 <em>视图</em> 菜单中点击 <em>文件和文件夹</em>。</p>
 <p><img alt="" src="../../Media/FileViewFavIcon.png" /></p>
-<p>Expand the branches (by clicking the <strong><em>+</em></strong> signs) to reveal the contents of the sandbox, arranged into folders. As you can see in the picture directly above, the file <em>favicon.ico</em> that you saved earlier has been placed in the <em>sandboxed</em> desktop folder.</p>
+<p>展开分支（点击 <strong><em>+</em></strong> 号）即可显示沙箱内容，这些内容以文件夹的形式进行组织。正如上图所示，您之前保存的 <em>favicon.ico</em> 文件已被放入沙箱中的桌面文件夹。</p>
 <hr />
-<p>In the same way, any file created by any sandboxed program will be placed in a sandbox folder corresponding to the real folder where it <em>should have</em> been placed.</p>
-<p>Let's try this again, this time with a sandboxed Notepad. To do this, use the <em>Run Any Program</em> command:</p>
+<p>同理，任何被沙箱程序创建的文件都会被放置在与实际对应文件夹的沙箱内文件夹中。</p>
+<p>让我们再试一次，这次用记事本运行沙箱测试。请使用 <em>运行任意程序</em> 命令：</p>
 <p><img alt="" src="../../Media/TrayPopupRunAny.png" /></p>
-<p>Sandboxie displays its <em>Run...</em> dialog box. Type <strong>notepad</strong>:</p>
+<p>沙盘会显示其 <em>运行...</em> 对话框。请输入 <strong>notepad</strong>：</p>
 <p><img alt="" src="../../Media/RunAnyNotepad.png" /></p>
-<p>Notepad should start sandboxed:</p>
+<p>此时，记事本应该在沙箱中启动：</p>
 <p><img alt="" src="../../Media/NotepadSandboxed.png" /></p>
-<p>Type a few letters into the new Notepad document, and save it as file <em>test1.txt</em> at the root folder of drive C. Then, look for this file in the root folder of drive C. You should not be able to find it. That's because the file was saved in the sandbox:</p>
+<p>在新的记事本文档中输入任意几个字母，将其保存为 C 盘根目录下的文件 <em>test1.txt</em>。然后，前往 C 盘根目录查找该文件，您会发现找不到它。这是因为该文件实际上被保存到了沙箱中：</p>
 <p><img alt="" src="../../Media/FileViewNotepad.png" /></p>
 <hr />
-<p>Summary:</p>
+<p>总结：</p>
 <ul>
-<li>
-<p>Files created or modified by sandboxed programs are initially placed in the sandbox.</p>
-</li>
-<li>
-<p>Files in the sandbox are not visible to programs outside the sandbox.</p>
-</li>
+<li>被沙箱程序创建或修改的文件，最初都会被存放在沙箱中</li>
+<li>沙箱中的文件对于沙箱外的程序是不可见的</li>
 </ul>
 <hr />
-<p>The tutorial continues in <a href="../GettingStartedPartFour/">Getting Started Part Four</a>.</p>
+<p>教程将在<a href="../GettingStartedPartFour/">入门指南 第四部分</a>继续。</p>
 
 
 

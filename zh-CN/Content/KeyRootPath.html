@@ -18,7 +18,7 @@
     
     
       
-        <title>Key Root Path - Sandboxie 文档</title>
+        <title>注册表根路径 - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#key-root-path" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Key Root Path
+              注册表根路径
             
           </span>
         </div>
@@ -371,7 +371,7 @@
   
   
   <span class="md-ellipsis">
-    Getting Started
+    入门指南
     
   </span>
   
@@ -471,7 +471,7 @@
   
   
   <span class="md-ellipsis">
-    File Menu
+    文件菜单
     
   </span>
   
@@ -563,7 +563,7 @@
   
   
   <span class="md-ellipsis">
-    Help Menu
+    帮助菜单
     
   </span>
   
@@ -809,7 +809,7 @@
   
   
   <span class="md-ellipsis">
-    Sandboxie-Plus Migration Guide
+    沙盘增强版（Sandboxie Plus）迁移指南
     
   </span>
   
@@ -4526,31 +4526,31 @@
   
 
 
-<h1 id="key-root-path">Key Root Path</h1>
-<p><em>KeyRootPath</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It specifies the registry location where the registry hive for a particular sandbox is mounted.</p>
-<p>As with all sandbox settings, it may also be specified in the global section, and in that case will apply for all sandboxes where the setting is not also specified in the sandbox section.</p>
-<p>See <a href="SandboxHierarchy.html">Sandbox Hierarchy</a> for more information.</p>
-<p>Usage:
+<h1 id="_1">注册表根路径</h1>
+<p><em>KeyRootPath</em> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 中的一个沙箱设置。它用于指定某个沙箱的注册表配置单元挂载的位置。</p>
+<p>和所有沙箱设置一样，它也可以在全局部分指定，此时对于所有未在沙箱部分单独指定该设置的沙箱均适用。</p>
+<p>更多信息请参见 <a href="SandboxHierarchy.html">沙箱层级结构</a>。</p>
+<p>用法示例：
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">KeyRootPath</span><span class="o">=</span><span class="s">\REGISTRY\USER\%BOXNAME%</span>
 </span></code></pre></div></p>
-<p>The following substitution variables may be useful in this path.</p>
+<p>在此路径中，以下替换变量可能会用到：</p>
 <ul>
-<li>The variable %SANDBOX% which expands to the name of the sandbox</li>
-<li>The variable %USER% which expands to the user name</li>
-<li>The variable %SID% which expands to the user security-ID (SID)</li>
-<li>The variable %SESSION% which expands to the Terminal Services session number</li>
+<li>变量 %SANDBOX%，其值为沙箱名称</li>
+<li>变量 %USER%，其值为用户名</li>
+<li>变量 %SID%，其值为用户安全标识（SID）</li>
+<li>变量 %SESSION%，其值为终端服务的会话编号</li>
 </ul>
-<p>If KeyRootPath is not specified, its default value is:</p>
+<p>如果未指定 注册表根路径，则其默认值为：</p>
 <ul>
 <li><em>\REGISTRY\USER\Sandbox</em>%USER%<em>%SANDBOX%</em></li>
 </ul>
-<p>The value must begin with the prefix *<em>\REGISTRY\USER*</em> or Sandboxie will not be able to mount the registry hive.</p>
-<p>There is probably no reason to change the default value for this setting, and doing so is not recommended.</p>
-<p>If Sandboxie cannot successfully mount or un-mount the sandboxed registry hive, it will issue messages <a href="SBIE1241.html">SBIE1241</a> and <a href="SBIE2208.html">SBIE2208</a>, respectively.</p>
+<p>该值必须以 *<em>\REGISTRY\USER*</em> 为前缀，否则沙盘将无法挂载注册表配置单元。</p>
+<p>通常没有理由修改该设置的默认值，并且不建议这样做。</p>
+<p>如果沙盘无法成功挂载或卸载沙箱注册表配置单元，分别会发出消息 <a href="SBIE1241.html">SBIE1241</a> 和 <a href="SBIE2208.html">SBIE2208</a>。</p>
 
 
 

@@ -18,7 +18,7 @@
     
     
       
-        <title>Open Pipe Path - Sandboxie 文档</title>
+        <title>开放管道路径 - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#open-pipe-path" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Open Pipe Path
+              开放管道路径
             
           </span>
         </div>
@@ -371,7 +371,7 @@
   
   
   <span class="md-ellipsis">
-    Getting Started
+    入门指南
     
   </span>
   
@@ -471,7 +471,7 @@
   
   
   <span class="md-ellipsis">
-    File Menu
+    文件菜单
     
   </span>
   
@@ -563,7 +563,7 @@
   
   
   <span class="md-ellipsis">
-    Help Menu
+    帮助菜单
     
   </span>
   
@@ -809,7 +809,7 @@
   
   
   <span class="md-ellipsis">
-    Sandboxie-Plus Migration Guide
+    沙盘增强版（Sandboxie Plus）迁移指南
     
   </span>
   
@@ -4526,13 +4526,13 @@
   
 
 
-<h1 id="open-pipe-path">Open Pipe Path</h1>
-<p><em>OpenPipePath</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It specifies path patterns for which Sandboxie will not apply sandboxing for files.</p>
-<p>It is the same as the <a href="OpenFilePath.html">OpenFilePath</a> setting, except that this setting is always applied, whereas <em>OpenFilePath</em> is only applied if the application is running from a file or folder that is located outside the sandbox.</p>
-<p>See <a href="OpenFilePath.html">OpenFilePath</a> for general usage instructions.</p>
-<p>The <em>OpenPipePath</em> setting is primarily intended to allow sandboxed programs access to file communication device resources, which can be identified using the <a href="SandboxieTrace.html">Sandboxie Trace</a>.</p>
-<p>However, it can also be used to define files and folders that should be exempt (in the way that <em>OpenFilePath</em> exempts files) even for programs that are running from within the sandbox itself.</p>
-<p>Example usage:
+<h1 id="_1">开放管道路径</h1>
+<p><em>OpenPipePath</em> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 中的一个沙箱设置。它用于指定某些路径模式，使得沙盘不会对这些文件应用沙箱隔离。</p>
+<p>它与 <a href="OpenFilePath.html">开放文件路径</a> 设置类似，不同之处在于该设置始终生效，而 <em>OpenFilePath</em> 仅在应用程序从沙箱外部的文件或文件夹运行时生效。</p>
+<p>关于一般使用方法，请参考 <a href="OpenFilePath.html">开放文件路径</a>。</p>
+<p><em>OpenPipePath</em> 设置主要用于允许沙箱内的程序访问文件通信设备资源，这些资源可以通过 <a href="SandboxieTrace.html">沙盘跟踪</a> 进行识别。</p>
+<p>此外，它也可用于为即使在沙箱中运行的程序定义需要豁免（以 <em>OpenFilePath</em> 的方式豁免）的文件和文件夹。</p>
+<p>示例用法：
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
@@ -4540,10 +4540,10 @@
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">OpenPipePath</span><span class="o">=</span><span class="s">\Device\NamedPipe\wkssvc</span>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">   </span><span class="na">OpenPipePath</span><span class="o">=</span><span class="s">\Device\NamedPipe\srvsvc</span>
 </span></code></pre></div></p>
-<p>Will allow the sandboxed program to manage shares and user accounts on the computer, through the resources <em>wkssvc</em> and <em>srvsvc</em>.</p>
-<p><strong>Note:</strong> This specific example is not recommended, as it weakens the protection of the sandbox.</p>
-<p>Related <a href="SandboxieControl.html">Sandboxie Control</a> setting: <a href="ResourceAccessSettings.html#file-access--full-access">Sandbox Settings &gt; Resource Access &gt; File Access &gt; Full Access</a></p>
-<p>Related Sandboxie Plus setting: Sandbox Options &gt; Resource Access &gt; Files &gt; Add File/Folder &gt; Access column &gt; Open for All</p>
+<p>将允许沙箱内的程序通过 <em>wkssvc</em> 和 <em>srvsvc</em> 这两个资源来管理计算机上的共享和用户账户</p>
+<p><strong>注意：</strong> 不建议使用此具体示例，因为它会削弱沙箱的保护能力</p>
+<p>相关的 <a href="SandboxieControl.html">沙盘控制</a> 设置： <a href="ResourceAccessSettings.html#file-access--full-access">沙箱设置 &gt; 资源访问 &gt; 文件访问 &gt; 完全开放</a></p>
+<p>相关的 Sandboxie Plus 设置： 沙箱选项 &gt; 资源访问 &gt; 文件 &gt; 添加文件/文件夹 &gt; 访问列 &gt; 完全开放</p>
 
 
 

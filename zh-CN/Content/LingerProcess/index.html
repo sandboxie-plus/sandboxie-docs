@@ -18,7 +18,7 @@
     
     
       
-        <title>Linger Process - Sandboxie 文档</title>
+        <title>驻留进程 - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#linger-process" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Linger Process
+              驻留进程
             
           </span>
         </div>
@@ -371,7 +371,7 @@
   
   
   <span class="md-ellipsis">
-    Getting Started
+    入门指南
     
   </span>
   
@@ -471,7 +471,7 @@
   
   
   <span class="md-ellipsis">
-    File Menu
+    文件菜单
     
   </span>
   
@@ -563,7 +563,7 @@
   
   
   <span class="md-ellipsis">
-    Help Menu
+    帮助菜单
     
   </span>
   
@@ -809,7 +809,7 @@
   
   
   <span class="md-ellipsis">
-    Sandboxie-Plus Migration Guide
+    沙盘增强版（Sandboxie Plus）迁移指南
     
   </span>
   
@@ -4526,22 +4526,22 @@
   
 
 
-<h1 id="linger-process">Linger Process</h1>
-<p><em>LingerProcess</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. It specifies names of programs that will be automatically terminated, when they are the last programs that remain in execution in a particular sandbox. This is useful as some programs occasionally launch <em>helper programs</em> to carry out a specific task, and the helper program remains in execution even after the original program has ended. For example:</p>
+<h1 id="_1">驻留进程</h1>
+<p><em>LingerProcess</em> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 文件中的一个沙箱设置。它用于指定某些程序的名称，当这些程序成为特定沙箱中最后运行的程序时，会被自动终止。此设置适用于某些程序偶尔会启动 <em>辅助程序</em> 来执行特定任务，而即使原程序已经结束，辅助程序仍然继续运行。例如：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">LingerProcess</span><span class="o">=</span><span class="s">jusched.exe</span>
 </span></code></pre></div>
-<p><em>jusched.exe</em> is part of the Sun Java framework. It is occasionally launched when Internet Explorer starts the Java framework. This <em>LingerProcess</em> example setting specifies that if <em>jusched.exe</em> remains the last program running in the sandbox DefaultBox, then it should be terminated.</p>
-<p>LingerProcess will not terminate a process, if that process was the first process launched in the sandbox.</p>
-<p>For example, the default configuration includes Adobe Acrobat Reader as a LingerProcess, because it is typically launched when viewing PDF files through the Web browser, and remains running even after the browser has closed.
+<p><em>jusched.exe</em> 是 Sun Java 框架的一部分。当 Internet Explorer 启动 Java 框架时，偶尔会调用它。此 <em>LingerProcess</em> 示例设置指定，如果 <em>jusched.exe</em> 成为 DefaultBox 沙箱中最后一个运行的程序，则它会被终止。</p>
+<p>如果某进程是沙箱中最先启动的进程，驻留进程不会终止该进程。</p>
+<p>例如，默认配置中将 Adobe Acrobat Reader 作为 驻留进程，因为一般情况下在通过 Web 浏览器查看 PDF 文件时会启动该程序，而且即使浏览器关闭，该程序仍会继续运行。
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">   </span><span class="na">LingerProcess</span><span class="o">=</span><span class="s">acrord32.exe</span>
 </span></code></pre></div></p>
-<p>However, if you manually start Adobe Acrobat Reader sandboxed, for example by running it from the Sandboxie Start Menu, then the LingerProcess setting will not apply to that process.</p>
-<p>Related <a href="../SandboxieControl/">Sandboxie Control</a> setting: <a href="../ProgramStopSettings/#lingering-programs">Sandbox Settings -&gt; Program Stop -&gt; Lingering Programs</a></p>
-<p>See also: <a href="../ProgramSettings/#linger">Program Settings</a>.</p>
+<p>然而，如果你手动在沙箱中启动 Adobe Acrobat Reader，例如通过沙盘开始菜单运行该程序，则 驻留进程 设置不会对该进程生效。</p>
+<p>相关 <a href="../SandboxieControl/">沙盘控制</a> 设置：<a href="../ProgramStopSettings/#lingering-programs">沙箱设置 -&gt; 程序控制 -&gt; 停止行为 -&gt; 驻留进程</a></p>
+<p>另见：<a href="../ProgramSettings/#linger">程序设置</a>。</p>
 
 
 

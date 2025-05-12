@@ -18,7 +18,7 @@
     
     
       
-        <title>Process Limit 1 - Sandboxie 文档</title>
+        <title>进程限制 1 - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#process-limit-1" class="md-skip">
+        <a href="#1" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Process Limit 1
+              进程限制 1
             
           </span>
         </div>
@@ -371,7 +371,7 @@
   
   
   <span class="md-ellipsis">
-    Getting Started
+    入门指南
     
   </span>
   
@@ -471,7 +471,7 @@
   
   
   <span class="md-ellipsis">
-    File Menu
+    文件菜单
     
   </span>
   
@@ -563,7 +563,7 @@
   
   
   <span class="md-ellipsis">
-    Help Menu
+    帮助菜单
     
   </span>
   
@@ -809,7 +809,7 @@
   
   
   <span class="md-ellipsis">
-    Sandboxie-Plus Migration Guide
+    沙盘增强版（Sandboxie Plus）迁移指南
     
   </span>
   
@@ -4526,9 +4526,9 @@
   
 
 
-<h1 id="process-limit-1">Process Limit 1</h1>
-<p><strong>ProcessLimit1 and ProcessLimit2 were removed since Sandboxie v0.7.1 / 5.48.5 in favour of <a href="../ProcessLimit/">ProcessLimit</a>.</strong></p>
-<p><em>ProcessLimit1</em> and <em>ProcessLimit2</em> were sandbox settings in <a href="../SandboxieIni/">Sandboxie Ini</a>. They limited the maximum number of processes that Sandboxie allowed in the sandbox at the same time.
+<h1 id="1">进程限制 1</h1>
+<p><strong>自沙盘（Sandboxie）v0.7.1 / 5.48.5 版本起，<em>ProcessLimit1</em> 和 <em>ProcessLimit2</em> 已被移除，转而使用 <a href="../ProcessLimit/">进程限制</a>。</strong></p>
+<p><em>ProcessLimit1</em> 和 <em>ProcessLimit2</em> 是 <a href="../SandboxieIni/">沙盘配置文件（Sandboxie Ini）</a> 中的沙箱设置。它们限制了沙盘在同一时间允许沙箱中运行的最大进程数。
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
@@ -4536,17 +4536,17 @@
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">ProcessLimit1</span><span class="o">=</span><span class="s">100</span>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">   </span><span class="na">ProcessLimit2</span><span class="o">=</span><span class="s">200</span>
 </span></code></pre></div></p>
-<p>ProcessLimit1: Once the sandbox has more than X programs at the same time, each new program will be delayed for ten seconds before it starts to run. X is the number specified in ProcessLimit1. The length of the delay, ten seconds, is not configurable.</p>
-<p>ProcessLimit2: Once the sandbox has more than Y programs at the same time, each new program will be immediately terminated. Y is the number specified in ProcessLimit2.</p>
-<p>The default numbers are 100 and 200 as mentioned above. ProcessLimit2 cannot be smaller than ProcessLimit1.</p>
-<p>Creative values can turn off one or both modes. For example,
+<p>进程限制 1（ProcessLimit1）：一旦沙箱中同时运行的程序数量超过 X 个，每个新程序将在启动前延迟十秒。X 是 <em>ProcessLimit1</em> 中指定的数字。延迟时间为十秒，不可配置。</p>
+<p>进程限制 2（ProcessLimit2）：一旦沙箱中同时运行的程序数量超过 Y 个，每个新程序将立即终止。Y 是 <em>ProcessLimit2</em> 中指定的数字。</p>
+<p>如上所述，默认值分别为 100 和 200。<em>ProcessLimit2</em> 不能小于 <em>ProcessLimit1</em>。</p>
+<p>通过设置特定的值可以关闭其中一种或两种模式。例如，
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">    </span><span class="na">ProcessLimit2</span><span class="o">=</span><span class="s">999999</span>
 </span></code></pre></div></p>
-<p>will effectively disable the termination feature. On the other hand,
+<p>这将有效禁用终止功能。另一方面，
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">    </span><span class="na">ProcessLimit1</span><span class="o">=</span><span class="s">50</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="na">ProcessLimit2</span><span class="o">=</span><span class="s">50</span>
 </span></code></pre></div></p>
-<p>will effectively disable the delaying feature.</p>
+<p>这将有效禁用延迟功能。</p>
 
 
 

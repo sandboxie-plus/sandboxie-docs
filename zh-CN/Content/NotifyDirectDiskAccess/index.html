@@ -18,7 +18,7 @@
     
     
       
-        <title>Notify Direct Disk Access - Sandboxie 文档</title>
+        <title>直接磁盘访问时通知 - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#notify-direct-disk-access" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Notify Direct Disk Access
+              直接磁盘访问时通知
             
           </span>
         </div>
@@ -371,7 +371,7 @@
   
   
   <span class="md-ellipsis">
-    Getting Started
+    入门指南
     
   </span>
   
@@ -471,7 +471,7 @@
   
   
   <span class="md-ellipsis">
-    File Menu
+    文件菜单
     
   </span>
   
@@ -563,7 +563,7 @@
   
   
   <span class="md-ellipsis">
-    Help Menu
+    帮助菜单
     
   </span>
   
@@ -809,7 +809,7 @@
   
   
   <span class="md-ellipsis">
-    Sandboxie-Plus Migration Guide
+    沙盘增强版（Sandboxie Plus）迁移指南
     
   </span>
   
@@ -4526,17 +4526,17 @@
   
 
 
-<h1 id="notify-direct-disk-access">Notify Direct Disk Access</h1>
-<p><em>NotifyDirectDiskAccess</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. It is typically specified as <em>NotifyDirectDiskAccess=y</em>.</p>
-<p>Usage:
+<h1 id="_1">直接磁盘访问时通知</h1>
+<p><em>NotifyDirectDiskAccess</em> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 中的一个沙箱设置。通常写作 <em>NotifyDirectDiskAccess=y</em>。</p>
+<p>用法如下：
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">NotifyDirectDiskAccess</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div></p>
-<p>Note that the default behavior of Sandboxie is to deny all direct access requests, unless explicit direct access is given to the hard disk device through the <a href="../OpenFilePath/">OpenFilePath</a> or <a href="../OpenPipePath/">OpenPipePath</a> settings. Normally, a message is not issued when such access is denied.</p>
-<p>This setting can not be altered using <a href="../SandboxieControl/">Sandboxie Control</a> and must be edited in <a href="../SandboxieIni/">Sandboxie Ini</a>.</p>
+<p>请注意，沙箱的默认行为是拒绝所有直接访问请求，除非通过 <a href="../OpenFilePath/">开放文件路径</a> 或 <a href="../OpenPipePath/">打开管道路径</a> 设置为硬盘设备显式授予直接访问权限。通常，在此类访问被拒绝时不会发出提示消息。</p>
+<p>该设置无法通过 <a href="../SandboxieControl/">沙盘控制</a> 更改，必须在 <a href="../SandboxieIni/">Sandboxie Ini</a> 中手动编辑。</p>
 
 
 

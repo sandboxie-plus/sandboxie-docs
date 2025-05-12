@@ -22,7 +22,7 @@
     
     
       
-        <title>File Menu - Sandboxie 文档</title>
+        <title>文件菜单 - Sandboxie 文档</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#file-menu" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -105,7 +105,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              File Menu
+              文件菜单
             
           </span>
         </div>
@@ -377,7 +377,7 @@
   
   
   <span class="md-ellipsis">
-    Getting Started
+    入门指南
     
   </span>
   
@@ -488,7 +488,7 @@
   
   
   <span class="md-ellipsis">
-    File Menu
+    文件菜单
     
   </span>
   
@@ -501,7 +501,7 @@
   
   
   <span class="md-ellipsis">
-    File Menu
+    文件菜单
     
   </span>
   
@@ -524,45 +524,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#terminate-all-programs" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      Terminate All Programs
+      终止所有程序
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#disable-forced-programs" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      Disable Forced Programs
+      禁用强制程序
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#run-as-uac-administrator" class="md-nav__link">
+  <a href="#uac" class="md-nav__link">
     <span class="md-ellipsis">
-      Run As UAC Administrator
+      以 UAC 管理员身份运行
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#is-window-sandboxed" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      Is Window Sandboxed?
+      窗口处于沙箱中吗？
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#exit" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
-      Exit
+      退出
     </span>
   </a>
   
@@ -658,7 +658,7 @@
   
   
   <span class="md-ellipsis">
-    Help Menu
+    帮助菜单
     
   </span>
   
@@ -904,7 +904,7 @@
   
   
   <span class="md-ellipsis">
-    Sandboxie-Plus Migration Guide
+    沙盘增强版（Sandboxie Plus）迁移指南
     
   </span>
   
@@ -4621,58 +4621,58 @@
   
 
 
-<h1 id="file-menu">File Menu</h1>
-<p><a href="SandboxieControl.html">Sandboxie Control</a> &gt; File Menu</p>
+<h1 id="_1">文件菜单</h1>
+<p><a href="SandboxieControl.html">沙盘控制</a> &gt; 文件菜单</p>
 <p><img alt="" src="../Media/FileMenu.png" /></p>
 <hr />
-<h3 id="terminate-all-programs">Terminate All Programs</h3>
-<p><a href="SandboxieControl.html">Sandboxie Control</a> &gt; <a href="FileMenu.html">File Menu</a> &gt; Terminate All Programs</p>
-<p>The <em>Terminate All Programs</em> command immediately stops all programs running in all sandboxes. There is no window associated with this command. However, you may be warned about the potential loss of any data processed by the programs which are about to be terminated:</p>
+<h3 id="_2">终止所有程序</h3>
+<p><a href="SandboxieControl.html">沙盘控制</a> &gt; <a href="FileMenu.html">文件菜单</a> &gt; 终止所有程序</p>
+<p>“终止所有程序”命令可立即停止所有沙箱中正在运行的全部程序。此命令没有关联的窗口。但在执行前，你可能会收到提示，警告即将终止的程序可能导致相关数据丢失：</p>
 <p><img alt="" src="../Media/TerminateWarning.png" /></p>
-<p>This warning refers to, for example, any open documents which will not be saved. This warning can be disabled by selecting the checkbox at the bottom: <em>In the future, terminate processes without asking.</em></p>
-<p>See also: <a href="TrayIconMenu.html#terminate-all-programs">Terminate All Programs</a> in <a href="TrayIconMenu.html">Tray Icon Menu</a>.</p>
+<p>该警告例如指的是任何未保存的打开文档。你可以通过勾选底部的“下次无需确认，直接终止进程”来禁用此警告。</p>
+<p>另请参阅：<a href="TrayIconMenu.html">托盘图标菜单</a>中的 <a href="TrayIconMenu.html#terminate-all-programs">终止所有程序</a></p>
 <hr />
-<h3 id="disable-forced-programs">Disable Forced Programs</h3>
-<p><a href="SandboxieControl.html">Sandboxie Control</a> &gt; <a href="FileMenu.html">File Menu</a> &gt; Disable Forced Programs</p>
-<p>The <em>Disable Forced Programs</em> toggle command temporarily disables or re-enables forced sandboxing. Normally, any <a href="ProgramStartSettings.html#forced-programs">forced programs</a> (or programs in any <a href="ProgramStartSettings.html#forced-folders">forced folders</a>) will automatically start under the supervision of Sandboxie. Forced sandboxing is temporarily suspended when the Disable Forced Programs command is invoked.</p>
-<p>By default, forced sandboxing is suspended for 10 seconds. The number of seconds can be changed in the following dialog box, which appears when you select this command.</p>
+<h3 id="_3">禁用强制程序</h3>
+<p><a href="SandboxieControl.html">沙盘控制</a> &gt; <a href="FileMenu.html">文件菜单</a> &gt; 禁用强制程序</p>
+<p>“禁用强制程序”切换命令可临时禁用或重新启用强制沙箱化。通常，所有<a href="ProgramStartSettings.html#forced-programs">强制程序</a>（或位于任意<a href="ProgramStartSettings.html#forced-folders">强制文件夹</a>中的程序）都会自动在沙盘的监管下启动。执行“禁用强制程序”命令时，强制沙箱化会被临时暂停。</p>
+<p>默认情况下，强制沙箱化会暂停 10 秒。你可以在弹出的对话框中修改暂停秒数，该对话框会在你选择此命令时出现。</p>
 <p><img alt="" src="../Media/DisableForcedPrograms.png" /></p>
-<p>Note that the associated command in the <a href="TrayIconMenu.html">Tray Icon Menu</a> does not show this dialog box, and uses the last duration specified, or the default of 10 seconds.</p>
-<p>For the duration that the Disable Forced Programs mode is in effect:</p>
+<p>请注意，<a href="TrayIconMenu.html">托盘图标菜单</a>中的相关命令不会显示此对话框，并会使用上一次设定的持续时间，或默认的 10 秒。</p>
+<p>在“禁用强制程序”模式有效期间：</p>
 <ul>
-<li>The Sandboxie icon in the system tray area includes a small red X.</li>
-<li>The "Disable Forced Programs" command in the <a href="FileMenu.html">File Menu</a> and <a href="TrayIconMenu.html">Tray Icon Menu</a> appears with a checkmark next to it.</li>
-<li>Message <a href="SBIE1301.html">SBIE1301</a> will be issued if any forced programs are started.</li>
-<li>Selecting this command again will cancel the mode, restore the icon to its original appearance, and resume the normal operation of forced sandboxing.</li>
+<li>系统托盘区域的沙盘图标将带有一个小红 X</li>
+<li><a href="FileMenu.html">文件菜单</a> 和 <a href="TrayIconMenu.html">托盘图标菜单</a>中的“禁用强制程序”命令旁会有一个勾选标记</li>
+<li>如果有强制程序启动，则会发出消息 <a href="SBIE1301.html">SBIE1301</a></li>
+<li>再次选择此命令，将取消该模式，恢复图标原状，并恢复强制沙箱化的正常操作</li>
 </ul>
-<p>See also: <a href="TrayIconMenu.html#disable-forced-programs">Disable Forced Programs</a> in <a href="TrayIconMenu.html">Tray Icon Menu</a>.</p>
+<p>另请参阅：<a href="TrayIconMenu.html">托盘图标菜单</a>中的 <a href="TrayIconMenu.html#disable-forced-programs">禁用强制程序</a></p>
 <hr />
-<h3 id="run-as-uac-administrator">Run As UAC Administrator</h3>
-<p><a href="SandboxieControl.html">Sandboxie Control</a> &gt; <a href="FileMenu.html">File Menu</a> &gt; Run As UAC Administrator</p>
-<p>The <em>Run As UAC Administrator</em> toggle command tells Sandboxie to ask for elevation to Administrative privileges before starting any programs. This command is only available on Windows when User Account Control (UAC) is in effect, and the user account is not already elevated. If this command is available in the menu, then it is typically necessary to enable it before installing programs into the sandbox, and it is recommended to disable it when that installation is complete.</p>
-<p>There is no window associated with this command. However, while the <em>Run As UAC Administrator</em> is in effect, the command appears in the <a href="FileMenu.html">File Menu</a> and <a href="TrayIconMenu.html">Tray Icon Menu</a> with a checkmark next to it.</p>
-<p>See also: <a href="TrayIconMenu.html#run-as-uac-administrator">Run As UAC Administrator</a> in <a href="TrayIconMenu.html">Tray Icon Menu</a>.</p>
+<h3 id="uac">以 UAC 管理员身份运行</h3>
+<p><a href="SandboxieControl.html">沙盘控制</a> &gt; <a href="FileMenu.html">文件菜单</a> &gt; 以 UAC 管理员身份运行</p>
+<p>“以 UAC 管理员身份运行”切换命令可使沙盘在启动任何程序前请求提升到管理员权限。该命令仅适用于启用了用户帐户控制（UAC）且当前用户账号尚未提升的 Windows。如果菜单中出现该命令，通常需要在将程序安装到沙箱前启用，安装完成后建议禁用。</p>
+<p>此命令没有关联的窗口。然而，在启用“以 UAC 管理员身份运行”后， <a href="FileMenu.html">文件菜单</a> 及 <a href="TrayIconMenu.html">托盘图标菜单</a>中的该命令旁将显示勾选标记。</p>
+<p>另请参阅：<a href="TrayIconMenu.html">托盘图标菜单</a>中的 <a href="TrayIconMenu.html#run-as-uac-administrator">以 UAC 管理员身份运行</a></p>
 <hr />
-<h3 id="is-window-sandboxed">Is Window Sandboxed?</h3>
-<p><a href="SandboxieControl.html">Sandboxie Control</a> &gt; <a href="FileMenu.html">File Menu</a> &gt; Is Window Sandboxed?</p>
-<p>The <em>Is Window Sandboxed?</em> command is used to select a window displayed on the screen, and if the window is owned by a sandboxed program, the command displays the name of the program and the sandbox it is running in.</p>
+<h3 id="_4">窗口处于沙箱中吗？</h3>
+<p><a href="SandboxieControl.html">沙盘控制</a> &gt; <a href="FileMenu.html">文件菜单</a> &gt; 窗口处于沙箱中吗？</p>
+<p>“窗口处于沙箱中吗？”命令用于选择屏幕上已显示的窗口，如果该窗口由沙箱中的程序所有，命令会显示该程序及其所在沙箱的名称。</p>
 <p><img alt="" src="../Media/IsWindowSandboxed.png" /></p>
-<p>To use the command, click and hold the left mouse button on the <em>Finder Tool</em>, that is, the icon of a target within a window. Without releasing the left mouse button, drag the target over the desired window, and when the target is within the boundaries of the desired window, release the left mouse button.</p>
-<p>If the window is owned by a sandboxed program, Sandboxie will display the program name and sandbox name, will switch the view to <a href="ProgramsView.html">Programs View</a>, and highlight that program.</p>
-<p>Some programs display their windows using customized graphics, and this prevents Sandboxie from showing the [#] indicators in the title bar. In these cases, you can use the <em>Is Window Sandboxed?</em> command to make sure that the window and its related program are running sandboxed.</p>
+<p>使用方法：按住左键点击“查找工具”（窗口内的目标图标），在不松开的情况下，将目标拖到需要确认的窗口上。当目标移入所选窗口边界后，松开左键。</p>
+<p>如果该窗口由沙箱中的程序所有，沙盘会显示其程序名称和沙箱名称，同时切换到<a href="ProgramsView.html">程序视图</a>，并高亮显示该程序。</p>
+<p>部分程序使用自定义图形方式显示窗口，导致沙盘无法在标题栏显示 [#] 指示标记。这种情况下，你可以通过“窗口处于沙箱中吗？”命令确认窗口及其相关程序是否正在沙箱中运行。</p>
 <hr />
-<h3 id="exit">Exit</h3>
-<p><a href="SandboxieControl.html">Sandboxie Control</a> &gt; <a href="FileMenu.html">File Menu</a> &gt; Exit</p>
-<p>The <em>Exit</em> command quits <a href="SandboxieControl.html">Sandboxie Control</a>. Note that merely closing the window (or selecting the <em>Hide Window</em> command from the <a href="TrayIconMenu.html">Tray Icon Menu</a>) <em>does not</em> quit Sandboxie Control.</p>
-<p>Sandboxie is still active and correctly supervise programs even when the front-end application, Sandboxie Control, is inactive. However, the following features are provided by the Sandboxie Control and will not be available when the front-end program is not running:</p>
+<h3 id="_5">退出</h3>
+<p><a href="SandboxieControl.html">沙盘控制</a> &gt; <a href="FileMenu.html">文件菜单</a> &gt; 退出</p>
+<p>“退出”命令可关闭 <a href="SandboxieControl.html">沙盘控制</a>。注意，仅关闭窗口（或在 <a href="TrayIconMenu.html">托盘图标菜单</a> 中选择 “隐藏窗口”）<strong>并不会</strong>退出沙盘控制。</p>
+<p>即使前端应用程序沙盘控制处于非活动状态，沙盘仍然有效并能正确监管各程序。但下列功能由沙盘控制前端提供，若其未运行则不可用：</p>
 <ul>
-<li>Automatic Delete Sandbox</li>
-<li>Quick and Immediate Recovery</li>
-<li>Disable Forced Programs mode (when initiated from the <a href="StartCommandLine.html">Sandboxie Start</a> program)</li>
+<li>自动删除沙箱</li>
+<li>快速和即时恢复</li>
+<li>禁用强制程序模式（通过 <a href="StartCommandLine.html">Sandboxie Start</a> 程序发起时）</li>
 </ul>
-<p>If you do not wish to see Sandboxie Control in your system tray area, consider configuring the Windows task bar to always hide the icon, rather than exit Sandboxie Control.</p>
+<p>如你不希望在系统托盘区域看到沙盘控制，请考虑配置 Windows 任务栏始终隐藏该图标，而非完全退出沙盘控制。</p>
 <hr />
-<p>Go to <a href="SandboxieControl.html#menus">Sandboxie Control</a>, <a href="TrayIconMenu.html">Tray Icon Menu</a>, <a href="HelpTopics.html">Help Topics</a>.</p>
+<p>前往 <a href="SandboxieControl.html#menus">沙盘控制</a>、<a href="TrayIconMenu.html">托盘图标菜单</a>、<a href="HelpTopics.html">帮助主题</a></p>
 
 
 
