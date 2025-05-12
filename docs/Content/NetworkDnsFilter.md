@@ -67,10 +67,14 @@ NetworkDnsFilter=program.exe,example.com
 * **Wildcard support is not available**: You must specify complete domain names; wildcards (e.g., `*.example.com`) are not supported.
 * **System DNS requirement**: For proper DNS filtering, you may need to use the `Template=BlockDNS` template. This ensures that applications make DNS queries through the system.
 * **Third-party interference**: Some third-party applications may interfere with or override DNS filtering.
+
 * **Limitations**: DNS filtering will not work when
 
     * A secure DNS (e.g., DNS-over-HTTPS) is configured within an application.
     * The "Proxy DNS when using SOCKS 4/5" or a similar setting is configured within an application.
+
+* **Bugs**:
+
     * Redirection fails when host not found. [Refer to this issue](https://github.com/sandboxie-plus/Sandboxie/issues/4359) for details.
 
 ## Related Configuration
