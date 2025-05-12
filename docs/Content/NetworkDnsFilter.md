@@ -62,12 +62,12 @@ This rule blocks DNS requests to `example.com` only for the sandboxed `program.e
 NetworkDnsFilter=program.exe,example.com
 ```
 
-## Known Limitations
+## Important Notes
 
 * **Wildcard support is not available**: You must specify complete domain names; wildcards (e.g., `*.example.com`) are not supported.
-* **Template settings**: For proper DNS filtering, you may need to use the `Template=BlockDNS` template. This ensures that applications make DNS queries through the system.
+* **System DNS requirement**: For proper DNS filtering, you may need to use the `Template=BlockDNS` template. This ensures that applications make DNS queries through the system.
 * **Third-party interference**: Some third-party applications may interfere with or override DNS filtering.
-* **DNS filtering will not work when:**
+* **Limitations**: DNS filtering will not work when
 
   * A secure DNS (e.g., DNS-over-HTTPS) is configured within an application.
   * The "Proxy DNS when using SOCKS 4/5" or a similar setting is configured within an application.
