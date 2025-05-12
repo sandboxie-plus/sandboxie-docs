@@ -80,4 +80,5 @@ NetworkDnsFilter=program.exe,example.com
 ## Related Configuration
 
 This setting corresponds to the GUI option in **Sandboxie Plus** under the following path:
+
 **Sandbox Options** > **Network Options** > **DNS Filter**.
