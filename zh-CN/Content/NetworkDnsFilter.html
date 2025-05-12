@@ -4570,12 +4570,19 @@
 <ul>
 <li><strong>Wildcard support is not available</strong>: You must specify complete domain names; wildcards (e.g., <code>*.example.com</code>) are not supported.</li>
 <li><strong>System DNS requirement</strong>: For proper DNS filtering, you may need to use the <code>Template=BlockDNS</code> template. This ensures that applications make DNS queries through the system.</li>
-<li><strong>Third-party interference</strong>: Some third-party applications may interfere with or override DNS filtering.</li>
+<li>
+<p><strong>Third-party interference</strong>: Some third-party applications may interfere with or override DNS filtering.</p>
+</li>
 <li>
 <p><strong>Limitations</strong>: DNS filtering will not work when</p>
 <ul>
 <li>A secure DNS (e.g., DNS-over-HTTPS) is configured within an application.</li>
 <li>The "Proxy DNS when using SOCKS 4/5" or a similar setting is configured within an application.</li>
+</ul>
+</li>
+<li>
+<p><strong>Bugs</strong>:</p>
+<ul>
 <li>Redirection fails when host not found. <a href="https://github.com/sandboxie-plus/Sandboxie/issues/4359">Refer to this issue</a> for details.</li>
 </ul>
 </li>
