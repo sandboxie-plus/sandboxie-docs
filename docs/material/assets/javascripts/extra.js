@@ -77,7 +77,7 @@ document$.subscribe(function() {
 
   function processMark(mark) {
     if (processedNodes.has(mark)) return;
-    
+
     const cleanText = mark.textContent.replace(/r?k?(>|&gt;)/g, '');
     if (cleanText !== mark.textContent) {
       const newMark = document.createElement('mark');
@@ -91,7 +91,7 @@ document$.subscribe(function() {
   function processMarks(mutations) {
     // Clear any pending debounce
     clearTimeout(debounceTimer);
-    
+
     // Process either all marks or just mutations
     if (!mutations) {
       document.querySelectorAll('mark').forEach(processMark);
@@ -126,7 +126,7 @@ document$.subscribe(function() {
         );
       } else {
         debounceTimer = setTimeout(
-          () => processMarks(mutations), 
+          () => processMarks(mutations),
           300
         );
       }
