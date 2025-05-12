@@ -25,3 +25,5 @@ The mechanics of DNS Query Control are elegantly intricate. Users can selectivel
 
 ## Embrace the Future of Network Control
 DNS Query Logging, Filtering, and Redirection transcends traditional sandboxing capabilities. It introduces an unprecedented level of network oversight, effectively placing users at the helm of their sandboxed network interactions. In an age where data security, privacy, and control are paramount, this feature stands as a beacon of innovation. Join us in embracing the dawn of network control with DNS Query Logging, Filtering, and Redirection – where every DNS interaction is precisely managed to align with your security vision.
+
+For detailed information on configuring and using DNS filtering in Sandboxie, refer to the [Network Dns Filter](../Content/NetworkDnsFilter.md) documentation.
