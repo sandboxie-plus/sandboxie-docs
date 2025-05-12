@@ -69,9 +69,9 @@ NetworkDnsFilter=program.exe,example.com
 * **Third-party interference**: Some third-party applications may interfere with or override DNS filtering.
 * **Limitations**: DNS filtering will not work when
 
-  * A secure DNS (e.g., DNS-over-HTTPS) is configured within an application.
-  * The "Proxy DNS when using SOCKS 4/5" or a similar setting is configured within an application.
-  * The specified host is not found. [Refer to this issue](https://github.com/sandboxie-plus/Sandboxie/issues/4359) for details.
+    * A secure DNS (e.g., DNS-over-HTTPS) is configured within an application.
+    * The "Proxy DNS when using SOCKS 4/5" or a similar setting is configured within an application.
+    * Redirection fails when host not found. [Refer to this issue](https://github.com/sandboxie-plus/Sandboxie/issues/4359) for details.
 
 ## Related Configuration
 
