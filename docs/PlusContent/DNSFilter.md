@@ -25,3 +25,10 @@ The mechanics of DNS Query Control are elegantly intricate. Users can selectivel
 
 ## Embrace the Future of Network Control
 DNS Query Logging, Filtering, and Redirection transcends traditional sandboxing capabilities. It introduces an unprecedented level of network oversight, effectively placing users at the helm of their sandboxed network interactions. In an age where data security, privacy, and control are paramount, this feature stands as a beacon of innovation. Join us in embracing the dawn of network control with DNS Query Logging, Filtering, and Redirection – where every DNS interaction is precisely managed to align with your security vision.
+
+## Known limitations
+- **NO** wildsard support.
+- You may also need to use the `Template=BlockDNS` template to ensure proper filtering. This way, applications will make DNS queries through the system.
+- DNS filtering will **NOT** work when a secure DNS is configured within an application.
+- DNS filtering will **NOT** work when "Proxy DNS when using SOCKS 4/5" or similar setting is configured within an application.
+- Third party applications may also cause this filtering to not work.
