@@ -82,60 +82,60 @@ jobs:
       run: |-
         python -m mkdocs build
         python -m mkdocs build --no-directory-urls --site-dir site_
-        
+
         # Process HTML files in both root and /zh language folders
         $languagePaths = "", "zh"  # "" for root, "zh" for Chinese
         $contentFolders = "Content", "PlusContent"
-        
+
         Write-Host "=== Starting file copy process ===" -ForegroundColor Cyan
-        
+
         foreach ($lang in $languagePaths) {
             foreach ($folder in $contentFolders) {
                 # Construct source and destination paths
-                $sourcePath = if ($lang) { Join-Path "site_" $lang | Join-Path -ChildPath $folder } 
+                $sourcePath = if ($lang) { Join-Path "site_" $lang | Join-Path -ChildPath $folder }
                              else { Join-Path "site_" $folder }
-                
-                $destPath = if ($lang) { Join-Path "./site" $lang | Join-Path -ChildPath $folder } 
+
+                $destPath = if ($lang) { Join-Path "./site" $lang | Join-Path -ChildPath $folder }
                            else { Join-Path "./site" $folder }
-        
+
                 Write-Host "`nProcessing folder: $sourcePath" -ForegroundColor Yellow
                 Write-Host "Destination folder: $destPath" -ForegroundColor Yellow
-        
+
                 # Skip if source doesn't exist
                 if (!(Test-Path $sourcePath)) {
                     Write-Host "Source path not found. Skipping." -ForegroundColor DarkYellow
                     continue
                 }
-        
+
                 # Get all HTML files
                 $htmlFiles = Get-ChildItem -Path $sourcePath -Filter "*.html" -Recurse -File
-        
+
                 if ($htmlFiles.Count -eq 0) {
                     Write-Host "No HTML files found." -ForegroundColor DarkYellow
                     continue
                 }
-        
+
                 Write-Host "Found $($htmlFiles.Count) HTML files to process" -ForegroundColor Green
-        
+
                 foreach ($file in $htmlFiles) {
                     # Get relative path (e.g., "subdir/file.html") from source folder
                     $relativePath = $file.FullName.Substring((Resolve-Path $sourcePath).Path.Length + 1)
                     $destinationFile = Join-Path $destPath $relativePath
-        
+
                     Write-Host "`n[File] Source: $($file.FullName)" -ForegroundColor Gray
                     Write-Host "       Destination: $destinationFile" -ForegroundColor Gray
-        
+
                     # Ensure destination directory exists
                     $destinationDir = [System.IO.Path]::GetDirectoryName($destinationFile)
                     if (!(Test-Path $destinationDir)) {
                         Write-Host "Creating directory: $destinationDir" -ForegroundColor Blue
                         New-Item -ItemType Directory -Path $destinationDir -Force | Out-Null
                     }
-        
+
                     # Copy file
                     Write-Host "Copying file..." -ForegroundColor DarkCyan
                     Copy-Item -Path $file.FullName -Destination $destinationFile -Force
-        
+
                     if (Test-Path $destinationFile) {
                         Write-Host "Successfully copied." -ForegroundColor Green
                     } else {
@@ -144,7 +144,7 @@ jobs:
                 }
             }
         }
-        
+
         Write-Host "`n=== Copy process completed ===" -ForegroundColor Cyan
 
         # Rename target language directory to source language directory in the final site directory
@@ -168,7 +168,7 @@ jobs:
         # # Process lunr language files
         # $lunrFiles = Get-ChildItem site -Recurse -Filter "lunr.zh.min.js"
         # Write-Host "Found $($lunrFiles.Count) lunr.zh.min.js files"
-        
+
         # foreach ($lunrFile in $lunrFiles) {
             # $newPath = Join-Path $lunrFile.Directory.FullName "lunr.zh-CN.min.js"
             # Write-Host "Copying $($lunrFile) to $newPath"
@@ -179,20 +179,20 @@ jobs:
         # # Process search_index.json files
         # $searchIndexFiles = Get-ChildItem site -Recurse -Filter "search_index.json"
         # Write-Host "Found $($searchIndexFiles.Count) search_index.json files"
-        
+
         # foreach ($searchFile in $searchIndexFiles) {
             # Write-Host "Processing search index: $($searchFile)"
-            
+
             # try {
                 # $jsonContent = Get-Content $searchFile -Raw | ConvertFrom-Json
-                
+
                 # # Check and update lang array in config
                 # if ($jsonContent.config -and $jsonContent.config.lang -contains $env:DIR_ZH) {
                     # Write-Host "Found '$env:DIR_ZH' in lang array, updating to '$env:DIR_ZHCN'"
                     # $jsonContent.config.lang = $jsonContent.config.lang | ForEach-Object {
                         # if ($_ -eq $env:DIR_ZH) { $env:DIR_ZHCN } else { $_ }
                     # }
-                    
+
                     # # Convert back to JSON and save
                     # $jsonContent | ConvertTo-Json -Depth 10 | Set-Content $searchFile
                     # Write-Host "Successfully updated $($searchFile)"
@@ -207,28 +207,28 @@ jobs:
         # Process sitemap.xml files recursively
         $sitemapFiles = Get-ChildItem site -Recurse -Filter "sitemap.xml"
         Write-Host "Found $($sitemapFiles.Count) sitemap.xml files"
-        
+
         foreach ($sitemap in $sitemapFiles) {
             Write-Host "Processing sitemap: $($sitemap)"
-            
+
             # Update references in sitemap.xml
             $content = Get-Content $sitemap -Raw
             $updatedContent = $content -replace "/$env:DIR_ZH/", "/$env:DIR_ZHCN/"
-            
+
             if ($content -ne $updatedContent) {
                 Write-Host "Updated $env:DIR_ZH→$env:DIR_ZHCN references in $($sitemap)"
                 $updatedContent | Set-Content $sitemap
             } else {
                 Write-Host "No $env:DIR_ZH→$env:DIR_ZHCN references found in $($sitemap)"
             }
-            
+
             # Process corresponding .gz file
             $gzPath = "$($sitemap).gz"
             if (Test-Path $gzPath) {
                 Write-Host "Found existing gzip file: $gzPath - deleting it"
                 Remove-Item -Force $gzPath
             }
-            
+
             # Create new gzip file
             Write-Host "Creating new gzip file: $gzPath"
             $bytes = [System.Text.Encoding]::UTF8.GetBytes($updatedContent)
@@ -237,7 +237,7 @@ jobs:
             $gzip.Write($bytes, 0, $bytes.Length)
             $gzip.Close()
             [System.IO.File]::WriteAllBytes($gzPath, $ms.ToArray())
-            
+
             Write-Host "Successfully processed $($sitemap)"
         }
 
