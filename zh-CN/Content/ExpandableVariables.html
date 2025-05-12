@@ -4526,7 +4526,7 @@
   
 
 
-<h1 id="_1">可扩展变量</h1>
+<h1 id="_1">可扩展变量<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
 <p>某些沙盘设置可能包含 <em>变量</em>。这些是占位名称，将被替换为可能针对特定计算机和用户账户的实际文本。例如：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">RecoverFolder</span><span class="o">=</span><span class="s">%Personal%\Song_Lyrics</span>
 </span></code></pre></div>
@@ -4600,9 +4600,9 @@
 </tr>
 </tbody>
 </table>
-<h3 id="_2">模板变量</h3>
+<h3 id="_2">模板变量<a class="headerlink" href="#_2" title="Permanent link"></a></h3>
 <p>全局模板是沙盘安装的一部分，位于沙盘安装文件夹的 <em>Templates.ini</em> 文件中。可以在 <a href="SandboxieIni.html">Sandboxie Ini</a> 中另行添加本地模板。任何模板都可以以 <em>%Tmpl.SomeVariableName%</em> 形式引用模板变量。这些变量名不是沙盘核心自带的，必须在 <em>Templates.ini</em> 或 <em>Sandboxie.ini</em> 文件的 [TemplateSettings] 节中定义。</p>
-<h3 id="_3">变量覆盖</h3>
+<h3 id="_3">变量覆盖<a class="headerlink" href="#_3" title="Permanent link"></a></h3>
 <p>上表中的任何变量，包括 <a href="ShellFolders.html">Shell 文件夹</a> 和模板变量，都可以通过 <a href="SandboxieIni.html">Sandboxie Ini</a> 配置文件进行覆盖。要覆盖变量，只需添加以 <strong>Ovr.</strong> 前缀开头的参数。</p>
 <p>例如：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">    </span><span class="k">[GlobalSettings]</span>
@@ -4615,7 +4615,7 @@
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="na">OpenFilePath</span><span class="o">=</span><span class="s">%SystemRoot%\Temp</span>
 </span></code></pre></div>
 <p>当以这种方式覆盖变量时，其展开值将始终与配置文件中指定的值一致。</p>
-<h3 id="_4">注册表回退</h3>
+<h3 id="_4">注册表回退<a class="headerlink" href="#_4" title="Permanent link"></a></h3>
 <p>上表中的某些变量取自系统注册表。这些变量包括 <em>ProgramFiles</em> 及其后所有出现在表内的变量。对于这些变量，可以在 <a href="SandboxieIni.html">Sandboxie Ini</a> 配置文件中指定“回退”值。要为变量指定回退方式，添加以 <strong>Reg.</strong> 前缀开头的参数。</p>
 <p>例如：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="w">    </span><span class="k">[GlobalSettings]</span>

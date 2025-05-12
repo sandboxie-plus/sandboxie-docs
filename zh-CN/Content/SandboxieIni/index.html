@@ -4643,10 +4643,10 @@
   
 
 
-<h1 id="sandboxieini">沙盘配置文件（Sandboxie.ini）</h1>
+<h1 id="sandboxieini">沙盘配置文件（Sandboxie.ini）<a class="headerlink" href="#sandboxieini" title="Permanent link"></a></h1>
 <p>可以通过一个名为 Sandboxie.ini 的、人类可读的文本配置文件来更改或微调沙盘（Sandboxie）的某些操作方面。本节将介绍该文件的结构和内容。</p>
 <p>一般来说，不建议手动编辑此配置文件。建议使用 <a href="../SandboxieControl/">沙盘控制（Sandboxie Control）</a> 来进行配置更改。请参阅 <a href="../SandboxSettings/">沙箱设置（Sandbox Settings）</a>。</p>
-<h2 id="_1">位置</h2>
+<h2 id="_1">位置<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
 <p>沙盘会按以下顺序在以下文件夹中查找 Sandboxie.ini 文件：</p>
 <ul>
 <li>Windows 文件夹：在大多数 Windows 系统安装中为 <code>C:\Windows</code></li>
@@ -4655,7 +4655,7 @@
 <p>当找到该文件的一个实例时，对 Sandboxie.ini 的搜索即结束，所有其他实例将被忽略。</p>
 <p>当 <a href="../SandboxieControl/">沙盘控制（Sandboxie Control）</a> 更新配置时，它会重写上次读取配置的文件夹中的 Sandboxie.ini 文件。因此，如果手动移动了该文件，则必须手动 <a href="../ConfigureMenu/#reload-configuration">重新加载</a> 沙盘配置。（重启计算机也会有相同的效果。）</p>
 <p><strong>注意：</strong> 沙盘不支持 Sandboxie.ini 文件的任何其他自定义位置。</p>
-<h2 id="_2">结构</h2>
+<h2 id="_2">结构<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <p>文件中的配置设置被分为组或节。一个节以一行指定其名称并包含在方括号内的内容开始。例如：[SomeSectionName]。该节一直延续到文件末尾，或者直到另一个节开始。有三种类型的节：</p>
 <ul>
 <li>全局设置节包含适用于沙盘的全局设置。这些设置以某种方式应用于所有沙箱和所有用户账户。只能有一个全局设置节，通常位于配置文件的顶部。</li>
@@ -4682,15 +4682,15 @@
 <p><strong>注意：</strong> 在运行过程中，<a href="../SandboxieControl/">沙盘控制（Sandboxie Control）</a> 会定期重写 Sandboxie.ini 文件，重写过程会丢失所有注释。但是，在重写过程中未识别的设置不会丢失，因此一种解决方法是以 Comment=text 的形式编写注释。</p>
 <p>配置文件最多可包含 30,000 行文本。每行最多可包含 1000 个字符。</p>
 <p>该文件采用 UNICODE 编码，这意味着每个字符由两个字节组成。许多文本文件编辑器，包括系统记事本，都能正确处理这种编码。</p>
-<h2 id="_3">设置</h2>
-<h3 id="_4">全局设置：</h3>
+<h2 id="_3">设置<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
+<h3 id="_4">全局设置：<a class="headerlink" href="#_4" title="Permanent link"></a></h3>
 <ul>
 <li>在右侧导航栏的“全局设置”标题下列出。</li>
 <li>设置适用于沙盘的一般操作，而不适用于任何特定的沙箱。</li>
 <li>全局设置必须放在 GlobalSettings 节中，并且不能通过在沙箱节中包含相同设置来覆盖。</li>
 <li>沙箱设置可能会出现在 GlobalSettings 节中，并且可以通过在沙箱节中包含相同设置来覆盖。</li>
 </ul>
-<h3 id="_5">沙箱设置：</h3>
+<h3 id="_5">沙箱设置：<a class="headerlink" href="#_5" title="Permanent link"></a></h3>
 <ul>
 <li>在右侧导航栏的“沙箱设置”标题下列出。</li>
 <li>当在关联的沙箱节中指定时，设置适用于特定的沙箱。</li>
@@ -4703,14 +4703,14 @@
 <li>一些沙箱设置是 <a href="../YesOrNoSettings/">是或否设置（Yes Or No Settings）</a>。</li>
 <li>沙箱设置可以指定沙盘识别的 <a href="../ExpandableVariables/">可扩展变量（Expandable Variables）</a>。</li>
 </ul>
-<h3 id="_6">用户设置</h3>
+<h3 id="_6">用户设置<a class="headerlink" href="#_6" title="Permanent link"></a></h3>
 <ul>
 <li>设置记录 <a href="../SandboxieControl/">沙盘控制（Sandboxie Control）</a> 的状态，例如窗口的位置。</li>
 <li>每个用户账户都指向一个不同的 [UserSettings_XXXXXXXX] 节。</li>
 <li>当创建一个新的 [UserSettings_XXXXXXXX] 节时，如果 [UserSettings_Default] 节存在，则默认值将取自该节。</li>
 <li>如果 [UserSettings_Portable] 节存在，则所有用户账户都将指向使用该节。</li>
 </ul>
-<h2 id="_7">自动化</h2>
+<h2 id="_7">自动化<a class="headerlink" href="#_7" title="Permanent link"></a></h2>
 <p>沙盘包含一个命令行实用程序，用于查询或更新 Sandboxie.ini 配置文件。该实用程序适用于直接的命令行交互，也可从脚本或程序中调用。该实用程序可以在沙盘安装目录中找到，名为 SbieIni.exe。有关更多详细信息，请参阅 <a href="https://github.com/sandboxie-plus/Sandboxie/issues/278#issuecomment-856207910">通过命令行创建沙箱</a> 和 <a href="https://sandboxie-website-archive.github.io/www.sandboxie.com/old-forums/viewtopica6bca6bc.html#p126947">SbieIni.exe 使用方法</a> 部分。</p>
 
 

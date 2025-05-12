@@ -4716,59 +4716,59 @@
   
 
 
-<h1 id="known-conflicts">Known Conflicts</h1>
+<h1 id="known-conflicts">Known Conflicts<a class="headerlink" href="#known-conflicts" title="Permanent link"></a></h1>
 <hr />
 <p>Known conflicts can be resolved by activating application configurations in Sandbox Settings &gt; Applications or in Sandbox Options &gt; App Templates (Plus edition).</p>
 <hr />
-<h3 id="not-all-programs-can-be-installed-or-run-inside-sandboxie">Not all programs can be installed or run inside Sandboxie</h3>
+<h3 id="not-all-programs-can-be-installed-or-run-inside-sandboxie">Not all programs can be installed or run inside Sandboxie<a class="headerlink" href="#not-all-programs-can-be-installed-or-run-inside-sandboxie" title="Permanent link"></a></h3>
 <p>Problem: Some applications that invoke services or drivers may not install/run inside Sandboxie.</p>
 <p>Solution #1: You may have a conflict with a third-party security software installed on your system (see issue <a href="https://github.com/sandboxie-plus/Sandboxie/issues/647">#647</a> and <a href="https://github.com/sandboxie-plus/Sandboxie/issues/293">#293</a>). If you want to know more about which security suite could be involved, take a look at the <a href="https://sandboxie-website-archive.github.io/www.sandboxie.com/old-forums/viewtopica726a726.html?f=11&amp;t=21539">archived forums</a>.</p>
 <p>Solution #2: If you have already tried to install your application in a new empty sandbox, then install it on your host and run it sandboxed.</p>
 <p>If problems persist, especially with applications working on previous Sandboxie versions, please let us know the details by posting on the <a href="https://github.com/sandboxie-plus/Sandboxie/issues">GitHub repository</a>.</p>
-<h3 id="microsoft-store-apps">Microsoft Store apps</h3>
+<h3 id="microsoft-store-apps">Microsoft Store apps<a class="headerlink" href="#microsoft-store-apps" title="Permanent link"></a></h3>
 <p>Problem: Microsoft store apps will not work in Sandboxie Classic and Sandboxie Plus.</p>
 <p>Solution: None at this time. See issue <a href="https://github.com/sandboxie-plus/Sandboxie/issues/19">#19</a> to track any possible change about this.</p>
-<h3 id="office-201320162019-office-365-c2r-versions-only">Office 2013/2016/2019 &amp; Office 365 (C2R versions only)</h3>
+<h3 id="office-201320162019-office-365-c2r-versions-only">Office 2013/2016/2019 &amp; Office 365 (C2R versions only)<a class="headerlink" href="#office-201320162019-office-365-c2r-versions-only" title="Permanent link"></a></h3>
 <p>Problem: Click to Run versions of Microsoft Office 2013, 2016, 2019 and Office 365 will crash when sandboxed. This includes Outlook 2013 and up.</p>
 <p>Solution: A fix was included on <a href="https://github.com/sandboxie-plus/Sandboxie/releases/tag/0.9.7">v0.9.7 / 5.52.1</a>.</p>
-<h3 id="office-2021">Office 2021</h3>
+<h3 id="office-2021">Office 2021<a class="headerlink" href="#office-2021" title="Permanent link"></a></h3>
 <p>Problem: Office 2021 cannot be installed inside a sandbox.</p>
 <p>Solution: None at this time. See issue <a href="https://github.com/sandboxie-plus/Sandboxie/issues/1675">#1675</a> or <a href="https://github.com/sandboxie-plus/Sandboxie/issues/1900">#1900</a> to track any possible change about this.</p>
-<h3 id="tor-browser">Tor Browser</h3>
+<h3 id="tor-browser">Tor Browser<a class="headerlink" href="#tor-browser" title="Permanent link"></a></h3>
 <p>Problem: Tor Browser is very slow in a sandbox, crashes or crashes after a certain time.</p>
 <p>Solution:  A fix was included on <a href="https://github.com/sandboxie-plus/Sandboxie/releases/tag/1.0.21">v1.0.21 / 5.55.21</a>.</p>
-<h3 id="hp-universal-print-driver">HP Universal Print Driver</h3>
+<h3 id="hp-universal-print-driver">HP Universal Print Driver<a class="headerlink" href="#hp-universal-print-driver" title="Permanent link"></a></h3>
 <p>Problem: The HP Universal Printer Status Monitor pop-up component is failing when printing from a sandboxed Web browser.</p>
 <p>Solution: Open Sandbox Settings &gt; Resource Access &gt; COM Access, click Add and enter this resource name:
 <code>{D713F357-7920-4B91-9EB6-49054709EC7A}</code></p>
-<h3 id="autodelete-feature-on-microsoft-edge">Autodelete feature on Microsoft Edge</h3>
+<h3 id="autodelete-feature-on-microsoft-edge">Autodelete feature on Microsoft Edge<a class="headerlink" href="#autodelete-feature-on-microsoft-edge" title="Permanent link"></a></h3>
 <p>Problem: Autodelete feature no longer works on Microsoft Edge.</p>
 <p>Solution: Microsoft Edge was updated with a new setting (under System) called "Startup boost", which is enabled by default. It prevents Edge from fully shutting down, so we suggest to disable the option or install <a href="https://github.com/sandboxie-plus/Sandboxie/releases/tag/v1.1.2">v1.1.2 / 5.56.2</a> or newer versions which include the fix.</p>
-<h3 id="steam-games">Steam games</h3>
+<h3 id="steam-games">Steam games<a class="headerlink" href="#steam-games" title="Permanent link"></a></h3>
 <p>Problem: Not all Steam games will function while Sandboxed.</p>
 <p>Solution: Install the games on your computer, not in a sandbox. Most games can work. However, there are <a href="https://github.com/sandboxie-plus/Sandboxie/labels/game%20issue">known reports</a> that some simply may not. If you run into a problem with a Steam game, you should make sure Steam client is updated on your host machine. Run Steam not sandboxed, download and install the game on your host computer and then "right click" on the game shortcut and select "Run Sandboxed" as a workaround. If problems persist, please let us know the details by posting on the <a href="https://github.com/sandboxie-plus/Sandboxie/issues">GitHub repository</a>.</p>
-<h3 id="gog-games-and-galaxy-beta">GOG Games and Galaxy Beta</h3>
+<h3 id="gog-games-and-galaxy-beta">GOG Games and Galaxy Beta<a class="headerlink" href="#gog-games-and-galaxy-beta" title="Permanent link"></a></h3>
 <p>Problem: Games from GOG Galaxy may not run while sandboxed.</p>
 <p>Solution: A partial workaround is available in <a href="https://github.com/sandboxie-plus/Sandboxie/issues/1246">#1246</a>. You can "force" GOG Program folder so that it works correctly within a sandbox. See also: <a href="../ForceFolder/">ForceFolder</a>.</p>
-<h3 id="no-access-to-microphone-or-camera-on-any-sandbox-in-windows-11">No access to microphone or camera on any sandbox in Windows 11</h3>
+<h3 id="no-access-to-microphone-or-camera-on-any-sandbox-in-windows-11">No access to microphone or camera on any sandbox in Windows 11<a class="headerlink" href="#no-access-to-microphone-or-camera-on-any-sandbox-in-windows-11" title="Permanent link"></a></h3>
 <p>Problem: There is no access to microphone/camera on any sandbox in Windows 11 systems.</p>
 <p>Solution: A workaround is available in <a href="https://github.com/sandboxie-plus/Sandboxie/issues/1669">#1669</a>, but no permanent fix.</p>
-<h3 id="tabs-sessions-on-chromium-browsers-are-sometimes-not-restored-correctly-in-sandboxie">Tabs sessions on Chromium browsers are sometimes not restored correctly in Sandboxie</h3>
+<h3 id="tabs-sessions-on-chromium-browsers-are-sometimes-not-restored-correctly-in-sandboxie">Tabs sessions on Chromium browsers are sometimes not restored correctly in Sandboxie<a class="headerlink" href="#tabs-sessions-on-chromium-browsers-are-sometimes-not-restored-correctly-in-sandboxie" title="Permanent link"></a></h3>
 <p>Problem: Tabs sessions are lost when a Chromium browser is running outside of the sandbox.</p>
 <p>Solution: No fix yet, but some workarounds are available in <a href="https://github.com/sandboxie-plus/Sandboxie/issues/558">#558</a>.</p>
-<h3 id="windows-explorer-takes-a-long-time-to-open-folders-drives-or-context-menus">Windows Explorer takes a long time to open folders, drives or context menus</h3>
+<h3 id="windows-explorer-takes-a-long-time-to-open-folders-drives-or-context-menus">Windows Explorer takes a long time to open folders, drives or context menus<a class="headerlink" href="#windows-explorer-takes-a-long-time-to-open-folders-drives-or-context-menus" title="Permanent link"></a></h3>
 <p>Problem: Windows Explorer can take a long time to open while sandboxed on Windows 10 and 11.</p>
 <p>Solution: No fix yet, see <a href="https://github.com/sandboxie-plus/Sandboxie/issues/69">#69</a>.</p>
-<h3 id="open-with-dialog-does-not-work-in-a-sandboxed-file-explorer-instance">"Open With" dialog does not work in a sandboxed File Explorer instance</h3>
+<h3 id="open-with-dialog-does-not-work-in-a-sandboxed-file-explorer-instance">"Open With" dialog does not work in a sandboxed File Explorer instance<a class="headerlink" href="#open-with-dialog-does-not-work-in-a-sandboxed-file-explorer-instance" title="Permanent link"></a></h3>
 <p>Problem: "Open with" functionality is not working with Sandboxie.</p>
 <p>Solution: A fix was included on <a href="https://github.com/sandboxie-plus/Sandboxie/releases/tag/1.0.6">v1.0.6 / 5.55.6</a>.</p>
-<h3 id="cant-use-the-search-box-in-file-explorer">Can't use the search box in File Explorer</h3>
+<h3 id="cant-use-the-search-box-in-file-explorer">Can't use the search box in File Explorer<a class="headerlink" href="#cant-use-the-search-box-in-file-explorer" title="Permanent link"></a></h3>
 <p>Problem: The search box in File Explorer doesn't get focused while sandboxed, and you can't input anything.</p>
 <p>Solution: A fix was included on <a href="https://github.com/sandboxie-plus/Sandboxie/releases/tag/0.9.8c">v0.9.8c / 5.53.2</a>.</p>
-<h3 id="sandboxed-service-failed-to-start-bits-or-request-to-start-service-bits-was-denied-can-appear-while-a-program-is-sandboxed">"Sandboxed service failed to start: BITS" or "Request to start service bits was denied" can appear while a program is sandboxed</h3>
+<h3 id="sandboxed-service-failed-to-start-bits-or-request-to-start-service-bits-was-denied-can-appear-while-a-program-is-sandboxed">"Sandboxed service failed to start: BITS" or "Request to start service bits was denied" can appear while a program is sandboxed<a class="headerlink" href="#sandboxed-service-failed-to-start-bits-or-request-to-start-service-bits-was-denied-can-appear-while-a-program-is-sandboxed" title="Permanent link"></a></h3>
 <p>Problem: BITS service seems to be broken since a few Windows 10 releases, as it's using some parts of WMI which is blocked in Sandboxie.</p>
 <p>Solution: A workaround was directly included on <a href="https://github.com/sandboxie-plus/Sandboxie/releases/tag/1.0.1">v1.0.1 / 5.55.1</a>.</p>
-<h3 id="i-cant-find-my-issue-in-this-list">I can't find my issue in this list</h3>
+<h3 id="i-cant-find-my-issue-in-this-list">I can't find my issue in this list<a class="headerlink" href="#i-cant-find-my-issue-in-this-list" title="Permanent link"></a></h3>
 <p>If you would like to search for further issues, please refer to the <a href="https://github.com/sandboxie-plus/Sandboxie">GitHub repository</a>.</p>
 
 

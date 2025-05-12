@@ -4621,11 +4621,11 @@
   
 
 
-<h1 id="sandbox-menu">Sandbox Menu</h1>
+<h1 id="sandbox-menu">Sandbox Menu<a class="headerlink" href="#sandbox-menu" title="Permanent link"></a></h1>
 <p><a href="../SandboxieControl/">Sandboxie Control</a> &gt; Sandbox Menu</p>
 <p><img alt="" src="../../Media/SandboxMenu.png" /></p>
 <hr />
-<h3 id="sandbox-sub-menu">Sandbox Sub-Menu</h3>
+<h3 id="sandbox-sub-menu">Sandbox Sub-Menu<a class="headerlink" href="#sandbox-sub-menu" title="Permanent link"></a></h3>
 <p>One or more sub-menus appear for each sandbox defined. The default configuration includes only one sandbox named <em>DefaultBox</em>, but more can be added using the <a href="./#create-new-sandbox">Create New Sandbox</a> command. Each sub-menu contains the following commands:</p>
 <ul>
 <li>The <em>Run Sandboxed</em> sub-sub-menu is used to start programs under the supervision of Sandboxie:</li>
@@ -4645,21 +4645,21 @@
 </ul>
 <p>These commands, except for Rename Sandbox and Remove Sandbox, are also available in the <a href="../TrayIconMenu/">Tray Icon Menu</a>.</p>
 <hr />
-<h3 id="create-new-sandbox">Create New Sandbox</h3>
+<h3 id="create-new-sandbox">Create New Sandbox<a class="headerlink" href="#create-new-sandbox" title="Permanent link"></a></h3>
 <p>The <em>Create New Sandbox</em> command defines a new sandbox in Sandboxie. A dialog box window will be displayed asking for the name of the new sandbox. The name can be any combination of digits and letters, and its maximum length is 32 characters. A combo box button can specify some existing sandbox, from which settings will be copied into the new sandbox. If such an existing sandbox has not been selected, the new sandbox will initially have a default set of settings. Once the sandbox is created, the <a href="../SandboxSettings/">Sandbox Settings</a> window can be used to alter sandbox settings.</p>
 <hr />
-<h3 id="set-container-folder">Set Container Folder</h3>
+<h3 id="set-container-folder">Set Container Folder<a class="headerlink" href="#set-container-folder" title="Permanent link"></a></h3>
 <p>The <em>Set Container Folder</em> command selects the container (or master, or parent) folder which will contain all other sandboxes. The default location is <strong>X:\Sandbox\%USER%\%SANDBOX%</strong>, where <strong>X:</strong> stands for the drive where Windows is installed, typically <strong>C:</strong>.</p>
 <p>The special variable <strong>%SANDBOX%</strong> is replaced by the name of the sandbox.</p>
 <p>The special variable <strong>%USER%</strong> is replaced by the name of whichever user account (or logon) is using that sandbox. Note that a sandbox created in one user account is visible and can be used by other accounts in the system. However, if the container folder includes the <strong>%USER%</strong> special variable, then the user accounts don't actually share the same sandbox. Each account has a separate instance of the sandbox.</p>
 <p>Related <a href="../SandboxieIni/">Sandboxie Ini</a> setting: <a href="../FileRootPath/">FileRootPath</a>.</p>
 <hr />
-<h3 id="set-layout-and-groups">Set Layout and Groups</h3>
+<h3 id="set-layout-and-groups">Set Layout and Groups<a class="headerlink" href="#set-layout-and-groups" title="Permanent link"></a></h3>
 <p>The <em>Set Layout and Groups</em> command permits ordering sandboxes within a hierarchy of groups, when displayed in menus and lists. This does not have any effect on how programs behave within a sandbox. This feature is useful when more than a few sandboxes are defined, as it permits easier menu access to a specific sandbox.</p>
 <p>Once any groups have been defined, the main <a href="../ProgramsView/">Programs View</a> in <a href="../SandboxieControl/">Sandboxie Control</a> will include a combo box button which can be used to restrict the list of sandboxes that are displayed.</p>
 <p>Related <a href="../SandboxieIni/">Sandboxie Ini</a> setting: BoxDisplayOrder.</p>
 <hr />
-<h3 id="reveal-hidden-sandbox">Reveal Hidden Sandbox</h3>
+<h3 id="reveal-hidden-sandbox">Reveal Hidden Sandbox<a class="headerlink" href="#reveal-hidden-sandbox" title="Permanent link"></a></h3>
 <p>The <em>Reveal Hidden Sandbox</em> command appears in the menu only if some sandboxes are not visible to or usable by the current user account. A sandbox can be restricted to specific user accounts using the <a href="../UserAccountsSettings/">User Accounts Settings</a> settings page in the <a href="../SandboxSettings/">Sandbox Settings</a> window. The <em>Reveal Hidden Sandbox</em> command can restore visibility of a sandbox that has been made unavailable the current user account.</p>
 <hr />
 <p>Go to <a href="../SandboxieControl/#menus">Sandboxie Control</a>, <a href="../HelpTopics/">Help Topics</a>.</p>

@@ -4526,14 +4526,14 @@
   
 
 
-<h1 id="code-injection">Code Injection</h1>
+<h1 id="code-injection">Code Injection<a class="headerlink" href="#code-injection" title="Permanent link"></a></h1>
 <p>Sandboxie employs a particularly low level approach of injecting its code into processes during creation.</p>
-<h5 id="trigger">Trigger</h5>
+<h5 id="trigger">Trigger<a class="headerlink" href="#trigger" title="Permanent link"></a></h5>
 <p>The driver registers a PsSetCreateProcessNotifyRoutine callback and when this is triggered inspects if the process should be sandboxed, when it decides so it blocks and requests the SbieSvc service to inject a loader into the process image. Alternatively a suspended process can be created and the driver triggered to put it into a sandbox by using API_START_PROCESS and resuming the process once the driver has finished.</p>
 <p>The injection mechanism itself can be adapted to be utilized without the driver. As of version 5.44 the loader code has been moved from the SbieSvc.exe to SbieDll.dll.</p>
-<h5 id="overview">Overview</h5>
+<h5 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h5>
 <p>The Code Injection mechanism is made up of 3 components, the injector itself, a low-level shell code (LowLevel.dll), and the to be injected payload (SbieDll.dll). Note that the LowLevel.dll is embedded into the loader as a resource.</p>
-<h2 id="remote-injection">Remote Injection</h2>
+<h2 id="remote-injection">Remote Injection<a class="headerlink" href="#remote-injection" title="Permanent link"></a></h2>
 <p>The injection is done calling <code>_FX ULONG SbieDll_InjectLow(HANDLE hProcess, BOOLEAN is_wow64, BOOLEAN bHostInject, BOOLEAN dup_drv_handle)</code> and providing the required arguments, the function then:</p>
 <ul>
 <li>Starts with preparing a data block <code>lowdata</code> of type <code>SBIELOW_DATA</code>, and filling in various values like is_wow64, bHostInject and others...</li>
@@ -4555,11 +4555,11 @@ The data stored there a couple of offsets, as well as the full paths to the Sbie
 </ul>
 <p>Now the process can be resumed and the injected code will do its thing.</p>
 <p>An important note to make here is that this function does the same for native 64 bit and wow64 emulated 32 bit processes, in fact, on a 64-bit system the injected shell code is always 64 bit. Only much later in the initialization of the process running under wow64 it switches to 32-bit.</p>
-<h2 id="shell-code-lowleveldll-operation">Shell Code (LowLevel.dll) operation</h2>
+<h2 id="shell-code-lowleveldll-operation">Shell Code (LowLevel.dll) operation<a class="headerlink" href="#shell-code-lowleveldll-operation" title="Permanent link"></a></h2>
 <p>The LowLevel.dll is written partially in assembler and partially in C, its base address is set to 0 to gain position independence.
 The initial entry point <code>_Start</code> retrieves the current address and calculates the addresses of the data block <code>data</code> of type <code>SBIELOW_DATA</code> and those of a couple of helper functions written in assembler, with those values as parameter it calls the <code>EntrypointC</code> function handing off the operation to the C portion.</p>
 <p>The <code>EntrypointC</code> function ensures that it will be executed only once, using a spinlock, and then checks if the <code>data-&gt;bHostInject</code> field is set to <code>0</code> it first hooks all the ntdll sys call functions using <code>InitSyscalls</code> then it prepares the later loading of the SbieDll.dll using <code>InitInject</code> and, on 64 bit systems only, it calls <code>InitConsole</code> to modify the ConsoleHandle. If <code>bHostInject != 0</code> the function only calls <code>InitInject</code>. Last the trampoline to the original function<code>data-&gt;LdrInitializeThunk_tramp</code> is called.</p>
-<h5 id="initinject">InitInject</h5>
+<h5 id="initinject">InitInject<a class="headerlink" href="#initinject" title="Permanent link"></a></h5>
 <p>The <code>InitInject</code> function checks if the process is running natively (i.e. 32-bit on a x86 system or 64-bit in a x64 system), or if it's running under wow64 (that is a 32-bit process on a 64-bit system) and selects either the native ntdll base address or the one of the wow64 ntdll. On Windows versions prior to 8, that address was located in <code>KUSER_SHARED_DATA::Wow64SharedInformation</code> structure, but not on later versions. Sandboxie used the driver to record the address of the wow64 ntdll during image loading and <code>InitInject</code> queried the driver for it. Since version 5.44, however, it's driver independent, the loader code uses <code>NtQueryVirtualMemory</code> to find the image base address and saves it into the <code>ntdll_wow64_base</code> field of the data block.</p>
 <p>At this point the top portion of the <code>data-&gt;syscall_data</code> before the <code>SBIELOW_EXTRA_DATA</code> region is no longer required and is repurposed to store temporary data of the type <code>INJECT_DATA</code>.</p>
 <p>The function then finds the addresses of <code>LdrLoadDll</code>, <code>LdrGetProcedureAddress</code>, <code>NtRaiseHardError</code> and <code>RtlFindActivationContextSectionString</code> using a custom <code>FindDllExport</code> lookup function by parsing through the previously selected ntdll image, these addresses are stored into the <code>INJECT_DATA</code> region, then a couple values from the <code>SBIELOW_EXTRA_DATA</code> are also copied into that region, containing paths to the SbieDll.dll (both 32 and 64 bit paths), as well as the name of kernel32.dll.</p>
@@ -4572,7 +4572,7 @@ In the native case it continues with hooking the <code>RtlFindActivationContextS
 <li>Last a pointer to the <code>SBIELOW_DATA</code> region is saved into the very top of the <code>INJECT_DATA</code> region, and the function exits.</li>
 </ul>
 <p>In the wow64 case <code>InitInjectWow64</code> sets up the <code>RtlFindActivationContextSectionString</code> hook on the 32-bit version of the function in the wow64 ntdll.dll in a similar way.</p>
-<h5 id="rtlfindactivationcontextsectionstring-detour">RtlFindActivationContextSectionString Detour</h5>
+<h5 id="rtlfindactivationcontextsectionstring-detour">RtlFindActivationContextSectionString Detour<a class="headerlink" href="#rtlfindactivationcontextsectionstring-detour" title="Permanent link"></a></h5>
 <p>In contrary to the above operations which are always executed natively, the <code>RtlFindActivationContextSectionString</code> detour function is executed in the mode matching the bit-ness of the started process.</p>
 <ul>
 <li>The function first restores the original <code>RtlFindActivationContextSectionString</code> begin.</li>
@@ -4580,12 +4580,12 @@ In the native case it continues with hooking the <code>RtlFindActivationContextS
 <li>Then it saves value of the first argument to the <code>INJECT_DATA</code> structure and replaces it with a pointer to said structure.</li>
 <li>Finally, it jumps to address of Ordinal 1, it uses a jump rather than call to invoke it so that when it returns it will return directly to the current caller.</li>
 </ul>
-<h2 id="payload-sbiedlldll-operation">Payload (SbieDll.dll) operation</h2>
+<h2 id="payload-sbiedlldll-operation">Payload (SbieDll.dll) operation<a class="headerlink" href="#payload-sbiedlldll-operation" title="Permanent link"></a></h2>
 <p>The SbieDll.dll hook entry point <code>Dll_Ordinal1</code> function starts of by obtaining a few required values from the <code>INJECT_DATA</code> structure that was passed as first argument, like the address of <code>SBIELOW_DATA</code> data block, and the original value of the first argument. Having copied the required values, it can free the no longer needed <code>INJECT_DATA</code>, formally <code>syscall_data</code> region.
 The function now checks if <code>bHostInject</code> is set to <code>0</code> in which case it Calls <code>SbieDll!Dll_InitInjected</code> this function hooks pretty much everything, ?, last but not least it calls <code>SbieDll!Ldr_Init</code> which sets up callbacks for dll loading and calls <code>SbieDll!Ldr_Inject_Init</code>. If <code>bHostInject != 0</code> however <code>SbieDll!Ldr_Inject_Init</code> is called directly from <code>Dll_Ordinal1</code>. Once the initialization is completed <code>Dll_Ordinal1</code> runs the real <code>RtlFindActivationContextSectionString</code> with its original arguments and returns.</p>
 <p>As if all this hooking wouldn?t be enough <code>SbieDll!Ldr_Inject_Init</code> sets up yet an other hook, this time targeting the actual entry point of the starting process. The function saves the initial bytes of the entry point, and overwrites it with a jump to <code>SbieDll!Ldr_Inject_Entry64</code> or to <code>SbieDll!Ldr_Inject_Entry32</code> respectively.
 Those are implemented in assembler, they pass a pointer to the return address location as argument to <code>SbieDll!Ldr_Inject_Entry</code> and clean up the stack, then they return to the begin of the entry point.</p>
-<h5 id="ldr_inject_entry">Ldr_Inject_Entry</h5>
+<h5 id="ldr_inject_entry">Ldr_Inject_Entry<a class="headerlink" href="#ldr_inject_entry" title="Permanent link"></a></h5>
 <p>This function first restores the original entry point function from <code>SbieDll!Ldr_Inject_SaveBytes</code>  and changes its caller?s return address to point to the begin of the entry point. This way once the caller returns the real entry point will be invoked. Then the function checks if <code>bHostInject</code> is set to <code>0</code> in which case it first calls <code>SbieDll!Ldr_LoadInjectDlls</code> and then <code>SbieDll!Dll_InitExeEntry</code> which performs the last initialization steps. If <code>bHostInject != 0</code> it calls only <code>SbieDll!Ldr_LoadInjectDlls</code> this function checks the <a href="../SandboxieIni/">Sandboxie.ini</a> for the <a href="../InjectDll/">InjectDll</a> or the <a href="../InjectDll64/">InjectDll64</a> respectively, and loads the additional dll?s if any are configured.</p>
 
 

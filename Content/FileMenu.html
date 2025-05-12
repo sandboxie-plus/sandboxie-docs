@@ -4621,18 +4621,18 @@
   
 
 
-<h1 id="file-menu">File Menu</h1>
+<h1 id="file-menu">File Menu<a class="headerlink" href="#file-menu" title="Permanent link"></a></h1>
 <p><a href="SandboxieControl.html">Sandboxie Control</a> &gt; File Menu</p>
 <p><img alt="" src="../Media/FileMenu.png" /></p>
 <hr />
-<h3 id="terminate-all-programs">Terminate All Programs</h3>
+<h3 id="terminate-all-programs">Terminate All Programs<a class="headerlink" href="#terminate-all-programs" title="Permanent link"></a></h3>
 <p><a href="SandboxieControl.html">Sandboxie Control</a> &gt; <a href="FileMenu.html">File Menu</a> &gt; Terminate All Programs</p>
 <p>The <em>Terminate All Programs</em> command immediately stops all programs running in all sandboxes. There is no window associated with this command. However, you may be warned about the potential loss of any data processed by the programs which are about to be terminated:</p>
 <p><img alt="" src="../Media/TerminateWarning.png" /></p>
 <p>This warning refers to, for example, any open documents which will not be saved. This warning can be disabled by selecting the checkbox at the bottom: <em>In the future, terminate processes without asking.</em></p>
 <p>See also: <a href="TrayIconMenu.html#terminate-all-programs">Terminate All Programs</a> in <a href="TrayIconMenu.html">Tray Icon Menu</a>.</p>
 <hr />
-<h3 id="disable-forced-programs">Disable Forced Programs</h3>
+<h3 id="disable-forced-programs">Disable Forced Programs<a class="headerlink" href="#disable-forced-programs" title="Permanent link"></a></h3>
 <p><a href="SandboxieControl.html">Sandboxie Control</a> &gt; <a href="FileMenu.html">File Menu</a> &gt; Disable Forced Programs</p>
 <p>The <em>Disable Forced Programs</em> toggle command temporarily disables or re-enables forced sandboxing. Normally, any <a href="ProgramStartSettings.html#forced-programs">forced programs</a> (or programs in any <a href="ProgramStartSettings.html#forced-folders">forced folders</a>) will automatically start under the supervision of Sandboxie. Forced sandboxing is temporarily suspended when the Disable Forced Programs command is invoked.</p>
 <p>By default, forced sandboxing is suspended for 10 seconds. The number of seconds can be changed in the following dialog box, which appears when you select this command.</p>
@@ -4647,13 +4647,13 @@
 </ul>
 <p>See also: <a href="TrayIconMenu.html#disable-forced-programs">Disable Forced Programs</a> in <a href="TrayIconMenu.html">Tray Icon Menu</a>.</p>
 <hr />
-<h3 id="run-as-uac-administrator">Run As UAC Administrator</h3>
+<h3 id="run-as-uac-administrator">Run As UAC Administrator<a class="headerlink" href="#run-as-uac-administrator" title="Permanent link"></a></h3>
 <p><a href="SandboxieControl.html">Sandboxie Control</a> &gt; <a href="FileMenu.html">File Menu</a> &gt; Run As UAC Administrator</p>
 <p>The <em>Run As UAC Administrator</em> toggle command tells Sandboxie to ask for elevation to Administrative privileges before starting any programs. This command is only available on Windows when User Account Control (UAC) is in effect, and the user account is not already elevated. If this command is available in the menu, then it is typically necessary to enable it before installing programs into the sandbox, and it is recommended to disable it when that installation is complete.</p>
 <p>There is no window associated with this command. However, while the <em>Run As UAC Administrator</em> is in effect, the command appears in the <a href="FileMenu.html">File Menu</a> and <a href="TrayIconMenu.html">Tray Icon Menu</a> with a checkmark next to it.</p>
 <p>See also: <a href="TrayIconMenu.html#run-as-uac-administrator">Run As UAC Administrator</a> in <a href="TrayIconMenu.html">Tray Icon Menu</a>.</p>
 <hr />
-<h3 id="is-window-sandboxed">Is Window Sandboxed?</h3>
+<h3 id="is-window-sandboxed">Is Window Sandboxed?<a class="headerlink" href="#is-window-sandboxed" title="Permanent link"></a></h3>
 <p><a href="SandboxieControl.html">Sandboxie Control</a> &gt; <a href="FileMenu.html">File Menu</a> &gt; Is Window Sandboxed?</p>
 <p>The <em>Is Window Sandboxed?</em> command is used to select a window displayed on the screen, and if the window is owned by a sandboxed program, the command displays the name of the program and the sandbox it is running in.</p>
 <p><img alt="" src="../Media/IsWindowSandboxed.png" /></p>
@@ -4661,7 +4661,7 @@
 <p>If the window is owned by a sandboxed program, Sandboxie will display the program name and sandbox name, will switch the view to <a href="ProgramsView.html">Programs View</a>, and highlight that program.</p>
 <p>Some programs display their windows using customized graphics, and this prevents Sandboxie from showing the [#] indicators in the title bar. In these cases, you can use the <em>Is Window Sandboxed?</em> command to make sure that the window and its related program are running sandboxed.</p>
 <hr />
-<h3 id="exit">Exit</h3>
+<h3 id="exit">Exit<a class="headerlink" href="#exit" title="Permanent link"></a></h3>
 <p><a href="SandboxieControl.html">Sandboxie Control</a> &gt; <a href="FileMenu.html">File Menu</a> &gt; Exit</p>
 <p>The <em>Exit</em> command quits <a href="SandboxieControl.html">Sandboxie Control</a>. Note that merely closing the window (or selecting the <em>Hide Window</em> command from the <a href="TrayIconMenu.html">Tray Icon Menu</a>) <em>does not</em> quit Sandboxie Control.</p>
 <p>Sandboxie is still active and correctly supervise programs even when the front-end application, Sandboxie Control, is inactive. However, the following features are provided by the Sandboxie Control and will not be available when the front-end program is not running:</p>

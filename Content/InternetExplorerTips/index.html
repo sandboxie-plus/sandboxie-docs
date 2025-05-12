@@ -4526,26 +4526,26 @@
   
 
 
-<h1 id="internet-explorer-tips">Internet Explorer Tips</h1>
-<h2 id="tips-specific-to-internet-explorer">Tips Specific to Internet Explorer</h2>
+<h1 id="internet-explorer-tips">Internet Explorer Tips<a class="headerlink" href="#internet-explorer-tips" title="Permanent link"></a></h1>
+<h2 id="tips-specific-to-internet-explorer">Tips Specific to Internet Explorer<a class="headerlink" href="#tips-specific-to-internet-explorer" title="Permanent link"></a></h2>
 <p><a href="../SandboxieControl/">Sandboxie Control</a> &gt; <a href="../SandboxSettings/">Sandbox Settings</a> &gt; <a href="../ApplicationsSettings/#web-browser">Applications &gt; Web Browser &gt; Internet Explorer</a></p>
 <p><img alt="" src="../../Media/WebBrowserSettings1.png" /></p>
 <hr />
-<h4 id="always-run-in-sandbox">Always Run In Sandbox</h4>
+<h4 id="always-run-in-sandbox">Always Run In Sandbox<a class="headerlink" href="#always-run-in-sandbox" title="Permanent link"></a></h4>
 <ul>
 <li>Setting: Force Internet Explorer to run in this sandbox</li>
 </ul>
 <p>This setting tells Sandboxie to automatically supervise any instance of Internet Explorer as it starts, even if it was not started directly through a Sandboxie facility or command.</p>
 <hr />
-<h4 id="internet-explorer-with-uac-enabled">Internet Explorer with UAC Enabled</h4>
+<h4 id="internet-explorer-with-uac-enabled">Internet Explorer with UAC Enabled<a class="headerlink" href="#internet-explorer-with-uac-enabled" title="Permanent link"></a></h4>
 <p>In Windows Vista/7/8/8.1 with UAC enabled, Internet Explorer maintains two sets of configurations: Normal configuration and administrator configuration. Each set contains its own cookies, home pages and some other settings. When you normally launch Internet Explorer, you get the normal configuration. When you right-click Internet Explorer and select the <em>Run as administrator</em> action, you get the administrator configuration.</p>
 <p>Under Sandboxie, Internet Explorer selects the Administrator configuration. (But Internet Explorer does not necessarily run as Administrator under Sandboxie.) To fine-tune the administrator configuration, use the <em>Run as administrator</em> right-click action when you run Internet Explorer outside the sandbox.</p>
 <hr />
-<h4 id="windows-update-on-windows-xp">Windows Update on Windows XP</h4>
+<h4 id="windows-update-on-windows-xp">Windows Update on Windows XP<a class="headerlink" href="#windows-update-on-windows-xp" title="Permanent link"></a></h4>
 <p>When you wish to visit the Windows Update web site, you should run Internet Explorer outside the sandbox. If Internet Explorer is forced to always run under Sandboxie (as discussed above), then use the <a href="../FileMenu/#disable-forced-programs">Disable Forced Programs</a> command to disable forced sandboxing before and after visiting the Windows Update web site.</p>
 <p>Note the Automatic Updates facility in Windows does not rely on Internet Explorer and should not be affected by any Sandboxie settings related to Internet Explorer. Similarly, the Windows Updates window in Windows Vista also does not rely on Internet Explorer and is also not affected by Sandboxie.</p>
 <hr />
-<h4 id="favorites">Favorites</h4>
+<h4 id="favorites">Favorites<a class="headerlink" href="#favorites" title="Permanent link"></a></h4>
 <ul>
 <li>Setting: Allow direct access to Internet Explorer favorites</li>
 <li>Setting: Add Internet Explorer favorites to Quick Recovery folders</li>
@@ -4555,7 +4555,7 @@
 <p>The first setting is more flexible in that you can add, edit and delete favorites freely. The second setting is more secure, but at the cost of some measure of convenience.</p>
 <p><strong>Bottom line:</strong> For greater convenience, select the setting "Allow direct access to Internet Explorer favorites."</p>
 <hr />
-<h4 id="cookies">Cookies</h4>
+<h4 id="cookies">Cookies<a class="headerlink" href="#cookies" title="Permanent link"></a></h4>
 <ul>
 <li>Setting: Allow direct access to Internet Explorer cookies</li>
 </ul>
@@ -4567,7 +4567,7 @@
 <li>If you need web sites that you visit in a sandboxed Internet Explorer to remember you, then select this setting.</li>
 </ul>
 <hr />
-<h4 id="feeds">Feeds</h4>
+<h4 id="feeds">Feeds<a class="headerlink" href="#feeds" title="Permanent link"></a></h4>
 <ul>
 <li>Setting: Allow direct access to Internet Explorer feeds</li>
 </ul>
@@ -4575,7 +4575,7 @@
 <p>Internet Explorer perdiocally checks its feeds from a component which is running outside the web browser. That component will not see (and will not check or refresh) feeds that are created in the sandbox when this setting is not in effect. (Technically, the component is a scheduled task. The task is created and altered whenever you use the Feed Settings tab in the Internet Options dialog.)</p>
 <p><strong>Bottom line:</strong> If you work with Internet Explorer feeds, it is recommended that you select this setting.</p>
 <hr />
-<h4 id="save-outside-sandbox">Save Outside Sandbox</h4>
+<h4 id="save-outside-sandbox">Save Outside Sandbox<a class="headerlink" href="#save-outside-sandbox" title="Permanent link"></a></h4>
 <ul>
 <li>Setting: Save outside sandbox: History of search strings and invoked commands.</li>
 <li><del>Setting: Save outside sandbox: Account information for Hotmail and Messenger.</del> (replaced with <a href="../OpenCredentials/">OpenCredentials</a> since Sandboxie v0.8.0 / 5.50.0)</li>
@@ -4584,8 +4584,8 @@
 <p><del>The second setting allows Internet Explorer running under Sandboxie to store "Credentials" information, which is typically used by Microsoft web sites, such as Hotmail, to remember your Windows Live ID. It is also used by Windows (Live) Messenger.</del></p>
 <p><strong>Bottom line:</strong> These settings are concerned with privacy more than security. Information that you enter into web sites can be kept permanently (as with a normal browser) or only until you delete the sandbox. To keep it permanently, select these settings. Otherwise, leave the settings unselected.</p>
 <hr />
-<h2 id="general-tips">General Tips</h2>
-<h4 id="automatic-delete-sandbox">Automatic Delete Sandbox</h4>
+<h2 id="general-tips">General Tips<a class="headerlink" href="#general-tips" title="Permanent link"></a></h2>
+<h4 id="automatic-delete-sandbox">Automatic Delete Sandbox<a class="headerlink" href="#automatic-delete-sandbox" title="Permanent link"></a></h4>
 <p><a href="../SandboxieControl/">Sandboxie Control</a> &gt; <a href="../SandboxSettings/">Sandbox Settings</a> &gt; <a href="../DeleteSettings/">Delete</a> &gt; <a href="../DeleteSettings/#invocation">Invocation</a></p>
 <p><img alt="" src="../../Media/DeleteInvocationSettings.png" /></p>
 <ul>
@@ -4593,7 +4593,7 @@
 </ul>
 <p>This setting tells Sandboxie to delete the sandbox whenever all programs in the sandbox stop running.</p>
 <hr />
-<h4 id="highlight-windows-of-programs-running-under-sandboxie">Highlight Windows of Programs Running Under Sandboxie</h4>
+<h4 id="highlight-windows-of-programs-running-under-sandboxie">Highlight Windows of Programs Running Under Sandboxie<a class="headerlink" href="#highlight-windows-of-programs-running-under-sandboxie" title="Permanent link"></a></h4>
 <p><a href="../SandboxieControl/">Sandboxie Control</a> &gt; <a href="../SandboxSettings/">Sandbox Settings</a> &gt; <a href="../AppearanceSettings/">Appearance Settings</a></p>
 <p><img alt="" src="../../Media/AppearanceSettings.png" /></p>
 <ul>

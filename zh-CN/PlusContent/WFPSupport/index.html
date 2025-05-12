@@ -4526,9 +4526,9 @@
   
 
 
-<h1 id="wfpwindows">WFP（Windows 过滤平台）支持</h1>
+<h1 id="wfpwindows">WFP（Windows 过滤平台）支持<a class="headerlink" href="#wfpwindows" title="Permanent link"></a></h1>
 <p><strong>Sandboxie Plus v0.9.3</strong> 引入了一种独特的网络连接管理方法，不仅实现了基于 Windows 过滤平台（WFP）的 <strong>内核模式</strong>（使用驱动程序）“按沙箱”防火墙，还实现了基于规则的 <strong>用户模式</strong> 出站数据包过滤器。</p>
-<h3 id="wfp">WFP 实现</h3>
+<h3 id="wfp">WFP 实现<a class="headerlink" href="#wfp" title="Permanent link"></a></h3>
 <p>要启用 WFP 功能，请在配置文件 <strong><a href="../../Content/SandboxieIni/">Sandboxie Ini</a></strong> 的 <code>[GlobalSettings]</code> 部分添加 <code>NetworkEnableWFP=y</code>，并 <strong>重启计算机或重新加载驱动程序</strong> 以使更改生效。WFP 过滤 <strong>同时适用于入站和出站</strong> 流量。</p>
 <ul>
 <li>要全局启用阻止功能，请在 <code>[GlobalSettings]</code> 部分添加 <code>AllowNetworkAccess=n</code>。</li>
@@ -4538,7 +4538,7 @@
 <li>要阻止某个沙箱（如 DefaultBox）中的特定程序访问网络，请在 <code>[DefaultBox]</code> 部分添加 <code>AllowNetworkAccess=program.exe,n</code>。</li>
 </ul>
 <p><strong>WFP 实现的局限性：</strong> WFP <strong>仅</strong> 过滤 TCP/UDP 协议。WFP 过滤规则可以通过基于 <strong>"NetworkAccess=..."</strong> 的规则层次结构（后文将详细描述），将通信限制为 <strong>指定的 IP 地址或选定的端口号</strong> 来实现。受限的沙箱进程仍然可以使用系统服务解析域名，但无法直接发送或接收数据包。</p>
-<h3 id="_1">用户模式数据包过滤器实现</h3>
+<h3 id="_1">用户模式数据包过滤器实现<a class="headerlink" href="#_1" title="Permanent link"></a></h3>
 <p>当未设置 <strong>NetworkEnableWFP=y</strong> 时，<strong>Sandboxie Plus v0.9.3</strong> 还在用户模式下添加了一个功能齐全的基于规则的数据包过滤器。此机制还取代了旧版本中原始的 <strong>"BlockPort=..."</strong> 功能。</p>
 <p><strong>用户模式过滤器的局限性：</strong>
 如果未启用 WFP 支持，仍然可以设置和使用相同的规则，但这些规则将仅通过用户模式挂钩应用。与 WFP 实现不同，它们 <strong>仅适用于出站连接</strong>，并且由于用户模式挂钩可能会被恶意应用绕过或禁用，因此无法保证强制实施。</p>
@@ -4548,10 +4548,10 @@
 其次，WFP 回调是全局的，即无论进程是否在沙箱中，系统上的任何进程都会触发这些回调。在非沙箱进程的情况下，它们不执行任何操作，并且使用哈希映射来识别需要采取行动的沙箱程序可以提供最佳性能。</p>
 <p><strong>结合 WFP 和用户模式过滤：</strong>
 如果为给定进程设置了“阻止互联网访问”并启用了（用于 WFP 的）驱动程序，您可以为该沙箱选择应用哪种方法：使用 WFP 或阻止网络设备。尽管阻止网络设备端点的方法更为绝对，但已知这种方法会导致某些应用程序崩溃。</p>
-<h3 id="wfp_1">WFP 和多个防火墙</h3>
+<h3 id="wfp_1">WFP 和多个防火墙<a class="headerlink" href="#wfp_1" title="Permanent link"></a></h3>
 <p>商业可用的防火墙通过安装过滤规则的 <strong>提供程序</strong> 来实现 Windows 过滤平台（WFP）。有些使用标准的 Windows 防火墙提供程序，而其他的则创建自己的提供程序。有些在用户模式级别使用 WFP（无驱动程序），而其他的则在内核模式下使用 WFP（基于自己的驱动程序）。如果同时安装并激活了多个防火墙，每个驱动程序都会在网络堆栈中它想要控制的位置安装自己的回调函数，然后内核会为所有驱动程序（提供程序）调用这些函数。这会导致每个防火墙设置的规则合并在一起。WFP 中的内置仲裁机制会决定哪些规则具有更高的优先级。有些防火墙建议关闭原生 Windows 防火墙以有效工作，而其他的则即使在 Windows 防火墙激活的情况下也能正常工作。找到自己喜欢的防火墙的用户通常非常不愿意更换。</p>
 <p><strong>Sandboxie Plus 是否与其他防火墙冲突？</strong> 系统上安装的其他防火墙（包括 Windows 防火墙）与 Sandboxie Plus 不冲突，可以用于阻止程序（无论是否在沙箱中），但其规则通常是全局的，并且基于绝对的程序路径。另一方面，Sandboxie Plus 中的 WFP 实现提供了“按沙箱”规则的额外优势，这些规则仅影响给定沙箱内的进程（无需指定程序路径）。例如，Box1 可能允许 Program1 访问网络，而在 Box2 中，同一个 Program1 可能被阻止，或者即使被允许访问网络，也会有不同的网络访问规则。</p>
-<h3 id="sandboxie-plus">在 Sandboxie Plus 中实现网络访问规则</h3>
+<h3 id="sandboxie-plus">在 Sandboxie Plus 中实现网络访问规则<a class="headerlink" href="#sandboxie-plus" title="Permanent link"></a></h3>
 <p>Sandman 用户界面为我们提供了一种编辑和测试网络规则的方法。右键单击一个沙箱，然后从下拉菜单中选择“沙箱选项”（或者直接双击一个沙箱）以打开沙箱选项用户界面。然后点击左侧面板中的“网络选项”，并选择“网络防火墙”选项卡。“测试规则”行出现在规则列表下方（规则列表可能已经填充，也可能为空）。您可以输入程序名称、端口号、IP 地址和协议，以查看哪些规则正在起作用，以及最终将应用哪条规则。阻止方式（使用 WFP 或拒绝访问网络设备）的选择在“进程限制”选项卡中进行。</p>
 <p><img alt="" src="../../Media/WFP_Rule_Editor.png" /></p>
 <p>我们可以使用的 <strong>属性</strong>（附带一些语法示例）如下：</p>

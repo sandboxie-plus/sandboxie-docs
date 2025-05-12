@@ -4592,11 +4592,11 @@
   
 
 
-<h1 id="_1">资源访问监视器（适用于沙盘经典版）</h1>
+<h1 id="_1">资源访问监视器（适用于沙盘经典版）<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
 <p>资源访问监视器工具会显示在沙盘监控下运行的程序所访问的任何系统资源的名称。该工具旨在便于识别那些应排除在沙箱之外的系统资源，可与<a href="SandboxieTrace.html">沙盘跟踪</a>选项配合使用。</p>
 <p><strong>重要提示：</strong> 在开启新问题之前，请考虑使用资源访问监视器。</p>
 <p><img alt="" src="../Media/ResourceAccessMonitor.png" /></p>
-<h3 id="_2">使用监视器</h3>
+<h3 id="_2">使用监视器<a class="headerlink" href="#_2" title="Permanent link"></a></h3>
 <ol>
 <li>要激活监视器，请展开或打开<a href="SandboxieControl.html">沙盘控制</a>窗口，然后选择<a href="FileMenu.html">文件菜单</a> -&gt; 资源访问监视器命令。</li>
 <li>通常应在任何程序在任何沙箱中运行之前激活监视器。请注意，资源访问监视器窗口会阻止对<a href="SandboxieControl.html">沙盘控制</a>主窗口（包括其菜单）的访问，因此您必须通过<a href="TrayIconMenu.html">托盘图标菜单</a>启动沙箱中的程序。</li>
@@ -4605,7 +4605,7 @@
 <li>最后，点击标有“将内容复制到剪贴板并关闭窗口”的按钮。这会将收集的数据复制到剪贴板，并停用监视器。</li>
 <li>现在您可以将收集的数据粘贴（Ctrl+V）到某个位置，以便进行分析。</li>
 </ol>
-<h3 id="_3">性能影响</h3>
+<h3 id="_3">性能影响<a class="headerlink" href="#_3" title="Permanent link"></a></h3>
 <p>当监视器处于非活动状态时，它不使用任何系统资源，并且不会对任何正在运行的程序产生性能影响。当处于活动状态时，资源访问监视器会消耗64K字节的系统内存，并且会对沙箱程序产生轻微的性能损失。网络管理员可能希望使用<a href="MonitorAdminOnly.html">仅管理员可监控</a>设置来限制非管理员组成员的用户账户使用此工具。</p>
 
 

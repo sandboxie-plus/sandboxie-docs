@@ -4657,7 +4657,7 @@
   
 
 
-<h1 id="_1">启动命令行</h1>
+<h1 id="_1">启动命令行<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
 <p>根据为 Sandboxie Start 程序指定的命令行参数，它可以执行以下任何操作：</p>
 <ul>
 <li><a href="#启动程序">启动</a>受 Sandboxie 监管的程序</li>
@@ -4669,7 +4669,7 @@
 <li><a href="#相关阅读材料">相关</a>阅读材料</li>
 </ul>
 <hr />
-<h3 id="_2">启动程序</h3>
+<h3 id="_2">启动程序<a class="headerlink" href="#_2" title="Permanent link"></a></h3>
 <p>这是默认行为。通过指定程序可执行文件的完整或部分路径，Sandboxie Start 将在 Sandboxie 的监管下启动该程序：
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">  </span><span class="na">&quot;C</span><span class="o">:</span><span class="s">\Program Files\Sandboxie\Start.exe&quot;  c:\windows\system32\notepad.exe</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">&quot;C</span><span class="o">:</span><span class="s">\Program Files\Sandboxie\Start.exe&quot;  notepad.exe</span>
@@ -4712,7 +4712,7 @@
 <p>参数可以按任何顺序组合。例如：
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="w">   </span><span class="na">&quot;C</span><span class="o">:</span><span class="s">\Program Files\Sandboxie\Start.exe&quot;  /box:CustomBox /silent MyProgram.exe</span>
 </span></code></pre></div></p>
-<h3 id="_3">停止程序</h3>
+<h3 id="_3">停止程序<a class="headerlink" href="#_3" title="Permanent link"></a></h3>
 <p>终止在特定沙箱中运行的所有程序。请注意，该请求会传输到 Sandboxie 服务 SbieSvc，该服务实际执行终止操作。
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="w">  </span><span class="na">&quot;C</span><span class="o">:</span><span class="s">\Program Files\Sandboxie\Start.exe&quot;  /terminate</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="na">&quot;C</span><span class="o">:</span><span class="s">\Program Files\Sandboxie\Start.exe&quot;  /box:TestBox  /terminate</span>
@@ -4721,7 +4721,7 @@
 <p>如果省略参数 <em>/box:沙箱名称</em>，则将停止在默认沙箱 <em>DefaultBox</em> 中运行的程序。</p>
 <p>形式 <em>/terminate_all</em> 会终止所有沙箱中的所有程序。</p>
 <hr />
-<h3 id="_4">卸载沙箱镜像</h3>
+<h3 id="_4">卸载沙箱镜像<a class="headerlink" href="#_4" title="Permanent link"></a></h3>
 <p>这些命令用于卸载由 Sandboxie Plus 创建的加密沙箱镜像或 RAM 磁盘。这些参数从 v1.11.0 / 5.66.0 版本开始可用。
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="w">  </span><span class="na">&quot;C</span><span class="o">:</span><span class="s">\Program Files\Sandboxie-Plus\Start.exe&quot;  /unmount</span>
 </span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span><span class="na">&quot;C</span><span class="o">:</span><span class="s">\Program Files\Sandboxie-Plus\Start.exe&quot;  /box:EncryptedBox  /unmount</span>
@@ -4729,7 +4729,7 @@
 </span></code></pre></div></p>
 <p>如果省略参数 <em>/box:沙箱名称</em>，则将卸载默认沙箱 <em>DefaultBox</em> 的镜像。</p>
 <p>形式 <em>/unmount_all</em> 会终止所有加密沙箱中的所有程序，并卸载所有加密沙箱镜像，包括由 Sandboxie Plus 创建的 RAM 磁盘。</p>
-<h3 id="_5">挂载沙箱镜像</h3>
+<h3 id="_5">挂载沙箱镜像<a class="headerlink" href="#_5" title="Permanent link"></a></h3>
 <p>这些命令用于挂载由 Sandboxie Plus 创建的加密沙箱镜像。这些参数从 v1.11.0 / 5.66.0 版本开始可用。
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="w">  </span><span class="na">&quot;C</span><span class="o">:</span><span class="s">\Program Files\Sandboxie-Plus\Start.exe&quot;  /key:[box image password] /mount_protected</span>
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">  </span><span class="na">&quot;C</span><span class="o">:</span><span class="s">\Program Files\Sandboxie-Plus\Start.exe&quot;  /key:[box image password] /mount</span>
@@ -4739,7 +4739,7 @@
 <p>如果省略参数 <em>/box:沙箱名称</em>，则将挂载默认沙箱 <em>DefaultBox</em> 的镜像。</p>
 <p>形式 <em>/mount_protected</em> 会以“沙箱根保护”模式挂载加密沙箱镜像。“沙箱根保护”可防止在沙箱外部运行的进程访问加密沙箱的根文件夹。</p>
 <hr />
-<h3 id="_6">列出程序</h3>
+<h3 id="_6">列出程序<a class="headerlink" href="#_6" title="Permanent link"></a></h3>
 <p>列出在特定沙箱中运行的所有程序的系统进程 ID 号。
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="w">  </span><span class="na">&quot;C</span><span class="o">:</span><span class="s">\Program Files\Sandboxie\Start.exe&quot;  /listpids</span>
 </span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">  </span><span class="na">&quot;C</span><span class="o">:</span><span class="s">\Program Files\Sandboxie\Start.exe&quot;  /box:TestBox  /listpids</span>
@@ -4754,7 +4754,7 @@
 </span></code></pre></div></p>
 <p>请注意，Start.exe 不是控制台应用程序，因此除非使用 <code>| more</code> 之类的结构对输出进行管道处理，否则输出不会显示在命令提示符窗口中。</p>
 <hr />
-<h3 id="_7">删除沙箱内容</h3>
+<h3 id="_7">删除沙箱内容<a class="headerlink" href="#_7" title="Permanent link"></a></h3>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="w">  </span><span class="na">&quot;C</span><span class="o">:</span><span class="s">\Program Files\Sandboxie\Start.exe&quot;  delete_sandbox</span>
 </span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">  </span><span class="na">&quot;C</span><span class="o">:</span><span class="s">\Program Files\Sandboxie\Start.exe&quot;  delete_sandbox_silent</span>
 </span></code></pre></div>
@@ -4788,13 +4788,13 @@
 </span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">  </span><span class="na">&quot;C</span><span class="o">:</span><span class="s">\Program Files\Sandboxie\Start.exe&quot;  delete_sandbox_silent_phase2</span>
 </span></code></pre></div></p>
 <hr />
-<h3 id="_8">重新加载配置</h3>
+<h3 id="_8">重新加载配置<a class="headerlink" href="#_8" title="Permanent link"></a></h3>
 <p>此命令将 SandboxieIni 中的 Sandboxie 配置重新加载到活动的 Sandboxie 驱动程序中。通常在手动编辑 Sandboxie.ini 文件后很有用。
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="w">  </span><span class="na">&quot;C</span><span class="o">:</span><span class="s">\Program Files\Sandboxie\Start.exe&quot;  /reload</span>
 </span></code></pre></div></p>
 <p>请注意，重新加载配置对在发出此命令时已经在运行的沙箱程序不会生效。</p>
 <hr />
-<h3 id="_9">禁用强制程序</h3>
+<h3 id="_9">禁用强制程序<a class="headerlink" href="#_9" title="Permanent link"></a></h3>
 <p>以下命令可使程序在沙箱外部运行，即使该程序是被强制在沙箱内运行的。这类似于在“运行沙箱程序”命令的沙箱选择窗口中使用“在沙箱外部运行”选项。
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="w">  </span><span class="na">&quot;C</span><span class="o">:</span><span class="s">\Program Files\Sandboxie\Start.exe&quot;  /dfp            c:\path\to\program.exe</span>
 </span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">  </span><span class="na">&quot;C</span><span class="o">:</span><span class="s">\Program Files\Sandboxie\Start.exe&quot;  /disable_force  c:\path\to\program.exe</span>
@@ -4805,7 +4805,7 @@
 </span></code></pre></div></p>
 <p>请注意，此命令语法中缺少斜杠。还要注意，此命令不是一个切换开关。它总是会启用“禁用强制程序”模式，并始终重新启动倒计时计时器。目前，Start.exe 不提供取消此模式的方法。</p>
 <hr />
-<h3 id="_10">相关阅读材料</h3>
+<h3 id="_10">相关阅读材料<a class="headerlink" href="#_10" title="Permanent link"></a></h3>
 <p>另请参阅：<a href="../InjectDll/">注入 DLL</a> 和 <a href="../SBIEDLLAPI/">SBIE DLL API</a></p>
 <p>转到<a href="../HelpTopics/">帮助主题</a>。</p>
 

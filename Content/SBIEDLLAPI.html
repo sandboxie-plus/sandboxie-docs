@@ -4693,7 +4693,7 @@
   
 
 
-<h1 id="sbie-dll-api">SBIE DLL API</h1>
+<h1 id="sbie-dll-api">SBIE DLL API<a class="headerlink" href="#sbie-dll-api" title="Permanent link"></a></h1>
 <p>This page describes the callable entrypoints in the <em>SbieDll.dll</em> dynamically-linked library (DLL). These entrypoints expose some functionality of Sandboxie that can be accessed programmatically, that is, through other programs rather than through a person interacting with Sandboxie.</p>
 <p>There are three aspects to using Sandboxie programmatically:</p>
 <ul>
@@ -4722,7 +4722,7 @@
 </span></code></pre></div></p>
 <p>Note the use of <em>InjectDllMain</em> (see <a href="InjectDll.html">Inject Dll</a>) to get a handle to the loaded instance of SbieDll. That is the recommended approach. However, using LoadLibrary or GetModuleHandle to look up SbieDll by name is also fine.</p>
 <hr />
-<h3 id="enumerate-sandbox-names">Enumerate Sandbox Names</h3>
+<h3 id="enumerate-sandbox-names">Enumerate Sandbox Names<a class="headerlink" href="#enumerate-sandbox-names" title="Permanent link"></a></h3>
 <ul>
 <li>
 <p>Prototype:
@@ -4766,7 +4766,7 @@
 </span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">        </span><span class="na">}</span>
 </span></code></pre></div>
 <hr />
-<h3 id="query-sandbox-paths-by-sandbox-name">Query Sandbox Paths by Sandbox Name</h3>
+<h3 id="query-sandbox-paths-by-sandbox-name">Query Sandbox Paths by Sandbox Name<a class="headerlink" href="#query-sandbox-paths-by-sandbox-name" title="Permanent link"></a></h3>
 <ul>
 <li>
 <p>Prototype:
@@ -4854,7 +4854,7 @@
 </li>
 </ul>
 <hr />
-<h3 id="query-sandbox-paths-by-process-id">Query Sandbox Paths by Process ID</h3>
+<h3 id="query-sandbox-paths-by-process-id">Query Sandbox Paths by Process ID<a class="headerlink" href="#query-sandbox-paths-by-process-id" title="Permanent link"></a></h3>
 <ul>
 <li>
 <p>Prototype:
@@ -4908,7 +4908,7 @@
 </li>
 </ul>
 <hr />
-<h3 id="enumerate-running-processes">Enumerate Running Processes</h3>
+<h3 id="enumerate-running-processes">Enumerate Running Processes<a class="headerlink" href="#enumerate-running-processes" title="Permanent link"></a></h3>
 <ul>
 <li>
 <p>Prototype:
@@ -4950,7 +4950,7 @@
 </li>
 </ul>
 <hr />
-<h3 id="query-process-information">Query Process Information</h3>
+<h3 id="query-process-information">Query Process Information<a class="headerlink" href="#query-process-information" title="Permanent link"></a></h3>
 <ul>
 <li>
 <p>Prototype:
@@ -4991,7 +4991,7 @@
 </li>
 </ul>
 <hr />
-<h3 id="terminate-a-single-sandboxed-process">Terminate a Single Sandboxed Process</h3>
+<h3 id="terminate-a-single-sandboxed-process">Terminate a Single Sandboxed Process<a class="headerlink" href="#terminate-a-single-sandboxed-process" title="Permanent link"></a></h3>
 <ul>
 <li>
 <p>Prototype:
@@ -5021,7 +5021,7 @@
 </li>
 </ul>
 <hr />
-<h3 id="terminate-all-sandboxed-processes">Terminate All Sandboxed Processes</h3>
+<h3 id="terminate-all-sandboxed-processes">Terminate All Sandboxed Processes<a class="headerlink" href="#terminate-all-sandboxed-processes" title="Permanent link"></a></h3>
 <ul>
 <li>
 <p>Prototype:
@@ -5055,7 +5055,7 @@
 </li>
 </ul>
 <hr />
-<h3 id="query-configuration-from-sandboxieini">Query Configuration from Sandboxie.ini</h3>
+<h3 id="query-configuration-from-sandboxieini">Query Configuration from Sandboxie.ini<a class="headerlink" href="#query-configuration-from-sandboxieini" title="Permanent link"></a></h3>
 <ul>
 <li>
 <p>Prototype:
@@ -5108,7 +5108,7 @@
 </li>
 </ul>
 <hr />
-<h3 id="update-configuration-in-sandboxieini">Update Configuration in Sandboxie.ini</h3>
+<h3 id="update-configuration-in-sandboxieini">Update Configuration in Sandboxie.ini<a class="headerlink" href="#update-configuration-in-sandboxieini" title="Permanent link"></a></h3>
 <ul>
 <li>
 <p>Prototype:
@@ -5161,7 +5161,7 @@
 </li>
 </ul>
 <hr />
-<h3 id="reload-configuration-from-sandboxieini">Reload Configuration from Sandboxie.ini</h3>
+<h3 id="reload-configuration-from-sandboxieini">Reload Configuration from Sandboxie.ini<a class="headerlink" href="#reload-configuration-from-sandboxieini" title="Permanent link"></a></h3>
 <ul>
 <li>
 <p>Prototype:
@@ -5188,7 +5188,7 @@
 </li>
 </ul>
 <hr />
-<h3 id="hook-a-user-mode-entrypoint">Hook a User-Mode Entrypoint</h3>
+<h3 id="hook-a-user-mode-entrypoint">Hook a User-Mode Entrypoint<a class="headerlink" href="#hook-a-user-mode-entrypoint" title="Permanent link"></a></h3>
 <ul>
 <li>
 <p>Prototype:
@@ -5258,7 +5258,7 @@
 </li>
 </ul>
 <hr />
-<h3 id="register-for-dll-loadunload-callbacks">Register for DLL Load/Unload Callbacks</h3>
+<h3 id="register-for-dll-loadunload-callbacks">Register for DLL Load/Unload Callbacks<a class="headerlink" href="#register-for-dll-loadunload-callbacks" title="Permanent link"></a></h3>
 <ul>
 <li>Prototype:
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="w">       </span><span class="na">typedef void (__stdcall *P_DllCallback)(const WCHAR *ImageName, HMODULE ImageBase);</span>
@@ -5301,7 +5301,7 @@
 </span></code></pre></div></li>
 </ul>
 <hr />
-<h3 id="get-sandboxie-home-folder">Get Sandboxie Home Folder</h3>
+<h3 id="get-sandboxie-home-folder">Get Sandboxie Home Folder<a class="headerlink" href="#get-sandboxie-home-folder" title="Permanent link"></a></h3>
 <ul>
 <li>
 <p>Prototype:

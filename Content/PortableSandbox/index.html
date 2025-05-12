@@ -4526,7 +4526,7 @@
   
 
 
-<h1 id="portable-sandbox">Portable Sandbox</h1>
+<h1 id="portable-sandbox">Portable Sandbox<a class="headerlink" href="#portable-sandbox" title="Permanent link"></a></h1>
 <p>The revised <a href="../SandboxHierarchy/">layout of the sandbox</a> that is introduced in version 2.80 allows for greater portability of the sandbox across computers. By redirecting programs to create sandboxed objects which have a nonspecific path, it is possible to populate a sandbox on one computer, then carry this sandbox to another computer and keep using it.</p>
 <p>For example, consider installing a game program to a portable device such as a USB memory stick which is mounted as drive P. The game may install its files to a folder on drive P, but any menu shortcuts it creates will be installed in the Windows Start menu of the local computer, outside drive P. And any registry keys it creates will also be created in the Windows registry, also outside the USB device.</p>
 <p>By contrast, if you set the <a href="../SandboxMenu/#set-container-folder">container folder</a> to drive P (for instance <em>P:\Sandbox</em>), then install the game into the (sandboxed) drive C, then <em>all</em> objects created by the installation will be redirected to drive P.</p>

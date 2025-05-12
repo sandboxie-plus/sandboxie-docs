@@ -4526,7 +4526,7 @@
   
 
 
-<h1 id="sandboxiedrv-use-of-undocumented-kernel-exports-to-do-its-token-magic">SandboxieDrv use of undocumented kernel exports to do its token magic</h1>
+<h1 id="sandboxiedrv-use-of-undocumented-kernel-exports-to-do-its-token-magic">SandboxieDrv use of undocumented kernel exports to do its token magic<a class="headerlink" href="#sandboxiedrv-use-of-undocumented-kernel-exports-to-do-its-token-magic" title="Permanent link"></a></h1>
 <p>Sandboxie implements isolation by running sandboxed processes with a heavily restricted primary token. As most applications cannot function this way, it hooks all NTDLL.dll calls redirecting them through an interface in the SbieDrv. The driver then can inspect the call arguments, makes the calling thread impersonate the original unrestricted token, execute the system call, and de-impersonate the thread before returning control to user mode.</p>
 <p>This way, a process running under the supervision of Sandboxie cannot issue syscalls with the original token, even if it would undo the ntdll.dll hooks.</p>
 <p>For this mechanism to work, Sandboxie utilizes a couple of undocumented operations:</p>

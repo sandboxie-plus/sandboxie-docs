@@ -4526,15 +4526,15 @@
   
 
 
-<h1 id="_1">沙盘跟踪</h1>
-<h3 id="_2">对于沙盘经典版，请参阅<a href="../ResourceAccessMonitor/">资源访问监视器</a>。</h3>
-<h3 id="_3">对于沙盘增强版，请参阅<a href="../../PlusContent/TraceLog/">跟踪日志</a>。</h3>
+<h1 id="_1">沙盘跟踪<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<h3 id="_2">对于沙盘经典版，请参阅<a href="../ResourceAccessMonitor/">资源访问监视器</a>。<a class="headerlink" href="#_2" title="Permanent link"></a></h3>
+<h3 id="_3">对于沙盘增强版，请参阅<a href="../../PlusContent/TraceLog/">跟踪日志</a>。<a class="headerlink" href="#_3" title="Permanent link"></a></h3>
 <hr />
-<h3 id="_4">概述</h3>
+<h3 id="_4">概述<a class="headerlink" href="#_4" title="Permanent link"></a></h3>
 <p>在某些情况下，程序在沙箱内可能无法正常运行，因为它需要访问某个系统资源，而该资源默认受沙盘保护，访问会被拒绝。</p>
 <p>请注意，在这种情况下，沙箱内的程序并非自行创建该资源；相反，它期望该资源已经可供访问和使用。</p>
 <p>跟踪功能会显示访问尝试，从而能够较为轻松地识别出哪些为确保程序正常运行所需的资源被阻止了。</p>
-<h3 id="_5">启用跟踪</h3>
+<h3 id="_5">启用跟踪<a class="headerlink" href="#_5" title="Permanent link"></a></h3>
 <p>可以通过不同的<a href="../SandboxieIni/">沙盘配置文件</a>设置来激活跟踪功能：</p>
 <ul>
 <li><strong>文件跟踪（FileTrace）</strong>：记录对文件、文件夹和文件系统卷的访问；</li>
@@ -4559,7 +4559,7 @@
 * 在沙盘增强版中，选择“选项”菜单 -&gt; “重新加载 ini 文件”</p>
 <p>可以按沙箱设置跟踪选项，这样只有需要的沙箱才会生成跟踪日志。</p>
 <p>还可以通过添加 <code>跟踪缓冲区页面（TraceBufferPages）=2560</code> 来调整缓冲区大小，这将使其增大 10 倍。</p>
-<h3 id="netfwtraceipctrace-pipetrace">查看 <strong>防火墙跟踪（NetFwTrace）</strong>、<strong>进程间通信跟踪（IpcTrace）</strong> 和 <strong>命名管道跟踪（PipeTrace）</strong> 的跟踪信息</h3>
+<h3 id="netfwtraceipctrace-pipetrace">查看 <strong>防火墙跟踪（NetFwTrace）</strong>、<strong>进程间通信跟踪（IpcTrace）</strong> 和 <strong>命名管道跟踪（PipeTrace）</strong> 的跟踪信息<a class="headerlink" href="#netfwtraceipctrace-pipetrace" title="Permanent link"></a></h3>
 <p>自 0.9.0 / 5.51.0 版本起，添加了一个新选项 <code>防火墙跟踪（NetFwTrace）=*</code> 来跟踪防火墙组件的操作。请注意，驱动程序仅将日志记录到内核调试输出，你可以使用 <a href="https://docs.microsoft.com/en-us/sysinternals/downloads/debugview">DbgView.exe</a> 查看。</p>
 <p>在 Windows Vista 及更高版本中，系统调试器日志的输出默认是禁用的。<a href="https://web.archive.org/web/20080731211018/http://blogs.msdn.com:80/doronh/archive/2006/11/14/where-did-my-debug-output-go-in-vista.aspx">这篇博客文章</a> 和 <a href="https://web.archive.org/web/20230324011501/https://stackoverflow.com/questions/65015739/outputdebugstring-not-showing-message-in-debugview-windows-10-x64">这篇帖子</a> 解释了如何启用它。</p>
 <p>以下跟踪信息将以以下格式显示输出（假设启用了 <strong>进程间通信跟踪（IpcTrace）</strong> 和 <strong>命名管道跟踪（PipeTrace）</strong>）：
@@ -4593,7 +4593,7 @@
 <p>在此示例中，对资源 <em>protected_storage</em> 的访问被拒绝。默认情况下，沙盘不允许此访问；但是，<code>打开受保护存储（OpenProtectedStorage）</code> 设置会更改此行为。</p>
 <p><code>(001404) SBIE (FA) 00000001.0F.FFFFFFFF \Device\Afd\Endpoint</code></p>
 <p>在此示例中，对资源 <em>Endpoint</em> 的访问被允许。资源类别为 F，因此这是一个命名管道或邮件槽资源。该访问默认被允许，因为 <em>\Device\Afd</em> 前缀命名了 Internet 访问所需的资源。</p>
-<h3 id="guitrace">查看 <strong>图形用户界面跟踪（GuiTrace）</strong> 条目</h3>
+<h3 id="guitrace">查看 <strong>图形用户界面跟踪（GuiTrace）</strong> 条目<a class="headerlink" href="#guitrace" title="Permanent link"></a></h3>
 <p>当启用 <strong>图形用户界面跟踪（GuiTrace）</strong> 时，跟踪还会生成如下条目：
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">...</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">(001404) SBIE (GA) WinHook 0002 on tid</span><span class="o">=</span><span class="s">001484 pid=001960</span>
@@ -4609,7 +4609,7 @@
 <p>当第一个单词是 <em>窗口钩子（WinHook）</em> 或 <em>辅助功能钩子（AccHook）</em> 时，该条目表示钩子的安装。对于 (GA) 条目，钩子安装被允许；对于 (GD) 条目，钩子安装被拒绝。<em>窗口钩子（WinHook）</em> 是标准的 Windows 钩子，后面跟着钩子的类型（请参阅 <a href="https://www.google.com/search?hl=en&amp;q=setwindowshookex+msdn">MSDN 中的 SetWindowsHookEx</a>）。<em>辅助功能钩子（AccHook）</em> 是辅助功能钩子（请参阅 <a href="https://www.google.com/search?hl=en&amp;q=setwineventhook+msdn">MSDN 中的 SetWinEventHook</a>）。</p>
 <p>这两种条目都标识了钩子要安装到的线程号（线程 ID）和进程号（进程 ID）。</p>
 <p>当第一个单词是 <em>投递消息（PostMessage）</em>、<em>发送消息（SendMessage）</em> 或 <em>线程消息（ThrdMessage）</em> 时，该条目显示被拒绝的窗口通信。接下来的两个数字表示窗口消息编号，分别为十进制和十六进制。该条目还表示目标窗口的窗口句柄（窗口句柄）、拥有此窗口的进程号（进程 ID），最后是窗口的内部窗口类名。</p>
-<h3 id="_6">分析跟踪信息</h3>
+<h3 id="_6">分析跟踪信息<a class="headerlink" href="#_6" title="Permanent link"></a></h3>
 <p>使用跟踪功能的目的通常是识别出导致沙箱内程序无法正常运行的资源。</p>
 <p>例如，考虑以下跟踪记录：</p>
 <p><code>(001404) SBIE (ID) 001F0001 \BaseNamedObjects\Xyzzy</code></p>
@@ -4624,7 +4624,7 @@
 <p>此设置告诉沙盘，对 <em>Xyzzy</em> 资源的访问不应被阻止。</p>
 <p>然后重新加载沙盘配置，清除跟踪显示中的旧内容，并重新启动沙箱内的程序。如果程序现在运行得更好，那么 <em>Xyzzy</em> 确实是有问题的资源。</p>
 <p>但如果程序仍然失败，可以再次检查跟踪日志，查找后续（或可能更早）的失败访问尝试。</p>
-<h3 id="_7">资源类别</h3>
+<h3 id="_7">资源类别<a class="headerlink" href="#_7" title="Permanent link"></a></h3>
 <p>跟踪记录显示了对象的沙盘资源类别。这表明需要哪个 <code>打开xxx路径（OpenXxxPath）</code> 设置来允许访问该对象。</p>
 <ul>
 <li>当资源类别为 F，如 (FA) 或 (FD) 时，相关设置是 <a href="../OpenFilePath/">打开文件路径（OpenFilePath）</a> 和 <a href="../ClosedFilePath/">关闭文件路径（ClosedFilePath）</a>。</li>

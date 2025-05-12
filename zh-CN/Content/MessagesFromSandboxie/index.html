@@ -4526,7 +4526,7 @@
   
 
 
-<h1 id="_1">来自沙盘的消息</h1>
+<h1 id="_1">来自沙盘的消息<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
 <p>每当沙盘日志记录至少一条错误或信息消息时，<em>来自沙盘的消息</em> 窗口会自动显示。（关于沙盘消息的更多信息，请参见 <a href="../SBIEMessages/">SBIE 消息</a>）。</p>
 <p>该窗口每行显示一条消息，如下图所示。</p>
 <p><img alt="" src="../../Media/MessagesFromSandboxie.png" /></p>
@@ -4534,7 +4534,7 @@
 <p>点击 <em>隐藏</em> 按钮表示你不希望再次收到该消息。如果该消息包含信息详情，<em>隐藏</em> 按钮仅会针对该特定详情隐藏消息。</p>
 <p>例如，上图所示的 <a href="../SBIE1304/">SBIE1304</a> 消息详细信息为 <em>osk.exe</em>。在此情况下，<em>隐藏</em> 按钮将隐藏所有与 <em>osk.exe</em> 相关的 <a href="../SBIE1304/">SBIE1304</a> 后续消息。如果某一条 <a href="../SBIE1304/">SBIE1304</a> 消息出现在其他程序名下，则仍然会显示出来。</p>
 <p>点击 <em>关闭</em> 按钮可关闭该窗口。</p>
-<h2 id="_2">记录日志消息到文件</h2>
+<h2 id="_2">记录日志消息到文件<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <p>可以通过在注册表中的简单配置，将 <em>来自沙盘的消息</em> 日志记录到文件：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">reg.exe add &quot;HKLM\SYSTEM\CurrentControlSet\Services\SbieSvc&quot; /t REG_SZ /v LogFile /d &quot;2;C</span><span class="o">:</span><span class="s">\Windows\System32\LogFiles\Sandboxie.log&quot; /f</span>
 </span></code></pre></div>

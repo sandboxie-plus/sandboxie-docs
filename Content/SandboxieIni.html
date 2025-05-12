@@ -4643,10 +4643,10 @@
   
 
 
-<h1 id="sandboxie-ini">Sandboxie Ini</h1>
+<h1 id="sandboxie-ini">Sandboxie Ini<a class="headerlink" href="#sandboxie-ini" title="Permanent link"></a></h1>
 <p>Some aspects of the operation of Sandboxie can be altered or fine-tuned through the use of a human-readable textual configuration file called Sandboxie.ini. This section describes the structure and contents of the file.</p>
 <p>As a general rule, manual editing of the configuration file is discouraged. You are advised to use <a href="SandboxieControl.html">Sandboxie Control</a> to make configuration changes. See <a href="SandboxSettings.html">Sandbox Settings</a>.</p>
-<h2 id="location">Location</h2>
+<h2 id="location">Location<a class="headerlink" href="#location" title="Permanent link"></a></h2>
 <p>Sandboxie looks for the file Sandboxie.ini in the following folders, in this order:</p>
 <ul>
 <li>In the Windows folder: <code>C:\Windows</code> on most Windows installations</li>
@@ -4655,7 +4655,7 @@
 <p>The search for Sandboxie.ini ends when an instance of the file is found, and all other instances are ignored.</p>
 <p>When <a href="SandboxieControl.html">Sandboxie Control</a> updates the configuration, it rewrites the file Sandboxie.ini file in the folder from which the configuration was last read. Thus, if the file is manually moved, Sandboxie configuration must be manually <a href="ConfigureMenu.html#reload-configuration">reloaded</a>. (Restarting the computer would have the same effect.)</p>
 <p><strong>Note:</strong> Sandboxie does not support any other custom location for the Sandboxie.ini file.</p>
-<h2 id="structure">Structure</h2>
+<h2 id="structure">Structure<a class="headerlink" href="#structure" title="Permanent link"></a></h2>
 <p>Configuration settings in the file are split into groups, or sections. A section begins with a line that specifies its name enclosed within square brackets. For example: [SomeSectionName]. The section continues to the end of the file, or until another section begins. There are three types of sections:</p>
 <ul>
 <li>The Global Settings section contains settings global to Sandboxie. These apply in one way or another to all sandboxes and all user accounts. There can be only one Global Settings section, typically at the top of the configuration file.</li>
@@ -4682,15 +4682,15 @@
 <p><strong>Note:</strong> During its operation, <a href="SandboxieControl.html">Sandboxie Control</a> regularly rewrites the Sandboxie.ini file, and this rewrite loses all comments. However, unrecognized settings are not lost during the rewrite, so one workaround is to write comments in the form Comment=text.</p>
 <p>The configuration file can contain up to 30,000 lines of text. Each line can be up to 1000 characters long.</p>
 <p>The file is UNICODE-encoded, which means each character is composed of two bytes. Many text file editors, including the system Notepad, handle this encoding properly.</p>
-<h2 id="settings">Settings</h2>
-<h3 id="global-settings">Global Settings:</h3>
+<h2 id="settings">Settings<a class="headerlink" href="#settings" title="Permanent link"></a></h2>
+<h3 id="global-settings">Global Settings:<a class="headerlink" href="#global-settings" title="Permanent link"></a></h3>
 <ul>
 <li>Listed in the navigation bar on the right under the heading Global Settings.</li>
 <li>Settings apply to the general operation of Sandboxie, not to any particular sandbox.</li>
 <li>Global settings must be placed in the GlobalSettings section, and cannot be overridden by also including them in a sandbox section.</li>
 <li>Sandbox settings may appear in the GlobalSettings section, and can be overridden by also including them in a sandbox section.</li>
 </ul>
-<h3 id="sandbox-settings">Sandbox Settings:</h3>
+<h3 id="sandbox-settings">Sandbox Settings:<a class="headerlink" href="#sandbox-settings" title="Permanent link"></a></h3>
 <ul>
 <li>Listed in the navigation bar on the right under the heading Sandbox Settings.</li>
 <li>Settings apply to a particular sandbox when specified in the associated sandbox section.</li>
@@ -4703,14 +4703,14 @@
 <li>Some sandbox settings are <a href="YesOrNoSettings.html">Yes Or No Settings</a>.</li>
 <li>Sandbox settings may specify <a href="ExpandableVariables.html">Expandable Variables</a> that Sandboxie recognizes.</li>
 </ul>
-<h3 id="user-settings">User Settings</h3>
+<h3 id="user-settings">User Settings<a class="headerlink" href="#user-settings" title="Permanent link"></a></h3>
 <ul>
 <li>Settings record the state of <a href="SandboxieControl.html">Sandboxie Control</a>, for instance the position of the window.</li>
 <li>Each user account is directed to a different [UserSettings_XXXXXXXX] section.</li>
 <li>When a new [UserSettings_XXXXXXXX] is created, default values are taken from the [UserSettings_Default] section, if it exists.</li>
 <li>If the section [UserSettings_Portable] exists, all user accounts are directed to use this section.</li>
 </ul>
-<h2 id="automation">Automation</h2>
+<h2 id="automation">Automation<a class="headerlink" href="#automation" title="Permanent link"></a></h2>
 <p>Sandboxie includes a command-line utility to query or update the Sandboxie.ini configuration file. The utility is suitable for direct command-line interaction as well as invocation from a script or a program. The utility can be found as SbieIni.exe in the Sandboxie installation directory. For further details, see <a href="https://github.com/sandboxie-plus/Sandboxie/issues/278#issuecomment-856207910">Create a sandbox by command line</a> and <a href="https://sandboxie-website-archive.github.io/www.sandboxie.com/old-forums/viewtopica6bca6bc.html#p126947">SbieIni.exe usage</a> section.</p>
 
 

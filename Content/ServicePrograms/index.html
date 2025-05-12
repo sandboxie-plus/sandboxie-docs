@@ -4637,27 +4637,27 @@
   
 
 
-<h1 id="service-programs">Service Programs</h1>
-<h3 id="overview">Overview</h3>
+<h1 id="service-programs">Service Programs<a class="headerlink" href="#service-programs" title="Permanent link"></a></h1>
+<h3 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h3>
 <p>A Windows computers includes several service programs which are designed to accept requests from application programs. Many service programs run inside special <em>svchost.exe</em> processes (programs), although some others run as standalone processes.</p>
 <p>Programs running under Sandboxie are not allowed to reach those system service programs, due to the isolation of the sandbox. Instead, Sandboxie provides its own service programs, which run in the same sandbox as the program requesting the service.</p>
 <p>The Sandboxie service programs are started on demand. It is not an error or a problem if any of the service programs listed below are not running at any given moment.</p>
 <hr />
-<h3 id="remote-procedure-call-rpc">Remote Procedure Call (RPC)</h3>
+<h3 id="remote-procedure-call-rpc">Remote Procedure Call (RPC)<a class="headerlink" href="#remote-procedure-call-rpc" title="Permanent link"></a></h3>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span><span class="na">Program Name</span><span class="o">:</span><span class="w">  </span><span class="s">SandboxieRpcSs.exe</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="na">Service Name</span><span class="o">:</span><span class="w">  </span><span class="s">rpcss</span>
 </span></code></pre></div>
 <p>The Component Object Model (COM) main service. This service provides a wide range of services to applications in the sandbox, including mechanisms for one application to start another application. Depending on the programs you run sandboxed, the service may or may not need to start.</p>
 <p>This service, along with the <em>DCOM Server Process Launcher</em> (see below) makes it possible for other service programs to start in the sandbox.</p>
 <hr />
-<h3 id="dcom-server-process-launcher">DCOM Server Process Launcher</h3>
+<h3 id="dcom-server-process-launcher">DCOM Server Process Launcher<a class="headerlink" href="#dcom-server-process-launcher" title="Permanent link"></a></h3>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">    </span><span class="na">Program Name</span><span class="o">:</span><span class="w">  </span><span class="s">SandboxieDcomLaunch.exe</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="na">Service Name</span><span class="o">:</span><span class="w">  </span><span class="s">dcomlaunch</span>
 </span></code></pre></div>
 <p>This service, along with the <em>Remote Procedure Call (RPC)</em> (see above) makes it possible for other service programs to start in the sandbox.</p>
 <p>Note that this service is available on Windows XP Service Pack 2 and later operating systems.</p>
 <hr />
-<h3 id="cryptographic-services">Cryptographic Services</h3>
+<h3 id="cryptographic-services">Cryptographic Services<a class="headerlink" href="#cryptographic-services" title="Permanent link"></a></h3>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">    </span><span class="na">Program Name</span><span class="o">:</span><span class="w">  </span><span class="s">SandboxieCrypto.exe</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="na">Service Name</span><span class="o">:</span><span class="w">  </span><span class="s">cryptsvc</span>
 </span></code></pre></div>
@@ -4665,19 +4665,19 @@
 <p>This service occasionally connects to the Internet address <em>mscrl.microsoft.com</em>. This connection is initiated by Microsoft code running within SandboxieCrypto.exe and it is part of the procedure which verifies or revokes digital certificates for Web sites and programs.</p>
 <p>This connection is not unique to <em>SandboxieCrypto.exe</em> and is initiated also by the "real" service program running under one of the <em>svchost.exe</em> processes. It is possible to block this connection through <a href="../RestrictionsSettings/#internet-access">Restrictions &gt; Internet Access</a> or through a firewall. However, this is not recommended. Please see <a href="https://en.wikipedia.org/wiki/Certificate_revocation_list">Certificate revocation list on Wikipedia</a> for more information about certificate revocation.</p>
 <hr />
-<h3 id="background-intelligent-transfer-service">Background Intelligent Transfer Service</h3>
+<h3 id="background-intelligent-transfer-service">Background Intelligent Transfer Service<a class="headerlink" href="#background-intelligent-transfer-service" title="Permanent link"></a></h3>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="w">    </span><span class="na">Program Name</span><span class="o">:</span><span class="w">  </span><span class="s">SandboxieBITS.exe</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="na">Service Name</span><span class="o">:</span><span class="w">  </span><span class="s">bits</span>
 </span></code></pre></div>
 <p>Downloads files in the background on behalf of a requesting applications. Some installation programs (most commonly for Microsoft and Google products) ask this service to download additional resource files on their behalf. The service downloads these files into the sandbox.</p>
 <hr />
-<h3 id="automatic-updates">Automatic Updates</h3>
+<h3 id="automatic-updates">Automatic Updates<a class="headerlink" href="#automatic-updates" title="Permanent link"></a></h3>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="w">    </span><span class="na">Program Name</span><span class="o">:</span><span class="w">  </span><span class="s">SandboxieWUAU.exe</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="na">Service Name</span><span class="o">:</span><span class="w">  </span><span class="s">wuauserv</span>
 </span></code></pre></div>
 <p>Checks for Windows updates and downloads them using the <em>Background Intelligent Transfer Service</em> (see above). Once the updates are downloaded into the sandbox, this service will try to install them into the sandbox. Note that in some cases, updates to Windows involve the modification of core system files. Such modification might fail or have no effect, when carried out under the supervision of Sandboxie.</p>
 <hr />
-<h3 id="windows-installer">Windows Installer</h3>
+<h3 id="windows-installer">Windows Installer<a class="headerlink" href="#windows-installer" title="Permanent link"></a></h3>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="w">    </span><span class="na">Program Name</span><span class="o">:</span><span class="w">  </span><span class="s">msiexec.exe</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="na">Service Name</span><span class="o">:</span><span class="w">  </span><span class="s">msiserver</span>
 </span></code></pre></div>

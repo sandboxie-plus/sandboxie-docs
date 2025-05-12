@@ -4526,7 +4526,7 @@
   
 
 
-<h1 id="_1">阻止端口</h1>
+<h1 id="_1">阻止端口<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
 <p><strong>此功能自 v0.9.0 / 5.51.0 版本起已被移除。如果你在你的 <a href="../SandboxieIni/">Sandboxie Ini</a> 文件中有自定义的 BlockPort 条目，需要手动更新为新的格式。例如，<code>BlockPort=137,138,139,445</code> 需改为 <code>NetworkAccess=*,Block;Port=137,138,139,445</code>（当前已包含在 <em>Templates.ini</em> 文件中的 <code>[Template_BlockPorts]</code> 部分）。</strong></p>
 <p><em>BlockPort</em> 曾是 <a href="../SandboxieIni/">Sandboxie Ini</a> 文件中的沙箱设置项。它用于指定要阻止对外通信的 IP 端口号。</p>
 <p>用法：</p>

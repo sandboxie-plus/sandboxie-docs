@@ -4526,7 +4526,7 @@
   
 
 
-<h1 id="isolation-mechanism">Isolation Mechanism</h1>
+<h1 id="isolation-mechanism">Isolation Mechanism<a class="headerlink" href="#isolation-mechanism" title="Permanent link"></a></h1>
 <p>Processes started under Sandboxie's supervision are created with a very restricted user token, such that they basically don't have the right to access almost anything. In this state, they would be pretty much useless and would crash right away.</p>
 <p>This token manipulation is done using half a dozen <a href="TokenMagic.html">undocumented symbols</a> in the Windows kernel.</p>
 <p>In a next step, Sandboxie tries to repair that by hooking most ntdll.dll syscalls and replacing them with a redirection to the own SbieDrv driver. The driver then evaluates the calls and enforces the sandboxing rules, for example, no write access outside the sandbox and no read access to closed resources.</p>

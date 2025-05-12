@@ -4637,27 +4637,27 @@
   
 
 
-<h1 id="_1">服务程序</h1>
-<h3 id="_2">概述</h3>
+<h1 id="_1">服务程序<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<h3 id="_2">概述<a class="headerlink" href="#_2" title="Permanent link"></a></h3>
 <p>Windows 计算机包含多个服务程序，这些程序旨在接受应用程序的请求。许多服务程序在特殊的 <em>svchost.exe</em> 进程（程序）中运行，不过也有一些作为独立进程运行。</p>
 <p>由于沙箱的隔离机制，在沙箱中运行的程序无法访问这些系统服务程序。取而代之的是，沙箱浏览器（Sandboxie）提供了自己的服务程序，这些程序与请求服务的程序在同一个沙箱中运行。</p>
 <p>沙箱浏览器的服务程序是按需启动的。如果下面列出的任何服务程序在任何给定时刻没有运行，这既不是错误也不是问题。</p>
 <hr />
-<h3 id="rpc">远程过程调用 (RPC)</h3>
+<h3 id="rpc">远程过程调用 (RPC)<a class="headerlink" href="#rpc" title="Permanent link"></a></h3>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span><span class="na">程序名称</span><span class="o">:</span><span class="w"> </span><span class="s">SandboxieRpcSs.exe</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="na">服务名称</span><span class="o">:</span><span class="w"> </span><span class="s">rpcss</span>
 </span></code></pre></div>
 <p>组件对象模型 (COM) 主服务。此服务为沙箱中的应用程序提供广泛的服务，包括一个应用程序启动另一个应用程序的机制。根据你在沙箱中运行的程序，该服务可能需要启动，也可能不需要启动。</p>
 <p>此服务与 <em>DCOM 服务器进程启动器</em>（见下文）一起，使得其他服务程序能够在沙箱中启动。</p>
 <hr />
-<h3 id="dcom">DCOM 服务器进程启动器</h3>
+<h3 id="dcom">DCOM 服务器进程启动器<a class="headerlink" href="#dcom" title="Permanent link"></a></h3>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">    </span><span class="na">程序名称</span><span class="o">:</span><span class="w"> </span><span class="s">SandboxieDcomLaunch.exe</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="na">服务名称</span><span class="o">:</span><span class="w"> </span><span class="s">dcomlaunch</span>
 </span></code></pre></div>
 <p>此服务与 <em>远程过程调用 (RPC)</em>（见上文）一起，使得其他服务程序能够在沙箱中启动。</p>
 <p>请注意，此服务在 Windows XP Service Pack 2 及更高版本的操作系统中可用。</p>
 <hr />
-<h3 id="_3">加密服务</h3>
+<h3 id="_3">加密服务<a class="headerlink" href="#_3" title="Permanent link"></a></h3>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">    </span><span class="na">程序名称</span><span class="o">:</span><span class="w"> </span><span class="s">SandboxieCrypto.exe</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="na">服务名称</span><span class="o">:</span><span class="w"> </span><span class="s">cryptsvc</span>
 </span></code></pre></div>
@@ -4665,19 +4665,19 @@
 <p>此服务偶尔会连接到 Internet 地址 <em>mscrl.microsoft.com</em>。此连接由在 SandboxieCrypto.exe 中运行的 Microsoft 代码发起，它是验证或撤销网站和程序数字证书过程的一部分。</p>
 <p>此连接并非 <em>SandboxieCrypto.exe</em> 所独有，在 <em>svchost.exe</em> 进程之一中运行的“真实”服务程序也会发起此连接。可以通过<a href="RestrictionsSettings.html#internet-access">限制 &gt; 互联网访问</a>或防火墙阻止此连接。但是，不建议这样做。有关证书撤销的更多信息，请参阅<a href="https://en.wikipedia.org/wiki/Certificate_revocation_list">维基百科上的证书撤销列表</a>。</p>
 <hr />
-<h3 id="_4">后台智能传输服务</h3>
+<h3 id="_4">后台智能传输服务<a class="headerlink" href="#_4" title="Permanent link"></a></h3>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="w">    </span><span class="na">程序名称</span><span class="o">:</span><span class="w"> </span><span class="s">SandboxieBITS.exe</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="na">服务名称</span><span class="o">:</span><span class="w"> </span><span class="s">bits</span>
 </span></code></pre></div>
 <p>代表请求的应用程序在后台下载文件。一些安装程序（最常见的是 Microsoft 和 Google 产品的安装程序）会要求此服务代表它们下载额外的资源文件。该服务会将这些文件下载到沙箱中。</p>
 <hr />
-<h3 id="_5">自动更新</h3>
+<h3 id="_5">自动更新<a class="headerlink" href="#_5" title="Permanent link"></a></h3>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="w">    </span><span class="na">程序名称</span><span class="o">:</span><span class="w"> </span><span class="s">SandboxieWUAU.exe</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="na">服务名称</span><span class="o">:</span><span class="w"> </span><span class="s">wuauserv</span>
 </span></code></pre></div>
 <p>检查 Windows 更新，并使用 <em>后台智能传输服务</em>（见上文）下载它们。一旦更新下载到沙箱中，此服务将尝试将它们安装到沙箱中。请注意，在某些情况下，Windows 更新涉及对核心系统文件的修改。在沙箱浏览器的监管下进行此类修改可能会失败或无效。</p>
 <hr />
-<h3 id="windows">Windows 安装程序</h3>
+<h3 id="windows">Windows 安装程序<a class="headerlink" href="#windows" title="Permanent link"></a></h3>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="w">    </span><span class="na">程序名称</span><span class="o">:</span><span class="w"> </span><span class="s">msiexec.exe</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="na">服务名称</span><span class="o">:</span><span class="w"> </span><span class="s">msiserver</span>
 </span></code></pre></div>

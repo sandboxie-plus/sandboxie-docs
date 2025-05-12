@@ -4526,15 +4526,15 @@
   
 
 
-<h1 id="sandboxie-trace">Sandboxie Trace</h1>
-<h3 id="please-see-resource-access-monitor-for-sandboxie-classic">Please see <a href="ResourceAccessMonitor.html">Resource Access Monitor</a> for Sandboxie Classic.</h3>
-<h3 id="please-see-trace-logging-for-sandboxie-plus">Please see <a href="../PlusContent/TraceLog.html">Trace Logging</a> for Sandboxie Plus.</h3>
+<h1 id="sandboxie-trace">Sandboxie Trace<a class="headerlink" href="#sandboxie-trace" title="Permanent link"></a></h1>
+<h3 id="please-see-resource-access-monitor-for-sandboxie-classic">Please see <a href="ResourceAccessMonitor.html">Resource Access Monitor</a> for Sandboxie Classic.<a class="headerlink" href="#please-see-resource-access-monitor-for-sandboxie-classic" title="Permanent link"></a></h3>
+<h3 id="please-see-trace-logging-for-sandboxie-plus">Please see <a href="../PlusContent/TraceLog.html">Trace Logging</a> for Sandboxie Plus.<a class="headerlink" href="#please-see-trace-logging-for-sandboxie-plus" title="Permanent link"></a></h3>
 <hr />
-<h3 id="overview">Overview</h3>
+<h3 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h3>
 <p>In some cases, a program may not function correctly within the sandbox, because it needs access to a system resource which is, by default, protected by Sandboxie, and access to that resource is denied.</p>
 <p>Note that in this case, the sandboxed program is not creating the resource itself; rather, it expects the resource to already be available for access and use.</p>
 <p>The trace displays access attempts and makes it possible to somewhat easily identify which resources that are needed for correct operation, have been blocked.</p>
-<h3 id="enable-the-trace">Enable the Trace</h3>
+<h3 id="enable-the-trace">Enable the Trace<a class="headerlink" href="#enable-the-trace" title="Permanent link"></a></h3>
 <p>The trace can be activated through different <a href="SandboxieIni.html">Sandboxie Ini</a> settings:</p>
 <ul>
 <li><strong>FileTrace</strong> logs access to files, folders, and filesystem volumes;</li>
@@ -4559,7 +4559,7 @@
 * <strong>Options</strong> menu -&gt; <strong>Reload ini file</strong> on Sandboxie Plus</p>
 <p>Trace options can be set on a per box basis such that only the boxes you need will generate trace logs.</p>
 <p>You can also adjust the buffer size by adding <code>TraceBufferPages=2560</code> that will increase it tenfold.</p>
-<h3 id="review-the-trace-for-netfwtrace-ipctrace-and-pipetrace">Review the Trace for <strong>NetFwTrace</strong>, <strong>IpcTrace</strong> and <strong>PipeTrace</strong></h3>
+<h3 id="review-the-trace-for-netfwtrace-ipctrace-and-pipetrace">Review the Trace for <strong>NetFwTrace</strong>, <strong>IpcTrace</strong> and <strong>PipeTrace</strong><a class="headerlink" href="#review-the-trace-for-netfwtrace-ipctrace-and-pipetrace" title="Permanent link"></a></h3>
 <p>Since version 0.9.0 / 5.51.0, a new option <code>NetFwTrace=*</code> was added to trace the actions of the firewall components. Please note that the driver only logs to the kernel debug output, which you can view with <a href="https://docs.microsoft.com/en-us/sysinternals/downloads/debugview">DbgView.exe</a>.</p>
 <p>On Windows Vista and later, output from the system debugger log is disabled by default. <a href="https://web.archive.org/web/20080731211018/http://blogs.msdn.com:80/doronh/archive/2006/11/14/where-did-my-debug-output-go-in-vista.aspx">This blog post</a> and <a href="https://web.archive.org/web/20230324011501/https://stackoverflow.com/questions/65015739/outputdebugstring-not-showing-message-in-debugview-windows-10-x64">this thread</a> explain how to enable it.</p>
 <p>The following trace will display output in the following format. (Assuming <strong>IpcTrace</strong>, and <strong>PipeTrace</strong> enabled.)
@@ -4593,7 +4593,7 @@ The format is this:</p>
 <p>Here the access to the resource <em>protected_storage</em> was denied. By default Sandboxie does not allow this access; however the OpenProtectedStorage setting changes this behavior.</p>
 <p><code>(001404) SBIE (FA) 00000001.0F.FFFFFFFF \Device\Afd\Endpoint</code></p>
 <p>Here the access is allowed to the resource <em>Endpoint</em>. The resource class is F, so this is a named pipe or a mail slot resource. The access is allowed by default, because the <em>\Device\Afd</em> prefix names resources needed for Internet access.</p>
-<h3 id="review-guitrace-entries">Review <strong>GuiTrace</strong> Entries</h3>
+<h3 id="review-guitrace-entries">Review <strong>GuiTrace</strong> Entries<a class="headerlink" href="#review-guitrace-entries" title="Permanent link"></a></h3>
 <p>When <strong>GuiTrace</strong> is enabled, the trace also produces entries like the following:
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">...</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">(001404) SBIE (GA) WinHook 0002 on tid</span><span class="o">=</span><span class="s">001484 pid=001960</span>
@@ -4609,7 +4609,7 @@ These entries have a few formats. The first word after (GA) or (GD) identifies t
 <p>When the first word is <em>WinHook</em> or <em>AccHook</em>, the entry indicates installation of a hook. Its installation is permitted for (GA) entries, and denied for (GD) entries. <em>WinHook</em> is a standard Windows hook, followed by the type of the hook (see <a href="https://www.google.com/search?hl=en&amp;q=setwindowshookex+msdn">SetWidowsHookEx in MSDN</a>). <em>AccHook</em> is an accessibility hook (see <a href="https://www.google.com/search?hl=en&amp;q=setwineventhook+msdn">SetWinEventHook in MSDN</a>).</p>
 <p>Both entries identify the thread number (tid) process number (pid) into which the hook was to be installed.</p>
 <p>When the first word is <em>PostMessage</em>, <em>SendMessage</em> or <em>ThrdMessage</em>, the entry shows denied window communication. The following two numbers indicate the window message number, in decimal and hexadecimal. The entry also indicates the window handle (hwnd) of the target window, the process number (pid) which owns this window, and finally, the internal window class name for the window.</p>
-<h3 id="analyze-the-trace">Analyze the Trace</h3>
+<h3 id="analyze-the-trace">Analyze the Trace<a class="headerlink" href="#analyze-the-trace" title="Permanent link"></a></h3>
 <p>The point of using the trace is usually to identify the resource that is keeping the sandboxed program from functioning correctly.</p>
 <p>Consider for example the following trace record:</p>
 <p><code>(001404) SBIE (ID) 001F0001 \BaseNamedObjects\Xyzzy</code></p>
@@ -4620,7 +4620,7 @@ These entries have a few formats. The first word after (GA) or (GD) identifies t
 <p>This setting tells Sandboxie that access to the <em>Xyzzy</em> resource should not be blocked.</p>
 <p>Then reload the Sandboxie configuration, clear the old contents of the trace display, and restart the sandboxed program. If the program now performs better, <em>Xyzzy</em> was indeed the problematic resource.</p>
 <p>But if the program still fails, the trace log can be inspected again for later (or possibly earlier) failed access attempts.</p>
-<h3 id="resource-class">Resource Class</h3>
+<h3 id="resource-class">Resource Class<a class="headerlink" href="#resource-class" title="Permanent link"></a></h3>
 <p>The trace record shows the Sandboxie resource class of the object. This indicates which OpenXxxPath setting is needed to allow access to the object.</p>
 <ul>
 <li>When resource class is F, as in (FA) or (FD), the relevant settings are <a href="OpenFilePath.html">OpenFilePath</a> and <a href="ClosedFilePath.html">ClosedFilePath</a>.</li>

@@ -4526,7 +4526,7 @@
   
 
 
-<h1 id="block-port">Block Port</h1>
+<h1 id="block-port">Block Port<a class="headerlink" href="#block-port" title="Permanent link"></a></h1>
 <p><strong>This feature was removed since v0.9.0 / 5.51.0. If you have custom BlockPort entries in your <a href="../SandboxieIni/">Sandboxie Ini</a>, they will need to be updated by hand to the new format, so for example <code>BlockPort=137,138,139,445</code> becomes <code>NetworkAccess=*,Block;Port=137,138,139,445</code> (currently included in the <em>Templates.ini</em> file under the <code>[Template_BlockPorts]</code> section).</strong></p>
 <p><em>BlockPort</em> was a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. It specified IP port numbers to block for outgoing communications.</p>
 <p>Usage:</p>

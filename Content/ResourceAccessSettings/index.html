@@ -4526,8 +4526,8 @@
   
 
 
-<h1 id="resource-access-settings">Resource Access Settings</h1>
-<h3 id="resource-access-settings-group">"Resource Access" Settings Group</h3>
+<h1 id="resource-access-settings">Resource Access Settings<a class="headerlink" href="#resource-access-settings" title="Permanent link"></a></h1>
+<h3 id="resource-access-settings-group">"Resource Access" Settings Group<a class="headerlink" href="#resource-access-settings-group" title="Permanent link"></a></h3>
 <p><a href="../SandboxieControl/">Sandboxie Control</a> &gt; <a href="../SandboxSettings/">Sandbox Settings</a> &gt; Resource Access</p>
 <p><img alt="" src="../../Media/ResourceAccessSettings.png" /></p>
 <p>Programs that run in a sandbox are generally not allowed to access system resources directly. In some cases, it may be desirable to make exceptions to this rule. The settings here display and change that set of exceptions.</p>
@@ -4539,7 +4539,7 @@
 </ul>
 <p>Configuration changes do not apply to programs that are already running sandboxed at the time the configuration is changed. To keep things simple, you are advised to make configuration changes when no programs are running in the sandbox.</p>
 <hr />
-<h3 id="general-information">General Information</h3>
+<h3 id="general-information">General Information<a class="headerlink" href="#general-information" title="Permanent link"></a></h3>
 <p>Each settings page within the Resource Access group generally has the following characteristics:</p>
 <p><img alt="" src="../../Media/ResourceAccessGeneral.png" /></p>
 <ul>
@@ -4575,64 +4575,64 @@
 </li>
 </ul>
 <hr />
-<h3 id="file-access">File Access</h3>
+<h3 id="file-access">File Access<a class="headerlink" href="#file-access" title="Permanent link"></a></h3>
 <p><a href="../SandboxieControl/">Sandboxie Control</a> &gt; <a href="../SandboxSettings/">Sandbox Settings</a> &gt; Resource Access &gt; File Access</p>
 <p>This category manages the following types of resources: Files, folders, drives, and other devices.</p>
 <p>See <a href="./#general-information">General Information</a> above for more information about editing resources and associating resources with particular programs.</p>
-<h4 id="file-access-direct-access">File Access &gt; Direct Access</h4>
+<h4 id="file-access-direct-access">File Access &gt; Direct Access<a class="headerlink" href="#file-access-direct-access" title="Permanent link"></a></h4>
 <p>Allow direct access to some file or folder, bypassing the supervision of Sandboxie. For example, if you add a folder <strong>C:\Downloads</strong>, then a program running under Sandboxie will be able to create or update files in that folder.</p>
 <p>Note that <em>Direct Access</em> exclusions do not apply when the program itself resides in the sandbox. For example, suppose that you allow direct access to a <strong>C:\Downloads</strong> folder, and then you go on to install a new Web browser into the sandbox. This new sandboxed browser will <em>not</em> have direct access to the <strong>C:\Downloads</strong> folder.</p>
 <p>Related <a href="../SandboxieIni/">Sandboxie Ini</a> settings: <a href="../OpenFilePath/">OpenFilePath</a></p>
-<h4 id="file-access-full-access">File Access &gt; Full Access</h4>
+<h4 id="file-access-full-access">File Access &gt; Full Access<a class="headerlink" href="#file-access-full-access" title="Permanent link"></a></h4>
 <p>Similar to <em>Direct Access</em>, but always applies, even if the sandboxed program itself resides in the sandbox. For better protection, you are advised to use <em>Direct Access</em> rather than <em>Full Access</em> whenever possible.</p>
 <p>Related <a href="../SandboxieIni/">Sandboxie Ini</a> settings: <a href="../OpenPipePath/">OpenPipePath</a></p>
-<h4 id="file-access-read-only-access">File Access &gt; Read-Only Access</h4>
+<h4 id="file-access-read-only-access">File Access &gt; Read-Only Access<a class="headerlink" href="#file-access-read-only-access" title="Permanent link"></a></h4>
 <p>This access mode excludes the effects of sandboxing on a file (or folder) resource, while allowing a program to read, but not modify, the real resource.</p>
 <p>Related <a href="../SandboxieIni/">Sandboxie Ini</a> settings: <a href="../ReadFilePath/">ReadFilePath</a></p>
-<h4 id="file-access-write-only-access">File Access &gt; Write-Only Access</h4>
+<h4 id="file-access-write-only-access">File Access &gt; Write-Only Access<a class="headerlink" href="#file-access-write-only-access" title="Permanent link"></a></h4>
 <p>This access mode hides all files and folders which are located within the selected folder outside the sandbox. However, programs in the sandbox can create new files within the corresponding folder in the sandbox.</p>
 <p>This setting can only be used effectively on folders. If a file is selected, the effect is the same as the Blocked Access setting (see below).</p>
 <p>Related <a href="../SandboxieIni/">Sandboxie Ini</a> settings: <a href="../WriteFilePath/">WriteFilePath</a></p>
-<h4 id="file-access-blocked-access">File Access &gt; Blocked Access</h4>
+<h4 id="file-access-blocked-access">File Access &gt; Blocked Access<a class="headerlink" href="#file-access-blocked-access" title="Permanent link"></a></h4>
 <p>Deny all access to the resource, for example to a folder containing sensitive data. <em>Blocked Access</em> settings take precedence over all other resource access rules. For example, if an exclusion for <strong>C:\Downloads</strong> appears in both <em>Direct Access</em> and <em>Blocked Access</em>, the latter will apply, denying all access to the folder.</p>
 <p>Related <a href="../SandboxieIni/">Sandboxie Ini</a> settings: <a href="../ClosedFilePath/">ClosedFilePath</a></p>
 <hr />
-<h3 id="registry-access">Registry Access</h3>
+<h3 id="registry-access">Registry Access<a class="headerlink" href="#registry-access" title="Permanent link"></a></h3>
 <p><a href="../SandboxieControl/">Sandboxie Control</a> &gt; <a href="../SandboxSettings/">Sandbox Settings</a> &gt; Resource Access &gt; Registry Access</p>
 <p>This category manages registry key resources. The registry is a mechanism provided by Windows for programs to store configuration and settings.</p>
 <p>See <a href="./#general-information">General Information</a> above for more information about editing resources and associating resources with particular programs.</p>
-<h4 id="registry-access-direct-access">Registry Access &gt; Direct Access</h4>
+<h4 id="registry-access-direct-access">Registry Access &gt; Direct Access<a class="headerlink" href="#registry-access-direct-access" title="Permanent link"></a></h4>
 <p>Allow direct access to a registry key resource. Note that <em>Direct Access</em> exclusions do not apply when the program itself resides in the sandbox. This is described in more detail in the File Access category above. Note that unlike in the File Access category, there is no <em>Full Access</em> access mode for registry keys.</p>
 <p>Related <a href="../SandboxieIni/">Sandboxie Ini</a> settings: <a href="../OpenKeyPath/">OpenKeyPath</a></p>
-<h4 id="registry-access-read-only-access">Registry Access &gt; Read-Only Access</h4>
+<h4 id="registry-access-read-only-access">Registry Access &gt; Read-Only Access<a class="headerlink" href="#registry-access-read-only-access" title="Permanent link"></a></h4>
 <p>This access mode excludes the effects of sandboxing on a registry key resource, while allowing a program to read, but not modify, the real resource.</p>
 <p>Related <a href="../SandboxieIni/">Sandboxie Ini</a> settings: <a href="../ReadKeyPath/">ReadKeyPath</a></p>
-<h4 id="registry-access-write-only-access">Registry Access &gt; Write-Only Access</h4>
+<h4 id="registry-access-write-only-access">Registry Access &gt; Write-Only Access<a class="headerlink" href="#registry-access-write-only-access" title="Permanent link"></a></h4>
 <p>This access mode hides all registry data which is located within the selected registry key outside the sandbox. However, programs in the sandbox can create new registry data within the corresponding folder in the sandbox.</p>
 <p>Related <a href="../SandboxieIni/">Sandboxie Ini</a> settings: <a href="../WriteKeyPath/">WriteKeyPath</a></p>
-<h4 id="registry-access-blocked-access">Registry Access &gt; Blocked Access</h4>
+<h4 id="registry-access-blocked-access">Registry Access &gt; Blocked Access<a class="headerlink" href="#registry-access-blocked-access" title="Permanent link"></a></h4>
 <p>Deny all access to a registry key resource, for example to a key containing Windows policy settings. <em>Blocked Access</em> settings take precedence over all other resource access rules. For example, if an exclusion for a registry key appears in both <em>Direct Access</em> and <em>Blocked Access</em>, the latter will apply, denying all access to the registry key.</p>
 <p>Related <a href="../SandboxieIni/">Sandboxie Ini</a> settings: <a href="../ClosedKeyPath/">ClosedKeyPath</a></p>
 <hr />
-<h3 id="ipc-access">IPC Access</h3>
+<h3 id="ipc-access">IPC Access<a class="headerlink" href="#ipc-access" title="Permanent link"></a></h3>
 <p><a href="../SandboxieControl/">Sandboxie Control</a> &gt; <a href="../SandboxSettings/">Sandbox Settings</a> &gt; Resource Access &gt; IPC Access</p>
 <p>This category manages exclusions for NT IPC objects. These resources are created by programs running the system as a way to coordinate operations or otherwise communicate.</p>
 <p>See <a href="./#general-information">General Information</a> above for more information about editing resources and associating resources with particular programs.</p>
-<h4 id="ipc-access-direct-access">IPC Access &gt; Direct Access</h4>
+<h4 id="ipc-access-direct-access">IPC Access &gt; Direct Access<a class="headerlink" href="#ipc-access-direct-access" title="Permanent link"></a></h4>
 <p>Allow direct access to an IPC object resource. Note that unlike in the File Access and Registry Access categories, <em>Direct Access</em> exclusions for IPC objects always apply to all sandboxed programs.</p>
 <p>Related <a href="../SandboxieIni/">Sandboxie Ini</a> settings: <a href="../OpenIpcPath/">OpenIpcPath</a></p>
-<h4 id="ipc-access-blocked-access">IPC Access &gt; Blocked Access</h4>
+<h4 id="ipc-access-blocked-access">IPC Access &gt; Blocked Access<a class="headerlink" href="#ipc-access-blocked-access" title="Permanent link"></a></h4>
 <p>Deny all access to an IPC object resource. <em>Blocked Access</em> settings take precedence over all other resource access rules. For example, if an exclusion for an IPC object appears in both <em>Direct Access</em> and <em>Blocked Access</em>, the latter will apply, denying all access to the object.</p>
 <p>This setting can be used to override default <em>IPC Access &gt; Direct Access</em> settings in Sandboxie, and block the access. For example, by default Sandboxie allows sandboxed programs to access the audio device. To override this and cut off audio output by sandboxed programs, add an exclusion for <strong>\RPC Control\AudioSrv</strong>.</p>
 <p>Related <a href="../SandboxieIni/">Sandboxie Ini</a> settings: <a href="../ClosedIpcPath/">ClosedIpcPath</a></p>
 <hr />
-<h3 id="window-access">Window Access</h3>
+<h3 id="window-access">Window Access<a class="headerlink" href="#window-access" title="Permanent link"></a></h3>
 <p><a href="../SandboxieControl/">Sandboxie Control</a> &gt; <a href="../SandboxSettings/">Sandbox Settings</a> &gt; Resource Access &gt; Window Access</p>
 <p>This category manages exclusions for window classes. These resources are primarily related to windows displayed on the screen, but can also be used by programs as a way to coordinate operations or otherwise communicate. You can specify which window classes, that were created outside the sandbox, will be available for use by sandboxed programs.</p>
 <p>See <a href="./#general-information">General Information</a> above for more information about editing resources and associating resources with particular programs.</p>
 <p>Related <a href="../SandboxieIni/">Sandboxie Ini</a> settings: <a href="../OpenWinClass/">OpenWinClass</a></p>
 <hr />
-<h3 id="com-access">COM Access</h3>
+<h3 id="com-access">COM Access<a class="headerlink" href="#com-access" title="Permanent link"></a></h3>
 <p><a href="../SandboxieControl/">Sandboxie Control</a> &gt; <a href="../SandboxSettings/">Sandbox Settings</a> &gt; Resource Access &gt; COM Access</p>
 <p>This category manages exclusions for COM classes. These resources represent objects which are used as a way to coordinate operations or otherwise communicate. You can specify the COM class identifiers for those COM objects that exist outside the sandbox, and which should be accessible to sandboxed programs.</p>
 <p>See <a href="./#general-information">General Information</a> above for more information about editing resources and associating resources with particular programs.</p>

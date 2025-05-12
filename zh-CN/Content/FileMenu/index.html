@@ -4621,18 +4621,18 @@
   
 
 
-<h1 id="_1">文件菜单</h1>
+<h1 id="_1">文件菜单<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
 <p><a href="../SandboxieControl/">沙盘控制</a> &gt; 文件菜单</p>
 <p><img alt="" src="../../Media/FileMenu.png" /></p>
 <hr />
-<h3 id="_2">终止所有程序</h3>
+<h3 id="_2">终止所有程序<a class="headerlink" href="#_2" title="Permanent link"></a></h3>
 <p><a href="../SandboxieControl/">沙盘控制</a> &gt; <a href="./">文件菜单</a> &gt; 终止所有程序</p>
 <p>“终止所有程序”命令可立即停止所有沙箱中正在运行的全部程序。此命令没有关联的窗口。但在执行前，你可能会收到提示，警告即将终止的程序可能导致相关数据丢失：</p>
 <p><img alt="" src="../../Media/TerminateWarning.png" /></p>
 <p>该警告例如指的是任何未保存的打开文档。你可以通过勾选底部的“下次无需确认，直接终止进程”来禁用此警告。</p>
 <p>另请参阅：<a href="../TrayIconMenu/">托盘图标菜单</a>中的 <a href="../TrayIconMenu/#terminate-all-programs">终止所有程序</a></p>
 <hr />
-<h3 id="_3">禁用强制程序</h3>
+<h3 id="_3">禁用强制程序<a class="headerlink" href="#_3" title="Permanent link"></a></h3>
 <p><a href="../SandboxieControl/">沙盘控制</a> &gt; <a href="./">文件菜单</a> &gt; 禁用强制程序</p>
 <p>“禁用强制程序”切换命令可临时禁用或重新启用强制沙箱化。通常，所有<a href="../ProgramStartSettings/#forced-programs">强制程序</a>（或位于任意<a href="../ProgramStartSettings/#forced-folders">强制文件夹</a>中的程序）都会自动在沙盘的监管下启动。执行“禁用强制程序”命令时，强制沙箱化会被临时暂停。</p>
 <p>默认情况下，强制沙箱化会暂停 10 秒。你可以在弹出的对话框中修改暂停秒数，该对话框会在你选择此命令时出现。</p>
@@ -4647,13 +4647,13 @@
 </ul>
 <p>另请参阅：<a href="../TrayIconMenu/">托盘图标菜单</a>中的 <a href="../TrayIconMenu/#disable-forced-programs">禁用强制程序</a></p>
 <hr />
-<h3 id="uac">以 UAC 管理员身份运行</h3>
+<h3 id="uac">以 UAC 管理员身份运行<a class="headerlink" href="#uac" title="Permanent link"></a></h3>
 <p><a href="../SandboxieControl/">沙盘控制</a> &gt; <a href="./">文件菜单</a> &gt; 以 UAC 管理员身份运行</p>
 <p>“以 UAC 管理员身份运行”切换命令可使沙盘在启动任何程序前请求提升到管理员权限。该命令仅适用于启用了用户帐户控制（UAC）且当前用户账号尚未提升的 Windows。如果菜单中出现该命令，通常需要在将程序安装到沙箱前启用，安装完成后建议禁用。</p>
 <p>此命令没有关联的窗口。然而，在启用“以 UAC 管理员身份运行”后， <a href="./">文件菜单</a> 及 <a href="../TrayIconMenu/">托盘图标菜单</a>中的该命令旁将显示勾选标记。</p>
 <p>另请参阅：<a href="../TrayIconMenu/">托盘图标菜单</a>中的 <a href="../TrayIconMenu/#run-as-uac-administrator">以 UAC 管理员身份运行</a></p>
 <hr />
-<h3 id="_4">窗口处于沙箱中吗？</h3>
+<h3 id="_4">窗口处于沙箱中吗？<a class="headerlink" href="#_4" title="Permanent link"></a></h3>
 <p><a href="../SandboxieControl/">沙盘控制</a> &gt; <a href="./">文件菜单</a> &gt; 窗口处于沙箱中吗？</p>
 <p>“窗口处于沙箱中吗？”命令用于选择屏幕上已显示的窗口，如果该窗口由沙箱中的程序所有，命令会显示该程序及其所在沙箱的名称。</p>
 <p><img alt="" src="../../Media/IsWindowSandboxed.png" /></p>
@@ -4661,7 +4661,7 @@
 <p>如果该窗口由沙箱中的程序所有，沙盘会显示其程序名称和沙箱名称，同时切换到<a href="../ProgramsView/">程序视图</a>，并高亮显示该程序。</p>
 <p>部分程序使用自定义图形方式显示窗口，导致沙盘无法在标题栏显示 [#] 指示标记。这种情况下，你可以通过“窗口处于沙箱中吗？”命令确认窗口及其相关程序是否正在沙箱中运行。</p>
 <hr />
-<h3 id="_5">退出</h3>
+<h3 id="_5">退出<a class="headerlink" href="#_5" title="Permanent link"></a></h3>
 <p><a href="../SandboxieControl/">沙盘控制</a> &gt; <a href="./">文件菜单</a> &gt; 退出</p>
 <p>“退出”命令可关闭 <a href="../SandboxieControl/">沙盘控制</a>。注意，仅关闭窗口（或在 <a href="../TrayIconMenu/">托盘图标菜单</a> 中选择 “隐藏窗口”）<strong>并不会</strong>退出沙盘控制。</p>
 <p>即使前端应用程序沙盘控制处于非活动状态，沙盘仍然有效并能正确监管各程序。但下列功能由沙盘控制前端提供，若其未运行则不可用：</p>

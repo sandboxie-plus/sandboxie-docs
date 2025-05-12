@@ -4526,7 +4526,7 @@
   
 
 
-<h1 id="_1">开放配置路径</h1>
+<h1 id="_1">开放配置路径<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
 <p><em>OpenConfPath</em> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 配置文件中的一项沙箱设置，自 v1.0.0 / 5.55.0 版本起可用。它用于指定一个路径模式，对于该路径下的注册表项，沙盘将不会应用沙箱机制。这允许沙箱内的程序能够直接访问及修改 <em>沙箱外</em> 的系统设置。该设置本质上是在指定的注册表项位置为沙箱“打了一个洞”。</p>
 <p>它与 <a href="OpenKeyPath.html">开放注册表路径</a> 设置类似，但不同之处在于，此设置始终生效，而 <em>OpenKeyPath</em> 仅在应用程序从沙箱外的文件或文件夹运行时才会生效。</p>
 <p>可指定 <a href="ProgramNamePrefix.html">程序名称前缀</a>。</p>

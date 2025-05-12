@@ -4526,10 +4526,10 @@
   
 
 
-<h1 id="detecting-key-loggers">Detecting Key Loggers</h1>
+<h1 id="detecting-key-loggers">Detecting Key Loggers<a class="headerlink" href="#detecting-key-loggers" title="Permanent link"></a></h1>
 <p>Go to <a href="HelpTopics.html">Help Topics</a>, <a href="UsageTips.html">Usage Tips</a>.</p>
 <hr />
-<h3 id="overview">Overview</h3>
+<h3 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h3>
 <p>It is very difficult to reliably detect all classes of key-loggers. This section first explains why this is so, and concludes by offering a possible defense against them.</p>
 <p>First, a distinction must be made between several classes of key-loggers:</p>
 <ul>
@@ -4539,29 +4539,29 @@
 <li>windows message key-loggers</li>
 <li>scripted key-loggers</li>
 </ul>
-<h3 id="external-key-loggers">External Key-Loggers</h3>
+<h3 id="external-key-loggers">External Key-Loggers<a class="headerlink" href="#external-key-loggers" title="Permanent link"></a></h3>
 <p>External (or hardware) key-loggers are devices that connect to your computer in some way. Two examples are a small device plugged between the keyboard and the computer, or a device that snoops on radio signals transmitted by a wireless keyboard.</p>
 <p>The common principle of key-loggers in this class is that they are <em>external</em> to the Windows system on which they are spying. Software running within Windows cannot detect, remove or protect against external key-loggers.</p>
 <p>The other classes of key-loggers described here are software key-loggers which do operate within Windows.</p>
-<h3 id="rootkit-key-loggers">Rootkit Key-Loggers</h3>
+<h3 id="rootkit-key-loggers">Rootkit Key-Loggers<a class="headerlink" href="#rootkit-key-loggers" title="Permanent link"></a></h3>
 <p>Rootkit key-loggers record keystrokes at the lowest software level, typically by positioning themselves as a second keyboard hardware driver (a <em>filter</em> driver, in Windows terminology).</p>
 <p>Once installed, this class of key-loggers may provide the best logging facilities, and may be difficult to get rid of. But to be installed in the first place, this key-logger needs the explicit help of the operating system, and so is easily blocked by Sandboxie.</p>
 <p><del>If such a key-logger attempts to install, Sandboxie should report an informational message <a href="SBIE2103.html">SBIE2103</a>, unless the <a href="BlockDrivers.html">BlockDrivers</a> setting (see also <a href="RestrictionsSettings.html#low-level-access--removed">Sandbox Settings &gt; Restrictions &gt; Low-Level Access</a>) was explicitly used to disable this protection.</del></p>
-<h3 id="windows-hook-key-loggers">Windows Hook Key-Loggers</h3>
+<h3 id="windows-hook-key-loggers">Windows Hook Key-Loggers<a class="headerlink" href="#windows-hook-key-loggers" title="Permanent link"></a></h3>
 <p>These key-loggers don't masquerade as hardware drivers, but they still have to ask the operating system to load them (or <em>hook them</em>) into every program executing on the desktop.</p>
 <p>It is not uncommon for applications to install such hooks as part of normal operation, and blocking all of them would prevent some programs from running successfully inside the sandbox.</p>
 <p><del><strong>Removed From Sandboxie - Block Hooks Command</strong></del></p>
 <p><del>The approach Sandboxie takes is to honor the hook request partially, by applying the hook only to applications in the same sandbox as the requesting application.</del></p>
 <p><del>The <a href="BlockWinHooks.html">BlockWinHooks</a> setting (see also <a href="RestrictionsSettings.html#low-level-access--removed">Sandbox Settings &gt; Restrictions &gt; Low-Level Access</a>) may be used to explicitly disable this protection.</del></p>
-<h3 id="windows-message-key-loggers">Windows Message Key-Loggers</h3>
+<h3 id="windows-message-key-loggers">Windows Message Key-Loggers<a class="headerlink" href="#windows-message-key-loggers" title="Permanent link"></a></h3>
 <p>This class of key-loggers doesn't need any assistance from the operating system, and can only reliably record activity within one program. However, from the point of view of a supervisory program like Sandboxie, they don't do anything suspicious, and so cannot be stopped.</p>
 <p>In order for a program running on the desktop to actually process the keyboard input, the operating system sends that program a message describing the input. The message key-logger, which is likely running in the same process space as the program being logged, can snoop on these messages in a variety of ways, which don't raise suspicion.</p>
 <p>Typically this key-logger will be a secret Web browser plugin (or a secret component of a plugin), so it can easily record keyboard activity related to the Web browser.</p>
-<h3 id="scripted-key-loggers">Scripted Key-Loggers</h3>
+<h3 id="scripted-key-loggers">Scripted Key-Loggers<a class="headerlink" href="#scripted-key-loggers" title="Permanent link"></a></h3>
 <p>This class of key-loggers target and compromise the Web site you will be visiting. This is in contrast to the three other forms of key-loggers discussed here, which target and compromise your own computer.</p>
 <p>The JavaScript and VBScript languages offer facilities for a Web page to react to keystrokes. Legitimate uses of these facilities enable the creation of sophisticated Web pages. For example, consider how Google and Yahoo! searches react to the keys you type in order to suggest a possible search string.</p>
 <p>Exploiting security weaknesses in a Web site, a spy embeds a scripted key-logger into one of the pages in the site. These key-logger are practically indistinguishable from other scripts on the same site, and can use the same script facilities to react to your keystrokes, record them or transmit them to a third-party site.</p>
-<h3 id="defending-against-key-logger">Defending Against Key-Logger</h3>
+<h3 id="defending-against-key-logger">Defending Against Key-Logger<a class="headerlink" href="#defending-against-key-logger" title="Permanent link"></a></h3>
 <p>Sandboxie is not designed to detect or disable key-loggers, but it is designed to make sure that sandboxed software stays in the sandbox, that such software can't integrate into Windows, and that it can be completely discarded when you delete the sandbox.</p>
 <p>This means that if you take care to carry out all untrusted activity in the sandbox, you can always delete the sandbox to undo the effects of that activity, and restore your computer to a trusted state.</p>
 <p>The first step is to make sure your system is not infected by malicious key-loggers, prior to using Sandboxie. A system scan by an anti-virus or anti-malware tool should help here.</p>

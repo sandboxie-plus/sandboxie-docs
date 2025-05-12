@@ -4526,7 +4526,7 @@
   
 
 
-<h1 id="sandboxiedrv">SandboxieDrv使用未公开的内核导出函数实现其令牌魔法</h1>
+<h1 id="sandboxiedrv">SandboxieDrv使用未公开的内核导出函数实现其令牌魔法<a class="headerlink" href="#sandboxiedrv" title="Permanent link"></a></h1>
 <p>Sandboxie通过让沙箱化进程使用严格受限的主令牌来运行，从而实现隔离。由于大多数应用程序无法以这种方式运行，它会钩住所有NTDLL.dll调用，并将它们重定向到SbieDrv中的一个接口。然后，驱动程序可以检查调用参数，使调用线程模拟原始的不受限令牌，执行系统调用，并在将控制权返回给用户模式之前取消线程的模拟。</p>
 <p>通过这种方式，在Sandboxie监督下运行的进程无法使用原始令牌发出系统调用，即使它撤销了ntdll.dll钩子也不行。</p>
 <p>为了使这个机制正常工作，Sandboxie利用了一些未公开的操作：</p>

@@ -4526,10 +4526,10 @@
   
 
 
-<h1 id="_1">检测键盘记录器</h1>
+<h1 id="_1">检测键盘记录器<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
 <p>访问 <a href="../HelpTopics/">帮助主题</a>，<a href="../UsageTips/">使用技巧</a>。</p>
 <hr />
-<h3 id="_2">概述</h3>
+<h3 id="_2">概述<a class="headerlink" href="#_2" title="Permanent link"></a></h3>
 <p>要可靠地检测所有类型的键盘记录器是非常困难的。本节首先解释其原因，并最终提供一种可能的防御手段。</p>
 <p>首先，需要区分几类不同的键盘记录器：</p>
 <ul>
@@ -4539,29 +4539,29 @@
 <li>Windows 消息键盘记录器</li>
 <li>脚本型键盘记录器</li>
 </ul>
-<h3 id="_3">外部键盘记录器</h3>
+<h3 id="_3">外部键盘记录器<a class="headerlink" href="#_3" title="Permanent link"></a></h3>
 <p>外部（或硬件）键盘记录器是通过某种方式连接到计算机的设备。例如，一个插在键盘和计算机之间的小型设备，或用于窃听无线键盘所发射射频信号的装置。</p>
 <p>此类键盘记录器的共同特点是它们是 <em>外部</em> 于其监控的 Windows 系统的。运行在 Windows 内部的软件无法检测、移除或防御外部键盘记录器。</p>
 <p>此处描述的其他类型键盘记录器，均属于在 Windows 内部运行的软件键盘记录器。</p>
-<h3 id="rootkit">Rootkit 键盘记录器</h3>
+<h3 id="rootkit">Rootkit 键盘记录器<a class="headerlink" href="#rootkit" title="Permanent link"></a></h3>
 <p>Rootkit 键盘记录器在最底层的软件层面记录击键，通常通过将自身作为第二个键盘硬件驱动程序（在 Windows 术语中称 <em>筛选</em> 驱动程序）进行部署。</p>
 <p>一旦安装成功，此类键盘记录器往往能提供最完善的日志记录功能，并且很难被清除。然而，要想首次被安装，这种键盘记录器需要操作系统显式地支持，因此可被 Sandboxie 轻松拦截。</p>
 <p><del>如果此类键盘记录器尝试安装，Sandboxie 应该会报告信息性消息 <a href="../SBIE2103/">SBIE2103</a>，除非显式使用了 <a href="../BlockDrivers/">阻止驱动程序</a> 设置（参见 <a href="../RestrictionsSettings/#low-level-access--removed">沙箱设置 &gt; 限制 &gt; 低级访问</a>）禁用该防护。</del></p>
-<h3 id="windows-hook">Windows Hook 键盘记录器</h3>
+<h3 id="windows-hook">Windows Hook 键盘记录器<a class="headerlink" href="#windows-hook" title="Permanent link"></a></h3>
 <p>这些键盘记录器不会伪装成硬件驱动程序，但它们依然需要请求操作系统将其加载（即 <em>hook</em> 到）每个在桌面上运行的程序中。</p>
 <p>许多应用程序在正常运行过程中都会安装此类挂钩，若完全禁止所有挂钩，则会导致部分程序无法在沙箱内正常运行。</p>
 <p><del><strong>Sandboxie 已移除 - 阻止 hook 命令</strong></del></p>
 <p><del>Sandboxie 的做法是部分响应挂钩请求，仅将挂钩应用于与请求应用属于同一沙箱的程序。</del></p>
 <p><del>可通过 <a href="../BlockWinHooks/">阻止 WinHooks</a> 设置（参见 <a href="../RestrictionsSettings/#low-level-access--removed">沙箱设置 &gt; 限制 &gt; 低级访问</a>）显式关闭该防护。</del></p>
-<h3 id="windows">Windows 消息键盘记录器</h3>
+<h3 id="windows">Windows 消息键盘记录器<a class="headerlink" href="#windows" title="Permanent link"></a></h3>
 <p>此类键盘记录器不需要操作系统的协作，并且只能可靠地记录单个程序内的活动。但从 Sandboxie 这类监管程序的视角来看，这些行为没有异常，因此无法阻止。</p>
 <p>桌面程序要处理键盘输入，操作系统会向该程序发送描述输入的消息。消息型键盘记录器——通常运行在与被监控程序相同的进程空间——可以通过多种方法监听这些消息，这些方式都不会引发怀疑。</p>
 <p>这种键盘记录器通常表现为隐藏的 Web 浏览器插件（或其隐藏组件），因此可轻松记录与 Web 浏览器相关的键盘活动。</p>
-<h3 id="_4">脚本型键盘记录器</h3>
+<h3 id="_4">脚本型键盘记录器<a class="headerlink" href="#_4" title="Permanent link"></a></h3>
 <p>这类键盘记录器以你即将访问的网站为攻击目标并对其进行破坏。与上述三类针对本地计算机的键盘记录器不同，它们专门攻击和危害网站。</p>
 <p>JavaScript 和 VBScript 语言为网页响应击键事件提供了支持。合理使用这些功能可以实现功能丰富的网页。例如，Google 和 Yahoo! 搜索会根据你输入的内容进行搜索建议。</p>
 <p>利用网站安全漏洞，攻击者将脚本型键盘记录器植入站点的某个页面。这些键盘记录器几乎无法与站点上的其他脚本区分开来，可以使用同样的脚本功能响应敲键事件，记录并将数据传输至第三方站点。</p>
-<h3 id="_5">防御键盘记录器</h3>
+<h3 id="_5">防御键盘记录器<a class="headerlink" href="#_5" title="Permanent link"></a></h3>
 <p>Sandboxie 并非为检测或禁用键盘记录器而设计，但它确保被沙箱保护的软件只能留在沙箱内，无法与 Windows 集成，并且可以在你删除沙箱时彻底消除。</p>
 <p>这意味着，只要你确保所有不受信任的操作都在沙箱内执行，就可以通过删除沙箱来撤销这些操作的影响，使计算机恢复到可信状态。</p>
 <p>第一步，是在使用 Sandboxie 之前确保你的系统未感染恶意键盘记录器。通过杀毒软件或反恶意软件工具扫描系统可以有所帮助。</p>

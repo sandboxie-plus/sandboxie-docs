@@ -4601,20 +4601,20 @@
   
 
 
-<h1 id="trace-logging-for-sandboxie-plus">Trace logging (for Sandboxie Plus)</h1>
+<h1 id="trace-logging-for-sandboxie-plus">Trace logging (for Sandboxie Plus)<a class="headerlink" href="#trace-logging-for-sandboxie-plus" title="Permanent link"></a></h1>
 <p>The Trace Log tool displays the names of any system resources that are accessed by programs running under the supervision of Sandboxie Plus. Designed to make it easy to identify those system resources which should be excluded from sandboxing, this tool can be used with the <a href="../../Content/SandboxieTrace/">Sandboxie Trace</a> options.</p>
 <p><strong>Important:</strong> Please consider to use the Trace Log before opening a new issue.</p>
 <p><img alt="" src="../../Media/TraceLog.png" /></p>
-<h3 id="using-the-trace-log">Using the Trace Log</h3>
+<h3 id="using-the-trace-log">Using the Trace Log<a class="headerlink" href="#using-the-trace-log" title="Permanent link"></a></h3>
 <p>1. Enable <strong>Trace Log</strong> tab by opening <strong>View</strong> menu -&gt; <strong>Trace Logging</strong>.</p>
 <p>2. When the Trace Log tab is activated, it immediately starts to collect and display resource access information from all sandboxed programs that are running.</p>
 <p>3. At this point, perform any specific tasks that fail when done under the supervision of Sandboxie Plus.</p>
 <p>4. Finally, right click on the collected data and select the entry named <strong>Copy Panel</strong>. This copies the collected data into the clipboard.</p>
 <p>5. You can now paste (Ctrl+V) the collected data somewhere and make it available for analysis.</p>
 <p>6. Optionally, the keyboard shortcut CTRL+F can be used to search for specific entries within the Trace Log tab.</p>
-<h3 id="performance-impact">Performance Impact</h3>
+<h3 id="performance-impact">Performance Impact<a class="headerlink" href="#performance-impact" title="Permanent link"></a></h3>
 <p>When inactive, the Trace Log does not use any system resources and does not have any performance impact on any running programs. When active, the Trace Log has a small performance penalty on sandboxed programs.</p>
-<h3 id="additional-improvements">Additional Improvements</h3>
+<h3 id="additional-improvements">Additional Improvements<a class="headerlink" href="#additional-improvements" title="Permanent link"></a></h3>
 <blockquote>
 <p><strong>Sandboxie Plus v0.7.0</strong> adds the ability to adjust the buffer size with <code>TraceBufferPages=2560</code>.</p>
 <p><strong>Sandboxie Plus v0.8.0</strong> adds the ability to disable resource access monitor for selected sandboxes with <code>DisableResourceMonitor=y</code>.</p>

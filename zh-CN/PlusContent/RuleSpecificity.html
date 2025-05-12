@@ -4526,7 +4526,7 @@
   
 
 
-<h1 id="_1">规则特异性</h1>
+<h1 id="_1">规则特异性<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
 <p>在5.55.0版本之前，Sandboxie以非常简单的方式处理规则，某个路径可以是<a href="../Content/ClosedFilePath.html">封闭的</a>、<a href="../Content/ReadFilePath.html">只读的</a>、<a href="../Content/WriteFilePath.html">只写的</a>或<a href="../Content/OpenFilePath.html">开放的</a>，并且规则应用的优先级是相同的。当一个封闭规则匹配到特定路径时，它会覆盖所有其他规则。</p>
 <p>从1.0.0版本开始，Sandboxie-Plus引入了一种新的机制来评估和应用规则，该机制基于规则的特异性和匹配级别。</p>
 <p>规则特异性是衡量给定规则与特定路径匹配程度的指标。简单来说，特异性是从路径开头到最后一个匹配的非通配符子字符串（包括该子字符串）的字符长度。像“*.tmp”这样仅匹配文件类型的规则将具有最高的特异性，因为它总是能匹配整个文件路径。</p>

@@ -4526,8 +4526,8 @@
   
 
 
-<h1 id="_1">资源访问设置</h1>
-<h3 id="_2">“资源访问”设置组</h3>
+<h1 id="_1">资源访问设置<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<h3 id="_2">“资源访问”设置组<a class="headerlink" href="#_2" title="Permanent link"></a></h3>
 <p><a href="../SandboxieControl/">沙盘控制面板</a> &gt; <a href="../SandboxSettings/">沙箱设置</a> &gt; 资源访问</p>
 <p><img alt="" src="../../Media/ResourceAccessSettings.png" /></p>
 <p>在沙箱中运行的程序通常不允许直接访问系统资源。在某些情况下，可能需要对这一规则进行例外处理。此处的设置用于显示和更改这些例外规则。</p>
@@ -4539,7 +4539,7 @@
 </ul>
 <p>配置更改不会应用于在配置更改时已经在沙箱中运行的程序。为了简化操作，建议在沙箱中没有程序运行时进行配置更改。</p>
 <hr />
-<h3 id="_3">一般信息</h3>
+<h3 id="_3">一般信息<a class="headerlink" href="#_3" title="Permanent link"></a></h3>
 <p>“资源访问”组中的每个设置页面通常具有以下特点：</p>
 <p><img alt="" src="../../Media/ResourceAccessGeneral.png" /></p>
 <ul>
@@ -4561,64 +4561,64 @@
 <li>你还可以使用 <em>添加程序</em> 按钮，通过导航到程序所在文件夹来选择特定程序。</li>
 </ul>
 <hr />
-<h3 id="_4">文件访问</h3>
+<h3 id="_4">文件访问<a class="headerlink" href="#_4" title="Permanent link"></a></h3>
 <p><a href="../SandboxieControl/">沙盘控制面板</a> &gt; <a href="../SandboxSettings/">沙箱设置</a> &gt; 资源访问 &gt; 文件访问</p>
 <p>此类别管理以下类型的资源：文件、文件夹、驱动器和其他设备。</p>
 <p>有关编辑资源以及将资源与特定程序关联的更多信息，请参阅上面的<a href="./#一般信息">一般信息</a>。</p>
-<h4 id="_5">文件访问 &gt; 直接访问</h4>
+<h4 id="_5">文件访问 &gt; 直接访问<a class="headerlink" href="#_5" title="Permanent link"></a></h4>
 <p>允许直接访问某些文件或文件夹，绕过沙盘的监管。例如，如果你添加了一个文件夹 <strong>C:\Downloads</strong>，那么在沙箱中运行的程序将能够在该文件夹中创建或更新文件。</p>
 <p>请注意，当程序本身位于沙箱中时，<em>直接访问</em> 例外情况不适用。例如，假设你允许直接访问 <strong>C:\Downloads</strong> 文件夹，然后你在沙箱中安装了一个新的网络浏览器。这个新的沙箱浏览器将 <em>无法</em> 直接访问 <strong>C:\Downloads</strong> 文件夹。</p>
 <p>相关的<a href="../SandboxieIni/">沙盘配置文件</a>设置：<a href="../OpenFilePath/">打开文件路径</a></p>
-<h4 id="_6">文件访问 &gt; 完全访问</h4>
+<h4 id="_6">文件访问 &gt; 完全访问<a class="headerlink" href="#_6" title="Permanent link"></a></h4>
 <p>与 <em>直接访问</em> 类似，但即使沙箱中的程序本身位于沙箱中，也始终适用。为了更好地保护系统，建议尽可能使用 <em>直接访问</em> 而不是 <em>完全访问</em>。</p>
 <p>相关的<a href="../SandboxieIni/">沙盘配置文件</a>设置：<a href="../OpenPipePath/">打开管道路径</a></p>
-<h4 id="_7">文件访问 &gt; 只读访问</h4>
+<h4 id="_7">文件访问 &gt; 只读访问<a class="headerlink" href="#_7" title="Permanent link"></a></h4>
 <p>此访问模式排除了沙箱对文件（或文件夹）资源的影响，同时允许程序读取但不能修改实际资源。</p>
 <p>相关的<a href="../SandboxieIni/">沙盘配置文件</a>设置：<a href="../ReadFilePath/">读取文件路径</a></p>
-<h4 id="_8">文件访问 &gt; 只写访问</h4>
+<h4 id="_8">文件访问 &gt; 只写访问<a class="headerlink" href="#_8" title="Permanent link"></a></h4>
 <p>此访问模式隐藏了沙箱外所选文件夹中的所有文件和文件夹。但是，沙箱中的程序可以在沙箱中对应的文件夹中创建新文件。</p>
 <p>此设置仅适用于文件夹。如果选择了文件，其效果与“阻止访问”设置相同（见下文）。</p>
 <p>相关的<a href="../SandboxieIni/">沙盘配置文件</a>设置：<a href="../WriteFilePath/">写文件路径</a></p>
-<h4 id="_9">文件访问 &gt; 阻止访问</h4>
+<h4 id="_9">文件访问 &gt; 阻止访问<a class="headerlink" href="#_9" title="Permanent link"></a></h4>
 <p>拒绝所有对资源的访问，例如包含敏感数据的文件夹。<em>阻止访问</em> 设置优先于所有其他资源访问规则。例如，如果 <strong>C:\Downloads</strong> 文件夹在 <em>直接访问</em> 和 <em>阻止访问</em> 中都有例外设置，那么后者将生效，拒绝所有对该文件夹的访问。</p>
 <p>相关的<a href="../SandboxieIni/">沙盘配置文件</a>设置：<a href="../ClosedFilePath/">关闭文件路径</a></p>
 <hr />
-<h3 id="_10">注册表访问</h3>
+<h3 id="_10">注册表访问<a class="headerlink" href="#_10" title="Permanent link"></a></h3>
 <p><a href="../SandboxieControl/">沙盘控制面板</a> &gt; <a href="../SandboxSettings/">沙箱设置</a> &gt; 资源访问 &gt; 注册表访问</p>
 <p>此类别管理注册表项资源。注册表是 Windows 提供的一种机制，用于程序存储配置和设置。</p>
 <p>有关编辑资源以及将资源与特定程序关联的更多信息，请参阅上面的<a href="./#一般信息">一般信息</a>。</p>
-<h4 id="_11">注册表访问 &gt; 直接访问</h4>
+<h4 id="_11">注册表访问 &gt; 直接访问<a class="headerlink" href="#_11" title="Permanent link"></a></h4>
 <p>允许直接访问注册表项资源。请注意，当程序本身位于沙箱中时，<em>直接访问</em> 例外情况不适用。这在上面的“文件访问”类别中有更详细的描述。请注意，与“文件访问”类别不同，注册表项没有 <em>完全访问</em> 模式。</p>
 <p>相关的<a href="../SandboxieIni/">沙盘配置文件</a>设置：<a href="../OpenKeyPath/">打开注册表项路径</a></p>
-<h4 id="_12">注册表访问 &gt; 只读访问</h4>
+<h4 id="_12">注册表访问 &gt; 只读访问<a class="headerlink" href="#_12" title="Permanent link"></a></h4>
 <p>此访问模式排除了沙箱对注册表项资源的影响，同时允许程序读取但不能修改实际资源。</p>
 <p>相关的<a href="../SandboxieIni/">沙盘配置文件</a>设置：<a href="../ReadKeyPath/">读取注册表项路径</a></p>
-<h4 id="_13">注册表访问 &gt; 只写访问</h4>
+<h4 id="_13">注册表访问 &gt; 只写访问<a class="headerlink" href="#_13" title="Permanent link"></a></h4>
 <p>此访问模式隐藏了沙箱外所选注册表项中的所有注册表数据。但是，沙箱中的程序可以在沙箱中对应的文件夹中创建新的注册表数据。</p>
 <p>相关的<a href="../SandboxieIni/">沙盘配置文件</a>设置：<a href="../WriteKeyPath/">写注册表项路径</a></p>
-<h4 id="_14">注册表访问 &gt; 阻止访问</h4>
+<h4 id="_14">注册表访问 &gt; 阻止访问<a class="headerlink" href="#_14" title="Permanent link"></a></h4>
 <p>拒绝所有对注册表项资源的访问，例如包含 Windows 策略设置的注册表项。<em>阻止访问</em> 设置优先于所有其他资源访问规则。例如，如果一个注册表项在 <em>直接访问</em> 和 <em>阻止访问</em> 中都有例外设置，那么后者将生效，拒绝所有对该注册表项的访问。</p>
 <p>相关的<a href="../SandboxieIni/">沙盘配置文件</a>设置：<a href="../ClosedKeyPath/">关闭注册表项路径</a></p>
 <hr />
-<h3 id="ipc">IPC 访问</h3>
+<h3 id="ipc">IPC 访问<a class="headerlink" href="#ipc" title="Permanent link"></a></h3>
 <p><a href="../SandboxieControl/">沙盘控制面板</a> &gt; <a href="../SandboxSettings/">沙箱设置</a> &gt; 资源访问 &gt; IPC 访问</p>
 <p>此类别管理 NT IPC 对象的例外情况。这些资源是系统中运行的程序为了协调操作或进行其他通信而创建的。</p>
 <p>有关编辑资源以及将资源与特定程序关联的更多信息，请参阅上面的<a href="./#一般信息">一般信息</a>。</p>
-<h4 id="ipc_1">IPC 访问 &gt; 直接访问</h4>
+<h4 id="ipc_1">IPC 访问 &gt; 直接访问<a class="headerlink" href="#ipc_1" title="Permanent link"></a></h4>
 <p>允许直接访问 IPC 对象资源。请注意，与“文件访问”和“注册表访问”类别不同，IPC 对象的 <em>直接访问</em> 例外情况始终适用于所有沙箱中的程序。</p>
 <p>相关的<a href="../SandboxieIni/">沙盘配置文件</a>设置：<a href="../OpenIpcPath/">打开 IPC 路径</a></p>
-<h4 id="ipc_2">IPC 访问 &gt; 阻止访问</h4>
+<h4 id="ipc_2">IPC 访问 &gt; 阻止访问<a class="headerlink" href="#ipc_2" title="Permanent link"></a></h4>
 <p>拒绝所有对 IPC 对象资源的访问。<em>阻止访问</em> 设置优先于所有其他资源访问规则。例如，如果一个 IPC 对象在 <em>直接访问</em> 和 <em>阻止访问</em> 中都有例外设置，那么后者将生效，拒绝所有对该对象的访问。</p>
 <p>此设置可用于覆盖沙盘默认的 <em>IPC 访问 &gt; 直接访问</em> 设置，并阻止访问。例如，默认情况下，沙盘允许沙箱中的程序访问音频设备。要覆盖此设置并切断沙箱中程序的音频输出，请添加一个针对 <strong>\RPC Control\AudioSrv</strong> 的例外设置。</p>
 <p>相关的<a href="../SandboxieIni/">沙盘配置文件</a>设置：<a href="../ClosedIpcPath/">关闭 IPC 路径</a></p>
 <hr />
-<h3 id="_15">窗口访问</h3>
+<h3 id="_15">窗口访问<a class="headerlink" href="#_15" title="Permanent link"></a></h3>
 <p><a href="../SandboxieControl/">沙盘控制面板</a> &gt; <a href="../SandboxSettings/">沙箱设置</a> &gt; 资源访问 &gt; 窗口访问</p>
 <p>此类别管理窗口类的例外情况。这些资源主要与屏幕上显示的窗口相关，但也可以被程序用作协调操作或进行其他通信的方式。你可以指定哪些在沙箱外创建的窗口类可供沙箱中的程序使用。</p>
 <p>有关编辑资源以及将资源与特定程序关联的更多信息，请参阅上面的<a href="./#一般信息">一般信息</a>。</p>
 <p>相关的<a href="../SandboxieIni/">沙盘配置文件</a>设置：<a href="../OpenWinClass/">打开窗口类</a></p>
 <hr />
-<h3 id="com">COM 访问</h3>
+<h3 id="com">COM 访问<a class="headerlink" href="#com" title="Permanent link"></a></h3>
 <p><a href="../SandboxieControl/">沙盘控制面板</a> &gt; <a href="../SandboxSettings/">沙箱设置</a> &gt; 资源访问 &gt; COM 访问</p>
 <p>此类别管理 COM 类的例外情况。这些资源代表用于协调操作或进行其他通信的对象。你可以指定那些存在于沙箱外且应可供沙箱中的程序访问的 COM 对象的 COM 类标识符。</p>
 <p>有关编辑资源以及将资源与特定程序关联的更多信息，请参阅上面的<a href="./#一般信息">一般信息</a>。</p>

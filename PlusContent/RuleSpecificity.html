@@ -4526,7 +4526,7 @@
   
 
 
-<h1 id="rule-specificity">Rule Specificity</h1>
+<h1 id="rule-specificity">Rule Specificity<a class="headerlink" href="#rule-specificity" title="Permanent link"></a></h1>
 <p>Sandboxie prior to build 5.55.0 handled rules exclusively in a very simple way, a path may be <a href="../Content/ClosedFilePath.html">Closed</a>, <a href="../Content/ReadFilePath.html">Read Only</a>, <a href="../Content/WriteFilePath.html">Write Only</a>, or <a href="../Content/OpenFilePath.html">Open</a> and the priority of rule application was the same, when a closed rule matched a particular path it overruled all other rules.</p>
 <p>Starting with build 1.0.0, Sandboxie-Plus has introduced a new mechanism to evaluate and apply rules, based on how specific they are and which match level they have.</p>
 <p>The rule specificity is a measure to how well a given rule matches a particular path, simply put the specificity is the length of characters from the begin of the path up to and including the last matching non-wildcard substring. A rule which matches only file types like "*.tmp" would have the highest specificity as it would always match the entire file path.</p>

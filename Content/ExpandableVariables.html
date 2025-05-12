@@ -4526,7 +4526,7 @@
   
 
 
-<h1 id="expandable-variables">Expandable Variables</h1>
+<h1 id="expandable-variables">Expandable Variables<a class="headerlink" href="#expandable-variables" title="Permanent link"></a></h1>
 <p>Some Sandboxie settings may include <em>variables</em>. These are placeholder names which are expanded to (replaced by) text which may be specific to a particular computer and user account. For example,</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">RecoverFolder</span><span class="o">=</span><span class="s">%Personal%\Song_Lyrics</span>
 </span></code></pre></div>
@@ -4600,9 +4600,9 @@
 </tr>
 </tbody>
 </table>
-<h3 id="template-variables">Template Variables</h3>
+<h3 id="template-variables">Template Variables<a class="headerlink" href="#template-variables" title="Permanent link"></a></h3>
 <p>Global templates are part of the Sandboxie installation and located in the file <em>Templates.ini</em> in the Sandboxie installation folder. Additional local templates may be added to <a href="SandboxieIni.html">Sandboxie Ini</a>. Any template may reference template variables in the form <em>%Tmpl.SomeVariableName%</em>. These variable names are not built into the core of Sandboxie. They must be defined in <em>Templates.ini</em> or <em>Sandboxie.ini</em> in a [TemplateSettings] section.</p>
-<h3 id="overriding-variables">Overriding Variables</h3>
+<h3 id="overriding-variables">Overriding Variables<a class="headerlink" href="#overriding-variables" title="Permanent link"></a></h3>
 <p>Any of the variables in the table above, including the <a href="ShellFolders.html">Shell Folders</a> and template variables, can be overridden by the <a href="SandboxieIni.html">Sandboxie Ini</a> configuration file. To override a variable, add a parameter prefixed with <strong>Ovr.</strong>.</p>
 <p>For example:</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">    </span><span class="k">[GlobalSettings]</span>
@@ -4615,7 +4615,7 @@
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="na">OpenFilePath</span><span class="o">=</span><span class="s">%SystemRoot%\Temp</span>
 </span></code></pre></div>
 <p>When a variable is overridden in this way, its expanded value will always match the value specified in the configuration file.</p>
-<h3 id="registry-fallbacks">Registry Fallbacks</h3>
+<h3 id="registry-fallbacks">Registry Fallbacks<a class="headerlink" href="#registry-fallbacks" title="Permanent link"></a></h3>
 <p>Some of the variables in the table above are taken from the system registry. Those variables are <em>ProgramFiles</em> and any other variable that appears below <em>ProgramFiles</em> in the table above. For these variables, it is possible to specify "fallback" values in the <a href="SandboxieIni.html">Sandboxie Ini</a> configuration file. To specify a fallback for a variable, add a parameter prefixed with <strong>Reg.</strong>.</p>
 <p>For example:</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="w">    </span><span class="k">[GlobalSettings]</span>

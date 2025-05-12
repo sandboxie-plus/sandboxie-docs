@@ -4621,11 +4621,11 @@
   
 
 
-<h1 id="_1">沙盘菜单</h1>
+<h1 id="_1">沙盘菜单<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
 <p><a href="SandboxieControl.html">沙盘控制</a> &gt; 沙箱菜单</p>
 <p><img alt="" src="../Media/SandboxMenu.png" /></p>
 <hr />
-<h3 id="_2">沙箱子菜单</h3>
+<h3 id="_2">沙箱子菜单<a class="headerlink" href="#_2" title="Permanent link"></a></h3>
 <p>为每个定义的沙箱显示一个或多个子菜单。默认配置仅包含一个名为 <em>DefaultBox</em> 的沙箱，但可以使用 <a href="SandboxMenu.html#create-new-sandbox">创建新沙箱</a> 命令添加更多沙箱。每个子菜单包含以下命令：</p>
 <ul>
 <li><em>在沙箱中运行</em> 子子菜单用于在沙盘的监管下启动程序：</li>
@@ -4645,21 +4645,21 @@
 </ul>
 <p>除了“重命名沙箱”和“移除沙箱”之外，这些命令在 <a href="TrayIconMenu.html">托盘图标菜单</a> 中也可用。</p>
 <hr />
-<h3 id="_3">创建新沙箱</h3>
+<h3 id="_3">创建新沙箱<a class="headerlink" href="#_3" title="Permanent link"></a></h3>
 <p><em>创建新沙箱</em> 命令在沙盘中定义一个新的沙箱。将显示一个对话框，要求输入新沙箱的名称。名称可以是数字和字母的任意组合，最大长度为 32 个字符。可以使用组合框按钮指定一个现有沙箱，新沙箱将复制该沙箱的设置。如果未选择现有沙箱，新沙箱将初始具有一组默认设置。沙箱创建完成后，可以使用 <a href="SandboxSettings.html">沙箱设置</a> 窗口来更改沙箱设置。</p>
 <hr />
-<h3 id="_4">设置容器文件夹</h3>
+<h3 id="_4">设置容器文件夹<a class="headerlink" href="#_4" title="Permanent link"></a></h3>
 <p><em>设置容器文件夹</em> 命令选择将包含所有其他沙箱的容器（或主、或父）文件夹。默认位置是 <strong>X:\Sandbox\%USER%\%SANDBOX%</strong>，其中 <strong>X:</strong> 代表安装 Windows 的驱动器，通常是 <strong>C:</strong>。</p>
 <p>特殊变量 <strong>%SANDBOX%</strong> 将被沙箱的名称替换。</p>
 <p>特殊变量 <strong>%USER%</strong> 将被使用该沙箱的用户账户（或登录名）的名称替换。请注意，在一个用户账户中创建的沙箱在系统中的其他账户中是可见的并且可以使用。但是，如果容器文件夹包含 <strong>%USER%</strong> 特殊变量，那么用户账户实际上并不共享同一个沙箱。每个账户都有一个单独的沙箱实例。</p>
 <p>相关 <a href="SandboxieIni.html">沙盘配置文件</a> 设置：<a href="FileRootPath.html">文件根路径</a>。</p>
 <hr />
-<h3 id="_5">设置布局和组</h3>
+<h3 id="_5">设置布局和组<a class="headerlink" href="#_5" title="Permanent link"></a></h3>
 <p><em>设置布局和组</em> 命令允许在菜单和列表中显示时，将沙箱按组的层次结构进行排序。这对沙箱内程序的行为没有任何影响。当定义了多个沙箱时，此功能很有用，因为它允许更轻松地通过菜单访问特定的沙箱。</p>
 <p>一旦定义了任何组，<a href="SandboxieControl.html">沙盘控制</a> 中的主 <a href="ProgramsView.html">程序视图</a> 将包含一个组合框按钮，可用于限制显示的沙箱列表。</p>
 <p>相关 <a href="SandboxieIni.html">沙盘配置文件</a> 设置：BoxDisplayOrder。</p>
 <hr />
-<h3 id="_6">显示隐藏沙箱</h3>
+<h3 id="_6">显示隐藏沙箱<a class="headerlink" href="#_6" title="Permanent link"></a></h3>
 <p>仅当某些沙箱对当前用户账户不可见或不可用时，菜单中才会显示 <em>显示隐藏沙箱</em> 命令。可以使用 <a href="SandboxSettings.html">沙箱设置</a> 窗口中的 <a href="UserAccountsSettings.html">用户账户设置</a> 设置页面将沙箱限制为特定的用户账户。<em>显示隐藏沙箱</em> 命令可以恢复当前用户账户不可用的沙箱的可见性。</p>
 <hr />
 <p>前往 <a href="SandboxieControl.html#menus">沙盘控制</a>、<a href="HelpTopics.html">帮助主题</a>。</p>

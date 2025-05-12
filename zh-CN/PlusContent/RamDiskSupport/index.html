@@ -4526,20 +4526,20 @@
   
 
 
-<h1 id="_1">内存盘沙箱</h1>
-<h2 id="_2">内存盘支持</h2>
+<h1 id="_1">内存盘沙箱<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<h2 id="_2">内存盘支持<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <p>通过与 <a href="../imdisk/">ImDisk 驱动程序</a> 无缝对接，Sandboxie Plus 引入了一种变革性的方式，可将系统内存的一部分分配用于动态内存盘。这种机制彻底改变了沙箱的速度和效率，同时还带来了独特的隐私优势。</p>
-<h2 id="_3">性能提升</h2>
+<h2 id="_3">性能提升<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
 <p>内存盘支持的主要优点是能显著提升性能。配置了内存盘的沙箱可以利用系统内存闪电般的数据访问和处理能力。这意味着沙箱内的操作将以前所未有的速度进行，而不受传统存储介质的限制。</p>
-<h2 id="_4">隐私增强</h2>
+<h2 id="_4">隐私增强<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
 <p>除了性能提升外，内存盘支持还为您的沙箱操作增添了一层额外的隐私保护。存储在内存盘中的数据本质上是易失性的 —— 一旦系统关机或沙箱关闭，数据就会消失。内存盘的这种临时性质大大降低了数据泄露的可能性，因为没有持久存储的地方可能会意外留存敏感信息。</p>
-<h2 id="_5">集成内存盘支持：分步指南</h2>
+<h2 id="_5">集成内存盘支持：分步指南<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
 <p>要充分发挥内存盘支持的潜力，请按照以下简单步骤操作：</p>
-<h3 id="_6">更新沙箱配置：</h3>
+<h3 id="_6">更新沙箱配置：<a class="headerlink" href="#_6" title="Permanent link"></a></h3>
 <p>打开您希望增强功能的沙箱的 <strong><a href="../../Content/SandboxieIni/">Sandboxie 配置文件</a></strong>。要为该沙箱启用内存盘，请在相应沙箱的部分中添加以下行：</p>
 <div class="language-ini highlight"><pre><span></span><code><span class="na">UseRamDisk</span><span class="o">=</span><span class="s">y</span>
 </code></pre></div>
-<h3 id="_7">配置全局设置：</h3>
+<h3 id="_7">配置全局设置：<a class="headerlink" href="#_7" title="Permanent link"></a></h3>
 <p>要在所有沙箱中启用内存盘支持，请导航至 <strong><a href="../../Content/SandboxieIni/">Sandboxie 配置文件</a></strong> 中的 [GlobalSettings] 部分。通过添加以下行来为内存盘分配适当的内存：</p>
 <div class="language-ini highlight"><pre><span></span><code><span class="na">RamDiskSizeKb</span><span class="o">=</span><span class="s">2097152</span>
 </code></pre></div>

@@ -4526,7 +4526,7 @@
   
 
 
-<h1 id="_1">仅限管理员监视</h1>
+<h1 id="_1">仅限管理员监视<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
 <p><em>MonitorAdminOnly</em> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 中的一个全局设置项。如果启用该设置，则在非管理员组成员的用户帐户下运行的 <a href="../SandboxieControl/">沙盘控制</a> 将无法调用 <a href="../ResourceAccessMonitor/">资源访问监视器</a> 功能。</p>
 <p>这样设计的主要原因是，资源访问监视器每次被调用时，会为每个用户会话消耗 64K 字节的系统内存，因此网络管理员可能希望防止普通用户调用该功能。</p>
 <p>用法示例：</p>

@@ -4657,7 +4657,7 @@
   
 
 
-<h1 id="start-command-line">Start Command Line</h1>
+<h1 id="start-command-line">Start Command Line<a class="headerlink" href="#start-command-line" title="Permanent link"></a></h1>
 <p>The Sandboxie Start program can do any of the following, depending on command line parameters specified to it.</p>
 <ul>
 <li><a href="#start-programs">Start</a> programs under the supervision of Sandboxie</li>
@@ -4669,7 +4669,7 @@
 <li><a href="#related-reading-material">Related</a> reading material</li>
 </ul>
 <hr />
-<h3 id="start-programs">Start Programs</h3>
+<h3 id="start-programs">Start Programs<a class="headerlink" href="#start-programs" title="Permanent link"></a></h3>
 <p>This is the default behavior. By specifying a full or partial path to a program's executable file, Sandboxie Start will launch that program under the supervision of Sandboxie:
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">  </span><span class="na">&quot;C</span><span class="o">:</span><span class="s">\Program Files\Sandboxie\Start.exe&quot;  c:\windows\system32\notepad.exe</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">&quot;C</span><span class="o">:</span><span class="s">\Program Files\Sandboxie\Start.exe&quot;  notepad.exe</span>
@@ -4712,7 +4712,7 @@
 <p>Parameters can be combined in any order. For example:
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="w">   </span><span class="na">&quot;C</span><span class="o">:</span><span class="s">\Program Files\Sandboxie\Start.exe&quot;  /box:CustomBox /silent MyProgram.exe</span>
 </span></code></pre></div></p>
-<h3 id="stop-programs">Stop Programs</h3>
+<h3 id="stop-programs">Stop Programs<a class="headerlink" href="#stop-programs" title="Permanent link"></a></h3>
 <p>Terminate all programs running in a particular sandbox. Note that the request is transmitted to the Sandboxie service SbieSvc, which actually carries out the termination.
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="w">  </span><span class="na">&quot;C</span><span class="o">:</span><span class="s">\Program Files\Sandboxie\Start.exe&quot;  /terminate</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="na">&quot;C</span><span class="o">:</span><span class="s">\Program Files\Sandboxie\Start.exe&quot;  /box:TestBox  /terminate</span>
@@ -4721,7 +4721,7 @@
 <p>If the parameter <em>/box:SandboxName</em> is omitted, programs running in the default sandbox, <em>DefaultBox</em>, will be stopped.</p>
 <p>The form <em>/terminate_all</em> terminates all programs in all sandboxes.</p>
 <hr />
-<h3 id="unmount-box-images">Unmount Box Images</h3>
+<h3 id="unmount-box-images">Unmount Box Images<a class="headerlink" href="#unmount-box-images" title="Permanent link"></a></h3>
 <p>These commands unmount encrypted box images or RAM disks created by Sandboxie Plus. These parameters are available since v1.11.0 / 5.66.0.
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="w">  </span><span class="na">&quot;C</span><span class="o">:</span><span class="s">\Program Files\Sandboxie-Plus\Start.exe&quot;  /unmount</span>
 </span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span><span class="na">&quot;C</span><span class="o">:</span><span class="s">\Program Files\Sandboxie-Plus\Start.exe&quot;  /box:EncryptedBox  /unmount</span>
@@ -4729,7 +4729,7 @@
 </span></code></pre></div></p>
 <p>If the parameter <em>/box:SandboxName</em> is omitted, default sandbox, <em>DefaultBox</em> image, will be unmounted.</p>
 <p>The form <em>/unmount_all</em> terminates all programs in all encrypted sandboxes and unmounts all encrypted box images, including RAM disks created by Sandboxie Plus.</p>
-<h3 id="mount-box-images">Mount Box Images</h3>
+<h3 id="mount-box-images">Mount Box Images<a class="headerlink" href="#mount-box-images" title="Permanent link"></a></h3>
 <p>These commands mount encrypted box images created by Sandboxie Plus. These parameters are available since v1.11.0 / 5.66.0.
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="w">  </span><span class="na">&quot;C</span><span class="o">:</span><span class="s">\Program Files\Sandboxie-Plus\Start.exe&quot;  /key:[box image password] /mount_protected</span>
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">  </span><span class="na">&quot;C</span><span class="o">:</span><span class="s">\Program Files\Sandboxie-Plus\Start.exe&quot;  /key:[box image password] /mount</span>
@@ -4739,7 +4739,7 @@
 <p>If the parameter <em>/box:SandboxName</em> is omitted, default sandbox, <em>DefaultBox</em> image, will be mounted.</p>
 <p>The form <em>/mount_protected</em> mounts encrypted box images with the <em>Box Root Protection</em>. <em>Box Root Protection</em> prevents processes running outside the sandbox from accessing the root folder of the encrypted box.</p>
 <hr />
-<h3 id="list-programs">List Programs</h3>
+<h3 id="list-programs">List Programs<a class="headerlink" href="#list-programs" title="Permanent link"></a></h3>
 <p>List the system process ID numbers for all programs running in a particular sandbox.
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="w">  </span><span class="na">&quot;C</span><span class="o">:</span><span class="s">\Program Files\Sandboxie\Start.exe&quot;  /listpids</span>
 </span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">  </span><span class="na">&quot;C</span><span class="o">:</span><span class="s">\Program Files\Sandboxie\Start.exe&quot;  /box:TestBox  /listpids</span>
@@ -4754,7 +4754,7 @@
 </span></code></pre></div></p>
 <p>Note that Start.exe is not a console applications, so the output does not appear in a command prompt window unless you pipe the output using a construct such as <code>| more</code>.</p>
 <hr />
-<h3 id="delete-contents-of-sandbox">Delete Contents of Sandbox</h3>
+<h3 id="delete-contents-of-sandbox">Delete Contents of Sandbox<a class="headerlink" href="#delete-contents-of-sandbox" title="Permanent link"></a></h3>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="w">  </span><span class="na">&quot;C</span><span class="o">:</span><span class="s">\Program Files\Sandboxie\Start.exe&quot;  delete_sandbox</span>
 </span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">  </span><span class="na">&quot;C</span><span class="o">:</span><span class="s">\Program Files\Sandboxie\Start.exe&quot;  delete_sandbox_silent</span>
 </span></code></pre></div>
@@ -4788,13 +4788,13 @@
 </span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">  </span><span class="na">&quot;C</span><span class="o">:</span><span class="s">\Program Files\Sandboxie\Start.exe&quot;  delete_sandbox_silent_phase2</span>
 </span></code></pre></div></p>
 <hr />
-<h3 id="reload-configuration">Reload Configuration</h3>
+<h3 id="reload-configuration">Reload Configuration<a class="headerlink" href="#reload-configuration" title="Permanent link"></a></h3>
 <p>This command reloads the Sandboxie configuration in SandboxieIni into the active Sandboxie driver. Typically useful after manually editing the Sandboxie.ini file.
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="w">  </span><span class="na">&quot;C</span><span class="o">:</span><span class="s">\Program Files\Sandboxie\Start.exe&quot;  /reload</span>
 </span></code></pre></div></p>
 <p>Note that reloading the configuration does not take effect on sandboxed programs that are already running when this command is issued.</p>
 <hr />
-<h3 id="disable-forced-programs">Disable Forced Programs</h3>
+<h3 id="disable-forced-programs">Disable Forced Programs<a class="headerlink" href="#disable-forced-programs" title="Permanent link"></a></h3>
 <p>The following command runs a program outside the sandbox, even if the program is forced. It is similar to using the Run Outside Sandbox option from the sandbox selection window of the Run Sandboxed command.
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="w">  </span><span class="na">&quot;C</span><span class="o">:</span><span class="s">\Program Files\Sandboxie\Start.exe&quot;  /dfp            c:\path\to\program.exe</span>
 </span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">  </span><span class="na">&quot;C</span><span class="o">:</span><span class="s">\Program Files\Sandboxie\Start.exe&quot;  /disable_force  c:\path\to\program.exe</span>
@@ -4805,7 +4805,7 @@
 </span></code></pre></div></p>
 <p>Note the missing slash in this command syntax. Note also that this command is not a toggle. It always puts the Disable Forced Programs mode into effect and always restarts the countdown timer. At this time, Start.exe does not offer a way to request the cancellation of this mode.</p>
 <hr />
-<h3 id="related-reading-material">Related Reading Material</h3>
+<h3 id="related-reading-material">Related Reading Material<a class="headerlink" href="#related-reading-material" title="Permanent link"></a></h3>
 <p>See also: <a href="../InjectDll/">InjectDll</a> and <a href="../SBIEDLLAPI/">SBIE DLL API</a></p>
 <p>Go to <a href="../HelpTopics/">Help Topics</a>.</p>
 

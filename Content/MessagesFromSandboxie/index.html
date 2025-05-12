@@ -4526,7 +4526,7 @@
   
 
 
-<h1 id="messages-from-sandboxie">Messages From Sandboxie</h1>
+<h1 id="messages-from-sandboxie">Messages From Sandboxie<a class="headerlink" href="#messages-from-sandboxie" title="Permanent link"></a></h1>
 <p>The <em>Messages From Sandboxie</em> window is displayed automatically whenever Sandboxie logs at least one error or informational message. (For more information about Sandboxie messages, <a href="../SBIEMessages/">SBIE Messages</a>.)</p>
 <p>The window displays one message per line, as in the example below.</p>
 <p><img alt="" src="../../Media/MessagesFromSandboxie.png" /></p>
@@ -4534,7 +4534,7 @@
 <p>Clicking the <em>Hide</em> button indicates that you don't wish to receive this message again. If the message contains an information detail, the <em>Hide</em> button hides the message only in combination with that particular detail.</p>
 <p>For example, the <a href="../SBIE1304/">SBIE1304</a> message shown above has the detail <em>osk.exe</em>. In this case, the <em>Hide</em> button will hide future occurrences of <a href="../SBIE1304/">SBIE1304</a> for <em>osk.exe</em>. If <a href="../SBIE1304/">SBIE1304</a> is issued for some other program name, it will still be displayed.</p>
 <p>Clicking the <em>Close</em> button closes the window.</p>
-<h2 id="log-messages-to-a-file">Log Messages To A File</h2>
+<h2 id="log-messages-to-a-file">Log Messages To A File<a class="headerlink" href="#log-messages-to-a-file" title="Permanent link"></a></h2>
 <p>It's possible to log <em>Messages From Sandboxie</em> to a file with a simple configuration inside the registry:
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">reg.exe add &quot;HKLM\SYSTEM\CurrentControlSet\Services\SbieSvc&quot; /t REG_SZ /v LogFile /d &quot;2;C</span><span class="o">:</span><span class="s">\Windows\System32\LogFiles\Sandboxie.log&quot; /f</span>
 </span></code></pre></div>

@@ -4693,7 +4693,7 @@
   
 
 
-<h1 id="sbie-dll-api">SBIE DLL API</h1>
+<h1 id="sbie-dll-api">SBIE DLL API<a class="headerlink" href="#sbie-dll-api" title="Permanent link"></a></h1>
 <p>本页面描述了 <em>SbieDll.dll</em> 动态链接库（DLL）中可调用的入口点。这些入口点暴露了沙箱工具（Sandboxie）的一些功能，这些功能可以通过编程方式访问，即通过其他程序而非用户与沙箱工具进行交互来访问。</p>
 <p>以编程方式使用沙箱工具涉及三个方面：</p>
 <ul>
@@ -4722,7 +4722,7 @@
 </span></code></pre></div></p>
 <p>请注意使用 <em>InjectDllMain</em>（请参阅 <a href="../InjectDll/">注入 DLL</a>）来获取已加载的 SbieDll 实例的句柄。这是推荐的方法。不过，使用 LoadLibrary 或 GetModuleHandle 按名称查找 SbieDll 也是可行的。</p>
 <hr />
-<h3 id="_1">枚举沙箱名称</h3>
+<h3 id="_1">枚举沙箱名称<a class="headerlink" href="#_1" title="Permanent link"></a></h3>
 <ul>
 <li>
 <p>原型：
@@ -4766,7 +4766,7 @@
 </span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">        </span><span class="na">}</span>
 </span></code></pre></div>
 <hr />
-<h3 id="_2">按沙箱名称查询沙箱路径</h3>
+<h3 id="_2">按沙箱名称查询沙箱路径<a class="headerlink" href="#_2" title="Permanent link"></a></h3>
 <ul>
 <li>
 <p>原型：
@@ -4837,7 +4837,7 @@
 </li>
 </ul>
 <hr />
-<h3 id="id">按进程 ID 查询沙箱路径</h3>
+<h3 id="id">按进程 ID 查询沙箱路径<a class="headerlink" href="#id" title="Permanent link"></a></h3>
 <ul>
 <li>
 <p>原型：
@@ -4886,7 +4886,7 @@
 </li>
 </ul>
 <hr />
-<h3 id="_3">枚举正在运行的进程</h3>
+<h3 id="_3">枚举正在运行的进程<a class="headerlink" href="#_3" title="Permanent link"></a></h3>
 <ul>
 <li>
 <p>原型：
@@ -4923,7 +4923,7 @@
 </li>
 </ul>
 <hr />
-<h3 id="_4">查询进程信息</h3>
+<h3 id="_4">查询进程信息<a class="headerlink" href="#_4" title="Permanent link"></a></h3>
 <ul>
 <li>
 <p>原型：
@@ -4960,7 +4960,7 @@
 </li>
 </ul>
 <hr />
-<h3 id="_5">终止单个沙箱进程</h3>
+<h3 id="_5">终止单个沙箱进程<a class="headerlink" href="#_5" title="Permanent link"></a></h3>
 <ul>
 <li>
 <p>原型：
@@ -4987,7 +4987,7 @@
 </li>
 </ul>
 <hr />
-<h3 id="_6">终止所有沙箱进程</h3>
+<h3 id="_6">终止所有沙箱进程<a class="headerlink" href="#_6" title="Permanent link"></a></h3>
 <ul>
 <li>
 <p>原型：
@@ -5017,7 +5017,7 @@
 </li>
 </ul>
 <hr />
-<h3 id="sandboxieini">从 Sandboxie.ini 查询配置</h3>
+<h3 id="sandboxieini">从 Sandboxie.ini 查询配置<a class="headerlink" href="#sandboxieini" title="Permanent link"></a></h3>
 <ul>
 <li>
 <p>原型：
@@ -5060,7 +5060,7 @@
 </li>
 </ul>
 <hr />
-<h3 id="sandboxieini_1">更新 Sandboxie.ini 中的配置</h3>
+<h3 id="sandboxieini_1">更新 Sandboxie.ini 中的配置<a class="headerlink" href="#sandboxieini_1" title="Permanent link"></a></h3>
 <ul>
 <li>
 <p>原型：
@@ -5105,7 +5105,7 @@
 </li>
 </ul>
 <hr />
-<h3 id="sandboxieini_2">从 Sandboxie.ini 重新加载配置</h3>
+<h3 id="sandboxieini_2">从 Sandboxie.ini 重新加载配置<a class="headerlink" href="#sandboxieini_2" title="Permanent link"></a></h3>
 <ul>
 <li>
 <p>原型：
@@ -5130,7 +5130,7 @@
 </li>
 </ul>
 <hr />
-<h3 id="_7">挂钩用户模式入口点</h3>
+<h3 id="_7">挂钩用户模式入口点<a class="headerlink" href="#_7" title="Permanent link"></a></h3>
 <ul>
 <li>
 <p>原型：
@@ -5195,7 +5195,7 @@
 </li>
 </ul>
 <hr />
-<h3 id="dll">注册 DLL 加载/卸载回调</h3>
+<h3 id="dll">注册 DLL 加载/卸载回调<a class="headerlink" href="#dll" title="Permanent link"></a></h3>
 <ul>
 <li>原型：
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="w">       </span><span class="na">typedef void (__stdcall *P_DllCallback)(const WCHAR *ImageName, HMODULE ImageBase);</span>
@@ -5228,7 +5228,7 @@
 </span></code></pre></div></li>
 </ul>
 <hr />
-<h3 id="sandboxie">获取 Sandboxie 主文件夹</h3>
+<h3 id="sandboxie">获取 Sandboxie 主文件夹<a class="headerlink" href="#sandboxie" title="Permanent link"></a></h3>
 <ul>
 <li>
 <p>原型：

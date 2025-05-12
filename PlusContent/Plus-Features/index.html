@@ -4764,47 +4764,47 @@
 <p>Sandboxie Plus user interface offers a multitude of new functionality which improves security, compatibility and the overall sandboxing experience.</p>
 <p>Some of these features (*) are however only available to users with a <a href="../supporter-certificate/">Support Certificate</a> which can be obtained by <a href="https://github.com/sandboxie-plus/Sandboxie/blob/master/CONTRIBUTING.md">contributing to the Sandboxie project</a> or purchased in our <a href="https://xanasoft.com/shop/">online shop</a>.</p>
 <p>Some more features (**) are available to participants of the <a href="../Sandboxie-Insider/">Sandboxie-Insider</a> program.</p>
-<h4 id="rule-specificity"><a href="../RuleSpecificity/">Rule Specificity</a> *</h4>
+<h4 id="rule-specificity"><a href="../RuleSpecificity/">Rule Specificity</a> *<a class="headerlink" href="#rule-specificity" title="Permanent link"></a></h4>
 <ul>
 <li>With this option rules are prioritized based on their specificity (see changelog/docs for details) this way sub paths can be readable/writeable while parent parts are still protected.</li>
 </ul>
-<h4 id="security-enhanced-sandboxes"><a href="../security-mode/">Security enhanced sandboxes</a> *</h4>
+<h4 id="security-enhanced-sandboxes"><a href="../security-mode/">Security enhanced sandboxes</a> *<a class="headerlink" href="#security-enhanced-sandboxes" title="Permanent link"></a></h4>
 <ul>
 <li>Restrict syscall elevation to approved known safe / filtered syscalls</li>
 <li>Limit access to device endpoints to known safe / filtered endpoints</li>
 </ul>
-<h4 id="privacy-enhanced-sandboxes"><a href="../privacy-mode/">Privacy enhanced sandboxes</a> *</h4>
+<h4 id="privacy-enhanced-sandboxes"><a href="../privacy-mode/">Privacy enhanced sandboxes</a> *<a class="headerlink" href="#privacy-enhanced-sandboxes" title="Permanent link"></a></h4>
 <ul>
 <li>With this feature, by applying a preset rule collection, all locations potentially containing personal data can be protected. Applications running in boxes with personal data protection will see an empty PC with no user data on it.</li>
 </ul>
-<h4 id="compartment-mode"><a href="../compartment-mode/">Compartment Mode</a> *</h4>
+<h4 id="compartment-mode"><a href="../compartment-mode/">Compartment Mode</a> *<a class="headerlink" href="#compartment-mode" title="Permanent link"></a></h4>
 <ul>
 <li>This mode is intended to optimize compatibility at the cost of security, here Sandboxie’s token-based isolation scheme is not used. Isolation is limited to the FS minifilter as well as registry and object callbacks. This has the potential to greatly improve compatibility with various applications.</li>
 </ul>
-<h4 id="virtual-disk-integration">Virtual Disk Integration **</h4>
+<h4 id="virtual-disk-integration">Virtual Disk Integration **<a class="headerlink" href="#virtual-disk-integration" title="Permanent link"></a></h4>
 <ul>
 <li><a href="../RamDiskSupport/">RamDisk support</a>, available since the latest insider build, allows you to create a virtual disk in your system's memory, using the ImDisk driver, which can speed up file access and increase confidentiality as all box contents will be discarded when the disk is unmounted (manually or automatically on reboot).</li>
 <li><a href="../BoxEncryption/">Encrypted Box Image support</a> is currently in development and allows you to create encrypted sandboxed environments for an even greater protection of your confidential data. With this feature the box file root is being mounted from an AES-XTS encrypted box image, other ciphers are available as well. Upcoming additions to this root functionality will contain secure box passphrase handling and a driver extension to prevent applications not running in the encrypted sandbox from accessing the sandboxed files.</li>
 </ul>
-<h4 id="enhanced-network-filtering-and-redirection">Enhanced network filtering and redirection **</h4>
+<h4 id="enhanced-network-filtering-and-redirection">Enhanced network filtering and redirection **<a class="headerlink" href="#enhanced-network-filtering-and-redirection" title="Permanent link"></a></h4>
 <ul>
 <li><a href="../ProxySupport/">Proxy injection</a> is yet another feature which has been added in the insider builds, it allows to force any application to use a Socks 5 proxy instead of a direct connection.</li>
 <li><a href="../DNSFilter/">DNS query logging, filtering and redirection</a> feature allows you to block, or redirect DNS queries made by sandboxed programs for selected domains.</li>
 </ul>
-<h4 id="wfp-windows-filtering-platform-support"><a href="../WFPSupport/">WFP (Windows Filtering Platform) support</a></h4>
+<h4 id="wfp-windows-filtering-platform-support"><a href="../WFPSupport/">WFP (Windows Filtering Platform) support</a><a class="headerlink" href="#wfp-windows-filtering-platform-support" title="Permanent link"></a></h4>
 <ul>
 <li>With this feature, Sandboxie can be like an application firewall which applies the rules on a per-sandbox basis, allowing the same application access to Internet in one box while blocking it in another.</li>
 </ul>
-<h4 id="windows-11-context-menu-integration">Windows 11 context menu integration</h4>
-<h4 id="processthread-handle-filtering-obcallbacks">Process/Thread handle filtering (obCallbacks)</h4>
+<h4 id="windows-11-context-menu-integration">Windows 11 context menu integration<a class="headerlink" href="#windows-11-context-menu-integration" title="Permanent link"></a></h4>
+<h4 id="processthread-handle-filtering-obcallbacks">Process/Thread handle filtering (obCallbacks)<a class="headerlink" href="#processthread-handle-filtering-obcallbacks" title="Permanent link"></a></h4>
 <ul>
 <li>Using this mechanism greatly improves on isolation of processes and provides enhanced security.</li>
 </ul>
-<h4 id="win32-syscall-hooking">Win32 syscall hooking</h4>
+<h4 id="win32-syscall-hooking">Win32 syscall hooking<a class="headerlink" href="#win32-syscall-hooking" title="Permanent link"></a></h4>
 <ul>
 <li>With this feature, Win32 syscalls can get the same treatment as NT syscalls, which helps with graphics and HW acceleration.</li>
 </ul>
-<h4 id="new-ui-with-dark-mode-and-much-more">New UI with dark mode and much more</h4>
+<h4 id="new-ui-with-dark-mode-and-much-more">New UI with dark mode and much more<a class="headerlink" href="#new-ui-with-dark-mode-and-much-more" title="Permanent link"></a></h4>
 <ul>
 <li>Sandboxie-Plus bring an entirely new Qt based UI sandman.exe</li>
 <li>Customizable per box run menu</li>
@@ -4813,42 +4813,42 @@
 <li>Box event triggers/scripts</li>
 <li>Ability to stop selected applications from running globally, regardless of box presets</li>
 </ul>
-<h4 id="snapshots"><a href="../BoxSnapshots/">Snapshots</a></h4>
+<h4 id="snapshots"><a href="../BoxSnapshots/">Snapshots</a><a class="headerlink" href="#snapshots" title="Permanent link"></a></h4>
 <ul>
 <li>Sandboxie-Plus can create box snapshots, with them it is possible to easily revert a box to a defined previous state.</li>
 <li>Box set to auto delete will auto-revert when available to the last snapshot allowing to benefit from a fresh clean box each time but with some preset configuration</li>
 </ul>
-<h4 id="enhanced-debugtrace-monitor"><a href="../TraceLog/">Enhanced debug/trace monitor</a></h4>
-<h4 id="fake-admin-privileges">Fake admin privileges</h4>
+<h4 id="enhanced-debugtrace-monitor"><a href="../TraceLog/">Enhanced debug/trace monitor</a><a class="headerlink" href="#enhanced-debugtrace-monitor" title="Permanent link"></a></h4>
+<h4 id="fake-admin-privileges">Fake admin privileges<a class="headerlink" href="#fake-admin-privileges" title="Permanent link"></a></h4>
 <ul>
 <li>Allows to make all processes in a box think they have admin permissions and act accordingly, without the potential drawbacks of granting them admin permissions</li>
 </ul>
-<h4 id="box-size-monitor">Box size monitor</h4>
+<h4 id="box-size-monitor">Box size monitor<a class="headerlink" href="#box-size-monitor" title="Permanent link"></a></h4>
 <ul>
 <li>Monitor and list box size in an own column</li>
 </ul>
-<h4 id="start-menu-integration">Start Menu integration</h4>
+<h4 id="start-menu-integration">Start Menu integration<a class="headerlink" href="#start-menu-integration" title="Permanent link"></a></h4>
 <ul>
 <li>Integrate start menu entries from sandboxes into the host start menu</li>
 </ul>
-<h4 id="sandbox-sid-isolation">Sandbox SID isolation</h4>
+<h4 id="sandbox-sid-isolation">Sandbox SID isolation<a class="headerlink" href="#sandbox-sid-isolation" title="Permanent link"></a></h4>
 <ul>
 <li>Instead of using anonymous login SID, it uses custom SIDs per-sandbox like Sandboxie/DefaultBox. This way, processes from separate sandboxes won’t be able accessing each other’s resources.</li>
 </ul>
-<h4 id="breakout-process"><a href="../../Content/BreakoutProcess/">Breakout Process</a></h4>
+<h4 id="breakout-process"><a href="../../Content/BreakoutProcess/">Breakout Process</a><a class="headerlink" href="#breakout-process" title="Permanent link"></a></h4>
 <ul>
 <li>Allows to specify which applications shall run unsandboxed when launched within the sandbox. A combination of this and ForceProcess allows for a simple priority system.</li>
 <li><a href="../../Content/BreakoutDocument/">Document Breakout</a> is an extension to the already well-known Breakout mechanism to allow to open selected file types saved to an open file path from within the sandbox in an unsandboxed instance of the associated application.  **</li>
 </ul>
-<h4 id="usb-drive-sandboxing"><a href="../USBSandboxing/">USB drive sandboxing</a> **</h4>
+<h4 id="usb-drive-sandboxing"><a href="../USBSandboxing/">USB drive sandboxing</a> **<a class="headerlink" href="#usb-drive-sandboxing" title="Permanent link"></a></h4>
 <ul>
 <li>This feature allows you to automatically sandbox any USB drive that you plug into your computer, which adds an extra layer of protection to your system.</li>
 </ul>
-<h4 id="efs-support">EFS Support **</h4>
+<h4 id="efs-support">EFS Support **<a class="headerlink" href="#efs-support" title="Permanent link"></a></h4>
 <ul>
 <li>Support for EFS (Encrypted File System) protected files.</li>
 </ul>
-<h4 id="arm64-support-for-windows-11">ARM64 support for Windows 11 *</h4>
+<h4 id="arm64-support-for-windows-11">ARM64 support for Windows 11 *<a class="headerlink" href="#arm64-support-for-windows-11" title="Permanent link"></a></h4>
 <ul>
 <li>Support ARM64 natively</li>
 <li>Support emulated x86</li>

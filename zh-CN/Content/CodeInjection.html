@@ -4526,14 +4526,14 @@
   
 
 
-<h1 id="_1">代码注入</h1>
+<h1 id="_1">代码注入<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
 <p>Sandboxie 采用了一种特别底层的方式，在进程创建期间将其代码注入目标进程。</p>
-<h5 id="_2">触发机制</h5>
+<h5 id="_2">触发机制<a class="headerlink" href="#_2" title="Permanent link"></a></h5>
 <p>驱动程序注册了一个 PsSetCreateProcessNotifyRoutine 回调，当该回调被触发时，会检查该进程是否应被放入沙箱。如果决定需要沙箱化，则会阻塞并请求 SbieSvc 服务向进程映像注入加载器。另一种方式是先创建一个挂起状态的进程，通过 API_START_PROCESS 通知驱动将其放入沙箱，待驱动完成后再恢复进程运行。</p>
 <p>注入机制本身可以调整为无需驱动即可使用。自 5.44 版本起，加载器代码已从 SbieSvc.exe 移至 SbieDll.dll。</p>
-<h5 id="_3">概述</h5>
+<h5 id="_3">概述<a class="headerlink" href="#_3" title="Permanent link"></a></h5>
 <p>代码注入机制由三个组件组成：注入器本身、底层壳代码（LowLevel.dll）以及待注入的有效负载（SbieDll.dll）。需要注意的是，LowLevel.dll 作为资源嵌入在加载器中。</p>
-<h2 id="_4">远程注入</h2>
+<h2 id="_4">远程注入<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
 <p>注入过程通过调用 <code>_FX ULONG SbieDll_InjectLow(HANDLE hProcess, BOOLEAN is_wow64, BOOLEAN bHostInject, BOOLEAN dup_drv_handle)</code> 并传入所需参数实现，该函数主要执行以下步骤：</p>
 <ul>
 <li>首先准备一个 <code>SBIELOW_DATA</code> 类型的数据块 <code>lowdata</code>，并填充值，如 is_wow64、bHostInject 等</li>
@@ -4554,11 +4554,11 @@
 </ul>
 <p>此时，进程可以恢复运行，注入的代码将开始执行。</p>
 <p>值得一提的是，该函数对于原生 64 位进程和 wow64 模拟的 32 位进程均以相同方式处理，实际上，在 64 位系统中注入的壳代码始终为 64 位，仅在 wow64 下稍后才切换为 32 位。</p>
-<h2 id="shell-lowleveldll">Shell 代码（LowLevel.dll）操作</h2>
+<h2 id="shell-lowleveldll">Shell 代码（LowLevel.dll）操作<a class="headerlink" href="#shell-lowleveldll" title="Permanent link"></a></h2>
 <p>LowLevel.dll 部分采用汇编，部分采用 C 语言实现，其基址被设置为 0 以便实现位置无关性。
 初始入口点 <code>_Start</code> 获取当前地址，并计算出数据块 <code>data</code>（类型为 <code>SBIELOW_DATA</code>）及若干汇编实现的辅助函数的地址，并将这些值作为参数传递给 <code>EntrypointC</code>，从而将操作流程交由 C 部分处理。</p>
 <p><code>EntrypointC</code> 确保自身仅执行一次（使用自旋锁），随后检查 <code>data-&gt;bHostInject</code> 字段是否为 0。如果为 0，则会先通过 <code>InitSyscalls</code> hook 所有 ntdll 系统调用函数，然后使用 <code>InitInject</code> 为后续加载 SbieDll.dll 做准备，且仅在 64 位系统下调用 <code>InitConsole</code> 修改 ConsoleHandle。如果 <code>bHostInject != 0</code>，则仅调用 <code>InitInject</code>。最后，跳转回原始函数 <code>data-&gt;LdrInitializeThunk_tramp</code> 的跳板。</p>
-<h5 id="initinject">InitInject</h5>
+<h5 id="initinject">InitInject<a class="headerlink" href="#initinject" title="Permanent link"></a></h5>
 <p><code>InitInject</code> 检查进程是原生运行（即 x86 系统下的 32 位进程或 x64 系统下的 64 位进程），还是处于 wow64（即 64 位系统下的 32 位进程），并选择使用本机的 ntdll 基址或 wow64 ntdll 的基址。在 Windows 8 之前，该地址位于 <code>KUSER_SHARED_DATA::Wow64SharedInformation</code> 结构中，但在更高版本中则不再如此。Sandboxie 曾利用驱动记录在映像加载期间 wow64 ntdll 的地址，由 <code>InitInject</code> 向驱动查询。自 5.44 版起，该过程不再依赖驱动，加载器代码直接通过 <code>NtQueryVirtualMemory</code> 查询映像基址，并将其写入数据块的 <code>ntdll_wow64_base</code> 字段。</p>
 <p>此时，<code>data-&gt;syscall_data</code> 中 <code>SBIELOW_EXTRA_DATA</code> 区域之前的部分已无用，被重新用于存储 <code>INJECT_DATA</code> 类型的临时数据。</p>
 <p>该函数接着通过自定义的 <code>FindDllExport</code> 查找与解析选定 ntdll 镜像，定位 <code>LdrLoadDll</code>、<code>LdrGetProcedureAddress</code>、<code>NtRaiseHardError</code> 和 <code>RtlFindActivationContextSectionString</code> 的地址并分别存入 <code>INJECT_DATA</code> 区域，然后将部分来自 <code>SBIELOW_EXTRA_DATA</code> 的值（包括 SbieDll.dll 的 32 位、64 位路径，以及 kernel32.dll 名称）也一并复制进去。</p>
@@ -4570,7 +4570,7 @@
 <li>最后，将指向 <code>SBIELOW_DATA</code> 区域的指针保存至 <code>INJECT_DATA</code> 区域顶部，函数退出</li>
 </ul>
 <p>如果为 wow64，则由 <code>InitInjectWow64</code> 以类似方式为 wow64 ntdll.dll 中的 32 位版本设置 hook。</p>
-<h5 id="rtlfindactivationcontextsectionstring">RtlFindActivationContextSectionString 绕过</h5>
+<h5 id="rtlfindactivationcontextsectionstring">RtlFindActivationContextSectionString 绕过<a class="headerlink" href="#rtlfindactivationcontextsectionstring" title="Permanent link"></a></h5>
 <p>与上述其他环节不同，<code>RtlFindActivationContextSectionString</code> 分流函数是在目标进程相应的位数模式下执行的。</p>
 <ul>
 <li>首先恢复 <code>RtlFindActivationContextSectionString</code> 原始代码段</li>
@@ -4578,11 +4578,11 @@
 <li>保存第一个参数的值到 <code>INJECT_DATA</code> 结构，并将其替换为指向结构体的指针</li>
 <li>最终跳转到 Ordinal 1 所指地址（用 jump 而非 call，以便返回时能直接回到当前调用者）</li>
 </ul>
-<h2 id="sbiedlldll">有效负载（SbieDll.dll）操作机制</h2>
+<h2 id="sbiedlldll">有效负载（SbieDll.dll）操作机制<a class="headerlink" href="#sbiedlldll" title="Permanent link"></a></h2>
 <p>SbieDll.dll hook 入口点 <code>Dll_Ordinal1</code> 首先从作为第一个参数传入的 <code>INJECT_DATA</code> 结构体中获取所需的几个值，如 <code>SBIELOW_DATA</code> 数据块地址和原始的第一个参数值。获取完所需值后，会释放已无用的 <code>INJECT_DATA</code>（原为 <code>syscall_data</code> 区域）。
 此后，函数判断 <code>bHostInject</code> 是否为 0。如果为 0，则调用 <code>SbieDll!Dll_InitInjected</code>，该函数 hook 几乎所有内容，最后调用 <code>SbieDll!Ldr_Init</code>，该函数设置 dll 加载的回调并调用 <code>SbieDll!Ldr_Inject_Init</code>。如果 <code>bHostInject != 0</code>，则 <code>SbieDll!Ldr_Inject_Init</code> 由 <code>Dll_Ordinal1</code> 直接调用。初始化完成后，<code>Dll_Ordinal1</code> 使用原始参数调用并返回真实的 <code>RtlFindActivationContextSectionString</code>。</p>
 <p>此外，为实现进一步的 hook，<code>SbieDll!Ldr_Inject_Init</code> 还会 hook 启动进程的实际入口点。此函数会保存入口点的初始字节，并覆盖为跳转至 <code>SbieDll!Ldr_Inject_Entry64</code> 或 <code>SbieDll!Ldr_Inject_Entry32</code>（分别用于 64 位和 32 位）。这两个函数由汇编实现，将返回地址指针传递给 <code>SbieDll!Ldr_Inject_Entry</code> 作为参数并清理堆栈，随后回到入口点起始处。</p>
-<h5 id="ldr_inject_entry">Ldr_Inject_Entry</h5>
+<h5 id="ldr_inject_entry">Ldr_Inject_Entry<a class="headerlink" href="#ldr_inject_entry" title="Permanent link"></a></h5>
 <p>该函数首先通过 <code>SbieDll!Ldr_Inject_SaveBytes</code> 恢复原入口点函数的初始内容，并将调用者返回地址改为指向入口点起始处，这样一旦返回即可正式执行真实入口点。然后函数判断 <code>bHostInject</code> 是否为 0，若为 0，则先调用 <code>SbieDll!Ldr_LoadInjectDlls</code>，然后调用 <code>SbieDll!Dll_InitExeEntry</code> 完成最后的初始化步骤。若 <code>bHostInject != 0</code>，则仅调用 <code>SbieDll!Ldr_LoadInjectDlls</code>，该函数会检查 <a href="SandboxieIni.html">Sandboxie.ini</a> 的 <a href="InjectDll.html">InjectDll</a> 或 <a href="InjectDll64.html">InjectDll64</a> 配置项，如配置有其他需要加载的 dll，则一并加载。</p>
 
 

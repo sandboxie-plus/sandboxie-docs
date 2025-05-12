@@ -4526,20 +4526,20 @@
   
 
 
-<h1 id="ramdisksandboxes">RamDiskSandboxes</h1>
-<h2 id="ram-disk-support">RAM Disk Support</h2>
+<h1 id="ramdisksandboxes">RamDiskSandboxes<a class="headerlink" href="#ramdisksandboxes" title="Permanent link"></a></h1>
+<h2 id="ram-disk-support">RAM Disk Support<a class="headerlink" href="#ram-disk-support" title="Permanent link"></a></h2>
 <p>By seamlessly interfacing with the <a href="imdisk.html">ImDisk Driver</a>, Sandboxie Plus introduces a transformative way to allocate a portion of your system RAM for dynamic RAM Disks. This mechanism revolutionizes the speed and efficiency of your sandboxes, while also conferring distinct privacy advantages.</p>
-<h2 id="performance-amplification">Performance Amplification</h2>
+<h2 id="performance-amplification">Performance Amplification<a class="headerlink" href="#performance-amplification" title="Permanent link"></a></h2>
 <p>The hallmark benefit of RAM Disk Support is the remarkable performance boost it offers. Sandboxes configured with a RAM Disk can harness the lightning-fast data access and processing capabilities of your system's RAM. This means that operations within the sandbox occur at unprecedented speeds, without the constraints of traditional storage mediums.</p>
-<h2 id="privacy-enhancement">Privacy Enhancement</h2>
+<h2 id="privacy-enhancement">Privacy Enhancement<a class="headerlink" href="#privacy-enhancement" title="Permanent link"></a></h2>
 <p>Beyond the performance gains, RAM Disk Support lends an added layer of privacy to your sandboxing endeavors. Data stored in a RAM Disk is inherently volatile – once the system is powered off or the sandbox is closed, the data vanishes. This ephemeral nature of a RAM Disk significantly reduces the potential for data leaks, as there's no persistent storage where sensitive information could inadvertently reside.</p>
-<h2 id="integrating-ram-disk-support-step-by-step">Integrating RAM Disk Support: Step by Step</h2>
+<h2 id="integrating-ram-disk-support-step-by-step">Integrating RAM Disk Support: Step by Step<a class="headerlink" href="#integrating-ram-disk-support-step-by-step" title="Permanent link"></a></h2>
 <p>To fully embrace the potential of RAM Disk Support, follow these straightforward steps:</p>
-<h3 id="updating-sandbox-configuration">Updating Sandbox Configuration:</h3>
+<h3 id="updating-sandbox-configuration">Updating Sandbox Configuration:<a class="headerlink" href="#updating-sandbox-configuration" title="Permanent link"></a></h3>
 <p>Open the <strong><a href="../Content/SandboxieIni.html">Sandboxie Ini</a></strong> configuration file for the sandbox you wish to enhance. To enable the RAM Disk for this sandbox, include the following line within the respective sandbox's section:</p>
 <div class="language-ini highlight"><pre><span></span><code><span class="na">UseRamDisk</span><span class="o">=</span><span class="s">y</span>
 </code></pre></div>
-<h3 id="configuring-global-settings">Configuring Global Settings:</h3>
+<h3 id="configuring-global-settings">Configuring Global Settings:<a class="headerlink" href="#configuring-global-settings" title="Permanent link"></a></h3>
 <p>To enable RAM Disk Support across all your sandboxes, navigate to the [GlobalSettings] section within the <strong><a href="../Content/SandboxieIni.html">Sandboxie Ini</a></strong> file. Allocate the appropriate memory for the RAM Disk by adding this line:</p>
 <div class="language-ini highlight"><pre><span></span><code><span class="na">RamDiskSizeKb</span><span class="o">=</span><span class="s">2097152</span>
 </code></pre></div>

@@ -4592,18 +4592,18 @@
   
 
 
-<h1 id="resource-access-monitor-for-sandboxie-classic">Resource Access Monitor (for Sandboxie Classic)</h1>
+<h1 id="resource-access-monitor-for-sandboxie-classic">Resource Access Monitor (for Sandboxie Classic)<a class="headerlink" href="#resource-access-monitor-for-sandboxie-classic" title="Permanent link"></a></h1>
 <p>The Resource Access Monitor tool displays the names of any system resources that are accessed by programs running under the supervision of Sandboxie. Designed to make it easy to identify those system resources which should be excluded from sandboxing, this tool can be used with the <a href="../SandboxieTrace/">Sandboxie Trace</a> options.</p>
 <p><strong>Important:</strong> Please consider to use the Resource Access Monitor before opening a new issue.</p>
 <p><img alt="" src="../../Media/ResourceAccessMonitor.png" /></p>
-<h3 id="using-the-monitor">Using the Monitor</h3>
+<h3 id="using-the-monitor">Using the Monitor<a class="headerlink" href="#using-the-monitor" title="Permanent link"></a></h3>
 <p>1. To activate the monitor, expand or open the <a href="../SandboxieControl/">Sandboxie Control</a> window, then select the <a href="../FileMenu/">File Menu</a> -&gt; Resource Access Monitor command.</p>
 <p>2. You should typically activate the monitor before any programs are running in any sandbox. Note that the Resource Access Monitor window blocks access to the <a href="../SandboxieControl/">Sandboxie Control</a> main window, including its menu, so you will have to start sandboxed programs through the <a href="../TrayIconMenu/">Tray Icon Menu</a>.</p>
 <p>3. When the monitor is activated and its window appears on the screen, it immediately starts to collect and display resource access information from all sandboxed programs that are running.</p>
 <p>4. At this point, perform any specific tasks that fail when done under the supervision of Sandboxie.</p>
 <p>5. Finally, click the button labeled <strong>Copy Contents to Clipboard and Close Window</strong>. This copies the collected data into the clipboard, and de-activates the monitor.</p>
 <p>6. You can now paste (Ctrl+V) the collected data somewhere and make it available for analysis.</p>
-<h3 id="performance-impact">Performance Impact</h3>
+<h3 id="performance-impact">Performance Impact<a class="headerlink" href="#performance-impact" title="Permanent link"></a></h3>
 <p>When inactive, the Resource Access Monitor does not use any system resources and does not have any performance impact on any running programs. When active, the Resource Access Monitor consumes 64K bytes of system memory and has a small performance penalty on sandboxed programs. Network Administrators may want to use the <a href="../MonitorAdminOnly/">MonitorAdminOnly</a> setting to restrict the use of this tool for user accounts which are not members of the Administrators group.</p>
 
 

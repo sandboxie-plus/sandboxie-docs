@@ -4526,9 +4526,9 @@
   
 
 
-<h1 id="wfp-windows-filtering-platform-support">WFP (Windows Filtering Platform) support</h1>
+<h1 id="wfp-windows-filtering-platform-support">WFP (Windows Filtering Platform) support<a class="headerlink" href="#wfp-windows-filtering-platform-support" title="Permanent link"></a></h1>
 <p><strong>Sandboxie Plus v0.9.3</strong> introduced a unique approach to manage network connectivity by implementing not only a <strong>kernel mode</strong> (using a driver) "per box" firewall built on Windows Filtering Platform (WFP) but also a <strong>user mode</strong>, outbound rule-based packet filter.</p>
-<h3 id="wfp-implementation">WFP implementation</h3>
+<h3 id="wfp-implementation">WFP implementation<a class="headerlink" href="#wfp-implementation" title="Permanent link"></a></h3>
 <p>To enable WFP functionality, add <code>NetworkEnableWFP=y</code> to the [GlobalSettings] section of the configuration file <strong><a href="../../Content/SandboxieIni/">Sandboxie Ini</a></strong> and <strong>reboot the machine or reload the driver</strong> for it to take effect. WFP filtering <strong>works for both inbound and outbound</strong> traffic.</p>
 <ul>
 <li>To enable blocking globally, add <code>AllowNetworkAccess=n</code> to the [GlobalSettings] section.</li>
@@ -4538,7 +4538,7 @@
 <li>To block a selected program in a box, such as DefaultBox, add <code>AllowNetworkAccess=program.exe,n</code> to the [DefaultBox] section.</li>
 </ul>
 <p><strong>Limitations of the WFP implementation:</strong> WFP will filter <strong>only</strong> TCP/UDP protocols. The WFP filter rules can be implemented by restricting communication only to <strong>specified IP addresses or selected port numbers</strong> by using a rule based hierarchy based on <strong>"NetworkAccess=..."</strong> (as described later). Restricted boxed processes will still be able to resolve domain names using the system service but will not be able to send or receive data packets directly.</p>
-<h3 id="user-mode-packet-filter-implementation">User Mode Packet Filter implementation</h3>
+<h3 id="user-mode-packet-filter-implementation">User Mode Packet Filter implementation<a class="headerlink" href="#user-mode-packet-filter-implementation" title="Permanent link"></a></h3>
 <p><strong>Sandboxie Plus v0.9.3</strong> also added a fully functional rule-based packet filter in user mode for the case when <strong>NetworkEnableWFP=y</strong> is not set. This mechanism also replaces the primitive <strong>"BlockPort=..."</strong> functionality of older versions.</p>
 <p><strong>Limitations of the user mode filter:</strong>
 If WFP support is not enabled, the same rules can still be set and used, but they will be applied only by means of user mode hooks. Unlike the WFP implementation, they will <strong>apply only to outgoing connections</strong> and there are no enforcement guarantees as user mode hooks can be bypassed or disabled by a malicious application.</p>
@@ -4548,10 +4548,10 @@ The rationale for implementing network functionality in both user mode and kerne
 Second, the WFP callouts are global i.e. they are triggered for any process on the system whether sandboxed or not. In the latter case they don't do anything and the use of a hash map to identify sandboxed programs that require action can provide optimal performance.</p>
 <p><strong>Combining WFP with user mode filtering:</strong>
 If you set "block internet access" for a given process and have the driver (for WFP) enabled, you can select for that box which method to apply: using WFP or blocking network devices. Even though the approach of blocking the network device endpoints is more absolute, it has been known to cause some applications to crash.</p>
-<h3 id="wfp-and-multiple-firewalls">WFP and multiple firewalls</h3>
+<h3 id="wfp-and-multiple-firewalls">WFP and multiple firewalls<a class="headerlink" href="#wfp-and-multiple-firewalls" title="Permanent link"></a></h3>
 <p>Commercially available firewalls implement the Windows Filtering Platform (WFP) by installing a <strong>provider</strong> of filter rules. Some use the standard Windows Firewall's provider, while others create their own. Some use WFP at the user mode level (no drivers), while others use WFP in kernel mode (based on their own driver). If several firewalls are installed and active at the same time, each driver installs its own callout functions at the positions in the network stack it wants to control and all those functions are then called by the kernel for ALL the drivers (providers). This results in an amalgamation of rules set by each firewall. An inbuilt arbitration mechanism in WFP then decides which rules take precedence. Some firewalls recommend turning off the native Windows firewall in order to work effectively, while others can work even with the Windows firewall active. Users who have found a firewall they like are typically very reluctant to switch.</p>
 <p><strong>Does Sandboxie Plus conflict with other firewalls?</strong> Another firewall installed on a system (including the Windows firewall) does not conflict with Sandboxie Plus and can be used to block programs (sandboxed or not), but its rules are typically global and based on absolute program paths. The WFP implementation in Sandboxie Plus, on the other hand, offers the added advantage of "per box" rules which affect only processes within a given sandbox (without specifying program paths). For example, Box1 may allow network access for Program1, while in Box2 the same Program1 may be blocked or even allowed but with a different set of rules for network access.</p>
-<h3 id="implementing-network-access-rules-in-sandboxie-plus">Implementing network access rules in Sandboxie Plus</h3>
+<h3 id="implementing-network-access-rules-in-sandboxie-plus">Implementing network access rules in Sandboxie Plus<a class="headerlink" href="#implementing-network-access-rules-in-sandboxie-plus" title="Permanent link"></a></h3>
 <p>The Sandman UI provides us with a method for editing and testing network rules. Right-click on a box and select "Sandbox Options" from the drop-down menu (or simply double-click on a box) to bring up the Box Options UI. Then click on Network Options in the left panel and select the Network Firewall tab. The Test Rules row appears at the bottom, below the rule list (which may or may not be already populated). One can enter program name, port number, IP address and protocol to see which rules are in play and which rule will be applied in the end. The choice of blocking (using WFP or by denying access to network devices) is selected in the Process Restrictions tab.</p>
 <p><img alt="" src="../../Media/WFP_Rule_Editor.png" /></p>
 <p>The <strong>attributes</strong> at our disposal (with some examples of syntax) are:</p>

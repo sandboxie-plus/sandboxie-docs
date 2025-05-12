@@ -4610,11 +4610,11 @@
   
 
 
-<h1 id="sandbox-hierarchy">Sandbox Hierarchy</h1>
-<h3 id="overview">Overview</h3>
+<h1 id="sandbox-hierarchy">Sandbox Hierarchy<a class="headerlink" href="#sandbox-hierarchy" title="Permanent link"></a></h1>
+<h3 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h3>
 <p>When sandboxed programs create (or modify) objects, such as files, in fact, some kind of data should be created. Sandboxie creates these objects out of the way, to protect the system from harmful changes. But these objects must reside somewhere in the system. This page describes where various types of sandboxed objects are placed.</p>
 <p>Beginning with version 2.80 of Sandboxie, the layout of the sandbox is not tied to computer-specific device names and account names. See <a href="../PortableSandbox/">Portable Sandbox</a> for more information.</p>
-<h3 id="files">Files</h3>
+<h3 id="files">Files<a class="headerlink" href="#files" title="Permanent link"></a></h3>
 <p>Files are created in the <em>Sandbox</em> folder according to the following hierarchy:
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">  </span><span class="na">. FileRootPath</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">. . drive</span>
@@ -4636,7 +4636,7 @@
 <p>When a program tries to open a file for which a copy already exists in the sandbox, Sandboxie will redirect the program to the copy of the file that was previously stored in the sandbox. On the other hand, if a copy for the file does not exist in the sandbox, and if the program does not try to modify the file, then Sandboxie will permit read-only access on the original file outside the sandbox. This behavior can be affected with the file-related settings <a href="../OpenFilePath/">OpenFilePath</a>, <a href="../ReadFilePath/">ReadFilePath</a>, and <a href="../ClosedFilePath/">ClosedFilePath</a>.</p>
 <p>Note that the <em>Sandbox</em> folder itself resides on one particular drive, so even as sandboxed programs may create and modify files in multiple drives, all these files will end up residing <em>physically</em> in the same drive -- the drive where the <em>Sandbox</em> folder resides.</p>
 <p>Apart from the two sub-folders, <em>drive</em> and <em>user</em>, the <em>Sandbox</em> folder itself contains the file <em>RegHive</em>, and typically also <em>RegHive.LOG</em>. These hold the sandboxed registry. See below.</p>
-<h3 id="registry">Registry</h3>
+<h3 id="registry">Registry<a class="headerlink" href="#registry" title="Permanent link"></a></h3>
 <p>Registry keys are created in a sandboxed registry hive. A <em>registry hive</em> is the Microsoft Windows term for a group of related registry keys that are stored in a single <em>hive file</em>.</p>
 <p>Sandboxie creates the hive file in the <em>Sandbox</em> folder, as the files <em>RegHive</em> and <em>RegHive.LOG</em>. This hive is mounted (or in other words, loaded into the registry) when a sandboxed program starts. The hive is unmounted when all sandboxed programs end.</p>
 <p>The sandboxed hive has the following position and structure within the global structure of the Windows registry.
@@ -4663,7 +4663,7 @@
 </ul>
 <p>Note that the sandboxed <em>user\current\software\classes</em> key is a symbolic link to the <em>user\current_classes</em> key which means and the keys are effectively synonyms and share the same content in the sandboxed Windows registry.</p>
 <p>As with files, access to a key which has a copy in the sandboxed registry will be redirected to use the copy in the sandbox. Read-only access to a key which does not have a copy in the sandboxed registry will be permitted to access the key outside the sandbox. This behavior can be affected with the registry-related settings <a href="../OpenKeyPath/">OpenKeyPath</a>, <a href="../ReadKeyPath/">ReadKeyPath</a>, and <a href="../ClosedKeyPath/">ClosedKeyPath</a>.</p>
-<h3 id="inter-process-objects">Inter-Process Objects</h3>
+<h3 id="inter-process-objects">Inter-Process Objects<a class="headerlink" href="#inter-process-objects" title="Permanent link"></a></h3>
 <p>These objects are used by programs to share information, synchronize processing, and provide services. These objects are never written to disk and they disappear when the system shuts down.</p>
 <p>Sandboxie isolates these objects in order to make it possible to run the same program sandboxed and un-sandboxed side-by-side. It also keeps sandboxed programs from interfering with un-sandboxed ones.</p>
 <p>These objects are created in the NT object namespace. Their position and structure within that namespace are as follows.

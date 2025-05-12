@@ -4648,11 +4648,11 @@
   
 
 
-<h1 id="_1">配置菜单</h1>
+<h1 id="_1">配置菜单<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
 <p><a href="../SandboxieControl/">沙箱控制</a> &gt; 配置菜单</p>
 <p><img alt="" src="../../Media/ConfigureMenu.png" /></p>
 <hr />
-<h3 id="_2">程序警报</h3>
+<h3 id="_2">程序警报<a class="headerlink" href="#_2" title="Permanent link"></a></h3>
 <p><em>程序警报</em> 命令会打开下图所示窗口，您可以在其中配置 Sandboxie，当特定程序在任何沙箱之外启动时，发出 <a href="../SBIE1301/">SBIE1301</a> 消息。</p>
 <p><img alt="" src="../../Media/AlertPrograms.png" /></p>
 <ul>
@@ -4668,7 +4668,7 @@
 <p>如果目标程序已经在沙箱中运行，您也可以使用 <a href="../ProgramSettings/#page-1">程序设置</a>，指定该程序应当触发 <a href="../SBIE1301/">SBIE1301</a> 消息。</p>
 <p>相关 <a href="../SandboxieIni/">Sandboxie Ini</a> 设置项：<a href="../AlertProcess/">AlertProcess</a>。</p>
 <hr />
-<h3 id="windows-shell">Windows Shell 集成</h3>
+<h3 id="windows-shell">Windows Shell 集成<a class="headerlink" href="#windows-shell" title="Permanent link"></a></h3>
 <p><em>Windows Shell 集成</em> 命令会打开一个窗口，用于控制 <a href="../SandboxieControl/">沙箱控制</a> 如何与 Windows 桌面集成并进行关联。它还可用于创建沙箱化程序的桌面快捷方式图标。默认情况下，该窗口内的所有设置均为启用状态。</p>
 <p><img alt="" src="../../Media/ShellIntegration.png" /></p>
 <ul>
@@ -4704,30 +4704,30 @@
 </li>
 </ul>
 <hr />
-<h3 id="_3">软件兼容性</h3>
+<h3 id="_3">软件兼容性<a class="headerlink" href="#_3" title="Permanent link"></a></h3>
 <p><em>软件兼容性</em> 命令会打开一个窗口，显示可用的兼容性模板列表。</p>
 <hr />
-<h3 id="_4">强制隐藏消息</h3>
+<h3 id="_4">强制隐藏消息<a class="headerlink" href="#_4" title="Permanent link"></a></h3>
 <p>每当 <a href="../SandboxieControl/">沙箱控制</a> 显示一个或多个 <a href="../SBIEMessages/">SBIE 消息</a> 时，您可以选择隐藏该消息的后续出现。这可通过高亮并点击 <em>隐藏</em> 命令实现：</p>
 <p><img alt="" src="../../Media/MessagesFromSandboxie.png" /></p>
 <p>注意：消息仅根据消息代码进行过滤。例如，上图显示的消息 <a href="../SBIE1304/">SBIE1304</a> 的信息详情为 <em>osk.exe</em>。隐藏该消息后，以后所有 [SBIE1304] 消息都会被隐藏，无论信息详情如何。</p>
 <p><em>忘记隐藏消息</em> 命令用于让 Sandboxie 停止过滤消息，恢复显示所有出现的 SBIExxxx 消息。</p>
 <hr />
-<h3 id="_5">提示信息</h3>
+<h3 id="_5">提示信息<a class="headerlink" href="#_5" title="Permanent link"></a></h3>
 <p>当 <a href="../SandboxieControl/">沙箱控制</a> 显示警告或通知消息框时，通常会包含一个标签为 <em>以后不再显示此消息</em> 的复选框。如果您勾选了该选项，则同类消息以后将不再显示。</p>
 <p><em>显示所有提示</em> 命令让 Sandboxie 忽略此前对此类复选框的设置，恢复显示所有警告和通知。</p>
 <p><em>隐藏所有提示</em> 命令让 Sandboxie 视为所有复选框都已被勾选，不再显示任何警告或通知。</p>
 <hr />
-<h3 id="_6">锁定配置</h3>
+<h3 id="_6">锁定配置<a class="headerlink" href="#_6" title="Permanent link"></a></h3>
 <p><img alt="" src="../../Media/LockConfiguration.png" /></p>
 <p>请参见 <a href="../ConfigurationProtection/">配置保护</a>。</p>
 <hr />
-<h3 id="_7">编辑配置</h3>
+<h3 id="_7">编辑配置<a class="headerlink" href="#_7" title="Permanent link"></a></h3>
 <p>使用系统文本编辑器（通常为 <em>Windows 记事本</em>）编辑 <a href="../SandboxieIni/">Sandboxie Ini</a> 配置文件。关闭编辑器时会自动执行 <em>重新加载配置</em>。</p>
 <p>注意：不建议手动编辑 Sandboxie.ini。建议通过 <a href="../SandboxSettings/">沙箱设置</a> 及 <a href="../SandboxieControl/">沙箱控制</a> 内的其他配置窗口进行修改。</p>
 <p>注意：<a href="../SandboxieIni/">Sandboxie Ini</a> 配置文件通常位于 <em>Windows</em> 文件夹，且非特权用户帐户无法修改。如果您启用 Windows 用户帐户控制（UAC），则在修改 Sandboxie.ini 前可能需要提升为管理员帐户。</p>
 <hr />
-<h3 id="_8">重新加载配置</h3>
+<h3 id="_8">重新加载配置<a class="headerlink" href="#_8" title="Permanent link"></a></h3>
 <p>强制 Sandboxie 从 <a href="../SandboxieIni/">Sandboxie Ini</a> 配置文件重新加载其配置。</p>
 <hr />
 <p>跳转到 <a href="../SandboxieControl/#menus">沙箱控制</a>、<a href="../HelpTopics/">帮助主题</a></p>

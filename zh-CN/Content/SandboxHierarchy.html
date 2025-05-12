@@ -4610,11 +4610,11 @@
   
 
 
-<h1 id="_1">沙箱层级</h1>
-<h3 id="_2">概述</h3>
+<h1 id="_1">沙箱层级<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<h3 id="_2">概述<a class="headerlink" href="#_2" title="Permanent link"></a></h3>
 <p>当沙箱化程序创建（或修改）对象（如文件）时，实际上会创建某种数据。沙盘会在不影响系统的地方创建这些对象，以保护系统免受有害更改的影响。但这些对象必须存放在系统的某个位置。本页面描述了各种类型的沙箱化对象的存放位置。</p>
 <p>从沙盘 2.80 版本开始，沙箱的布局不再与计算机特定的设备名称和账户名称相关联。有关更多信息，请参阅<a href="PortableSandbox.html">可移植沙箱</a>。</p>
-<h3 id="_3">文件</h3>
+<h3 id="_3">文件<a class="headerlink" href="#_3" title="Permanent link"></a></h3>
 <p>文件根据以下层次结构创建在 <em>Sandbox</em> 文件夹中：
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">  </span><span class="na">. FileRootPath</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">. . drive</span>
@@ -4636,7 +4636,7 @@
 <p>当程序试图打开一个在沙箱中已有副本的文件时，沙盘会将程序重定向到沙箱中先前存储的文件副本。另一方面，如果文件在沙箱中没有副本，并且程序不试图修改该文件，那么沙盘将允许对沙箱外的原始文件进行只读访问。此行为可通过与文件相关的设置 <a href="OpenFilePath.html">打开文件路径</a>、<a href="ReadFilePath.html">读取文件路径</a> 和 <a href="ClosedFilePath.html">关闭文件路径</a> 进行影响。</p>
 <p>请注意，<em>Sandbox</em> 文件夹本身位于某个特定的驱动器上，因此即使沙箱化程序可能在多个驱动器上创建和修改文件，所有这些文件最终都会物理地存放在同一个驱动器上，即 <em>Sandbox</em> 文件夹所在的驱动器。</p>
 <p>除了 <em>drive</em> 和 <em>user</em> 这两个子文件夹外，<em>Sandbox</em> 文件夹本身还包含文件 <em>RegHive</em>，通常还有 <em>RegHive.LOG</em>。这些文件保存着沙箱化的注册表。请参阅下文。</p>
-<h3 id="_4">注册表</h3>
+<h3 id="_4">注册表<a class="headerlink" href="#_4" title="Permanent link"></a></h3>
 <p>注册表项在沙箱化的注册表配置单元中创建。“注册表配置单元”是 Microsoft Windows 术语，指的是一组相关的注册表项，这些项存储在单个“配置单元文件”中。</p>
 <p>沙盘在 <em>Sandbox</em> 文件夹中创建配置单元文件，即 <em>RegHive</em> 和 <em>RegHive.LOG</em> 文件。当沙箱化程序启动时，这个配置单元会被挂载（换句话说，加载到注册表中）。当所有沙箱化程序结束时，该配置单元会被卸载。</p>
 <p>沙箱化的配置单元在 Windows 注册表的全局结构中具有以下位置和结构：
@@ -4663,7 +4663,7 @@
 </ul>
 <p>请注意，沙箱化的 <em>user\current\software\classes</em> 项是指向 <em>user\current_classes</em> 项的符号链接，这意味着这两个项在沙箱化的 Windows 注册表中实际上是同义词，并且共享相同的内容。</p>
 <p>与文件一样，对沙箱化注册表中有副本的项的访问将被重定向到使用沙箱中的副本。对沙箱化注册表中没有副本的项的只读访问将被允许访问沙箱外的项。此行为可通过与注册表相关的设置 <a href="OpenKeyPath.html">打开注册表项路径</a>、<a href="ReadKeyPath.html">读取注册表项路径</a> 和 <a href="ClosedKeyPath.html">关闭注册表项路径</a> 进行影响。</p>
-<h3 id="_5">进程间对象</h3>
+<h3 id="_5">进程间对象<a class="headerlink" href="#_5" title="Permanent link"></a></h3>
 <p>这些对象由程序用于共享信息、同步处理和提供服务。这些对象永远不会写入磁盘，并且在系统关闭时会消失。</p>
 <p>沙盘会隔离这些对象，以便可以同时运行沙箱化和非沙箱化的同一程序。它还可以防止沙箱化程序干扰非沙箱化程序。</p>
 <p>这些对象在 NT 对象命名空间中创建。它们在该命名空间中的位置和结构如下：

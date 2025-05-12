@@ -4526,13 +4526,13 @@
   
 
 
-<h1 id="_1">加密沙箱</h1>
-<h2 id="_2">加密沙箱镜像支持</h2>
+<h1 id="_1">加密沙箱<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<h2 id="_2">加密沙箱镜像支持<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <p>加密沙箱镜像支持能够帮助您构建受保护的沙箱环境，为您的机密数据提供超越常规的安全防护。</p>
 <p>为了实现无懈可击的数据安全，集成加密 Box 镜像支持代表了一次划时代的飞跃。这项技术赋予您使用 AES-XTS 加密 Box 镜像来构建加固型沙箱环境的能力。该高级方法采用了 <a href="https://diskcryptor.org">DiskCryptor</a> 中成熟的加密实现方案，为您的敏感数据打造了坚不可摧的屏障。</p>
-<h2 id="sandboxie">保障安全的 Sandboxie 驱动程序</h2>
+<h2 id="sandboxie">保障安全的 Sandboxie 驱动程序<a class="headerlink" href="#sandboxie" title="Permanent link"></a></h2>
 <p>在整体安全架构中，SbieDrv 驱动程序是至关重要的基石。它如同守护者一般，负责保护已挂载的加密 Box 根文件夹，有效抵御未经授权的应用访问。通过确保数据无法逃逸出沙箱边界，并阻断主机应用意图进行数据外泄的行为，SbieDrv 驱动程序建立起了严密的安全屏障。</p>
-<h2 id="_3">安全数据交换与内在机密性</h2>
+<h2 id="_3">安全数据交换与内在机密性<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
 <p>启用根目录保护后，必须定义 <a href="../Content/OpenFilePath.html">OpenFilePath</a> 路径，以便主机系统与加密沙箱之间能够安全地交换数据。这一方式可确保所有文件传输均在受控环境中进行，从而维护数据的完整性。此外，在加密沙箱内，默认设置 <code>ConfidentialBox=y</code>，可确保主机进程无法访问沙箱内进程的内存，进而保护数据的机密性。</p>
 
 
