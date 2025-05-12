@@ -4566,13 +4566,13 @@
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="na">NetworkDnsFilter</span><span class="o">=</span><span class="s">program.exe,example.com</span>
 </span></code></pre></div>
-<h2 id="known-limitations">Known Limitations</h2>
+<h2 id="important-notes">Important Notes</h2>
 <ul>
 <li><strong>Wildcard support is not available</strong>: You must specify complete domain names; wildcards (e.g., <code>*.example.com</code>) are not supported.</li>
-<li><strong>Template settings</strong>: For proper DNS filtering, you may need to use the <code>Template=BlockDNS</code> template. This ensures that applications make DNS queries through the system.</li>
+<li><strong>System DNS requirement</strong>: For proper DNS filtering, you may need to use the <code>Template=BlockDNS</code> template. This ensures that applications make DNS queries through the system.</li>
 <li><strong>Third-party interference</strong>: Some third-party applications may interfere with or override DNS filtering.</li>
 <li>
-<p><strong>DNS filtering will not work when:</strong></p>
+<p><strong>Limitations</strong>: DNS filtering will not work when</p>
 </li>
 <li>
 <p>A secure DNS (e.g., DNS-over-HTTPS) is configured within an application.</p>
