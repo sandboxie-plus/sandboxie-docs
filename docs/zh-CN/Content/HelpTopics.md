@@ -8,7 +8,7 @@
 
 #### 与其他程序的 [已知冲突](KnownConflicts.md)
 
-#### [常见问题解答 FAQ](FrequentlyAskedQuestions.md)
+#### [常见问题解答](FrequentlyAskedQuestions.md)
 
 #### [高级主题](AdvancedTopics.md)
 
