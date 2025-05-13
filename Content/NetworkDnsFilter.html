@@ -4557,7 +4557,7 @@
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">NetworkDnsFilter</span><span class="o">=</span><span class="s">program.exe,example.com:1.1.1.1</span>
 </span></code></pre></div>
 <h3 id="3-block-all-requests-to-a-domain">3. Block all requests to a domain<a class="headerlink" href="#3-block-all-requests-to-a-domain" title="Permanent link"></a></h3>
-<p>This rule blocks all DNS requests to <code>example.com</code> for any sandboxed application (i.e., no DNS resolution occurs for the domain):</p>
+<p>This rule blocks all DNS requests to <code>example.com</code> for any sandboxed application:</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="na">NetworkDnsFilter</span><span class="o">=</span><span class="s">example.com</span>
 </span></code></pre></div>
