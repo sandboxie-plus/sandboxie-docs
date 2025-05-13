@@ -46,7 +46,7 @@ NetworkDnsFilter=program.exe,example.com:1.1.1.1
 
 ### 3. Block all requests to a domain
 
-This rule blocks all DNS requests to `example.com` for any sandboxed application (i.e., no DNS resolution occurs for the domain):
+This rule blocks all DNS requests to `example.com` for any sandboxed application:
 
 ```ini
 [DefaultBox]
