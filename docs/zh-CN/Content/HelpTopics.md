@@ -2,13 +2,13 @@
 
 #### 教程：[沙盘入门](GettingStarted.md)
 
-#### 一般[使用技巧](UsageTips.md) 用于使用沙盘
+#### 沙盘的 [使用技巧](UsageTips.md) 
 
-#### [沙盘控制](SandboxieControl.md) 使用手册
+#### [沙盘控制面板](SandboxieControl.md) 使用手册
 
-#### 与其他程序的[已知冲突](KnownConflicts.md)
+#### 与其他程序的 [已知冲突](KnownConflicts.md)
 
-#### [常见问题解答](FrequentlyAskedQuestions.md)
+#### [常见问题解答 FAQ](FrequentlyAskedQuestions.md)
 
 #### [高级主题](AdvancedTopics.md)
 
@@ -18,6 +18,6 @@
 
 #### 沙盘 [启动命令行](StartCommandLine.md) 参数
 
-#### 通过 [Sandboxie Ini](SandboxieIni.md) 配置沙盘
+#### 通过 [沙盘配置文件（Sandboxie.ini）](SandboxieIni.md) 进行配置
 
 #### [文档索引](AllPages.md)
