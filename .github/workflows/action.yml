@@ -27,7 +27,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Lychee Broken Link Checker
-        uses: lycheeverse/lychee-action@v2.4.0
+        uses: lycheeverse/lychee-action@v2.4.1
         with:
           # Check all markdown files in repo
           args: --base ./docs --user-agent 'curl/8.9.0' -vvv --no-progress --max-redirects 100 --accept 200,403,429,500 './**/*.md'
