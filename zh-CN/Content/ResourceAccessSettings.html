@@ -4580,7 +4580,7 @@
 <p>此设置仅适用于文件夹。如果选择了文件，其效果与“阻止访问”设置相同（见下文）。</p>
 <p>相关的<a href="SandboxieIni.html">沙盘配置文件</a>设置：<a href="WriteFilePath.html">写文件路径</a></p>
 <h4 id="_9">文件访问 &gt; 阻止访问<a class="headerlink" href="#_9" title="Permanent link"></a></h4>
-<p>拒绝所有对资源的访问，例如包含敏感数据的文件夹。<em>阻止访问</em> 设置优先于所有其他资源访问规则。例如，如果 <strong>C:\Downloads</strong> 文件夹在 <em>直接访问</em> 和 <em>阻止访问</em> 中都有例外设置，那么后者将生效，拒绝所有对该文件夹的访问。</p>
+<p>拒绝所有对资源的访问，例如包含敏感数据的文件夹。<em>阻止访问</em> 设置的优先级高于所有其他资源访问规则。例如，如果 <strong>C:\Downloads</strong> 文件夹同时存在于 <em>直接访问</em> 和 <em>阻止访问</em> 规则中，那么后者将生效，拒绝所有对该文件夹的访问。</p>
 <p>相关的<a href="SandboxieIni.html">沙盘配置文件</a>设置：<a href="ClosedFilePath.html">关闭文件路径</a></p>
 <hr />
 <h3 id="_10">注册表访问<a class="headerlink" href="#_10" title="Permanent link"></a></h3>
@@ -4622,7 +4622,7 @@
 <p><a href="SandboxieControl.html">沙盘控制面板</a> &gt; <a href="SandboxSettings.html">沙箱设置</a> &gt; 资源访问 &gt; COM 访问</p>
 <p>此类别管理 COM 类的例外情况。这些资源代表用于协调操作或进行其他通信的对象。你可以指定那些存在于沙箱外且应可供沙箱中的程序访问的 COM 对象的 COM 类标识符。</p>
 <p>有关编辑资源以及将资源与特定程序关联的更多信息，请参阅上面的<a href="ResourceAccessSettings.html#一般信息">一般信息</a>。</p>
-<p>相关的<a href="SandboxieIni.html">沙盘配置文件</a>设置：[打开 CLSID(OpenClsid.md)</p>
+<p>相关的<a href="SandboxieIni.html">沙盘配置文件</a>设置：<a href="OpenClsid.html">打开 CLSID</a></p>
 
 
 
