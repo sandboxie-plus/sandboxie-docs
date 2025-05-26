@@ -138,6 +138,8 @@
 
 ### F
 
+[Fake Admin Rights](FakeAdminRights.md)
+
 [FAQ Email](FAQEmail.md)
 
 [FAQ Virus](FAQVirus.md)
@@ -327,6 +329,8 @@
 [Programs View](ProgramsView.md)
 
 [Prompt For File Migration](PromptForFileMigration.md)
+
+[Prompt On Secure Desktop](PromptOnSecureDesktop.md)
 
 [Protect Host Images](ProtectHostImages.md)
 
@@ -707,6 +711,8 @@
 [Use Privacy Mode](UsePrivacyMode.md)
 
 [Use Rule Specificity](UseRuleSpecificity.md)
+
+[Use Sandboxie UAC](UseSandboxieUAC.md)
 
 [Use SbieDesk Hack](UseSbieDeskHack.md)
 
