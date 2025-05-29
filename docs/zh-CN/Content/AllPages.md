@@ -138,6 +138,8 @@
 
 ### F
 
+[模拟管理员权限](FakeAdminRights.md)
+
 [常见问题-电子邮件](FAQEmail.md)
 
 [常见问题-病毒](FAQVirus.md)
