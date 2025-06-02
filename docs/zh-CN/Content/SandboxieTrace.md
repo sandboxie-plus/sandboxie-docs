@@ -1,4 +1,4 @@
-# 沙盘跟踪
+# Sandboxie 跟踪
 
 ### 对于沙盘经典版，请参阅[资源访问监视器](ResourceAccessMonitor.md)。
 

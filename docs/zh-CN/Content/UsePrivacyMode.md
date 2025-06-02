@@ -1,4 +1,4 @@
-# 隐私模式
+# 使用隐私模式
 
 _UsePrivacyMode_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一项沙箱设置，自 v1.0.0 / 5.55.0 版本起可用。
 

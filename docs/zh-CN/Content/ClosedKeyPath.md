@@ -1,4 +1,4 @@
-# 封禁注册表路径
+# 封禁注册表项路径
 
 _ClosedKeyPath_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置。它指定了路径模式，对于这些路径，Sandboxie 会拒绝沙箱程序的 _所有_ 访问权限，包括 _读取_ 权限。此设置实质上阻止了沙箱程序访问注册表键。
 

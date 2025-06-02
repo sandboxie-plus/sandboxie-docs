@@ -1,4 +1,4 @@
-# 强制禁用秒数
+# 强制禁用等待秒数
 
 _ForceDisableSeconds_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个全局设置项。它用于指定 [禁用强制程序](FileMenu.md#disable-forced-programs) 模式保持生效的时间（以秒为单位）。
 

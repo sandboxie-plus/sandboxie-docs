@@ -1,4 +1,4 @@
-# FAQ 邮件
+# 常见问题-电子邮件
 
 关于在 Sandboxie 中使用邮件软件的问答。更多讨论请参见 [邮件保护](EmailProtection.md)。
 
