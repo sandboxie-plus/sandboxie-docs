@@ -250,6 +250,8 @@
 
 ### N
 
+[网络 DNS 过滤](NetworkDnsFilter.md)
+
 [永不删除](NeverDelete.md)
 
 [不重命名窗口类](NoRenameWinClass.md)
@@ -298,7 +300,7 @@
 
 ### P
 
-[论文类比](PaperAnalogy.md)
+[纸张类比](PaperAnalogy.md)
 
 [弹出消息日志](PopupMessageLog.md)
 
@@ -705,6 +707,8 @@
 [使用隐私模式](UsePrivacyMode.md)
 
 [使用规则特异性](UseRuleSpecificity.md)
+
+[使用沙盒 UAC](UseSandboxieUAC.md)
 
 [使用 SbieDesk Hack](UseSbieDeskHack.md)
 
