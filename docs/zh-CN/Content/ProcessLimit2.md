@@ -1,3 +1,3 @@
-# 进程限制 2
+# 进程数量限制 2
 
-请参阅 [进程限制 1](ProcessLimit1.md)。
+请参阅 [进程数量限制 1](ProcessLimit1.md)。

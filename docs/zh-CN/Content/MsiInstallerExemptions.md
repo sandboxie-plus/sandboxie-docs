@@ -1,4 +1,4 @@
-# Msi 安装程序豁免
+# MSI 安装程序豁免
 
 _MsiInstallerExemptions_ 是自 v0.7.2 / 5.49.0 版本起在 [Sandboxie Ini](SandboxieIni.md) 中提供的一个沙箱设置。
 

@@ -1,4 +1,4 @@
-# 入门教程第五部分
+# 入门指南 第五部分
 
 ### 第五部分：删除沙箱
 
@@ -36,4 +36,4 @@
 
 * * *
 
-本教程将在 [入门教程第六部分](GettingStartedPartSix.md) 结束。
+本教程将在 [入门指南第六部分](GettingStartedPartSix.md) 结束。

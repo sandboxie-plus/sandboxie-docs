@@ -1,4 +1,4 @@
-# 进程限制 1
+# 进程数量限制 1
 
 **自沙盘（Sandboxie）v0.7.1 / 5.48.5 版本起，_ProcessLimit1_ 和 _ProcessLimit2_ 已被移除，转而使用 [进程限制](ProcessLimit.md)。**
 

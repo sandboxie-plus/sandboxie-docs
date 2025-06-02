@@ -1,4 +1,4 @@
-# 随机注册表唯一标识符
+# 随机注册表UID
 
 RandomRegUID 是 [沙盘配置文件（Sandboxie Ini）](SandboxieIni.md) 中的一项设置。
 
