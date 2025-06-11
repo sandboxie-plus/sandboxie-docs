@@ -18,7 +18,7 @@
     
     
       
-        <title>Use Sandboxie UAC - Sandboxie 文档</title>
+        <title>使用沙盒 UAC - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#use-sandboxie-uac" class="md-skip">
+        <a href="#uac" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Use Sandboxie UAC
+              使用沙盒 UAC
             
           </span>
         </div>
@@ -617,7 +617,7 @@
   
   
   <span class="md-ellipsis">
-    使用提示
+    使用技巧
     
   </span>
   
@@ -4484,7 +4484,7 @@
   
   
   <span class="md-ellipsis">
-    技术方面
+    技术细节
     
   </span>
   
@@ -4526,61 +4526,58 @@
   
 
 
-<h1 id="use-sandboxie-uac">Use Sandboxie UAC<a class="headerlink" href="#use-sandboxie-uac" title="Permanent link"></a></h1>
-<p><strong>UseSandboxieUAC</strong> is a global sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a> available since v1.16.0/5.71.0. Sandboxie intercepts and manages UAC elevation requests from sandboxed applications when enabled.</p>
-<p>Usage:</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[GlobalSettings]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">UseSandboxieUAC</span><span class="o">=</span><span class="s">y</span>
+<h1 id="uac">使用沙盒 UAC<a class="headerlink" href="#uac" title="Permanent link"></a></h1>
+<p><strong>UseSandboxieUAC</strong> 是一个全局沙盒设置，在 <a href="../SandboxieIni/">Sandboxie Ini</a> 中可用，自 v1.16.0/5.71.0 版本起提供。启用后，Sandboxie 会拦截并管理来自沙盒应用程序的 UAC 提升请求。</p>
+<p>用法：</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="k">[GlobalSettings]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">UseSandboxieUAC</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<h2 id="sandboxie-uac-prompt">Sandboxie UAC Prompt<a class="headerlink" href="#sandboxie-uac-prompt" title="Permanent link"></a></h2>
-<p><img alt="" src="../../../Media/SandboxieUAC.png" /></p>
+<h2 id="uac_1">沙盒 UAC 提示<a class="headerlink" href="#uac_1" title="Permanent link"></a></h2>
+<p><img alt="" src="../../Media/SandboxieUAC.png" /></p>
 <table>
 <thead>
 <tr>
-<th>Field/Button</th>
-<th>Description</th>
+<th>字段/按钮</th>
+<th>描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Sandbox</strong></td>
-<td>The sandbox name where the request originates (e.g., "DefaultBox").</td>
+<td><strong>沙盒</strong></td>
+<td>请求来源的沙盒名称（例如："DefaultBox"）。</td>
 </tr>
 <tr>
-<td><strong>Program</strong></td>
-<td>The executable requesting privileges (e.g., "C:\WINDOWS\System32\cmd.exe").</td>
+<td><strong>程序</strong></td>
+<td>请求权限的可执行文件（例如："C:\WINDOWS\System32\cmd.exe"）。</td>
 </tr>
 <tr>
-<td><strong>Note</strong></td>
-<td>Explains risks of granting real admin rights and recommends fake rights for safety, though some installers may fail.</td>
+<td><strong>提示</strong></td>
+<td>解释授予真实管理员权限的风险，并建议使用虚假权限以确保安全，但某些安装程序可能会失败。</td>
 </tr>
 <tr>
-<td><strong>Yes</strong></td>
-<td>Grants real Administrator privileges (may trigger a UAC prompt).</td>
+<td><strong>是</strong></td>
+<td>授予真实管理员权限（可能触发 UAC 提示）。</td>
 </tr>
 <tr>
-<td><strong>No</strong></td>
-<td>Grants fake<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> Administrator privileges (application believes it has them).</td>
+<td><strong>否</strong></td>
+<td>授予虚假<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>管理员权限（应用程序认为它具有这些权限）。</td>
 </tr>
 <tr>
-<td><strong>Cancel</strong></td>
-<td>Denies the request and aborts the program startup.</td>
+<td><strong>取消</strong></td>
+<td>拒绝请求并中止程序启动。</td>
 </tr>
 </tbody>
 </table>
-<h2 id="behavior-and-configuration">Behavior and Configuration<a class="headerlink" href="#behavior-and-configuration" title="Permanent link"></a></h2>
-<p>By default, Sandboxie follows the system's UAC configuration - when User Account Control is set to prompt on the secure desktop, Sandboxie's UAC prompts will also appear there. This behavior can be modified using the <a href="../PromptOnSecureDesktop/">PromptOnSecureDesktop</a> setting to prevent sandboxed applications from displaying elevation prompts on the secure desktop.</p>
-<h2 id="related-configuration">Related Configuration<a class="headerlink" href="#related-configuration" title="Permanent link"></a></h2>
-<p>This setting corresponds to the GUI option in <strong>Sandboxie Plus</strong> under the following path:</p>
-<p><strong>Options</strong> &gt; <strong>Global Settings</strong> &gt; <strong>Advanced Config</strong>: <em>Use Sandboxie's own enhanced UAC prompt (experimental)</em>.</p>
+<h2 id="_1">行为和配置<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
+<p>默认情况下，Sandboxie 遵循系统的 UAC 配置 - 当用户账户控制设置为在安全桌面上提示时，Sandboxie 的 UAC 提示也会显示在那里。可以使用 <a href="../PromptOnSecureDesktop/">安全桌面上的提示</a> 设置来修改此行为，以防止沙盒应用程序在安全桌面上显示提升提示。</p>
+<h2 id="_2">相关配置<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
+<p>此设置对应于 <strong>Sandboxie Plus</strong> 中以下路径的 GUI 选项：</p>
+<p><strong>选项</strong> &gt; <strong>全局设置</strong> &gt; <strong>高级配置</strong>：<em>使用 Sandboxie 自己的增强 UAC 提示（实验性）</em>。</p>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p>See <a href="../FakeAdminRights/">FakeAdminRights</a> for more information.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>有关更多信息，请参阅 <a href="../FakeAdminRights/">模拟管理员权限</a>。&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

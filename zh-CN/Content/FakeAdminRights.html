@@ -18,7 +18,7 @@
     
     
       
-        <title>Fake Admin Rights - Sandboxie 文档</title>
+        <title>模拟管理员权限 - Sandboxie 文档</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#fake-admin-rights" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Fake Admin Rights
+              模拟管理员权限
             
           </span>
         </div>
@@ -617,7 +617,7 @@
   
   
   <span class="md-ellipsis">
-    使用提示
+    使用技巧
     
   </span>
   
@@ -4484,7 +4484,7 @@
   
   
   <span class="md-ellipsis">
-    技术方面
+    技术细节
     
   </span>
   
@@ -4526,64 +4526,62 @@
   
 
 
-<h1 id="fake-admin-rights">Fake Admin Rights<a class="headerlink" href="#fake-admin-rights" title="Permanent link"></a></h1>
-<p><strong>FakeAdminRights</strong> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a> available since 0.7.1 / 5.48.5. It specifies whether Sandboxie will simulate Administrator rights for programs running in this sandbox.</p>
-<h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link"></a></h2>
+<h1 id="_1">模拟管理员权限<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<p><strong>模拟管理员权限</strong> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 配置文件中的一个沙箱设置，自 0.7.1 / 5.48.5 版本起可用。 它指定 Sandboxie 是否为在此沙箱中运行的程序模拟管理员权限。</p>
+<h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">FakeAdminRights</span><span class="o">=</span><span class="s">[process,]y|n</span>
 </span></code></pre></div>
 <ul>
-<li><strong>process</strong> (optional): The name of the executable to which the rule applies. If omitted, the rule applies to all sandboxed applications.</li>
+<li><strong>进程名</strong> (可选): 适用于此规则的可执行文件名。 如果省略，则该规则适用于沙箱中的所有应用程序。</li>
 <li>
 <p><strong>y|n</strong>:</p>
 <ul>
-<li><code>y</code> enables fake admin rights for the specified process (or all processes if none specified)  </li>
-<li><code>n</code> disables fake admin rights for the specified process  </li>
+<li><code>y</code> 为指定进程（如果未指定进程，则为所有进程）启用模拟管理员权限</li>
+<li><code>n</code> 为指定进程禁用模拟管理员权限</li>
 </ul>
 </li>
 </ul>
-<p>This option is recommended to be used in combination with <a href="DropAdminRights.html">DropAdminRights</a> to improve security. Most installers should still work with both options enabled.</p>
-<h2 id="usage-examples">Usage Examples<a class="headerlink" href="#usage-examples" title="Permanent link"></a></h2>
-<h3 id="1-enable-fake-admin-rights-for-all-sandboxed-programs">1. Enable Fake Admin Rights for All Sandboxed Programs<a class="headerlink" href="#1-enable-fake-admin-rights-for-all-sandboxed-programs" title="Permanent link"></a></h3>
-<p>This makes all applications in the sandbox believe they have administrator privileges:</p>
+<p>建议此选项与 <a href="DropAdminRights.html">撤销管理员权限</a> 结合使用以提高安全性。大多数安装程序在同时启用这两个选项的情况下仍应能正常工作。</p>
+<h2 id="_3">使用示例<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
+<h3 id="1">1. 为所有沙箱化程序启用模拟管理员权限<a class="headerlink" href="#1" title="Permanent link"></a></h3>
+<p>这会使沙箱中的所有应用程序都认为它们拥有管理员权限：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">FakeAdminRights</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<h3 id="2-enable-fake-admin-rights-for-a-specific-installer">2. Enable Fake Admin Rights for a Specific Installer<a class="headerlink" href="#2-enable-fake-admin-rights-for-a-specific-installer" title="Permanent link"></a></h3>
-<p>Some installers require admin rights to proceed. This grants fake admin rights only to <code>installer.exe</code> while other programs run normally:</p>
+<h3 id="2">2. 为特定的安装程序启用模拟管理员权限<a class="headerlink" href="#2" title="Permanent link"></a></h3>
+<p>某些安装程序需要管理员权限才能继续。以下配置仅授予 <code>installer.exe</code> 模拟管理员权限，而其他程序则正常运行：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">FakeAdminRights</span><span class="o">=</span><span class="s">installer.exe,y</span>
 </span></code></pre></div>
-<h3 id="3-enable-fake-admin-rights-globally-but-disable-for-security-sensitive-programs">3. Enable Fake Admin Rights Globally But Disable for Security-Sensitive Programs<a class="headerlink" href="#3-enable-fake-admin-rights-globally-but-disable-for-security-sensitive-programs" title="Permanent link"></a></h3>
-<p>This configuration gives fake admin rights to all programs except security-sensitive ones like <code>CredentialUIBroker.exe</code>:</p>
+<h3 id="3">3. 全局启用模拟管理员权限，但对某些安全敏感的程序禁用<a class="headerlink" href="#3" title="Permanent link"></a></h3>
+<p>此配置为除 <code>CredentialUIBroker.exe</code> 等安全敏感程序之外的所有程序提供模拟管理员权限：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">FakeAdminRights</span><span class="o">=</span><span class="s">y</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="na">FakeAdminRights</span><span class="o">=</span><span class="s">CredentialUIBroker.exe,n</span>
 </span></code></pre></div>
-<h3 id="4-using-negation-to-reverse-rules">4. Using Negation (!) to Reverse Rules<a class="headerlink" href="#4-using-negation-to-reverse-rules" title="Permanent link"></a></h3>
-<p>You can use <code>!</code> to reverse the logic of a rule. This is particularly useful for creating exceptions:</p>
+<h3 id="4">4. 使用否定，即感叹号 (!) 来反转规则<a class="headerlink" href="#4" title="Permanent link"></a></h3>
+<p>使用 <code>!</code> 来反转规则的逻辑。这对于创建例外特别有用：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="na">FakeAdminRights</span><span class="o">=</span><span class="s">!Start.exe,y</span>
 </span></code></pre></div>
-<p>This means "enable fake admin rights for all programs EXCEPT Start.exe".</p>
-<p>These examples demonstrate:</p>
-<ol>
-<li>Global fake admin rights</li>
-<li>Targeted fake admin rights for specific applications</li>
-<li>A mixed approach for compatibility with security-sensitive programs</li>
-<li>Using negation for exception-based rules</li>
-</ol>
-<p>The third example is particularly useful when most programs need elevated privileges but certain system components must run with real permissions to function correctly.</p>
-<h3 id="what-does-fakeadmin-do">What does FakeAdmin do?<a class="headerlink" href="#what-does-fakeadmin-do" title="Permanent link"></a></h3>
-<p>When <strong>FakeAdmin</strong> is enabled:</p>
+<p>这意味着：给予除 <code>Start.exe</code> 之外的所有程序启用模拟管理员权限</p>
+<p>以上这些示例演示了：
+1. 启用全局模拟管理员权限
+2. 针对特定应用程序启用模拟管理员权限 
+3. 用于与安全敏感程序兼容的一种混合方法
+4. 使用否定来实现基于例外的规则</p>
+<p>第三个示例在 “大多数程序需要提升权限，但某些系统组件必须以真实权限运行才能正常工作” 时特别有用。</p>
+<h3 id="_4">模拟管理员权限的作用是什么？<a class="headerlink" href="#_4" title="Permanent link"></a></h3>
+<p>当 <strong>模拟管理员</strong> 启用时:</p>
 <ul>
-<li>The sandboxed process is tricked into believing it is running with administrator privileges.</li>
-<li>This is useful for testing or running applications that require admin rights, without granting them actual admin access.</li>
-<li>It helps with compatibility for programs that check for admin rights but don't really need them to function.</li>
+<li>沙箱化进程会被“欺骗”，使其认为自己正在以管理员权限运行。 </li>
+<li>这对于测试或运行需要管理员权限的应用程序非常有用，而无需授予它们真实的管理员权限。 </li>
+<li>它有助于提高那些会检查管理员权限但实际功能并不真正需要这些权限的程序的兼容性。</li>
 </ul>
-<h2 id="related-configuration">Related Configuration<a class="headerlink" href="#related-configuration" title="Permanent link"></a></h2>
-<p>This setting corresponds to the GUI option in <strong>Sandboxie Plus</strong> under the following path:</p>
-<p><strong>Sandbox Options</strong> &gt; <strong>Security Options</strong> &gt; <strong>Security Hardening</strong>: <em>Make applications think they are running elevated (allows to run installers safely)</em></p>
-<p><strong>Sandbox Options</strong> &gt; <strong>Advanced Options</strong> &gt; <strong>Miscellaneous</strong> &gt; <strong>Add Option</strong>: <em>FakeAdminRights</em></p>
+<h2 id="_5">相关配置<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
+<p>此设置对应于 <strong>Sandboxie Plus</strong> 图形用户界面（GUI）中的以下路径选项：</p>
+<p><strong>沙箱选项</strong> &gt; <strong>安全选项</strong> &gt; <strong>提权限制</strong>: <em>使应用程序认为自己已被提权运行（允许安全地运行安装程序)</em></p>
+<p><strong>沙箱选项</strong> &gt; <strong>高级选项</strong> &gt; <strong>杂项</strong> &gt; <strong>添加选项</strong>: <em>FakeAdminRights</em></p>
 
 
 
