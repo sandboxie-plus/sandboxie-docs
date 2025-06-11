@@ -1,4 +1,4 @@
-# 使用提示
+# 使用技巧
 
 * 了解更多关于[快速恢复](QuickRecovery.md)和[即时恢复](ImmediateRecovery.md)的信息。
 

@@ -34,23 +34,23 @@
 
 [阻止网络参数](BlockNetParam.md)
 
-[阻止网络文件](BlockNetworkFiles.md)
+[阻止网络文件访问](BlockNetworkFiles.md)
 
-~~[阻止密码](BlockPassword.md)~~（已废弃）
+~~[阻止密码更改](BlockPassword.md)~~（已废弃）
 
 ~~[阻止端口](BlockPort.md)~~（自 Sandboxie v0.9.0 / 5.51.0 起移除）
 
-[阻止屏幕捕获](BlockScreenCapture.md)
+[阻止屏幕截图](BlockScreenCapture.md)
 
-~~[阻止系统参数](BlockSysParam.md)~~（自 Sandboxie v4.xx 起移除）
+~~[阻止 Sys 参数](BlockSysParam.md)~~（自 Sandboxie v4.xx 起移除）
 
-~~[阻止 WinHooks](BlockWinHooks.md)~~（自 Sandboxie v4.xx 起移除）
+~~[阻止 Win Hooks](BlockWinHooks.md)~~（自 Sandboxie v4.xx 起移除）
 
 [边框颜色](BorderColor.md)
 
 [沙箱加密](../PlusContent/BoxEncryption.md)
 
-[沙箱名称标题](BoxNameTitle.md)
+[标题栏中的沙箱名称](BoxNameTitle.md)
 
 [沙箱预设对比](../PlusContent/box-preset-comparison.md)
 
@@ -62,7 +62,7 @@
 
 [分离文件夹](BreakoutFolder.md)
 
-[分离进程](BreakoutProcess.md)
+[分离沙箱进程](BreakoutProcess.md)
 
 ~~[字节顺序标记](ByteOrderMark.md)~~（自 Sandboxie v0.6.5 / 5.47.0 起移除）
 
@@ -82,7 +82,7 @@
 
 [代码注入](CodeInjection.md)
 
-[隔离区模式](../PlusContent/compartment-mode.md)
+[隔离模式](../PlusContent/compartment-mode.md)
 
 [加密沙箱](ConfidentialBox.md)
 
@@ -92,9 +92,9 @@
 
 [配置菜单](ConfigureMenu.md)
 
-[复制限制 KB](CopyLimitKb.md)
+[复制限制 Kb](CopyLimitKb.md)
 
-[复制限制静默](CopyLimitSilent.md)
+[复制限制静默模式](CopyLimitSilent.md)
 
 [覆盖沙箱窗口](CoverBoxedWindows.md)
 
@@ -154,35 +154,35 @@
 
 [文件和文件夹视图](FilesAndFoldersView.md)
 
-[Firefox 提示](FirefoxTips.md)
+[Firefox 技巧](FirefoxTips.md)
 
-[强制禁用仅限管理员](ForceDisableAdminOnly.md)
+[仅限管理员强制禁用](ForceDisableAdminOnly.md)
 
 [强制禁用等待秒数](ForceDisableSeconds.md)
 
-[强制文件夹](ForceFolder.md)
+[强制入沙文件夹](ForceFolder.md)
 
-[强制进程](ForceProcess.md)
+[强制入沙进程](ForceProcess.md)
 
 [忘记密码](ForgetPassword.md)
 
-[常见问题](FrequentlyAskedQuestions.md)
+[常见问题解答](FrequentlyAskedQuestions.md)
 
 ### G
 
-[通用技巧](GeneralTips.md)
+[常规提示](GeneralTips.md)
 
-[快速入门](GettingStarted.md)
+[入门指南](GettingStarted.md)
 
-[快速入门第五部分](GettingStartedPartFive.md)
+[入门指南第五部分](GettingStartedPartFive.md)
 
-[快速入门第四部分](GettingStartedPartFour.md)
+[入门指南第四部分](GettingStartedPartFour.md)
 
-[快速入门第六部分](GettingStartedPartSix.md)
+[入门指南第六部分](GettingStartedPartSix.md)
 
-[快速入门第三部分](GettingStartedPartThree.md)
+[入门指南第三部分](GettingStartedPartThree.md)
 
-[快速入门第二部分](GettingStartedPartTwo.md)
+[入门指南第二部分](GettingStartedPartTwo.md)
 
 ### H
 
@@ -196,9 +196,9 @@
 
 [隐藏宿主进程](HideHostProcess.md)
 
-[隐藏消息](SbieCtrl_HideMessage.md)
+[隐藏 SBIE 消息](SbieCtrl_HideMessage.md)
 
-[隐藏网络适配器MAC地址](HideNetworkAdapterMAC.md)
+[隐藏网卡 MAC 地址](HideNetworkAdapterMAC.md)
 
 [隐藏非系统进程](HideNonSystemProcesses.md)
 
@@ -218,9 +218,9 @@
 
 [注入 Dll](InjectDll.md)
 
-[注入 Dll 64](InjectDll64.md)
+[注入 Dll64](InjectDll64.md)
 
-[Internet Explorer 提示](InternetExplorerTips.md)
+[Internet Explorer 使用技巧](InternetExplorerTips.md)
 
 [IPC 根路径](IpcRootPath.md)
 
@@ -238,13 +238,13 @@
 
 [主导进程](LeaderProcess.md)
 
-[窗口保活豁免](LingerExemptWnds.md)
+[窗口驻留豁免](LingerExemptWnds.md)
 
-[进程保活](LingerProcess.md)
+[驻留进程](LingerProcess.md)
 
 ### M
 
-[来自 Sandboxie 的消息](MessagesFromSandboxie.md)
+[来自沙盘的消息](MessagesFromSandboxie.md)
 
 [仅限管理员监视](MonitorAdminOnly.md)
 
@@ -252,15 +252,17 @@
 
 ### N
 
+[网络 DNS 过滤](NetworkDnsFilter.md)
+
 [永不删除](NeverDelete.md)
 
 [不重命名窗口类](NoRenameWinClass.md)
 
-[普通文件路径](NormalFilePath.md)
+[标准文件路径](NormalFilePath.md)
 
-[普通 IPC 路径](NormalIpcPath.md)
+[标准 IPC 路径](NormalIpcPath.md)
 
-[普通注册表项路径](NormalKeyPath.md)
+[标准注册表路径](NormalKeyPath.md)
 
 [直接磁盘访问时通知](NotifyDirectDiskAccess.md)
 
@@ -268,7 +270,7 @@
 
 [进程访问被拒时通知](NotifyProcessAccessDenied.md)
 
-[开始运行时访问被拒通知](NotifyStartRunAccessDenied.md)
+[启动/运行访问被拒绝时通知](NotifyStartRunAccessDenied.md)
 
 [NT 命名空间隔离](NtNamespaceIsolation.md)
 
@@ -300,7 +302,7 @@
 
 ### P
 
-[论文类比](PaperAnalogy.md)
+[纸张类比](PaperAnalogy.md)
 
 [弹出消息日志](PopupMessageLog.md)
 
@@ -312,9 +314,9 @@
 
 [进程数量限制](ProcessLimit.md)
 
-~~[进程限制 1](ProcessLimit1.md)~~（自 Sandboxie v0.7.1 / 5.48.5 起移除）
+~~[进程数量限制 1](ProcessLimit1.md)~~（自 Sandboxie v0.7.1 / 5.48.5 起移除）
 
-~~[进程限制 2](ProcessLimit2.md)~~（自 Sandboxie v0.7.1 / 5.48.5 起移除）
+~~[进程数量限制 2](ProcessLimit2.md)~~（自 Sandboxie v0.7.1 / 5.48.5 起移除）
 
 [程序名称前缀](ProgramNamePrefix.md)
 
@@ -340,7 +342,7 @@
 
 ### R
 
-[RAM 磁盘支持](../PlusContent/RamDiskSupport.md)
+[内存盘沙箱](../PlusContent/RamDiskSupport.md)
 
 [随机注册表UID](RandomRegUID.md)
 
@@ -380,7 +382,7 @@
 
 [Sandboxie Ini](SandboxieIni.md)
 
-[Sandboxie Insider](../PlusContent/Sandboxie-Insider.md)
+[Sandboxie Plus 内测计划](../PlusContent/Sandboxie-Insider.md)
 
 [Sandboxie Live](../PlusContent/Sandboxie-Live.md)
 
@@ -666,15 +668,15 @@
 
 [安全删除沙箱](SecureDeleteSandbox.md)
 
-[安全模式](../PlusContent/security-mode.md)
+[安全强化模式](../PlusContent/security-mode.md)
 
 [分离用户文件夹](SeparateUserFolders.md)
 
 [服务程序](ServicePrograms.md)
 
-[Shell 文件夹](ShellFolders.md)
+[个人文件夹](ShellFolders.md)
 
-[在“运行沙箱”中显示](ShowForRunIn.md)
+[运行时显示在候选沙箱列表中](ShowForRunIn.md)
 
 [启动命令行](StartCommandLine.md)
 
@@ -696,7 +698,7 @@
 
 [翻译](../PlusContent/translations.md)
 
-[托盘图标菜单](TrayIconMenu.md)
+[系统托盘图标菜单](TrayIconMenu.md)
 
 ### U
 
@@ -707,6 +709,8 @@
 [使用隐私模式](UsePrivacyMode.md)
 
 [使用规则特异性](UseRuleSpecificity.md)
+
+[使用沙盒 UAC](UseSandboxieUAC.md)
 
 [使用 SbieDesk Hack](UseSbieDeskHack.md)
 
@@ -720,15 +724,15 @@
 
 ### W
 
-[WFP 支持](../PlusContent/WFPSupport.md)
+[WFP（Windows 过滤平台）支持](../PlusContent/WFPSupport.md)
 
 [Windows 8](Windows8.md)
 
 [Windows XP 模式](WindowsXPMode.md)
 
-[写文件路径](WriteFilePath.md)
+[写入文件路径](WriteFilePath.md)
 
-[写注册表项路径](WriteKeyPath.md)
+[写入注册表项路径](WriteKeyPath.md)
 
 ### X
 
