@@ -29,6 +29,10 @@ Usage:
 
 By default, Sandboxie follows the system's UAC configuration - when User Account Control is set to prompt on the secure desktop, Sandboxie's UAC prompts will also appear there. This behavior can be modified using the [PromptOnSecureDesktop](PromptOnSecureDesktop.md) setting to prevent sandboxed applications from displaying elevation prompts on the secure desktop.
 
+## Customization Tip
+
+You can customize the secure desktop wallpaper by placing a personalized `SbieWallpaper.png` file in the Sandboxie Plus installation directory. This image will be displayed as the background on the secure desktop.
+
 ## Related Configuration
 
 This setting corresponds to the GUI option in **Sandboxie Plus** under the following path:
