@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Sandboxie Plus lets you run programs in isolated sandboxes on Windows, enhancing security and privacy by containing changes from the rest of the system.">
+        <meta name="description" content="Sandboxie通过让沙箱化进程使用严格受限的主令牌来运行，从而实现隔离。由于大多数应用程序无法以这种方式运行，它会钩住所有NTDLL.dll调用，并将它们重定向到SbieDrv中的一个接口。然后，驱动程序可以检查调用参数，使调用线程模拟原始的不受限令牌，执行系统调用，并在将控制权返回给用户模式之前取消线程的模拟。">
       
       
       
@@ -4559,6 +4559,9 @@ Sandboxie目前通过分析KeAddSystemServiceTable函数来找到未导出的系
 
 
 
+
+  
+  
 
 
 
