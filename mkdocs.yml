@@ -474,8 +474,8 @@ extra:
 
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/sandboxie-plus/Sandboxie
-      name: Sandboxie-Plus on Github
+      link: https://github.com/sandboxie-plus/sandboxie-docs
+      name: Sandboxie Documentation on Github
 
 extra_css:
   - material/assets/stylesheets/extra.css
