@@ -7,9 +7,10 @@ site_description: Sandboxie Plus lets you run programs in isolated sandboxes on 
 exclude_docs: zh-CN/
 
 # Repository
-repo_name: sandboxie-plus/sandboxie-docs
-repo_url: https://github.com/sandboxie-plus/sandboxie-docs
-edit_uri: edit/main/docs/
+repo_name: sandboxie-plus/Sandboxie
+repo_url: https://github.com/sandboxie-plus/Sandboxie
+#edit_uri: edit/main/docs/
+edit_uri: https://github.com/sandboxie-plus/sandboxie-docs/edit/main/docs/
 
 # Copyright
 copyright: 'This site is maintained by <a href="https://github.com/sandboxie-plus">sandboxie-plus</a>. If you wish to contribute: <a href="https://github.com/sandboxie-plus/sandboxie-docs">Improve sandboxie-docs!</a>'
