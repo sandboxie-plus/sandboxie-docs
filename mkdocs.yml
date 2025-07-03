@@ -89,7 +89,7 @@ plugins:
       fallback_if_short: true
   - redirects:
       redirect_maps:
-        'Content/PrivacyMode.md': 'PlusContent/PrivacyMode.md'
+        'Content/PrivacyMode.md': 'PlusContent/privacy-mode.md'
         # 'old.md': 'new.md'
         # 'old/file.md': 'new/file.md'
         # 'some_file.md': 'http://external.url.com/foobar'
