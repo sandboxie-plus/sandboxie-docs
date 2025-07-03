@@ -87,6 +87,12 @@ plugins:
       max_length: 160
       trim: false
       fallback_if_short: true
+  - redirects:
+      redirect_maps:
+        'Content/PrivacyMode.md': 'PlusContent/PrivacyMode.md'
+        # 'old.md': 'new.md'
+        # 'old/file.md': 'new/file.md'
+        # 'some_file.md': 'http://external.url.com/foobar'
   # - RootReadme:
       # readme: README.md
   - i18n:
