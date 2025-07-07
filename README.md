@@ -19,3 +19,5 @@ After Sandboxie became [open source](https://news.sophos.com/en-us/2020/04/09/sa
 ## Contribute
 
 If you have development, testing or translation skills, then feel free to check out our [Contribution guidelines](https://github.com/sandboxie-plus/Sandboxie/blob/master/CONTRIBUTING.md).
+
+All documentation translators are encouraged to look at the [Multilingual Translation Contribution Guide](https://github.com/sandboxie-plus/sandboxie-docs/issues/175#issuecomment-2840258519) before sending a translation.
