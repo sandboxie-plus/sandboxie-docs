@@ -45,6 +45,10 @@ Create a portable configuration file anywhere, for example `C:\Sandboxes\Browser
 Enabled=y
 ```
 
+> **Important:**  
+> When importing a sandbox from an external INI file, the file must contain exactly one section, and that section’s name must match the filename (without the `.ini` extension).  
+> If there are additional sections, or if the section name does not match the filename, the import will fail.
+
 Then import it into Sandboxie:
 
 ```ini
