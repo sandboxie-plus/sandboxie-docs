@@ -30,6 +30,8 @@
 
 [Bind Adapter](BindAdapter.md)
 
+[Bind Adapter IP](BindAdapterIP.md)
+
 ~~[Block Drivers](BlockDrivers.md)~~ (removed since Sandboxie v4.xx)
 
 ~~[Block Fake Input](BlockFakeInput.md)~~ (removed since Sandboxie v4.xx)
