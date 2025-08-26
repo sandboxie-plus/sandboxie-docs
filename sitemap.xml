@@ -99,6 +99,13 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/BindAdapter/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/BindAdapterIP/</loc>
+        <lastmod>2025-08-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/BindAdapterIP/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/BindAdapterIP/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/BlockDrivers/</loc>
         <lastmod>2025-08-26</lastmod>
         <changefreq>daily</changefreq>
@@ -2589,6 +2596,13 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/BindAdapter/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/BindAdapter/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/BindAdapterIP/</loc>
+        <lastmod>2025-08-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/BindAdapterIP/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/BindAdapterIP/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/BlockDrivers/</loc>
