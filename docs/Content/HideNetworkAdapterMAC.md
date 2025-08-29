@@ -13,3 +13,7 @@ HideNetworkAdapterMAC is a sandbox setting in [Sandboxie Ini](SandboxieIni.md).
 Use the 'HideNetworkAdapterMAC=y' option to return a random value when applications try to get network adapter MAC address.
 
 Related Sandboxie Plus setting: Sandbox Options > Advanced Options > Privacy > Hide Network Adapter MAC Address
+
+## Related Settings
+
+- [Network Adapter MAC](NetworkAdapterMAC.md) - Set custom MAC addresses for specific adapters
