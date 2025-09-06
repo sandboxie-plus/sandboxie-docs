@@ -52,6 +52,8 @@
 
 [Border Color](BorderColor.md)
 
+[Box Alias](BoxAlias.md)
+
 [Box Encryption](../PlusContent/BoxEncryption.md)
 
 [Box Name Title](BoxNameTitle.md)
