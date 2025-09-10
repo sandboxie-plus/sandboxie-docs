@@ -1,8 +1,8 @@
-# 写入文件路径
+# 只写文件路径
 
-WriteFilePath 是 [沙箱配置文件（Sandboxie Ini）](SandboxieIni.md) 中的一个沙箱设置项。它指定了一些路径模式，对于这些模式，沙箱软件（Sandboxie）会隐藏沙箱外部的所有文件或文件夹，同时允许在沙箱内创建新的文件和文件夹。
+WriteFilePath 是 [沙箱配置文件（Sandboxie Ini）](SandboxieIni.md) 中的一个沙箱设置项。它用于指定一系列路径模式，沙箱软件（Sandboxie）会隐藏沙箱外部与这些模式相匹配的所有文件或文件夹，同时允许在沙箱内创建新的文件和文件夹。
 
-可以指定 [Shell 文件夹](ShellFolders.md)，也可以指定 [程序名称前缀](ProgramNamePrefix.md)。
+可以指定 [Shell 文件夹](ShellFolders.md)；也可以指定 [程序名称前缀](ProgramNamePrefix.md)。
 
 示例：
 ```
@@ -19,6 +19,6 @@ WriteFilePath 是 [沙箱配置文件（Sandboxie Ini）](SandboxieIni.md) 中�
 
 注意：WriteFilePath 在内部实现为 [ClosedFilePath](ClosedFilePath.md) 的增强形式。
 
-相关的 [沙箱控制（Sandboxie Control）](SandboxieControl.md) 设置：[沙箱设置 > 资源访问 > 文件访问 > 只写访问](ResourceAccessSettings.md#file-access--write-only-access)
+相关的 [Sandboxie 经典版控制面板（Sandboxie Control）](SandboxieControl.md) 设置：[沙箱设置 > 资源访问 > 文件访问 > 只写访问](ResourceAccessSettings.md#file-access--write-only-access)
 
 相关的 Sandboxie Plus 设置：沙箱选项 > 资源访问 > 文件 > 添加文件/文件夹 > 访问列 > 仅沙箱内（只写）
