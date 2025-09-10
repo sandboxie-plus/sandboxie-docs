@@ -24,7 +24,7 @@ jobs:
       actions: write
       pull-requests: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Lychee Broken Link Checker
         uses: lycheeverse/lychee-action@v2.4.1
