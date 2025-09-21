@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="ImportBox is a sandbox setting in Sandboxie Ini. It allows users to load sandbox configurations from external INI files.">
+        <meta name="description" content="ImportBox 是 Sandboxie Ini 中的沙箱设置。它允许用户从外部 INI 文件加载沙箱配置。">
       
       
       
@@ -20,7 +20,7 @@
     
     
       
-        <title>Import Box - Sandboxie 文档</title>
+        <title>导入沙箱 - Sandboxie 文档</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#import-box" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Import Box
+              导入沙箱
             
           </span>
         </div>
@@ -4528,54 +4528,54 @@
   
 
 
-<h1 id="import-box">Import Box<a class="headerlink" href="#import-box" title="Permanent link"></a></h1>
-<p><strong>ImportBox</strong> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. It allows users to load sandbox configurations from external INI files.</p>
-<h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link"></a></h2>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">ImportBox</span><span class="o">=</span><span class="s">&lt;Path to INI file&gt;</span>
+<h1 id="_1">导入沙箱<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<p><strong>ImportBox</strong> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 中的沙箱设置。它允许用户从外部 INI 文件加载沙箱配置。</p>
+<h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">ImportBox</span><span class="o">=</span><span class="s">&lt;INI 文件的路径&gt;</span>
 </span></code></pre></div>
 <ul>
-<li><strong>Path to INI file</strong>: The full path to an external INI file containing sandbox configuration settings.</li>
+<li><strong>INI 文件的路径</strong>: 包含沙箱配置设置的外部 INI 文件的完整路径。</li>
 </ul>
-<h2 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link"></a></h2>
-<p>ImportBox enables the creation of portable sandbox configurations by loading sandboxes from external INI files rather than storing everything in the main Sandboxie.ini file.</p>
-<h2 id="example-usage">Example Usage<a class="headerlink" href="#example-usage" title="Permanent link"></a></h2>
-<h3 id="basic-import">Basic Import<a class="headerlink" href="#basic-import" title="Permanent link"></a></h3>
-<p>To import sandbox settings from an external file:</p>
+<h2 id="_3">目的<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
+<p>ImportBox 可以从外部 INI 文件加载沙箱，而不是将所有内容存储在主 Sandboxie.ini 文件中。这可以用来创建可移植的沙箱配置。</p>
+<h2 id="_4">示例用法<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
+<h3 id="_5">基本导入<a class="headerlink" href="#_5" title="Permanent link"></a></h3>
+<p>从外部文件导入沙箱设置：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[GlobalSettings]</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">ImportBox</span><span class="o">=</span><span class="s">C:\Sandboxes\PortableSandbox.ini</span>
 </span></code></pre></div>
-<h3 id="multiple-imports">Multiple Imports<a class="headerlink" href="#multiple-imports" title="Permanent link"></a></h3>
-<p>You can import as many sandboxes as you want:</p>
+<h3 id="_6">多重导入<a class="headerlink" href="#_6" title="Permanent link"></a></h3>
+<p>您可以导入任意数量的沙箱：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[GlobalSettings]</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">ImportBox</span><span class="o">=</span><span class="s">C:\Sandboxes\SecureSandbox.ini</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="na">ImportBox</span><span class="o">=</span><span class="s">C:\Sandboxes\NoNetworkSandbox.ini</span>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="na">ImportBox</span><span class="o">=</span><span class="s">C:\Sandboxes\BrowserSandbox.ini</span>
 </span></code></pre></div>
-<h3 id="portable-configuration-example">Portable Configuration Example<a class="headerlink" href="#portable-configuration-example" title="Permanent link"></a></h3>
-<p>Create a portable configuration file anywhere, for example <code>C:\Sandboxes\BrowserBox.ini</code>:</p>
+<h3 id="_7">可移植配置示例<a class="headerlink" href="#_7" title="Permanent link"></a></h3>
+<p>在任何地方创建一个可移植配置文件，例如 <code>C:\Sandboxes\BrowserBox.ini</code>：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">[BrowserBox]</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">Enabled</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
 <blockquote>
-<p><strong>Important:</strong><br />
-When importing a sandbox from an external INI file, the file must contain exactly one section, and that section’s name must match the filename (without the <code>.ini</code> extension).<br />
-If there are additional sections, or if the section name does not match the filename, the import will fail.</p>
+<p><strong>重要:</strong><br />
+从外部 INI 文件导入沙箱时，该文件必须包含恰好一个 section，并且该部分的名称必须与文件名（不带 <code>.ini</code> 扩展名）匹配。<br />
+如果有额外的 sections，或者 section 的名称与文件名不匹配，导入将失败。</p>
 </blockquote>
-<p>Then import it into Sandboxie:</p>
+<p>然后将其导入到 Sandboxie 中：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">[GlobalSettings]</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="na">ImportBox</span><span class="o">=</span><span class="s">C:\Sandboxes\BrowserBox.ini</span>
 </span></code></pre></div>
-<h3 id="import-entire-sandbox-root-directory">Import Entire Sandbox Root Directory<a class="headerlink" href="#import-entire-sandbox-root-directory" title="Permanent link"></a></h3>
-<p>Instead of manually importing each specific sandbox, You can import all sandbox configurations in a directory using a wildcard:</p>
+<h3 id="_8">导入整个沙箱根目录<a class="headerlink" href="#_8" title="Permanent link"></a></h3>
+<p>您可以使用通配符导入目录中所有沙箱配置，而无需手动导入每个特定沙箱：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">[GlobalSettings]</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="na">ImportBox</span><span class="o">=</span><span class="s">C:\Sandboxes\*</span>
 </span></code></pre></div>
-<p>This imports all <code>.ini</code> files in the specified directory, making any sandboxes in that folder available for use. </p>
-<h2 id="user-interface">User Interface<a class="headerlink" href="#user-interface" title="Permanent link"></a></h2>
-<p>In <strong>Sandboxie Plus</strong>, you can manage ImportBox settings through:</p>
-<p><strong>Global Settings</strong> &gt; <strong>Advanced Config</strong> &gt; <strong>Sandboxie.ini</strong></p>
-<p>This interface lets you create new portable sandboxes, import existing sandbox files, or add directories as a sandbox root to automatically import sandboxes in those directories.</p>
-<p><img alt="ImportBox Configuration" src="../../../Media/ImportBox.png" /></p>
+<p>这将导入指定目录中的所有 <code>.ini</code> 文件，使该文件夹中的任何沙箱可供使用。</p>
+<h2 id="_9">用户界面<a class="headerlink" href="#_9" title="Permanent link"></a></h2>
+<p>在 <strong>Sandboxie Plus</strong> 中，您可以通过以下路径管理 ImportBox 设置：</p>
+<p><strong>全局设置</strong> &gt; <strong>高级配置</strong> &gt; <strong>Sandboxie.ini</strong></p>
+<p>该界面允许您创建新的可移植沙箱，导入现有沙箱文件，或将目录添加为沙箱根目录以便自动导入目录中的沙箱。</p>
+<p><img alt="ImportBox 配置" src="../../Media/ImportBox.png" /></p>
 
 
 

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="OpenPipePath 是 Sandboxie Ini 中的一个沙箱设置。它用于指定某些路径模式，使得沙盘不会对这些文件应用沙箱隔离。">
+        <meta name="description" content="OpenPipePath 是 沙箱配置文件（Sandboxie Ini） 中的一个沙箱设置项。它用于指定一系列路径模式，使得对于这些模式所匹配的文件（夹），沙箱软件（Sandboxie）不会对其执行沙箱化隔离（也就是允许沙箱访问的意思）。">
       
       
       
@@ -4529,11 +4529,11 @@
 
 
 <h1 id="_1">开放管道路径<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
-<p><em>OpenPipePath</em> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 中的一个沙箱设置。它用于指定某些路径模式，使得沙盘不会对这些文件应用沙箱隔离。</p>
-<p>它与 <a href="OpenFilePath.html">开放文件路径</a> 设置类似，不同之处在于该设置始终生效，而 <em>OpenFilePath</em> 仅在应用程序从沙箱外部的文件或文件夹运行时生效。</p>
-<p>关于一般使用方法，请参考 <a href="OpenFilePath.html">开放文件路径</a>。</p>
-<p><em>OpenPipePath</em> 设置主要用于允许沙箱内的程序访问文件通信设备资源，这些资源可以通过 <a href="SandboxieTrace.html">沙盘跟踪</a> 进行识别。</p>
-<p>此外，它也可用于为即使在沙箱中运行的程序定义需要豁免（以 <em>OpenFilePath</em> 的方式豁免）的文件和文件夹。</p>
+<p><em>OpenPipePath</em> 是 <a href="SandboxieIni.html">沙箱配置文件（Sandboxie Ini）</a> 中的一个沙箱设置项。它用于指定一系列路径模式，使得对于这些模式所匹配的文件（夹），沙箱软件（Sandboxie）不会对其执行沙箱化隔离（也就是允许沙箱访问的意思）。</p>
+<p>它与 <a href="OpenFilePath.html">OpenFilePath</a> 设置类似，不同之处在于该设置始终生效，而 <em>OpenFilePath</em> 仅在当应用程序从沙箱外部的文件或文件夹运行时生效。</p>
+<p>关于一般使用方法，请参考 <a href="OpenFilePath.html">OpenFilePath</a>。</p>
+<p><em>OpenPipePath</em> 设置主要用于允许沙箱内的程序访问文件通信设备资源，这些资源可以通过 <a href="SandboxieTrace.html">沙箱跟踪（Sandboxie Trace）</a> 进行识别。</p>
+<p>另外，它也可以用来定义应该被豁免的文件和文件夹（就像 <em>OpenFilePath</em> 豁免文件的方式一样），即使这些程序是从沙盒内部运行的。</p>
 <p>示例用法：
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
@@ -4542,9 +4542,9 @@
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">OpenPipePath</span><span class="o">=</span><span class="s">\Device\NamedPipe\wkssvc</span>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">   </span><span class="na">OpenPipePath</span><span class="o">=</span><span class="s">\Device\NamedPipe\srvsvc</span>
 </span></code></pre></div></p>
-<p>将允许沙箱内的程序通过 <em>wkssvc</em> 和 <em>srvsvc</em> 这两个资源来管理计算机上的共享和用户账户</p>
-<p><strong>注意：</strong> 不建议使用此具体示例，因为它会削弱沙箱的保护能力</p>
-<p>相关的 <a href="SandboxieControl.html">沙盘控制</a> 设置： <a href="ResourceAccessSettings.html#file-access--full-access">沙箱设置 &gt; 资源访问 &gt; 文件访问 &gt; 完全开放</a></p>
+<p>这将允许沙箱内的程序通过 <em>wkssvc</em> 和 <em>srvsvc</em> 这两个资源来管理计算机上的共享和用户账户。</p>
+<p><strong>注意：</strong> 请不要将本示例纳入实际使用，因为它会削弱沙箱的保护能力。</p>
+<p>相关的 <a href="SandboxieControl.html">Sandboxie 经典版控制面板（Sandboxie Control）</a> 设置： <a href="ResourceAccessSettings.html#file-access--full-access">沙箱设置 &gt; 资源访问 &gt; 文件访问 &gt; 完全开放</a></p>
 <p>相关的 Sandboxie Plus 设置： 沙箱选项 &gt; 资源访问 &gt; 文件 &gt; 添加文件/文件夹 &gt; 访问列 &gt; 完全开放</p>
 
 

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="ForceMarkOfTheWeb is a global setting in Sandboxie Ini. When enabled, it forces all files with the Mark of The Web (MOTW) to be automatically sandboxed in a designated sandbox. This provides enhanced security by ensuring that files downloaded from the internet or received via email are automatically isolated.">
+        <meta name="description" content="ForceMarkOfTheWeb 是 Sandboxie Ini 中的全局设置。当启用时，它会强制所有带有网络标记（MOTW）的文件自动在指定的沙箱中进行沙箱化。这提供了增强的安全性，确保从互联网下载或通过电子邮件接收的文件自动被隔离。">
       
       
       
@@ -20,7 +20,7 @@
     
     
       
-        <title>Force Mark of The Web - Sandboxie 文档</title>
+        <title>强制网络标记 - Sandboxie 文档</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#force-mark-of-the-web" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Force Mark of The Web
+              强制网络标记
             
           </span>
         </div>
@@ -4528,55 +4528,55 @@
   
 
 
-<h1 id="force-mark-of-the-web">Force Mark of The Web<a class="headerlink" href="#force-mark-of-the-web" title="Permanent link"></a></h1>
-<p><em>ForceMarkOfTheWeb</em> is a global setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. When enabled, it forces all files with the Mark of The Web (MOTW) to be automatically sandboxed in a designated sandbox. This provides enhanced security by ensuring that files downloaded from the internet or received via email are automatically isolated.</p>
-<h2 id="settings">Settings<a class="headerlink" href="#settings" title="Permanent link"></a></h2>
-<p>The feature uses two global settings:</p>
+<h1 id="_1">强制网络标记<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<p><em>ForceMarkOfTheWeb</em> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 中的全局设置。当启用时，它会强制所有带有网络标记（MOTW）的文件自动在指定的沙箱中进行沙箱化。这提供了增强的安全性，确保从互联网下载或通过电子邮件接收的文件自动被隔离。</p>
+<h2 id="_2">设置<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
+<p>该功能使用两个全局设置：</p>
 <h3 id="forcemarkoftheweb">ForceMarkOfTheWeb<a class="headerlink" href="#forcemarkoftheweb" title="Permanent link"></a></h3>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[GlobalSettings]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">ForceMarkOfTheWeb</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>Enables automatic sandboxing of files with the Mark of The Web attribute.</p>
+<p>启用带有网络标记属性的文件的自动沙箱化。</p>
 <h3 id="markofthewebbox">MarkOfTheWebBox<a class="headerlink" href="#markofthewebbox" title="Permanent link"></a></h3>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[GlobalSettings]</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">MarkOfTheWebBox</span><span class="o">=</span><span class="s">Web_Box</span>
 </span></code></pre></div>
-<p>Specifies which sandbox should be used for MOTW files. The default value is <code>DefaultBox</code> if not specified.</p>
-<h2 id="what-is-mark-of-the-web">What is Mark of The Web?<a class="headerlink" href="#what-is-mark-of-the-web" title="Permanent link"></a></h2>
-<p>The Mark of The Web (MOTW) is a security feature in Windows that marks files as having originated from the internet or other untrusted locations. Windows automatically applies this mark to:</p>
+<p>指定用来隔离 MOTW 文件的沙箱。如果未指定，默认值为 <code>DefaultBox</code>。</p>
+<h2 id="_3">什么是网络标记？<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
+<p>网络标记（MOTW）是 Windows 中的一个安全功能，用于标记文件为来自互联网或其他不受信任的位置。Windows 会自动将此标记应用于：</p>
 <ul>
-<li>Files downloaded from web browsers</li>
-<li>Email attachments </li>
-<li>Files extracted from ZIP archives that were downloaded</li>
-<li>Files received through instant messaging applications</li>
-<li>Files copied from network shares marked as internet zones</li>
+<li>从网页浏览器下载的文件</li>
+<li>电子邮件附件</li>
+<li>从下载的 ZIP 压缩文件中提取的文件</li>
+<li>通过即时消息应用程序接收的文件</li>
+<li>从标记为互联网区域的网络共享中复制的文件</li>
 </ul>
-<h2 id="important-notes">Important Notes<a class="headerlink" href="#important-notes" title="Permanent link"></a></h2>
+<h2 id="_4">重要说明<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
 <ul>
-<li>This is a <strong>global setting</strong> that affects all sandboxes on the system</li>
-<li>The specified sandbox must already exist and be enabled in your Sandboxie configuration</li>
-<li>The sandbox name is case-sensitive and must match exactly</li>
-<li>Files that are already running in any sandbox are not affected by this setting</li>
+<li>这是一个影响系统上的所有沙箱的 <strong>全局设置</strong></li>
+<li>指定的沙箱必须已经存在并在您的 Sandboxie 配置中启用</li>
+<li>沙箱名称区分大小写，必须完全匹配</li>
+<li>已在任何沙箱中运行的文件不受此设置的影响</li>
 </ul>
-<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link"></a></h2>
-<p>If MOTW files are not being sandboxed:</p>
+<h2 id="_5">故障排除<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
+<p>如果 MOTW 文件未被沙箱化：</p>
 <ol>
-<li><strong>Verify both settings are configured:</strong></li>
-<li><code>ForceMarkOfTheWeb=y</code> is set in <code>[GlobalSettings]</code></li>
-<li><code>MarkOfTheWebBox=SandboxName</code> points to an existing sandbox</li>
-<li><strong>Check sandbox name:</strong> Ensure the sandbox name matches exactly (case-sensitive)</li>
-<li><strong>Confirm sandbox exists and is enabled</strong></li>
-<li><strong>Verify files have MOTW attribute:</strong> Use <code>dir /r filename</code> to check for <code>Zone.Identifier</code> stream</li>
+<li><strong>验证两个设置是否已配置：</strong></li>
+<li>在 <code>[GlobalSettings]</code> 中设置 <code>ForceMarkOfTheWeb=y</code></li>
+<li><code>MarkOfTheWebBox=SandboxName</code> 指向一个现有的沙箱</li>
+<li><strong>检查沙箱名称：</strong> 确保沙箱名称完全匹配（区分大小写）</li>
+<li><strong>确认沙箱存在并已启用</strong></li>
+<li><strong>验证文件具有 MOTW 属性：</strong> 使用 <code>dir /r filename</code> 检查 <code>Zone.Identifier</code> 流</li>
 </ol>
-<h2 id="similar-settings">Similar Settings<a class="headerlink" href="#similar-settings" title="Permanent link"></a></h2>
+<h2 id="_6">相似设置<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
 <ul>
-<li><a href="../ForceProcess/">ForceProcess</a>: Forces specific programs into sandboxes</li>
-<li><a href="../ForceFolder/">ForceFolder</a>: Forces files from specific folders into sandboxes</li>
+<li><a href="../ForceProcess/">ForceProcess</a>: 强制特定程序进入沙箱</li>
+<li><a href="../ForceFolder/">ForceFolder</a>: 强制来自特定文件夹的文件进入沙箱</li>
 </ul>
-<h2 id="user-interface">User Interface<a class="headerlink" href="#user-interface" title="Permanent link"></a></h2>
-<p>This setting can be configured in Sandboxie Plus through:
-<strong>Global Settings &gt; Program Control &gt; Force Process Options</strong></p>
-<p><img alt="Force Mark of The Web Settings" src="../../../Media/ForceMarkOfTheWeb.png" /></p>
+<h2 id="_7">用户界面<a class="headerlink" href="#_7" title="Permanent link"></a></h2>
+<p>此设置可以通过 Sandboxie Plus 中的以下路径进行配置：
+<strong>全局设置 &gt; 程序控制 &gt; 强制进程选项</strong></p>
+<p><img alt="强制网络标记设置" src="../../Media/ForceMarkOfTheWeb.png" /></p>
 
 
 

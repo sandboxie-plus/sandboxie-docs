@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="BindAdapter and BindAdapterIP are sandbox settings in Sandboxie Ini available since v1.15.12 / 5.70.12 and v1.15.10 / 5.70.10 respectively. These settings control which network adapter or IP address sandboxed programs use for network communications.">
+        <meta name="description" content="BindAdapter(绑定适配器) 和 BindAdapterIP(绑定适配器IP) 是Sandboxie Ini 自 v1.15.12 / 5.70.12 和 v1.15.10 / 5.70.10 版本以来可用的沙箱设置。这些设置控制沙箱内的程序用于网络通信的网络适配器或 IP 地址。">
       
       
       
@@ -20,7 +20,7 @@
     
     
       
-        <title>Bind Adapter - Sandboxie 文档</title>
+        <title>绑定适配器 - Sandboxie 文档</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#bind-adapter" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Bind Adapter
+              绑定适配器
             
           </span>
         </div>
@@ -4528,43 +4528,43 @@
   
 
 
-<h1 id="bind-adapter">Bind Adapter<a class="headerlink" href="#bind-adapter" title="Permanent link"></a></h1>
-<p><strong>BindAdapter</strong> and <strong>BindAdapterIP</strong> are sandbox settings in <a href="SandboxieIni.html">Sandboxie Ini</a> available since <strong>v1.15.12 / 5.70.12</strong> and <strong>v1.15.10 / 5.70.10</strong> respectively. These settings control which network adapter or IP address sandboxed programs use for network communications.</p>
-<h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link"></a></h2>
+<h1 id="_1">绑定适配器<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<p><strong>BindAdapter</strong>(绑定适配器) 和 <strong>BindAdapterIP</strong>(绑定适配器IP) 是<a href="SandboxieIni.html">Sandboxie Ini</a> 自 <strong>v1.15.12 / 5.70.12</strong> 和 <strong>v1.15.10 / 5.70.10</strong> 版本以来可用的沙箱设置。这些设置控制沙箱内的程序用于网络通信的网络适配器或 IP 地址。</p>
+<h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <h3 id="bindadapter">BindAdapter<a class="headerlink" href="#bindadapter" title="Permanent link"></a></h3>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">BindAdapter</span><span class="o">=</span><span class="s">[&lt;Program&gt;,]&lt;AdapterName&gt;</span>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">BindAdapter</span><span class="o">=</span><span class="s">[&lt;程序名&gt;,]&lt;适配器名&gt;</span>
 </span></code></pre></div>
 <h3 id="bindadapterip">BindAdapterIP<a class="headerlink" href="#bindadapterip" title="Permanent link"></a></h3>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">BindAdapterIP</span><span class="o">=</span><span class="s">[&lt;Program&gt;,]&lt;IP Address&gt;</span>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">BindAdapterIP</span><span class="o">=</span><span class="s">[&lt;程序名&gt;,]&lt;IP 地址&gt;</span>
 </span></code></pre></div>
 <ul>
-<li><strong>Program</strong>: (Optional) Specific program executable name to apply binding to. If omitted, applies to all programs in the sandbox.</li>
-<li><strong>AdapterName</strong>: The friendly name of a network adapter (e.g., "Ethernet", "Wi-Fi", "VPN Connection")</li>
-<li><strong>IP Address</strong>: A specific IPv4 or IPv6 address that must be bound to one of the host's network adapters</li>
+<li><strong>程序名</strong>: （可选）要应用绑定的程序名称。如果省略，则适用于沙箱中的所有程序。</li>
+<li><strong>适配器名</strong>: 网络适配器的友好名称（例如，“Ethernet”、“Wi-Fi”、“VPN Connection”）</li>
+<li><strong>IP 地址</strong>: 必须绑定到一个主机网络适配器的特定 IPv4 或 IPv6 地址</li>
 </ul>
-<h2 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link"></a></h2>
-<p>These settings restrict sandboxed network communications to specific network resources:</p>
+<h2 id="_3">目的<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
+<p>这些设置将沙箱内网络通信限制为特定的网络资源：</p>
 <ul>
-<li><strong>BindAdapter</strong> forces programs to use a particular network adapter by name</li>
-<li><strong>BindAdapterIP</strong> forces programs to use a specific IP address for all network operations</li>
+<li><strong>BindAdapter</strong> 强制程序按名称使用特定的网络适配器</li>
+<li><strong>BindAdapterIP</strong> 强制程序在所有网络操作中使用特定的 IP 地址</li>
 </ul>
-<h2 id="example-usage">Example Usage<a class="headerlink" href="#example-usage" title="Permanent link"></a></h2>
-<h3 id="basic-adapter-binding">Basic Adapter Binding<a class="headerlink" href="#basic-adapter-binding" title="Permanent link"></a></h3>
-<p>Bind all sandboxed programs to the Wi-Fi adapter:</p>
+<h2 id="_4">示例用法<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
+<h3 id="_5">基本适配器绑定<a class="headerlink" href="#_5" title="Permanent link"></a></h3>
+<p>将所有沙箱程序绑定到 Wi-Fi 适配器：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">BindAdapter</span><span class="o">=</span><span class="s">Wi-Fi</span>
 </span></code></pre></div>
-<h3 id="ip-address-binding">IP Address Binding<a class="headerlink" href="#ip-address-binding" title="Permanent link"></a></h3>
-<p>Force programs to use a specific IPv4 address:</p>
+<h3 id="ip">IP 地址绑定<a class="headerlink" href="#ip" title="Permanent link"></a></h3>
+<p>强制程序使用特定的 IPv4 地址：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">BindAdapterIP</span><span class="o">=</span><span class="s">192.168.100.123</span>
 </span></code></pre></div>
-<p>Force programs to use a specific IPv6 address:</p>
+<p>强制程序使用特定的 IPv6 地址：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="na">BindAdapterIP</span><span class="o">=</span><span class="s">fe80::8570:c50:a571:bf22</span>
 </span></code></pre></div>
-<h3 id="per-process-configuration">Per-Process Configuration<a class="headerlink" href="#per-process-configuration" title="Permanent link"></a></h3>
-<p>Apply binding to specific programs only:</p>
+<h3 id="_6">单进程配置<a class="headerlink" href="#_6" title="Permanent link"></a></h3>
+<p>仅对特定程序应用绑定：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="na">BindAdapterIP</span><span class="o">=</span><span class="s">firefox.exe,192.168.1.100</span>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="na">BindAdapterIP</span><span class="o">=</span><span class="s">chrome.exe,10.0.0.50</span>
@@ -4572,37 +4572,37 @@
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">[DefaultBox]</span><span class="w">  </span>
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="na">BindAdapter</span><span class="o">=</span><span class="s">torrent.exe,VPN Connection</span>
 </span></code></pre></div>
-<h3 id="multiple-configurations">Multiple Configurations<a class="headerlink" href="#multiple-configurations" title="Permanent link"></a></h3>
-<p>You can configure multiple per-process bindings:</p>
+<h3 id="_7">多个配置<a class="headerlink" href="#_7" title="Permanent link"></a></h3>
+<p>您可以配置多个单进程绑定：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="na">BindAdapterIP</span><span class="o">=</span><span class="s">program1.exe,192.168.1.10</span>
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="na">BindAdapterIP</span><span class="o">=</span><span class="s">program2.exe,192.168.1.20</span>
 </span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="na">BindAdapter</span><span class="o">=</span><span class="s">program3.exe,Ethernet 2</span>
 </span></code></pre></div>
-<h2 id="important-notes">Important Notes<a class="headerlink" href="#important-notes" title="Permanent link"></a></h2>
+<h2 id="_8">重要说明<a class="headerlink" href="#_8" title="Permanent link"></a></h2>
 <blockquote>
-<p><strong>Configuration Precedence:</strong> BindAdapter takes absolute precedence over BindAdapterIP. If both are configured for the same process, BindAdapter is used and BindAdapterIP entries are completely ignored.</p>
-<p><strong>Priority System:</strong> Multiple entries follow a "most specific wins" policy:
-- Exact program name match (e.g., <code>BindAdapter=chrome.exe,Ethernet</code>) has highest priority
-- Negation match (e.g., <code>BindAdapter=!firefox.exe,Wi-Fi</code>) has medium priority<br />
-- Global match (e.g., <code>BindAdapter=Ethernet</code>) has lowest priority
-- Only the most specific matching entry is used; others are ignored</p>
-<p><strong>Single IP Limitation:</strong> Only one IP address per family is active. IPv4 and IPv6 entries are processed independently, each following the "most specific wins" policy. Multiple entries of the same address family compete with each other (first-found wins when specificity is equal). You cannot bind to multiple IPv4 or multiple IPv6 addresses simultaneously, but you can have one IPv4 and one IPv6 address active at the same time.</p>
-<p><strong>Failure Behavior:</strong> BindAdapter and BindAdapterIP handle unavailable resources differently:
-- <strong>BindAdapter</strong>: If the adapter name is not found, falls back to localhost (127.0.0.1 and ::1) with no error reported
-- <strong>BindAdapterIP</strong>: If the IP address is not bound to any host NIC, all network connections will fail silently</p>
-<p><strong>UI Limitation:</strong> Per-process binding configurations can only be set by manually editing the Sandboxie.ini file. The user interface only supports global (all programs) binding configurations.</p>
+<p><strong>配置优先级:</strong> BindAdapter 对 BindAdapterIP 具有绝对优先权。如果对同一进程配置了两者，则使用 BindAdapter，BindAdapterIP 条目将被完全忽略。</p>
+<p><strong>优先级系统:</strong> 多个条目遵循“最具体者获胜”的政策：
+- 精确程序名称匹配（例如，<code>BindAdapter=chrome.exe,Ethernet</code>）具有最高优先级
+- 否定匹配（例如，<code>BindAdapter=!firefox.exe,Wi-Fi</code>）具有中等优先级<br />
+- 全局匹配（例如，<code>BindAdapter=Ethernet</code>）具有最低优先级
+- 仅使用最具体的匹配条目；其他条目被忽略</p>
+<p><strong>单一 IP 限制:</strong> 每个地址族只能激活一个 IP 地址。IPv4 和 IPv6 条目独立处理，每个条目遵循“最具体者获胜”的政策。相同地址族的多个条目相互竞争（当特异性相等时，先找到的胜出）。您不能同时绑定多个 IPv4 或多个 IPv6 地址，但可以同时激活一个 IPv4 和一个 IPv6 地址。</p>
+<p><strong>失败行为:</strong> BindAdapter 和 BindAdapterIP 对不可用资源的处理方式不同：
+- <strong>BindAdapter</strong>: 如果未找到适配器名称，则回退到本地主机（127.0.0.1 和 ::1），且不报告错误
+- <strong>BindAdapterIP</strong>: 如果 IP 地址未绑定到任何主机 NIC，则所有网络连接将静默失败</p>
+<p><strong>用户界面限制:</strong> 每个进程的绑定配置只能通过手动编辑 Sandboxie.ini 文件进行设置。用户界面仅支持全局（所有程序）绑定配置。</p>
 </blockquote>
-<h2 id="user-interface">User Interface<a class="headerlink" href="#user-interface" title="Permanent link"></a></h2>
-<p>In <strong>Sandboxie Plus</strong>, you can configure these settings through:</p>
-<p><strong>Sandbox Options</strong> &gt; <strong>Network Options</strong> &gt; <strong>Other Options</strong></p>
-<p>The interface provides:
-- A dropdown menu to select from available network adapters for <strong>BindAdapter</strong>
-- Text fields for IPv4 and IPv6 addresses for <strong>BindAdapterIP</strong></p>
-<p><img alt="Bind Adapter Configuration" src="../../Media/BindAdapter.png" /></p>
-<h2 id="related-settings">Related Settings<a class="headerlink" href="#related-settings" title="Permanent link"></a></h2>
+<h2 id="_9">用户界面<a class="headerlink" href="#_9" title="Permanent link"></a></h2>
+<p>在 <strong>Sandboxie Plus</strong> 中，您可以通过以下方式配置这些设置：</p>
+<p><strong>沙箱选项</strong> &gt; <strong>网络选项</strong> &gt; <strong>其他选项</strong></p>
+<p>该界面提供：
+- 一个下拉菜单，用于从可用网络适配器中选择 <strong>BindAdapter</strong>
+- IPv4 和 IPv6 地址的文本字段，用于 <strong>BindAdapterIP</strong></p>
+<p><img alt="Bind Adapter Configuration" src="../Media/BindAdapter.png" /></p>
+<h2 id="_10">相关设置<a class="headerlink" href="#_10" title="Permanent link"></a></h2>
 <ul>
-<li><a href="NetworkDnsFilter.html">Network Dns Filter</a> - Filter DNS requests from sandboxed programs</li>
+<li><a href="NetworkDnsFilter.html">网络 DNS 过滤器</a> - 过滤沙箱程序的 DNS 请求</li>
 </ul>
 
 
