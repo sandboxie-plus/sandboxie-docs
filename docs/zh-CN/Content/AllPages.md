@@ -330,6 +330,8 @@
 
 [文件迁移提示](PromptForFileMigration.md)
 
+[仅限管理员访问加密沙盘数据](ProtectAdminOnly.md)
+
 [保护主机镜像](ProtectHostImages.md)
 
 [受保护存储](ProtectedStorage.md)
