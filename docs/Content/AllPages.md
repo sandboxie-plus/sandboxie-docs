@@ -346,6 +346,8 @@
 
 [Prompt On Secure Desktop](PromptOnSecureDesktop.md)
 
+[Protect Admin Only](ProtectAdminOnly.md)
+
 [Protect Host Images](ProtectHostImages.md)
 
 [Protected Storage](ProtectedStorage.md)
