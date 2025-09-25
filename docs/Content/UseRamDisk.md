@@ -10,9 +10,7 @@ Before enabling `UseRamDisk`, ensure that RAM disk support is installed in the `
 
 ```ini
 [DefaultBox]
-.
-.
-.
+
 UseRamDisk=y
 ```
 

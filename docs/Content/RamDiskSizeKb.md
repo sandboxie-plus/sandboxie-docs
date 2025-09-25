@@ -8,9 +8,7 @@ To set the `RamDiskSizeKb`, add the following line to the Sandboxie configuratio
 
 ```ini
 [GlobalSettings]
-.
-.
-.
+
 # Example for a 1 GB RAM disk
 RamDiskSizeKb=1024000
 ```

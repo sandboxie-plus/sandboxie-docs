@@ -8,9 +8,7 @@ _UseFileImage_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md) availabl
 
 ```ini
 [DefaultBox]
-.
-.
-.
+
 UseFileImage=y
 ```
 

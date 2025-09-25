@@ -8,9 +8,7 @@ To set the `RamDiskLetter`, add the following line to the Sandboxie configuratio
 
 ```ini
 [GlobalSettings]
-.
-.
-.
+
 # Example for assigning the drive letter R to the RAM disk
 RamDiskLetter=R:\
 ```
