@@ -4551,21 +4551,25 @@
 <h2 id="technical-implementation">Technical Implementation<a class="headerlink" href="#technical-implementation" title="Permanent link"></a></h2>
 <p>RAM disk mounting is handled by the service which verifies driver capabilities and available system memory before attempting to mount the virtual disk<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>. The RAM disk I/O operations are managed by the <code>VirtualMemoryIO</code> class<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup> which interfaces with the ImDisk driver<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>.</p>
 <p>If insufficient RAM is available or mounting fails, the sandbox will not start and an error is logged.</p>
-<p><strong>Technical Notes:</strong>
-- Requires ImDisk driver support for virtual memory operations<sup id="fnref2:4"><a class="footnote-ref" href="#fn:4">4</a></sup>
-- Mutually exclusive with <a href="UseFileImage.html">UseFileImage</a>
-- All data is volatile and lost when the RAM disk is unmounted
-- RAM usage is allocated from system memory pool using <code>VirtualMemoryIO</code> class<sup id="fnref2:3"><a class="footnote-ref" href="#fn:3">3</a></sup>
-- No encryption or password protection available
-- No backup/restore functionality - data is inherently temporary
-- Performance significantly faster than file-based storage
-- Maximum size limited by available system RAM, defined by <code>RamDiskSizeKb</code></p>
-<p><strong>Performance Considerations:</strong>
-- Ideal for temporary operations, testing, or malware analysis
-- Reduces disk I/O and wear on SSDs
-- May cause system instability if RAM disk size exceeds available memory
-- Monitor system memory usage when using large RAM disks
-- Perfect for scenarios where data persistence is not needed</p>
+<p><strong>Technical Notes:</strong></p>
+<ul>
+<li>Requires ImDisk driver support for virtual memory operations<sup id="fnref2:4"><a class="footnote-ref" href="#fn:4">4</a></sup></li>
+<li>Mutually exclusive with <a href="UseFileImage.html">UseFileImage</a></li>
+<li>All data is volatile and lost when the RAM disk is unmounted</li>
+<li>RAM usage is allocated from system memory pool using <code>VirtualMemoryIO</code> class<sup id="fnref2:3"><a class="footnote-ref" href="#fn:3">3</a></sup></li>
+<li>No encryption or password protection available</li>
+<li>No backup/restore functionality - data is inherently temporary</li>
+<li>Performance significantly faster than file-based storage</li>
+<li>Maximum size limited by available system RAM, defined by <code>RamDiskSizeKb</code></li>
+</ul>
+<p><strong>Performance Considerations:</strong></p>
+<ul>
+<li>Ideal for temporary operations, testing, or malware analysis</li>
+<li>Reduces disk I/O and wear on SSDs</li>
+<li>May cause system instability if RAM disk size exceeds available memory</li>
+<li>Monitor system memory usage when using large RAM disks</li>
+<li>Perfect for scenarios where data persistence is not needed</li>
+</ul>
 <p>Related <a href="SandboxieIni.html">Sandboxie Ini</a>, <a href="RamDiskSizeKb.html">RamDiskSizeKb</a>, <a href="RamDiskLetter.html">RamDiskLetter</a>, <a href="UseFileImage.html">UseFileImage</a>, <a href="FileRootPath.html">FileRootPath</a></p>
 <div class="footnote">
 <hr />
