@@ -4,7 +4,7 @@ _UseRamDisk_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md) available 
 
 **Note:** This setting should be configured per sandbox rather than globally. Setting it globally will force all sandboxes to use RAM disks, which may cause system memory exhaustion and break existing sandboxes that rely on standard file system storage or persistent data.
 
-Before enabling `UseRamDisk`, ensure that RAM disk support is installed in the `Global Settings` under the `Add-Ons Manager` tab. Additionally, you must configure the [RamDiskSizeKb](RamDiskSizeKb.md) setting to specify the size of the RAM disk in kilobytes. This value must be set according to the available system memory and the requirements of the applications you intend to run within the sandbox. The drive letter for the RAM disk can be assigned using the [RamDiskLetter](RamDiskLetter) setting, allowing for easier access to the RAM disk.
+Before enabling `UseRamDisk`, ensure that RAM disk support is installed in the `Global Settings` under the `Add-Ons Manager` tab. Additionally, you must configure the [RamDiskSizeKb](RamDiskSizeKb.md) setting to specify the size of the RAM disk in kilobytes. This value must be set according to the available system memory and the requirements of the applications you intend to run within the sandbox. The drive letter for the RAM disk can be assigned using the [RamDiskLetter](RamDiskLetter.md) setting, allowing for easier access to the RAM disk.
 
 ## Usage:
 
