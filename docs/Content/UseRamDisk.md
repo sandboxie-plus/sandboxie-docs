@@ -35,6 +35,7 @@ RAM disk mounting is handled by the service which verifies driver capabilities a
 If insufficient RAM is available or mounting fails, the sandbox will not start and an error is logged.
 
 **Technical Notes:**
+
 - Requires ImDisk driver support for virtual memory operations[^4]
 - Mutually exclusive with [UseFileImage](UseFileImage.md)
 - All data is volatile and lost when the RAM disk is unmounted
@@ -45,6 +46,7 @@ If insufficient RAM is available or mounting fails, the sandbox will not start a
 - Maximum size limited by available system RAM, defined by `RamDiskSizeKb`
 
 **Performance Considerations:**
+
 - Ideal for temporary operations, testing, or malware analysis
 - Reduces disk I/O and wear on SSDs
 - May cause system instability if RAM disk size exceeds available memory
