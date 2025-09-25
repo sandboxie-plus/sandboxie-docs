@@ -1,6 +1,6 @@
 # Protect Admin Only
 
-_ProtectAdminOnly_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md) available since v1.16.4 / 5.71.4. This is a settting enabled by default in encrypted box, you can disable it by `ProtectAdminOnly=n`.
+_ProtectAdminOnly_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md) available since v1.16.4 / 5.71.4. This is a setting enabled by default in encrypted box, you can disable it by `ProtectAdminOnly=n`.
 
 Usage:
 
