@@ -1107,6 +1107,20 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/QuickRecovery/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/RamDiskLetter/</loc>
+        <lastmod>2025-09-25</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/RamDiskLetter/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/RamDiskLetter/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/RamDiskSizeKb/</loc>
+        <lastmod>2025-09-25</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/RamDiskSizeKb/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/RamDiskSizeKb/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/RandomRegUID/</loc>
         <lastmod>2025-09-25</lastmod>
         <changefreq>daily</changefreq>
@@ -2283,11 +2297,25 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UsageTips/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/UseFileImage/</loc>
+        <lastmod>2025-09-25</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UseFileImage/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseFileImage/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/UsePrivacyMode/</loc>
         <lastmod>2025-09-25</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UsePrivacyMode/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UsePrivacyMode/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/UseRamDisk/</loc>
+        <lastmod>2025-09-25</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UseRamDisk/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseRamDisk/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/UseRuleSpecificity/</loc>
@@ -3634,6 +3662,20 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/QuickRecovery/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/RamDiskLetter/</loc>
+        <lastmod>2025-09-25</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/RamDiskLetter/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/RamDiskLetter/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/RamDiskSizeKb/</loc>
+        <lastmod>2025-09-25</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/RamDiskSizeKb/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/RamDiskSizeKb/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/RandomRegUID/</loc>
         <lastmod>2025-09-25</lastmod>
         <changefreq>daily</changefreq>
@@ -4810,11 +4852,25 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UsageTips/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseFileImage/</loc>
+        <lastmod>2025-09-25</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseFileImage/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UseFileImage/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UsePrivacyMode/</loc>
         <lastmod>2025-09-25</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UsePrivacyMode/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UsePrivacyMode/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseRamDisk/</loc>
+        <lastmod>2025-09-25</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseRamDisk/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UseRamDisk/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseRuleSpecificity/</loc>
