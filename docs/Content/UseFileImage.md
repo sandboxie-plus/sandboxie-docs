@@ -22,14 +22,14 @@ When this setting is enabled, the Sandboxie service creates a virtual disk image
 
 ### Setting Password:
 
-1. Right-click sandbox > Sandbox Options
+1. Right-click sandbox > `Sandbox Options`
 2. Navigate to `File Options` tab
 3. Click the `Set Password` button
 4. Enter and confirm password in the dialog
 
 ### Changing Password:
 
-1. Right-click sandbox > Sandbox Options
+1. Right-click sandbox > `Sandbox Options`
 2. Navigate to `File Options` tab
 3. Click the `Change Password` button
 4. Enter current password in the dialog
