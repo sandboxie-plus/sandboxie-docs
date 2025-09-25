@@ -360,6 +360,10 @@
 
 ### R
 
+[Ram Disk Letter](RamDiskLetter.md)
+
+[Ram Disk Size Kb](RamDiskSizeKb.md)
+
 [RAM Disk Support](../PlusContent/RamDiskSupport.md)
 
 [Random Registry UID](RandomRegUID.md)
@@ -724,7 +728,11 @@
 
 [USB Sandboxing](../PlusContent/USBSandboxing.md)
 
+[Use File Image](UseFileImage.md)
+
 [Use Privacy Mode](UsePrivacyMode.md)
+
+[Use Ram Disk](UseRamDisk.md)
 
 [Use Rule Specificity](UseRuleSpecificity.md)
 
