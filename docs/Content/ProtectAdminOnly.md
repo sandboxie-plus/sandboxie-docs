@@ -12,4 +12,4 @@ Usage:
    ProtectAdminOnly=y
 ```
 
-When enabled, [Sandboxie Control](SandboxieControl.md) or [Sandman](PlusMigrationGuide.md) running under user accounts which are not members of the Administrators group will not be able to access to encrypted box data.
+When enabled, [Sandboxie Control](SandboxieControl.md) or [SandMan](PlusMigrationGuide.md) running under user accounts which are not members of the Administrators group will not be able to access to encrypted box data.
