@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="RamDiskLetter is a global setting in Sandboxie Ini available since v1.11.1 / 5.66.1 that specifies the drive letter to be assigned to the RAM disk created for use by sandboxes that have the UseRamDisk option enabled. This setting allows users to define a specific drive letter for easier access to the RAM disk.">
+        <meta name="description" content="RamDiskLetter is a global setting in Sandboxie Ini (introduced in v1.11.1 / 5.66.1) that specifies the drive letter to be assigned to the RAM disk created for use by sandboxes that have the UseRamDisk setting enabled. This setting allows users to define a specific drive letter for easier access to the RAM disk.">
       
       
       
@@ -4529,22 +4529,23 @@
 
 
 <h1 id="ram-disk-letter">Ram Disk Letter<a class="headerlink" href="#ram-disk-letter" title="Permanent link"></a></h1>
-<p><em>RamDiskLetter</em> is a global setting in <a href="../SandboxieIni/">Sandboxie Ini</a> available since v1.11.1 / 5.66.1 that specifies the drive letter to be assigned to the RAM disk created for use by sandboxes that have the <a href="../UseRamDisk/">UseRamDisk</a> option enabled. This setting allows users to define a specific drive letter for easier access to the RAM disk.</p>
+<p><em>RamDiskLetter</em> is a global setting in <a href="../SandboxieIni/">Sandboxie Ini</a> (introduced in v1.11.1 / 5.66.1) that specifies the drive letter to be assigned to the RAM disk created for use by sandboxes that have the <a href="../UseRamDisk/">UseRamDisk</a> setting enabled. This setting allows users to define a specific drive letter for easier access to the RAM disk.</p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h2>
 <p>To set the <code>RamDiskLetter</code>, add the following line to the Sandboxie configuration file under the <code>[GlobalSettings]</code> section:</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[GlobalSettings]</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="na">.</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># Example for assigning the drive letter R to the RAM disk</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="na">RamDiskLetter</span><span class="o">=</span><span class="s">R:</span>\
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># Example for assigning the drive letter R to the RAM disk</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="na">RamDiskLetter</span><span class="o">=</span><span class="s">R:</span>\
 </span></code></pre></div>
-<h2 id="sandman-gui-operations">SandMan GUI Operations<a class="headerlink" href="#sandman-gui-operations" title="Permanent link"></a></h2>
-<p>The RAM disk letter option can be selected through:</p>
+<h2 id="sandman-gui">SandMan GUI<a class="headerlink" href="#sandman-gui" title="Permanent link"></a></h2>
+<p>The RAM disk letter setting can be selected through:</p>
 <ol>
 <li>Open the <code>Global Settings</code> window in the SandMan interface.</li>
 <li>Navigate to <code>Add-Ons Manager</code> &gt; <code>Add-On Configuration</code> tab.</li>
-<li>Select the <code>Assign drive letter to Ram Disk</code> option and select a drive letter for the RAM disk.</li>
+<li>
+<p>Enable the <code>Assign drive letter to Ram Disk</code> setting and select a drive letter for the RAM disk.</p>
+<p><img alt="Ram Disk Letter" src="../../../Media/UseRamDisk3.png" /></p>
+</li>
 </ol>
 <h2 id="important-notes">Important Notes<a class="headerlink" href="#important-notes" title="Permanent link"></a></h2>
 <ul>

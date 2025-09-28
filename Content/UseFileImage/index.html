@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="UseFileImage is a sandbox setting in Sandboxie Ini available since v1.11.0 / 5.66.0. It instructs Sandboxie to mount a file-backed virtual disk image as the sandbox root instead of using direct file system storage.">
+        <meta name="description" content="UseFileImage is a sandbox setting in Sandboxie Ini (introduced in v1.11.0 / 5.66.0) that replaces the standard file system storage with a file-backed virtual disk image as the sandbox root directory.">
       
       
       
@@ -4529,52 +4529,126 @@
 
 
 <h1 id="use-file-image">Use File Image<a class="headerlink" href="#use-file-image" title="Permanent link"></a></h1>
-<p><em>UseFileImage</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a> available since v1.11.0 / 5.66.0. It instructs Sandboxie to mount a file-backed virtual disk image as the sandbox root instead of using direct file system storage.</p>
-<p><strong>Note:</strong> This setting should be configured per sandbox rather than globally. Setting it globally will force all sandboxes to use file images, which may break existing sandboxes that rely on standard file system storage or cause compatibility issues with non-encrypted sandbox configurations.</p>
-<h2 id="usage">Usage:<a class="headerlink" href="#usage" title="Permanent link"></a></h2>
+<p><em>UseFileImage</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a> (introduced in v1.11.0 / 5.66.0) that replaces the standard file system storage with a file-backed virtual disk image as the sandbox root directory.</p>
+<blockquote>
+<p><strong>Warning:</strong> Configure this setting on a per-sandbox basis. Applying it globally will force all sandboxes to use file images, which may break existing sandboxes that rely on standard file system storage or cause compatibility issues with non-encrypted sandbox configurations.</p>
+<p><strong>Note:</strong> This setting requires an active advanced <a href="https://sandboxie-plus.com/supporter-certificate/">supporter certificate</a>.</p>
+</blockquote>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link"></a></h2>
+<ul>
+<li>
+<p>Install the <strong>ImDisk Toolkit</strong> via the <strong>Add-Ons Manager &gt; Optional Add-Ons</strong> tab in <strong>Global Settings</strong>.</p>
+<p><img alt="ImDisk Install" src="../../Media/UseRamDisk1.png" /></p>
+</li>
+</ul>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="na">.</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="na">UseFileImage</span><span class="o">=</span><span class="s">y</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">UseFileImage</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
 <p>When this setting is enabled, the Sandboxie service creates a virtual disk image file with extension <code>.box</code>. The image file path is determined by the service<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> which appends <code>.box</code> to the sandbox's file root<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> path. The sandbox file system is then mounted from this image using the ImDisk virtual disk driver through the mount manager<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>. All file I/O operations within the sandbox are redirected to the mounted image rather than creating files directly on the host file system.</p>
 <!--The image file supports optional encryption using AES, Serpent, or Twofish algorithms with XTS mode.-->
 <p>Password protection and header backup/restore operations are available through the SandMan GUI or the ImBox command-line utility.</p>
-<h2 id="sandman-gui-operations">SandMan GUI Operations<a class="headerlink" href="#sandman-gui-operations" title="Permanent link"></a></h2>
-<h3 id="setting-password">Setting Password:<a class="headerlink" href="#setting-password" title="Permanent link"></a></h3>
+<h2 id="sandman-gui">SandMan GUI<a class="headerlink" href="#sandman-gui" title="Permanent link"></a></h2>
+<h3 id="setting-password">Setting Password<a class="headerlink" href="#setting-password" title="Permanent link"></a></h3>
 <ol>
-<li>Right-click sandbox &gt; <code>Sandbox Options</code></li>
-<li>Navigate to <code>File Options</code> tab</li>
-<li>Click the <code>Set Password</code> button</li>
-<li>Enter and confirm password in the dialog</li>
+<li><strong>Right-click</strong> on the sandbox in SandMan &gt; <code>Sandbox Options</code>.</li>
+<li>Navigate to <code>File Options</code> tab.</li>
+<li>Enable the <code>Encrypt sandbox content</code>.</li>
+<li>
+<p>Click the <code>Set Password</code> button.</p>
+<p><img alt="Setting Password 1" src="../../Media/UseFileImage1.png" /></p>
+</li>
+<li>
+<p>Enter and confirm password in the dialog.</p>
+<p><img alt="Setting Password 2" src="../../Media/UseFileImage2.png" /></p>
+</li>
 </ol>
-<h3 id="changing-password">Changing Password:<a class="headerlink" href="#changing-password" title="Permanent link"></a></h3>
+<h3 id="changing-password">Changing Password<a class="headerlink" href="#changing-password" title="Permanent link"></a></h3>
 <ol>
-<li>Right-click sandbox &gt; <code>Sandbox Options</code></li>
-<li>Navigate to <code>File Options</code> tab</li>
-<li>Click the <code>Change Password</code> button</li>
-<li>Enter current password in the dialog</li>
-<li>Enter new password and confirm password in the dialog</li>
+<li><strong>Right-click</strong> on the sandbox in SandMan &gt; <code>Sandbox Options</code>.</li>
+<li>Navigate to <code>File Options</code> tab.</li>
+<li>
+<p>Click the <code>Change Password</code> button.</p>
+<p><img alt="Changing Password 1" src="../../Media/UseFileImage3.png" /></p>
+</li>
+<li>
+<p>Enter current password in the dialog.</p>
+<p><img alt="Changing Password 2" src="../../Media/UseFileImage4.png" /></p>
+</li>
+<li>
+<p>Enter new password and confirm password in the dialog.</p>
+</li>
 </ol>
-<h3 id="header-backup">Header Backup:<a class="headerlink" href="#header-backup" title="Permanent link"></a></h3>
+<h3 id="header-backup">Header Backup<a class="headerlink" href="#header-backup" title="Permanent link"></a></h3>
 <ol>
-<li>In sandbox options <code>File Options</code> tab</li>
-<li>Click the down arrow next to <code>Change Password</code> button</li>
-<li>Select <code>Backup Header</code> from dropdown menu</li>
-<li>Choose location to save <code>.hdr</code> file</li>
-<li>Header is exported using ImBox utility<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></li>
+<li>In sandbox options <code>File Options</code> tab.</li>
+<li>Click the down arrow next to <code>Change Password</code> button.</li>
+<li>
+<p>Select <code>Backup Header</code> from dropdown menu.</p>
+<p><img alt="Header Backup" src="../../Media/UseFileImage3.png" /></p>
+</li>
+<li>
+<p>Choose location to save <code>.hdr</code> file.</p>
+</li>
+<li>Header is exported using ImBox utility<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>.</li>
 </ol>
-<h3 id="header-restore">Header Restore:<a class="headerlink" href="#header-restore" title="Permanent link"></a></h3>
+<h3 id="header-restore">Header Restore<a class="headerlink" href="#header-restore" title="Permanent link"></a></h3>
 <ol>
-<li>In sandbox options <code>File Options</code> tab</li>
-<li>Click the down arrow next to <code>Change Password</code> button</li>
-<li>Select <code>Restore Header</code> from dropdown menu</li>
-<li>Select previously saved <code>.hdr</code> file</li>
-<li>Header is imported using ImBox utility<sup id="fnref2:4"><a class="footnote-ref" href="#fn:4">4</a></sup></li>
+<li>In sandbox options <code>File Options</code> tab.</li>
+<li>Click the down arrow next to <code>Change Password</code> button.</li>
+<li>
+<p>Select <code>Restore Header</code> from dropdown menu.</p>
+<p><img alt="Header Restore" src="../../Media/UseFileImage3.png" /></p>
+</li>
+<li>
+<p>Select previously saved <code>.hdr</code> file.</p>
+</li>
+<li>Header is imported using ImBox utility<sup id="fnref2:4"><a class="footnote-ref" href="#fn:4">4</a></sup>.</li>
 </ol>
+<h3 id="mounting-box-image">Mounting Box Image<a class="headerlink" href="#mounting-box-image" title="Permanent link"></a></h3>
+<ol>
+<li><strong>Right-click</strong> on the sandbox in SandMan.</li>
+<li>
+<p>Select <code>Mount Box Image</code> from the context menu.</p>
+<p><img alt="Mount Box Image 1" src="../../Media/UseFileImage5.png" /></p>
+</li>
+<li>
+<p>Enter the <strong>password</strong> when prompted.</p>
+<p><img alt="Mount Box Image 2" src="../../Media/UseFileImage6.png" /></p>
+<ul>
+<li>
+<p>(Optional) Enable <code>Protect Box Root from access by unsandboxed processes</code> to prevent unsandboxed programs from accessing the encrypted sandbox content.</p>
+</li>
+<li>
+<p>(Optional) Enable <code>Lock the box when all processes stop</code> to automatically unmount the image when the last sandboxed program terminates.</p>
+</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p><strong>Note:</strong> The image is automatically mounted when starting any program from the sandbox via the UI.</p>
+</blockquote>
+<h3 id="unmounting-box-image">Unmounting Box Image<a class="headerlink" href="#unmounting-box-image" title="Permanent link"></a></h3>
+<ol>
+<li>
+<p><strong>Right-click</strong> on the sandbox in SandMan.</p>
+<p><img alt="Mount Box Image 2" src="../../Media/UseFileImage7.png" /></p>
+</li>
+<li>
+<p>Select <code>Unmount Box Image</code> from the context menu.</p>
+</li>
+</ol>
+<blockquote>
+<p><strong>Warning:</strong> Unmounting the image will <strong>terminate all running programs</strong> within the sandbox.</p>
+</blockquote>
+<p><strong>Best Practices:</strong></p>
+<ul>
+<li>Manually close programs before unmounting when possible.</li>
+<li>Ensure no critical processes are running in the sandbox.</li>
+</ul>
 <h2 id="command-line-operations">Command Line Operations<a class="headerlink" href="#command-line-operations" title="Permanent link"></a></h2>
-<p>Using ImBox.exe for advanced image management:</p>
+<p>Using <code>ImBox.exe</code> for advanced image management:</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Backup header</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">ImBox.exe type=image image</span><span class="o">=</span><span class="s">&quot;C:\Sandbox\DefaultBox.box&quot;</span><span class="w"> </span><span class="na">backup</span><span class="o">=</span><span class="s">&quot;C:\Sandbox\backup.hdr&quot;</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
@@ -4584,26 +4658,26 @@
 <p>Image mounting is handled by the service which verifies driver capabilities before attempting to mount the virtual disk. If the driver does not support encrypted containers or mounting fails, the sandbox will not start and an error is logged.</p>
 <p><strong>Technical Notes:</strong></p>
 <ul>
-<li>Requires ImDisk driver support for encrypted image containers</li>
-<li>Mutually exclusive with <a href="../UseRamDisk/">UseRamDisk</a></li>
-<li>Header corruption can render encrypted images unrecoverable - always maintain header backups</li>
-<li>Maximum image size limited by available disk space and driver constraints</li>
+<li>Requires ImDisk driver support for encrypted image containers.</li>
+<li>Mutually exclusive with <a href="../UseRamDisk/">UseRamDisk</a>.</li>
+<li>Header corruption can render encrypted images unrecoverable - always maintain header backups.</li>
+<li>Maximum image size limited by available disk space and driver constraints.</li>
 </ul>
 <p>Related <a href="../SandboxieIni/">Sandboxie Ini</a>, <a href="../UseRamDisk/">UseRamDisk</a>, <a href="../FileRootPath/">FileRootPath</a></p>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p><code>MountManager::GetImageFileName</code> - determines image file path&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p><code>MountManager::GetImageFileName</code> - determines image file path.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>File root is the base directory where sandbox files are stored, configured via <code>FileRootPath</code> setting&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>File root is the base directory where sandbox files are stored, configured via <code>FileRootPath</code> setting.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p><code>MountManager::AcquireBoxRoot</code> - handles image mounting process&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p><code>MountManager::AcquireBoxRoot</code> - handles image mounting process.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
-<p>GUI operations implemented in <code>COptionsWindow::OnSetPassword</code>, <code>COptionsWindow::OnBackupHeader</code>, and <code>COptionsWindow::OnRestoreHeader</code>&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p>GUI operations implemented in <code>COptionsWindow::OnSetPassword</code>, <code>COptionsWindow::OnBackupHeader</code>, and <code>COptionsWindow::OnRestoreHeader</code>.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
