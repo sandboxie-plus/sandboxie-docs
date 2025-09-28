@@ -1,6 +1,6 @@
 # Ram Disk Letter
 
-_RamDiskLetter_ is a global setting in [Sandboxie Ini](SandboxieIni.md) available since v1.11.1 / 5.66.1 that specifies the drive letter to be assigned to the RAM disk created for use by sandboxes that have the [UseRamDisk](UseRamDisk.md) option enabled. This setting allows users to define a specific drive letter for easier access to the RAM disk.
+_RamDiskLetter_ is a global setting in [Sandboxie Ini](SandboxieIni.md) (introduced in v1.11.1 / 5.66.1) that specifies the drive letter to be assigned to the RAM disk created for use by sandboxes that have the [UseRamDisk](UseRamDisk.md) setting enabled. This setting allows users to define a specific drive letter for easier access to the RAM disk.
 
 ## Usage
 
@@ -13,13 +13,15 @@ To set the `RamDiskLetter`, add the following line to the Sandboxie configuratio
 RamDiskLetter=R:\
 ```
 
-## SandMan GUI Operations
+## SandMan GUI
 
-The RAM disk letter option can be selected through:
+The RAM disk letter setting can be selected through:
 
 1. Open the `Global Settings` window in the SandMan interface.
 2. Navigate to `Add-Ons Manager` > `Add-On Configuration` tab.
-3. Select the `Assign drive letter to Ram Disk` option and select a drive letter for the RAM disk.
+3. Enable the `Assign drive letter to Ram Disk` setting and select a drive letter for the RAM disk.
+
+	![Ram Disk Letter](../Media/UseRamDisk3.png)
 
 ## Important Notes
 

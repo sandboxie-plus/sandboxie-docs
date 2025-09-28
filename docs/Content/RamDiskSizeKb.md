@@ -1,6 +1,6 @@
 # Ram Disk Size Kb
 
-_RamDiskSizeKb_ is a global setting in [Sandboxie Ini](SandboxieIni.md) available since v1.11.0 / 5.66.0 that specifies the size of the RAM disk to be created for use by sandboxes that have the [UseRamDisk](UseRamDisk.md) option enabled. This setting is defined in kilobytes and determines the maximum amount of system RAM that can be allocated for the RAM disk.
+_RamDiskSizeKb_ is a global setting in [Sandboxie Ini](SandboxieIni.md) (introduced in v1.11.0 / 5.66.0) that specifies the size of the RAM disk to be created for use by sandboxes that have the [UseRamDisk](UseRamDisk.md) setting enabled. This setting is defined in kilobytes and determines the maximum amount of system RAM that can be allocated for the RAM disk.
 
 ## Usage
 
@@ -9,21 +9,23 @@ To set the `RamDiskSizeKb`, add the following line to the Sandboxie configuratio
 ```ini
 [GlobalSettings]
 
-# Example for a 1 GB RAM disk
-RamDiskSizeKb=1024000
+# Example for a 2 GB RAM disk
+RamDiskSizeKb=2097152
 ```
 
-## SandMan GUI Operations
+## SandMan GUI
 
-The RAM disk size option can be set through:
+The RAM disk size setting can be set through:
 
 1. Open the `Global Settings` window in the SandMan interface.
 2. Navigate to `Add-Ons Manager` > `Add-On Configuration` tab.
-3. Select the `Enable Ram Disk creation` option and set a value for the RAM disk size.
+3. Enable the `Enable Ram Disk creation` setting and set a value for the RAM disk size.
+
+	![Ram Disk Creation](../Media/UseRamDisk3.png)
 
 ## Important Notes
 
-- **Single RAM Disk**: Only one RAM disk will be created and used among all sandboxes that have the `UseRamDisk` option enabled. This means that the specified size will be shared across all sandboxes utilizing RAM disks.
+- **Single RAM Disk**: Only one RAM disk will be created and used among all sandboxes that have the `UseRamDisk` setting enabled. This means that the specified size will be shared across all sandboxes utilizing RAM disks.
   
 - **Memory Management**: Ensure that the specified size does not exceed the available system memory. Allocating too much memory for the RAM disk can lead to system instability or prevent other applications from functioning properly. If the specified size exceeds available RAM, the RAM disk may fail to mount, and an error will be logged.
 
