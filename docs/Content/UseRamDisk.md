@@ -36,7 +36,7 @@ The RAM disk setting can be enabled through:
 2. Navigate to `File Options` tab.
 3. Enable the `Store the sandbox content in a Ram Disk` setting.
 
-	![Ram Disk Enable](../Media/UseRamDisk1.png)
+	![Ram Disk Enable](../Media/UseRamDisk2.png)
 
 ## Technical Implementation
 
