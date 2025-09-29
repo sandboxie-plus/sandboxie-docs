@@ -6,28 +6,28 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="UseRamDisk is a sandbox setting in Sandboxie Ini (introduced in v1.11.0 / 5.66.0) that replaces the standard file system storage with a RAM-based virtual disk as the sandbox root directory.">
+        <meta name="description" content="ForceProtectionOnMount is a sandbox setting in Sandboxie Ini (introduced in v1.13.4 / 5.68.4) that forces a file-backed sandbox image to be mounted with root protection enabled. When set, the mount flow and the mount/create dialog enforce the image root protect option so users cannot mount the image without protection.">
       
       
       
-        <link rel="canonical" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseRamDisk/">
+        <link rel="canonical" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ForceProtectionOnMount.html">
       
       
       
       
-      <link rel="icon" href="../../../material/assets/images/favicon.ico">
+      <link rel="icon" href="../../material/assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
     
     
       
-        <title>Use Ram Disk - Sandboxie 文档</title>
+        <title>Force Protection On Mount - Sandboxie 文档</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.e53b48f4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e53b48f4.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -40,9 +40,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../material/assets/stylesheets/extra.css">
+      <link rel="stylesheet" href="../../material/assets/stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#use-ram-disk" class="md-skip">
+        <a href="#force-protection-on-mount" class="md-skip">
           跳转至
         </a>
       
@@ -84,9 +84,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../.." title="Sandboxie 文档" class="md-header__button md-logo" aria-label="Sandboxie 文档" data-md-component="logo">
+    <a href="../.." title="Sandboxie 文档" class="md-header__button md-logo" aria-label="Sandboxie 文档" data-md-component="logo">
       
-  <img src="../../../Media/SandDocs.png" alt="logo">
+  <img src="../../Media/SandDocs.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Use Ram Disk
+              Force Protection On Mount
             
           </span>
         </div>
@@ -160,13 +160,13 @@
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="../../../Content/UseRamDisk/" hreflang="en" class="md-select__link">
+            <a href="../../Content/ForceProtectionOnMount.html" hreflang="en" class="md-select__link">
               English
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="./" hreflang="zh" class="md-select__link">
+            <a href="ForceProtectionOnMount.html" hreflang="zh" class="md-select__link">
               简体中文
             </a>
           </li>
@@ -264,9 +264,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--integrated" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Sandboxie 文档" class="md-nav__button md-logo" aria-label="Sandboxie 文档" data-md-component="logo">
+    <a href="../.." title="Sandboxie 文档" class="md-nav__button md-logo" aria-label="Sandboxie 文档" data-md-component="logo">
       
-  <img src="../../../Media/SandDocs.png" alt="logo">
+  <img src="../../Media/SandDocs.png" alt="logo">
 
     </a>
     Sandboxie 文档
@@ -345,7 +345,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../HelpTopics/" class="md-nav__link">
+      <a href="HelpTopics.html" class="md-nav__link">
         
   
   
@@ -368,7 +368,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../GettingStarted/" class="md-nav__link">
+      <a href="GettingStarted.html" class="md-nav__link">
         
   
   
@@ -445,7 +445,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SandboxieControl/" class="md-nav__link">
+      <a href="SandboxieControl.html" class="md-nav__link">
         
   
   
@@ -468,7 +468,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../FileMenu/" class="md-nav__link">
+      <a href="FileMenu.html" class="md-nav__link">
         
   
   
@@ -491,7 +491,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ViewMenu/" class="md-nav__link">
+      <a href="ViewMenu.html" class="md-nav__link">
         
   
   
@@ -514,7 +514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SandboxMenu/" class="md-nav__link">
+      <a href="SandboxMenu.html" class="md-nav__link">
         
   
   
@@ -537,7 +537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ConfigureMenu/" class="md-nav__link">
+      <a href="ConfigureMenu.html" class="md-nav__link">
         
   
   
@@ -560,7 +560,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../HelpMenu/" class="md-nav__link">
+      <a href="HelpMenu.html" class="md-nav__link">
         
   
   
@@ -583,7 +583,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../TrayIconMenu/" class="md-nav__link">
+      <a href="TrayIconMenu.html" class="md-nav__link">
         
   
   
@@ -614,7 +614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../UsageTips/" class="md-nav__link">
+      <a href="UsageTips.html" class="md-nav__link">
         
   
   
@@ -679,7 +679,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../StartCommandLine/" class="md-nav__link">
+      <a href="StartCommandLine.html" class="md-nav__link">
         
   
   
@@ -710,7 +710,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SandboxieIni/" class="md-nav__link">
+      <a href="SandboxieIni.html" class="md-nav__link">
         
   
   
@@ -740,7 +740,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../KnownConflicts/" class="md-nav__link">
+      <a href="KnownConflicts.html" class="md-nav__link">
         
   
   
@@ -806,7 +806,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../PlusMigrationGuide/" class="md-nav__link">
+      <a href="PlusMigrationGuide.html" class="md-nav__link">
         
   
   
@@ -829,7 +829,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../PlusContent/Plus-Features/" class="md-nav__link">
+      <a href="../PlusContent/Plus-Features.html" class="md-nav__link">
         
   
   
@@ -915,7 +915,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../AdvancedTopics/" class="md-nav__link">
+      <a href="AdvancedTopics.html" class="md-nav__link">
         
   
   
@@ -938,7 +938,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SandboxHierarchy/" class="md-nav__link">
+      <a href="SandboxHierarchy.html" class="md-nav__link">
         
   
   
@@ -961,7 +961,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../PrivacyConcerns/" class="md-nav__link">
+      <a href="PrivacyConcerns.html" class="md-nav__link">
         
   
   
@@ -984,7 +984,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ServicePrograms/" class="md-nav__link">
+      <a href="ServicePrograms.html" class="md-nav__link">
         
   
   
@@ -1007,7 +1007,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ResourceAccessMonitor/" class="md-nav__link">
+      <a href="ResourceAccessMonitor.html" class="md-nav__link">
         
   
   
@@ -1030,7 +1030,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../PlusContent/TraceLog/" class="md-nav__link">
+      <a href="../PlusContent/TraceLog.html" class="md-nav__link">
         
   
   
@@ -1053,7 +1053,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../HowToUseWinDbg/" class="md-nav__link">
+      <a href="HowToUseWinDbg.html" class="md-nav__link">
         
   
   
@@ -1384,7 +1384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIEMessages/" class="md-nav__link">
+      <a href="SBIEMessages.html" class="md-nav__link">
         
   
   
@@ -1407,7 +1407,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIEDLLAPI/" class="md-nav__link">
+      <a href="SBIEDLLAPI.html" class="md-nav__link">
         
   
   
@@ -1430,7 +1430,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1101/" class="md-nav__link">
+      <a href="SBIE1101.html" class="md-nav__link">
         
   
   
@@ -1453,7 +1453,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1102/" class="md-nav__link">
+      <a href="SBIE1102.html" class="md-nav__link">
         
   
   
@@ -1476,7 +1476,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1103/" class="md-nav__link">
+      <a href="SBIE1103.html" class="md-nav__link">
         
   
   
@@ -1499,7 +1499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1104/" class="md-nav__link">
+      <a href="SBIE1104.html" class="md-nav__link">
         
   
   
@@ -1522,7 +1522,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1105/" class="md-nav__link">
+      <a href="SBIE1105.html" class="md-nav__link">
         
   
   
@@ -1545,7 +1545,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1106/" class="md-nav__link">
+      <a href="SBIE1106.html" class="md-nav__link">
         
   
   
@@ -1568,7 +1568,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1108/" class="md-nav__link">
+      <a href="SBIE1108.html" class="md-nav__link">
         
   
   
@@ -1591,7 +1591,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1109/" class="md-nav__link">
+      <a href="SBIE1109.html" class="md-nav__link">
         
   
   
@@ -1614,7 +1614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1110/" class="md-nav__link">
+      <a href="SBIE1110.html" class="md-nav__link">
         
   
   
@@ -1637,7 +1637,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1111/" class="md-nav__link">
+      <a href="SBIE1111.html" class="md-nav__link">
         
   
   
@@ -1660,7 +1660,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1112/" class="md-nav__link">
+      <a href="SBIE1112.html" class="md-nav__link">
         
   
   
@@ -1683,7 +1683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1113/" class="md-nav__link">
+      <a href="SBIE1113.html" class="md-nav__link">
         
   
   
@@ -1706,7 +1706,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1114/" class="md-nav__link">
+      <a href="SBIE1114.html" class="md-nav__link">
         
   
   
@@ -1729,7 +1729,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1116/" class="md-nav__link">
+      <a href="SBIE1116.html" class="md-nav__link">
         
   
   
@@ -1752,7 +1752,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1119/" class="md-nav__link">
+      <a href="SBIE1119.html" class="md-nav__link">
         
   
   
@@ -1775,7 +1775,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1120/" class="md-nav__link">
+      <a href="SBIE1120.html" class="md-nav__link">
         
   
   
@@ -1798,7 +1798,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1121/" class="md-nav__link">
+      <a href="SBIE1121.html" class="md-nav__link">
         
   
   
@@ -1821,7 +1821,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1122/" class="md-nav__link">
+      <a href="SBIE1122.html" class="md-nav__link">
         
   
   
@@ -1844,7 +1844,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1151/" class="md-nav__link">
+      <a href="SBIE1151.html" class="md-nav__link">
         
   
   
@@ -1867,7 +1867,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1152/" class="md-nav__link">
+      <a href="SBIE1152.html" class="md-nav__link">
         
   
   
@@ -1890,7 +1890,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1153/" class="md-nav__link">
+      <a href="SBIE1153.html" class="md-nav__link">
         
   
   
@@ -1913,7 +1913,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1201/" class="md-nav__link">
+      <a href="SBIE1201.html" class="md-nav__link">
         
   
   
@@ -1936,7 +1936,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1202/" class="md-nav__link">
+      <a href="SBIE1202.html" class="md-nav__link">
         
   
   
@@ -1959,7 +1959,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1203/" class="md-nav__link">
+      <a href="SBIE1203.html" class="md-nav__link">
         
   
   
@@ -1982,7 +1982,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1204/" class="md-nav__link">
+      <a href="SBIE1204.html" class="md-nav__link">
         
   
   
@@ -2005,7 +2005,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1211/" class="md-nav__link">
+      <a href="SBIE1211.html" class="md-nav__link">
         
   
   
@@ -2028,7 +2028,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1212/" class="md-nav__link">
+      <a href="SBIE1212.html" class="md-nav__link">
         
   
   
@@ -2051,7 +2051,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1213/" class="md-nav__link">
+      <a href="SBIE1213.html" class="md-nav__link">
         
   
   
@@ -2074,7 +2074,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1214/" class="md-nav__link">
+      <a href="SBIE1214.html" class="md-nav__link">
         
   
   
@@ -2097,7 +2097,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1215/" class="md-nav__link">
+      <a href="SBIE1215.html" class="md-nav__link">
         
   
   
@@ -2120,7 +2120,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1216/" class="md-nav__link">
+      <a href="SBIE1216.html" class="md-nav__link">
         
   
   
@@ -2143,7 +2143,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1222/" class="md-nav__link">
+      <a href="SBIE1222.html" class="md-nav__link">
         
   
   
@@ -2166,7 +2166,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1223/" class="md-nav__link">
+      <a href="SBIE1223.html" class="md-nav__link">
         
   
   
@@ -2189,7 +2189,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1224/" class="md-nav__link">
+      <a href="SBIE1224.html" class="md-nav__link">
         
   
   
@@ -2212,7 +2212,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1241/" class="md-nav__link">
+      <a href="SBIE1241.html" class="md-nav__link">
         
   
   
@@ -2235,7 +2235,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1242/" class="md-nav__link">
+      <a href="SBIE1242.html" class="md-nav__link">
         
   
   
@@ -2258,7 +2258,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1301/" class="md-nav__link">
+      <a href="SBIE1301.html" class="md-nav__link">
         
   
   
@@ -2281,7 +2281,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1303/" class="md-nav__link">
+      <a href="SBIE1303.html" class="md-nav__link">
         
   
   
@@ -2304,7 +2304,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1304/" class="md-nav__link">
+      <a href="SBIE1304.html" class="md-nav__link">
         
   
   
@@ -2327,7 +2327,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1306/" class="md-nav__link">
+      <a href="SBIE1306.html" class="md-nav__link">
         
   
   
@@ -2350,7 +2350,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1307/" class="md-nav__link">
+      <a href="SBIE1307.html" class="md-nav__link">
         
   
   
@@ -2373,7 +2373,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1308/" class="md-nav__link">
+      <a href="SBIE1308.html" class="md-nav__link">
         
   
   
@@ -2396,7 +2396,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1309/" class="md-nav__link">
+      <a href="SBIE1309.html" class="md-nav__link">
         
   
   
@@ -2419,7 +2419,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1310/" class="md-nav__link">
+      <a href="SBIE1310.html" class="md-nav__link">
         
   
   
@@ -2442,7 +2442,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1311/" class="md-nav__link">
+      <a href="SBIE1311.html" class="md-nav__link">
         
   
   
@@ -2465,7 +2465,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1312/" class="md-nav__link">
+      <a href="SBIE1312.html" class="md-nav__link">
         
   
   
@@ -2488,7 +2488,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1313/" class="md-nav__link">
+      <a href="SBIE1313.html" class="md-nav__link">
         
   
   
@@ -2511,7 +2511,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1314/" class="md-nav__link">
+      <a href="SBIE1314.html" class="md-nav__link">
         
   
   
@@ -2534,7 +2534,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1401/" class="md-nav__link">
+      <a href="SBIE1401.html" class="md-nav__link">
         
   
   
@@ -2557,7 +2557,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1402/" class="md-nav__link">
+      <a href="SBIE1402.html" class="md-nav__link">
         
   
   
@@ -2580,7 +2580,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1403/" class="md-nav__link">
+      <a href="SBIE1403.html" class="md-nav__link">
         
   
   
@@ -2603,7 +2603,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1404/" class="md-nav__link">
+      <a href="SBIE1404.html" class="md-nav__link">
         
   
   
@@ -2626,7 +2626,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1405/" class="md-nav__link">
+      <a href="SBIE1405.html" class="md-nav__link">
         
   
   
@@ -2649,7 +2649,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1406/" class="md-nav__link">
+      <a href="SBIE1406.html" class="md-nav__link">
         
   
   
@@ -2672,7 +2672,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1408/" class="md-nav__link">
+      <a href="SBIE1408.html" class="md-nav__link">
         
   
   
@@ -2695,7 +2695,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1409/" class="md-nav__link">
+      <a href="SBIE1409.html" class="md-nav__link">
         
   
   
@@ -2718,7 +2718,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1410/" class="md-nav__link">
+      <a href="SBIE1410.html" class="md-nav__link">
         
   
   
@@ -2741,7 +2741,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1411/" class="md-nav__link">
+      <a href="SBIE1411.html" class="md-nav__link">
         
   
   
@@ -2764,7 +2764,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE1412/" class="md-nav__link">
+      <a href="SBIE1412.html" class="md-nav__link">
         
   
   
@@ -2787,7 +2787,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2102/" class="md-nav__link">
+      <a href="SBIE2102.html" class="md-nav__link">
         
   
   
@@ -2810,7 +2810,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2103/" class="md-nav__link">
+      <a href="SBIE2103.html" class="md-nav__link">
         
   
   
@@ -2833,7 +2833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2104/" class="md-nav__link">
+      <a href="SBIE2104.html" class="md-nav__link">
         
   
   
@@ -2856,7 +2856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2108/" class="md-nav__link">
+      <a href="SBIE2108.html" class="md-nav__link">
         
   
   
@@ -2879,7 +2879,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2111/" class="md-nav__link">
+      <a href="SBIE2111.html" class="md-nav__link">
         
   
   
@@ -2902,7 +2902,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2191/" class="md-nav__link">
+      <a href="SBIE2191.html" class="md-nav__link">
         
   
   
@@ -2925,7 +2925,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2192/" class="md-nav__link">
+      <a href="SBIE2192.html" class="md-nav__link">
         
   
   
@@ -2948,7 +2948,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2193/" class="md-nav__link">
+      <a href="SBIE2193.html" class="md-nav__link">
         
   
   
@@ -2971,7 +2971,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2202/" class="md-nav__link">
+      <a href="SBIE2202.html" class="md-nav__link">
         
   
   
@@ -2994,7 +2994,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2203/" class="md-nav__link">
+      <a href="SBIE2203.html" class="md-nav__link">
         
   
   
@@ -3017,7 +3017,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2204/" class="md-nav__link">
+      <a href="SBIE2204.html" class="md-nav__link">
         
   
   
@@ -3040,7 +3040,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2205/" class="md-nav__link">
+      <a href="SBIE2205.html" class="md-nav__link">
         
   
   
@@ -3063,7 +3063,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2206/" class="md-nav__link">
+      <a href="SBIE2206.html" class="md-nav__link">
         
   
   
@@ -3086,7 +3086,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2207/" class="md-nav__link">
+      <a href="SBIE2207.html" class="md-nav__link">
         
   
   
@@ -3109,7 +3109,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2208/" class="md-nav__link">
+      <a href="SBIE2208.html" class="md-nav__link">
         
   
   
@@ -3132,7 +3132,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2209/" class="md-nav__link">
+      <a href="SBIE2209.html" class="md-nav__link">
         
   
   
@@ -3155,7 +3155,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2210/" class="md-nav__link">
+      <a href="SBIE2210.html" class="md-nav__link">
         
   
   
@@ -3178,7 +3178,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2211/" class="md-nav__link">
+      <a href="SBIE2211.html" class="md-nav__link">
         
   
   
@@ -3201,7 +3201,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2212/" class="md-nav__link">
+      <a href="SBIE2212.html" class="md-nav__link">
         
   
   
@@ -3224,7 +3224,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2213/" class="md-nav__link">
+      <a href="SBIE2213.html" class="md-nav__link">
         
   
   
@@ -3247,7 +3247,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2214/" class="md-nav__link">
+      <a href="SBIE2214.html" class="md-nav__link">
         
   
   
@@ -3270,7 +3270,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2217/" class="md-nav__link">
+      <a href="SBIE2217.html" class="md-nav__link">
         
   
   
@@ -3293,7 +3293,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2218/" class="md-nav__link">
+      <a href="SBIE2218.html" class="md-nav__link">
         
   
   
@@ -3316,7 +3316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2219/" class="md-nav__link">
+      <a href="SBIE2219.html" class="md-nav__link">
         
   
   
@@ -3339,7 +3339,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2220/" class="md-nav__link">
+      <a href="SBIE2220.html" class="md-nav__link">
         
   
   
@@ -3362,7 +3362,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2221/" class="md-nav__link">
+      <a href="SBIE2221.html" class="md-nav__link">
         
   
   
@@ -3385,7 +3385,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2222/" class="md-nav__link">
+      <a href="SBIE2222.html" class="md-nav__link">
         
   
   
@@ -3408,7 +3408,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2223/" class="md-nav__link">
+      <a href="SBIE2223.html" class="md-nav__link">
         
   
   
@@ -3431,7 +3431,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2303/" class="md-nav__link">
+      <a href="SBIE2303.html" class="md-nav__link">
         
   
   
@@ -3454,7 +3454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2304/" class="md-nav__link">
+      <a href="SBIE2304.html" class="md-nav__link">
         
   
   
@@ -3477,7 +3477,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2305/" class="md-nav__link">
+      <a href="SBIE2305.html" class="md-nav__link">
         
   
   
@@ -3500,7 +3500,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2306/" class="md-nav__link">
+      <a href="SBIE2306.html" class="md-nav__link">
         
   
   
@@ -3523,7 +3523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2307/" class="md-nav__link">
+      <a href="SBIE2307.html" class="md-nav__link">
         
   
   
@@ -3546,7 +3546,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2308/" class="md-nav__link">
+      <a href="SBIE2308.html" class="md-nav__link">
         
   
   
@@ -3569,7 +3569,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2309/" class="md-nav__link">
+      <a href="SBIE2309.html" class="md-nav__link">
         
   
   
@@ -3592,7 +3592,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2310/" class="md-nav__link">
+      <a href="SBIE2310.html" class="md-nav__link">
         
   
   
@@ -3615,7 +3615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2311/" class="md-nav__link">
+      <a href="SBIE2311.html" class="md-nav__link">
         
   
   
@@ -3638,7 +3638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2312/" class="md-nav__link">
+      <a href="SBIE2312.html" class="md-nav__link">
         
   
   
@@ -3661,7 +3661,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2313/" class="md-nav__link">
+      <a href="SBIE2313.html" class="md-nav__link">
         
   
   
@@ -3684,7 +3684,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2314/" class="md-nav__link">
+      <a href="SBIE2314.html" class="md-nav__link">
         
   
   
@@ -3707,7 +3707,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2315/" class="md-nav__link">
+      <a href="SBIE2315.html" class="md-nav__link">
         
   
   
@@ -3730,7 +3730,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2316/" class="md-nav__link">
+      <a href="SBIE2316.html" class="md-nav__link">
         
   
   
@@ -3753,7 +3753,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2317/" class="md-nav__link">
+      <a href="SBIE2317.html" class="md-nav__link">
         
   
   
@@ -3776,7 +3776,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2318/" class="md-nav__link">
+      <a href="SBIE2318.html" class="md-nav__link">
         
   
   
@@ -3799,7 +3799,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2321/" class="md-nav__link">
+      <a href="SBIE2321.html" class="md-nav__link">
         
   
   
@@ -3822,7 +3822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2322/" class="md-nav__link">
+      <a href="SBIE2322.html" class="md-nav__link">
         
   
   
@@ -3845,7 +3845,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2323/" class="md-nav__link">
+      <a href="SBIE2323.html" class="md-nav__link">
         
   
   
@@ -3868,7 +3868,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2326/" class="md-nav__link">
+      <a href="SBIE2326.html" class="md-nav__link">
         
   
   
@@ -3891,7 +3891,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2327/" class="md-nav__link">
+      <a href="SBIE2327.html" class="md-nav__link">
         
   
   
@@ -3914,7 +3914,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2331/" class="md-nav__link">
+      <a href="SBIE2331.html" class="md-nav__link">
         
   
   
@@ -3937,7 +3937,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2332/" class="md-nav__link">
+      <a href="SBIE2332.html" class="md-nav__link">
         
   
   
@@ -3960,7 +3960,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE2334/" class="md-nav__link">
+      <a href="SBIE2334.html" class="md-nav__link">
         
   
   
@@ -3983,7 +3983,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE3207/" class="md-nav__link">
+      <a href="SBIE3207.html" class="md-nav__link">
         
   
   
@@ -4006,7 +4006,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE3208/" class="md-nav__link">
+      <a href="SBIE3208.html" class="md-nav__link">
         
   
   
@@ -4029,7 +4029,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE3209/" class="md-nav__link">
+      <a href="SBIE3209.html" class="md-nav__link">
         
   
   
@@ -4052,7 +4052,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE9101/" class="md-nav__link">
+      <a href="SBIE9101.html" class="md-nav__link">
         
   
   
@@ -4075,7 +4075,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE9153/" class="md-nav__link">
+      <a href="SBIE9153.html" class="md-nav__link">
         
   
   
@@ -4098,7 +4098,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE9154/" class="md-nav__link">
+      <a href="SBIE9154.html" class="md-nav__link">
         
   
   
@@ -4121,7 +4121,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE9156/" class="md-nav__link">
+      <a href="SBIE9156.html" class="md-nav__link">
         
   
   
@@ -4144,7 +4144,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE9201/" class="md-nav__link">
+      <a href="SBIE9201.html" class="md-nav__link">
         
   
   
@@ -4167,7 +4167,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE9202/" class="md-nav__link">
+      <a href="SBIE9202.html" class="md-nav__link">
         
   
   
@@ -4190,7 +4190,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE9203/" class="md-nav__link">
+      <a href="SBIE9203.html" class="md-nav__link">
         
   
   
@@ -4213,7 +4213,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE9204/" class="md-nav__link">
+      <a href="SBIE9204.html" class="md-nav__link">
         
   
   
@@ -4236,7 +4236,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE9205/" class="md-nav__link">
+      <a href="SBIE9205.html" class="md-nav__link">
         
   
   
@@ -4259,7 +4259,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE9206/" class="md-nav__link">
+      <a href="SBIE9206.html" class="md-nav__link">
         
   
   
@@ -4282,7 +4282,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE9207/" class="md-nav__link">
+      <a href="SBIE9207.html" class="md-nav__link">
         
   
   
@@ -4305,7 +4305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE9208/" class="md-nav__link">
+      <a href="SBIE9208.html" class="md-nav__link">
         
   
   
@@ -4328,7 +4328,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE9251/" class="md-nav__link">
+      <a href="SBIE9251.html" class="md-nav__link">
         
   
   
@@ -4351,7 +4351,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE9252/" class="md-nav__link">
+      <a href="SBIE9252.html" class="md-nav__link">
         
   
   
@@ -4374,7 +4374,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE9253/" class="md-nav__link">
+      <a href="SBIE9253.html" class="md-nav__link">
         
   
   
@@ -4397,7 +4397,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE9302/" class="md-nav__link">
+      <a href="SBIE9302.html" class="md-nav__link">
         
   
   
@@ -4420,7 +4420,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE9304/" class="md-nav__link">
+      <a href="SBIE9304.html" class="md-nav__link">
         
   
   
@@ -4443,7 +4443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SBIE9305/" class="md-nav__link">
+      <a href="SBIE9305.html" class="md-nav__link">
         
   
   
@@ -4481,7 +4481,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../TechnicalAspects/" class="md-nav__link">
+      <a href="TechnicalAspects.html" class="md-nav__link">
         
   
   
@@ -4512,7 +4512,7 @@
 
 
   
-    <a href="https://github.com/sandboxie-plus/sandboxie-docs/edit/main/docs/zh-CN/Content/UseRamDisk.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/sandboxie-plus/sandboxie-docs/edit/main/docs/zh-CN/Content/ForceProtectionOnMount.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -4521,86 +4521,97 @@
     
       
     
-    <a href="https://github.com/sandboxie-plus/sandboxie-docs/raw/main/docs/zh-CN/Content/UseRamDisk.md" title="查看本页的源代码" class="md-content__button md-icon">
+    <a href="https://github.com/sandboxie-plus/sandboxie-docs/raw/main/docs/zh-CN/Content/ForceProtectionOnMount.md" title="查看本页的源代码" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<h1 id="use-ram-disk">Use Ram Disk<a class="headerlink" href="#use-ram-disk" title="Permanent link"></a></h1>
-<p><em>UseRamDisk</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a> (introduced in v1.11.0 / 5.66.0) that replaces the standard file system storage with a RAM-based virtual disk as the sandbox root directory.</p>
-<blockquote>
-<p><strong>Warning:</strong> Configure this setting on a per-sandbox basis. Applying it globally will force all sandboxes to use RAM disks, which may break existing sandboxes that rely on standard file system storage or cause compatibility issues with non-volatile sandbox configurations.</p>
-<p><strong>Note:</strong> This setting requires an active <a href="https://sandboxie-plus.com/supporter-certificate/">supporter certificate</a>.</p>
-</blockquote>
-<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link"></a></h2>
-<ul>
-<li>
-<p>Install the <strong>ImDisk Toolkit</strong> via the <strong>Add-Ons Manager &gt; Optional Add-Ons</strong> tab in <strong>Global Settings</strong>.</p>
-<p><img alt="ImDisk Install" src="../../../Media/UseRamDisk1.png" /></p>
-</li>
-<li>
-<p>Configure the <a href="../RamDiskSizeKb/">RamDiskSizeKb</a> setting to define the RAM disk's size in kilobytes. Choose a value that aligns with your system's available memory and the needs of the applications you plan to run sandboxed.</p>
-</li>
-<li>
-<p>(Optional) Use the <a href="../RamDiskLetter/">RamDiskLetter</a> setting to assign a specific drive letter for easier access to the RAM disk.</p>
-</li>
-</ul>
+<h1 id="force-protection-on-mount">Force Protection On Mount<a class="headerlink" href="#force-protection-on-mount" title="Permanent link"></a></h1>
+<p><em>ForceProtectionOnMount</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a> (introduced in v1.13.4 / 5.68.4) that forces a file-backed sandbox image to be mounted with root protection enabled. When set, the mount flow and the mount/create dialog enforce the image root protect option so users cannot mount the image without protection.</p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">UseRamDisk</span><span class="o">=</span><span class="s">y</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">ForceProtectionOnMount</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>When this setting is enabled, the Sandboxie service creates a virtual disk entirely in system RAM. The RAM disk is mounted through the mount manager<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> using the ImDisk virtual disk driver. All file I/O operations within the sandbox are redirected to the RAM disk rather than creating files directly on the host file system or persistent storage.</p>
-<p>The RAM disk provides extremely fast file operations but is volatile - all data is lost when the RAM disk is unmounted or the system is restarted. This makes it ideal for temporary operations, testing, or malware analysis where persistence is not required.</p>
-<h2 id="sandman-gui">SandMan GUI<a class="headerlink" href="#sandman-gui" title="Permanent link"></a></h2>
-<p>The RAM disk setting can be enabled through:</p>
-<ol>
-<li>Right-click sandbox &gt; <code>Sandbox Options</code>.</li>
-<li>Navigate to <code>File Options</code> tab.</li>
+<h2 id="when-to-use">When to use<a class="headerlink" href="#when-to-use" title="Permanent link"></a></h2>
+<ul>
 <li>
-<p>Enable the <code>Store the sandbox content in a Ram Disk</code> setting.</p>
-<p><img alt="Ram Disk Enable" src="../../../Media/UseRamDisk2.png" /></p>
+<p>You want a sandbox image always mounted in protected mode (prevent unsandboxed processes from accessing the mounted image).</p>
 </li>
-</ol>
-<h2 id="technical-implementation">Technical Implementation<a class="headerlink" href="#technical-implementation" title="Permanent link"></a></h2>
-<p>RAM disk mounting is handled by the service which verifies driver capabilities and available system memory before attempting to mount the virtual disk<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>. The RAM disk I/O operations are managed by the <code>VirtualMemoryIO</code> class<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup> which interfaces with the ImDisk driver<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>.</p>
-<p>If insufficient RAM is available or mounting fails, the sandbox will not start and an error is logged.</p>
-<h2 id="technical-notes">Technical Notes<a class="headerlink" href="#technical-notes" title="Permanent link"></a></h2>
-<ul>
-<li>Requires ImDisk driver support for virtual memory operations<sup id="fnref2:4"><a class="footnote-ref" href="#fn:4">4</a></sup>.</li>
-<li>Mutually exclusive with <a href="../UseFileImage/">UseFileImage</a>.</li>
-<li>All data is volatile and lost when the RAM disk is unmounted.</li>
-<li>RAM usage is allocated from system memory pool using <code>VirtualMemoryIO</code> class<sup id="fnref2:3"><a class="footnote-ref" href="#fn:3">3</a></sup>.</li>
-<li>No encryption or password protection available.</li>
-<li>No backup/restore functionality - data is inherently temporary.</li>
-<li>Performance significantly faster than file-based storage.</li>
-<li>Maximum size limited by available system RAM, defined by <code>RamDiskSizeKb</code>.</li>
+<li>
+<p>Useful for encrypted images where you want to guarantee protection at mount time.</p>
+</li>
 </ul>
-<h2 id="performance-considerations">Performance Considerations<a class="headerlink" href="#performance-considerations" title="Permanent link"></a></h2>
+<h2 id="behavior-and-ui">Behavior and UI<a class="headerlink" href="#behavior-and-ui" title="Permanent link"></a></h2>
 <ul>
-<li>Ideal for temporary operations, testing, or malware analysis.</li>
-<li>Reduces disk I/O and wear on SSDs.</li>
-<li>May cause system instability if RAM disk size exceeds available memory.</li>
-<li>Monitor system memory usage when using large RAM disks.</li>
-<li>Perfect for scenarios where data persistence is not needed.</li>
+<li>The General / File Options UI exposes a checkbox bound to <code>ForceProtectionOnMount</code> (<code>ui.chkForceProtection</code> in the code).</li>
+<li>
+<p>The checkbox is enabled only when the sandbox is configured as a <a href="UseFileImage.html">encrypted sandbox</a> (not for RAM disk).</p>
+<p><img alt="Force Protection On Mount 1" src="../../Media/UseFileImage1.png" /></p>
+</li>
+<li>
+<p>When the box image mount dialog is shown programmatically with force applied, <code>CBoxImageWindow::SetForce(true)</code>:</p>
+</li>
+<li>forces <code>ui.chkProtect</code> checked,</li>
+<li>
+<p>disables the protect checkbox so users cannot uncheck it,</p>
+<p><img alt="Force Protection On Mount 2" src="../../Media/UseFileImage8.png" /></p>
+</li>
+<li>
+<p>forces <code>ui.chkAutoLock</code> (auto-unmount on last process stop) checked/disabled in the dialog.  </p>
+</li>
+<li>On mount the service receives a mount request with the <code>protect_root</code> flag set; the mount manager and driver enforce protection.</li>
 </ul>
-<p>Related <a href="../SandboxieIni/">Sandboxie Ini</a>, <a href="../RamDiskSizeKb/">RamDiskSizeKb</a>, <a href="../RamDiskLetter/">RamDiskLetter</a>, <a href="../UseFileImage/">UseFileImage</a>, <a href="../FileRootPath/">FileRootPath</a></p>
+<h2 id="technical-notes-code-references">Technical notes / code references<a class="headerlink" href="#technical-notes-code-references" title="Permanent link"></a></h2>
+<ul>
+<li>UI reads/writes:</li>
+<li>Read: <code>m_pBox-&gt;GetBool("ForceProtectionOnMount", false)</code> (see <code>COptionsWindow::LoadGeneral</code>).<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
+<li>Save: <code>WriteAdvancedCheck(ui.chkForceProtection, "ForceProtectionOnMount", "y", "")</code> (see <code>COptionsWindow::SaveGeneral</code>).<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
+<li>Mount wire protocol:</li>
+<li><code>IMBOX_MOUNT_REQ</code> contains <code>BOOL protect_root;</code> (mount wire header in <code>MountManagerWire.h</code>).<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></li>
+<li>Mount dialog enforcement:</li>
+<li><code>CBoxImageWindow::SetForce(bool force)</code> sets the protect checkbox enabled/checked state.<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></li>
+<li>Mount flow:</li>
+<li><code>MountManager::AcquireBoxRoot</code> (mount manager) will include the <code>protect_root</code> flag in mount requests when appropriate.<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></li>
+<li>Start process integration:</li>
+<li><code>Start.cpp</code> handles the <code>mount_protected</code> parameter during sandbox startup and process creation.<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup></li>
+</ul>
+<h2 id="compatibility-constraints">Compatibility &amp; constraints<a class="headerlink" href="#compatibility-constraints" title="Permanent link"></a></h2>
+<ul>
+<li>Only meaningful for sandboxes using <code>UseFileImage</code> (file-backed <code>.box</code> images).</li>
+<li>If the filesystem driver or mount manager cannot honor protected mounts (or encrypted containers), mounts may fail and the sandbox will not start - check logs and mount manager errors.</li>
+<li>Protecting the root is enforced at mount time; unmounting while processes run will terminate those processes.</li>
+</ul>
+<h2 id="best-practices">Best practices<a class="headerlink" href="#best-practices" title="Permanent link"></a></h2>
+<ul>
+<li>Apply per-sandbox (do not set globally unless you intend to force protection for every sandbox).</li>
+</ul>
+<h2 id="related">Related<a class="headerlink" href="#related" title="Permanent link"></a></h2>
+<ul>
+<li><a href="UseFileImage.html"><code>UseFileImage</code></a> - enables file-backed sandbox images.</li>
+<li><code>CBoxImageWindow::SetForce</code> - UI enforcement on the mount/create dialog.</li>
+<li><code>IMBOX_MOUNT_REQ.protect_root</code> - mount request flag used by the mount manager.</li>
+<li><a href="StartCommandLine.html#mount-box-images"><code>StartCommandLine</code></a> - Command-line operations including <code>mount_protected</code> switch for protected mounting.</li>
+</ul>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p><code>MountManager::AcquireBoxRoot</code> in <code>Sandboxie/core/svc/MountManager.cpp</code> - handles RAM disk mounting process.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>See UI code in <code>SandMan\Windows\OptionsGeneral.cpp</code> - <code>COptionsWindow::LoadGeneral</code> and <code>COptionsWindow::SaveGeneral</code> handle reading and writing the <code>ForceProtectionOnMount</code> key via <code>m_pBox</code>.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>Driver capability checks performed in <code>MountManager::AcquireBoxRoot</code> before mounting virtual disks.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>Mount protocol definition in <code>..\Sandboxie\core\svc\MountManagerWire.h</code> - <code>tagIMBOX_MOUNT_REQ</code> includes the <code>protect_root</code> field used by the mount manager.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p>RAM disk I/O operations handled by <code>VirtualMemoryIO</code> class in <code>SandboxieTools/ImBox/VirtualMemoryIO.cpp</code>.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>Implementation in <code>SandMan\Windows\BoxImageWindow.cpp</code> - <code>CBoxImageWindow::SetForce(bool force)</code> forces the dialog checkboxes to reflect a forced protected mount.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
-<p>ImDisk driver headers and definitions in <code>SandboxieTools/ImDisk/inc/imdisk.h</code>.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p>Mount manager code (mount request assembly) will propagate the <code>protect_root</code> flag to the service/driver; see the mount manager implementation (e.g., <code>MountManager::AcquireBoxRoot</code>) in the service codebase.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:5">
+<p>Start process implementation in <code>Sandboxie\apps\start\Start.cpp</code> - handles the <code>mount_protected</code> parameter during sandbox startup and process initialization.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
@@ -4680,12 +4691,12 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow", "toc.integrate"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow", "toc.integrate"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
       
-        <script src="../../../material/assets/javascripts/extra.js"></script>
+        <script src="../../material/assets/javascripts/extra.js"></script>
       
     
   </body>

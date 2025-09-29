@@ -4567,7 +4567,7 @@
 <h2 id="technical-implementation">Technical Implementation<a class="headerlink" href="#technical-implementation" title="Permanent link"></a></h2>
 <p>RAM disk mounting is handled by the service which verifies driver capabilities and available system memory before attempting to mount the virtual disk<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>. The RAM disk I/O operations are managed by the <code>VirtualMemoryIO</code> class<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup> which interfaces with the ImDisk driver<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>.</p>
 <p>If insufficient RAM is available or mounting fails, the sandbox will not start and an error is logged.</p>
-<p><strong>Technical Notes:</strong></p>
+<h2 id="technical-notes">Technical Notes<a class="headerlink" href="#technical-notes" title="Permanent link"></a></h2>
 <ul>
 <li>Requires ImDisk driver support for virtual memory operations<sup id="fnref2:4"><a class="footnote-ref" href="#fn:4">4</a></sup>.</li>
 <li>Mutually exclusive with <a href="UseFileImage.html">UseFileImage</a>.</li>
@@ -4578,7 +4578,7 @@
 <li>Performance significantly faster than file-based storage.</li>
 <li>Maximum size limited by available system RAM, defined by <code>RamDiskSizeKb</code>.</li>
 </ul>
-<p><strong>Performance Considerations:</strong></p>
+<h2 id="performance-considerations">Performance Considerations<a class="headerlink" href="#performance-considerations" title="Permanent link"></a></h2>
 <ul>
 <li>Ideal for temporary operations, testing, or malware analysis.</li>
 <li>Reduces disk I/O and wear on SSDs.</li>

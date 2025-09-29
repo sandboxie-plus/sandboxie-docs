@@ -1,33 +1,33 @@
 
 <!doctype html>
-<html lang="zh" class="no-js">
+<html lang="en" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="UseRamDisk is a sandbox setting in Sandboxie Ini (introduced in v1.11.0 / 5.66.0) that replaces the standard file system storage with a RAM-based virtual disk as the sandbox root directory.">
+        <meta name="description" content="ForceProtectionOnMount is a sandbox setting in Sandboxie Ini (introduced in v1.13.4 / 5.68.4) that forces a file-backed sandbox image to be mounted with root protection enabled. When set, the mount flow and the mount/create dialog enforce the image root protect option so users cannot mount the image without protection.">
       
       
       
-        <link rel="canonical" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseRamDisk/">
+        <link rel="canonical" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/ForceProtectionOnMount/">
       
       
       
       
-      <link rel="icon" href="../../../material/assets/images/favicon.ico">
+      <link rel="icon" href="../../material/assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
     
     
       
-        <title>Use Ram Disk - Sandboxie 文档</title>
+        <title>Force Protection On Mount - Sandboxie Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.e53b48f4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e53b48f4.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -40,9 +40,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../material/assets/stylesheets/extra.css">
+      <link rel="stylesheet" href="../../material/assets/stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -68,8 +68,8 @@
     <div data-md-component="skip">
       
         
-        <a href="#use-ram-disk" class="md-skip">
-          跳转至
+        <a href="#force-protection-on-mount" class="md-skip">
+          Skip to content
         </a>
       
     </div>
@@ -83,10 +83,10 @@
   
 
 <header class="md-header md-header--shadow" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../.." title="Sandboxie 文档" class="md-header__button md-logo" aria-label="Sandboxie 文档" data-md-component="logo">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Sandboxie Documentation" class="md-header__button md-logo" aria-label="Sandboxie Documentation" data-md-component="logo">
       
-  <img src="../../../Media/SandDocs.png" alt="logo">
+  <img src="../../Media/SandDocs.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -97,13 +97,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Sandboxie 文档
+            Sandboxie Documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Use Ram Disk
+              Force Protection On Mount
             
           </span>
         </div>
@@ -153,20 +153,20 @@
       <div class="md-header__option">
   <div class="md-select">
     
-    <button class="md-header__button md-icon" aria-label="选择当前语言">
+    <button class="md-header__button md-icon" aria-label="Select language">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
     </button>
     <div class="md-select__inner">
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="../../../Content/UseRamDisk/" hreflang="en" class="md-select__link">
+            <a href="./" hreflang="en" class="md-select__link">
               English
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="./" hreflang="zh" class="md-select__link">
+            <a href="../../zh-CN/Content/ForceProtectionOnMount/" hreflang="zh" class="md-select__link">
               简体中文
             </a>
           </li>
@@ -187,21 +187,21 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="查找">
+      <nav class="md-search__options" aria-label="Search">
         
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
             
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
           </a>
         
-        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
@@ -214,7 +214,7 @@
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            正在初始化搜索引擎
+            Initializing search
           </div>
           <ol class="md-search-result__list" role="presentation"></ol>
         </div>
@@ -226,7 +226,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/sandboxie-plus/Sandboxie" title="前往仓库" class="md-source" data-md-component="source">
+        <a href="https://github.com/sandboxie-plus/Sandboxie" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
@@ -262,18 +262,18 @@
 
   
 
-<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="导航栏" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Sandboxie 文档" class="md-nav__button md-logo" aria-label="Sandboxie 文档" data-md-component="logo">
+    <a href="../.." title="Sandboxie Documentation" class="md-nav__button md-logo" aria-label="Sandboxie Documentation" data-md-component="logo">
       
-  <img src="../../../Media/SandDocs.png" alt="logo">
+  <img src="../../Media/SandDocs.png" alt="logo">
 
     </a>
-    Sandboxie 文档
+    Sandboxie Documentation
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/sandboxie-plus/Sandboxie" title="前往仓库" class="md-source" data-md-component="source">
+      <a href="https://github.com/sandboxie-plus/Sandboxie" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
@@ -323,7 +323,7 @@
   
   
   <span class="md-ellipsis">
-    Sandboxie 基础知识
+    Sandboxie Basics
     
   </span>
   
@@ -334,7 +334,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
-            Sandboxie 基础知识
+            Sandboxie Basics
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -350,7 +350,7 @@
   
   
   <span class="md-ellipsis">
-    帮助主题
+    Help Topics
     
   </span>
   
@@ -373,7 +373,7 @@
   
   
   <span class="md-ellipsis">
-    入门指南
+    Getting Started
     
   </span>
   
@@ -423,7 +423,7 @@
   
   
   <span class="md-ellipsis">
-    Sandboxie 控制
+    Sandboxie Control
     
   </span>
   
@@ -434,7 +434,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1_3">
             <span class="md-nav__icon md-icon"></span>
-            Sandboxie 控制
+            Sandboxie Control
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -450,7 +450,7 @@
   
   
   <span class="md-ellipsis">
-    沙盘控制面板
+    Sandboxie Control
     
   </span>
   
@@ -473,7 +473,7 @@
   
   
   <span class="md-ellipsis">
-    文件菜单
+    File Menu
     
   </span>
   
@@ -496,7 +496,7 @@
   
   
   <span class="md-ellipsis">
-    视图菜单
+    View Menu
     
   </span>
   
@@ -519,7 +519,7 @@
   
   
   <span class="md-ellipsis">
-    沙盘菜单
+    Sandbox Menu
     
   </span>
   
@@ -542,7 +542,7 @@
   
   
   <span class="md-ellipsis">
-    配置菜单
+    Configure Menu
     
   </span>
   
@@ -565,7 +565,7 @@
   
   
   <span class="md-ellipsis">
-    帮助菜单
+    Help Menu
     
   </span>
   
@@ -588,7 +588,7 @@
   
   
   <span class="md-ellipsis">
-    系统托盘图标菜单
+    Tray Icon Menu
     
   </span>
   
@@ -619,7 +619,7 @@
   
   
   <span class="md-ellipsis">
-    使用技巧
+    Usage Tips
     
   </span>
   
@@ -657,7 +657,7 @@
   
   
   <span class="md-ellipsis">
-    命令行用法
+    Command Line Usage
     
   </span>
   
@@ -668,7 +668,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1_5">
             <span class="md-nav__icon md-icon"></span>
-            命令行用法
+            Command Line Usage
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -684,7 +684,7 @@
   
   
   <span class="md-ellipsis">
-    启动命令行
+    Start Command Line
     
   </span>
   
@@ -715,7 +715,7 @@
   
   
   <span class="md-ellipsis">
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
     
   </span>
   
@@ -745,7 +745,7 @@
   
   
   <span class="md-ellipsis">
-    已知冲突
+    Known Conflicts
     
   </span>
   
@@ -811,7 +811,7 @@
   
   
   <span class="md-ellipsis">
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie-Plus Migration Guide
     
   </span>
   
@@ -893,7 +893,7 @@
   
   
   <span class="md-ellipsis">
-    高级主题
+    Advanced Topics
     
   </span>
   
@@ -904,7 +904,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            高级主题
+            Advanced Topics
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -920,7 +920,7 @@
   
   
   <span class="md-ellipsis">
-    高级主题
+    Advanced Topics
     
   </span>
   
@@ -943,7 +943,7 @@
   
   
   <span class="md-ellipsis">
-    沙箱层级
+    Sandbox Hierarchy
     
   </span>
   
@@ -966,7 +966,7 @@
   
   
   <span class="md-ellipsis">
-    隐私问题
+    Privacy Concerns
     
   </span>
   
@@ -989,7 +989,7 @@
   
   
   <span class="md-ellipsis">
-    服务程序
+    Service Programs
     
   </span>
   
@@ -1012,7 +1012,7 @@
   
   
   <span class="md-ellipsis">
-    资源访问监视器（适用于沙盘经典版）
+    Resource Access Monitor (for Sandboxie Classic)
     
   </span>
   
@@ -1035,7 +1035,7 @@
   
   
   <span class="md-ellipsis">
-    跟踪日志（适用于 Sandboxie Plus）
+    Trace logging (for Sandboxie Plus)
     
   </span>
   
@@ -1058,7 +1058,7 @@
   
   
   <span class="md-ellipsis">
-    如何使用 WinDbg
+    How To Use Win Dbg
     
   </span>
   
@@ -1362,7 +1362,7 @@
   
   
   <span class="md-ellipsis">
-    SBIE 消息
+    SBIE Messages
     
   </span>
   
@@ -1373,7 +1373,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_8">
             <span class="md-nav__icon md-icon"></span>
-            SBIE 消息
+            SBIE Messages
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1389,7 +1389,7 @@
   
   
   <span class="md-ellipsis">
-    SBIE 消息
+    SBIE Messages
     
   </span>
   
@@ -4486,7 +4486,7 @@
   
   
   <span class="md-ellipsis">
-    技术细节
+    Technical Aspects
     
   </span>
   
@@ -4512,7 +4512,7 @@
 
 
   
-    <a href="https://github.com/sandboxie-plus/sandboxie-docs/edit/main/docs/zh-CN/Content/UseRamDisk.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/sandboxie-plus/sandboxie-docs/edit/main/docs/Content/ForceProtectionOnMount.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -4521,86 +4521,97 @@
     
       
     
-    <a href="https://github.com/sandboxie-plus/sandboxie-docs/raw/main/docs/zh-CN/Content/UseRamDisk.md" title="查看本页的源代码" class="md-content__button md-icon">
+    <a href="https://github.com/sandboxie-plus/sandboxie-docs/raw/main/docs/Content/ForceProtectionOnMount.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<h1 id="use-ram-disk">Use Ram Disk<a class="headerlink" href="#use-ram-disk" title="Permanent link"></a></h1>
-<p><em>UseRamDisk</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a> (introduced in v1.11.0 / 5.66.0) that replaces the standard file system storage with a RAM-based virtual disk as the sandbox root directory.</p>
-<blockquote>
-<p><strong>Warning:</strong> Configure this setting on a per-sandbox basis. Applying it globally will force all sandboxes to use RAM disks, which may break existing sandboxes that rely on standard file system storage or cause compatibility issues with non-volatile sandbox configurations.</p>
-<p><strong>Note:</strong> This setting requires an active <a href="https://sandboxie-plus.com/supporter-certificate/">supporter certificate</a>.</p>
-</blockquote>
-<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link"></a></h2>
-<ul>
-<li>
-<p>Install the <strong>ImDisk Toolkit</strong> via the <strong>Add-Ons Manager &gt; Optional Add-Ons</strong> tab in <strong>Global Settings</strong>.</p>
-<p><img alt="ImDisk Install" src="../../../Media/UseRamDisk1.png" /></p>
-</li>
-<li>
-<p>Configure the <a href="../RamDiskSizeKb/">RamDiskSizeKb</a> setting to define the RAM disk's size in kilobytes. Choose a value that aligns with your system's available memory and the needs of the applications you plan to run sandboxed.</p>
-</li>
-<li>
-<p>(Optional) Use the <a href="../RamDiskLetter/">RamDiskLetter</a> setting to assign a specific drive letter for easier access to the RAM disk.</p>
-</li>
-</ul>
+<h1 id="force-protection-on-mount">Force Protection On Mount<a class="headerlink" href="#force-protection-on-mount" title="Permanent link"></a></h1>
+<p><em>ForceProtectionOnMount</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a> (introduced in v1.13.4 / 5.68.4) that forces a file-backed sandbox image to be mounted with root protection enabled. When set, the mount flow and the mount/create dialog enforce the image root protect option so users cannot mount the image without protection.</p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">UseRamDisk</span><span class="o">=</span><span class="s">y</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">ForceProtectionOnMount</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>When this setting is enabled, the Sandboxie service creates a virtual disk entirely in system RAM. The RAM disk is mounted through the mount manager<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> using the ImDisk virtual disk driver. All file I/O operations within the sandbox are redirected to the RAM disk rather than creating files directly on the host file system or persistent storage.</p>
-<p>The RAM disk provides extremely fast file operations but is volatile - all data is lost when the RAM disk is unmounted or the system is restarted. This makes it ideal for temporary operations, testing, or malware analysis where persistence is not required.</p>
-<h2 id="sandman-gui">SandMan GUI<a class="headerlink" href="#sandman-gui" title="Permanent link"></a></h2>
-<p>The RAM disk setting can be enabled through:</p>
-<ol>
-<li>Right-click sandbox &gt; <code>Sandbox Options</code>.</li>
-<li>Navigate to <code>File Options</code> tab.</li>
+<h2 id="when-to-use">When to use<a class="headerlink" href="#when-to-use" title="Permanent link"></a></h2>
+<ul>
 <li>
-<p>Enable the <code>Store the sandbox content in a Ram Disk</code> setting.</p>
-<p><img alt="Ram Disk Enable" src="../../../Media/UseRamDisk2.png" /></p>
+<p>You want a sandbox image always mounted in protected mode (prevent unsandboxed processes from accessing the mounted image).</p>
 </li>
-</ol>
-<h2 id="technical-implementation">Technical Implementation<a class="headerlink" href="#technical-implementation" title="Permanent link"></a></h2>
-<p>RAM disk mounting is handled by the service which verifies driver capabilities and available system memory before attempting to mount the virtual disk<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>. The RAM disk I/O operations are managed by the <code>VirtualMemoryIO</code> class<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup> which interfaces with the ImDisk driver<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>.</p>
-<p>If insufficient RAM is available or mounting fails, the sandbox will not start and an error is logged.</p>
-<h2 id="technical-notes">Technical Notes<a class="headerlink" href="#technical-notes" title="Permanent link"></a></h2>
-<ul>
-<li>Requires ImDisk driver support for virtual memory operations<sup id="fnref2:4"><a class="footnote-ref" href="#fn:4">4</a></sup>.</li>
-<li>Mutually exclusive with <a href="../UseFileImage/">UseFileImage</a>.</li>
-<li>All data is volatile and lost when the RAM disk is unmounted.</li>
-<li>RAM usage is allocated from system memory pool using <code>VirtualMemoryIO</code> class<sup id="fnref2:3"><a class="footnote-ref" href="#fn:3">3</a></sup>.</li>
-<li>No encryption or password protection available.</li>
-<li>No backup/restore functionality - data is inherently temporary.</li>
-<li>Performance significantly faster than file-based storage.</li>
-<li>Maximum size limited by available system RAM, defined by <code>RamDiskSizeKb</code>.</li>
+<li>
+<p>Useful for encrypted images where you want to guarantee protection at mount time.</p>
+</li>
 </ul>
-<h2 id="performance-considerations">Performance Considerations<a class="headerlink" href="#performance-considerations" title="Permanent link"></a></h2>
+<h2 id="behavior-and-ui">Behavior and UI<a class="headerlink" href="#behavior-and-ui" title="Permanent link"></a></h2>
 <ul>
-<li>Ideal for temporary operations, testing, or malware analysis.</li>
-<li>Reduces disk I/O and wear on SSDs.</li>
-<li>May cause system instability if RAM disk size exceeds available memory.</li>
-<li>Monitor system memory usage when using large RAM disks.</li>
-<li>Perfect for scenarios where data persistence is not needed.</li>
+<li>The General / File Options UI exposes a checkbox bound to <code>ForceProtectionOnMount</code> (<code>ui.chkForceProtection</code> in the code).</li>
+<li>
+<p>The checkbox is enabled only when the sandbox is configured as a <a href="../UseFileImage/">encrypted sandbox</a> (not for RAM disk).</p>
+<p><img alt="Force Protection On Mount 1" src="../../Media/UseFileImage1.png" /></p>
+</li>
+<li>
+<p>When the box image mount dialog is shown programmatically with force applied, <code>CBoxImageWindow::SetForce(true)</code>:</p>
+</li>
+<li>forces <code>ui.chkProtect</code> checked,</li>
+<li>
+<p>disables the protect checkbox so users cannot uncheck it,</p>
+<p><img alt="Force Protection On Mount 2" src="../../Media/UseFileImage8.png" /></p>
+</li>
+<li>
+<p>forces <code>ui.chkAutoLock</code> (auto-unmount on last process stop) checked/disabled in the dialog.  </p>
+</li>
+<li>On mount the service receives a mount request with the <code>protect_root</code> flag set; the mount manager and driver enforce protection.</li>
 </ul>
-<p>Related <a href="../SandboxieIni/">Sandboxie Ini</a>, <a href="../RamDiskSizeKb/">RamDiskSizeKb</a>, <a href="../RamDiskLetter/">RamDiskLetter</a>, <a href="../UseFileImage/">UseFileImage</a>, <a href="../FileRootPath/">FileRootPath</a></p>
+<h2 id="technical-notes-code-references">Technical notes / code references<a class="headerlink" href="#technical-notes-code-references" title="Permanent link"></a></h2>
+<ul>
+<li>UI reads/writes:</li>
+<li>Read: <code>m_pBox-&gt;GetBool("ForceProtectionOnMount", false)</code> (see <code>COptionsWindow::LoadGeneral</code>).<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
+<li>Save: <code>WriteAdvancedCheck(ui.chkForceProtection, "ForceProtectionOnMount", "y", "")</code> (see <code>COptionsWindow::SaveGeneral</code>).<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
+<li>Mount wire protocol:</li>
+<li><code>IMBOX_MOUNT_REQ</code> contains <code>BOOL protect_root;</code> (mount wire header in <code>MountManagerWire.h</code>).<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></li>
+<li>Mount dialog enforcement:</li>
+<li><code>CBoxImageWindow::SetForce(bool force)</code> sets the protect checkbox enabled/checked state.<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></li>
+<li>Mount flow:</li>
+<li><code>MountManager::AcquireBoxRoot</code> (mount manager) will include the <code>protect_root</code> flag in mount requests when appropriate.<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></li>
+<li>Start process integration:</li>
+<li><code>Start.cpp</code> handles the <code>mount_protected</code> parameter during sandbox startup and process creation.<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup></li>
+</ul>
+<h2 id="compatibility-constraints">Compatibility &amp; constraints<a class="headerlink" href="#compatibility-constraints" title="Permanent link"></a></h2>
+<ul>
+<li>Only meaningful for sandboxes using <code>UseFileImage</code> (file-backed <code>.box</code> images).</li>
+<li>If the filesystem driver or mount manager cannot honor protected mounts (or encrypted containers), mounts may fail and the sandbox will not start - check logs and mount manager errors.</li>
+<li>Protecting the root is enforced at mount time; unmounting while processes run will terminate those processes.</li>
+</ul>
+<h2 id="best-practices">Best practices<a class="headerlink" href="#best-practices" title="Permanent link"></a></h2>
+<ul>
+<li>Apply per-sandbox (do not set globally unless you intend to force protection for every sandbox).</li>
+</ul>
+<h2 id="related">Related<a class="headerlink" href="#related" title="Permanent link"></a></h2>
+<ul>
+<li><a href="../UseFileImage/"><code>UseFileImage</code></a> - enables file-backed sandbox images.</li>
+<li><code>CBoxImageWindow::SetForce</code> - UI enforcement on the mount/create dialog.</li>
+<li><code>IMBOX_MOUNT_REQ.protect_root</code> - mount request flag used by the mount manager.</li>
+<li><a href="../StartCommandLine/#mount-box-images"><code>StartCommandLine</code></a> - Command-line operations including <code>mount_protected</code> switch for protected mounting.</li>
+</ul>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p><code>MountManager::AcquireBoxRoot</code> in <code>Sandboxie/core/svc/MountManager.cpp</code> - handles RAM disk mounting process.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>See UI code in <code>SandMan\Windows\OptionsGeneral.cpp</code> - <code>COptionsWindow::LoadGeneral</code> and <code>COptionsWindow::SaveGeneral</code> handle reading and writing the <code>ForceProtectionOnMount</code> key via <code>m_pBox</code>.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>Driver capability checks performed in <code>MountManager::AcquireBoxRoot</code> before mounting virtual disks.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>Mount protocol definition in <code>..\Sandboxie\core\svc\MountManagerWire.h</code> - <code>tagIMBOX_MOUNT_REQ</code> includes the <code>protect_root</code> field used by the mount manager.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p>RAM disk I/O operations handled by <code>VirtualMemoryIO</code> class in <code>SandboxieTools/ImBox/VirtualMemoryIO.cpp</code>.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>Implementation in <code>SandMan\Windows\BoxImageWindow.cpp</code> - <code>CBoxImageWindow::SetForce(bool force)</code> forces the dialog checkboxes to reflect a forced protected mount.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
-<p>ImDisk driver headers and definitions in <code>SandboxieTools/ImDisk/inc/imdisk.h</code>.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p>Mount manager code (mount request assembly) will propagate the <code>protect_root</code> flag to the service/driver; see the mount manager implementation (e.g., <code>MountManager::AcquireBoxRoot</code>) in the service codebase.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:5">
+<p>Start process implementation in <code>Sandboxie\apps\start\Start.cpp</code> - handles the <code>mount_protected</code> parameter during sandbox startup and process initialization.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
@@ -4630,7 +4641,7 @@
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
-  回到页面顶部
+  Back to top
 </button>
         
       </main>
@@ -4680,12 +4691,12 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow", "toc.integrate"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow", "toc.integrate"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
       
-        <script src="../../../material/assets/javascripts/extra.js"></script>
+        <script src="../../material/assets/javascripts/extra.js"></script>
       
     
   </body>
