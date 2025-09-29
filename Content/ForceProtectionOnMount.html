@@ -4548,7 +4548,7 @@
 <ul>
 <li>The General / File Options UI exposes a checkbox bound to <code>ForceProtectionOnMount</code> (<code>ui.chkForceProtection</code> in the code).</li>
 <li>
-<p>The checkbox is enabled only when the sandbox is configured as a <a href="UseFileImage.html">encrypted sandbox</a> (not for RAM disk).</p>
+<p>The checkbox is enabled only when the sandbox is configured as an <a href="UseFileImage.html">encrypted sandbox</a> (not for RAM disk).</p>
 <p><img alt="Force Protection On Mount 1" src="../Media/UseFileImage1.png" /></p>
 </li>
 <li>
@@ -4566,17 +4566,39 @@
 </ul>
 <h2 id="technical-notes-code-references">Technical notes / code references<a class="headerlink" href="#technical-notes-code-references" title="Permanent link"></a></h2>
 <ul>
-<li>UI reads/writes:</li>
-<li>Read: <code>m_pBox-&gt;GetBool("ForceProtectionOnMount", false)</code> (see <code>COptionsWindow::LoadGeneral</code>).<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
-<li>Save: <code>WriteAdvancedCheck(ui.chkForceProtection, "ForceProtectionOnMount", "y", "")</code> (see <code>COptionsWindow::SaveGeneral</code>).<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
-<li>Mount wire protocol:</li>
-<li><code>IMBOX_MOUNT_REQ</code> contains <code>BOOL protect_root;</code> (mount wire header in <code>MountManagerWire.h</code>).<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></li>
-<li>Mount dialog enforcement:</li>
-<li><code>CBoxImageWindow::SetForce(bool force)</code> sets the protect checkbox enabled/checked state.<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></li>
-<li>Mount flow:</li>
-<li><code>MountManager::AcquireBoxRoot</code> (mount manager) will include the <code>protect_root</code> flag in mount requests when appropriate.<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></li>
-<li>Start process integration:</li>
-<li><code>Start.cpp</code> handles the <code>mount_protected</code> parameter during sandbox startup and process creation.<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup></li>
+<li>
+<p>UI reads/writes:</p>
+</li>
+<li>
+<p>Read: <code>m_pBox-&gt;GetBool("ForceProtectionOnMount", false)</code> (see <code>COptionsWindow::LoadGeneral</code>).<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
+</li>
+<li>
+<p>Save: <code>WriteAdvancedCheck(ui.chkForceProtection, "ForceProtectionOnMount", "y", "")</code> (see <code>COptionsWindow::SaveGeneral</code>).<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
+</li>
+<li>
+<p>Mount wire protocol:</p>
+</li>
+<li>
+<p><code>IMBOX_MOUNT_REQ</code> contains <code>BOOL protect_root;</code> (mount wire header in <code>MountManagerWire.h</code>).<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
+</li>
+<li>
+<p>Mount dialog enforcement:</p>
+</li>
+<li>
+<p><code>CBoxImageWindow::SetForce(bool force)</code> sets the protect checkbox enabled/checked state.<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></p>
+</li>
+<li>
+<p>Mount flow:</p>
+</li>
+<li>
+<p><code>MountManager::AcquireBoxRoot</code> (mount manager) will include the <code>protect_root</code> flag in mount requests when appropriate.<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></p>
+</li>
+<li>
+<p>Start process integration:</p>
+</li>
+<li>
+<p><code>Start.cpp</code> handles the <code>mount_protected</code> parameter during sandbox startup and process creation.<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup></p>
+</li>
 </ul>
 <h2 id="compatibility-constraints">Compatibility &amp; constraints<a class="headerlink" href="#compatibility-constraints" title="Permanent link"></a></h2>
 <ul>
