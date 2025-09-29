@@ -5,3 +5,4 @@ pymdown-extensions==10.16.1
 RootReadme==0.2
 mkdocs-meta-descriptions-plugin==4.1.0
 mkdocs-redirects==1.2.2
+mkdocs-github-admonitions-plugin==0.1.1

@@ -95,6 +95,7 @@ plugins:
         # 'some_file.md': 'http://external.url.com/foobar'
   # - RootReadme:
       # readme: README.md
+  - gh-admonitions
   - i18n:
       docs_structure: folder
       fallback_to_default: true
