@@ -4530,10 +4530,14 @@
 
 <h1 id="use-ram-disk">Use Ram Disk<a class="headerlink" href="#use-ram-disk" title="Permanent link"></a></h1>
 <p><em>UseRamDisk</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a> (introduced in v1.11.0 / 5.66.0) that replaces the standard file system storage with a RAM-based virtual disk as the sandbox root directory.</p>
-<blockquote>
-<p><strong>Warning:</strong> Configure this setting on a per-sandbox basis. Applying it globally will force all sandboxes to use RAM disks, which may break existing sandboxes that rely on standard file system storage or cause compatibility issues with non-volatile sandbox configurations.</p>
-<p><strong>Note:</strong> This setting requires an active <a href="https://sandboxie-plus.com/supporter-certificate/">supporter certificate</a>.</p>
-</blockquote>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Configure this setting on a per-sandbox basis. Applying it globally will force all sandboxes to use RAM disks, which may break existing sandboxes that rely on standard file system storage or cause compatibility issues with non-volatile sandbox configurations.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This setting requires an active <a href="https://sandboxie-plus.com/supporter-certificate/">supporter certificate</a>.</p>
+</div>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link"></a></h2>
 <ul>
 <li>

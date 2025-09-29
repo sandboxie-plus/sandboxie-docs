@@ -4530,10 +4530,14 @@
 
 <h1 id="use-file-image">Use File Image<a class="headerlink" href="#use-file-image" title="Permanent link"></a></h1>
 <p><em>UseFileImage</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a> (introduced in v1.11.0 / 5.66.0) that replaces the standard file system storage with a file-backed virtual disk image as the sandbox root directory.</p>
-<blockquote>
-<p><strong>Warning:</strong> Configure this setting on a per-sandbox basis. Applying it globally will force all sandboxes to use file images, which may break existing sandboxes that rely on standard file system storage or cause compatibility issues with non-encrypted sandbox configurations.</p>
-<p><strong>Note:</strong> This setting requires an active advanced <a href="https://sandboxie-plus.com/supporter-certificate/">supporter certificate</a>.</p>
-</blockquote>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Configure this setting on a per-sandbox basis. Applying it globally will force all sandboxes to use file images, which may break existing sandboxes that rely on standard file system storage or cause compatibility issues with non-encrypted sandbox configurations.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This setting requires an active advanced <a href="https://sandboxie-plus.com/supporter-certificate/">supporter certificate</a>.</p>
+</div>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link"></a></h2>
 <ul>
 <li>
@@ -4627,9 +4631,10 @@
 </ul>
 </li>
 </ol>
-<blockquote>
-<p><strong>Note:</strong> The image is automatically mounted when starting any program from the sandbox via the UI.</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The image is automatically mounted when starting any program from the sandbox via the UI.</p>
+</div>
 <h3 id="unmounting-box-image">Unmounting Box Image<a class="headerlink" href="#unmounting-box-image" title="Permanent link"></a></h3>
 <ol>
 <li>
@@ -4640,9 +4645,10 @@
 <p>Select <code>Unmount Box Image</code> from the context menu.</p>
 </li>
 </ol>
-<blockquote>
-<p><strong>Warning:</strong> Unmounting the image will <strong>terminate all running programs</strong> within the sandbox.</p>
-</blockquote>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Unmounting the image will <strong>terminate all running programs</strong> within the sandbox.</p>
+</div>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link"></a></h2>
 <ul>
 <li>Manually close programs before unmounting when possible.</li>
