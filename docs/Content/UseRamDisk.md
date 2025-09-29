@@ -2,9 +2,11 @@
 
 _UseRamDisk_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md) (introduced in v1.11.0 / 5.66.0) that replaces the standard file system storage with a RAM-based virtual disk as the sandbox root directory.
 
-> **Warning:** Configure this setting on a per-sandbox basis. Applying it globally will force all sandboxes to use RAM disks, which may break existing sandboxes that rely on standard file system storage or cause compatibility issues with non-volatile sandbox configurations.
+> [!WARNING]
+> Configure this setting on a per-sandbox basis. Applying it globally will force all sandboxes to use RAM disks, which may break existing sandboxes that rely on standard file system storage or cause compatibility issues with non-volatile sandbox configurations.
 
-> **Note:** This setting requires an active [supporter certificate](https://sandboxie-plus.com/supporter-certificate/).
+> [!NOTE]
+> This setting requires an active [supporter certificate](https://sandboxie-plus.com/supporter-certificate/).
 
 ## Prerequisites
 

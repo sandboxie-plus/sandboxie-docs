@@ -2,9 +2,11 @@
 
 _UseFileImage_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md) (introduced in v1.11.0 / 5.66.0) that replaces the standard file system storage with a file-backed virtual disk image as the sandbox root directory.
 
-> **Warning:** Configure this setting on a per-sandbox basis. Applying it globally will force all sandboxes to use file images, which may break existing sandboxes that rely on standard file system storage or cause compatibility issues with non-encrypted sandbox configurations.
+> [!WARNING]
+> Configure this setting on a per-sandbox basis. Applying it globally will force all sandboxes to use file images, which may break existing sandboxes that rely on standard file system storage or cause compatibility issues with non-encrypted sandbox configurations.
 
-> **Note:** This setting requires an active advanced [supporter certificate](https://sandboxie-plus.com/supporter-certificate/).
+> [!NOTE]
+> This setting requires an active advanced [supporter certificate](https://sandboxie-plus.com/supporter-certificate/).
 
 ## Prerequisites
 
@@ -91,7 +93,8 @@ When this setting is enabled, the Sandboxie service creates a virtual disk image
     
     - (Optional) Enable `Lock the box when all processes stop` to automatically unmount the image when the last sandboxed program terminates.
 
-> **Note:** The image is automatically mounted when starting any program from the sandbox via the UI.
+> [!NOTE]
+> The image is automatically mounted when starting any program from the sandbox via the UI.
 
 ### Unmounting Box Image
 
@@ -101,7 +104,8 @@ When this setting is enabled, the Sandboxie service creates a virtual disk image
 
 2. Select `Unmount Box Image` from the context menu.
 
-> **Warning:** Unmounting the image will **terminate all running programs** within the sandbox.
+> [!WARNING]
+> Unmounting the image will **terminate all running programs** within the sandbox.
 
 ## Best Practices
 
