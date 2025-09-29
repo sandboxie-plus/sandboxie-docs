@@ -4546,53 +4546,59 @@
 </ul>
 <h2 id="behavior-and-ui">Behavior and UI<a class="headerlink" href="#behavior-and-ui" title="Permanent link"></a></h2>
 <ul>
-<li>The General / File Options UI exposes a checkbox bound to <code>ForceProtectionOnMount</code> (<code>ui.chkForceProtection</code> in the code).</li>
 <li>
-<p>The checkbox is enabled only when the sandbox is configured as an <a href="UseFileImage.html">encrypted sandbox</a> (not for RAM disk).</p>
+<p>The General / File Options UI exposes a checkbox bound to <code>ForceProtectionOnMount</code> (<code>ui.chkForceProtection</code> in the code).</p>
+<ul>
+<li>The checkbox is enabled only when the sandbox is configured as an <a href="UseFileImage.html">encrypted sandbox</a> (not for RAM disk).</li>
+</ul>
 <p><img alt="Force Protection On Mount 1" src="../Media/UseFileImage1.png" /></p>
 </li>
 <li>
 <p>When the box image mount dialog is shown programmatically with force applied, <code>CBoxImageWindow::SetForce(true)</code>:</p>
-</li>
+<ul>
 <li>forces <code>ui.chkProtect</code> checked,</li>
-<li>
-<p>disables the protect checkbox so users cannot uncheck it,</p>
+<li>disables the protect checkbox so users cannot uncheck it,</li>
+</ul>
 <p><img alt="Force Protection On Mount 2" src="../Media/UseFileImage8.png" /></p>
-</li>
-<li>
-<p>forces <code>ui.chkAutoLock</code> (auto-unmount on last process stop) checked/disabled in the dialog.  </p>
-</li>
+<ul>
+<li>forces <code>ui.chkAutoLock</code> (auto-unmount on last process stop) checked/disabled in the dialog.  </li>
 <li>On mount the service receives a mount request with the <code>protect_root</code> flag set; the mount manager and driver enforce protection.</li>
+</ul>
+</li>
 </ul>
 <h2 id="technical-notes-code-references">Technical notes / code references<a class="headerlink" href="#technical-notes-code-references" title="Permanent link"></a></h2>
 <ul>
-<li>UI reads/writes:</li>
-<li>Read: <code>m_pBox-&gt;GetBool("ForceProtectionOnMount", false)</code> (see <code>COptionsWindow::LoadGeneral</code>).<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
 <li>
-<p>Save: <code>WriteAdvancedCheck(ui.chkForceProtection, "ForceProtectionOnMount", "y", "")</code> (see <code>COptionsWindow::SaveGeneral</code>).<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
+<p>UI reads/writes:</p>
+<ul>
+<li>Read: <code>m_pBox-&gt;GetBool("ForceProtectionOnMount", false)</code> (see <code>COptionsWindow::LoadGeneral</code>).<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
+<li>Save: <code>WriteAdvancedCheck(ui.chkForceProtection, "ForceProtectionOnMount", "y", "")</code> (see <code>COptionsWindow::SaveGeneral</code>).<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
+</ul>
 </li>
 <li>
 <p>Mount wire protocol:</p>
-</li>
-<li>
-<p><code>IMBOX_MOUNT_REQ</code> contains <code>BOOL protect_root;</code> (mount wire header in <code>MountManagerWire.h</code>).<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">3</a></sup></p>
+<ul>
+<li><code>IMBOX_MOUNT_REQ</code> contains <code>BOOL protect_root;</code> (mount wire header in <code>MountManagerWire.h</code>).<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></li>
+</ul>
 </li>
 <li>
 <p>Mount dialog enforcement:</p>
-</li>
-<li>
-<p><code>CBoxImageWindow::SetForce(bool force)</code> sets the protect checkbox enabled/checked state.<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">4</a></sup></p>
+<ul>
+<li><code>CBoxImageWindow::SetForce(bool force)</code> sets the protect checkbox enabled/checked state.<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></li>
+</ul>
 </li>
 <li>
 <p>Mount flow:</p>
-</li>
-<li>
-<p><code>MountManager::AcquireBoxRoot</code> (mount manager) will include the <code>protect_root</code> flag in mount requests when appropriate.<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">5</a></sup></p>
+<ul>
+<li><code>MountManager::AcquireBoxRoot</code> (mount manager) will include the <code>protect_root</code> flag in mount requests when appropriate.<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></li>
+</ul>
 </li>
 <li>
 <p>Start process integration:</p>
+<ul>
+<li><code>Start.cpp</code> handles the <code>mount_protected</code> parameter during sandbox startup and process creation.<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup></li>
+</ul>
 </li>
-<li><code>Start.cpp</code> handles the <code>mount_protected</code> parameter during sandbox startup and process creation.<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">2</a></sup></li>
 </ul>
 <h2 id="compatibility-constraints">Compatibility &amp; constraints<a class="headerlink" href="#compatibility-constraints" title="Permanent link"></a></h2>
 <ul>
@@ -4617,17 +4623,17 @@
 <li id="fn:1">
 <p>See UI code in <code>SandMan\Windows\OptionsGeneral.cpp</code> - <code>COptionsWindow::LoadGeneral</code> and <code>COptionsWindow::SaveGeneral</code> handle reading and writing the <code>ForceProtectionOnMount</code> key via <code>m_pBox</code>.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
-<li id="fn:5">
-<p>Start process implementation in <code>Sandboxie\apps\start\Start.cpp</code> - handles the <code>mount_protected</code> parameter during sandbox startup and process initialization.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 2 in the text">&#8617;</a></p>
-</li>
 <li id="fn:2">
-<p>Mount protocol definition in <code>..\Sandboxie\core\svc\MountManagerWire.h</code> - <code>tagIMBOX_MOUNT_REQ</code> includes the <code>protect_root</code> field used by the mount manager.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>Mount protocol definition in <code>..\Sandboxie\core\svc\MountManagerWire.h</code> - <code>tagIMBOX_MOUNT_REQ</code> includes the <code>protect_root</code> field used by the mount manager.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p>Implementation in <code>SandMan\Windows\BoxImageWindow.cpp</code> - <code>CBoxImageWindow::SetForce(bool force)</code> forces the dialog checkboxes to reflect a forced protected mount.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p>Implementation in <code>SandMan\Windows\BoxImageWindow.cpp</code> - <code>CBoxImageWindow::SetForce(bool force)</code> forces the dialog checkboxes to reflect a forced protected mount.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
-<p>Mount manager code (mount request assembly) will propagate the <code>protect_root</code> flag to the service/driver; see the mount manager implementation (e.g., <code>MountManager::AcquireBoxRoot</code>) in the service codebase.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+<p>Mount manager code (mount request assembly) will propagate the <code>protect_root</code> flag to the service/driver; see the mount manager implementation (e.g., <code>MountManager::AcquireBoxRoot</code>) in the service codebase.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:5">
+<p>Start process implementation in <code>Sandboxie\apps\start\Start.cpp</code> - handles the <code>mount_protected</code> parameter during sandbox startup and process initialization.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
