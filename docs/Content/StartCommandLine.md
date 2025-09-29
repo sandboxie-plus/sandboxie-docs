@@ -110,6 +110,8 @@ The form _/unmount_all_ terminates all programs in all encrypted sandboxes and u
 
 ### Mount Box Images
 
+> **Security Warning:** When using `/key:password` parameter with `Start.exe`, the password will be visible in command line history, process lists, and potentially event logs. Use this parameter only in secure environments or consider interactive password prompts instead.
+
 These commands mount encrypted box images created by Sandboxie Plus. These parameters are available since v1.11.0 / 5.66.0.
 ```
   "C:\Program Files\Sandboxie-Plus\Start.exe"  /key:[box image password] /mount_protected

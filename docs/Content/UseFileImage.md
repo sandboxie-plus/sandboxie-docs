@@ -31,11 +31,12 @@ When this setting is enabled, the Sandboxie service creates a virtual disk image
 1. **Right-click** on the sandbox in SandMan > `Sandbox Options`.
 2. Navigate to `File Options` tab.
 3. Enable the `Encrypt sandbox content`.
-4. Click the `Set Password` button.
+4. (Optional) Enable the [`Force protection on mount`](ForceProtectionOnMount.md)
+5. Click the `Set Password` button.
 
 	![Setting Password 1](../Media/UseFileImage1.png)
 
-5. Enter and confirm password in the dialog.
+6. Enter and confirm password in the dialog.
 
 	![Setting Password 2](../Media/UseFileImage2.png)
 
@@ -102,35 +103,39 @@ When this setting is enabled, the Sandboxie service creates a virtual disk image
 
 > **Warning:** Unmounting the image will **terminate all running programs** within the sandbox.
 
-**Best Practices:**
+## Best Practices
 
 - Manually close programs before unmounting when possible.
 - Ensure no critical processes are running in the sandbox.
 
 ## Command Line Operations
 
-Using `ImBox.exe` for advanced image management:
+- Using `ImBox.exe` for advanced image management:
 
-```cmd
-# Backup header
-ImBox.exe type=image image="C:\Sandbox\DefaultBox.box" backup="C:\Sandbox\backup.hdr"
+  ```cmd
+  # Backup header
+  ImBox.exe type=image image="C:\Sandbox\DefaultBox.box" backup="C:\Sandbox\backup.hdr"
+  
+  # Restore header  
+  ImBox.exe type=image image="C:\Sandbox\DefaultBox.box" restore="C:\Sandbox\backup.hdr"
+  ```
 
-# Restore header  
-ImBox.exe type=image image="C:\Sandbox\DefaultBox.box" restore="C:\Sandbox\backup.hdr"
-```
+- Using [`Start.exe`](StartCommandLine.md) for image [mounting](StartCommandLine.md#mount-box-images)/[unmounting](StartCommandLine.md#unmount-box-images) operations.
 
 Image mounting is handled by the service which verifies driver capabilities before attempting to mount the virtual disk. If the driver does not support encrypted containers or mounting fails, the sandbox will not start and an error is logged.
 
-**Technical Notes:**
+## Technical Notes
 
 - Requires ImDisk driver support for encrypted image containers.
 - Mutually exclusive with [UseRamDisk](UseRamDisk.md).
 - Header corruption can render encrypted images unrecoverable - always maintain header backups.
 - Maximum image size limited by available disk space and driver constraints.
+- Command-line mounting operations handled by `Start.exe` with `mount` and `mount_protected` switches[^5].
 
 [^1]: `MountManager::GetImageFileName` - determines image file path.
 [^2]: File root is the base directory where sandbox files are stored, configured via `FileRootPath` setting.
 [^3]: `MountManager::AcquireBoxRoot` - handles image mounting process.
 [^4]: GUI operations implemented in `COptionsWindow::OnSetPassword`, `COptionsWindow::OnBackupHeader`, and `COptionsWindow::OnRestoreHeader`.
+[^5]: Command-line mounting switches implemented in `Sandboxie\apps\start\Start.cpp` - `mount` and `mount_protected` parameters for programmatic image mounting operations.
 
-Related [Sandboxie Ini](SandboxieIni.md), [UseRamDisk](UseRamDisk.md), [FileRootPath](FileRootPath.md)
+Related [Sandboxie Ini](SandboxieIni.md), [ForceProtectionOnMount](ForceProtectionOnMount.md), [UseRamDisk](UseRamDisk.md), [FileRootPath](FileRootPath.md), [StartCommandLine](StartCommandLine.md)
