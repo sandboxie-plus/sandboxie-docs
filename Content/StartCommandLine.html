@@ -4732,9 +4732,10 @@
 <p>If the parameter <em>/box:SandboxName</em> is omitted, default sandbox, <em>DefaultBox</em> image, will be unmounted.</p>
 <p>The form <em>/unmount_all</em> terminates all programs in all encrypted sandboxes and unmounts all encrypted box images, including RAM disks created by Sandboxie Plus.</p>
 <h3 id="mount-box-images">Mount Box Images<a class="headerlink" href="#mount-box-images" title="Permanent link"></a></h3>
-<blockquote>
-<p><strong>Security Warning:</strong> When using <code>/key:password</code> parameter with <code>Start.exe</code>, the password will be visible in command line history, process lists, and potentially event logs. Use this parameter only in secure environments or consider interactive password prompts instead.</p>
-</blockquote>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When using <code>/key:password</code> parameter with <code>Start.exe</code>, the password will be visible in command line history, process lists, and potentially event logs. Use this parameter only in secure environments or consider interactive password prompts instead.</p>
+</div>
 <p>These commands mount encrypted box images created by Sandboxie Plus. These parameters are available since v1.11.0 / 5.66.0.
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="w">  </span><span class="na">&quot;C</span><span class="o">:</span><span class="s">\Program Files\Sandboxie-Plus\Start.exe&quot;  /key:[box image password] /mount_protected</span>
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">  </span><span class="na">&quot;C</span><span class="o">:</span><span class="s">\Program Files\Sandboxie-Plus\Start.exe&quot;  /key:[box image password] /mount</span>
