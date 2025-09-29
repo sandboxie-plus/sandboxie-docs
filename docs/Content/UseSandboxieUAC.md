@@ -14,7 +14,7 @@ Usage:
 
 ## Sandboxie UAC Prompt
 
-![](../Media/SandboxieUAC.png)
+![Sandboxie UAC Prompt](../Media/SandboxieUAC.png)
 
 | Field/Button       | Description                                                                 |
 |--------------------|-----------------------------------------------------------------------------|

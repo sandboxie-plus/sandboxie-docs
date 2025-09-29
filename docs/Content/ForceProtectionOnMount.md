@@ -35,24 +35,19 @@ ForceProtectionOnMount=y
 ## Technical notes / code references
 
 - UI reads/writes:
-
   - Read: `m_pBox->GetBool("ForceProtectionOnMount", false)` (see `COptionsWindow::LoadGeneral`).[^1]
   - Save: `WriteAdvancedCheck(ui.chkForceProtection, "ForceProtectionOnMount", "y", "")` (see `COptionsWindow::SaveGeneral`).[^1]
 
 - Mount wire protocol:
-
   - `IMBOX_MOUNT_REQ` contains `BOOL protect_root;` (mount wire header in `MountManagerWire.h`).[^2]
 
 - Mount dialog enforcement:
-
   - `CBoxImageWindow::SetForce(bool force)` sets the protect checkbox enabled/checked state.[^3]
 
 - Mount flow:
-
   - `MountManager::AcquireBoxRoot` (mount manager) will include the `protect_root` flag in mount requests when appropriate.[^4]
 
 - Start process integration:
-
   - `Start.cpp` handles the `mount_protected` parameter during sandbox startup and process creation.[^5]
 
 ## Compatibility & constraints
