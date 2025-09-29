@@ -21,7 +21,7 @@ The RAM disk letter setting can be selected through:
 2. Navigate to `Add-Ons Manager` > `Add-On Configuration` tab.
 3. Enable the `Assign drive letter to Ram Disk` setting and select a drive letter for the RAM disk.
 
-	![Ram Disk Letter](../Media/UseRamDisk3.png)
+    ![Ram Disk Letter](../Media/UseRamDisk3.png)
 
 ## Important Notes
 

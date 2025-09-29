@@ -9,7 +9,7 @@ _UseRamDisk_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md) (introduce
 ## Prerequisites
 
 - Install the **ImDisk Toolkit** via the **Add-Ons Manager > Optional Add-Ons** tab in **Global Settings**.
-    
+
     ![ImDisk Install](../Media/UseRamDisk1.png)
 
 - Configure the [RamDiskSizeKb](RamDiskSizeKb.md) setting to define the RAM disk's size in kilobytes. Choose a value that aligns with your system's available memory and the needs of the applications you plan to run sandboxed.
@@ -36,7 +36,7 @@ The RAM disk setting can be enabled through:
 2. Navigate to `File Options` tab.
 3. Enable the `Store the sandbox content in a Ram Disk` setting.
 
-	![Ram Disk Enable](../Media/UseRamDisk2.png)
+    ![Ram Disk Enable](../Media/UseRamDisk2.png)
 
 ## Technical Implementation
 

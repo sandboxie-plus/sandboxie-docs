@@ -9,7 +9,7 @@ _UseFileImage_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md) (introdu
 ## Prerequisites
 
 - Install the **ImDisk Toolkit** via the **Add-Ons Manager > Optional Add-Ons** tab in **Global Settings**.
-    
+
     ![ImDisk Install](../Media/UseRamDisk1.png)
 
 ## Usage
@@ -34,11 +34,11 @@ When this setting is enabled, the Sandboxie service creates a virtual disk image
 4. (Optional) Enable the [`Force protection on mount`](ForceProtectionOnMount.md)
 5. Click the `Set Password` button.
 
-	![Setting Password 1](../Media/UseFileImage1.png)
+    ![Setting Password 1](../Media/UseFileImage1.png)
 
 6. Enter and confirm password in the dialog.
 
-	![Setting Password 2](../Media/UseFileImage2.png)
+    ![Setting Password 2](../Media/UseFileImage2.png)
 
 ### Changing Password
 
@@ -46,11 +46,11 @@ When this setting is enabled, the Sandboxie service creates a virtual disk image
 2. Navigate to `File Options` tab.
 3. Click the `Change Password` button.
 
-	![Changing Password 1](../Media/UseFileImage3.png)
+    ![Changing Password 1](../Media/UseFileImage3.png)
 
 4. Enter current password in the dialog.
 
-	![Changing Password 2](../Media/UseFileImage4.png)
+    ![Changing Password 2](../Media/UseFileImage4.png)
 
 5. Enter new password and confirm password in the dialog.
 
@@ -60,7 +60,7 @@ When this setting is enabled, the Sandboxie service creates a virtual disk image
 2. Click the down arrow next to `Change Password` button.
 3. Select `Backup Header` from dropdown menu.
 
-	![Header Backup](../Media/UseFileImage3.png)
+    ![Header Backup](../Media/UseFileImage3.png)
 
 4. Choose location to save `.hdr` file.
 5. Header is exported using ImBox utility[^4].
@@ -71,7 +71,7 @@ When this setting is enabled, the Sandboxie service creates a virtual disk image
 2. Click the down arrow next to `Change Password` button.
 3. Select `Restore Header` from dropdown menu.
 
-	![Header Restore](../Media/UseFileImage3.png)
+    ![Header Restore](../Media/UseFileImage3.png)
 
 4. Select previously saved `.hdr` file.
 5. Header is imported using ImBox utility[^4].
@@ -81,15 +81,15 @@ When this setting is enabled, the Sandboxie service creates a virtual disk image
 1. **Right-click** on the sandbox in SandMan.
 2. Select `Mount Box Image` from the context menu.
 
-	![Mount Box Image 1](../Media/UseFileImage5.png)
+    ![Mount Box Image 1](../Media/UseFileImage5.png)
 
 3. Enter the **password** when prompted.
 
-	![Mount Box Image 2](../Media/UseFileImage6.png)
-	
-	- (Optional) Enable `Protect Box Root from access by unsandboxed processes` to prevent unsandboxed programs from accessing the encrypted sandbox content.
-	
-	- (Optional) Enable `Lock the box when all processes stop` to automatically unmount the image when the last sandboxed program terminates.
+    ![Mount Box Image 2](../Media/UseFileImage6.png)
+    
+    - (Optional) Enable `Protect Box Root from access by unsandboxed processes` to prevent unsandboxed programs from accessing the encrypted sandbox content.
+    
+    - (Optional) Enable `Lock the box when all processes stop` to automatically unmount the image when the last sandboxed program terminates.
 
 > **Note:** The image is automatically mounted when starting any program from the sandbox via the UI.
 
@@ -97,7 +97,7 @@ When this setting is enabled, the Sandboxie service creates a virtual disk image
 
 1. **Right-click** on the sandbox in SandMan.
 
-	![Mount Box Image 2](../Media/UseFileImage7.png)
+    ![Mount Box Image 2](../Media/UseFileImage7.png)
 
 2. Select `Unmount Box Image` from the context menu.
 

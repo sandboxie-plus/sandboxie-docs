@@ -21,7 +21,7 @@ The RAM disk size setting can be set through:
 2. Navigate to `Add-Ons Manager` > `Add-On Configuration` tab.
 3. Enable the `Enable Ram Disk creation` setting and set a value for the RAM disk size.
 
-	![Ram Disk Creation](../Media/UseRamDisk3.png)
+    ![Ram Disk Creation](../Media/UseRamDisk3.png)
 
 ## Important Notes
 
