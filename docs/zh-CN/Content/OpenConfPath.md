@@ -7,7 +7,7 @@ _OpenConfPath_ 是 [Sandboxie Ini](SandboxieIni.md) 配置文件中的一项沙�
 可指定 [程序名称前缀](ProgramNamePrefix.md)。
 
 示例：
-```
+```ini
    .
    .
    .

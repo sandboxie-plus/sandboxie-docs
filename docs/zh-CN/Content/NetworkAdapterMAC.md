@@ -25,7 +25,7 @@ NetworkAdapterMAC=1,DE-F0-12-34-56-78
 Sandboxie 仅为具有 MAC 地址的适配器分配索引值，按照系统枚举它们的顺序。没有 MAC 地址的虚拟适配器会被跳过。
 
 要确定哪些适配器获得了哪些 Sandboxie 索引值，可以获取具有 MAC 地址的适配器的大致列表（在命令提示符下运行）：
-```
+```pwsh
 wmic path win32_networkadapter where "MACAddress is not null" get netconnectionid,name,macaddress
 ```
 

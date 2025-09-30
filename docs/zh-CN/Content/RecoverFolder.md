@@ -1,7 +1,7 @@
 # 恢复文件夹
 
 _RecoverFolder_ 是 [沙盘配置文件](SandboxieIni.md) 中的一个沙箱设置。它指定了 [快速恢复](QuickRecovery.md) 应该检查的沙箱化文件夹。可以指定 [系统文件夹](ShellFolders.md)。例如：
-```
+```ini
    .
    .
    .

@@ -15,13 +15,13 @@
 使用 [沙箱设置 > 删除 > 命令](DeleteSettings.md#command)。以下是一些删除命令的示例：
 
 * 调用 [Heidi Computers 公司的 Eraser](https://eraser.heidi.ie/) 来安全删除内容：
-```
-    %SystemRoot%\System32\eraserl.exe -folder "%SANDBOX%" -subfolders -method DoD_E -resultsonerror -queue
+```pwsh
+%SystemRoot%\System32\eraserl.exe -folder "%SANDBOX%" -subfolders -method DoD_E -resultsonerror -queue
 ```
 
 * 调用 [SysInternals/Microsoft 公司的 SDelete](https://technet.microsoft.com/en-us/sysinternals/bb897443.aspx) 来安全删除内容。
-```
-    "C:\Program Files\Sysinternals\SDelete\sdelete.exe" -p 3 -s -q "%SANDBOX%"
+```pwsh
+"C:\Program Files\Sysinternals\SDelete\sdelete.exe" -p 3 -s -q "%SANDBOX%"
 ```
 
 **在 Sandboxie.ini 配置文件中**

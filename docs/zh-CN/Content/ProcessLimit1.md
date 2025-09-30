@@ -3,7 +3,7 @@
 **自沙盘（Sandboxie）v0.7.1 / 5.48.5 版本起，_ProcessLimit1_ 和 _ProcessLimit2_ 已被移除，转而使用 [进程限制](ProcessLimit.md)。**
 
 _ProcessLimit1_ 和 _ProcessLimit2_ 是 [沙盘配置文件（Sandboxie Ini）](SandboxieIni.md) 中的沙箱设置。它们限制了沙盘在同一时间允许沙箱中运行的最大进程数。
-```
+```ini
    .
    .
    .

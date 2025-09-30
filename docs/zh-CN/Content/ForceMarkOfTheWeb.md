@@ -8,7 +8,7 @@ _ForceMarkOfTheWeb_ 是 [Sandboxie Ini](SandboxieIni.md) 中的全局设置。�
 
 ### ForceMarkOfTheWeb
 
-```
+```ini
 [GlobalSettings]
 ForceMarkOfTheWeb=y
 ```
@@ -17,7 +17,7 @@ ForceMarkOfTheWeb=y
 
 ### MarkOfTheWebBox
 
-```
+```ini
 [GlobalSettings]
 MarkOfTheWebBox=Web_Box
 ```

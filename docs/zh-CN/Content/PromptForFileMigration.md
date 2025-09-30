@@ -2,7 +2,7 @@
 
 PromptForFileMigration是[沙盘.ini](SandboxieIni.md)中的一个沙箱设置。它指定了沙盘是否会提示进行大文件迁移。更多信息请参见[SBIE2102](SBIE2102.md)。
 
-```
+```ini
    .
    .
    .

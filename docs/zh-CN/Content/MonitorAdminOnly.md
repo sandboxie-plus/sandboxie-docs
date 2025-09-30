@@ -6,7 +6,7 @@ _MonitorAdminOnly_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个全局设置
 
 用法示例：
 
-```
+```ini
    .
    .
    .

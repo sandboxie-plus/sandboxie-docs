@@ -2,7 +2,7 @@
 
 _ClosePrintSpooler_ 是一个沙箱设置项，用于对沙箱应用程序与打印后台处理服务的交互方式提供细致的控制。
 
-```
+```ini
    .
    .
    .
@@ -16,7 +16,7 @@ _ClosePrintSpooler_ 是一个沙箱设置项，用于对沙箱应用程序与打
 
 ## 与 [OpenPrintSpooler](OpenPrintSpooler.md) 的交互
 
-```
+```ini
    .
    .
    .

@@ -3,7 +3,7 @@
 _ClosedRT_ 是 [Sandboxie Ini](SandboxieIni.md) 中自 v0.5.3a / 5.45.2 版本起提供的沙箱设置。它用于指定不应被沙箱程序访问的有问题的 Windows RT 接口。
 
 用法：
-```
+```ini
    .
    .
    .

@@ -10,7 +10,7 @@
 
 在内部，安全强化模式基于以下四个设置：
 
-```
+```ini
 DropAdminRights=y
 RestrictDevices=y
 SysCallLockDown=y

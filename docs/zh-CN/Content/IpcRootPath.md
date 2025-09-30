@@ -7,7 +7,7 @@ _IpcRootPath_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置。�
 更多信息请参见 [沙箱层级结构](SandboxHierarchy.md)。
 
 用法示例：
-```
+```ini
    .
    .
    .

@@ -3,7 +3,7 @@
 DeleteCommand 是 [Sandboxie Ini](SandboxieIni.md) 文件中的一个沙箱设置项。它用于指定物理删除沙箱内容的命令。其主要目的是使用户能够将第三方安全删除工具集成到 Sandboxie 中。详见 [安全删除沙箱](SecureDeleteSandbox.md)。
 
 用法：
-```
+```ini
    .
    .
    .

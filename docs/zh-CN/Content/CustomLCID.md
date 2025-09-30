@@ -1,7 +1,7 @@
 # 自定义区域设置/语言 ID
 
 CustomLCID 是 [沙盘配置文件（Sandboxie.Ini）](SandboxieIni.md) 中的一个设置。
-```
+```ini
    .
    .
    .

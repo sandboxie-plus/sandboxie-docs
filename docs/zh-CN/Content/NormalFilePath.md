@@ -6,7 +6,7 @@ _NormalFilePath_ 是 [沙箱配置文件（Sandboxie Ini）](SandboxieIni.md) �
 
 示例：
 
-```
+```ini
    .
    .
    .

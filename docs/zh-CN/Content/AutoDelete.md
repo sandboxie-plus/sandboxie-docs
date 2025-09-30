@@ -1,7 +1,7 @@
 # 自动删除
 
 _AutoDelete_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置。通常设置为 AutoDelete=y，表示一旦最后一个沙箱进程终止，沙箱中的内容将会被自动删除。例如：
-```
+```ini
    .
    .
    .

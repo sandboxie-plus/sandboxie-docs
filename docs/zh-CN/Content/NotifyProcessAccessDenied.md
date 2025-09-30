@@ -3,7 +3,7 @@
 _NotifyProcessAccessDenied_ 是一个自 v1.0.16 / 5.55.16 起添加到 [Sandboxie Ini](SandboxieIni.md) 的沙箱设置。它通常以 _NotifyProcessAccessDenied=y_ 的形式指定，表示当程序被拒绝读取进程的地址空间时，沙盘会发出 [SBIE2111](SBIE2111.md) 消息。
 
 用法：
-```
+```ini
    .
    .
    .

@@ -1,7 +1,7 @@
 # 开放凭据
 
 OpenCredentials 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置。通常写作 `OpenCredentials=y`（参见 [Yes Or No Settings](YesOrNoSettings.md)），用于指示沙箱不应隔离 Windows 凭据。例如：
-```
+```ini
    .
    .
    .

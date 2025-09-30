@@ -6,7 +6,7 @@ _BlockPort_ 曾是 [Sandboxie Ini](SandboxieIni.md) 文件中的沙箱设置项�
 
 用法：
 
-```
+```ini
    .
    .
    .

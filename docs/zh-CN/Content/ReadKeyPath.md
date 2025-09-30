@@ -6,7 +6,7 @@ _读取注册表项路径_ 是 [沙盘配置文件（Sandboxie Ini）](Sandboxie
 
 示例：
 
-```
+```ini
    .
    .
    .

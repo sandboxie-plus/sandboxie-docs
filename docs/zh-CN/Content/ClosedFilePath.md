@@ -6,7 +6,7 @@ _ClosedFilePath_ 是 [沙箱配置文件（Sandboxie Ini）](SandboxieIni.md) �
 
 示例：
 
-```
+```ini
    .
    .
    .
@@ -15,7 +15,7 @@ _ClosedFilePath_ 是 [沙箱配置文件（Sandboxie Ini）](SandboxieIni.md) �
    ClosedFilePath=%Personal%
 ```
 
-```
+```ini
    ClosedFilePath=!iexplore.exe,\Device\RawIp
    ClosedFilePath=!iexplore.exe,\Device\Ip*
    ClosedFilePath=!iexplore.exe,\Device\Tcp*

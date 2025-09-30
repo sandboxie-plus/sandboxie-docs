@@ -2,7 +2,7 @@
 
 _OpenClipboard_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置，自 v0.7.5 / 5.49.8 版本起可用。它允许为某个沙箱禁用对剪贴板的访问。例如：
 
-```
+```ini
    .
    .
    .

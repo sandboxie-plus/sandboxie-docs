@@ -23,7 +23,7 @@
 ```
 
 沙箱软件（Sandboxie）中指定文件夹路径的配置设置通常接受对“外壳文件夹”键中注册表值的引用。这比指定明确的文件夹位置更有用。例如：
-```
+```ini
   [DefaultBox]
   RecoverFolder=%Desktop%
 ```

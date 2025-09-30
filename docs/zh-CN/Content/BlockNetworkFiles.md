@@ -2,7 +2,7 @@
 
 `BlockNetworkFiles` 是 [Sandboxie Ini](SandboxieIni.md) 文件中的一个沙箱设置项。它指定了 Sandboxie 是否会阻止沙箱内程序在未被明确允许的情况下访问网络文件和文件夹。
 
-```
+```ini
    .
    .
    .

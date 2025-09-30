@@ -2,7 +2,7 @@
 
 _StartService_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置。它允许在沙箱中运行服务程序。此设置需要一个服务名称（标识符），该名称在沙箱外部定义。例如：
 
-```
+```ini
    .
    .
    .

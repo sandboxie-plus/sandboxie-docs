@@ -6,7 +6,7 @@ _BlockWinHooks_ 曾是 [Sandboxie Ini](SandboxieIni.md) 中的沙箱设置项。
 
 用法示例：
 
-```
+```ini
    .
    .
    .

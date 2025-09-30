@@ -2,7 +2,7 @@
 
 RandomRegUID 是 [沙盘配置文件（Sandboxie Ini）](SandboxieIni.md) 中的一项设置。
 
-```
+```ini
    .
    .
    .

@@ -2,7 +2,7 @@
 
 _HideHostProcess_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置，自 v0.3 / 5.42 版本起可用。它用于隐藏未在沙箱中运行的主机进程，也可以用于隐藏沙盘服务。
 
-```
+```ini
    .
    .
    .
