@@ -344,7 +344,11 @@
 
 ### R
 
-[内存盘沙箱](../PlusContent/RamDiskSupport.md)
+[内存虚拟磁盘盘符](RamDiskLetter.md)
+
+[内存虚拟磁盘大小 (KB)](RamDiskSizeKb.md)
+
+[内存虚拟磁盘沙箱](../PlusContent/RamDiskSupport.md)
 
 [随机注册表UID](RandomRegUID.md)
 
@@ -708,7 +712,11 @@
 
 [USB 沙箱化](../PlusContent/USBSandboxing.md)
 
+[使用文件映像](UseFileImage.md)
+
 [使用隐私模式](UsePrivacyMode.md)
+
+[使用内存虚拟磁盘](UseRamDisk.md)
 
 [使用规则特异性](UseRuleSpecificity.md)
 
