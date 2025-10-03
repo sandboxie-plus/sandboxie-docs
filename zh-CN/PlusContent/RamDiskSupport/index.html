@@ -4538,14 +4538,14 @@
 <h2 id="_5">集成内存盘支持：分步指南<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
 <p>要充分发挥内存盘支持的潜力，请按照以下简单步骤操作：</p>
 <h3 id="_6">更新沙箱配置：<a class="headerlink" href="#_6" title="Permanent link"></a></h3>
-<p>打开您希望增强功能的沙箱的 <strong><a href="../../Content/SandboxieIni/">Sandboxie 配置文件</a></strong>。要为该沙箱启用内存盘，请在相应沙箱的部分中添加以下行：</p>
-<div class="language-ini highlight"><pre><span></span><code><span class="na">UseRamDisk</span><span class="o">=</span><span class="s">y</span>
-</code></pre></div>
+<p>打开您希望增强功能的沙箱的 <strong><a href="../../Content/SandboxieIni/">Sandboxie 配置文件</a></strong>。要为该沙箱启用内存盘，请在相应沙箱的部分中添加以下行：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span><span class="na">UseRamDisk</span><span class="o">=</span><span class="s">y</span>
+</span></code></pre></div></p>
 <h3 id="_7">配置全局设置：<a class="headerlink" href="#_7" title="Permanent link"></a></h3>
-<p>要在所有沙箱中启用内存盘支持，请导航至 <strong><a href="../../Content/SandboxieIni/">Sandboxie 配置文件</a></strong> 中的 [GlobalSettings] 部分。通过添加以下行来为内存盘分配适当的内存：</p>
-<div class="language-ini highlight"><pre><span></span><code><span class="na">RamDiskSizeKb</span><span class="o">=</span><span class="s">2097152</span>
-</code></pre></div>
-<p>此值指定了内存盘的最大大小（以千字节为单位）。为获得最佳效果，请至少为内存盘分配 1GB 的内存。</p>
+<p>要在所有沙箱中启用内存盘支持，请导航至 <strong><a href="../../Content/SandboxieIni/">Sandboxie 配置文件</a></strong> 中的 [GlobalSettings] 部分。通过添加以下行来为内存盘分配适当的内存：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">    </span><span class="na">RamDiskSizeKb</span><span class="o">=</span><span class="s">2097152</span>
+</span></code></pre></div>
+此值指定了内存盘的最大大小（以千字节为单位）。为获得最佳效果，请至少为内存盘分配 1GB 的内存。</p>
 <p>需要记住的一个关键点是，内存盘支持采用动态内存分配。与传统存储不同，内存是按需使用的，确保了资源的最佳管理。这种智能分配意味着您可以分配多达系统物理内存一半的内存而不会遇到问题。</p>
 
 

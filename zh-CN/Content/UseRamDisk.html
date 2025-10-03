@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="UseRamDisk is a sandbox setting in Sandboxie Ini (introduced in v1.11.0 / 5.66.0) that replaces the standard file system storage with a RAM-based virtual disk as the sandbox root directory.">
+        <meta name="description" content="UseRamDisk 是 Sandboxie.ini 中的一个沙盒设置项（在 v1.11.0 / 5.66.0 版本中引入），它用一个基于内存的虚拟磁盘替换标准的文件系统存储，作为沙盒的根目录。">
       
       
       
@@ -20,7 +20,7 @@
     
     
       
-        <title>Use Ram Disk - Sandboxie 文档</title>
+        <title>使用内存虚拟磁盘 - Sandboxie 文档</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#use-ram-disk" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Use Ram Disk
+              使用内存虚拟磁盘
             
           </span>
         </div>
@@ -4528,83 +4528,83 @@
   
 
 
-<h1 id="use-ram-disk">Use Ram Disk<a class="headerlink" href="#use-ram-disk" title="Permanent link"></a></h1>
-<p><em>UseRamDisk</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a> (introduced in v1.11.0 / 5.66.0) that replaces the standard file system storage with a RAM-based virtual disk as the sandbox root directory.</p>
+<h1 id="_1">使用内存虚拟磁盘<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<p><em>UseRamDisk</em> 是 <a href="SandboxieIni.html">Sandboxie.ini</a> 中的一个沙盒设置项（在 v1.11.0 / 5.66.0 版本中引入），它用一个基于内存的虚拟磁盘替换标准的文件系统存储，作为沙盒的根目录。</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Configure this setting on a per-sandbox basis. Applying it globally will force all sandboxes to use RAM disks, which may break existing sandboxes that rely on standard file system storage or cause compatibility issues with non-volatile sandbox configurations.</p>
+<p>请为每个沙盒单独配置此设置。全局应用此设置将强制所有沙盒使用内存虚拟磁盘，这可能会破坏依赖标准文件系统存储的现有沙盒，或导致与非易失性沙盒配置的兼容性问题。</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This setting requires an active <a href="https://sandboxie-plus.com/supporter-certificate/">supporter certificate</a>.</p>
+<p>此设置需要有效的高级<a href="https://sandboxie-plus.com/supporter-certificate/">赞助者证书</a>。</p>
 </div>
-<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link"></a></h2>
+<h2 id="_2">先决条件<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <ul>
 <li>
-<p>Install the <strong>ImDisk Toolkit</strong> via the <strong>Add-Ons Manager &gt; Optional Add-Ons</strong> tab in <strong>Global Settings</strong>.</p>
-<p><img alt="ImDisk Install" src="../../Media/UseRamDisk1.png" /></p>
+<p>通过 <strong>全局设置</strong> 中的 <strong>附加组件管理器 &gt; 可选附加组件</strong> 选项卡安装 <strong>ImDisk Toolkit</strong>。</p>
+<p><img alt="ImDisk Install" src="../Media/UseRamDisk1.png" /></p>
 </li>
 <li>
-<p>Configure the <a href="RamDiskSizeKb.html">RamDiskSizeKb</a> setting to define the RAM disk's size in kilobytes. Choose a value that aligns with your system's available memory and the needs of the applications you plan to run sandboxed.</p>
+<p>配置 <a href="RamDiskSizeKb.html">RamDiskSizeKb</a> 设置以定义内存虚拟磁盘的大小（单位：KB）。选择一个与您系统的可用内存以及您计划在沙盒中运行的应用程序需求相符的值。</p>
 </li>
 <li>
-<p>(Optional) Use the <a href="RamDiskLetter.html">RamDiskLetter</a> setting to assign a specific drive letter for easier access to the RAM disk.</p>
+<p>(可选) 使用 <a href="RamDiskLetter.html">RamDiskLetter</a> 设置为内存虚拟磁盘分配一个特定的盘符，以便更轻松地访问。</p>
 </li>
 </ul>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h2>
+<h2 id="_3">用法<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">UseRamDisk</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>When this setting is enabled, the Sandboxie service creates a virtual disk entirely in system RAM. The RAM disk is mounted through the mount manager<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> using the ImDisk virtual disk driver. All file I/O operations within the sandbox are redirected to the RAM disk rather than creating files directly on the host file system or persistent storage.</p>
-<p>The RAM disk provides extremely fast file operations but is volatile - all data is lost when the RAM disk is unmounted or the system is restarted. This makes it ideal for temporary operations, testing, or malware analysis where persistence is not required.</p>
-<h2 id="sandman-gui">SandMan GUI<a class="headerlink" href="#sandman-gui" title="Permanent link"></a></h2>
-<p>The RAM disk setting can be enabled through:</p>
+<p>启用此设置后，Sandboxie 服务会完全在系统内存中创建一个虚拟磁盘。该内存虚拟磁盘通过挂载管理器<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>使用 ImDisk 虚拟磁盘驱动程序进行挂载。沙盒内的所有文件 I/O 操作都将重定向到内存虚拟磁盘，而不是直接在主机文件系统或持久存储上创建文件。</p>
+<p>内存虚拟磁盘提供极快的文件操作速度，但它是易失性的——当内存虚拟磁盘被卸载或系统重启时，所有数据都将丢失。这使其成为不需要持久化的临时操作、测试或恶意软件分析的理想选择。</p>
+<h2 id="sandman">SandMan 界面<a class="headerlink" href="#sandman" title="Permanent link"></a></h2>
+<p>可以通过以下步骤启用内存虚拟磁盘设置：</p>
 <ol>
-<li>Right-click sandbox &gt; <code>Sandbox Options</code>.</li>
-<li>Navigate to <code>File Options</code> tab.</li>
+<li>右键单击沙盒 &gt; <code>沙盒选项</code>。</li>
+<li>导航到 <code>文件选项</code> 选项卡。</li>
 <li>
-<p>Enable the <code>Store the sandbox content in a Ram Disk</code> setting.</p>
-<p><img alt="Ram Disk Enable" src="../../Media/UseRamDisk2.png" /></p>
+<p>启用 <code>将沙盒内容存储在内存虚拟磁盘中</code> 设置。</p>
+<p><img alt="Ram Disk Enable" src="../Media/UseRamDisk2.png" /></p>
 </li>
 </ol>
-<h2 id="technical-implementation">Technical Implementation<a class="headerlink" href="#technical-implementation" title="Permanent link"></a></h2>
-<p>RAM disk mounting is handled by the service which verifies driver capabilities and available system memory before attempting to mount the virtual disk<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>. The RAM disk I/O operations are managed by the <code>VirtualMemoryIO</code> class<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup> which interfaces with the ImDisk driver<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>.</p>
-<p>If insufficient RAM is available or mounting fails, the sandbox will not start and an error is logged.</p>
-<h2 id="technical-notes">Technical Notes<a class="headerlink" href="#technical-notes" title="Permanent link"></a></h2>
+<h2 id="_4">技术实现<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
+<p>内存虚拟磁盘挂载由服务处理，该服务在尝试挂载虚拟磁盘之前会验证驱动程序功能和可用系统内存<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>。内存虚拟磁盘的 I/O 操作由 <code>VirtualMemoryIO</code> 类管理<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>，该类与 ImDisk 驱动程序接口<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>。</p>
+<p>如果可用内存不足或挂载失败，沙盒将无法启动并会记录错误。</p>
+<h2 id="_5">技术说明<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
 <ul>
-<li>Requires ImDisk driver support for virtual memory operations<sup id="fnref2:4"><a class="footnote-ref" href="#fn:4">4</a></sup>.</li>
-<li>Mutually exclusive with <a href="UseFileImage.html">UseFileImage</a>.</li>
-<li>All data is volatile and lost when the RAM disk is unmounted.</li>
-<li>RAM usage is allocated from system memory pool using <code>VirtualMemoryIO</code> class<sup id="fnref2:3"><a class="footnote-ref" href="#fn:3">3</a></sup>.</li>
-<li>No encryption or password protection available.</li>
-<li>No backup/restore functionality - data is inherently temporary.</li>
-<li>Performance significantly faster than file-based storage.</li>
-<li>Maximum size limited by available system RAM, defined by <code>RamDiskSizeKb</code>.</li>
+<li>需要 ImDisk 驱动程序支持虚拟内存操作<sup id="fnref2:4"><a class="footnote-ref" href="#fn:4">4</a></sup>。</li>
+<li>与 <a href="UseFileImage.html">UseFileImage</a> 互斥。</li>
+<li>所有数据都是易失性的，在卸载内存虚拟磁盘时会丢失。</li>
+<li>内存使用通过 <code>VirtualMemoryIO</code> 类从系统内存池中分配<sup id="fnref2:3"><a class="footnote-ref" href="#fn:3">3</a></sup>。</li>
+<li>不提供加密或密码保护。</li>
+<li>没有备份/恢复功能——数据本质上是临时的。</li>
+<li>性能显著快于基于文件的存储。</li>
+<li>最大大小受可用系统内存限制，由 <code>RamDiskSizeKb</code> 定义。</li>
 </ul>
-<h2 id="performance-considerations">Performance Considerations<a class="headerlink" href="#performance-considerations" title="Permanent link"></a></h2>
+<h2 id="_6">性能考量<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
 <ul>
-<li>Ideal for temporary operations, testing, or malware analysis.</li>
-<li>Reduces disk I/O and wear on SSDs.</li>
-<li>May cause system instability if RAM disk size exceeds available memory.</li>
-<li>Monitor system memory usage when using large RAM disks.</li>
-<li>Perfect for scenarios where data persistence is not needed.</li>
+<li>是临时操作、测试或恶意软件分析的理想选择。</li>
+<li>减少磁盘 I/O 和对 SSD 的磨损。</li>
+<li>如果内存虚拟磁盘大小超过可用内存，可能导致系统不稳定。</li>
+<li>使用大型内存虚拟磁盘时，请监控系统内存使用情况。</li>
+<li>非常适合不需要数据持久化的场景。</li>
 </ul>
-<p>Related <a href="SandboxieIni.html">Sandboxie Ini</a>, <a href="RamDiskSizeKb.html">RamDiskSizeKb</a>, <a href="RamDiskLetter.html">RamDiskLetter</a>, <a href="UseFileImage.html">UseFileImage</a>, <a href="FileRootPath.html">FileRootPath</a></p>
+<p>相关 <a href="SandboxieIni.html">Sandboxie Ini</a>, <a href="RamDiskSizeKb.html">RamDiskSizeKb</a>, <a href="RamDiskLetter.html">RamDiskLetter</a>, <a href="UseFileImage.html">UseFileImage</a>, <a href="FileRootPath.html">FileRootPath</a></p>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p><code>MountManager::AcquireBoxRoot</code> in <code>Sandboxie/core/svc/MountManager.cpp</code> - handles RAM disk mounting process.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p><code>Sandboxie/core/svc/MountManager.cpp</code> 中的 <code>MountManager::AcquireBoxRoot</code> - 处理内存虚拟磁盘挂载过程。&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>Driver capability checks performed in <code>MountManager::AcquireBoxRoot</code> before mounting virtual disks.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>在挂载虚拟磁盘之前，<code>MountManager::AcquireBoxRoot</code> 中会执行驱动程序功能检查。&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p>RAM disk I/O operations handled by <code>VirtualMemoryIO</code> class in <code>SandboxieTools/ImBox/VirtualMemoryIO.cpp</code>.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>内存虚拟磁盘 I/O 操作由 <code>SandboxieTools/ImBox/VirtualMemoryIO.cpp</code> 中的 <code>VirtualMemoryIO</code> 类处理。&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
-<p>ImDisk driver headers and definitions in <code>SandboxieTools/ImDisk/inc/imdisk.h</code>.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p>ImDisk 驱动程序头文件和定义位于 <code>SandboxieTools/ImDisk/inc/imdisk.h</code>。&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

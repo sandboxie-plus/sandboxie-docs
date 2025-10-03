@@ -4704,23 +4704,23 @@
 <li>从正在运行的程序（无论是否在沙箱中）调用沙箱工具的入口点。本文将对此进行描述。</li>
 </ul>
 <p>本文描述的入口点均由 <em>SbieDll.dll</em> 导出。要访问某个入口点，你应该将此 DLL 动态加载到你的程序中，并获取所需入口点的地址。例如：
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">        </span><span class="na">__declspec(dllexport) void __stdcall InjectDllMain(HINSTANCE hSbieDll, ULONG_PTR UnusedParameter)</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="na">{</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">        </span><span class="na">//</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">            </span><span class="na">// 定位 SbieDll.dll 中 SbieDll_Hook 的地址</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">            </span><span class="na">//</span>
+<div class="language-C highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">        </span><span class="kr">__declspec</span><span class="p">(</span><span class="n">dllexport</span><span class="p">)</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="kr">__stdcall</span><span class="w"> </span><span class="n">InjectDllMain</span><span class="p">(</span><span class="n">HINSTANCE</span><span class="w"> </span><span class="n">hSbieDll</span><span class="p">,</span><span class="w"> </span><span class="n">ULONG_PTR</span><span class="w"> </span><span class="n">UnusedParameter</span><span class="p">)</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">        </span><span class="c1">//</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">            </span><span class="c1">// 定位 SbieDll.dll 中 SbieDll_Hook 的地址</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">            </span><span class="c1">//</span>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">            </span><span class="na">typedef void *(__stdcall *P_SbieDll_Hook)(</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">                    </span><span class="na">const char *ApiName, void *ApiFunc, void *NewFunc);</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">            </span><span class="k">typedef</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="kr">__stdcall</span><span class="w"> </span><span class="o">*</span><span class="n">P_SbieDll_Hook</span><span class="p">)(</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">                    </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">ApiName</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">ApiFunc</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">NewFunc</span><span class="p">);</span>
 </span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">            </span><span class="na">P_SbieDll_Hook p_SbieDll_Hook</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">GetProcAddress(hSbieDll, &quot;SbieDll_Hook&quot;)</span><span class="c1">;</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">            </span><span class="n">P_SbieDll_Hook</span><span class="w"> </span><span class="n">p_SbieDll_Hook</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetProcAddress</span><span class="p">(</span><span class="n">hSbieDll</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;SbieDll_Hook&quot;</span><span class="p">);</span>
 </span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">        </span><span class="na">//</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">            </span><span class="na">// 通过函数指针调用 SbieDll_Hook</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">            </span><span class="na">//</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">        </span><span class="c1">//</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">            </span><span class="c1">// 通过函数指针调用 SbieDll_Hook</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">            </span><span class="c1">//</span>
 </span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">            </span><span class="na">p_SbieDll_Hook(...);</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="na">}</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">            </span><span class="n">p_SbieDll_Hook</span><span class="p">(...);</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="p">}</span>
 </span></code></pre></div></p>
 <p>请注意使用 <em>InjectDllMain</em>（请参阅 <a href="../InjectDll/">注入 DLL</a>）来获取已加载的 SbieDll 实例的句柄。这是推荐的方法。不过，使用 LoadLibrary 或 GetModuleHandle 按名称查找 SbieDll 也是可行的。</p>
 <hr />
@@ -4728,9 +4728,9 @@
 <ul>
 <li>
 <p>原型：
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">        </span><span class="na">typedef LONG (__stdcall *P_SbieApi_EnumBoxes)(</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">                </span><span class="na">LONG index,                 // 初始化为 -1</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">                </span><span class="na">WCHAR *box_name);            // 指向 WCHAR [34] 的指针</span>
+<div class="language-C highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">        </span><span class="k">typedef</span><span class="w"> </span><span class="n">LONG</span><span class="w"> </span><span class="p">(</span><span class="kr">__stdcall</span><span class="w"> </span><span class="o">*</span><span class="n">P_SbieApi_EnumBoxes</span><span class="p">)(</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">                </span><span class="n">LONG</span><span class="w"> </span><span class="n">index</span><span class="p">,</span><span class="w">                 </span><span class="c1">// 初始化为 -1</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">                </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">box_name</span><span class="p">);</span><span class="w">            </span><span class="c1">// 指向 WCHAR [34] 的指针</span>
 </span></code></pre></div></p>
 </li>
 <li>
@@ -4758,28 +4758,28 @@
 <p>示例代码：</p>
 </li>
 </ul>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="w">        </span><span class="na">WCHAR name[34];</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">        </span><span class="na">int index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">-1</span><span class="c1">;</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">        </span><span class="na">while (1) {</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">                </span><span class="na">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">SbieApi_EnumBoxes(index, name)</span><span class="c1">;</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">                </span><span class="na">if (index</span><span class="w"> </span><span class="o">=</span><span class="s">= -1)</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">                    </span><span class="na">break;</span>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">                </span><span class="na">SandboxNames_StringArray.add(name);</span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">        </span><span class="na">}</span>
+<div class="language-C highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="w">        </span><span class="n">WCHAR</span><span class="w"> </span><span class="n">name</span><span class="p">[</span><span class="mi">34</span><span class="p">];</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">                </span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SbieApi_EnumBoxes</span><span class="p">(</span><span class="n">index</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">);</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">index</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">                    </span><span class="k">break</span><span class="p">;</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">                </span><span class="n">SandboxNames_StringArray</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">        </span><span class="p">}</span>
 </span></code></pre></div>
 <hr />
 <h3 id="_2">按沙箱名称查询沙箱路径<a class="headerlink" href="#_2" title="Permanent link"></a></h3>
 <ul>
 <li>
 <p>原型：
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="w">        </span><span class="na">typedef LONG (__stdcall *P_SbieApi_QueryBoxPath)(</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">                </span><span class="na">const WCHAR *box_name,      // 指向 WCHAR [34] 的指针</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">                </span><span class="na">WCHAR *file_path,</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">                </span><span class="na">WCHAR *key_path,</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">                </span><span class="na">WCHAR *ipc_path,</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">                </span><span class="na">ULONG *file_path_len,</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">                </span><span class="na">ULONG *key_path_len,</span>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">                </span><span class="na">ULONG *ipc_path_len);</span>
+<div class="language-C highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="w">        </span><span class="k">typedef</span><span class="w"> </span><span class="n">LONG</span><span class="w"> </span><span class="p">(</span><span class="kr">__stdcall</span><span class="w"> </span><span class="o">*</span><span class="n">P_SbieApi_QueryBoxPath</span><span class="p">)(</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">                </span><span class="k">const</span><span class="w"> </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">box_name</span><span class="p">,</span><span class="w">      </span><span class="c1">// 指向 WCHAR [34] 的指针</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">                </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">file_path</span><span class="p">,</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">                </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">key_path</span><span class="p">,</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">                </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">ipc_path</span><span class="p">,</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">                </span><span class="n">ULONG</span><span class="w"> </span><span class="o">*</span><span class="n">file_path_len</span><span class="p">,</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">                </span><span class="n">ULONG</span><span class="w"> </span><span class="o">*</span><span class="n">key_path_len</span><span class="p">,</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">                </span><span class="n">ULONG</span><span class="w"> </span><span class="o">*</span><span class="n">ipc_path_len</span><span class="p">);</span>
 </span></code></pre></div></p>
 </li>
 <li>
@@ -4814,27 +4814,27 @@
 </li>
 <li>
 <p>示例代码：
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="w">        </span><span class="na">ULONG FileLen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">0</span><span class="c1">;</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">        </span><span class="na">ULONG KeyLen</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s">0</span><span class="c1">;</span>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">        </span><span class="na">ULONG IpcLen</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s">0</span><span class="c1">;</span>
+<div class="language-C highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="w">        </span><span class="n">ULONG</span><span class="w"> </span><span class="n">FileLen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">        </span><span class="n">ULONG</span><span class="w"> </span><span class="n">KeyLen</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">        </span><span class="n">ULONG</span><span class="w"> </span><span class="n">IpcLen</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">        </span><span class="na">SbieApi_QueryBoxPath(</span>
-</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">                </span><span class="na">NULL, NULL, NULL, NULL, &amp;FileLen, &amp;KeyLen, &amp;IpcLen);</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">        </span><span class="n">SbieApi_QueryBoxPath</span><span class="p">(</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">                </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">FileLen</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">KeyLen</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">IpcLen</span><span class="p">);</span>
 </span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>
-</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">        </span><span class="na">// 注意，长度是以字节数返回的，而不是 WCHAR 字符数</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">        </span><span class="c1">// 注意，长度是以字节数返回的，而不是 WCHAR 字符数</span>
 </span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>
-</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">        </span><span class="na">WCHAR *FileBuf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">malloc(FileLen)</span><span class="c1">;</span>
-</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">        </span><span class="na">WCHAR *KeyBuf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">malloc(KeyLen)</span><span class="c1">;</span>
-</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">        </span><span class="na">WCHAR *IpcBuf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">malloc(IpcLen)</span><span class="c1">;</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">        </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">FileBuf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="n">FileLen</span><span class="p">);</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">        </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">KeyBuf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="n">KeyLen</span><span class="p">);</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">        </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">IpcBuf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="n">IpcLen</span><span class="p">);</span>
 </span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>
-</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">        </span><span class="na">SbieApi_QueryBoxPath(</span>
-</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">                </span><span class="na">FileBuf, KeyBuf, IpcBuf, &amp;FileLen, &amp;KeyLen, &amp;IpcLen);</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">        </span><span class="n">SbieApi_QueryBoxPath</span><span class="p">(</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">                </span><span class="n">FileBuf</span><span class="p">,</span><span class="w"> </span><span class="n">KeyBuf</span><span class="p">,</span><span class="w"> </span><span class="n">IpcBuf</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">FileLen</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">KeyLen</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">IpcLen</span><span class="p">);</span>
 </span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>
-</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">        </span><span class="na">// 现在使用 wcslen 来计算字符数</span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">        </span><span class="c1">// 现在使用 wcslen 来计算字符数</span>
 </span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>
-</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="w">        </span><span class="na">FileLen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">wcslen(FileBuf)</span><span class="c1">;</span>
-</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a><span class="w">        </span><span class="na">KeyLen</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s">wcslen(KeyBuf)</span><span class="c1">;</span>
-</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a><span class="w">        </span><span class="na">IpcLen</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s">wcslen(IpcBuf)</span><span class="c1">;</span>
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="w">        </span><span class="n">FileLen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wcslen</span><span class="p">(</span><span class="n">FileBuf</span><span class="p">);</span>
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a><span class="w">        </span><span class="n">KeyLen</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">wcslen</span><span class="p">(</span><span class="n">KeyBuf</span><span class="p">);</span>
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a><span class="w">        </span><span class="n">IpcLen</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">wcslen</span><span class="p">(</span><span class="n">IpcBuf</span><span class="p">);</span>
 </span></code></pre></div></p>
 </li>
 </ul>
@@ -4843,14 +4843,14 @@
 <ul>
 <li>
 <p>原型：
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="w">        </span><span class="na">typedef LONG (__stdcall *P_SbieApi_QueryProcessPath)(</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">                </span><span class="na">HANDLE process_id,</span>
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">                </span><span class="na">WCHAR *file_path,</span>
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">                </span><span class="na">WCHAR *key_path,</span>
-</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">                </span><span class="na">WCHAR *ipc_path,</span>
-</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">                </span><span class="na">ULONG *file_path_len,</span>
-</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">                </span><span class="na">ULONG *key_path_len,</span>
-</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">                </span><span class="na">ULONG *ipc_path_len);</span>
+<div class="language-C highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="w">        </span><span class="k">typedef</span><span class="w"> </span><span class="n">LONG</span><span class="w"> </span><span class="p">(</span><span class="kr">__stdcall</span><span class="w"> </span><span class="o">*</span><span class="n">P_SbieApi_QueryProcessPath</span><span class="p">)(</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">                </span><span class="n">HANDLE</span><span class="w"> </span><span class="n">process_id</span><span class="p">,</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">                </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">file_path</span><span class="p">,</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">                </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">key_path</span><span class="p">,</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">                </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">ipc_path</span><span class="p">,</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">                </span><span class="n">ULONG</span><span class="w"> </span><span class="o">*</span><span class="n">file_path_len</span><span class="p">,</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">                </span><span class="n">ULONG</span><span class="w"> </span><span class="o">*</span><span class="n">key_path_len</span><span class="p">,</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">                </span><span class="n">ULONG</span><span class="w"> </span><span class="o">*</span><span class="n">ipc_path_len</span><span class="p">);</span>
 </span></code></pre></div></p>
 </li>
 <li>
@@ -4892,12 +4892,12 @@
 <ul>
 <li>
 <p>原型：
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="w">        </span><span class="na">typedef LONG (__stdcall *P_SbieApi_EnumProcessEx)(</span>
-</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">                </span><span class="na">const WCHAR *box_name,      // 指向 WCHAR [34] 的指针</span>
-</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">                </span><span class="na">BOOLEAN all_sessions,</span>
-</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">                </span><span class="na">ULONG which_session,</span>
-</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">                </span><span class="na">ULONG *boxed_pids,         // 指向 ULONG [] 的指针</span>
-</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">                </span><span class="na">ULONG *boxed_count);</span>
+<div class="language-C highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="w">        </span><span class="k">typedef</span><span class="w"> </span><span class="n">LONG</span><span class="w"> </span><span class="p">(</span><span class="kr">__stdcall</span><span class="w"> </span><span class="o">*</span><span class="n">P_SbieApi_EnumProcessEx</span><span class="p">)(</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">                </span><span class="k">const</span><span class="w"> </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">box_name</span><span class="p">,</span><span class="w">      </span><span class="c1">// 指向 WCHAR [34] 的指针</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">                </span><span class="n">BOOLEAN</span><span class="w"> </span><span class="n">all_sessions</span><span class="p">,</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">                </span><span class="n">ULONG</span><span class="w"> </span><span class="n">which_session</span><span class="p">,</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">                </span><span class="n">ULONG</span><span class="w"> </span><span class="o">*</span><span class="n">boxed_pids</span><span class="p">,</span><span class="w">         </span><span class="c1">// 指向 ULONG [] 的指针</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">                </span><span class="n">ULONG</span><span class="w"> </span><span class="o">*</span><span class="n">boxed_count</span><span class="p">);</span>
 </span></code></pre></div></p>
 </li>
 <li>
@@ -4929,12 +4929,12 @@
 <ul>
 <li>
 <p>原型：
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="w">        </span><span class="na">typedef LONG (__stdcall *P_SbieApi_QueryProcess)(</span>
-</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">                </span><span class="na">HANDLE process_id,</span>
-</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">                </span><span class="na">WCHAR *box_name,            // 指向 WCHAR [34] 的指针</span>
-</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">                </span><span class="na">WCHAR *image_name,          // 指向 WCHAR [96] 的指针</span>
-</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">                </span><span class="na">WCHAR *sid_string,         // 指向 WCHAR [96] 的指针</span>
-</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="w">                </span><span class="na">ULONG *session_id);</span>
+<div class="language-C highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="w">        </span><span class="k">typedef</span><span class="w"> </span><span class="n">LONG</span><span class="w"> </span><span class="p">(</span><span class="kr">__stdcall</span><span class="w"> </span><span class="o">*</span><span class="n">P_SbieApi_QueryProcess</span><span class="p">)(</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">                </span><span class="n">HANDLE</span><span class="w"> </span><span class="n">process_id</span><span class="p">,</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">                </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">box_name</span><span class="p">,</span><span class="w">            </span><span class="c1">// 指向 WCHAR [34] 的指针</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">                </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">image_name</span><span class="p">,</span><span class="w">          </span><span class="c1">// 指向 WCHAR [96] 的指针</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">                </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">sid_string</span><span class="p">,</span><span class="w">         </span><span class="c1">// 指向 WCHAR [96] 的指针</span>
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="w">                </span><span class="n">ULONG</span><span class="w"> </span><span class="o">*</span><span class="n">session_id</span><span class="p">);</span>
 </span></code></pre></div></p>
 </li>
 <li>
@@ -4966,8 +4966,8 @@
 <ul>
 <li>
 <p>原型：
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="w">        </span><span class="na">typedef BOOLEAN (__stdcall *P_SbieDll_KillOne)(</span>
-</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="w">                </span><span class="na">HANDLE process_id);</span>
+<div class="language-C highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="w">        </span><span class="k">typedef</span><span class="w"> </span><span class="n">BOOLEAN</span><span class="w"> </span><span class="p">(</span><span class="kr">__stdcall</span><span class="w"> </span><span class="o">*</span><span class="n">P_SbieDll_KillOne</span><span class="p">)(</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="w">                </span><span class="n">HANDLE</span><span class="w"> </span><span class="n">process_id</span><span class="p">);</span>
 </span></code></pre></div></p>
 </li>
 <li>
@@ -4993,9 +4993,9 @@
 <ul>
 <li>
 <p>原型：
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="w">        </span><span class="na">typedef BOOLEAN (__stdcall *P_SbieDll_KillAll)(</span>
-</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="w">                </span><span class="na">ULONG session_id,</span>
-</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="w">                </span><span class="na">const WCHAR *box_name);</span>
+<div class="language-C highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="w">        </span><span class="k">typedef</span><span class="w"> </span><span class="n">BOOLEAN</span><span class="w"> </span><span class="p">(</span><span class="kr">__stdcall</span><span class="w"> </span><span class="o">*</span><span class="n">P_SbieDll_KillAll</span><span class="p">)(</span>
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="w">                </span><span class="n">ULONG</span><span class="w"> </span><span class="n">session_id</span><span class="p">,</span>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="w">                </span><span class="k">const</span><span class="w"> </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">box_name</span><span class="p">);</span>
 </span></code></pre></div></p>
 </li>
 <li>
@@ -5023,12 +5023,12 @@
 <ul>
 <li>
 <p>原型：
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="w">        </span><span class="na">typedef LONG (__stdcall *P_SbieApi_QueryConf)(</span>
-</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="w">                </span><span class="na">const WCHAR *section_name,  // 指向 WCHAR [34] 的指针</span>
-</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="w">                </span><span class="na">const WCHAR *setting_name,  // 指向 WCHAR [66] 的指针</span>
-</span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="w">                </span><span class="na">ULONG setting_index,</span>
-</span><span id="__span-31-5"><a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a><span class="w">                </span><span class="na">WCHAR *value,</span>
-</span><span id="__span-31-6"><a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a><span class="w">                </span><span class="na">ULONG value_len)</span>
+<div class="language-C highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="w">        </span><span class="k">typedef</span><span class="w"> </span><span class="n">LONG</span><span class="w"> </span><span class="p">(</span><span class="kr">__stdcall</span><span class="w"> </span><span class="o">*</span><span class="n">P_SbieApi_QueryConf</span><span class="p">)(</span>
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="w">                </span><span class="k">const</span><span class="w"> </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">section_name</span><span class="p">,</span><span class="w">  </span><span class="c1">// 指向 WCHAR [34] 的指针</span>
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="w">                </span><span class="k">const</span><span class="w"> </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">setting_name</span><span class="p">,</span><span class="w">  </span><span class="c1">// 指向 WCHAR [66] 的指针</span>
+</span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="w">                </span><span class="n">ULONG</span><span class="w"> </span><span class="n">setting_index</span><span class="p">,</span>
+</span><span id="__span-31-5"><a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a><span class="w">                </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">value</span><span class="p">,</span>
+</span><span id="__span-31-6"><a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a><span class="w">                </span><span class="n">ULONG</span><span class="w"> </span><span class="n">value_len</span><span class="p">)</span>
 </span></code></pre></div></p>
 </li>
 <li>
@@ -5066,12 +5066,12 @@
 <ul>
 <li>
 <p>原型：
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="w">        </span><span class="na">typedef LONG (__stdcall *P_SbieDll_UpdateConf)(</span>
-</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="w">            </span><span class="na">WCHAR operation_code,</span>
-</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="w">            </span><span class="na">const WCHAR *password,      // 限制为 64 个字符</span>
-</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="w">                </span><span class="na">const WCHAR *section_name,  // 限制为 32 个字符</span>
-</span><span id="__span-35-5"><a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a><span class="w">                </span><span class="na">const WCHAR *setting_name,  // 限制为 64 个字符</span>
-</span><span id="__span-35-6"><a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a><span class="w">                </span><span class="na">const WCHAR *value)         // 限制为 2000 个字符</span>
+<div class="language-C highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="w">        </span><span class="k">typedef</span><span class="w"> </span><span class="n">LONG</span><span class="w"> </span><span class="p">(</span><span class="kr">__stdcall</span><span class="w"> </span><span class="o">*</span><span class="n">P_SbieDll_UpdateConf</span><span class="p">)(</span>
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="w">            </span><span class="n">WCHAR</span><span class="w"> </span><span class="n">operation_code</span><span class="p">,</span>
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">password</span><span class="p">,</span><span class="w">      </span><span class="c1">// 限制为 64 个字符</span>
+</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="w">                </span><span class="k">const</span><span class="w"> </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">section_name</span><span class="p">,</span><span class="w">  </span><span class="c1">// 限制为 32 个字符</span>
+</span><span id="__span-35-5"><a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a><span class="w">                </span><span class="k">const</span><span class="w"> </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">setting_name</span><span class="p">,</span><span class="w">  </span><span class="c1">// 限制为 64 个字符</span>
+</span><span id="__span-35-6"><a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a><span class="w">                </span><span class="k">const</span><span class="w"> </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">value</span><span class="p">)</span><span class="w">         </span><span class="c1">// 限制为 2000 个字符</span>
 </span></code></pre></div></p>
 </li>
 <li>
@@ -5111,8 +5111,8 @@
 <ul>
 <li>
 <p>原型：
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="w">        </span><span class="na">typedef LONG (__stdcall *P_SbieApi_ReloadConf)(</span>
-</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="w">                </span><span class="na">ULONG session_id);</span>
+<div class="language-C highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="w">        </span><span class="k">typedef</span><span class="w"> </span><span class="n">LONG</span><span class="w"> </span><span class="p">(</span><span class="kr">__stdcall</span><span class="w"> </span><span class="o">*</span><span class="n">P_SbieApi_ReloadConf</span><span class="p">)(</span>
+</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="w">                </span><span class="n">ULONG</span><span class="w"> </span><span class="n">session_id</span><span class="p">);</span>
 </span></code></pre></div></p>
 </li>
 <li>
@@ -5136,10 +5136,10 @@
 <ul>
 <li>
 <p>原型：
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="w">        </span><span class="na">typedef void *(__stdcall *P_SbieDll_Hook)(</span>
-</span><span id="__span-43-2"><a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a><span class="w">                </span><span class="na">const char *name,</span>
-</span><span id="__span-43-3"><a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a><span class="w">                </span><span class="na">void *source_func,</span>
-</span><span id="__span-43-4"><a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a><span class="w">                </span><span class="na">void *detour_func);</span>
+<div class="language-C highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="w">        </span><span class="k">typedef</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="kr">__stdcall</span><span class="w"> </span><span class="o">*</span><span class="n">P_SbieDll_Hook</span><span class="p">)(</span>
+</span><span id="__span-43-2"><a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a><span class="w">                </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">name</span><span class="p">,</span>
+</span><span id="__span-43-3"><a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a><span class="w">                </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">source_func</span><span class="p">,</span>
+</span><span id="__span-43-4"><a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a><span class="w">                </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">detour_func</span><span class="p">);</span>
 </span></code></pre></div></p>
 </li>
 <li>
@@ -5165,34 +5165,34 @@
 </li>
 <li>
 <p>示例代码：
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="w">       </span><span class="na">typedef BOOL (__stdcall *P_DeleteFileW)(const WCHAR *Path);</span>
+<div class="language-C highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="w">       </span><span class="k">typedef</span><span class="w"> </span><span class="n">BOOL</span><span class="w"> </span><span class="p">(</span><span class="kr">__stdcall</span><span class="w"> </span><span class="o">*</span><span class="n">P_DeleteFileW</span><span class="p">)(</span><span class="k">const</span><span class="w"> </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">Path</span><span class="p">);</span>
 </span><span id="__span-47-2"><a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a>
-</span><span id="__span-47-3"><a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a><span class="w">       </span><span class="na">P_DeleteFileW pDeleteFileW</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">NULL</span><span class="c1">;</span>
+</span><span id="__span-47-3"><a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a><span class="w">       </span><span class="n">P_DeleteFileW</span><span class="w"> </span><span class="n">pDeleteFileW</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
 </span><span id="__span-47-4"><a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a>
-</span><span id="__span-47-5"><a id="__codelineno-47-5" name="__codelineno-47-5" href="#__codelineno-47-5"></a><span class="w">       </span><span class="na">BOOL __stdcall MyDeleteFileW(const WCHAR *Path)</span>
-</span><span id="__span-47-6"><a id="__codelineno-47-6" name="__codelineno-47-6" href="#__codelineno-47-6"></a><span class="w">        </span><span class="na">{</span>
-</span><span id="__span-47-7"><a id="__codelineno-47-7" name="__codelineno-47-7" href="#__codelineno-47-7"></a><span class="w">            </span><span class="na">if (Path[0]</span><span class="w"> </span><span class="o">=</span><span class="s">= L&#39;C&#39;) {</span>
+</span><span id="__span-47-5"><a id="__codelineno-47-5" name="__codelineno-47-5" href="#__codelineno-47-5"></a><span class="w">       </span><span class="n">BOOL</span><span class="w"> </span><span class="kr">__stdcall</span><span class="w"> </span><span class="n">MyDeleteFileW</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">Path</span><span class="p">)</span>
+</span><span id="__span-47-6"><a id="__codelineno-47-6" name="__codelineno-47-6" href="#__codelineno-47-6"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-47-7"><a id="__codelineno-47-7" name="__codelineno-47-7" href="#__codelineno-47-7"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Path</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sa">L</span><span class="sc">&#39;C&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-47-8"><a id="__codelineno-47-8" name="__codelineno-47-8" href="#__codelineno-47-8"></a>
-</span><span id="__span-47-9"><a id="__codelineno-47-9" name="__codelineno-47-9" href="#__codelineno-47-9"></a><span class="w">                </span><span class="na">// 静默忽略删除 C 盘上任何文件的请求</span>
+</span><span id="__span-47-9"><a id="__codelineno-47-9" name="__codelineno-47-9" href="#__codelineno-47-9"></a><span class="w">                </span><span class="c1">// 静默忽略删除 C 盘上任何文件的请求</span>
 </span><span id="__span-47-10"><a id="__codelineno-47-10" name="__codelineno-47-10" href="#__codelineno-47-10"></a>
-</span><span id="__span-47-11"><a id="__codelineno-47-11" name="__codelineno-47-11" href="#__codelineno-47-11"></a><span class="w">                </span><span class="na">SetLastError(0);</span>
-</span><span id="__span-47-12"><a id="__codelineno-47-12" name="__codelineno-47-12" href="#__codelineno-47-12"></a><span class="w">                </span><span class="na">return TRUE;</span>
+</span><span id="__span-47-11"><a id="__codelineno-47-11" name="__codelineno-47-11" href="#__codelineno-47-11"></a><span class="w">                </span><span class="n">SetLastError</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span><span id="__span-47-12"><a id="__codelineno-47-12" name="__codelineno-47-12" href="#__codelineno-47-12"></a><span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="n">TRUE</span><span class="p">;</span>
 </span><span id="__span-47-13"><a id="__codelineno-47-13" name="__codelineno-47-13" href="#__codelineno-47-13"></a>
-</span><span id="__span-47-14"><a id="__codelineno-47-14" name="__codelineno-47-14" href="#__codelineno-47-14"></a><span class="w">            </span><span class="na">} else {</span>
+</span><span id="__span-47-14"><a id="__codelineno-47-14" name="__codelineno-47-14" href="#__codelineno-47-14"></a><span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-47-15"><a id="__codelineno-47-15" name="__codelineno-47-15" href="#__codelineno-47-15"></a>
-</span><span id="__span-47-16"><a id="__codelineno-47-16" name="__codelineno-47-16" href="#__codelineno-47-16"></a><span class="w">                </span><span class="na">// 否则调用原始的 DeleteFileW 函数</span>
+</span><span id="__span-47-16"><a id="__codelineno-47-16" name="__codelineno-47-16" href="#__codelineno-47-16"></a><span class="w">                </span><span class="c1">// 否则调用原始的 DeleteFileW 函数</span>
 </span><span id="__span-47-17"><a id="__codelineno-47-17" name="__codelineno-47-17" href="#__codelineno-47-17"></a>
-</span><span id="__span-47-18"><a id="__codelineno-47-18" name="__codelineno-47-18" href="#__codelineno-47-18"></a><span class="w">                </span><span class="na">return pDeleteFileW(Path);</span>
-</span><span id="__span-47-19"><a id="__codelineno-47-19" name="__codelineno-47-19" href="#__codelineno-47-19"></a><span class="w">            </span><span class="na">}</span>
-</span><span id="__span-47-20"><a id="__codelineno-47-20" name="__codelineno-47-20" href="#__codelineno-47-20"></a><span class="w">        </span><span class="na">}</span>
+</span><span id="__span-47-18"><a id="__codelineno-47-18" name="__codelineno-47-18" href="#__codelineno-47-18"></a><span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="n">pDeleteFileW</span><span class="p">(</span><span class="n">Path</span><span class="p">);</span>
+</span><span id="__span-47-19"><a id="__codelineno-47-19" name="__codelineno-47-19" href="#__codelineno-47-19"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-47-20"><a id="__codelineno-47-20" name="__codelineno-47-20" href="#__codelineno-47-20"></a><span class="w">        </span><span class="p">}</span>
 </span><span id="__span-47-21"><a id="__codelineno-47-21" name="__codelineno-47-21" href="#__codelineno-47-21"></a>
-</span><span id="__span-47-22"><a id="__codelineno-47-22" name="__codelineno-47-22" href="#__codelineno-47-22"></a><span class="w">        </span><span class="na">main()</span>
-</span><span id="__span-47-23"><a id="__codelineno-47-23" name="__codelineno-47-23" href="#__codelineno-47-23"></a><span class="w">        </span><span class="na">{</span>
-</span><span id="__span-47-24"><a id="__codelineno-47-24" name="__codelineno-47-24" href="#__codelineno-47-24"></a><span class="w">            </span><span class="na">pDeleteFileW</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">GetProcAddress(kernel32dll, &quot;DeleteFileW&quot;)</span><span class="c1">;</span>
-</span><span id="__span-47-25"><a id="__codelineno-47-25" name="__codelineno-47-25" href="#__codelineno-47-25"></a><span class="w">            </span><span class="na">pDeleteFileW</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">SbieDll_Hook(&quot;DeleteFile&quot;,</span>
-</span><span id="__span-47-26"><a id="__codelineno-47-26" name="__codelineno-47-26" href="#__codelineno-47-26"></a><span class="w">                                        </span><span class="na">pDeleteFileW,</span>
-</span><span id="__span-47-27"><a id="__codelineno-47-27" name="__codelineno-47-27" href="#__codelineno-47-27"></a><span class="w">                                        </span><span class="na">MyDeleteFileW);</span>
-</span><span id="__span-47-28"><a id="__codelineno-47-28" name="__codelineno-47-28" href="#__codelineno-47-28"></a><span class="w">        </span><span class="na">}</span>
+</span><span id="__span-47-22"><a id="__codelineno-47-22" name="__codelineno-47-22" href="#__codelineno-47-22"></a><span class="w">        </span><span class="n">main</span><span class="p">()</span>
+</span><span id="__span-47-23"><a id="__codelineno-47-23" name="__codelineno-47-23" href="#__codelineno-47-23"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-47-24"><a id="__codelineno-47-24" name="__codelineno-47-24" href="#__codelineno-47-24"></a><span class="w">            </span><span class="n">pDeleteFileW</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetProcAddress</span><span class="p">(</span><span class="n">kernel32dll</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;DeleteFileW&quot;</span><span class="p">);</span>
+</span><span id="__span-47-25"><a id="__codelineno-47-25" name="__codelineno-47-25" href="#__codelineno-47-25"></a><span class="w">            </span><span class="n">pDeleteFileW</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SbieDll_Hook</span><span class="p">(</span><span class="s">&quot;DeleteFile&quot;</span><span class="p">,</span>
+</span><span id="__span-47-26"><a id="__codelineno-47-26" name="__codelineno-47-26" href="#__codelineno-47-26"></a><span class="w">                                        </span><span class="n">pDeleteFileW</span><span class="p">,</span>
+</span><span id="__span-47-27"><a id="__codelineno-47-27" name="__codelineno-47-27" href="#__codelineno-47-27"></a><span class="w">                                        </span><span class="n">MyDeleteFileW</span><span class="p">);</span>
+</span><span id="__span-47-28"><a id="__codelineno-47-28" name="__codelineno-47-28" href="#__codelineno-47-28"></a><span class="w">        </span><span class="p">}</span>
 </span></code></pre></div></p>
 </li>
 </ul>
@@ -5200,11 +5200,11 @@
 <h3 id="dll">注册 DLL 加载/卸载回调<a class="headerlink" href="#dll" title="Permanent link"></a></h3>
 <ul>
 <li>原型：
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="w">       </span><span class="na">typedef void (__stdcall *P_DllCallback)(const WCHAR *ImageName, HMODULE ImageBase);</span>
+<div class="language-C highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="w">       </span><span class="k">typedef</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="kr">__stdcall</span><span class="w"> </span><span class="o">*</span><span class="n">P_DllCallback</span><span class="p">)(</span><span class="k">const</span><span class="w"> </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">ImageName</span><span class="p">,</span><span class="w"> </span><span class="n">HMODULE</span><span class="w"> </span><span class="n">ImageBase</span><span class="p">);</span>
 </span></code></pre></div></li>
 </ul>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="w">       </span><span class="na">typedef BOOLEAN *(__stdcall *P_SbieDll_RegisterDllCallback)(</span>
-</span><span id="__span-49-2"><a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a><span class="w">               </span><span class="na">P_DllCallback pCallback);</span>
+<div class="language-C highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="w">       </span><span class="k">typedef</span><span class="w"> </span><span class="n">BOOLEAN</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="kr">__stdcall</span><span class="w"> </span><span class="o">*</span><span class="n">P_SbieDll_RegisterDllCallback</span><span class="p">)(</span>
+</span><span id="__span-49-2"><a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a><span class="w">               </span><span class="n">P_DllCallback</span><span class="w"> </span><span class="n">pCallback</span><span class="p">);</span>
 </span></code></pre></div>
 <ul>
 <li>
@@ -5234,11 +5234,11 @@
 <ul>
 <li>
 <p>原型：
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a><span class="w">       </span><span class="na">typedef LONG *(__stdcall *P_SbieApi_GetHomePath)(</span>
-</span><span id="__span-55-2"><a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a><span class="w">               </span><span class="na">WCHAR *NtPath,</span>
-</span><span id="__span-55-3"><a id="__codelineno-55-3" name="__codelineno-55-3" href="#__codelineno-55-3"></a><span class="w">               </span><span class="na">ULONG NtPathMaxLen,</span>
-</span><span id="__span-55-4"><a id="__codelineno-55-4" name="__codelineno-55-4" href="#__codelineno-55-4"></a><span class="w">               </span><span class="na">WCHAR *DosPath,</span>
-</span><span id="__span-55-5"><a id="__codelineno-55-5" name="__codelineno-55-5" href="#__codelineno-55-5"></a><span class="w">               </span><span class="na">ULONG DosPathMaxLen);</span>
+<div class="language-C highlight"><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a><span class="w">       </span><span class="k">typedef</span><span class="w"> </span><span class="n">LONG</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="kr">__stdcall</span><span class="w"> </span><span class="o">*</span><span class="n">P_SbieApi_GetHomePath</span><span class="p">)(</span>
+</span><span id="__span-55-2"><a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a><span class="w">               </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">NtPath</span><span class="p">,</span>
+</span><span id="__span-55-3"><a id="__codelineno-55-3" name="__codelineno-55-3" href="#__codelineno-55-3"></a><span class="w">               </span><span class="n">ULONG</span><span class="w"> </span><span class="n">NtPathMaxLen</span><span class="p">,</span>
+</span><span id="__span-55-4"><a id="__codelineno-55-4" name="__codelineno-55-4" href="#__codelineno-55-4"></a><span class="w">               </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">DosPath</span><span class="p">,</span>
+</span><span id="__span-55-5"><a id="__codelineno-55-5" name="__codelineno-55-5" href="#__codelineno-55-5"></a><span class="w">               </span><span class="n">ULONG</span><span class="w"> </span><span class="n">DosPathMaxLen</span><span class="p">);</span>
 </span></code></pre></div></p>
 </li>
 <li>

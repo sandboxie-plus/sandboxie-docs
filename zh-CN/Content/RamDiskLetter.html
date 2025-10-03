@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="RamDiskLetter is a global setting in Sandboxie Ini (introduced in v1.11.1 / 5.66.1) that specifies the drive letter to be assigned to the RAM disk created for use by sandboxes that have the UseRamDisk setting enabled. This setting allows users to define a specific drive letter for easier access to the RAM disk.">
+        <meta name="description" content="RamDiskLetter 是 Sandboxie.ini 中的一个全局设置项（在 v1.11.1 / 5.66.1 版本中引入），用于指定分配给内存虚拟磁盘的盘符。该内存虚拟磁盘专为启用了 UseRamDisk 设置的沙盒创建。此设置允许用户为内存虚拟磁盘定义一个特定的盘符，以便更轻松地访问。">
       
       
       
@@ -20,7 +20,7 @@
     
     
       
-        <title>Ram Disk Letter - Sandboxie 文档</title>
+        <title>内存虚拟磁盘盘符 - Sandboxie 文档</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ram-disk-letter" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Ram Disk Letter
+              内存虚拟磁盘盘符
             
           </span>
         </div>
@@ -4528,47 +4528,47 @@
   
 
 
-<h1 id="ram-disk-letter">Ram Disk Letter<a class="headerlink" href="#ram-disk-letter" title="Permanent link"></a></h1>
-<p><em>RamDiskLetter</em> is a global setting in <a href="SandboxieIni.html">Sandboxie Ini</a> (introduced in v1.11.1 / 5.66.1) that specifies the drive letter to be assigned to the RAM disk created for use by sandboxes that have the <a href="UseRamDisk.html">UseRamDisk</a> setting enabled. This setting allows users to define a specific drive letter for easier access to the RAM disk.</p>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h2>
-<p>To set the <code>RamDiskLetter</code>, add the following line to the Sandboxie configuration file under the <code>[GlobalSettings]</code> section:</p>
+<h1 id="_1">内存虚拟磁盘盘符<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<p><em>RamDiskLetter</em> 是 <a href="SandboxieIni.html">Sandboxie.ini</a> 中的一个全局设置项（在 v1.11.1 / 5.66.1 版本中引入），用于指定分配给内存虚拟磁盘的盘符。该内存虚拟磁盘专为启用了 <a href="UseRamDisk.html">UseRamDisk</a> 设置的沙盒创建。此设置允许用户为内存虚拟磁盘定义一个特定的盘符，以便更轻松地访问。</p>
+<h2 id="_2">用法<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
+<p>要设置 <code>RamDiskLetter</code>，请在 Sandboxie 配置文件的 <code>[GlobalSettings]</code> 部分下添加以下行：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[GlobalSettings]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># Example for assigning the drive letter R to the RAM disk</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># 将驱动器号 R 分配给内存虚拟磁盘的示例</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="na">RamDiskLetter</span><span class="o">=</span><span class="s">R:</span>\
 </span></code></pre></div>
-<h2 id="sandman-gui">SandMan GUI<a class="headerlink" href="#sandman-gui" title="Permanent link"></a></h2>
-<p>The RAM disk letter setting can be selected through:</p>
+<h2 id="sandman">SandMan 界面<a class="headerlink" href="#sandman" title="Permanent link"></a></h2>
+<p>可以通过以下步骤选择内存虚拟磁盘盘符设置：</p>
 <ol>
-<li>Open the <code>Global Settings</code> window in the SandMan interface.</li>
-<li>Navigate to <code>Add-Ons Manager</code> &gt; <code>Add-On Configuration</code> tab.</li>
+<li>在 SandMan 界面中打开 <code>全局设置</code> 窗口。</li>
+<li>导航到 <code>附加组件管理器</code> &gt; <code>附加组件配置</code> 选项卡。</li>
 <li>
-<p>Enable the <code>Assign drive letter to Ram Disk</code> setting and select a drive letter for the RAM disk.</p>
-<p><img alt="Ram Disk Letter" src="../../Media/UseRamDisk3.png" /></p>
+<p>启用 <code>为内存虚拟磁盘分配盘符</code> 设置，并为内存虚拟磁盘选择一个盘符。</p>
+<p><img alt="Ram Disk Letter" src="../Media/UseRamDisk3.png" /></p>
 </li>
 </ol>
-<h2 id="important-notes">Important Notes<a class="headerlink" href="#important-notes" title="Permanent link"></a></h2>
+<h2 id="_3">重要说明<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
 <ul>
 <li>
-<p><strong>Single Drive Letter</strong>: Only one drive letter can be assigned to the RAM disk, and it will be used across all sandboxes that utilize the RAM disk feature.</p>
+<p><strong>单一盘符</strong>: 只能为内存虚拟磁盘分配一个盘符，该盘符将用于所有使用内存虚拟磁盘功能的沙盒。</p>
 </li>
 <li>
-<p><strong>Available Drive Letters</strong>: Ensure that the specified drive letter is not already in use by another drive or partition on the system. If the drive letter is already assigned, the RAM disk may fail to mount, and an error will be logged.</p>
+<p><strong>可用盘符</strong>: 确保指定的盘符未被系统上的其他驱动器或分区占用。如果该盘符已被分配，内存虚拟磁盘可能无法挂载，并且会记录错误。</p>
 </li>
 <li>
-<p><strong>Configuration Requirement</strong>: The <code>RamDiskLetter</code> setting should be configured before enabling <code>UseRamDisk</code> in individual sandboxes to ensure proper assignment.</p>
+<p><strong>配置要求</strong>: 应在为单个沙盒启用 <code>UseRamDisk</code> 之前配置 <code>RamDiskLetter</code> 设置，以确保正确分配。</p>
 </li>
 </ul>
-<h2 id="performance-considerations">Performance Considerations<a class="headerlink" href="#performance-considerations" title="Permanent link"></a></h2>
+<h2 id="_4">性能考量<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
 <ul>
-<li><strong>Ease of Access</strong>: Assigning a specific drive letter to the RAM disk can simplify access for applications and users, making it easier to reference the RAM disk in file paths.</li>
+<li><strong>访问便利性</strong>: 为内存虚拟磁盘分配一个特定的盘符可以简化应用程序和用户的访问，使其在文件路径中引用内存虚拟磁盘变得更加容易。</li>
 </ul>
-<h2 id="related-settings">Related Settings<a class="headerlink" href="#related-settings" title="Permanent link"></a></h2>
+<h2 id="_5">相关设置<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
 <ul>
-<li><a href="RamDiskSizeKb.html">RamDiskSizeKb</a> - Specifies the size of the RAM disk.</li>
-<li><a href="UseRamDisk.html">UseRamDisk</a> - Enables the use of a RAM disk for individual sandboxes.</li>
+<li><a href="RamDiskSizeKb.html">RamDiskSizeKb</a> - 指定内存虚拟磁盘的大小。</li>
+<li><a href="UseRamDisk.html">UseRamDisk</a> - 为单个沙盒启用内存虚拟磁盘。</li>
 </ul>
-<p>By configuring the <code>RamDiskLetter</code> setting, users can enhance their Sandboxie experience by providing a consistent and easily accessible drive letter for the RAM disk.</p>
+<p>通过配置 <code>RamDiskLetter</code> 设置，用户可以为内存虚拟磁盘提供一个一致且易于访问的盘符，从而增强其 Sandboxie 使用体验。</p>
 
 
 

@@ -4546,7 +4546,7 @@
 <h2 id="_3">确定网络适配器索引值<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
 <p>Sandboxie 仅为具有 MAC 地址的适配器分配索引值，按照系统枚举它们的顺序。没有 MAC 地址的虚拟适配器会被跳过。</p>
 <p>要确定哪些适配器获得了哪些 Sandboxie 索引值，可以获取具有 MAC 地址的适配器的大致列表（在命令提示符下运行）：
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">wmic path win32_networkadapter where &quot;MACAddress is not null&quot; get netconnectionid,name,macaddress</span>
+<div class="language-pwsh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">wmic</span> <span class="n">path</span> <span class="n">win32_networkadapter</span> <span class="nb">where </span><span class="s2">&quot;MACAddress is not null&quot;</span> <span class="n">get</span> <span class="n">netconnectionid</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">macaddress</span>
 </span></code></pre></div></p>
 <p>Sandboxie 从此列表中的第一个适配器开始分配索引值，依次为 0、1、2、3 等。然而，Sandboxie 的内部枚举顺序可能与命令输出顺序不匹配。</p>
 <p>为了准确映射，请使用测试方法：</p>

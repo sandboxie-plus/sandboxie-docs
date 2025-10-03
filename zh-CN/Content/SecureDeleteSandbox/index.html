@@ -4539,12 +4539,12 @@
 <ul>
 <li>
 <p>调用 <a href="https://eraser.heidi.ie/">Heidi Computers 公司的 Eraser</a> 来安全删除内容：
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span><span class="na">%SystemRoot%\System32\eraserl.exe -folder &quot;%SANDBOX%&quot; -subfolders -method DoD_E -resultsonerror -queue</span>
+<div class="language-pwsh highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">%</span><span class="n">SystemRoot</span><span class="p">%\</span><span class="n">System32</span><span class="p">\</span><span class="n">eraserl</span><span class="p">.</span><span class="n">exe</span> <span class="n">-folder</span> <span class="s2">&quot;%SANDBOX%&quot;</span> <span class="n">-subfolders</span> <span class="n">-method</span> <span class="n">DoD_E</span> <span class="n">-resultsonerror</span> <span class="n">-queue</span>
 </span></code></pre></div></p>
 </li>
 <li>
 <p>调用 <a href="https://technet.microsoft.com/en-us/sysinternals/bb897443.aspx">SysInternals/Microsoft 公司的 SDelete</a> 来安全删除内容。
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">    </span><span class="na">&quot;C</span><span class="o">:</span><span class="s">\Program Files\Sysinternals\SDelete\sdelete.exe&quot; -p 3 -s -q &quot;%SANDBOX%&quot;</span>
+<div class="language-pwsh highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="s2">&quot;C:\Program Files\Sysinternals\SDelete\sdelete.exe&quot;</span> <span class="n">-p</span> <span class="n">3</span> <span class="n">-s</span> <span class="n">-q</span> <span class="s2">&quot;%SANDBOX%&quot;</span>
 </span></code></pre></div></p>
 </li>
 </ul>

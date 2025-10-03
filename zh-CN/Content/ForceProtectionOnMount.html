@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="ForceProtectionOnMount is a sandbox setting in Sandboxie Ini (introduced in v1.13.4 / 5.68.4) that forces a file-backed sandbox image to be mounted with root protection enabled. When set, the mount flow and the mount/create dialog enforce the image root protect option so users cannot mount the image without protection.">
+        <meta name="description" content="ForceProtectionOnMount 是 Sandboxie.ini 中的一个沙盒设置项（在 v1.13.4 / 5.68.4 版本中引入），它会强制一个基于文件的沙盒映像在挂载时启用根目录保护。设置后，挂载流程以及挂载/创建对话框会强制启用映像根目录保护选项，用户将无法在无保护的情况下挂载该映像。">
       
       
       
@@ -20,7 +20,7 @@
     
     
       
-        <title>Force Protection On Mount - Sandboxie 文档</title>
+        <title>挂载时强制保护 - Sandboxie 文档</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#force-protection-on-mount" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Force Protection On Mount
+              挂载时强制保护
             
           </span>
         </div>
@@ -4528,112 +4528,112 @@
   
 
 
-<h1 id="force-protection-on-mount">Force Protection On Mount<a class="headerlink" href="#force-protection-on-mount" title="Permanent link"></a></h1>
-<p><em>ForceProtectionOnMount</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a> (introduced in v1.13.4 / 5.68.4) that forces a file-backed sandbox image to be mounted with root protection enabled. When set, the mount flow and the mount/create dialog enforce the image root protect option so users cannot mount the image without protection.</p>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h2>
+<h1 id="_1">挂载时强制保护<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<p><em>ForceProtectionOnMount</em> 是 <a href="SandboxieIni.html">Sandboxie.ini</a> 中的一个沙盒设置项（在 v1.13.4 / 5.68.4 版本中引入），它会强制一个基于文件的沙盒映像在挂载时启用根目录保护。设置后，挂载流程以及挂载/创建对话框会强制启用映像根目录保护选项，用户将无法在无保护的情况下挂载该映像。</p>
+<h2 id="_2">用法<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">ForceProtectionOnMount</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<h2 id="when-to-use">When to use<a class="headerlink" href="#when-to-use" title="Permanent link"></a></h2>
+<h2 id="_3">适用场景<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
 <ul>
 <li>
-<p>You want a sandbox image always mounted in protected mode (prevent unsandboxed processes from accessing the mounted image).</p>
+<p>当你希望沙盒映像始终以保护模式挂载时（防止沙盒外的进程访问已挂载的映像）。</p>
 </li>
 <li>
-<p>Useful for encrypted images where you want to guarantee protection at mount time.</p>
+<p>对于加密映像非常有用，可以确保在挂载时就提供保护。</p>
 </li>
 </ul>
-<h2 id="behavior-and-ui">Behavior and UI<a class="headerlink" href="#behavior-and-ui" title="Permanent link"></a></h2>
+<h2 id="_4">行为与界面<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
 <ul>
 <li>
-<p>The General / File Options UI exposes a checkbox bound to <code>ForceProtectionOnMount</code> (<code>ui.chkForceProtection</code> in the code).</p>
+<p>在 通用 / 文件选项 的用户界面中，有一个与 <code>ForceProtectionOnMount</code> 绑定的复选框 (代码中为 <code>ui.chkForceProtection</code>)。</p>
 <ul>
-<li>The checkbox is enabled only when the sandbox is configured as an <a href="UseFileImage.html">encrypted sandbox</a> (not for RAM disk).</li>
+<li>该复选框仅在沙盒被配置为<a href="UseFileImage.html">加密沙盒</a> 时才可用 (不适用于内存盘模式).</li>
 </ul>
-<p><img alt="Force Protection On Mount 1" src="../../Media/UseFileImage1.png" /></p>
+<p><img alt="Force Protection On Mount 1" src="../Media/UseFileImage1.png" /></p>
 </li>
 <li>
-<p>When the box image mount dialog is shown programmatically with force applied, <code>CBoxImageWindow::SetForce(true)</code>:</p>
+<p>当通过程序强制显示沙盒映像挂载对话框时调用 <code>CBoxImageWindow::SetForce(true)</code>:</p>
 <ul>
-<li>forces <code>ui.chkProtect</code> checked,</li>
-<li>disables the protect checkbox so users cannot uncheck it,</li>
+<li>强制勾选 <code>ui.chkProtect</code>，</li>
+<li>并禁用该保护复选框，用户无法取消勾选，</li>
 </ul>
-<p><img alt="Force Protection On Mount 2" src="../../Media/UseFileImage8.png" /></p>
+<p><img alt="Force Protection On Mount 2" src="../Media/UseFileImage8.png" /></p>
 <ul>
-<li>forces <code>ui.chkAutoLock</code> (auto-unmount on last process stop) checked/disabled in the dialog.  </li>
-<li>On mount the service receives a mount request with the <code>protect_root</code> flag set; the mount manager and driver enforce protection.</li>
-</ul>
-</li>
-</ul>
-<h2 id="technical-notes-code-references">Technical notes / code references<a class="headerlink" href="#technical-notes-code-references" title="Permanent link"></a></h2>
-<ul>
-<li>
-<p>UI reads/writes:</p>
-<ul>
-<li>Read: <code>m_pBox-&gt;GetBool("ForceProtectionOnMount", false)</code> (see <code>COptionsWindow::LoadGeneral</code>).<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
-<li>Save: <code>WriteAdvancedCheck(ui.chkForceProtection, "ForceProtectionOnMount", "y", "")</code> (see <code>COptionsWindow::SaveGeneral</code>).<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
-</ul>
-</li>
-<li>
-<p>Mount wire protocol:</p>
-<ul>
-<li><code>IMBOX_MOUNT_REQ</code> contains <code>BOOL protect_root;</code> (mount wire header in <code>MountManagerWire.h</code>).<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></li>
-</ul>
-</li>
-<li>
-<p>Mount dialog enforcement:</p>
-<ul>
-<li><code>CBoxImageWindow::SetForce(bool force)</code> sets the protect checkbox enabled/checked state.<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></li>
-</ul>
-</li>
-<li>
-<p>Mount flow:</p>
-<ul>
-<li><code>MountManager::AcquireBoxRoot</code> (mount manager) will include the <code>protect_root</code> flag in mount requests when appropriate.<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></li>
-</ul>
-</li>
-<li>
-<p>Start process integration:</p>
-<ul>
-<li><code>Start.cpp</code> handles the <code>mount_protected</code> parameter during sandbox startup and process creation.<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup></li>
+<li>同时在对话框中强制勾选并禁用 <code>ui.chkAutoLock</code> （当最后一个进程停止时自动卸载）。  </li>
+<li>挂载时，服务会收到一个设置了 <code>protect_root</code> 标志的挂载请求；挂载管理器和驱动程序会强制执行保护。</li>
 </ul>
 </li>
 </ul>
-<h2 id="compatibility-constraints">Compatibility &amp; constraints<a class="headerlink" href="#compatibility-constraints" title="Permanent link"></a></h2>
+<h2 id="_5">技术说明与代码参考<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
 <ul>
-<li>Only meaningful for sandboxes using <code>UseFileImage</code> (file-backed <code>.box</code> images).</li>
-<li>If the filesystem driver or mount manager cannot honor protected mounts (or encrypted containers), mounts may fail and the sandbox will not start - check logs and mount manager errors.</li>
-<li>Protecting the root is enforced at mount time; unmounting while processes run will terminate those processes.</li>
+<li>
+<p>UI 读取/写入:</p>
+<ul>
+<li>读取: <code>m_pBox-&gt;GetBool("ForceProtectionOnMount", false)</code> (详见 <code>COptionsWindow::LoadGeneral</code>)。<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
+<li>写入: <code>WriteAdvancedCheck(ui.chkForceProtection, "ForceProtectionOnMount", "y", "")</code>。 (详见 <code>COptionsWindow::SaveGeneral</code>)<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
 </ul>
-<h2 id="best-practices">Best practices<a class="headerlink" href="#best-practices" title="Permanent link"></a></h2>
+</li>
+<li>
+<p>挂载通信协议:</p>
 <ul>
-<li>Apply per-sandbox (do not set globally unless you intend to force protection for every sandbox).</li>
+<li><code>IMBOX_MOUNT_REQ</code> 包含  <code>BOOL protect_root;</code> (挂载通信协议头文件 <code>MountManagerWire.h</code>)。<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></li>
 </ul>
-<h2 id="related">Related<a class="headerlink" href="#related" title="Permanent link"></a></h2>
+</li>
+<li>
+<p>挂载对话框强制执行:</p>
 <ul>
-<li><a href="UseFileImage.html"><code>UseFileImage</code></a> - enables file-backed sandbox images.</li>
-<li><code>CBoxImageWindow::SetForce</code> - UI enforcement on the mount/create dialog.</li>
-<li><code>IMBOX_MOUNT_REQ.protect_root</code> - mount request flag used by the mount manager.</li>
-<li><a href="StartCommandLine.html#mount-box-images"><code>StartCommandLine</code></a> - Command-line operations including <code>mount_protected</code> switch for protected mounting.</li>
+<li><code>CBoxImageWindow::SetForce(bool force)</code> 设置保护复选框的启用/勾选状态。<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></li>
+</ul>
+</li>
+<li>
+<p>挂载流程:</p>
+<ul>
+<li><code>MountManager::AcquireBoxRoot</code> (挂载管理器) 会在适当时机将 <code>protect_root</code> 标志包含在挂载请求中。<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></li>
+</ul>
+</li>
+<li>
+<p>启动进程集成:</p>
+<ul>
+<li><code>Start.cpp</code> 在沙盒启动和进程创建期间处理 <code>mount_protected</code> 参数。<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup></li>
+</ul>
+</li>
+</ul>
+<h2 id="_6">兼容性与限制<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
+<ul>
+<li>仅对使用 <code>UseFileImage</code>（基于文件的 <code>.box</code> 映像）的沙盒有意义。</li>
+<li>如果文件系统驱动或挂载管理器不支持保护性挂载（或加密容器），挂载可能会失败，沙盒也无法启动——请检查日志和挂载管理器的错误信息。</li>
+<li>根目录保护在挂载时强制执行；如果在有进程运行时卸载映像，这些进程将被终止。</li>
+</ul>
+<h2 id="_7">最佳实践<a class="headerlink" href="#_7" title="Permanent link"></a></h2>
+<ul>
+<li>按需为单个沙盒设置（除非你打算为所有沙盒强制启用保护，否则不要全局设置）。</li>
+</ul>
+<h2 id="_8">相关内容<a class="headerlink" href="#_8" title="Permanent link"></a></h2>
+<ul>
+<li><a href="UseFileImage.html"><code>UseFileImage</code></a> - 启用基于文件的沙盒映像。</li>
+<li><code>CBoxImageWindow::SetForce</code> - 在挂载/创建对话框中强制执行 UI 选项。</li>
+<li><code>IMBOX_MOUNT_REQ.protect_root</code> - 挂载管理器使用的挂载请求标志。</li>
+<li><a href="StartCommandLine.html#mount-box-images"><code>StartCommandLine</code></a> - 命令行操作，包含用于保护性挂载的 <code>mount_protected</code> 开关。</li>
 </ul>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p>See UI code in <code>SandMan\Windows\OptionsGeneral.cpp</code> - <code>COptionsWindow::LoadGeneral</code> and <code>COptionsWindow::SaveGeneral</code> handle reading and writing the <code>ForceProtectionOnMount</code> key via <code>m_pBox</code>.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>见 UI 代码 <code>SandMan\Windows\OptionsGeneral.cpp</code> - <code>COptionsWindow::LoadGeneral</code> 和 <code>COptionsWindow::SaveGeneral</code> 通过 <code>m_pBox</code> 处理 <code>ForceProtectionOnMount</code> 键的读写。&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>Mount protocol definition in <code>..\Sandboxie\core\svc\MountManagerWire.h</code> - <code>tagIMBOX_MOUNT_REQ</code> includes the <code>protect_root</code> field used by the mount manager.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>挂载协议定义于 <code>..\Sandboxie\core\svc\MountManagerWire.h</code> - <code>tagIMBOX_MOUNT_REQ</code> 包含挂载管理器使用的 <code>protect_root</code> 字段。&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p>Implementation in <code>SandMan\Windows\BoxImageWindow.cpp</code> - <code>CBoxImageWindow::SetForce(bool force)</code> forces the dialog checkboxes to reflect a forced protected mount.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>实现代码位于 <code>SandMan\Windows\BoxImageWindow.cpp</code> - <code>CBoxImageWindow::SetForce(bool force)</code> 强制对话框复选框以反映强制保护挂载。&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
-<p>Mount manager code (mount request assembly) will propagate the <code>protect_root</code> flag to the service/driver; see the mount manager implementation (e.g., <code>MountManager::AcquireBoxRoot</code>) in the service codebase.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p>挂载管理器代码（挂载请求组装）会将 <code>protect_root</code> 标志传递给服务/驱动；见服务代码库中的挂载管理器实现（例如 <code>MountManager::AcquireBoxRoot</code>）。&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 <li id="fn:5">
-<p>Start process implementation in <code>Sandboxie\apps\start\Start.cpp</code> - handles the <code>mount_protected</code> parameter during sandbox startup and process initialization.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+<p>启动进程实现位于 <code>Sandboxie\apps\start\Start.cpp</code> - 在沙盒启动和进程初始化期间处理 <code>mount_protected</code> 参数。&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

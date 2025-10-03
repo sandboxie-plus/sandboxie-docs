@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="RamDiskSizeKb is a global setting in Sandboxie Ini (introduced in v1.11.0 / 5.66.0) that specifies the size of the RAM disk to be created for use by sandboxes that have the UseRamDisk setting enabled. This setting is defined in kilobytes and determines the maximum amount of system RAM that can be allocated for the RAM disk.">
+        <meta name="description" content="RamDiskSizeKb 是 Sandboxie.ini 中的一个全局设置项（在 v1.11.0 / 5.66.0 版本中引入），用于指定为启用了 UseRamDisk 设置的沙盒创建的内存虚拟磁盘的大小。该设置以千字节（KB）为单位定义，并决定了可为内存虚拟磁盘分配的最大系统内存量。">
       
       
       
@@ -20,7 +20,7 @@
     
     
       
-        <title>Ram Disk Size Kb - Sandboxie 文档</title>
+        <title>内存虚拟磁盘大小 (KB) - Sandboxie 文档</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ram-disk-size-kb" class="md-skip">
+        <a href="#kb" class="md-skip">
           跳转至
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Ram Disk Size Kb
+              内存虚拟磁盘大小 (KB)
             
           </span>
         </div>
@@ -4528,61 +4528,61 @@
   
 
 
-<h1 id="ram-disk-size-kb">Ram Disk Size Kb<a class="headerlink" href="#ram-disk-size-kb" title="Permanent link"></a></h1>
-<p><em>RamDiskSizeKb</em> is a global setting in <a href="../SandboxieIni/">Sandboxie Ini</a> (introduced in v1.11.0 / 5.66.0) that specifies the size of the RAM disk to be created for use by sandboxes that have the <a href="../UseRamDisk/">UseRamDisk</a> setting enabled. This setting is defined in kilobytes and determines the maximum amount of system RAM that can be allocated for the RAM disk.</p>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h2>
-<p>To set the <code>RamDiskSizeKb</code>, add the following line to the Sandboxie configuration file under the <code>[GlobalSettings]</code> section:</p>
+<h1 id="kb">内存虚拟磁盘大小 (KB)<a class="headerlink" href="#kb" title="Permanent link"></a></h1>
+<p><em>RamDiskSizeKb</em> 是 <a href="../SandboxieIni/">Sandboxie.ini</a> 中的一个全局设置项（在 v1.11.0 / 5.66.0 版本中引入），用于指定为启用了 <a href="../UseRamDisk/">UseRamDisk</a> 设置的沙盒创建的内存虚拟磁盘的大小。该设置以千字节（KB）为单位定义，并决定了可为内存虚拟磁盘分配的最大系统内存量。</p>
+<h2 id="_1">用法<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
+<p>要设置 <code>RamDiskSizeKb</code>，请在 Sandboxie 配置文件的 <code>[GlobalSettings]</code> 部分下添加以下行：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[GlobalSettings]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># Example for a 2 GB RAM disk</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># 2 GB 内存虚拟磁盘示例</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="na">RamDiskSizeKb</span><span class="o">=</span><span class="s">2097152</span>
 </span></code></pre></div>
-<h2 id="sandman-gui">SandMan GUI<a class="headerlink" href="#sandman-gui" title="Permanent link"></a></h2>
-<p>The RAM disk size setting can be set through:</p>
+<h2 id="sandman">SandMan 界面<a class="headerlink" href="#sandman" title="Permanent link"></a></h2>
+<p>可以通过以下步骤设置内存虚拟磁盘大小：</p>
 <ol>
-<li>Open the <code>Global Settings</code> window in the SandMan interface.</li>
-<li>Navigate to <code>Add-Ons Manager</code> &gt; <code>Add-On Configuration</code> tab.</li>
+<li>在 SandMan 界面中打开 <code>全局设置</code> 窗口。</li>
+<li>导航到 <code>附加组件管理器</code> &gt; <code>附加组件配置</code> 选项卡。</li>
 <li>
-<p>Enable the <code>Enable Ram Disk creation</code> setting and set a value for the RAM disk size.</p>
-<p><img alt="Ram Disk Creation" src="../../../Media/UseRamDisk3.png" /></p>
+<p>启用 <code>启用内存虚拟磁盘创建</code> 设置，并为内存虚拟磁盘大小设置一个值。</p>
+<p><img alt="Ram Disk Creation" src="../../Media/UseRamDisk3.png" /></p>
 </li>
 </ol>
-<h2 id="important-notes">Important Notes<a class="headerlink" href="#important-notes" title="Permanent link"></a></h2>
+<h2 id="_2">重要说明<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <ul>
 <li>
-<p><strong>Single RAM Disk</strong>: Only one RAM disk will be created and used among all sandboxes that have the <code>UseRamDisk</code> setting enabled. This means that the specified size will be shared across all sandboxes utilizing RAM disks.</p>
+<p><strong>单一内存虚拟磁盘</strong>: 系统只会创建一个内存虚拟磁盘，供所有启用了 <code>UseRamDisk</code> 设置的沙盒共同使用。这意味着指定的内存虚拟磁盘大小将在所有使用内存虚拟磁盘的沙盒之间共享。</p>
 </li>
 <li>
-<p><strong>Memory Management</strong>: Ensure that the specified size does not exceed the available system memory. Allocating too much memory for the RAM disk can lead to system instability or prevent other applications from functioning properly. If the specified size exceeds available RAM, the RAM disk may fail to mount, and an error will be logged.</p>
+<p><strong>内存管理</strong>: 确保指定的大小不超过可用的系统内存。为内存虚拟磁盘分配过多内存可能导致系统不稳定或妨碍其他应用程序正常运行。如果指定的大小超过可用内存，内存虚拟磁盘可能无法挂载，并且会记录错误。</p>
 </li>
 <li>
-<p><strong>Volatile Storage</strong>: The RAM disk is volatile, meaning all data stored in it will be lost when the RAM disk is unmounted or the system is restarted. It is ideal for temporary operations where data persistence is not required.</p>
+<p><strong>易失性存储</strong>: 内存虚拟磁盘是易失性的，意味着当内存虚拟磁盘被卸载或系统重启时，其中存储的所有数据都将丢失。它非常适合不需要数据持久化的临时操作。</p>
 </li>
 <li>
-<p><strong>Configuration Requirement</strong>: Before enabling <code>UseRamDisk</code> in individual sandboxes, ensure that the <code>RamDiskSizeKb</code> setting is configured appropriately in the global settings.</p>
+<p><strong>配置要求</strong>: 在为单个沙盒启用 <code>UseRamDisk</code> 之前，请确保已在全局设置中适当配置 <code>RamDiskSizeKb</code>。</p>
 </li>
 <li>
-<p><strong>Drive Letter Assignment</strong>: The drive letter for the RAM disk can be assigned using the <code>RamDiskLetter</code> setting.</p>
+<p><strong>盘符分配</strong>: 内存虚拟磁盘的盘符可以使用 <code>RamDiskLetter</code> 设置进行分配。</p>
 </li>
 </ul>
-<h2 id="performance-considerations">Performance Considerations<a class="headerlink" href="#performance-considerations" title="Permanent link"></a></h2>
+<h2 id="_3">性能考量<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
 <ul>
 <li>
-<p><strong>Speed</strong>: RAM disks provide significantly faster read and write speeds compared to traditional disk storage, making them suitable for high-performance applications and testing environments.</p>
+<p><strong>速度</strong>: 与传统磁盘存储相比，内存虚拟磁盘提供明显更快的读写速度，使其适用于高性能应用和测试环境。</p>
 </li>
 <li>
-<p><strong>Resource Monitoring</strong>: Monitor system memory usage when using RAM disks to avoid exceeding available memory and causing system performance issues. </p>
+<p><strong>资源监控</strong>: 使用内存虚拟磁盘时，请监控系统内存使用情况，以避免超出可用内存并导致系统性能问题。 </p>
 </li>
 <li>
-<p><strong>Application Suitability</strong>: Consider using RAM disks for applications that require high-speed data access, such as development environments, testing frameworks, or temporary file storage.</p>
+<p><strong>应用适用性</strong>: 考虑为需要高速数据访问的应用程序使用内存虚拟磁盘，例如开发环境、测试框架或临时文件存储。</p>
 </li>
 </ul>
-<h2 id="related-settings">Related Settings<a class="headerlink" href="#related-settings" title="Permanent link"></a></h2>
+<h2 id="_4">相关设置<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
 <ul>
-<li><a href="../UseRamDisk/">UseRamDisk</a> - Enables the use of a RAM disk for individual sandboxes.</li>
-<li><a href="../RamDiskLetter/">RamDiskLetter</a> - Specifies the drive letter for the RAM disk.</li>
+<li><a href="../UseRamDisk/">UseRamDisk</a> - 为单个沙盒启用内存虚拟磁盘。</li>
+<li><a href="../RamDiskLetter/">RamDiskLetter</a> - 指定内存虚拟磁盘的盘符。</li>
 </ul>
-<p>By configuring the <code>RamDiskSizeKb</code> setting, users can optimize their Sandboxie environment for performance while ensuring efficient memory usage across all sandboxes that utilize RAM disks.</p>
+<p>通过配置 <code>RamDiskSizeKb</code> 设置，用户可以优化其 Sandboxie 环境的性能，同时确保所有使用内存虚拟磁盘的沙盒都能高效利用内存。</p>
 
 
 
