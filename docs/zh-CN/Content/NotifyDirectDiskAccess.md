@@ -3,7 +3,7 @@
 _NotifyDirectDiskAccess_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置。通常写作 _NotifyDirectDiskAccess=y_。
 
 用法如下：
-```
+```ini
    .
    .
    .

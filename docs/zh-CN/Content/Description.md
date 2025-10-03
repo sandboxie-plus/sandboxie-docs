@@ -2,7 +2,7 @@
 
 _Description_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置。它可以输入任意文本内容，例如，用于说明该沙箱的用途。
 
-```
+```ini
    .
    .
    .

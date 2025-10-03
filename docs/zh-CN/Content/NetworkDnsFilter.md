@@ -5,7 +5,7 @@
 
 ## 语法
 
-```
+```ini
 NetworkDnsFilter=[进程,]域名[:IP地址]
 ```
 

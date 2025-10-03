@@ -6,7 +6,7 @@ _BlockDrivers_ 是 [Sandboxie Ini](SandboxieIni.md) 配置文件中的一个沙�
 
 用法示例：
 
-```
+```ini
    .
    .
    .

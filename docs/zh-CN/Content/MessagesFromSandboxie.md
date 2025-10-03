@@ -18,7 +18,7 @@
 
 可以通过在注册表中的简单配置，将 _来自沙盘的消息_ 日志记录到文件：
 
-```cmd
+```pwsh
 reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\SbieSvc" /t REG_SZ /v LogFile /d "2;C:\Windows\System32\LogFiles\Sandboxie.log" /f
 ```
 
@@ -28,7 +28,7 @@ reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\SbieSvc" /t REG_SZ /v LogFil
 - `C:\Windows\System32\LogFiles\Sandboxie.log` 是日志的完整路径
 
 日志级别为 2 时的输出示例：
-```
+```log
 2022-09-02 01:04:18 SBIE1308 Program cannot start due to restrictions - powershell.exe [ChromeBox]
 2022-09-02 01:04:18 SBIE1308 Program cannot start due to restrictions - powershell.exe [ChromeBox]
 2022-09-02 01:04:18 SBIE1308 Program cannot start due to restrictions - HelpPane.exe [ChromeBox]
@@ -37,7 +37,7 @@ reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\SbieSvc" /t REG_SZ /v LogFil
 自 1.3.3 / 5.58.3 版本起，可以通过详细模式输出日志，以显示目标进程所用账户的 SID。
 
 日志级别为 3 时的输出示例：
-```
+```log
 2022-09-02 01:04:18 SBIE1308 Program cannot start due to restrictions - powershell.exe [ChromeBox] (DESKTOP-RZ4242\administrator)
 2022-09-02 01:04:18 SBIE1308 Program cannot start due to restrictions - powershell.exe [ChromeBox] (DESKTOP-RZ4242\administrator)
 2022-09-02 01:04:18 SBIE1308 Program cannot start due to restrictions - HelpPane.exe [ChromeBox] (DESKTOP-RZ4242\administrator)
@@ -45,7 +45,7 @@ reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\SbieSvc" /t REG_SZ /v LogFil
 
 另一个注册表键可用于对特定消息进行过滤与分日志：
 
-```cmd
+```pwsh
 reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\SbieSvc" /t REG_SZ /v LogFile /d "2;C:\Windows\System32\LogFiles\Sandboxie.log" /f
 reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\SbieSvc" /t REG_SZ /v MultiLog /d "1308,1307" /f
 ```

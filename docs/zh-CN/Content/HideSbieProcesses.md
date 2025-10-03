@@ -2,7 +2,7 @@
 
 HideSbieProcesses 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置。
 
-```
+```ini
    .
    .
    .

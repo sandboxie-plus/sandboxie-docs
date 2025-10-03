@@ -3,7 +3,7 @@
 _NoRenameWinClass_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置。该选项用于指定不应被沙盘重命名的窗口类名。
 
 用法示例：
-```
+```ini
    .
    .
    .

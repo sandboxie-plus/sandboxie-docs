@@ -41,13 +41,13 @@ RecoverFolder=C:\Users\joe\Documents\Song_Lyrics
 
 例如：
 
-```
+```ini
     [GlobalSettings]
     Ovr.SystemRoot=X:\WIN
     Ovr.Tmpl.Firefox=C:\Firefox\Profiles\
 ```
 
-```
+```ini
     [DefaultBox]
     Ovr.Personal=Z:\MY_FILES
     RecoverFolder=%Personal%
@@ -62,12 +62,12 @@ RecoverFolder=C:\Users\joe\Documents\Song_Lyrics
 
 例如：
 
-```
+```ini
     [GlobalSettings]
     Reg.Desktop=%USERPROFILE%\Desktop
 ```
 
-```
+```ini
     [DefaultBox]
     Reg.Cookies=%USERPROFILE%\Cookies
 ```

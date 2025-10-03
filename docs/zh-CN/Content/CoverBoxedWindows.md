@@ -2,7 +2,7 @@
 
 _CoverBoxedWindows_ 是 [Sandboxie Ini](SandboxieIni.md) 中自 v1.13.6 / 5.68.6 版本起提供的沙箱配置选项。启用后，它会阻止主机进程对沙箱内的进程进行屏幕截图。
 
-```
+```ini
    .
    .
    .

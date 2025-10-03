@@ -1,7 +1,7 @@
 #  开放受保护的存储
 
 _OpenProtectedStorage_ 是 [Sandboxie Ini](SandboxieIni.md) 文件中的一个沙箱设置。通常被指定为 _OpenProtectedStorage=y_（参见 [是或否设置](YesOrNoSettings.md)），表示沙盘不应隔离沙箱内的 [受保护存储](ProtectedStorage.md)。例如：
-```
+```ini
    .
    .
    .

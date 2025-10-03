@@ -27,7 +27,7 @@
 
 一个简单的 Sandboxie.ini 文件可能如下所示。
 
-```
+```ini
    # Sample Sandboxie Configuration File
    [GlobalSettings]
    FileRootPath=C:\Sandbox\%USER%\%SANDBOX%

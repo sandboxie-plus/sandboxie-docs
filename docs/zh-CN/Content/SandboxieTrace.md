@@ -32,7 +32,7 @@
 **命名管道跟踪（PipeTrace）**、**进程间通信跟踪（IpcTrace）** 和 **图形用户界面跟踪（GuiTrace）** 设置与本页面的讨论更为相关。**文件跟踪（FileTrace）** 和 **注册表项跟踪（KeyTrace）** 通常无法提供有关沙箱内程序为何出现故障的信息。
 
 因此，通常通过在[沙盘配置文件](SandboxieIni.md)中进行以下更改来启用跟踪：
-```
+```ini
    [GlobalSettings]
    IpcTrace=ad
    PipeTrace=ad

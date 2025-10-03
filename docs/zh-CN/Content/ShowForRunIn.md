@@ -1,7 +1,7 @@
 # 运行时显示在候选沙箱列表中
 
 “ShowForRunIn” 是 [沙箱配置文件（Sandboxie Ini）](SandboxieIni.md) 中的一项沙箱设置。它指定了沙箱软件（Sandboxie）是否会在“在沙箱中运行”的选择提示中显示此沙箱。
-```
+```ini
    .
    .
    .

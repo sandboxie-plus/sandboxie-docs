@@ -3,7 +3,7 @@
 _OpenClsid_ 是 [Sandboxie Ini](SandboxieIni.md) 文件中的一个沙箱设置。它用于指定沙箱程序可以访问的、非沙箱的 COM 类标识符（CLSID）。
 
 示例：
-```
+```ini
    .
    .
    .

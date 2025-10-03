@@ -3,7 +3,7 @@
 _OpenWinClass_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置。它用于指定应允许沙盘程序访问的非沙箱窗口的类名。
 
 示例：
-```
+```ini
    .
    .
    .
@@ -19,7 +19,7 @@ _OpenWinClass_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置。�
 通常情况下，沙盘不会允许沙箱内的程序访问、通信、关闭或销毁沙箱外的窗口。_OpenWinClass_ 设置为这一规则提供了例外，允许访问特定的非沙箱窗口。
 
 **特殊形式**
-```
+```ini
    OpenWinClass=$:program.exe/IgnoreUIPI
 ```
 

@@ -3,7 +3,7 @@
 _NotifyInternetAccessDenied_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置。通常写作 _NotifyInternetAccessDenied=y_，该设置表示当程序被拒绝访问互联网时，沙盘应发出 [SBIE1307](SBIE1307.md) 消息。
 
 用法:
-```
+```ini
    .
    .
    .

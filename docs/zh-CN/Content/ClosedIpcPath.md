@@ -6,7 +6,7 @@ _ClosedIpcPath_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置项
 
 示例：
 
-```
+```ini
    .
    .
    .

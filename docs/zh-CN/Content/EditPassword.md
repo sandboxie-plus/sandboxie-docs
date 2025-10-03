@@ -4,7 +4,7 @@ _EditPassword_ 是 [Sandboxie Ini](SandboxieIni.md) 文件中的全局设置。�
 
 用法：
 
-```
+```ini
    .
    .
    .

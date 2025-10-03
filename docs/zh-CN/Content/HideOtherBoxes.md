@@ -2,7 +2,7 @@
 
 _HideOtherBoxes_ 是自 v0.3 / 5.42 起在 [Sandboxie Ini](SandboxieIni.md) 中可用的一个沙箱设置。默认情况下，沙盘会启用此功能，从而使进程在其他沙箱中被隐藏。禁用此设置的示例如下：
 
-```
+```ini
    .
    .
    .

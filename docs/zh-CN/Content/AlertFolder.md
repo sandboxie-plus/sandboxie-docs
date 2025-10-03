@@ -3,7 +3,7 @@
 _AlertFolder_ 是 [Sandboxie Ini](SandboxieIni.md) 中自 v0.5.0 / 5.45.0 版本起提供的全局设置。它指定的路径模式，如果在沙箱外部启动，会导致 Sandboxie 发出 [SBIE1301](SBIE1301.md) 警告信息。
 
 用法:
-```
+```ini
 .
 .
 .

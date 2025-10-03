@@ -9,7 +9,7 @@
 * 从正在运行的程序（无论是否在沙箱中）调用沙箱工具的入口点。本文将对此进行描述。
 
 本文描述的入口点均由 _SbieDll.dll_ 导出。要访问某个入口点，你应该将此 DLL 动态加载到你的程序中，并获取所需入口点的地址。例如：
-```
+```C
         __declspec(dllexport) void __stdcall InjectDllMain(HINSTANCE hSbieDll, ULONG_PTR UnusedParameter)
 	{
 		//
@@ -36,7 +36,7 @@
 ### 枚举沙箱名称
 
 * 原型：
-```
+```C
         typedef LONG (__stdcall *P_SbieApi_EnumBoxes)(
                 LONG index,                 // 初始化为 -1
                 WCHAR *box_name);            // 指向 WCHAR [34] 的指针
@@ -66,7 +66,7 @@
 
 * 示例代码：
 
-```
+```C
         WCHAR name[34];
         int index = -1;
         while (1) {
@@ -82,7 +82,7 @@
 ### 按沙箱名称查询沙箱路径
 
 * 原型：
-```
+```C
         typedef LONG (__stdcall *P_SbieApi_QueryBoxPath)(
                 const WCHAR *box_name,      // 指向 WCHAR [34] 的指针
                 WCHAR *file_path,
@@ -124,7 +124,7 @@
 ```
 
 * 示例代码：
-```
+```C
         ULONG FileLen = 0;
         ULONG KeyLen  = 0;
         ULONG IpcLen  = 0;
@@ -153,7 +153,7 @@
 ### 按进程 ID 查询沙箱路径
 
 * 原型：
-```
+```C
         typedef LONG (__stdcall *P_SbieApi_QueryProcessPath)(
                 HANDLE process_id,
                 WCHAR *file_path,
@@ -202,7 +202,7 @@
 ### 枚举正在运行的进程
 
 * 原型：
-```
+```C
         typedef LONG (__stdcall *P_SbieApi_EnumProcessEx)(
                 const WCHAR *box_name,      // 指向 WCHAR [34] 的指针
                 BOOLEAN all_sessions,
@@ -239,7 +239,7 @@
 ### 查询进程信息
 
 * 原型：
-```
+```C
         typedef LONG (__stdcall *P_SbieApi_QueryProcess)(
                 HANDLE process_id,
                 WCHAR *box_name,            // 指向 WCHAR [34] 的指针
@@ -278,7 +278,7 @@
 ### 终止单个沙箱进程
 
 * 原型：
-```
+```C
         typedef BOOLEAN (__stdcall *P_SbieDll_KillOne)(
                 HANDLE process_id);
 ```
@@ -309,7 +309,7 @@
 ### 终止所有沙箱进程
 
 *    原型：
-```
+```C
         typedef BOOLEAN (__stdcall *P_SbieDll_KillAll)(
                 ULONG session_id,
                 const WCHAR *box_name);
@@ -343,7 +343,7 @@
 ### 从 Sandboxie.ini 查询配置
 
 *    原型：
-```
+```C
         typedef LONG (__stdcall *P_SbieApi_QueryConf)(
                 const WCHAR *section_name,  // 指向 WCHAR [34] 的指针
                 const WCHAR *setting_name,  // 指向 WCHAR [66] 的指针
@@ -387,7 +387,7 @@
 ### 更新 Sandboxie.ini 中的配置
 
 *    原型：
-```
+```C
         typedef LONG (__stdcall *P_SbieDll_UpdateConf)(
         	WCHAR operation_code,
         	const WCHAR *password,      // 限制为 64 个字符
@@ -436,7 +436,7 @@
 ### 从 Sandboxie.ini 重新加载配置
 
 *    原型：
-```
+```C
         typedef LONG (__stdcall *P_SbieApi_ReloadConf)(
                 ULONG session_id);
 ```
@@ -465,7 +465,7 @@
 ### 挂钩用户模式入口点
 
 *    原型：
-```
+```C
         typedef void *(__stdcall *P_SbieDll_Hook)(
                 const char *name,
                 void *source_func,
@@ -498,7 +498,7 @@
 
 
 *    示例代码：
-```
+```C
        typedef BOOL (__stdcall *P_DeleteFileW)(const WCHAR *Path);
 
        P_DeleteFileW pDeleteFileW = NULL;
@@ -534,11 +534,11 @@
 ### 注册 DLL 加载/卸载回调
 
 *    原型：
-```
+```C
        typedef void (__stdcall *P_DllCallback)(const WCHAR *ImageName, HMODULE ImageBase);
 ```
 
-```
+```C
        typedef BOOLEAN *(__stdcall *P_SbieDll_RegisterDllCallback)(
 		       P_DllCallback pCallback);
 ```
@@ -577,7 +577,7 @@
 ### 获取 Sandboxie 主文件夹
 
 *    原型：
-```
+```C
        typedef LONG *(__stdcall *P_SbieApi_GetHomePath)(
                WCHAR *NtPath,
                ULONG NtPathMaxLen,

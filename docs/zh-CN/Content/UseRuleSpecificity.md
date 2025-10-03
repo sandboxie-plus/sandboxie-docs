@@ -4,7 +4,7 @@ _使用规则特异性_ 是 [沙箱配置文件（Sandboxie Ini）](SandboxieIni
 
 用法：
 
-```
+```ini
    .
    .
    .

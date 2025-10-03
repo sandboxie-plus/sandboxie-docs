@@ -2,7 +2,7 @@
 
 _Enabled_ 是一个在 [Sandboxie Ini](SandboxieIni.md) 中的沙箱设置。它通常以 _Enabled=y_ 的形式指定（参见 [是或否设置](YesOrNoSettings.md)），用于指示该沙箱中可以启动程序。例如：
 
-```
+```ini
    .
    .
    .

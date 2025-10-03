@@ -5,7 +5,7 @@ _ReadFilePath_ 是 [沙箱配置文件（Sandboxie Ini）](SandboxieIni.md) 中�
 可以指定 [Shell 文件夹](ShellFolders.md)；也可以指定 [程序名称前缀](ProgramNamePrefix.md)。
 
 示例：
-```
+```ini
    .
    .
    .

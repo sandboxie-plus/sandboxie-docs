@@ -5,7 +5,7 @@
 可以指定 [程序名称前缀（Program Name Prefix）](ProgramNamePrefix.md)。
 
 示例：
-```
+```ini
    .
    .
    .

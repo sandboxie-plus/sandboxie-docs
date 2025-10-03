@@ -6,7 +6,7 @@ _BlockFakeInput_ 曾是 [Sandboxie Ini](SandboxieIni.md) 文件中的一个沙�
 
 用法示例：
 
-```
+```ini
    .
    .
    .

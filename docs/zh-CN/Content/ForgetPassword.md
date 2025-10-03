@@ -4,7 +4,7 @@ _ForgetPassword_ 是 [Sandboxie Ini](SandboxieIni.md) 中的全局设置。如�
 
 用法如下：
 
-```
+```ini
    .
    .
    .

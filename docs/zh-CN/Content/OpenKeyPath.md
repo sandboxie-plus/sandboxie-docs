@@ -5,7 +5,7 @@ _OpenKeyPath_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置。�
 可以指定 [程序名称前缀](ProgramNamePrefix.md)。
 
 示例：
-```
+```ini
    .
    .
    .

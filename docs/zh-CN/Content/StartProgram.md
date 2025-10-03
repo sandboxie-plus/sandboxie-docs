@@ -2,7 +2,7 @@
 
 _StartProgram_ 是 [Sandboxie 配置文件](SandboxieIni.md)中的一项沙箱设置。它用于自动启动指定的程序。例如：
 
-```
+```ini
    .
    .
    .

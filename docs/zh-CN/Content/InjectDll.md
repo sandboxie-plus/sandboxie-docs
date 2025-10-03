@@ -2,7 +2,7 @@
 
 _InjectDll_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置。它指示沙盘向沙箱内的每个程序“注入”一个或多个 DLL。所谓“注入”，即 DLL 被加载至进程，例如：
 
-```
+```ini
    .
    .
    .

@@ -6,7 +6,7 @@ _ConfigLevel_ 是 [Sandboxie Ini](SandboxieIni.md) 中的沙箱设置，由 [沙
 
 当 ConfigLevel 缺失、不是数字或数字低于 9 时，沙箱控制 会向沙箱添加以下配置：
 
-```
+```ini
    .
    .
    .
