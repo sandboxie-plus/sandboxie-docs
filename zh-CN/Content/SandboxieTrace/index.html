@@ -4550,12 +4550,12 @@
 </ul>
 <p>每个设置都接受一个字符序列，用于指定要记录的内容。字符 <em>a</em> 记录被允许的请求；字符 <em>d</em> 记录被拒绝的请求。对于 <strong>文件跟踪（FileTrace）</strong> 和 <strong>命名管道跟踪（PipeTrace）</strong> 设置，字符 <em>i</em> 记录因访问被沙盘忽略的设备（如 CD - ROM）而被允许的请求。</p>
 <p><strong>命名管道跟踪（PipeTrace）</strong>、<strong>进程间通信跟踪（IpcTrace）</strong> 和 <strong>图形用户界面跟踪（GuiTrace）</strong> 设置与本页面的讨论更为相关。<strong>文件跟踪（FileTrace）</strong> 和 <strong>注册表项跟踪（KeyTrace）</strong> 通常无法提供有关沙箱内程序为何出现故障的信息。</p>
-<p>因此，通常通过在<a href="../SandboxieIni/">沙盘配置文件</a>中进行以下更改来启用跟踪：</p>
-<pre><code class="language-ini">   [GlobalSettings]
-   IpcTrace=ad
-   PipeTrace=ad
-   GuiTrace=ad
-</code></pre>
+<p>因此，通常通过在<a href="../SandboxieIni/">沙盘配置文件</a>中进行以下更改来启用跟踪：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="k">[GlobalSettings]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">IpcTrace</span><span class="o">=</span><span class="s">ad</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">PipeTrace</span><span class="o">=</span><span class="s">ad</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="na">GuiTrace</span><span class="o">=</span><span class="s">ad</span>
+</span></code></pre></div></p>
 <p>然后使用沙盘重新加载配置：
 * 在沙盘经典版中，选择“配置”菜单 -&gt; “重新加载配置”
 * 在沙盘增强版中，选择“选项”菜单 -&gt; “重新加载 ini 文件”</p>
@@ -4564,22 +4564,22 @@
 <h3 id="netfwtraceipctrace-pipetrace">查看 <strong>防火墙跟踪（NetFwTrace）</strong>、<strong>进程间通信跟踪（IpcTrace）</strong> 和 <strong>命名管道跟踪（PipeTrace）</strong> 的跟踪信息<a class="headerlink" href="#netfwtraceipctrace-pipetrace" title="Permanent link"></a></h3>
 <p>自 0.9.0 / 5.51.0 版本起，添加了一个新选项 <code>防火墙跟踪（NetFwTrace）=*</code> 来跟踪防火墙组件的操作。请注意，驱动程序仅将日志记录到内核调试输出，你可以使用 <a href="https://docs.microsoft.com/en-us/sysinternals/downloads/debugview">DbgView.exe</a> 查看。</p>
 <p>在 Windows Vista 及更高版本中，系统调试器日志的输出默认是禁用的。<a href="https://web.archive.org/web/20080731211018/http://blogs.msdn.com:80/doronh/archive/2006/11/14/where-did-my-debug-output-go-in-vista.aspx">这篇博客文章</a> 和 <a href="https://web.archive.org/web/20230324011501/https://stackoverflow.com/questions/65015739/outputdebugstring-not-showing-message-in-debugview-windows-10-x64">这篇帖子</a> 解释了如何启用它。</p>
-<p>以下跟踪信息将以以下格式显示输出（假设启用了 <strong>进程间通信跟踪（IpcTrace）</strong> 和 <strong>命名管道跟踪（PipeTrace）</strong>）：</p>
-<pre><code>...
-(001404) SBIE (FA) 00120116.01.00000000 \Device\NamedPipe\ShimViewer
-...
-(001404) SBIE (IA) 001F0001 \ThemeApiPort
-...
-(001404) SBIE (PD) 00000040 001136
-(001404) SBIE (PA) 00020400 001136
-...
-(001404) SBIE (FA) 00000001.0F.FFFFFFFF \Device\Afd\Endpoint
-(001404) SBIE (FA) 00000001.0F.FFFFFFFF \Device\Afd
-...
-(001404) SBIE (ID) 001F0001 \RPC Control\protected_storage
-...
-</code></pre>
-<p>格式如下：</p>
+<p>以下跟踪信息将以以下格式显示输出（假设启用了 <strong>进程间通信跟踪（IpcTrace）</strong> 和 <strong>命名管道跟踪（PipeTrace）</strong>）：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">...</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">(001404) SBIE (FA) 00120116.01.00000000 \Device\NamedPipe\ShimViewer</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="na">...</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="na">(001404) SBIE (IA) 001F0001 \ThemeApiPort</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="na">...</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="na">(001404) SBIE (PD) 00000040 001136</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="na">(001404) SBIE (PA) 00020400 001136</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="na">...</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="na">(001404) SBIE (FA) 00000001.0F.FFFFFFFF \Device\Afd\Endpoint</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="na">(001404) SBIE (FA) 00000001.0F.FFFFFFFF \Device\Afd</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="na">...</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="na">(001404) SBIE (ID) 001F0001 \RPC Control\protected_storage</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="na">...</span>
+</span></code></pre></div>
+格式如下：</p>
 <p><code>(进程 ID) 沙盘（类别访问标识）（访问请求）（资源）</code></p>
 <ul>
 <li><code>进程 ID</code> 标识尝试进行访问的进程；</li>
@@ -4596,18 +4596,18 @@
 <p><code>(001404) SBIE (FA) 00000001.0F.FFFFFFFF \Device\Afd\Endpoint</code></p>
 <p>在此示例中，对资源 <em>Endpoint</em> 的访问被允许。资源类别为 F，因此这是一个命名管道或邮件槽资源。该访问默认被允许，因为 <em>\Device\Afd</em> 前缀命名了 Internet 访问所需的资源。</p>
 <h3 id="guitrace">查看 <strong>图形用户界面跟踪（GuiTrace）</strong> 条目<a class="headerlink" href="#guitrace" title="Permanent link"></a></h3>
-<p>当启用 <strong>图形用户界面跟踪（GuiTrace）</strong> 时，跟踪还会生成如下条目：</p>
-<pre><code>...
-(001404) SBIE (GA) WinHook 0002 on tid=001484 pid=001960
-(001404) SBIE (GA) AccHook on tid=000000 pid=000000
-...
-(001404) SBIE (GD) PostMessage 01224 (04C8) to hwnd=00050060 pid=001324 DDEMLMom
-(001404) SBIE (GD) SendMessage 49376 (C0E0) to hwnd=00010014 pid=000804 #32769
-...
-(001404) SBIE (GD) SendInput
-(001404) SBIE (GA) SendInput
-</code></pre>
-<p>这些条目有几种格式。(GA) 或 (GD) 之后的第一个单词标识条目的类型。</p>
+<p>当启用 <strong>图形用户界面跟踪（GuiTrace）</strong> 时，跟踪还会生成如下条目：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">...</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">(001404) SBIE (GA) WinHook 0002 on tid</span><span class="o">=</span><span class="s">001484 pid=001960</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="na">(001404) SBIE (GA) AccHook on tid</span><span class="o">=</span><span class="s">000000 pid=000000</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="na">...</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="na">(001404) SBIE (GD) PostMessage 01224 (04C8) to hwnd</span><span class="o">=</span><span class="s">00050060 pid=001324 DDEMLMom</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="na">(001404) SBIE (GD) SendMessage 49376 (C0E0) to hwnd</span><span class="o">=</span><span class="s">00010014 pid=000804</span><span class="w"> </span><span class="c1">#32769</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="na">...</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="na">(001404) SBIE (GD) SendInput</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="na">(001404) SBIE (GA) SendInput</span>
+</span></code></pre></div>
+这些条目有几种格式。(GA) 或 (GD) 之后的第一个单词标识条目的类型。</p>
 <p>当第一个单词是 <em>窗口钩子（WinHook）</em> 或 <em>辅助功能钩子（AccHook）</em> 时，该条目表示钩子的安装。对于 (GA) 条目，钩子安装被允许；对于 (GD) 条目，钩子安装被拒绝。<em>窗口钩子（WinHook）</em> 是标准的 Windows 钩子，后面跟着钩子的类型（请参阅 <a href="https://www.google.com/search?hl=en&amp;q=setwindowshookex+msdn">MSDN 中的 SetWindowsHookEx</a>）。<em>辅助功能钩子（AccHook）</em> 是辅助功能钩子（请参阅 <a href="https://www.google.com/search?hl=en&amp;q=setwineventhook+msdn">MSDN 中的 SetWinEventHook</a>）。</p>
 <p>这两种条目都标识了钩子要安装到的线程号（线程 ID）和进程号（进程 ID）。</p>
 <p>当第一个单词是 <em>投递消息（PostMessage）</em>、<em>发送消息（SendMessage）</em> 或 <em>线程消息（ThrdMessage）</em> 时，该条目显示被拒绝的窗口通信。接下来的两个数字表示窗口消息编号，分别为十进制和十六进制。该条目还表示目标窗口的窗口句柄（窗口句柄）、拥有此窗口的进程号（进程 ID），最后是窗口的内部窗口类名。</p>

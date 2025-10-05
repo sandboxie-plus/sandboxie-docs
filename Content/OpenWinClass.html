@@ -4530,29 +4530,29 @@
 
 <h1 id="open-win-class">Open Win Class<a class="headerlink" href="#open-win-class" title="Permanent link"></a></h1>
 <p><em>OpenWinClass</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It specifies the class names for unsandboxed windows that should be accessible by a sandboxed program.</p>
-<p>Examples:</p>
-<pre><code>   .
-   .
-   .
-   [DefaultBox]
-   OpenWinClass=ConsoleWindowClass
-   OpenWinClass=$:program.exe/IgnoreUIPI
-   OpenWinClass=#
-   OpenWinClass=*
-</code></pre>
+<p>Examples:
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">OpenWinClass</span><span class="o">=</span><span class="s">ConsoleWindowClass</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">   </span><span class="na">OpenWinClass</span><span class="o">=</span><span class="s">$:program.exe/IgnoreUIPI</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">   </span><span class="na">OpenWinClass</span><span class="o">=</span><span class="c1">#</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">   </span><span class="na">OpenWinClass</span><span class="o">=</span><span class="s">*</span>
+</span></code></pre></div></p>
 <p>The first example makes console windows created by the <em>cmd.exe</em> process accessible to sandboxed programs.</p>
 <p>Normally, Sandboxie will not permit a sandboxed program to access, communicate, close or destroy a window outside the sandbox. The <em>OpenWinClass</em> settings makes an exception to this rule, and allows specific unsandboxed windows to be accessible.</p>
-<p><strong>Special Forms</strong></p>
-<pre><code>   OpenWinClass=$:program.exe/IgnoreUIPI
-</code></pre>
-<p>This permits a program running inside the sandbox to use the PostThreadMessage API to send a message directly to a thread in a target process running outside the sandbox. This form of the <em>OpenWinClass</em> setting does not support wildcards, so the process name of the target process must match the name specified in the setting.</p>
-<pre><code>   OpenWinClass=#
-</code></pre>
+<p><strong>Special Forms</strong>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">   </span><span class="na">OpenWinClass</span><span class="o">=</span><span class="s">$:program.exe/IgnoreUIPI</span>
+</span></code></pre></div></p>
+<p>This permits a program running inside the sandbox to use the PostThreadMessage API to send a message directly to a thread in a target process running outside the sandbox. This form of the <em>OpenWinClass</em> setting does not support wildcards, so the process name of the target process must match the name specified in the setting.
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">   </span><span class="na">OpenWinClass</span><span class="o">=</span><span class="c1">#</span>
+</span></code></pre></div></p>
 <p>This setting tells Sandboxie to not alter window class names created by sandboxed programs. Normally, Sandboxie translates class names such as <em>IEFrame</em> to <em>Sandbox:DefaultBox::IEFrame</em> in order to better separate windows that belong to sandboxed programs from the rest of the windows in the system.</p>
 <p>However, in some cases, a program outside the sandbox might expect window class names to have a specific name, and therefore might not recognize the windows created by a sandboxed program. Specifying OpenWinClass=# resolves this problem, at the cost of a lesser degree of separation.</p>
-<p>Note that OpenWinClass=# does not allow communication with any windows outside the sandbox, and may interfere with some drag-and-drop operations.</p>
-<pre><code>   OpenWinClass=*
-</code></pre>
+<p>Note that OpenWinClass=# does not allow communication with any windows outside the sandbox, and may interfere with some drag-and-drop operations.
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="w">   </span><span class="na">OpenWinClass</span><span class="o">=</span><span class="s">*</span>
+</span></code></pre></div></p>
 <p>This setting tells Sandboxie to not translate window class names as described above, and also makes all windows in the system accessible to sandboxed programs, and goes a step further to disable a few other windowing-related Sandboxie functions. This may also cause the Sandboxie indicator [#] to not appear in window titles.</p>
 <p>Note that OpenWinClass=* allows full communication with all windows outside the sandbox, but may interfere with some drag-and-drop operations.</p>
 <p><strong>Identifying Window Class Names</strong></p>

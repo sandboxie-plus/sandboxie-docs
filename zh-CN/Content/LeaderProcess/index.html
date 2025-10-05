@@ -4530,12 +4530,12 @@
 
 <h1 id="_1">引导进程<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
 <p><em>引导进程</em> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 配置文件中的一个沙箱设置。它用于指定在沙箱中被视为主要进程的程序名称。当这些程序退出时，沙箱中其他所有程序也会随之终止。例如：</p>
-<pre><code class="language-ini">   .
-   .
-   .
-   [DefaultBox]
-   LeaderProcess=iexplore.exe
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">LeaderProcess</span><span class="o">=</span><span class="s">iexplore.exe</span>
+</span></code></pre></div>
 <p><em>iexplore.exe</em> 是 Internet Explorer。</p>
 <p>相关的 <a href="../SandboxieControl/">沙盘控制</a> 设置项：<a href="../ProgramStopSettings/#leader-programs">沙箱设置 -&gt; 程序控制 -&gt; 停止行为 -&gt; 引导进程</a></p>
 <p>另请参见：<a href="../ProgramSettings/#leader">程序设置</a>。</p>

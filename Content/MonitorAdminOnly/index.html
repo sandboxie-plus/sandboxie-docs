@@ -4532,12 +4532,12 @@
 <p><em>MonitorAdminOnly</em> is a global setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. If specified, <a href="../SandboxieControl/">Sandboxie Control</a> running under user accounts which are not members of the Administrators group will not be able to invoke the <a href="../ResourceAccessMonitor/">Resource Access Monitor</a> facility.</p>
 <p>The rationale is that Resource Access Monitor consumes 64K bytes of system memory for each user session in which it is invoked, so network administrators may wish to prevent their users from invoking that facility.</p>
 <p>Usage:</p>
-<pre><code>   .
-   .
-   .
-   [GlobalSettings]
-   MonitorAdminOnly=y
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[GlobalSettings]</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">MonitorAdminOnly</span><span class="o">=</span><span class="s">y</span>
+</span></code></pre></div>
 <p>This setting is designed for use by network administrators.</p>
 
 

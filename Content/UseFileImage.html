@@ -4546,10 +4546,10 @@
 </li>
 </ul>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h2>
-<pre><code class="language-ini">[DefaultBox]
-
-UseFileImage=y
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">UseFileImage</span><span class="o">=</span><span class="s">y</span>
+</span></code></pre></div>
 <p>When this setting is enabled, the Sandboxie service creates a virtual disk image file with extension <code>.box</code>. The image file path is determined by the service<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> which appends <code>.box</code> to the sandbox's file root<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> path. The sandbox file system is then mounted from this image using the ImDisk virtual disk driver through the mount manager<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>. All file I/O operations within the sandbox are redirected to the mounted image rather than creating files directly on the host file system.</p>
 <!--The image file supports optional encryption using AES, Serpent, or Twofish algorithms with XTS mode.-->
 <p>Password protection and header backup/restore operations are available through the SandMan GUI or the ImBox command-line utility.</p>
@@ -4658,12 +4658,12 @@ UseFileImage=y
 <ul>
 <li>Using <code>ImBox.exe</code> for advanced image management:</li>
 </ul>
-<p>```cmd
-  # Backup header
-  ImBox.exe type=image image="C:\Sandbox\DefaultBox.box" backup="C:\Sandbox\backup.hdr"</p>
-<p># Restore header<br />
-  ImBox.exe type=image image="C:\Sandbox\DefaultBox.box" restore="C:\Sandbox\backup.hdr"
-  ```</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Backup header</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">ImBox.exe type=image image</span><span class="o">=</span><span class="s">&quot;C:\Sandbox\DefaultBox.box&quot;</span><span class="w"> </span><span class="na">backup</span><span class="o">=</span><span class="s">&quot;C:\Sandbox\backup.hdr&quot;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Restore header  </span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="na">ImBox.exe type=image image</span><span class="o">=</span><span class="s">&quot;C:\Sandbox\DefaultBox.box&quot;</span><span class="w"> </span><span class="na">restore</span><span class="o">=</span><span class="s">&quot;C:\Sandbox\backup.hdr&quot;</span>
+</span></code></pre></div>
 <ul>
 <li>Using <a href="StartCommandLine.html"><code>Start.exe</code></a> for image <a href="StartCommandLine.html#mount-box-images">mounting</a>/<a href="StartCommandLine.html#unmount-box-images">unmounting</a> operations.</li>
 </ul>

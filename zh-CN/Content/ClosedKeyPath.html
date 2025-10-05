@@ -4532,12 +4532,12 @@
 <p><em>ClosedKeyPath</em> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 中的一个沙箱设置。它指定了路径模式，对于这些路径，Sandboxie 会拒绝沙箱程序的 <em>所有</em> 访问权限，包括 <em>读取</em> 权限。此设置实质上阻止了沙箱程序访问注册表键。</p>
 <p>可以指定 <a href="ProgramNamePrefix.html">程序名前缀</a>。</p>
 <p>示例：</p>
-<pre><code class="language-ini">   .
-   .
-   .
-   [DefaultBox]
-   ClosedKeyPath=!msimn.exe,HKEY_CURRENT_USER\Software\Microsoft\Internet Account Manager
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">ClosedKeyPath</span><span class="o">=</span><span class="s">!msimn.exe,HKEY_CURRENT_USER\Software\Microsoft\Internet Account Manager</span>
+</span></code></pre></div>
 <p>此示例阻止除 Outlook Express（msimn.exe）之外的任何程序访问包含活动用户帐户已配置电子邮件账户的注册表键。</p>
 <p><em>ClosedKeyPath</em> 指定的值可以包含通配符，尽管对于注册表键而言，很少需要使用通配符。有关更多信息，包括使用通配符的示例，请参见 <a href="OpenFilePath.html">开放文件路径</a>。（<em>OpenFilePath</em> 处理文件，而非注册表键，但使用通配符的原理相同。）</p>
 <p><strong>注意：</strong> <em>ClosedKeyPath</em> 仅阻止对沙箱外尚未被复制（或创建）到沙箱中的注册表键的访问。</p>

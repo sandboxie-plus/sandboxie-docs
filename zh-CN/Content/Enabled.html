@@ -4530,13 +4530,13 @@
 
 <h1 id="_1">启用<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
 <p><em>Enabled</em> 是一个在 <a href="SandboxieIni.html">Sandboxie Ini</a> 中的沙箱设置。它通常以 <em>Enabled=y</em> 的形式指定（参见 <a href="YesOrNoSettings.html">是或否设置</a>），用于指示该沙箱中可以启动程序。例如：</p>
-<pre><code class="language-ini">   .
-   .
-   .
-   [InstallBox]
-   Enabled=y
-   Enabled=y,Administrators
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[InstallBox]</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">Enabled</span><span class="o">=</span><span class="s">y</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">   </span><span class="na">Enabled</span><span class="o">=</span><span class="s">y,Administrators</span>
+</span></code></pre></div>
 <p>第一个例子是 <em>Enabled</em> 的常见形式，是配置文件中任何沙箱部分的必需项。它表示沙箱 <em>InstallBox</em> 可以用于沙箱操作。</p>
 <p>第二个例子同样定义了沙箱 <em>InstallBox</em>，但同时将其使用权限限制为 Administrators 用户帐户组。可以指定本地 Windows 系统所识别的任何用户帐户或用户组。如果用户帐户列表一行写不下，可以指定多行 <em>Enabled</em>。</p>
 <p>被限制为特定用户的沙箱对于其他所有用户帐户来说被视为 <em>隐藏</em>。这些其他用户帐户不会在 <a href="SandboxieControl.html">沙盘控制</a> 中看到该沙箱，并且任何 <a href="ForceProcess.html">Force Process</a> 或 <a href="ForceFolder.html">Force Folder</a> 设置对于这些用户帐户都不会生效。</p>

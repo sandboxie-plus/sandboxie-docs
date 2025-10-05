@@ -4530,13 +4530,13 @@
 
 <h1 id="enabled">Enabled<a class="headerlink" href="#enabled" title="Permanent link"></a></h1>
 <p><em>Enabled</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It is typically specified as <em>Enabled=y</em> (see <a href="YesOrNoSettings.html">Yes Or No Settings</a>), and indicates that programs can be launched in that sandbox. For example:</p>
-<pre><code>   .
-   .
-   .
-   [InstallBox]
-   Enabled=y
-   Enabled=y,Administrators
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[InstallBox]</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">Enabled</span><span class="o">=</span><span class="s">y</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">   </span><span class="na">Enabled</span><span class="o">=</span><span class="s">y,Administrators</span>
+</span></code></pre></div>
 <p>The first example is the typical form of <em>Enabled</em>, a required part of any sandbox section in the configuration file. It indicates that the sandbox <em>InstallBox</em> can be used for sandboxing.</p>
 <p>The second example similarly defines the sandbox <em>InstallBox</em> while also restricting its use to the Administrators user accounts group. Any user account or group that is recognized by the local Windows system can be specified. Multiple <em>Enabled</em> lines may be specified if the list of user accounts does not fit in one line.</p>
 <p>A sandbox that has been restricted to specific users is considered <em>hidden</em> to all other user accounts. Those other user accounts will not see the sandbox listed in <a href="SandboxieControl.html">Sandboxie Control</a>, and any <a href="ForceProcess.html">Force Process</a> or <a href="ForceFolder.html">Force Folder</a> settings will not apply to those user accounts.</p>

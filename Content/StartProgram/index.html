@@ -4530,12 +4530,12 @@
 
 <h1 id="start-program">Start Program<a class="headerlink" href="#start-program" title="Permanent link"></a></h1>
 <p><em>StartProgram</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. It provides an automatic start for the specified program. For example:</p>
-<pre><code>   .
-   .
-   .
-   [DefaultBox]
-   StartProgram=%ProgramFiles%\Google\Chrome\Application\chrome.exe
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">StartProgram</span><span class="o">=</span><span class="s">%ProgramFiles%\Google\Chrome\Application\chrome.exe</span>
+</span></code></pre></div>
 <p>The example specifies that Google Chrome (chrome.exe) will be forced to run sandboxed in the sandbox <em>DefaultBox</em>.</p>
 <p><strong>Technical Details</strong></p>
 <p><em>StartProgram</em> is processed by <a href="../ServicePrograms/#remote-procedure-call-rpc">SandboxieRpcSs</a>, which runs just once in every sandbox. Like the <a href="../AutoExec/">AutoExec</a> setting, it is processed when the first program begins to run in a sandbox. Note that <em>StartProgram</em> launches the specified application in hidden mode, if supported.</p>

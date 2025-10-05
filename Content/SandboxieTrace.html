@@ -4550,12 +4550,12 @@
 </ul>
 <p>Each setting accepts a sequence of characters which specifies what to log. The character <em>a</em> logs requests which were allowed; the character <em>d</em> logs requests which were denied. For the <strong>FileTrace</strong> and <strong>PipeTrace</strong> settings, the character <em>i</em> logs requests which were allowed because they access a device which is ignored by Sandboxie, such as a CD-ROM.</p>
 <p>The settings <strong>PipeTrace</strong>, <strong>IpcTrace</strong> and <strong>GuiTrace</strong> are more relevant to the discussion in this page. <strong>FileTrace</strong> and <strong>KeyTrace</strong> will usually not be able to provide insight as to why a sandboxed program is malfunctioning.</p>
-<p>Thus, typically you enable the trace by making this change in <a href="SandboxieIni.html">Sandboxie Ini</a>:</p>
-<pre><code>   [GlobalSettings]
-   IpcTrace=ad
-   PipeTrace=ad
-   GuiTrace=ad
-</code></pre>
+<p>Thus, typically you enable the trace by making this change in <a href="SandboxieIni.html">Sandboxie Ini</a>:
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="k">[GlobalSettings]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">IpcTrace</span><span class="o">=</span><span class="s">ad</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">PipeTrace</span><span class="o">=</span><span class="s">ad</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="na">GuiTrace</span><span class="o">=</span><span class="s">ad</span>
+</span></code></pre></div></p>
 <p>Then use Sandboxie to reload the configuration:
 * <strong>Configure</strong> menu -&gt; <strong>Reload Configuration</strong> on Sandboxie Classic
 * <strong>Options</strong> menu -&gt; <strong>Reload ini file</strong> on Sandboxie Plus</p>
@@ -4564,22 +4564,22 @@
 <h3 id="review-the-trace-for-netfwtrace-ipctrace-and-pipetrace">Review the Trace for <strong>NetFwTrace</strong>, <strong>IpcTrace</strong> and <strong>PipeTrace</strong><a class="headerlink" href="#review-the-trace-for-netfwtrace-ipctrace-and-pipetrace" title="Permanent link"></a></h3>
 <p>Since version 0.9.0 / 5.51.0, a new option <code>NetFwTrace=*</code> was added to trace the actions of the firewall components. Please note that the driver only logs to the kernel debug output, which you can view with <a href="https://docs.microsoft.com/en-us/sysinternals/downloads/debugview">DbgView.exe</a>.</p>
 <p>On Windows Vista and later, output from the system debugger log is disabled by default. <a href="https://web.archive.org/web/20080731211018/http://blogs.msdn.com:80/doronh/archive/2006/11/14/where-did-my-debug-output-go-in-vista.aspx">This blog post</a> and <a href="https://web.archive.org/web/20230324011501/https://stackoverflow.com/questions/65015739/outputdebugstring-not-showing-message-in-debugview-windows-10-x64">this thread</a> explain how to enable it.</p>
-<p>The following trace will display output in the following format. (Assuming <strong>IpcTrace</strong>, and <strong>PipeTrace</strong> enabled.)</p>
-<pre><code>...
-(001404) SBIE (FA) 00120116.01.00000000 \Device\NamedPipe\ShimViewer
-...
-(001404) SBIE (IA) 001F0001 \ThemeApiPort
-...
-(001404) SBIE (PD) 00000040 001136
-(001404) SBIE (PA) 00020400 001136
-...
-(001404) SBIE (FA) 00000001.0F.FFFFFFFF \Device\Afd\Endpoint
-(001404) SBIE (FA) 00000001.0F.FFFFFFFF \Device\Afd
-...
-(001404) SBIE (ID) 001F0001 \RPC Control\protected_storage
-...
-</code></pre>
-<p>The format is this:</p>
+<p>The following trace will display output in the following format. (Assuming <strong>IpcTrace</strong>, and <strong>PipeTrace</strong> enabled.)
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">...</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">(001404) SBIE (FA) 00120116.01.00000000 \Device\NamedPipe\ShimViewer</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="na">...</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="na">(001404) SBIE (IA) 001F0001 \ThemeApiPort</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="na">...</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="na">(001404) SBIE (PD) 00000040 001136</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="na">(001404) SBIE (PA) 00020400 001136</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="na">...</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="na">(001404) SBIE (FA) 00000001.0F.FFFFFFFF \Device\Afd\Endpoint</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="na">(001404) SBIE (FA) 00000001.0F.FFFFFFFF \Device\Afd</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="na">...</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="na">(001404) SBIE (ID) 001F0001 \RPC Control\protected_storage</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="na">...</span>
+</span></code></pre></div>
+The format is this:</p>
 <p><code>(pid) SBIE (ca) (access) (resource)</code></p>
 <ul>
 <li><code>pid</code> identifies the process attempting the access;</li>
@@ -4596,18 +4596,18 @@
 <p><code>(001404) SBIE (FA) 00000001.0F.FFFFFFFF \Device\Afd\Endpoint</code></p>
 <p>Here the access is allowed to the resource <em>Endpoint</em>. The resource class is F, so this is a named pipe or a mail slot resource. The access is allowed by default, because the <em>\Device\Afd</em> prefix names resources needed for Internet access.</p>
 <h3 id="review-guitrace-entries">Review <strong>GuiTrace</strong> Entries<a class="headerlink" href="#review-guitrace-entries" title="Permanent link"></a></h3>
-<p>When <strong>GuiTrace</strong> is enabled, the trace also produces entries like the following:</p>
-<pre><code>...
-(001404) SBIE (GA) WinHook 0002 on tid=001484 pid=001960
-(001404) SBIE (GA) AccHook on tid=000000 pid=000000
-...
-(001404) SBIE (GD) PostMessage 01224 (04C8) to hwnd=00050060 pid=001324 DDEMLMom
-(001404) SBIE (GD) SendMessage 49376 (C0E0) to hwnd=00010014 pid=000804 #32769
-...
-(001404) SBIE (GD) SendInput
-(001404) SBIE (GA) SendInput
-</code></pre>
-<p>These entries have a few formats. The first word after (GA) or (GD) identifies the type of the entry.</p>
+<p>When <strong>GuiTrace</strong> is enabled, the trace also produces entries like the following:
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">...</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">(001404) SBIE (GA) WinHook 0002 on tid</span><span class="o">=</span><span class="s">001484 pid=001960</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="na">(001404) SBIE (GA) AccHook on tid</span><span class="o">=</span><span class="s">000000 pid=000000</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="na">...</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="na">(001404) SBIE (GD) PostMessage 01224 (04C8) to hwnd</span><span class="o">=</span><span class="s">00050060 pid=001324 DDEMLMom</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="na">(001404) SBIE (GD) SendMessage 49376 (C0E0) to hwnd</span><span class="o">=</span><span class="s">00010014 pid=000804</span><span class="w"> </span><span class="c1">#32769</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="na">...</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="na">(001404) SBIE (GD) SendInput</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="na">(001404) SBIE (GA) SendInput</span>
+</span></code></pre></div>
+These entries have a few formats. The first word after (GA) or (GD) identifies the type of the entry.</p>
 <p>When the first word is <em>WinHook</em> or <em>AccHook</em>, the entry indicates installation of a hook. Its installation is permitted for (GA) entries, and denied for (GD) entries. <em>WinHook</em> is a standard Windows hook, followed by the type of the hook (see <a href="https://www.google.com/search?hl=en&amp;q=setwindowshookex+msdn">SetWidowsHookEx in MSDN</a>). <em>AccHook</em> is an accessibility hook (see <a href="https://www.google.com/search?hl=en&amp;q=setwineventhook+msdn">SetWinEventHook in MSDN</a>).</p>
 <p>Both entries identify the thread number (tid) process number (pid) into which the hook was to be installed.</p>
 <p>When the first word is <em>PostMessage</em>, <em>SendMessage</em> or <em>ThrdMessage</em>, the entry shows denied window communication. The following two numbers indicate the window message number, in decimal and hexadecimal. The entry also indicates the window handle (hwnd) of the target window, the process number (pid) which owns this window, and finally, the internal window class name for the window.</p>

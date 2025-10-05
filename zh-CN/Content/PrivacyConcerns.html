@@ -4569,20 +4569,20 @@
 <hr />
 <p><strong>MUI 缓存</strong></p>
 <p>Windows 资源管理器会在注册表中记录通过它启动的程序名称。这包括从开始菜单、桌面、快速启动栏或文件夹中启动程序的情况。即使使用右键“沙盘运行”功能，也会被记录。</p>
-<p>记录信息存储在以下注册表项中：</p>
-<pre><code>HKEY_CURRENT_USER\Software\Microsoft\Windows\ShellNoRoam\MUICache
-</code></pre>
+<p>记录信息存储在以下注册表项中：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">HKEY_CURRENT_USER\Software\Microsoft\Windows\ShellNoRoam\MUICache</span>
+</span></code></pre></div></p>
 <p>如果你是通过 Sandboxie 的界面（如 Sandboxie 内的启动菜单）或通过一个已在沙盘中运行的程序来启动其他程序，那么这些记录就会被保存在沙盘的注册表中。</p>
 <p>你可以使用第三方注册表清理工具来清除这些信息。</p>
 <hr />
 <p><strong>Windows 任务栏</strong></p>
-<p>在 Windows 7 及更高版本中，资源管理器会记录任务栏图标相关信息，包括图标及其启动命令。这些信息存储在用户配置文件夹的以下路径中：</p>
-<pre><code>%Appdata%\Microsoft\Internet Explorer\Quick Launch\User Pinned\ImplicitAppShortcuts
-</code></pre>
-<p>若在 <a href="ApplicationsSettings.html#miscellaneous">Sandbox 设置 &gt; 应用程序 &gt; 杂项</a> 中启用了“允许程序更新 Windows 7 任务栏跳转列表”选项，还会在以下文件夹中生成其他记录：</p>
-<pre><code>%Appdata%\Microsoft\Windows\Recent\CustomDestinations
-%Appdata%\Microsoft\Windows\Recent\AutomaticDestinations
-</code></pre>
+<p>在 Windows 7 及更高版本中，资源管理器会记录任务栏图标相关信息，包括图标及其启动命令。这些信息存储在用户配置文件夹的以下路径中：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">%Appdata%\Microsoft\Internet Explorer\Quick Launch\User Pinned\ImplicitAppShortcuts</span>
+</span></code></pre></div></p>
+<p>若在 <a href="ApplicationsSettings.html#miscellaneous">Sandbox 设置 &gt; 应用程序 &gt; 杂项</a> 中启用了“允许程序更新 Windows 7 任务栏跳转列表”选项，还会在以下文件夹中生成其他记录：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">%Appdata%\Microsoft\Windows\Recent\CustomDestinations</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">%Appdata%\Microsoft\Windows\Recent\AutomaticDestinations</span>
+</span></code></pre></div></p>
 <hr />
 <p><strong>Windows 页面文件</strong></p>
 <p>在正常操作中，Windows 会将部分程序使用的内存内容写入 <a href="https://www.howtogeek.com/126430/what-is-the-windows-page-file">页面文件</a>，以便为其他程序腾出内存。</p>
@@ -4632,9 +4632,9 @@
 * <a href="https://en.wikipedia.org/wiki/Anonymous_web_browsing">匿名上网</a></p>
 <hr />
 <p><strong>Windows DNS 主机缓存</strong></p>
-<p>Sandboxie 并不会阻止 Windows 保存或使用 DNS 缓存（hosts 文件），该文件位于：</p>
-<pre><code>C:\Windows\System32\drivers\etc
-</code></pre>
+<p>Sandboxie 并不会阻止 Windows 保存或使用 DNS 缓存（hosts 文件），该文件位于：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">C</span><span class="o">:</span><span class="s">\Windows\System32\drivers\etc</span>
+</span></code></pre></div></p>
 
 
 

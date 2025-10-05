@@ -4530,12 +4530,12 @@
 
 <h1 id="allow-spooler-print-to-file">Allow Spooler Print To File<a class="headerlink" href="#allow-spooler-print-to-file" title="Permanent link"></a></h1>
 <p><code>AllowSpoolerPrintToFile</code> is a sandbox setting that provides nuanced control over how sandboxed applications interact with the print spooler service.</p>
-<pre><code>   .
-   .
-   .
-   [DefaultBox]
-   AllowSpoolerPrintToFile=n
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">AllowSpoolerPrintToFile</span><span class="o">=</span><span class="s">n</span>
+</span></code></pre></div>
 <p>This setting can be used to prevent sandboxed applications from printing to file. By default, Sandboxie blocks all <code>CreateFile</code> calls that ask for write access for a sandboxed <code>spoolsv.exe</code>.</p>
 
 

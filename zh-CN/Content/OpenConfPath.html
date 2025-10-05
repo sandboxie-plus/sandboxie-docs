@@ -4532,14 +4532,14 @@
 <p><em>OpenConfPath</em> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 配置文件中的一项沙箱设置，自 v1.0.0 / 5.55.0 版本起可用。它用于指定一个路径模式，对于该路径下的注册表项，沙盘将不会应用沙箱机制。这允许沙箱内的程序能够直接访问及修改 <em>沙箱外</em> 的系统设置。该设置本质上是在指定的注册表项位置为沙箱“打了一个洞”。</p>
 <p>它与 <a href="OpenKeyPath.html">开放注册表路径</a> 设置类似，但不同之处在于，此设置始终生效，而 <em>OpenKeyPath</em> 仅在应用程序从沙箱外的文件或文件夹运行时才会生效。</p>
 <p>可指定 <a href="ProgramNamePrefix.html">程序名称前缀</a>。</p>
-<p>示例：</p>
-<pre><code class="language-ini">   .
-   .
-   .
-   [DefaultBox]
-   OpenConfPath=firefox.exe,HKEY_LOCAL_MACHINE\Software\Mozilla
-   OpenConfPath=firefox.exe,HKEY_CURRENT_USER\Software\Mozilla
-</code></pre>
+<p>示例：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">OpenConfPath</span><span class="o">=</span><span class="s">firefox.exe,HKEY_LOCAL_MACHINE\Software\Mozilla</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">   </span><span class="na">OpenConfPath</span><span class="o">=</span><span class="s">firefox.exe,HKEY_CURRENT_USER\Software\Mozilla</span>
+</span></code></pre></div></p>
 <p>这些示例允许 Firefox 程序（<em>firefox.exe</em>）直接访问 Mozilla 相关注册表项（包括系统范围和每个用户的注册表路径）。</p>
 <p><em>OpenConfPath</em> 的值可以包含通配符，尽管对于注册表项来说，通常很少需要使用通配符。有关此内容的更多信息，包括通配符使用示例，请参见 <a href="OpenFilePath.html">OpenFilePath</a>。(<em>OpenFilePath</em> 用于文件而非注册表项，但通配符的使用原理是一样的。)</p>
 <p><strong>注意：</strong> 即使程序可执行文件位于沙箱内，该设置依然有效。这意味着（潜在的恶意）软件下载到您的计算机并被执行后，仍可以利用该设置。</p>

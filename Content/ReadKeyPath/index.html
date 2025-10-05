@@ -4531,13 +4531,13 @@
 <h1 id="read-key-path">Read Key Path<a class="headerlink" href="#read-key-path" title="Permanent link"></a></h1>
 <p><em>ReadKeyPath</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. It specifies a path patterns, for which Sandboxie will not apply sandboxing for registry keys, and will not allow writing.</p>
 <p><a href="../ProgramNamePrefix/">Program Name Prefix</a> may be specified.</p>
-<p>Example:</p>
-<pre><code>   .
-   .
-   .
-   [DefaultBox]
-   ReadKeyPath=HKEY_LOCAL_MACHINE\SOFTWARE\Policies
-</code></pre>
+<p>Example:
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">ReadKeyPath</span><span class="o">=</span><span class="s">HKEY_LOCAL_MACHINE\SOFTWARE\Policies</span>
+</span></code></pre></div></p>
 <p>This example forces the <em>Policies</em> key, and everything below it, to be readable, but not writable (or deletable) by sandboxed programs.</p>
 <p>Note: <em>ReadKeyPath</em> is a restricted form of <a href="../OpenKeyPath/">OpenKeyPath</a>. As with <em>OpenKeyPath</em>, any already-existing sandboxed contents for the specified file or folder locations, are ignored.</p>
 <p>Related <a href="../SandboxieControl/">Sandboxie Control</a> setting: <a href="../ResourceAccessSettings/#registry-access--read-only-access">Sandbox Settings &gt; Resource Access &gt; Registry Access &gt; Read-Only Access</a></p>

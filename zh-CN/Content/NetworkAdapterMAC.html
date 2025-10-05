@@ -4531,34 +4531,32 @@
 <h1 id="mac">网络适配器 MAC<a class="headerlink" href="#mac" title="Permanent link"></a></h1>
 <p><strong>NetworkAdapterMAC</strong> 是 <a href="SandboxieIni.html">Sandboxie Ini</a>自 <strong>v1.15.2 / 5.70.2</strong> 起可用的沙箱设置。此设置允许为沙箱内的特定网络适配器分配自定义 MAC 地址。</p>
 <h2 id="_1">语法<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
-<pre><code class="language-ini">NetworkAdapterMAC=&lt;索引&gt;,&lt;MAC 地址&gt;
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">NetworkAdapterMAC</span><span class="o">=</span><span class="s">&lt;索引&gt;,&lt;MAC 地址&gt;</span>
+</span></code></pre></div>
 <ul>
 <li><strong>索引</strong>：目标网络适配器的索引值，从 0 开始</li>
 <li><strong>MAC 地址</strong>：以连字符格式（AA-BB-CC-DD-EE-FF）或纯格式（AABBCCDDEEFF）表示的自定义 MAC 地址</li>
 </ul>
 <h2 id="_2">示例用法<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
-<pre><code class="language-ini">[DefaultBox]
-HideNetworkAdapterMAC=y
-NetworkAdapterMAC=0,12-34-56-78-9A-BC
-NetworkAdapterMAC=1,DE-F0-12-34-56-78
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">HideNetworkAdapterMAC</span><span class="o">=</span><span class="s">y</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="na">NetworkAdapterMAC</span><span class="o">=</span><span class="s">0,12-34-56-78-9A-BC</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="na">NetworkAdapterMAC</span><span class="o">=</span><span class="s">1,DE-F0-12-34-56-78</span>
+</span></code></pre></div>
 <h2 id="_3">确定网络适配器索引值<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
 <p>Sandboxie 仅为具有 MAC 地址的适配器分配索引值，按照系统枚举它们的顺序。没有 MAC 地址的虚拟适配器会被跳过。</p>
-<p>要确定哪些适配器获得了哪些 Sandboxie 索引值，可以获取具有 MAC 地址的适配器的大致列表（在命令提示符下运行）：</p>
-<pre><code class="language-pwsh">wmic path win32_networkadapter where &quot;MACAddress is not null&quot; get netconnectionid,name,macaddress
-</code></pre>
+<p>要确定哪些适配器获得了哪些 Sandboxie 索引值，可以获取具有 MAC 地址的适配器的大致列表（在命令提示符下运行）：
+<div class="language-pwsh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">wmic</span> <span class="n">path</span> <span class="n">win32_networkadapter</span> <span class="nb">where </span><span class="s2">&quot;MACAddress is not null&quot;</span> <span class="n">get</span> <span class="n">netconnectionid</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">macaddress</span>
+</span></code></pre></div></p>
 <p>Sandboxie 从此列表中的第一个适配器开始分配索引值，依次为 0、1、2、3 等。然而，Sandboxie 的内部枚举顺序可能与命令输出顺序不匹配。</p>
 <p>为了准确映射，请使用测试方法：</p>
 <ol>
-<li>为每个索引设置唯一的 MAC 地址：</li>
-</ol>
-<pre><code class="language-ini">NetworkAdapterMAC=0,AA-00-00-00-00-00
-NetworkAdapterMAC=1,AA-11-11-11-11-11
-NetworkAdapterMAC=2,AA-22-22-22-22-22
-NetworkAdapterMAC=3,AA-33-33-33-33-33
-</code></pre>
-<ol>
+<li>为每个索引设置唯一的 MAC 地址：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">NetworkAdapterMAC</span><span class="o">=</span><span class="s">0,AA-00-00-00-00-00</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">NetworkAdapterMAC</span><span class="o">=</span><span class="s">1,AA-11-11-11-11-11</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="na">NetworkAdapterMAC</span><span class="o">=</span><span class="s">2,AA-22-22-22-22-22</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="na">NetworkAdapterMAC</span><span class="o">=</span><span class="s">3,AA-33-33-33-33-33</span>
+</span></code></pre></div></li>
 <li>在沙箱内运行 <code>ipconfig /all</code> 以查看哪个适配器具有哪个测试 MAC</li>
 </ol>
 <h2 id="_4">重要说明<a class="headerlink" href="#_4" title="Permanent link"></a></h2>

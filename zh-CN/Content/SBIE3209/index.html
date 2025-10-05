@@ -4550,13 +4550,13 @@
 <p><strong>消息：</strong> SBIE3209 找不到默认邮件代理的可执行文件</p>
 <p><strong>记录位置：</strong> <a href="../PopupMessageLog/">弹出消息日志</a>。</p>
 <p><strong>解释：</strong></p>
-<p>Sandboxie Start.exe 程序会尝试通过查看以下注册表项中的信息来确定 Web 浏览器可执行程序文件的位置：</p>
-<pre><code>    HKEY_CLASSES_ROOT\mailto
-</code></pre>
-<p>实际信息来自以下两个注册表项之一：</p>
-<pre><code>    HKEY_CLASSES_ROOT\mailto\shell\opennew\command
-    HKEY_CLASSES_ROOT\mailto\shell\open\command
-</code></pre>
+<p>Sandboxie Start.exe 程序会尝试通过查看以下注册表项中的信息来确定 Web 浏览器可执行程序文件的位置：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span><span class="na">HKEY_CLASSES_ROOT\mailto</span>
+</span></code></pre></div></p>
+<p>实际信息来自以下两个注册表项之一：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">    </span><span class="na">HKEY_CLASSES_ROOT\mailto\shell\opennew\command</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="na">HKEY_CLASSES_ROOT\mailto\shell\open\command</span>
+</span></code></pre></div></p>
 <p>此错误消息表明无法从注册表中提取所需信息。</p>
 <p><strong>解决方案：</strong></p>
 <p>可以通过强制邮件程序将自身重置为系统的默认邮件程序来解决此问题。不同的程序提供此功能的方式不同，因此请查阅特定邮件程序的文档。</p>

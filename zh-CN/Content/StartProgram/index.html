@@ -4530,12 +4530,12 @@
 
 <h1 id="_1">启动程序<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
 <p><em>StartProgram</em> 是 <a href="../SandboxieIni/">Sandboxie 配置文件</a>中的一项沙箱设置。它用于自动启动指定的程序。例如：</p>
-<pre><code class="language-ini">   .
-   .
-   .
-   [DefaultBox]
-   StartProgram=%ProgramFiles%\Google\Chrome\Application\chrome.exe
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">StartProgram</span><span class="o">=</span><span class="s">%ProgramFiles%\Google\Chrome\Application\chrome.exe</span>
+</span></code></pre></div>
 <p>此示例指定谷歌浏览器（chrome.exe）将被强制在名为 <em>DefaultBox</em> 的沙箱中运行。</p>
 <p><strong>技术细节</strong></p>
 <p><em>StartProgram</em> 由 <a href="../ServicePrograms/#远程过程调用-rpc">SandboxieRpcSs</a> 处理，该服务在每个沙箱中仅运行一次。与 <a href="../AutoExec/">AutoExec</a> 设置类似，它会在沙箱中第一个程序开始运行时进行处理。请注意，如果支持的话，<em>StartProgram</em> 会以隐藏模式启动指定的应用程序。</p>

@@ -4532,12 +4532,12 @@
 <p><em>ClosedIpcPath</em> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 中的一个沙箱设置项。它指定了路径模式，Sandboxie 将拒绝沙箱程序对这些路径的_所有_访问，包括_读取_访问。该设置本质上阻止了沙箱程序访问指定的资源。</p>
 <p>可以指定 <a href="ProgramNamePrefix.html">程序名称前缀</a>。</p>
 <p>示例：</p>
-<pre><code class="language-ini">   .
-   .
-   .
-   [DefaultBox]
-   ClosedIpcPath=\RPC Control\AudioSrv
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">ClosedIpcPath</span><span class="o">=</span><span class="s">\RPC Control\AudioSrv</span>
+</span></code></pre></div>
 <p>与沙箱内的文件、文件夹和注册表键不同，Sandboxie 通常不允许沙箱程序访问非沙箱资源。该规则的例外情况是资源被指定在 <a href="OpenIpcPath.html">开放 IPC 路径</a> 设置中，或者 Sandboxie 默认识别该资源并允许在沙箱内使用。</p>
 <p><em>ClosedIpcPath</em> 设置通常用于阻止那些 Sandboxie 默认识别的资源。在上述示例中，AudioSrv 资源被阻止。该资源提供访问音频硬件的能力，换言之，它使沙箱程序能够产生声音。通过屏蔽它，沙箱程序实际上被静音。</p>
 <p>该设置支持通配符。关于在 <em>OpenXxxPath</em> 和 <em>ClosedXxxPath</em> 设置中使用通配符的详细信息，请参见 <a href="OpenFilePath.html">开放文件路径</a>。</p>

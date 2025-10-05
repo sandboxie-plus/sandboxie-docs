@@ -4534,14 +4534,14 @@
 <p>关于一般使用方法，请参考 <a href="OpenFilePath.html">OpenFilePath</a>。</p>
 <p><em>OpenPipePath</em> 设置主要用于允许沙箱内的程序访问文件通信设备资源，这些资源可以通过 <a href="SandboxieTrace.html">沙箱跟踪（Sandboxie Trace）</a> 进行识别。</p>
 <p>另外，它也可以用来定义应该被豁免的文件和文件夹（就像 <em>OpenFilePath</em> 豁免文件的方式一样），即使这些程序是从沙盒内部运行的。</p>
-<p>示例用法：</p>
-<pre><code class="language-ini">   .
-   .
-   .
-   [DefaultBox]
-   OpenPipePath=\Device\NamedPipe\wkssvc
-   OpenPipePath=\Device\NamedPipe\srvsvc
-</code></pre>
+<p>示例用法：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">OpenPipePath</span><span class="o">=</span><span class="s">\Device\NamedPipe\wkssvc</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">   </span><span class="na">OpenPipePath</span><span class="o">=</span><span class="s">\Device\NamedPipe\srvsvc</span>
+</span></code></pre></div></p>
 <p>这将允许沙箱内的程序通过 <em>wkssvc</em> 和 <em>srvsvc</em> 这两个资源来管理计算机上的共享和用户账户。</p>
 <p><strong>注意：</strong> 请不要将本示例纳入实际使用，因为它会削弱沙箱的保护能力。</p>
 <p>相关的 <a href="SandboxieControl.html">Sandboxie 经典版控制面板（Sandboxie Control）</a> 设置： <a href="ResourceAccessSettings.html#file-access--full-access">沙箱设置 &gt; 资源访问 &gt; 文件访问 &gt; 完全开放</a></p>

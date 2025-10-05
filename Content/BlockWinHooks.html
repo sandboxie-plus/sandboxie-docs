@@ -4532,12 +4532,12 @@
 <p><strong>BlockWinHooks feature was removed in SBIE version 4.+ and up. It is no longer available.</strong></p>
 <p><em>BlockWinHooks</em> was a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It specified whether Sandboxie should allow sandboxed programs to install system-global hooks.</p>
 <p>Usage:</p>
-<pre><code>   .
-   .
-   .
-   [DefaultBox]
-   BlockWinHooks=n
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">BlockWinHooks</span><span class="o">=</span><span class="s">n</span>
+</span></code></pre></div>
 <p>One application may attach to other applications in the system by employing a mechanism called windows hooks. This mechanism associates a component of the requesting application (called a DLL file) with all other applications.</p>
 <p>By default, Sandboxie denies a request to install a global hook, and will instead convert the hook into an application-specific hook, and install this converted hook only into applications running in the same sandbox as the requesting application.</p>
 <p>In effect, this restricts the effect of global hooks to a specific sandbox, and increases the protection provided by Sandboxie while still allowing applications that rely on global hooks to execute correctly.</p>

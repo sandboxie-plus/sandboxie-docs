@@ -4531,16 +4531,16 @@
 <h1 id="open-file-path">Open File Path<a class="headerlink" href="#open-file-path" title="Permanent link"></a></h1>
 <p><em>OpenFilePath</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. It specifies path patterns for which Sandboxie will not apply sandboxing for files. This lets sandboxed programs have direct access to update files and folders <em>outside the sandbox</em>. This setting essentially <em>punches a hole</em> in the sandbox, at a particular folder location.</p>
 <p><a href="../ShellFolders/">Shell Folders</a> may be specified. <a href="../ProgramNamePrefix/">Program Name Prefix</a> may be specified.</p>
-<p>Examples:</p>
-<pre><code>   .
-   .
-   .
-   [DefaultBox]
-   OpenFilePath=C:\Downloads\
-   OpenFilePath=*.eml
-   OpenFilePath=iexplore.exe,%Favorites%
-   OpenFilePath=msimn.exe,*.eml
-</code></pre>
+<p>Examples:
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">OpenFilePath</span><span class="o">=</span><span class="s">C:\Downloads</span>\
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">   </span><span class="s">OpenFilePath=*.eml</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">   </span><span class="na">OpenFilePath</span><span class="o">=</span><span class="s">iexplore.exe,%Favorites%</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">   </span><span class="na">OpenFilePath</span><span class="o">=</span><span class="s">msimn.exe,*.eml</span>
+</span></code></pre></div></p>
 <p>When reviewing these examples, keep in mind that Sandboxie places a <em>wildcard star</em> at the end of the value, <em>unless a star already appears anywhere in the value</em>. So for example, <em>C:\Downloads_ becomes _C:\Downloads*</em>, while <em>*.eml</em> remains unchanged.</p>
 <p><em>Wildcard stars</em> are used to specify patterns with variable, unknown parts. For example, <em>a.eml</em> matches only that one file, whereas <em>*.eml</em> matches <em>a.eml</em>, <em>test.eml</em>, <em>important message.eml</em> and so on. But note that neither form matches <em>a.txt</em>.</p>
 <p>The first example setting specifies that any files (or folders) created in the folder <em>C:\Downloads</em> (and in any folder below it) will not be sandboxed. Note that the final backslash character is important, because a star will be placed at the end of the string.</p>

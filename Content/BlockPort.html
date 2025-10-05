@@ -4532,13 +4532,13 @@
 <p><strong>This feature was removed since v0.9.0 / 5.51.0. If you have custom BlockPort entries in your <a href="SandboxieIni.html">Sandboxie Ini</a>, they will need to be updated by hand to the new format, so for example <code>BlockPort=137,138,139,445</code> becomes <code>NetworkAccess=*,Block;Port=137,138,139,445</code> (currently included in the <em>Templates.ini</em> file under the <code>[Template_BlockPorts]</code> section).</strong></p>
 <p><em>BlockPort</em> was a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It specified IP port numbers to block for outgoing communications.</p>
 <p>Usage:</p>
-<pre><code>   .
-   .
-   .
-   [DefaultBox]
-   BlockPort=137-139,445
-   BlockPort=*,80,8080
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">BlockPort</span><span class="o">=</span><span class="s">137-139,445</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">   </span><span class="na">BlockPort</span><span class="o">=</span><span class="s">*,80,8080</span>
+</span></code></pre></div>
 <p>The port numbers listed above are associated with the SMB/CIFS network file sharing subsystem.</p>
 <p>The primary purpose of this setting is to block outgoing communications on SMB/CIFS ports, in order to prevent a rogue sandboxed program from accessing files through the SMB/CIFS subsystem, rather than by issuing direct requests to the local system.</p>
 <p>The setting can be specified repeatedly over multiple lines and the effects will accumulate. Port ranges may be specified as shown in the first example. The second example shows negated use: Block all ports except those specified following the asterisk (star) character.</p>

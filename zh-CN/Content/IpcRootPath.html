@@ -4532,13 +4532,13 @@
 <p><em>IpcRootPath</em> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 中的一个沙箱设置。它用于指定在 NT 对象命名空间内创建特定沙箱的位置。</p>
 <p>和所有沙箱设置一样，该设置也可以在全局部分指定，此时将在未在沙箱部分单独指定该设置的所有沙箱中生效。</p>
 <p>更多信息请参见 <a href="SandboxHierarchy.html">沙箱层级结构</a>。</p>
-<p>用法示例：</p>
-<pre><code class="language-ini">   .
-   .
-   .
-   [DefaultBox]
-   IpcRootPath=\Sandbox\%BOXNAME%
-</code></pre>
+<p>用法示例：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">IpcRootPath</span><span class="o">=</span><span class="s">\Sandbox\%BOXNAME%</span>
+</span></code></pre></div></p>
 <p>在该路径中，以下替换变量可能会用到：</p>
 <ul>
 <li>变量 %SANDBOX%：展开为沙箱的名称</li>

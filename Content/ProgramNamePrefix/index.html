@@ -4537,14 +4537,14 @@
 </ul>
 <p>The prefix may start with an exclamation point (!) to indicate negative criteria.</p>
 <p>A comma (,) separates the prefix from the rest of the setting specification.</p>
-<p>For example:</p>
-<pre><code>    .
-    .
-    .
-    [DefaultBox]
-    OpenFilePath=iexplore.exe,%Favorites%
-    ClosedFilePath=!iexplore.exe,%Favorites%
-</code></pre>
+<p>For example:
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span><span class="na">.</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="na">.</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="na">.</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="na">OpenFilePath</span><span class="o">=</span><span class="s">iexplore.exe,%Favorites%</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="na">ClosedFilePath</span><span class="o">=</span><span class="s">!iexplore.exe,%Favorites%</span>
+</span></code></pre></div></p>
 <p>This combination means that Internet Explorer (<em>iexplore.exe</em>) has direct access to the Favorites folder and the shortcuts within it.</p>
 <p>On the other hand, any <em>other</em> program (NOT <em>iexplore.exe</em>, note the exclamation point) is denied <em>any</em> kind of access to that same folder.</p>
 

@@ -6,7 +6,10 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="In Windows, each user account has associated personal folders, typically known as Documents, Music and so on. The Windows shell records each user&#x27;s personal folders, in the following registry keys.">
+        <meta name="description" content="In Windows, each user account has associated personal folders, typically known as Documents, Music and so on. The Windows shell records each user&#x27;s personal folders, in the following registry keys.
+  HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\
+     . . . User Shell Folders
+     . . . Shell Folders">
       
       
       
@@ -4529,11 +4532,11 @@
 
 
 <h1 id="shell-folders">Shell Folders<a class="headerlink" href="#shell-folders" title="Permanent link"></a></h1>
-<p>In Windows, each user account has associated personal folders, typically known as <em>Documents</em>, <em>Music</em> and so on. The Windows shell records each user's personal folders, in the following registry keys.</p>
-<pre><code>  HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\
-     . . . User Shell Folders
-     . . . Shell Folders
-</code></pre>
+<p>In Windows, each user account has associated personal folders, typically known as <em>Documents</em>, <em>Music</em> and so on. The Windows shell records each user's personal folders, in the following registry keys.
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">  </span><span class="na">HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">     </span><span class="na">. . . User Shell Folders</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">     </span><span class="na">. . . Shell Folders</span>
+</span></code></pre></div></p>
 <p>This key contains several <em>registry values</em>, each identifies a specific personal folder, and contains its absolute folder path. Most registry values in this key are named the same as the "friendly" name of the folder: <em>Desktop</em>, <em>Favorites</em>, <em>Music</em>, and so on.</p>
 <p>However, in some cases, the registry value differs:</p>
 <ul>
@@ -4542,13 +4545,13 @@
 <li><em>Local AppData</em> stands for the secondary <em>Application Data</em> folder, located below the <em>Local Settings</em> folder.</li>
 </ul>
 <p>Please see the registry key noted above for a complete list of possible folder names.</p>
-<p>For example, for the user joe, the registry value <em>Personal</em> (which identifies the <em>Documents</em> folder), may specify:</p>
-<pre><code>  C:\Users\joe\Documents
-</code></pre>
-<p>Configuration settings in Sandboxie that specify folder paths generally accept references to registry values in the Shell Folders key. This is more useful than specifying explicit folder locations. For example:</p>
-<pre><code>  [DefaultBox]
-  RecoverFolder=%Desktop%
-</code></pre>
+<p>For example, for the user joe, the registry value <em>Personal</em> (which identifies the <em>Documents</em> folder), may specify:
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">  </span><span class="na">C</span><span class="o">:</span><span class="s">\Users\joe\Documents</span>
+</span></code></pre></div></p>
+<p>Configuration settings in Sandboxie that specify folder paths generally accept references to registry values in the Shell Folders key. This is more useful than specifying explicit folder locations. For example:
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">  </span><span class="k">[DefaultBox]</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="na">RecoverFolder</span><span class="o">=</span><span class="s">%Desktop%</span>
+</span></code></pre></div></p>
 <p>Indicates that <a href="../QuickRecovery/">Quick Recovery</a> should look for sandboxed items in the desktop folder of whichever user is making the request.</p>
 
 

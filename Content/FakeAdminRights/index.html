@@ -4531,8 +4531,8 @@
 <h1 id="fake-admin-rights">Fake Admin Rights<a class="headerlink" href="#fake-admin-rights" title="Permanent link"></a></h1>
 <p><strong>FakeAdminRights</strong> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a> available since 0.7.1 / 5.48.5. It specifies whether Sandboxie will simulate Administrator rights for programs running in this sandbox.</p>
 <h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link"></a></h2>
-<pre><code class="language-ini">FakeAdminRights=[process,]y|n
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">FakeAdminRights</span><span class="o">=</span><span class="s">[process,]y|n</span>
+</span></code></pre></div>
 <ul>
 <li><strong>process</strong> (optional): The name of the executable to which the rule applies. If omitted, the rule applies to all sandboxed applications.</li>
 <li>
@@ -4547,25 +4547,25 @@
 <h2 id="usage-examples">Usage Examples<a class="headerlink" href="#usage-examples" title="Permanent link"></a></h2>
 <h3 id="1-enable-fake-admin-rights-for-all-sandboxed-programs">1. Enable Fake Admin Rights for All Sandboxed Programs<a class="headerlink" href="#1-enable-fake-admin-rights-for-all-sandboxed-programs" title="Permanent link"></a></h3>
 <p>This makes all applications in the sandbox believe they have administrator privileges:</p>
-<pre><code class="language-ini">[DefaultBox]
-FakeAdminRights=y
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">FakeAdminRights</span><span class="o">=</span><span class="s">y</span>
+</span></code></pre></div>
 <h3 id="2-enable-fake-admin-rights-for-a-specific-installer">2. Enable Fake Admin Rights for a Specific Installer<a class="headerlink" href="#2-enable-fake-admin-rights-for-a-specific-installer" title="Permanent link"></a></h3>
 <p>Some installers require admin rights to proceed. This grants fake admin rights only to <code>installer.exe</code> while other programs run normally:</p>
-<pre><code class="language-ini">[DefaultBox]
-FakeAdminRights=installer.exe,y
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">FakeAdminRights</span><span class="o">=</span><span class="s">installer.exe,y</span>
+</span></code></pre></div>
 <h3 id="3-enable-fake-admin-rights-globally-but-disable-for-security-sensitive-programs">3. Enable Fake Admin Rights Globally But Disable for Security-Sensitive Programs<a class="headerlink" href="#3-enable-fake-admin-rights-globally-but-disable-for-security-sensitive-programs" title="Permanent link"></a></h3>
 <p>This configuration gives fake admin rights to all programs except security-sensitive ones like <code>CredentialUIBroker.exe</code>:</p>
-<pre><code class="language-ini">[DefaultBox]
-FakeAdminRights=y
-FakeAdminRights=CredentialUIBroker.exe,n
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">FakeAdminRights</span><span class="o">=</span><span class="s">y</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="na">FakeAdminRights</span><span class="o">=</span><span class="s">CredentialUIBroker.exe,n</span>
+</span></code></pre></div>
 <h3 id="4-using-negation-to-reverse-rules">4. Using Negation (!) to Reverse Rules<a class="headerlink" href="#4-using-negation-to-reverse-rules" title="Permanent link"></a></h3>
 <p>You can use <code>!</code> to reverse the logic of a rule. This is particularly useful for creating exceptions:</p>
-<pre><code class="language-ini">[DefaultBox]
-FakeAdminRights=!Start.exe,y
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="na">FakeAdminRights</span><span class="o">=</span><span class="s">!Start.exe,y</span>
+</span></code></pre></div>
 <p>This means "enable fake admin rights for all programs EXCEPT Start.exe".</p>
 <p>These examples demonstrate:</p>
 <ol>

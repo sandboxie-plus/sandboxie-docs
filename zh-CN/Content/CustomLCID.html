@@ -6,7 +6,14 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Sandboxie Plus lets you run programs in isolated sandboxes on Windows, enhancing security and privacy by containing changes from the rest of the system.">
+        <meta name="description" content="CustomLCID 是 沙盘配置文件（Sandboxie.Ini） 中的一个设置。
+   .
+   .
+   .
+   [DefaultBox]
+   CustomLCID=1033
+
+它接受一个十进制参数，作为所需语言/区域设置的 LCID。如果设置为 0，则将使用系统默认值。">
       
       
       
@@ -4529,14 +4536,14 @@
 
 
 <h1 id="id">自定义区域设置/语言 ID<a class="headerlink" href="#id" title="Permanent link"></a></h1>
-<p>CustomLCID 是 <a href="SandboxieIni.html">沙盘配置文件（Sandboxie.Ini）</a> 中的一个设置。</p>
-<pre><code class="language-ini">   .
-   .
-   .
-   [DefaultBox]
-   CustomLCID=1033
-</code></pre>
-<p>它接受一个十进制参数，作为所需语言/区域设置的 <a href="https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-lcid/70feba9f-294e-491e-b6eb-56532684c37f">LCID</a>。如果设置为 0，则将使用系统默认值。</p>
+<p>CustomLCID 是 <a href="SandboxieIni.html">沙盘配置文件（Sandboxie.Ini）</a> 中的一个设置。
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">CustomLCID</span><span class="o">=</span><span class="s">1033</span>
+</span></code></pre></div>
+它接受一个十进制参数，作为所需语言/区域设置的 <a href="https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-lcid/70feba9f-294e-491e-b6eb-56532684c37f">LCID</a>。如果设置为 0，则将使用系统默认值。</p>
 <p>相关的沙盘增强版（Sandboxie Plus）设置：沙箱选项 &gt; 高级选项 &gt; 隐私 &gt; 自定义区域设置/语言 ID</p>
 <p>注意：您可以通过将十六进制值转换为十进制来确定所需的值，也可以在 <a href="https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oe376/6c085406-a698-4e12-9d4d-c3b0ee3dbc4a">此处</a> 找到这些值。</p>
 
@@ -4545,6 +4552,9 @@
 
 
 
+
+  
+  
 
 
 

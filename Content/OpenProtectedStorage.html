@@ -6,7 +6,12 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="OpenProtectedStorage is a sandbox setting in Sandboxie Ini. It is typically specified as OpenProtectedStorage=y (see Yes Or No Settings), and indicates that Sandboxie should not isolate Protected Storage in the sandbox. For example:">
+        <meta name="description" content="OpenProtectedStorage is a sandbox setting in Sandboxie Ini. It is typically specified as OpenProtectedStorage=y (see Yes Or No Settings), and indicates that Sandboxie should not isolate Protected Storage in the sandbox. For example:
+   .
+   .
+   .
+   [DefaultBox]
+   OpenProtectedStorage=y">
       
       
       
@@ -4529,13 +4534,13 @@
 
 
 <h1 id="open-protected-storage">Open Protected Storage<a class="headerlink" href="#open-protected-storage" title="Permanent link"></a></h1>
-<p><em>OpenProtectedStorage</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It is typically specified as <em>OpenProtectedStorage=y</em> (see <a href="YesOrNoSettings.html">Yes Or No Settings</a>), and indicates that Sandboxie should not isolate <a href="ProtectedStorage.html">Protected Storage</a> in the sandbox. For example:</p>
-<pre><code>   .
-   .
-   .
-   [DefaultBox]
-   OpenProtectedStorage=y
-</code></pre>
+<p><em>OpenProtectedStorage</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It is typically specified as <em>OpenProtectedStorage=y</em> (see <a href="YesOrNoSettings.html">Yes Or No Settings</a>), and indicates that Sandboxie should not isolate <a href="ProtectedStorage.html">Protected Storage</a> in the sandbox. For example:
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">OpenProtectedStorage</span><span class="o">=</span><span class="s">y</span>
+</span></code></pre></div></p>
 <p>Indicates that programs running in the DefaultBox sandbox will update the global system <a href="ProtectedStorage.html">Protected Storage</a>, rather than a sandboxed instance of it.</p>
 <p>Related Sandboxie Plus setting: Sandbox Options &gt; App Templates &gt; Templates &gt; Open Protected Storage</p>
 <p>Related <a href="SandboxieControl.html">Sandboxie Control</a> setting: <em>Save outside sandbox: History of search strings and invoked commands</em> in <a href="ApplicationsSettings.html#web-browser">Sandbox Settings &gt; Applications &gt; Web Browser</a></p>

@@ -4551,9 +4551,9 @@
 <p><strong>Logged To:</strong> <a href="../SystemEventLog/">System Event Log</a></p>
 <p><strong>Explanation:</strong></p>
 <p>The driver component of Sandboxie could not complete initialization. This messages indicates the driver experienced an error while trying to determine the installation folder for Sandboxie. The particular problem depends on the <em>yy</em> value in the message.</p>
-<p>When yy = 11, there was a problem accessing the following registry key:</p>
-<pre><code>    HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SbieDrv
-</code></pre>
+<p>When yy = 11, there was a problem accessing the following registry key:
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span><span class="na">HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SbieDrv</span>
+</span></code></pre></div></p>
 <p>When yy = 22 or 33, there was a problem querying the value <strong>ImagePath</strong> from the registry key noted above.</p>
 <p>When yy = 44, there was not enough memory to complete the operation.</p>
 <p>When yy = 55 or 66 or 77, there was some problem accessing the folder specified in the value of <strong>ImagePath</strong> from the registry key noted above.</p>

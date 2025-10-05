@@ -6,7 +6,12 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="OpenProtectedStorage 是 Sandboxie Ini 文件中的一个沙箱设置。通常被指定为 OpenProtectedStorage=y（参见 是或否设置），表示沙盘不应隔离沙箱内的 受保护存储。例如：">
+        <meta name="description" content="OpenProtectedStorage 是 Sandboxie Ini 文件中的一个沙箱设置。通常被指定为 OpenProtectedStorage=y（参见 是或否设置），表示沙盘不应隔离沙箱内的 受保护存储。例如：
+   .
+   .
+   .
+   [DefaultBox]
+   OpenProtectedStorage=y">
       
       
       
@@ -4529,13 +4534,13 @@
 
 
 <h1 id="_1">开放受保护的存储<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
-<p><em>OpenProtectedStorage</em> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 文件中的一个沙箱设置。通常被指定为 <em>OpenProtectedStorage=y</em>（参见 <a href="../YesOrNoSettings/">是或否设置</a>），表示沙盘不应隔离沙箱内的 <a href="../ProtectedStorage/">受保护存储</a>。例如：</p>
-<pre><code class="language-ini">   .
-   .
-   .
-   [DefaultBox]
-   OpenProtectedStorage=y
-</code></pre>
+<p><em>OpenProtectedStorage</em> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 文件中的一个沙箱设置。通常被指定为 <em>OpenProtectedStorage=y</em>（参见 <a href="../YesOrNoSettings/">是或否设置</a>），表示沙盘不应隔离沙箱内的 <a href="../ProtectedStorage/">受保护存储</a>。例如：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">OpenProtectedStorage</span><span class="o">=</span><span class="s">y</span>
+</span></code></pre></div></p>
 <p>这表示，在 <code>DefaultBox</code> 沙箱内运行的程序将会更新全局系统 <a href="../ProtectedStorage/">受保护存储</a>，而不是更新沙箱中的受保护存储实例</p>
 <p>相关的 Sandboxie Plus 设置： 沙箱选项 &gt; 应用模板 &gt; 模板 &gt; 打开受保护存储</p>
 <p>相关的 <a href="../SandboxieControl/">沙盘控制</a> 设置：<a href="../ApplicationsSettings/#web-browser">沙箱设置 &gt; 应用程序 &gt; 网页浏览器</a> 中的 <em>沙箱外保存：搜索字符串历史记录和调用的命令</em></p>

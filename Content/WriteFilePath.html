@@ -4531,13 +4531,13 @@
 <h1 id="write-file-path">Write File Path<a class="headerlink" href="#write-file-path" title="Permanent link"></a></h1>
 <p>WriteFilePath is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It specifies path patterns for which Sandboxie will hide any files or folders outside the sandbox, while allowing new files and folders to be created in the sandbox.</p>
 <p><a href="ShellFolders.html">Shell Folders</a> may be specified. <a href="ProgramNamePrefix.html">Program Name Prefix</a> may be specified.</p>
-<p>Examples:</p>
-<pre><code>   .
-   .
-   .
-   [DefaultBox]
-   WriteFilePath=%Cookies%
-</code></pre>
+<p>Examples:
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">WriteFilePath</span><span class="o">=</span><span class="s">%Cookies%</span>
+</span></code></pre></div></p>
 <p>This example means that program in the sandbox will not be able to see any files within the Internet Explorer cookies folder outside the sandbox, but may create files in the corresponding folder in the sandbox. In other words, existing cookies outside the sandbox will not be visible, but the program may create new cookies as if the cookie folder was empty.</p>
 <p>This setting is not applicable to files. If the path specified in the setting matches a file, the file will be treated as if it matches a ClosedFilePath setting.</p>
 <p>Note: WriteFilePath is implemented internally as an enhanced form of <a href="ClosedFilePath.html">ClosedFilePath</a>.</p>

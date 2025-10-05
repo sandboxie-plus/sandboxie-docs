@@ -4531,16 +4531,16 @@
 <h1 id="network-dns-filtering">Network DNS Filtering<a class="headerlink" href="#network-dns-filtering" title="Permanent link"></a></h1>
 <p><strong>NetworkDnsFilter</strong> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a> available since <strong>v1.14.0 / 5.69.0</strong> and requires a <a href="https://sandboxie-plus.com/supporter-certificate/">supporter certificate</a>. It allows users to block or redirect DNS queries for specific domains on a per-process basis, offering control over network traffic within sandboxes.</p>
 <h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link"></a></h2>
-<pre><code>NetworkDnsFilter=[process,]domain[:ip_address]
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">NetworkDnsFilter</span><span class="o">=</span><span class="s">[process,]domain[:ip_address]</span>
+</span></code></pre></div>
 <ul>
 <li><strong>process</strong> (optional): The name of the executable to which the rule applies. If omitted, the rule applies to all sandboxed applications.</li>
 <li><strong>domain</strong>: The fully qualified domain name (FQDN) to filter. Wildcards are not supported.</li>
 <li><strong>ip_address</strong> (optional): The IP address to redirect the domain to. If left empty, the domain is blocked.</li>
 </ul>
 <h3 id="example">Example:<a class="headerlink" href="#example" title="Permanent link"></a></h3>
-<pre><code class="language-ini">NetworkDnsFilter=program.exe,example.com:1.1.1.1
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">NetworkDnsFilter</span><span class="o">=</span><span class="s">program.exe,example.com:1.1.1.1</span>
+</span></code></pre></div>
 <p>In this example:</p>
 <ul>
 <li><code>program.exe</code> is the process to which the rule applies.</li>
@@ -4550,24 +4550,24 @@
 <h2 id="usage-examples">Usage Examples<a class="headerlink" href="#usage-examples" title="Permanent link"></a></h2>
 <h3 id="1-redirect-all-requests-made-to-a-domain">1. Redirect all requests made to a domain<a class="headerlink" href="#1-redirect-all-requests-made-to-a-domain" title="Permanent link"></a></h3>
 <p>This rule redirects all DNS requests made to <code>example.com</code> to <code>1.1.1.1</code> for any sandboxed application:</p>
-<pre><code class="language-ini">[DefaultBox]
-NetworkDnsFilter=example.com:1.1.1.1
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">NetworkDnsFilter</span><span class="o">=</span><span class="s">example.com:1.1.1.1</span>
+</span></code></pre></div>
 <h3 id="2-redirect-requests-to-a-domain-only-for-a-specific-application">2. Redirect requests to a domain only for a specific application<a class="headerlink" href="#2-redirect-requests-to-a-domain-only-for-a-specific-application" title="Permanent link"></a></h3>
 <p>This rule redirects DNS requests to <code>example.com</code> to <code>1.1.1.1</code>, but only for the sandboxed application <code>program.exe</code>:</p>
-<pre><code class="language-ini">[DefaultBox]
-NetworkDnsFilter=program.exe,example.com:1.1.1.1
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">NetworkDnsFilter</span><span class="o">=</span><span class="s">program.exe,example.com:1.1.1.1</span>
+</span></code></pre></div>
 <h3 id="3-block-all-requests-to-a-domain">3. Block all requests to a domain<a class="headerlink" href="#3-block-all-requests-to-a-domain" title="Permanent link"></a></h3>
 <p>This rule blocks all DNS requests to <code>example.com</code> for any sandboxed application:</p>
-<pre><code class="language-ini">[DefaultBox]
-NetworkDnsFilter=example.com
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="na">NetworkDnsFilter</span><span class="o">=</span><span class="s">example.com</span>
+</span></code></pre></div>
 <h3 id="4-block-requests-to-a-domain-only-for-a-specific-application">4. Block requests to a domain only for a specific application<a class="headerlink" href="#4-block-requests-to-a-domain-only-for-a-specific-application" title="Permanent link"></a></h3>
 <p>This rule blocks DNS requests to <code>example.com</code> only for the sandboxed <code>program.exe</code>:</p>
-<pre><code class="language-ini">[DefaultBox]
-NetworkDnsFilter=program.exe,example.com
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="na">NetworkDnsFilter</span><span class="o">=</span><span class="s">program.exe,example.com</span>
+</span></code></pre></div>
 <h2 id="important-notes">Important Notes<a class="headerlink" href="#important-notes" title="Permanent link"></a></h2>
 <ul>
 <li><strong>Wildcard support is not available</strong>: You must specify complete domain names; wildcards (e.g., <code>*.example.com</code>) are not supported.</li>

@@ -4530,11 +4530,11 @@
 
 <h1 id="expandable-variables">Expandable Variables<a class="headerlink" href="#expandable-variables" title="Permanent link"></a></h1>
 <p>Some Sandboxie settings may include <em>variables</em>. These are placeholder names which are expanded to (replaced by) text which may be specific to a particular computer and user account. For example,</p>
-<pre><code>RecoverFolder=%Personal%\Song_Lyrics
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">RecoverFolder</span><span class="o">=</span><span class="s">%Personal%\Song_Lyrics</span>
+</span></code></pre></div>
 <p>In this simple example, Sandboxie expands the variable <em>Personal</em> by the actual folder for the <em>Documents</em> folder.</p>
-<pre><code>RecoverFolder=C:\Users\joe\Documents\Song_Lyrics
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">RecoverFolder</span><span class="o">=</span><span class="s">C:\Users\joe\Documents\Song_Lyrics</span>
+</span></code></pre></div>
 <p>The following table lists the variables that Sandboxie recognizes.</p>
 <table>
 <thead>
@@ -4607,25 +4607,25 @@
 <h3 id="overriding-variables">Overriding Variables<a class="headerlink" href="#overriding-variables" title="Permanent link"></a></h3>
 <p>Any of the variables in the table above, including the <a href="../ShellFolders/">Shell Folders</a> and template variables, can be overridden by the <a href="../SandboxieIni/">Sandboxie Ini</a> configuration file. To override a variable, add a parameter prefixed with <strong>Ovr.</strong>.</p>
 <p>For example:</p>
-<pre><code>    [GlobalSettings]
-    Ovr.SystemRoot=X:\WIN
-    Ovr.Tmpl.Firefox=C:\Firefox\Profiles\
-</code></pre>
-<pre><code>    [DefaultBox]
-    Ovr.Personal=Z:\MY_FILES
-    RecoverFolder=%Personal%
-    OpenFilePath=%SystemRoot%\Temp
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">    </span><span class="k">[GlobalSettings]</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="na">Ovr.SystemRoot</span><span class="o">=</span><span class="s">X:\WIN</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="na">Ovr.Tmpl.Firefox</span><span class="o">=</span><span class="s">C:\Firefox\Profiles</span>\
+</span></code></pre></div>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="w">    </span><span class="k">[DefaultBox]</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="na">Ovr.Personal</span><span class="o">=</span><span class="s">Z:\MY_FILES</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="na">RecoverFolder</span><span class="o">=</span><span class="s">%Personal%</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="na">OpenFilePath</span><span class="o">=</span><span class="s">%SystemRoot%\Temp</span>
+</span></code></pre></div>
 <p>When a variable is overridden in this way, its expanded value will always match the value specified in the configuration file.</p>
 <h3 id="registry-fallbacks">Registry Fallbacks<a class="headerlink" href="#registry-fallbacks" title="Permanent link"></a></h3>
 <p>Some of the variables in the table above are taken from the system registry. Those variables are <em>ProgramFiles</em> and any other variable that appears below <em>ProgramFiles</em> in the table above. For these variables, it is possible to specify "fallback" values in the <a href="../SandboxieIni/">Sandboxie Ini</a> configuration file. To specify a fallback for a variable, add a parameter prefixed with <strong>Reg.</strong>.</p>
 <p>For example:</p>
-<pre><code>    [GlobalSettings]
-    Reg.Desktop=%USERPROFILE%\Desktop
-</code></pre>
-<pre><code>    [DefaultBox]
-    Reg.Cookies=%USERPROFILE%\Cookies
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="w">    </span><span class="k">[GlobalSettings]</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="na">Reg.Desktop</span><span class="o">=</span><span class="s">%USERPROFILE%\Desktop</span>
+</span></code></pre></div>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="w">    </span><span class="k">[DefaultBox]</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="na">Reg.Cookies</span><span class="o">=</span><span class="s">%USERPROFILE%\Cookies</span>
+</span></code></pre></div>
 <p>Note that "Ovr." style overrides (described above) will cause Sandboxie to ignore the registry. On the other hand, Sandboxie only checks "Reg." style fallbacks if the expanded variable cannot be found in the registry. This means that if both Ovr.X and Reg.X are specified for the same variable X, the Ovr.X form will always apply when X is expanded, and the Reg.X form will never apply.</p>
 <p>It is generally preferable to use "Ovr." style overrides than "Reg." style fallbacks.</p>
 

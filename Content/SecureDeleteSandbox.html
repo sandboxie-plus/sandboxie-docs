@@ -4537,15 +4537,17 @@
 <p><strong>In Sandboxie Control</strong></p>
 <p>Use <a href="DeleteSettings.html#command">Sandbox Settings &gt; Delete &gt; Command</a>. A couple of examples for the Delete Command:</p>
 <ul>
-<li>Invoke <a href="https://eraser.heidi.ie/">Eraser by Heidi Computers</a> to delete the contents securely:</li>
+<li>
+<p>Invoke <a href="https://eraser.heidi.ie/">Eraser by Heidi Computers</a> to delete the contents securely:
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span><span class="na">%SystemRoot%\System32\eraserl.exe -folder &quot;%SANDBOX%&quot; -subfolders -method DoD_E -resultsonerror -queue</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>Invoke <a href="https://technet.microsoft.com/en-us/sysinternals/bb897443.aspx">SDelete by SysInternals/Microsoft</a> to delete the contents securely.
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">    </span><span class="na">&quot;C</span><span class="o">:</span><span class="s">\Program Files\Sysinternals\SDelete\sdelete.exe&quot; -p 3 -s -q &quot;%SANDBOX%&quot;</span>
+</span></code></pre></div></p>
+</li>
 </ul>
-<pre><code>    %SystemRoot%\System32\eraserl.exe -folder &quot;%SANDBOX%&quot; -subfolders -method DoD_E -resultsonerror -queue
-</code></pre>
-<ul>
-<li>Invoke <a href="https://technet.microsoft.com/en-us/sysinternals/bb897443.aspx">SDelete by SysInternals/Microsoft</a> to delete the contents securely.</li>
-</ul>
-<pre><code>    &quot;C:\Program Files\Sysinternals\SDelete\sdelete.exe&quot; -p 3 -s -q &quot;%SANDBOX%&quot;
-</code></pre>
 <p><strong>In the Sandboxie.ini Configuration File</strong></p>
 <p>To configure a custom delete command for a particular sandbox, edit or insert the <a href="DeleteCommand.html">DeleteCommand</a> setting in the sandbox section of <a href="SandboxieIni.html">Sandboxie Ini</a>.</p>
 <p>To configure a global custom delete command, edit or insert the <a href="DeleteCommand.html">DeleteCommand</a> setting in the [GlobalSettings] section of <a href="SandboxieIni.html">Sandboxie Ini</a>.</p>

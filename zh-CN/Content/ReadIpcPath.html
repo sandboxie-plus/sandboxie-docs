@@ -4531,28 +4531,28 @@
 <h1 id="ipc">读取 IPC 路径<a class="headerlink" href="#ipc" title="Permanent link"></a></h1>
 <p><em>读取 IPC 路径</em> 是 <a href="SandboxieIni.html">沙盘配置文件</a> 中的一项沙箱设置，自 v1.0.16 / 5.55.16 版本起可用。它指定了一些路径模式，对于这些模式，沙盘将允许未在沙箱中运行的进程或其他沙箱中的进程进行读取访问。这使得沙箱内的程序能够访问沙箱外运行的程序所提供的资源和服务。</p>
 <p>可以指定 <a href="ProgramNamePrefix.html">程序名称前缀</a>。</p>
-<p>用法：</p>
-<pre><code class="language-ini">   .
-   .
-   .
-   [DefaultBox]
-   ReadIpcPath=$:program.exe
-</code></pre>
+<p>用法：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">ReadIpcPath</span><span class="o">=</span><span class="s">$:program.exe</span>
+</span></code></pre></div></p>
 <p>此示例允许沙箱内运行的程序对沙箱外运行的目标进程或其他沙箱中的进程的地址空间进行读取访问。目标进程的进程名称必须与设置中指定的名称相匹配。</p>
-<p>也可以通过指定以下内容完全恢复旧的行为：</p>
-<pre><code class="language-ini">   .
-   .
-   .
-   [DefaultBox]
-   ReadIpcPath=$:*
-</code></pre>
-<p>默认情况下，唯一可以读取其内存的进程是 <em>explorer.exe</em>。许多进程都需要它，而且 Windows 文件资源管理器无论如何都不应保留任何机密信息。要阻止这种情况，可以使用：</p>
-<pre><code class="language-ini">   .
-   .
-   .
-   [DefaultBox]
-   ClosedIpcPath=$:explorer.exe
-</code></pre>
+<p>也可以通过指定以下内容完全恢复旧的行为：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">   </span><span class="na">ReadIpcPath</span><span class="o">=</span><span class="s">$:*</span>
+</span></code></pre></div></p>
+<p>默认情况下，唯一可以读取其内存的进程是 <em>explorer.exe</em>。许多进程都需要它，而且 Windows 文件资源管理器无论如何都不应保留任何机密信息。要阻止这种情况，可以使用：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">   </span><span class="na">ClosedIpcPath</span><span class="o">=</span><span class="s">$:explorer.exe</span>
+</span></code></pre></div></p>
 <p>相关的沙盘增强版（Sandboxie Plus）设置：</p>
 <p>沙箱选项 &gt; 资源访问 &gt; IPC &gt; 添加 IPC 路径 &gt; 访问列 &gt; 只读</p>
 <p>沙箱选项 &gt; 常规选项 &gt; 限制 &gt; 其他限制 &gt; 允许读取未在沙箱中运行的进程的内存（不建议）</p>

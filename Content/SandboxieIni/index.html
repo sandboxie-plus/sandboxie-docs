@@ -4665,20 +4665,20 @@
 <li>One User Settings section for each user account. These settings record the state of <a href="../SandboxieControl/">Sandboxie Control</a> for a particular user account, and include such information as the size of the window. These settings are not documented here, but see a brief discussion below.</li>
 </ul>
 <p>A simple Sandboxie.ini file may look like this.</p>
-<pre><code>   # Sample Sandboxie Configuration File
-   [GlobalSettings]
-   FileRootPath=C:\Sandbox\%USER%\%SANDBOX%
-   # Settings for sandbox DefaultBox
-   [DefaultBox]
-   Enabled=y
-   # Settings for sandbox InstallBox
-   [InstallBox]
-   Enabled=y
-   FileRootPath=D:\Sandbox\Install
-   # Sandboxie Control settings for some user
-   [UserSettings_054A02CE]
-   SbieCtrl_UserName=tzuk
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="c1"># Sample Sandboxie Configuration File</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="k">[GlobalSettings]</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">FileRootPath</span><span class="o">=</span><span class="s">C:\Sandbox\%USER%\%SANDBOX%</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="c1"># Settings for sandbox DefaultBox</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">   </span><span class="na">Enabled</span><span class="o">=</span><span class="s">y</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">   </span><span class="c1"># Settings for sandbox InstallBox</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">   </span><span class="k">[InstallBox]</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">   </span><span class="na">Enabled</span><span class="o">=</span><span class="s">y</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">   </span><span class="na">FileRootPath</span><span class="o">=</span><span class="s">D:\Sandbox\Install</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">   </span><span class="c1"># Sandboxie Control settings for some user</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">   </span><span class="k">[UserSettings_054A02CE]</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">   </span><span class="na">SbieCtrl_UserName</span><span class="o">=</span><span class="s">tzuk</span>
+</span></code></pre></div>
 <p>The example shows four sections: The global section (GlobalSettings), two sandbox sections (DefaultBox and InstallBox), and one user account section (UserSettings_054A02CE).</p>
 <p>Lines that begin with a hash sign (#) are comments. These lines are skipped.</p>
 <p><strong>Note:</strong> During its operation, <a href="../SandboxieControl/">Sandboxie Control</a> regularly rewrites the Sandboxie.ini file, and this rewrite loses all comments. However, unrecognized settings are not lost during the rewrite, so one workaround is to write comments in the form Comment=text.</p>

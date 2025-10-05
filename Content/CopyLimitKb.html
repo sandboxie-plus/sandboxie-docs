@@ -4532,12 +4532,12 @@
 <p><em>CopyLimitKb</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. Existing files that are modified by sandboxed programs have to be copied into the sandbox first. This setting specifies the file size limit for this copy operation. Files larger than the limit will not be copied into the sandbox, and cannot be modified by sandboxd programs. The limit is specified in units of kilobytes (1 kilobyte = 1024 bytes).</p>
 <p>For more information, see <a href="SBIE2102.html">SBIE2102</a>.</p>
 <p>Usage:</p>
-<pre><code>   .
-   .
-   .
-   [DefaultBox]
-   CopyLimitKb=128000
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">CopyLimitKb</span><span class="o">=</span><span class="s">128000</span>
+</span></code></pre></div>
 <p>This example specifies that only files smaller than (approx.) 128MB will be copied into the sandbox <em>DefaultBox</em>, when needed. Files larger than this limit can only be read, not updated, by sandboxed programs.</p>
 <p>The default setting is 49152 kilobytes, or 48 megabytes. Setting <em>CopyLimitKb</em> to some value for one sandbox does not change the default value for other sandboxes.</p>
 <p>The size limit and alert message can be configured in <a href="FileMigrationSettings.html">SandboxSettings &gt; File Migration</a>.</p>

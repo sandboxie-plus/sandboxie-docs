@@ -4530,12 +4530,12 @@
 
 <h1 id="_1">启动服务<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
 <p><em>StartService</em> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 中的一个沙箱设置。它允许在沙箱中运行服务程序。此设置需要一个服务名称（标识符），该名称在沙箱外部定义。例如：</p>
-<pre><code class="language-ini">   .
-   .
-   .
-   [DefaultBox]
-   StartService=Adguard Service
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">StartService</span><span class="o">=</span><span class="s">Adguard Service</span>
+</span></code></pre></div>
 <p>此示例指定服务名称 <em>Adguard Service</em> 将被强制在沙箱 <em>DefaultBox</em> 中以沙箱模式运行。</p>
 <p><strong>技术细节</strong></p>
 <p><em>StartService</em> 由 <a href="ServicePrograms.html#远程过程调用-rpc">SandboxieRpcSs</a> 处理，该程序在每个沙箱中仅运行一次。与 <a href="AutoExec.html">AutoExec</a> 设置一样，它在沙箱中第一个程序开始运行时进行处理。</p>

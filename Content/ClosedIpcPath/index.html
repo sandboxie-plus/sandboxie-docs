@@ -4532,12 +4532,12 @@
 <p><em>ClosedIpcPath</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. It specifies path patterns for which Sandboxie will deny <em>all</em> access by sandboxed programs, including <em>read</em> access. This setting essentially blocks resources from being accessed by sandboxed programs.</p>
 <p><a href="../ProgramNamePrefix/">Program Name Prefix</a> may be specified.</p>
 <p>Example:</p>
-<pre><code>   .
-   .
-   .
-   [DefaultBox]
-   ClosedIpcPath=\RPC Control\AudioSrv
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">ClosedIpcPath</span><span class="o">=</span><span class="s">\RPC Control\AudioSrv</span>
+</span></code></pre></div>
 <p>Unlike sandboxed files, folders and registry keys, Sandboxie will generally not allow a sandboxed program to access a non-sandboxed resource. The exceptions to this rule are if the resource was specified in an <a href="../OpenIpcPath/">OpenIpcPath</a> setting, or if Sandboxie by default recognizes the resource and exposes it for use inside the sandbox.</p>
 <p>The <em>ClosedIpcPath</em> setting is typically useful to block those resources that Sandboxie recognizes by default. In the example above, the AudioSrv resource is blocked. This resource provides access to audio hardware, in other words, it enables sandboxed programs to generate sound. By blocking it, the sandboxed program is essentially muted.</p>
 <p>This setting accepts wildcards. For more information on the use of wildcards in the <em>OpenXxxPath</em> and <em>ClosedXxxPath</em> settings, see <a href="../OpenFilePath/">OpenFilePath</a>.</p>

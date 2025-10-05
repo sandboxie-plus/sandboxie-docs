@@ -6,7 +6,15 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="RecoverFolder is a sandbox setting in Sandboxie Ini. It specifies the sandboxed folders that Quick Recovery should examine. Shell Folders may be specified. For example:">
+        <meta name="description" content="RecoverFolder is a sandbox setting in Sandboxie Ini. It specifies the sandboxed folders that Quick Recovery should examine. Shell Folders may be specified. For example:
+   .
+   .
+   .
+   [DefaultBox]
+   RecoverFolder=%Personal%
+   RecoverFolder=C:\Downloads
+   [InstallBox]
+   RecoverFolder=D:\Program Files">
       
       
       
@@ -4529,16 +4537,16 @@
 
 
 <h1 id="recover-folder">Recover Folder<a class="headerlink" href="#recover-folder" title="Permanent link"></a></h1>
-<p><em>RecoverFolder</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. It specifies the sandboxed folders that <a href="../QuickRecovery/">Quick Recovery</a> should examine. <a href="../ShellFolders/">Shell Folders</a> may be specified. For example:</p>
-<pre><code>   .
-   .
-   .
-   [DefaultBox]
-   RecoverFolder=%Personal%
-   RecoverFolder=C:\Downloads
-   [InstallBox]
-   RecoverFolder=D:\Program Files
-</code></pre>
+<p><em>RecoverFolder</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. It specifies the sandboxed folders that <a href="../QuickRecovery/">Quick Recovery</a> should examine. <a href="../ShellFolders/">Shell Folders</a> may be specified. For example:
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">RecoverFolder</span><span class="o">=</span><span class="s">%Personal%</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">   </span><span class="na">RecoverFolder</span><span class="o">=</span><span class="s">C:\Downloads</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">   </span><span class="k">[InstallBox]</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">   </span><span class="na">RecoverFolder</span><span class="o">=</span><span class="s">D:\Program Files</span>
+</span></code></pre></div></p>
 <p>The first two example settings specify that <a href="../QuickRecovery/">Quick Recovery</a> from the DefaultBox sandbox should look in the <em>Documents</em> and the <em>Downloads</em> folders in drive C.</p>
 <p>The third example setting specifies that QuickRecovery from the InstallBox sandbox should look in the <em>Program Files</em> folder in drive D.</p>
 <p>Note that when <a href="../QuickRecovery/">Quick Recovery</a> looks in the specified folder, it also looks in any folders within that folder, and any folders within those folders, for as many levels of depth as are needed.</p>

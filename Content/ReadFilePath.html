@@ -4531,13 +4531,13 @@
 <h1 id="read-file-path">Read File Path<a class="headerlink" href="#read-file-path" title="Permanent link"></a></h1>
 <p><em>ReadFilePath</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It specifies path patterns for which Sandboxie will not apply sandboxing for files, and will not allow writing.</p>
 <p><a href="ShellFolders.html">Shell Folders</a> may be specified. <a href="ProgramNamePrefix.html">Program Name Prefix</a> may be specified.</p>
-<p>Examples:</p>
-<pre><code>   .
-   .
-   .
-   [DefaultBox]
-   ReadFilePath=C:\WINDOWS
-</code></pre>
+<p>Examples:
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">ReadFilePath</span><span class="o">=</span><span class="s">C:\WINDOWS</span>
+</span></code></pre></div></p>
 <p>This example forces the C:\WINDOWS folder, and everything below it, to be readable, but not writable (or deletable) by sandboxed programs.</p>
 <p>Note: <em>ReadFilePath</em> is a restricted form of <a href="OpenFilePath.html">OpenFilePath</a>. As with <em>OpenFilePath</em>, any already-existing sandboxed contents for the specified file or folder locations, are ignored.</p>
 <p>Related <a href="SandboxieControl.html">Sandboxie Control</a> setting: <a href="ResourceAccessSettings.html#file-access--read-only-access">Sandbox Settings &gt; Resource Access &gt; File Access &gt; Read-Only Access</a></p>

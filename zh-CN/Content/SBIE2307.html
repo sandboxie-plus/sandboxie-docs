@@ -4550,10 +4550,10 @@
 <p><strong>消息：</strong> SBIE2307 无法映射驱动器 <em>x</em> [<a href="NtStatusCodes.html">ntstatus</a>]</p>
 <p><strong>记录位置：</strong> <a href="PopupMessageLog.html">弹出消息日志</a>。</p>
 <p><strong>解释：</strong></p>
-<p>在 Windows 系统内部，并不直接识别诸如 A: 或 C: 这样的驱动器盘符，而是采用一种用于标识设备的命名方案。例如：</p>
-<pre><code>    \Device\Floppy0
-    \Device\HarddiskVolume1
-</code></pre>
+<p>在 Windows 系统内部，并不直接识别诸如 A: 或 C: 这样的驱动器盘符，而是采用一种用于标识设备的命名方案。例如：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span><span class="na">\Device\Floppy0</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="na">\Device\HarddiskVolume1</span>
+</span></code></pre></div></p>
 <p>它们可能分别是驱动器 A: 和 C: 的内部名称。</p>
 <p>沙盘（Sandboxie）在 Windows 系统的底层运行，并使用这些内部名称。但为了方便起见，当文件存储在沙箱文件夹中时，它们会以 <em>\sandbox\drive\a</em> 和 <em>\sandbox\drive\c</em> 的形式存储。</p>
 <p>因此，对于每个驱动器，沙盘需要知道其关联的内部名称，以便进行映射操作，例如在 C: 和 <em>\Device\HarddiskVolume1</em> 之间建立映射。</p>

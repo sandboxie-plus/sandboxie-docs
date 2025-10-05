@@ -4703,544 +4703,570 @@
 <li>将自定义 DLL 注入到沙箱程序中。请参阅 <a href="InjectDll.html">InjectDll</a>。</li>
 <li>从正在运行的程序（无论是否在沙箱中）调用沙箱工具的入口点。本文将对此进行描述。</li>
 </ul>
-<p>本文描述的入口点均由 <em>SbieDll.dll</em> 导出。要访问某个入口点，你应该将此 DLL 动态加载到你的程序中，并获取所需入口点的地址。例如：</p>
-<pre><code class="language-C">        __declspec(dllexport) void __stdcall InjectDllMain(HINSTANCE hSbieDll, ULONG_PTR UnusedParameter)
-    {
-        //
-            // 定位 SbieDll.dll 中 SbieDll_Hook 的地址
-            //
-
-            typedef void *(__stdcall *P_SbieDll_Hook)(
-                    const char *ApiName, void *ApiFunc, void *NewFunc);
-
-            P_SbieDll_Hook p_SbieDll_Hook = GetProcAddress(hSbieDll, &quot;SbieDll_Hook&quot;);
-
-        //
-            // 通过函数指针调用 SbieDll_Hook
-            //
-
-            p_SbieDll_Hook(...);
-    }
-</code></pre>
+<p>本文描述的入口点均由 <em>SbieDll.dll</em> 导出。要访问某个入口点，你应该将此 DLL 动态加载到你的程序中，并获取所需入口点的地址。例如：
+<div class="language-C highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">        </span><span class="kr">__declspec</span><span class="p">(</span><span class="n">dllexport</span><span class="p">)</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="kr">__stdcall</span><span class="w"> </span><span class="n">InjectDllMain</span><span class="p">(</span><span class="n">HINSTANCE</span><span class="w"> </span><span class="n">hSbieDll</span><span class="p">,</span><span class="w"> </span><span class="n">ULONG_PTR</span><span class="w"> </span><span class="n">UnusedParameter</span><span class="p">)</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">        </span><span class="c1">//</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">            </span><span class="c1">// 定位 SbieDll.dll 中 SbieDll_Hook 的地址</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">            </span><span class="c1">//</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">            </span><span class="k">typedef</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="kr">__stdcall</span><span class="w"> </span><span class="o">*</span><span class="n">P_SbieDll_Hook</span><span class="p">)(</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">                    </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">ApiName</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">ApiFunc</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">NewFunc</span><span class="p">);</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">            </span><span class="n">P_SbieDll_Hook</span><span class="w"> </span><span class="n">p_SbieDll_Hook</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetProcAddress</span><span class="p">(</span><span class="n">hSbieDll</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;SbieDll_Hook&quot;</span><span class="p">);</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">        </span><span class="c1">//</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">            </span><span class="c1">// 通过函数指针调用 SbieDll_Hook</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">            </span><span class="c1">//</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">            </span><span class="n">p_SbieDll_Hook</span><span class="p">(...);</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="p">}</span>
+</span></code></pre></div></p>
 <p>请注意使用 <em>InjectDllMain</em>（请参阅 <a href="InjectDll.html">注入 DLL</a>）来获取已加载的 SbieDll 实例的句柄。这是推荐的方法。不过，使用 LoadLibrary 或 GetModuleHandle 按名称查找 SbieDll 也是可行的。</p>
 <hr />
 <h3 id="_1">枚举沙箱名称<a class="headerlink" href="#_1" title="Permanent link"></a></h3>
 <ul>
-<li>原型：</li>
+<li>
+<p>原型：
+<div class="language-C highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">        </span><span class="k">typedef</span><span class="w"> </span><span class="n">LONG</span><span class="w"> </span><span class="p">(</span><span class="kr">__stdcall</span><span class="w"> </span><span class="o">*</span><span class="n">P_SbieApi_EnumBoxes</span><span class="p">)(</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">                </span><span class="n">LONG</span><span class="w"> </span><span class="n">index</span><span class="p">,</span><span class="w">                 </span><span class="c1">// 初始化为 -1</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">                </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">box_name</span><span class="p">);</span><span class="w">            </span><span class="c1">// 指向 WCHAR [34] 的指针</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>导出名称：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">        </span><span class="na">SbieApi_EnumBoxes</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>参数：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="w">        </span><span class="na">index [in] 指定要返回的沙箱。初始化为 -1。</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">        </span><span class="na">沙箱按照它们在 Sandboxie.ini 中出现的顺序进行枚举。</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">        </span><span class="na">box_name [out] 接收沙箱名称。</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="na">注意：此函数不能由沙箱程序使用。</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>返回值：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="w">        </span><span class="na">返回下一次用于 index 参数的值。</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">        </span><span class="na">当没有更多内容需要枚举时返回 -1。</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>示例代码：</p>
+</li>
 </ul>
-<pre><code class="language-C">        typedef LONG (__stdcall *P_SbieApi_EnumBoxes)(
-                LONG index,                 // 初始化为 -1
-                WCHAR *box_name);            // 指向 WCHAR [34] 的指针
-</code></pre>
-<ul>
-<li>导出名称：</li>
-</ul>
-<pre><code>        SbieApi_EnumBoxes
-</code></pre>
-<ul>
-<li>参数：</li>
-</ul>
-<pre><code>        index [in] 指定要返回的沙箱。初始化为 -1。
-        沙箱按照它们在 Sandboxie.ini 中出现的顺序进行枚举。
-
-        box_name [out] 接收沙箱名称。
-
-        注意：此函数不能由沙箱程序使用。
-</code></pre>
-<ul>
-<li>返回值：</li>
-</ul>
-<pre><code>        返回下一次用于 index 参数的值。
-        当没有更多内容需要枚举时返回 -1。
-</code></pre>
-<ul>
-<li>示例代码：</li>
-</ul>
-<pre><code class="language-C">        WCHAR name[34];
-        int index = -1;
-        while (1) {
-                index = SbieApi_EnumBoxes(index, name);
-                if (index == -1)
-                    break;
-                SandboxNames_StringArray.add(name);
-        }
-</code></pre>
+<div class="language-C highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="w">        </span><span class="n">WCHAR</span><span class="w"> </span><span class="n">name</span><span class="p">[</span><span class="mi">34</span><span class="p">];</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">                </span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SbieApi_EnumBoxes</span><span class="p">(</span><span class="n">index</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">);</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">index</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">                    </span><span class="k">break</span><span class="p">;</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">                </span><span class="n">SandboxNames_StringArray</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">        </span><span class="p">}</span>
+</span></code></pre></div>
 <hr />
 <h3 id="_2">按沙箱名称查询沙箱路径<a class="headerlink" href="#_2" title="Permanent link"></a></h3>
 <ul>
-<li>原型：</li>
+<li>
+<p>原型：
+<div class="language-C highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="w">        </span><span class="k">typedef</span><span class="w"> </span><span class="n">LONG</span><span class="w"> </span><span class="p">(</span><span class="kr">__stdcall</span><span class="w"> </span><span class="o">*</span><span class="n">P_SbieApi_QueryBoxPath</span><span class="p">)(</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">                </span><span class="k">const</span><span class="w"> </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">box_name</span><span class="p">,</span><span class="w">      </span><span class="c1">// 指向 WCHAR [34] 的指针</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">                </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">file_path</span><span class="p">,</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">                </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">key_path</span><span class="p">,</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">                </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">ipc_path</span><span class="p">,</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">                </span><span class="n">ULONG</span><span class="w"> </span><span class="o">*</span><span class="n">file_path_len</span><span class="p">,</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">                </span><span class="n">ULONG</span><span class="w"> </span><span class="o">*</span><span class="n">key_path_len</span><span class="p">,</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">                </span><span class="n">ULONG</span><span class="w"> </span><span class="o">*</span><span class="n">ipc_path_len</span><span class="p">);</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>导出名称：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="w">        </span><span class="na">SbieApi_QueryBoxPath</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>参数：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="w">        </span><span class="na">box_name [in] 指定要返回路径信息的沙箱名称。</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">        </span><span class="na">file_path [out] 接收沙箱根目录的路径，该路径由 FileRootPath 设置指定。</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">        </span><span class="na">该缓冲区最多接收 file_path_len 参数指定的字节数。传入 NULL 以忽略此参数。</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">        </span><span class="na">key_path [out] 接收沙箱注册表根键的路径，该路径由 KeyRootPath 设置指定。</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">        </span><span class="na">该缓冲区最多接收 key_path_len 参数指定的字节数。传入 NULL 以忽略此参数。</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">        </span><span class="na">ipc_path [out] 接收沙箱根对象目录的路径，该路径由 IpcRootPath 设置指定。</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">        </span><span class="na">该缓冲区最多接收 ipc_path_len 参数指定的字节数。传入 NULL 以忽略此参数。</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">        </span><span class="na">file_path_len [in/out] 指定 file_path 缓冲区的字节长度。返回时，接收完整缓冲区所需的字节长度。</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">        </span><span class="na">key_path_len [in/out] 指定 key_path 缓冲区的字节长度。返回时，接收完整缓冲区所需的字节长度。</span>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">        </span><span class="na">ipc_path_len [in/out] 指定 ipc_path 缓冲区的字节长度。返回时，接收完整缓冲区所需的字节长度。</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>返回值：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="w">        </span><span class="na">成功时返回零，出错时返回非零值。</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>示例代码：
+<div class="language-C highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="w">        </span><span class="n">ULONG</span><span class="w"> </span><span class="n">FileLen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">        </span><span class="n">ULONG</span><span class="w"> </span><span class="n">KeyLen</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">        </span><span class="n">ULONG</span><span class="w"> </span><span class="n">IpcLen</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">        </span><span class="n">SbieApi_QueryBoxPath</span><span class="p">(</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">                </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">FileLen</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">KeyLen</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">IpcLen</span><span class="p">);</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">        </span><span class="c1">// 注意，长度是以字节数返回的，而不是 WCHAR 字符数</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">        </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">FileBuf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="n">FileLen</span><span class="p">);</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">        </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">KeyBuf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="n">KeyLen</span><span class="p">);</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">        </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">IpcBuf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="n">IpcLen</span><span class="p">);</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">        </span><span class="n">SbieApi_QueryBoxPath</span><span class="p">(</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">                </span><span class="n">FileBuf</span><span class="p">,</span><span class="w"> </span><span class="n">KeyBuf</span><span class="p">,</span><span class="w"> </span><span class="n">IpcBuf</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">FileLen</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">KeyLen</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">IpcLen</span><span class="p">);</span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">        </span><span class="c1">// 现在使用 wcslen 来计算字符数</span>
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="w">        </span><span class="n">FileLen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wcslen</span><span class="p">(</span><span class="n">FileBuf</span><span class="p">);</span>
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a><span class="w">        </span><span class="n">KeyLen</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">wcslen</span><span class="p">(</span><span class="n">KeyBuf</span><span class="p">);</span>
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a><span class="w">        </span><span class="n">IpcLen</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">wcslen</span><span class="p">(</span><span class="n">IpcBuf</span><span class="p">);</span>
+</span></code></pre></div></p>
+</li>
 </ul>
-<pre><code class="language-C">        typedef LONG (__stdcall *P_SbieApi_QueryBoxPath)(
-                const WCHAR *box_name,      // 指向 WCHAR [34] 的指针
-                WCHAR *file_path,
-                WCHAR *key_path,
-                WCHAR *ipc_path,
-                ULONG *file_path_len,
-                ULONG *key_path_len,
-                ULONG *ipc_path_len);
-</code></pre>
-<ul>
-<li>导出名称：</li>
-</ul>
-<pre><code>        SbieApi_QueryBoxPath
-</code></pre>
-<ul>
-<li>参数：</li>
-</ul>
-<pre><code>        box_name [in] 指定要返回路径信息的沙箱名称。
-
-        file_path [out] 接收沙箱根目录的路径，该路径由 FileRootPath 设置指定。
-        该缓冲区最多接收 file_path_len 参数指定的字节数。传入 NULL 以忽略此参数。
-
-        key_path [out] 接收沙箱注册表根键的路径，该路径由 KeyRootPath 设置指定。
-        该缓冲区最多接收 key_path_len 参数指定的字节数。传入 NULL 以忽略此参数。
-
-        ipc_path [out] 接收沙箱根对象目录的路径，该路径由 IpcRootPath 设置指定。
-        该缓冲区最多接收 ipc_path_len 参数指定的字节数。传入 NULL 以忽略此参数。
-
-        file_path_len [in/out] 指定 file_path 缓冲区的字节长度。返回时，接收完整缓冲区所需的字节长度。
-
-        key_path_len [in/out] 指定 key_path 缓冲区的字节长度。返回时，接收完整缓冲区所需的字节长度。
-
-        ipc_path_len [in/out] 指定 ipc_path 缓冲区的字节长度。返回时，接收完整缓冲区所需的字节长度。
-</code></pre>
-<ul>
-<li>返回值：</li>
-</ul>
-<pre><code>        成功时返回零，出错时返回非零值。
-</code></pre>
-<ul>
-<li>示例代码：</li>
-</ul>
-<pre><code class="language-C">        ULONG FileLen = 0;
-        ULONG KeyLen  = 0;
-        ULONG IpcLen  = 0;
-
-        SbieApi_QueryBoxPath(
-                NULL, NULL, NULL, NULL, &amp;FileLen, &amp;KeyLen, &amp;IpcLen);
-
-        // 注意，长度是以字节数返回的，而不是 WCHAR 字符数
-
-        WCHAR *FileBuf = malloc(FileLen);
-        WCHAR *KeyBuf = malloc(KeyLen);
-        WCHAR *IpcBuf = malloc(IpcLen);
-
-        SbieApi_QueryBoxPath(
-                FileBuf, KeyBuf, IpcBuf, &amp;FileLen, &amp;KeyLen, &amp;IpcLen);
-
-        // 现在使用 wcslen 来计算字符数
-
-        FileLen = wcslen(FileBuf);
-        KeyLen  = wcslen(KeyBuf);
-        IpcLen  = wcslen(IpcBuf);
-</code></pre>
 <hr />
 <h3 id="id">按进程 ID 查询沙箱路径<a class="headerlink" href="#id" title="Permanent link"></a></h3>
 <ul>
-<li>原型：</li>
+<li>
+<p>原型：
+<div class="language-C highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="w">        </span><span class="k">typedef</span><span class="w"> </span><span class="n">LONG</span><span class="w"> </span><span class="p">(</span><span class="kr">__stdcall</span><span class="w"> </span><span class="o">*</span><span class="n">P_SbieApi_QueryProcessPath</span><span class="p">)(</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">                </span><span class="n">HANDLE</span><span class="w"> </span><span class="n">process_id</span><span class="p">,</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">                </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">file_path</span><span class="p">,</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">                </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">key_path</span><span class="p">,</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">                </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">ipc_path</span><span class="p">,</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">                </span><span class="n">ULONG</span><span class="w"> </span><span class="o">*</span><span class="n">file_path_len</span><span class="p">,</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">                </span><span class="n">ULONG</span><span class="w"> </span><span class="o">*</span><span class="n">key_path_len</span><span class="p">,</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">                </span><span class="n">ULONG</span><span class="w"> </span><span class="o">*</span><span class="n">ipc_path_len</span><span class="p">);</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>导出名称：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="w">        </span><span class="na">SbieApi_QueryProcessPath</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>参数：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="w">        </span><span class="na">process_id [in] 指定要查询的沙箱进程的 ID。</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">        </span><span class="na">file_path [out]</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">        </span><span class="na">key_path [out]</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">        </span><span class="na">ipc_path [out]</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">        </span><span class="na">file_path_len [in/out]</span>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="w">        </span><span class="na">key_path_len [in/out]</span>
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="w">        </span><span class="na">ipc_path_len [in/out]</span>
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="w">        </span><span class="na">最后六个参数与上面讨论的 QueryBoxPath 函数的最后六个参数类似。</span>
+</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="w">        </span><span class="na">然而，QueryProcessPath（此函数）返回正在运行的程序所使用的沙箱路径，而 QueryBoxPath 返回沙箱配置中记录的路径。</span>
+</span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a>
+</span><span id="__span-13-18"><a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a><span class="w">        </span><span class="na">换句话说：假设一个沙箱程序以 PID 124 启动，然后某个沙箱路径（例如 FileRootPath）被设置为新值。</span>
+</span><span id="__span-13-19"><a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a><span class="w">        </span><span class="na">此时，QueryBoxPath 将返回新值，但 PID 124 的 QueryProcessPath 将返回旧值。</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>返回值：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="w">        </span><span class="na">成功时返回零，出错时返回非零值。</span>
+</span></code></pre></div></p>
+</li>
 </ul>
-<pre><code class="language-C">        typedef LONG (__stdcall *P_SbieApi_QueryProcessPath)(
-                HANDLE process_id,
-                WCHAR *file_path,
-                WCHAR *key_path,
-                WCHAR *ipc_path,
-                ULONG *file_path_len,
-                ULONG *key_path_len,
-                ULONG *ipc_path_len);
-</code></pre>
-<ul>
-<li>导出名称：</li>
-</ul>
-<pre><code>        SbieApi_QueryProcessPath
-</code></pre>
-<ul>
-<li>参数：</li>
-</ul>
-<pre><code>        process_id [in] 指定要查询的沙箱进程的 ID。
-
-        file_path [out]
-
-        key_path [out]
-
-        ipc_path [out]
-
-        file_path_len [in/out]
-
-        key_path_len [in/out]
-
-        ipc_path_len [in/out]
-
-        最后六个参数与上面讨论的 QueryBoxPath 函数的最后六个参数类似。
-        然而，QueryProcessPath（此函数）返回正在运行的程序所使用的沙箱路径，而 QueryBoxPath 返回沙箱配置中记录的路径。
-
-        换句话说：假设一个沙箱程序以 PID 124 启动，然后某个沙箱路径（例如 FileRootPath）被设置为新值。
-        此时，QueryBoxPath 将返回新值，但 PID 124 的 QueryProcessPath 将返回旧值。
-</code></pre>
-<ul>
-<li>返回值：</li>
-</ul>
-<pre><code>        成功时返回零，出错时返回非零值。
-</code></pre>
 <hr />
 <h3 id="_3">枚举正在运行的进程<a class="headerlink" href="#_3" title="Permanent link"></a></h3>
 <ul>
-<li>原型：</li>
+<li>
+<p>原型：
+<div class="language-C highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="w">        </span><span class="k">typedef</span><span class="w"> </span><span class="n">LONG</span><span class="w"> </span><span class="p">(</span><span class="kr">__stdcall</span><span class="w"> </span><span class="o">*</span><span class="n">P_SbieApi_EnumProcessEx</span><span class="p">)(</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">                </span><span class="k">const</span><span class="w"> </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">box_name</span><span class="p">,</span><span class="w">      </span><span class="c1">// 指向 WCHAR [34] 的指针</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">                </span><span class="n">BOOLEAN</span><span class="w"> </span><span class="n">all_sessions</span><span class="p">,</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">                </span><span class="n">ULONG</span><span class="w"> </span><span class="n">which_session</span><span class="p">,</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">                </span><span class="n">ULONG</span><span class="w"> </span><span class="o">*</span><span class="n">boxed_pids</span><span class="p">,</span><span class="w">         </span><span class="c1">// 指向 ULONG [] 的指针</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">                </span><span class="n">ULONG</span><span class="w"> </span><span class="o">*</span><span class="n">boxed_count</span><span class="p">);</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>导出名称：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="w">        </span><span class="na">SbieApi_EnumProcessEx</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>参数：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="w">        </span><span class="na">box_name [in] 指定要枚举其中进程的沙箱名称。</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">        </span><span class="na">all_sessions [in] 指定为 TRUE 以枚举所有登录会话中的进程，或仅枚举特定登录会话中的进程。</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">        </span><span class="na">which_session [in] 指定要枚举其中进程的登录会话编号。如果 all_sessions 为 TRUE，则忽略此参数。传入值 -1 以指定当前登录会话。</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w">        </span><span class="na">boxed_pids [out] 接收进程 ID（PID）编号。</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="w">        </span><span class="na">第一个 ULONG 接收枚举的进程数。</span>
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="w">        </span><span class="na">第二个 ULONG 接收第一个 PID，第三个 ULONG 接收第二个 PID，依此类推。</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>返回值：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="w">       </span><span class="na">成功时返回零，出错时返回非零值。</span>
+</span></code></pre></div></p>
+</li>
 </ul>
-<pre><code class="language-C">        typedef LONG (__stdcall *P_SbieApi_EnumProcessEx)(
-                const WCHAR *box_name,      // 指向 WCHAR [34] 的指针
-                BOOLEAN all_sessions,
-                ULONG which_session,
-                ULONG *boxed_pids,         // 指向 ULONG [] 的指针
-                ULONG *boxed_count);
-</code></pre>
-<ul>
-<li>导出名称：</li>
-</ul>
-<pre><code>        SbieApi_EnumProcessEx
-</code></pre>
-<ul>
-<li>参数：</li>
-</ul>
-<pre><code>        box_name [in] 指定要枚举其中进程的沙箱名称。
-
-        all_sessions [in] 指定为 TRUE 以枚举所有登录会话中的进程，或仅枚举特定登录会话中的进程。
-
-        which_session [in] 指定要枚举其中进程的登录会话编号。如果 all_sessions 为 TRUE，则忽略此参数。传入值 -1 以指定当前登录会话。
-
-        boxed_pids [out] 接收进程 ID（PID）编号。
-        第一个 ULONG 接收枚举的进程数。
-        第二个 ULONG 接收第一个 PID，第三个 ULONG 接收第二个 PID，依此类推。
-</code></pre>
-<ul>
-<li>返回值：</li>
-</ul>
-<pre><code>       成功时返回零，出错时返回非零值。
-</code></pre>
 <hr />
 <h3 id="_4">查询进程信息<a class="headerlink" href="#_4" title="Permanent link"></a></h3>
 <ul>
-<li>原型：</li>
+<li>
+<p>原型：
+<div class="language-C highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="w">        </span><span class="k">typedef</span><span class="w"> </span><span class="n">LONG</span><span class="w"> </span><span class="p">(</span><span class="kr">__stdcall</span><span class="w"> </span><span class="o">*</span><span class="n">P_SbieApi_QueryProcess</span><span class="p">)(</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">                </span><span class="n">HANDLE</span><span class="w"> </span><span class="n">process_id</span><span class="p">,</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">                </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">box_name</span><span class="p">,</span><span class="w">            </span><span class="c1">// 指向 WCHAR [34] 的指针</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">                </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">image_name</span><span class="p">,</span><span class="w">          </span><span class="c1">// 指向 WCHAR [96] 的指针</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">                </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">sid_string</span><span class="p">,</span><span class="w">         </span><span class="c1">// 指向 WCHAR [96] 的指针</span>
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="w">                </span><span class="n">ULONG</span><span class="w"> </span><span class="o">*</span><span class="n">session_id</span><span class="p">);</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>导出名称：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="w">        </span><span class="na">SbieApi_QueryProcess</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>参数：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="w">        </span><span class="na">process_id [in] 指定要查询的沙箱进程的 ID。</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">        </span><span class="na">box_name [out] 接收进程正在其中运行的沙箱名称。传入 NULL 以忽略此参数。</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="w">        </span><span class="na">image_name [out] 接收进程名称。传入 NULL 以忽略此参数。</span>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="w">        </span><span class="na">sid_string [out] 接收进程的 SID 字符串。传入 NULL 以忽略此参数。</span>
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>
+</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="w">        </span><span class="na">session_id [out] 接收进程正在其中运行的登录会话编号。传入 NULL 以忽略此参数。</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>返回值：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="w">        </span><span class="na">成功时返回零，出错时返回非零值。</span>
+</span></code></pre></div></p>
+</li>
 </ul>
-<pre><code class="language-C">        typedef LONG (__stdcall *P_SbieApi_QueryProcess)(
-                HANDLE process_id,
-                WCHAR *box_name,            // 指向 WCHAR [34] 的指针
-                WCHAR *image_name,          // 指向 WCHAR [96] 的指针
-                WCHAR *sid_string,         // 指向 WCHAR [96] 的指针
-                ULONG *session_id);
-</code></pre>
-<ul>
-<li>导出名称：</li>
-</ul>
-<pre><code>        SbieApi_QueryProcess
-</code></pre>
-<ul>
-<li>参数：</li>
-</ul>
-<pre><code>        process_id [in] 指定要查询的沙箱进程的 ID。
-
-        box_name [out] 接收进程正在其中运行的沙箱名称。传入 NULL 以忽略此参数。
-
-        image_name [out] 接收进程名称。传入 NULL 以忽略此参数。
-
-        sid_string [out] 接收进程的 SID 字符串。传入 NULL 以忽略此参数。
-
-        session_id [out] 接收进程正在其中运行的登录会话编号。传入 NULL 以忽略此参数。
-</code></pre>
-<ul>
-<li>返回值：</li>
-</ul>
-<pre><code>        成功时返回零，出错时返回非零值。
-</code></pre>
 <hr />
 <h3 id="_5">终止单个沙箱进程<a class="headerlink" href="#_5" title="Permanent link"></a></h3>
 <ul>
-<li>原型：</li>
+<li>
+<p>原型：
+<div class="language-C highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="w">        </span><span class="k">typedef</span><span class="w"> </span><span class="n">BOOLEAN</span><span class="w"> </span><span class="p">(</span><span class="kr">__stdcall</span><span class="w"> </span><span class="o">*</span><span class="n">P_SbieDll_KillOne</span><span class="p">)(</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="w">                </span><span class="n">HANDLE</span><span class="w"> </span><span class="n">process_id</span><span class="p">);</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>导出名称：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="w">        </span><span class="na">SbieDll_KillOne</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>参数：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="w">        </span><span class="na">process_id [in] 指定应终止的沙箱进程的进程 ID。</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>返回值：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="w">        </span><span class="na">成功时返回 TRUE，失败时返回 FALSE。</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="w">        </span><span class="na">目标进程由沙箱服务 (SbieSvc) 通过调用 Windows API TerminateProcess (ProcessId, 1) 以退出代码 1 终止。</span>
+</span></code></pre></div></p>
+</li>
 </ul>
-<pre><code class="language-C">        typedef BOOLEAN (__stdcall *P_SbieDll_KillOne)(
-                HANDLE process_id);
-</code></pre>
-<ul>
-<li>导出名称：</li>
-</ul>
-<pre><code>        SbieDll_KillOne
-</code></pre>
-<ul>
-<li>参数：</li>
-</ul>
-<pre><code>        process_id [in] 指定应终止的沙箱进程的进程 ID。
-</code></pre>
-<ul>
-<li>返回值：</li>
-</ul>
-<pre><code>        成功时返回 TRUE，失败时返回 FALSE。
-
-        目标进程由沙箱服务 (SbieSvc) 通过调用 Windows API TerminateProcess (ProcessId, 1) 以退出代码 1 终止。
-</code></pre>
 <hr />
 <h3 id="_6">终止所有沙箱进程<a class="headerlink" href="#_6" title="Permanent link"></a></h3>
 <ul>
-<li>原型：</li>
+<li>
+<p>原型：
+<div class="language-C highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="w">        </span><span class="k">typedef</span><span class="w"> </span><span class="n">BOOLEAN</span><span class="w"> </span><span class="p">(</span><span class="kr">__stdcall</span><span class="w"> </span><span class="o">*</span><span class="n">P_SbieDll_KillAll</span><span class="p">)(</span>
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="w">                </span><span class="n">ULONG</span><span class="w"> </span><span class="n">session_id</span><span class="p">,</span>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="w">                </span><span class="k">const</span><span class="w"> </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">box_name</span><span class="p">);</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>导出名称：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="w">        </span><span class="na">SbieDll_KillAll</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>参数：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="w">        </span><span class="na">session_id [in] 指定应终止沙箱程序的登录会话编号。</span>
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="w">        </span><span class="na">box_name [in] 指定应终止沙箱程序的沙箱名称。指定 -1 表示当前登录会话。</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>返回值：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="w">        </span><span class="na">成功时返回 TRUE，失败时返回 FALSE。</span>
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="w">        </span><span class="na">目标进程以上述方式终止；请参阅 SbieDll_KillOne。</span>
+</span></code></pre></div></p>
+</li>
 </ul>
-<pre><code class="language-C">        typedef BOOLEAN (__stdcall *P_SbieDll_KillAll)(
-                ULONG session_id,
-                const WCHAR *box_name);
-</code></pre>
-<ul>
-<li>导出名称：</li>
-</ul>
-<pre><code>        SbieDll_KillAll
-</code></pre>
-<ul>
-<li>参数：</li>
-</ul>
-<pre><code>        session_id [in] 指定应终止沙箱程序的登录会话编号。
-
-        box_name [in] 指定应终止沙箱程序的沙箱名称。指定 -1 表示当前登录会话。
-</code></pre>
-<ul>
-<li>返回值：</li>
-</ul>
-<pre><code>        成功时返回 TRUE，失败时返回 FALSE。
-
-        目标进程以上述方式终止；请参阅 SbieDll_KillOne。
-</code></pre>
 <hr />
 <h3 id="sandboxieini">从 Sandboxie.ini 查询配置<a class="headerlink" href="#sandboxieini" title="Permanent link"></a></h3>
 <ul>
-<li>原型：</li>
+<li>
+<p>原型：
+<div class="language-C highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="w">        </span><span class="k">typedef</span><span class="w"> </span><span class="n">LONG</span><span class="w"> </span><span class="p">(</span><span class="kr">__stdcall</span><span class="w"> </span><span class="o">*</span><span class="n">P_SbieApi_QueryConf</span><span class="p">)(</span>
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="w">                </span><span class="k">const</span><span class="w"> </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">section_name</span><span class="p">,</span><span class="w">  </span><span class="c1">// 指向 WCHAR [34] 的指针</span>
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="w">                </span><span class="k">const</span><span class="w"> </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">setting_name</span><span class="p">,</span><span class="w">  </span><span class="c1">// 指向 WCHAR [66] 的指针</span>
+</span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="w">                </span><span class="n">ULONG</span><span class="w"> </span><span class="n">setting_index</span><span class="p">,</span>
+</span><span id="__span-31-5"><a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a><span class="w">                </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">value</span><span class="p">,</span>
+</span><span id="__span-31-6"><a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a><span class="w">                </span><span class="n">ULONG</span><span class="w"> </span><span class="n">value_len</span><span class="p">)</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>导出名称：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="w">        </span><span class="na">SbieApi_QueryConf</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>参数：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="w">        </span><span class="na">section_name [in] 指定包含要查询的设置的节名称。</span>
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>
+</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="w">        </span><span class="na">setting_name [in] 指定要查询的设置名称。</span>
+</span><span id="__span-33-4"><a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>
+</span><span id="__span-33-5"><a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a><span class="w">        </span><span class="na">setting_index [in] 指定可能多次出现的设置的从零开始的索引编号。该索引编号可以与以下特殊值进行逻辑或运算：</span>
+</span><span id="__span-33-6"><a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a>
+</span><span id="__span-33-7"><a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a><span class="w">        </span><span class="na">0x40000000 - 如果指定的设置名称未出现在指定节中，则不扫描 [GlobalSettings] 节。</span>
+</span><span id="__span-33-8"><a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a>
+</span><span id="__span-33-9"><a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a><span class="w">        </span><span class="na">0x20000000 - 不展开结果中的任何变量。</span>
+</span><span id="__span-33-10"><a id="__codelineno-33-10" name="__codelineno-33-10" href="#__codelineno-33-10"></a>
+</span><span id="__span-33-11"><a id="__codelineno-33-11" name="__codelineno-33-11" href="#__codelineno-33-11"></a><span class="w">        </span><span class="na">0x10000000 - 忽略源自模板（通常在 Templates.ini 文件中定义）的任何设置。仅查询明确出现在 Sandboxie.ini 文件中的设置。</span>
+</span><span id="__span-33-12"><a id="__codelineno-33-12" name="__codelineno-33-12" href="#__codelineno-33-12"></a>
+</span><span id="__span-33-13"><a id="__codelineno-33-13" name="__codelineno-33-13" href="#__codelineno-33-13"></a><span class="w">        </span><span class="na">value [out] 接收指定设置的值。</span>
+</span><span id="__span-33-14"><a id="__codelineno-33-14" name="__codelineno-33-14" href="#__codelineno-33-14"></a>
+</span><span id="__span-33-15"><a id="__codelineno-33-15" name="__codelineno-33-15" href="#__codelineno-33-15"></a><span class="w">        </span><span class="na">value_len [in] 指定 value 参数指向的缓冲区的最大字节长度。</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>返回值：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="w">        </span><span class="na">成功时返回零。如果未找到设置，则返回 0xC000008B。任何其他返回值表示其他错误。</span>
+</span></code></pre></div></p>
+</li>
 </ul>
-<pre><code class="language-C">        typedef LONG (__stdcall *P_SbieApi_QueryConf)(
-                const WCHAR *section_name,  // 指向 WCHAR [34] 的指针
-                const WCHAR *setting_name,  // 指向 WCHAR [66] 的指针
-                ULONG setting_index,
-                WCHAR *value,
-                ULONG value_len)
-</code></pre>
-<ul>
-<li>导出名称：</li>
-</ul>
-<pre><code>        SbieApi_QueryConf
-</code></pre>
-<ul>
-<li>参数：</li>
-</ul>
-<pre><code>        section_name [in] 指定包含要查询的设置的节名称。
-
-        setting_name [in] 指定要查询的设置名称。
-
-        setting_index [in] 指定可能多次出现的设置的从零开始的索引编号。该索引编号可以与以下特殊值进行逻辑或运算：
-
-        0x40000000 - 如果指定的设置名称未出现在指定节中，则不扫描 [GlobalSettings] 节。
-
-        0x20000000 - 不展开结果中的任何变量。
-
-        0x10000000 - 忽略源自模板（通常在 Templates.ini 文件中定义）的任何设置。仅查询明确出现在 Sandboxie.ini 文件中的设置。
-
-        value [out] 接收指定设置的值。
-
-        value_len [in] 指定 value 参数指向的缓冲区的最大字节长度。
-</code></pre>
-<ul>
-<li>返回值：</li>
-</ul>
-<pre><code>        成功时返回零。如果未找到设置，则返回 0xC000008B。任何其他返回值表示其他错误。
-</code></pre>
 <hr />
 <h3 id="sandboxieini_1">更新 Sandboxie.ini 中的配置<a class="headerlink" href="#sandboxieini_1" title="Permanent link"></a></h3>
 <ul>
-<li>原型：</li>
+<li>
+<p>原型：
+<div class="language-C highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="w">        </span><span class="k">typedef</span><span class="w"> </span><span class="n">LONG</span><span class="w"> </span><span class="p">(</span><span class="kr">__stdcall</span><span class="w"> </span><span class="o">*</span><span class="n">P_SbieDll_UpdateConf</span><span class="p">)(</span>
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="w">            </span><span class="n">WCHAR</span><span class="w"> </span><span class="n">operation_code</span><span class="p">,</span>
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">password</span><span class="p">,</span><span class="w">      </span><span class="c1">// 限制为 64 个字符</span>
+</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="w">                </span><span class="k">const</span><span class="w"> </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">section_name</span><span class="p">,</span><span class="w">  </span><span class="c1">// 限制为 32 个字符</span>
+</span><span id="__span-35-5"><a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a><span class="w">                </span><span class="k">const</span><span class="w"> </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">setting_name</span><span class="p">,</span><span class="w">  </span><span class="c1">// 限制为 64 个字符</span>
+</span><span id="__span-35-6"><a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a><span class="w">                </span><span class="k">const</span><span class="w"> </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">value</span><span class="p">)</span><span class="w">         </span><span class="c1">// 限制为 2000 个字符</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>导出名称：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="w">        </span><span class="na">SbieDll_UpdateConf</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>参数：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="w">        </span><span class="na">operation_code [in] 指定如何更新请求的设置：</span>
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="w">        </span><span class="na">&#39;s&#39; 表示设置（覆盖），替换任何现有值</span>
+</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a><span class="w">        </span><span class="na">&#39;a&#39; 表示将新值追加到值列表的底部（如果还没有值，则简单设置新值）</span>
+</span><span id="__span-37-4"><a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a><span class="w">        </span><span class="na">&#39;i&#39; 表示将新值插入到值列表的顶部（如果还没有值，则简单设置新值）</span>
+</span><span id="__span-37-5"><a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a><span class="w">        </span><span class="na">&#39;d&#39; 表示删除值列表中的现有值</span>
+</span><span id="__span-37-6"><a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a>
+</span><span id="__span-37-7"><a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a><span class="w">        </span><span class="na">password [in] 指定如果需要则使用的密码，否则为 NULL 或空字符串。</span>
+</span><span id="__span-37-8"><a id="__codelineno-37-8" name="__codelineno-37-8" href="#__codelineno-37-8"></a>
+</span><span id="__span-37-9"><a id="__codelineno-37-9" name="__codelineno-37-9" href="#__codelineno-37-9"></a><span class="w">        </span><span class="na">section_name [in] 是一个必需参数，指定包含要设置的设置的节名称。</span>
+</span><span id="__span-37-10"><a id="__codelineno-37-10" name="__codelineno-37-10" href="#__codelineno-37-10"></a>
+</span><span id="__span-37-11"><a id="__codelineno-37-11" name="__codelineno-37-11" href="#__codelineno-37-11"></a><span class="w">        </span><span class="na">setting_name [in] 是一个必需参数，指定要设置的设置名称。</span>
+</span><span id="__span-37-12"><a id="__codelineno-37-12" name="__codelineno-37-12" href="#__codelineno-37-12"></a>
+</span><span id="__span-37-13"><a id="__codelineno-37-13" name="__codelineno-37-13" href="#__codelineno-37-13"></a><span class="w">        </span><span class="na">value [ini] 是一个可选参数，指定新值。</span>
+</span><span id="__span-37-14"><a id="__codelineno-37-14" name="__codelineno-37-14" href="#__codelineno-37-14"></a>
+</span><span id="__span-37-15"><a id="__codelineno-37-15" name="__codelineno-37-15" href="#__codelineno-37-15"></a><span class="w">        </span><span class="na">如果 operation_code 为&#39;s&#39; 且省略了 value，则指定节中的相应设置将被删除。</span>
+</span><span id="__span-37-16"><a id="__codelineno-37-16" name="__codelineno-37-16" href="#__codelineno-37-16"></a>
+</span><span id="__span-37-17"><a id="__codelineno-37-17" name="__codelineno-37-17" href="#__codelineno-37-17"></a><span class="w">        </span><span class="na">如果 operation_code 为&#39;s&#39; 且 setting_name 为 &quot;*&quot;（通配符星号）且省略了 value，则此函数将从配置文件中删除完整的节。</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>返回值：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="w">        </span><span class="na">成功时返回零。</span>
+</span></code></pre></div></p>
+</li>
 </ul>
-<pre><code class="language-C">        typedef LONG (__stdcall *P_SbieDll_UpdateConf)(
-            WCHAR operation_code,
-            const WCHAR *password,      // 限制为 64 个字符
-                const WCHAR *section_name,  // 限制为 32 个字符
-                const WCHAR *setting_name,  // 限制为 64 个字符
-                const WCHAR *value)         // 限制为 2000 个字符
-</code></pre>
-<ul>
-<li>导出名称：</li>
-</ul>
-<pre><code>        SbieDll_UpdateConf
-</code></pre>
-<ul>
-<li>参数：</li>
-</ul>
-<pre><code>        operation_code [in] 指定如何更新请求的设置：
-        's' 表示设置（覆盖），替换任何现有值
-        'a' 表示将新值追加到值列表的底部（如果还没有值，则简单设置新值）
-        'i' 表示将新值插入到值列表的顶部（如果还没有值，则简单设置新值）
-        'd' 表示删除值列表中的现有值
-
-        password [in] 指定如果需要则使用的密码，否则为 NULL 或空字符串。
-
-        section_name [in] 是一个必需参数，指定包含要设置的设置的节名称。
-
-        setting_name [in] 是一个必需参数，指定要设置的设置名称。
-
-        value [ini] 是一个可选参数，指定新值。
-
-        如果 operation_code 为's' 且省略了 value，则指定节中的相应设置将被删除。
-
-        如果 operation_code 为's' 且 setting_name 为 &quot;*&quot;（通配符星号）且省略了 value，则此函数将从配置文件中删除完整的节。
-</code></pre>
-<ul>
-<li>返回值：</li>
-</ul>
-<pre><code>        成功时返回零。
-</code></pre>
 <hr />
 <h3 id="sandboxieini_2">从 Sandboxie.ini 重新加载配置<a class="headerlink" href="#sandboxieini_2" title="Permanent link"></a></h3>
 <ul>
-<li>原型：</li>
+<li>
+<p>原型：
+<div class="language-C highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="w">        </span><span class="k">typedef</span><span class="w"> </span><span class="n">LONG</span><span class="w"> </span><span class="p">(</span><span class="kr">__stdcall</span><span class="w"> </span><span class="o">*</span><span class="n">P_SbieApi_ReloadConf</span><span class="p">)(</span>
+</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="w">                </span><span class="n">ULONG</span><span class="w"> </span><span class="n">session_id</span><span class="p">);</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>导出名称：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="w">        </span><span class="na">SbieApi_ReloadConf</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>参数：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="w">        </span><span class="na">session_id [in] 指定 Sandboxie 将记录任何错误消息的登录会话编号。传递 -1 表示当前登录会话。</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>返回值：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="w">        </span><span class="na">成功时返回零，出错时返回非零值。</span>
+</span></code></pre></div></p>
+</li>
 </ul>
-<pre><code class="language-C">        typedef LONG (__stdcall *P_SbieApi_ReloadConf)(
-                ULONG session_id);
-</code></pre>
-<ul>
-<li>导出名称：</li>
-</ul>
-<pre><code>        SbieApi_ReloadConf
-</code></pre>
-<ul>
-<li>参数：</li>
-</ul>
-<pre><code>        session_id [in] 指定 Sandboxie 将记录任何错误消息的登录会话编号。传递 -1 表示当前登录会话。
-</code></pre>
-<ul>
-<li>返回值：</li>
-</ul>
-<pre><code>        成功时返回零，出错时返回非零值。
-</code></pre>
 <hr />
 <h3 id="_7">挂钩用户模式入口点<a class="headerlink" href="#_7" title="Permanent link"></a></h3>
 <ul>
-<li>原型：</li>
+<li>
+<p>原型：
+<div class="language-C highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="w">        </span><span class="k">typedef</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="kr">__stdcall</span><span class="w"> </span><span class="o">*</span><span class="n">P_SbieDll_Hook</span><span class="p">)(</span>
+</span><span id="__span-43-2"><a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a><span class="w">                </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">name</span><span class="p">,</span>
+</span><span id="__span-43-3"><a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a><span class="w">                </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">source_func</span><span class="p">,</span>
+</span><span id="__span-43-4"><a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a><span class="w">                </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">detour_func</span><span class="p">);</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>导出名称：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="w">        </span><span class="na">SbieDll_Hook</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>参数：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="w">        </span><span class="na">name [in] 指定要挂钩的入口点的 ASCII 字符串名称。如果出错，SbieDll_Hook 会记录包含此描述性名称的沙箱错误消息。</span>
+</span><span id="__span-45-2"><a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a>
+</span><span id="__span-45-3"><a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a><span class="w">        </span><span class="na">source_func [in] 指向要挂钩的函数的指针。</span>
+</span><span id="__span-45-4"><a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a>
+</span><span id="__span-45-5"><a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a><span class="w">        </span><span class="na">detour_func [in] 指向挂钩代码的指针。</span>
+</span><span id="__span-45-6"><a id="__codelineno-45-6" name="__codelineno-45-6" href="#__codelineno-45-6"></a>
+</span><span id="__span-45-7"><a id="__codelineno-45-7" name="__codelineno-45-7" href="#__codelineno-45-7"></a><span class="w">        </span><span class="na">此函数将使源函数调用绕行函数。换句话说，绕行函数将拦截对源函数的所有调用。</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>返回值：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="w">        </span><span class="na">返回一个函数指针，绕行函数可以使用该指针调用源函数。</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>示例代码：
+<div class="language-C highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="w">       </span><span class="k">typedef</span><span class="w"> </span><span class="n">BOOL</span><span class="w"> </span><span class="p">(</span><span class="kr">__stdcall</span><span class="w"> </span><span class="o">*</span><span class="n">P_DeleteFileW</span><span class="p">)(</span><span class="k">const</span><span class="w"> </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">Path</span><span class="p">);</span>
+</span><span id="__span-47-2"><a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a>
+</span><span id="__span-47-3"><a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a><span class="w">       </span><span class="n">P_DeleteFileW</span><span class="w"> </span><span class="n">pDeleteFileW</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+</span><span id="__span-47-4"><a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a>
+</span><span id="__span-47-5"><a id="__codelineno-47-5" name="__codelineno-47-5" href="#__codelineno-47-5"></a><span class="w">       </span><span class="n">BOOL</span><span class="w"> </span><span class="kr">__stdcall</span><span class="w"> </span><span class="n">MyDeleteFileW</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">Path</span><span class="p">)</span>
+</span><span id="__span-47-6"><a id="__codelineno-47-6" name="__codelineno-47-6" href="#__codelineno-47-6"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-47-7"><a id="__codelineno-47-7" name="__codelineno-47-7" href="#__codelineno-47-7"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Path</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sa">L</span><span class="sc">&#39;C&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-47-8"><a id="__codelineno-47-8" name="__codelineno-47-8" href="#__codelineno-47-8"></a>
+</span><span id="__span-47-9"><a id="__codelineno-47-9" name="__codelineno-47-9" href="#__codelineno-47-9"></a><span class="w">                </span><span class="c1">// 静默忽略删除 C 盘上任何文件的请求</span>
+</span><span id="__span-47-10"><a id="__codelineno-47-10" name="__codelineno-47-10" href="#__codelineno-47-10"></a>
+</span><span id="__span-47-11"><a id="__codelineno-47-11" name="__codelineno-47-11" href="#__codelineno-47-11"></a><span class="w">                </span><span class="n">SetLastError</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span><span id="__span-47-12"><a id="__codelineno-47-12" name="__codelineno-47-12" href="#__codelineno-47-12"></a><span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="n">TRUE</span><span class="p">;</span>
+</span><span id="__span-47-13"><a id="__codelineno-47-13" name="__codelineno-47-13" href="#__codelineno-47-13"></a>
+</span><span id="__span-47-14"><a id="__codelineno-47-14" name="__codelineno-47-14" href="#__codelineno-47-14"></a><span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-47-15"><a id="__codelineno-47-15" name="__codelineno-47-15" href="#__codelineno-47-15"></a>
+</span><span id="__span-47-16"><a id="__codelineno-47-16" name="__codelineno-47-16" href="#__codelineno-47-16"></a><span class="w">                </span><span class="c1">// 否则调用原始的 DeleteFileW 函数</span>
+</span><span id="__span-47-17"><a id="__codelineno-47-17" name="__codelineno-47-17" href="#__codelineno-47-17"></a>
+</span><span id="__span-47-18"><a id="__codelineno-47-18" name="__codelineno-47-18" href="#__codelineno-47-18"></a><span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="n">pDeleteFileW</span><span class="p">(</span><span class="n">Path</span><span class="p">);</span>
+</span><span id="__span-47-19"><a id="__codelineno-47-19" name="__codelineno-47-19" href="#__codelineno-47-19"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-47-20"><a id="__codelineno-47-20" name="__codelineno-47-20" href="#__codelineno-47-20"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-47-21"><a id="__codelineno-47-21" name="__codelineno-47-21" href="#__codelineno-47-21"></a>
+</span><span id="__span-47-22"><a id="__codelineno-47-22" name="__codelineno-47-22" href="#__codelineno-47-22"></a><span class="w">        </span><span class="n">main</span><span class="p">()</span>
+</span><span id="__span-47-23"><a id="__codelineno-47-23" name="__codelineno-47-23" href="#__codelineno-47-23"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-47-24"><a id="__codelineno-47-24" name="__codelineno-47-24" href="#__codelineno-47-24"></a><span class="w">            </span><span class="n">pDeleteFileW</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetProcAddress</span><span class="p">(</span><span class="n">kernel32dll</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;DeleteFileW&quot;</span><span class="p">);</span>
+</span><span id="__span-47-25"><a id="__codelineno-47-25" name="__codelineno-47-25" href="#__codelineno-47-25"></a><span class="w">            </span><span class="n">pDeleteFileW</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SbieDll_Hook</span><span class="p">(</span><span class="s">&quot;DeleteFile&quot;</span><span class="p">,</span>
+</span><span id="__span-47-26"><a id="__codelineno-47-26" name="__codelineno-47-26" href="#__codelineno-47-26"></a><span class="w">                                        </span><span class="n">pDeleteFileW</span><span class="p">,</span>
+</span><span id="__span-47-27"><a id="__codelineno-47-27" name="__codelineno-47-27" href="#__codelineno-47-27"></a><span class="w">                                        </span><span class="n">MyDeleteFileW</span><span class="p">);</span>
+</span><span id="__span-47-28"><a id="__codelineno-47-28" name="__codelineno-47-28" href="#__codelineno-47-28"></a><span class="w">        </span><span class="p">}</span>
+</span></code></pre></div></p>
+</li>
 </ul>
-<pre><code class="language-C">        typedef void *(__stdcall *P_SbieDll_Hook)(
-                const char *name,
-                void *source_func,
-                void *detour_func);
-</code></pre>
-<ul>
-<li>导出名称：</li>
-</ul>
-<pre><code>        SbieDll_Hook
-</code></pre>
-<ul>
-<li>参数：</li>
-</ul>
-<pre><code>        name [in] 指定要挂钩的入口点的 ASCII 字符串名称。如果出错，SbieDll_Hook 会记录包含此描述性名称的沙箱错误消息。
-
-        source_func [in] 指向要挂钩的函数的指针。
-
-        detour_func [in] 指向挂钩代码的指针。
-
-        此函数将使源函数调用绕行函数。换句话说，绕行函数将拦截对源函数的所有调用。
-</code></pre>
-<ul>
-<li>返回值：</li>
-</ul>
-<pre><code>        返回一个函数指针，绕行函数可以使用该指针调用源函数。
-</code></pre>
-<ul>
-<li>示例代码：</li>
-</ul>
-<pre><code class="language-C">       typedef BOOL (__stdcall *P_DeleteFileW)(const WCHAR *Path);
-
-       P_DeleteFileW pDeleteFileW = NULL;
-
-       BOOL __stdcall MyDeleteFileW(const WCHAR *Path)
-        {
-            if (Path[0] == L'C') {
-
-                // 静默忽略删除 C 盘上任何文件的请求
-
-                SetLastError(0);
-                return TRUE;
-
-            } else {
-
-                // 否则调用原始的 DeleteFileW 函数
-
-                return pDeleteFileW(Path);
-            }
-        }
-
-        main()
-        {
-            pDeleteFileW = GetProcAddress(kernel32dll, &quot;DeleteFileW&quot;);
-            pDeleteFileW = SbieDll_Hook(&quot;DeleteFile&quot;,
-                                        pDeleteFileW,
-                                        MyDeleteFileW);
-        }
-</code></pre>
 <hr />
 <h3 id="dll">注册 DLL 加载/卸载回调<a class="headerlink" href="#dll" title="Permanent link"></a></h3>
 <ul>
-<li>原型：</li>
+<li>原型：
+<div class="language-C highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="w">       </span><span class="k">typedef</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="kr">__stdcall</span><span class="w"> </span><span class="o">*</span><span class="n">P_DllCallback</span><span class="p">)(</span><span class="k">const</span><span class="w"> </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">ImageName</span><span class="p">,</span><span class="w"> </span><span class="n">HMODULE</span><span class="w"> </span><span class="n">ImageBase</span><span class="p">);</span>
+</span></code></pre></div></li>
 </ul>
-<pre><code class="language-C">       typedef void (__stdcall *P_DllCallback)(const WCHAR *ImageName, HMODULE ImageBase);
-</code></pre>
-<pre><code class="language-C">       typedef BOOLEAN *(__stdcall *P_SbieDll_RegisterDllCallback)(
-               P_DllCallback pCallback);
-</code></pre>
+<div class="language-C highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="w">       </span><span class="k">typedef</span><span class="w"> </span><span class="n">BOOLEAN</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="kr">__stdcall</span><span class="w"> </span><span class="o">*</span><span class="n">P_SbieDll_RegisterDllCallback</span><span class="p">)(</span>
+</span><span id="__span-49-2"><a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a><span class="w">               </span><span class="n">P_DllCallback</span><span class="w"> </span><span class="n">pCallback</span><span class="p">);</span>
+</span></code></pre></div>
 <ul>
-<li>导出名称：</li>
+<li>
+<p>导出名称：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a><span class="w">       </span><span class="na">SbieDll_RegisterDllCallback</span>
+</span><span id="__span-50-2"><a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a>
+</span><span id="__span-50-3"><a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a><span class="w">       </span><span class="na">此 API 从 Sandboxie 3.46 版本开始可用。</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>参数：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a><span class="w">       </span><span class="na">pCallback 指定一个回调函数，每当进程中加载或卸载任何 DLL 时都会调用该回调函数。该回调函数无法注销。</span>
+</span></code></pre></div></p>
+</li>
 </ul>
-<pre><code>       SbieDll_RegisterDllCallback
-
-       此 API 从 Sandboxie 3.46 版本开始可用。
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="w">       </span><span class="na">回调函数的 ImageName（第一个）参数指定已加载或卸载的 DLL 的 UNICODE 名称字符串。该名称字符串不包含路径。</span>
+</span></code></pre></div>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="w">       </span><span class="na">回调函数的 ImageBase（第二个）参数指定 DLL 加载时的加载基地址。当调用回调函数通知 DLL 卸载时，此参数设置为零。</span>
+</span></code></pre></div>
 <ul>
-<li>参数：</li>
+<li>返回值：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="w">       </span><span class="na">成功时返回 TRUE，如果无法注册回调则返回 FALSE。从 3.46 版本开始，Sandboxie 支持在单个进程中最多进行 8 次注册。</span>
+</span></code></pre></div></li>
 </ul>
-<pre><code>       pCallback 指定一个回调函数，每当进程中加载或卸载任何 DLL 时都会调用该回调函数。该回调函数无法注销。
-</code></pre>
-<pre><code>       回调函数的 ImageName（第一个）参数指定已加载或卸载的 DLL 的 UNICODE 名称字符串。该名称字符串不包含路径。
-</code></pre>
-<pre><code>       回调函数的 ImageBase（第二个）参数指定 DLL 加载时的加载基地址。当调用回调函数通知 DLL 卸载时，此参数设置为零。
-</code></pre>
-<ul>
-<li>返回值：</li>
-</ul>
-<pre><code>       成功时返回 TRUE，如果无法注册回调则返回 FALSE。从 3.46 版本开始，Sandboxie 支持在单个进程中最多进行 8 次注册。
-</code></pre>
 <hr />
 <h3 id="sandboxie">获取 Sandboxie 主文件夹<a class="headerlink" href="#sandboxie" title="Permanent link"></a></h3>
 <ul>
-<li>原型：</li>
+<li>
+<p>原型：
+<div class="language-C highlight"><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a><span class="w">       </span><span class="k">typedef</span><span class="w"> </span><span class="n">LONG</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="kr">__stdcall</span><span class="w"> </span><span class="o">*</span><span class="n">P_SbieApi_GetHomePath</span><span class="p">)(</span>
+</span><span id="__span-55-2"><a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a><span class="w">               </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">NtPath</span><span class="p">,</span>
+</span><span id="__span-55-3"><a id="__codelineno-55-3" name="__codelineno-55-3" href="#__codelineno-55-3"></a><span class="w">               </span><span class="n">ULONG</span><span class="w"> </span><span class="n">NtPathMaxLen</span><span class="p">,</span>
+</span><span id="__span-55-4"><a id="__codelineno-55-4" name="__codelineno-55-4" href="#__codelineno-55-4"></a><span class="w">               </span><span class="n">WCHAR</span><span class="w"> </span><span class="o">*</span><span class="n">DosPath</span><span class="p">,</span>
+</span><span id="__span-55-5"><a id="__codelineno-55-5" name="__codelineno-55-5" href="#__codelineno-55-5"></a><span class="w">               </span><span class="n">ULONG</span><span class="w"> </span><span class="n">DosPathMaxLen</span><span class="p">);</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>导出名称：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-56-1"><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a><span class="w">       </span><span class="na">SbieApi_GetHomePath</span>
+</span><span id="__span-56-2"><a id="__codelineno-56-2" name="__codelineno-56-2" href="#__codelineno-56-2"></a>
+</span><span id="__span-56-3"><a id="__codelineno-56-3" name="__codelineno-56-3" href="#__codelineno-56-3"></a><span class="w">       </span><span class="na">此 API 从 Sandboxie 3.52 版本开始可用。</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>参数：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a><span class="w">       </span><span class="na">NtPath 指定一个指向缓冲区的指针，该缓冲区将接收 Sandboxie 安装文件夹的完整 NT 路径语法的路径。</span>
+</span><span id="__span-57-2"><a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a>
+</span><span id="__span-57-3"><a id="__codelineno-57-3" name="__codelineno-57-3" href="#__codelineno-57-3"></a><span class="w">       </span><span class="na">NtPathMaxLen 指定 NtPath 缓冲区的大小。将 NtPath 指定为 NULL 并将 NtPathMaxLen 指定为零以不接收 NT 路径。</span>
+</span><span id="__span-57-4"><a id="__codelineno-57-4" name="__codelineno-57-4" href="#__codelineno-57-4"></a>
+</span><span id="__span-57-5"><a id="__codelineno-57-5" name="__codelineno-57-5" href="#__codelineno-57-5"></a><span class="w">       </span><span class="na">DosPath 指定一个指向缓冲区的指针，该缓冲区将接收 Sandboxie 安装文件夹的完整 DOS 路径语法的路径。</span>
+</span><span id="__span-57-6"><a id="__codelineno-57-6" name="__codelineno-57-6" href="#__codelineno-57-6"></a>
+</span><span id="__span-57-7"><a id="__codelineno-57-7" name="__codelineno-57-7" href="#__codelineno-57-7"></a><span class="w">       </span><span class="na">DosPathMaxLen 指定 DosPath 缓冲区的大小。将 DosPath 指定为 NULL 并将 DosPathMaxLen 指定为零以不接收 NT 路径。</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>返回值：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a><span class="w">       </span><span class="na">成功时返回零，出错时返回非零值。</span>
+</span><span id="__span-58-2"><a id="__codelineno-58-2" name="__codelineno-58-2" href="#__codelineno-58-2"></a>
+</span><span id="__span-58-3"><a id="__codelineno-58-3" name="__codelineno-58-3" href="#__codelineno-58-3"></a><span class="w">       </span><span class="na">STATUS_BUFFER_TOO_SMALL (0xC0000023) 表示 NtPathMaxLen 或 DosPathMaxLen 指定的缓冲区太小。增大输入缓冲区的大小并重新尝试调用。</span>
+</span></code></pre></div></p>
+</li>
 </ul>
-<pre><code class="language-C">       typedef LONG *(__stdcall *P_SbieApi_GetHomePath)(
-               WCHAR *NtPath,
-               ULONG NtPathMaxLen,
-               WCHAR *DosPath,
-               ULONG DosPathMaxLen);
-</code></pre>
-<ul>
-<li>导出名称：</li>
-</ul>
-<pre><code>       SbieApi_GetHomePath
-
-       此 API 从 Sandboxie 3.52 版本开始可用。
-</code></pre>
-<ul>
-<li>参数：</li>
-</ul>
-<pre><code>       NtPath 指定一个指向缓冲区的指针，该缓冲区将接收 Sandboxie 安装文件夹的完整 NT 路径语法的路径。
-
-       NtPathMaxLen 指定 NtPath 缓冲区的大小。将 NtPath 指定为 NULL 并将 NtPathMaxLen 指定为零以不接收 NT 路径。
-
-       DosPath 指定一个指向缓冲区的指针，该缓冲区将接收 Sandboxie 安装文件夹的完整 DOS 路径语法的路径。
-
-       DosPathMaxLen 指定 DosPath 缓冲区的大小。将 DosPath 指定为 NULL 并将 DosPathMaxLen 指定为零以不接收 NT 路径。
-</code></pre>
-<ul>
-<li>返回值：</li>
-</ul>
-<pre><code>       成功时返回零，出错时返回非零值。
-
-       STATUS_BUFFER_TOO_SMALL (0xC0000023) 表示 NtPathMaxLen 或 DosPathMaxLen 指定的缓冲区太小。增大输入缓冲区的大小并重新尝试调用。
-</code></pre>
 
 
 

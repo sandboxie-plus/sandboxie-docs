@@ -4530,14 +4530,14 @@
 
 <h1 id="_1">自动恢复忽略<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
 <p><em>AutoRecoverIgnore</em> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 配置文件中的一个沙箱设置。它用于指定哪些文件夹或文件类型应当被 <a href="QuickRecovery.html">快速恢复</a> 的即时恢复扩展功能所忽略。例如：</p>
-<pre><code class="language-ini">   .
-   .
-   .
-   [DefaultBox]
-   AutoRecoverIgnore=.part
-   AutoRecoverIgnore=%Desktop%
-   AutoRecoverIgnore=C:\Folder
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">AutoRecoverIgnore</span><span class="o">=</span><span class="s">.part</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">   </span><span class="na">AutoRecoverIgnore</span><span class="o">=</span><span class="s">%Desktop%</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">   </span><span class="na">AutoRecoverIgnore</span><span class="o">=</span><span class="s">C:\Folder</span>
+</span></code></pre></div>
 <p>第一个示例排除了所有以 .part 结尾的文件，使其不会被即时恢复功能处理。这类文件通常由 Mozilla 浏览器的下载管理器创建，表示未完成的下载。当下载完成后，文件的 .part 扩展名会被删除，此时文件将符合即时恢复的条件。需要注意的是，.part 是默认设置之一。</p>
 <p>第二和第三个示例将指定的文件夹从即时恢复范围中排除。</p>
 <p>相关的 <a href="SandboxieControl.html">Sandboxie控制</a> 设置：<a href="RecoverySettings.html#immediate-recovery">沙箱设置 &gt; 恢复 &gt; 即时恢复</a></p>

@@ -4530,11 +4530,11 @@
 
 <h1 id="_1">可扩展变量<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
 <p>某些沙盘设置可能包含 <em>变量</em>。这些是占位名称，将被替换为可能针对特定计算机和用户账户的实际文本。例如：</p>
-<pre><code>RecoverFolder=%Personal%\Song_Lyrics
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">RecoverFolder</span><span class="o">=</span><span class="s">%Personal%\Song_Lyrics</span>
+</span></code></pre></div>
 <p>在这个简单的示例中，沙盘会将 <em>Personal</em> 变量扩展为 <em>文档</em> 文件夹的实际路径。</p>
-<pre><code>RecoverFolder=C:\Users\joe\Documents\Song_Lyrics
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">RecoverFolder</span><span class="o">=</span><span class="s">C:\Users\joe\Documents\Song_Lyrics</span>
+</span></code></pre></div>
 <p>下表列出了沙盘能够识别的变量。</p>
 <table>
 <thead>
@@ -4607,25 +4607,25 @@
 <h3 id="_3">变量覆盖<a class="headerlink" href="#_3" title="Permanent link"></a></h3>
 <p>上表中的任何变量，包括 <a href="ShellFolders.html">Shell 文件夹</a> 和模板变量，都可以通过 <a href="SandboxieIni.html">Sandboxie Ini</a> 配置文件进行覆盖。要覆盖变量，只需添加以 <strong>Ovr.</strong> 前缀开头的参数。</p>
 <p>例如：</p>
-<pre><code class="language-ini">    [GlobalSettings]
-    Ovr.SystemRoot=X:\WIN
-    Ovr.Tmpl.Firefox=C:\Firefox\Profiles\
-</code></pre>
-<pre><code class="language-ini">    [DefaultBox]
-    Ovr.Personal=Z:\MY_FILES
-    RecoverFolder=%Personal%
-    OpenFilePath=%SystemRoot%\Temp
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">    </span><span class="k">[GlobalSettings]</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="na">Ovr.SystemRoot</span><span class="o">=</span><span class="s">X:\WIN</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="na">Ovr.Tmpl.Firefox</span><span class="o">=</span><span class="s">C:\Firefox\Profiles</span>\
+</span></code></pre></div>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="w">    </span><span class="k">[DefaultBox]</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="na">Ovr.Personal</span><span class="o">=</span><span class="s">Z:\MY_FILES</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="na">RecoverFolder</span><span class="o">=</span><span class="s">%Personal%</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="na">OpenFilePath</span><span class="o">=</span><span class="s">%SystemRoot%\Temp</span>
+</span></code></pre></div>
 <p>当以这种方式覆盖变量时，其展开值将始终与配置文件中指定的值一致。</p>
 <h3 id="_4">注册表回退<a class="headerlink" href="#_4" title="Permanent link"></a></h3>
 <p>上表中的某些变量取自系统注册表。这些变量包括 <em>ProgramFiles</em> 及其后所有出现在表内的变量。对于这些变量，可以在 <a href="SandboxieIni.html">Sandboxie Ini</a> 配置文件中指定“回退”值。要为变量指定回退方式，添加以 <strong>Reg.</strong> 前缀开头的参数。</p>
 <p>例如：</p>
-<pre><code class="language-ini">    [GlobalSettings]
-    Reg.Desktop=%USERPROFILE%\Desktop
-</code></pre>
-<pre><code class="language-ini">    [DefaultBox]
-    Reg.Cookies=%USERPROFILE%\Cookies
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="w">    </span><span class="k">[GlobalSettings]</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="na">Reg.Desktop</span><span class="o">=</span><span class="s">%USERPROFILE%\Desktop</span>
+</span></code></pre></div>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="w">    </span><span class="k">[DefaultBox]</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="na">Reg.Cookies</span><span class="o">=</span><span class="s">%USERPROFILE%\Cookies</span>
+</span></code></pre></div>
 <p>请注意，上文描述的 “Ovr.” 覆盖方式会让沙盘忽略注册表。另一方面，只有当在注册表中找不到需要展开的变量时，沙盘才会检查 “Reg.” 的回退值。这意味着，如果为同一个变量 X 同时指定了 Ovr.X 和 Reg.X，则变量展开时始终使用 Ovr.X，Reg.X 则不会生效。</p>
 <p>通常建议首选 “Ovr.” 覆盖方式，而不是 “Reg.” 回退方式。</p>
 

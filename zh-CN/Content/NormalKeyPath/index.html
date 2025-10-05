@@ -4532,20 +4532,20 @@
 <p><em>标准注册表路径</em> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 中的一个沙箱设置。它用于指定那些将被沙盘应用默认沙箱化策略的路径模式。该设置在与 <a href="../../PlusContent/RuleSpecificity/">规则特定性</a> 配合使用时尤其有用，此时能够为父路径已被配置为开放、仅写甚至封禁的路径恢复到默认沙箱行为。</p>
 <p>可以指定 <a href="../ProgramNamePrefix/">程序名称前缀</a>。</p>
 <p>示例：</p>
-<pre><code class="language-ini">   .
-   .
-   .
-   [DefaultBox]
-   NormalIpcPath=*BaseNamedObjects*\__ComCatalogCache__
-   NormalIpcPath=*BaseNamedObjects*\ComPlusCOMRegTable
-   NormalIpcPath=*BaseNamedObjects*\RotHintTable
-   NormalIpcPath=*BaseNamedObjects*\{A3BD3259-3E4F-428a-84C8-F0463A9D3EB5}
-   NormalIpcPath=*BaseNamedObjects*\{A64C7F33-DA35-459b-96CA-63B51FB0CDB9}
-   NormalIpcPath=\RPC Control\actkernel
-   NormalIpcPath=\RPC Control\epmapper
-   NormalIpcPath=\RPC Control\OLE*
-   NormalIpcPath=\RPC Control\LRPC*
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">NormalIpcPath</span><span class="o">=</span><span class="s">*BaseNamedObjects*\__ComCatalogCache__</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">   </span><span class="na">NormalIpcPath</span><span class="o">=</span><span class="s">*BaseNamedObjects*\ComPlusCOMRegTable</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">   </span><span class="na">NormalIpcPath</span><span class="o">=</span><span class="s">*BaseNamedObjects*\RotHintTable</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">   </span><span class="na">NormalIpcPath</span><span class="o">=</span><span class="s">*BaseNamedObjects*\{A3BD3259-3E4F-428a-84C8-F0463A9D3EB5}</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">   </span><span class="na">NormalIpcPath</span><span class="o">=</span><span class="s">*BaseNamedObjects*\{A64C7F33-DA35-459b-96CA-63B51FB0CDB9}</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">   </span><span class="na">NormalIpcPath</span><span class="o">=</span><span class="s">\RPC Control\actkernel</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">   </span><span class="na">NormalIpcPath</span><span class="o">=</span><span class="s">\RPC Control\epmapper</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">   </span><span class="na">NormalIpcPath</span><span class="o">=</span><span class="s">\RPC Control\OLE*</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">   </span><span class="na">NormalIpcPath</span><span class="o">=</span><span class="s">\RPC Control\LRPC*</span>
+</span></code></pre></div>
 <p>相关的 Sandboxie Plus 设置：沙箱选项 &gt; 资源访问 &gt; 注册表 &gt; 添加注册键 &gt; 访问列 &gt; 标准</p>
 
 

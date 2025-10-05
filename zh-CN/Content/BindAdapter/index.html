@@ -4532,11 +4532,11 @@
 <p><strong>BindAdapter</strong>(绑定适配器) 和 <strong>BindAdapterIP</strong>(绑定适配器IP) 是<a href="../SandboxieIni/">Sandboxie Ini</a> 自 <strong>v1.15.12 / 5.70.12</strong> 和 <strong>v1.15.10 / 5.70.10</strong> 版本以来可用的沙箱设置。这些设置控制沙箱内的程序用于网络通信的网络适配器或 IP 地址。</p>
 <h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <h3 id="bindadapter">BindAdapter<a class="headerlink" href="#bindadapter" title="Permanent link"></a></h3>
-<pre><code class="language-ini">BindAdapter=[&lt;程序名&gt;,]&lt;适配器名&gt;
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">BindAdapter</span><span class="o">=</span><span class="s">[&lt;程序名&gt;,]&lt;适配器名&gt;</span>
+</span></code></pre></div>
 <h3 id="bindadapterip">BindAdapterIP<a class="headerlink" href="#bindadapterip" title="Permanent link"></a></h3>
-<pre><code class="language-ini">BindAdapterIP=[&lt;程序名&gt;,]&lt;IP 地址&gt;
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">BindAdapterIP</span><span class="o">=</span><span class="s">[&lt;程序名&gt;,]&lt;IP 地址&gt;</span>
+</span></code></pre></div>
 <ul>
 <li><strong>程序名</strong>: （可选）要应用绑定的程序名称。如果省略，则适用于沙箱中的所有程序。</li>
 <li><strong>适配器名</strong>: 网络适配器的友好名称（例如，“Ethernet”、“Wi-Fi”、“VPN Connection”）</li>
@@ -4551,34 +4551,34 @@
 <h2 id="_4">示例用法<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
 <h3 id="_5">基本适配器绑定<a class="headerlink" href="#_5" title="Permanent link"></a></h3>
 <p>将所有沙箱程序绑定到 Wi-Fi 适配器：</p>
-<pre><code class="language-ini">[DefaultBox]
-BindAdapter=Wi-Fi
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">BindAdapter</span><span class="o">=</span><span class="s">Wi-Fi</span>
+</span></code></pre></div>
 <h3 id="ip">IP 地址绑定<a class="headerlink" href="#ip" title="Permanent link"></a></h3>
 <p>强制程序使用特定的 IPv4 地址：</p>
-<pre><code class="language-ini">[DefaultBox]
-BindAdapterIP=192.168.100.123
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">BindAdapterIP</span><span class="o">=</span><span class="s">192.168.100.123</span>
+</span></code></pre></div>
 <p>强制程序使用特定的 IPv6 地址：</p>
-<pre><code class="language-ini">[DefaultBox]
-BindAdapterIP=fe80::8570:c50:a571:bf22
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="na">BindAdapterIP</span><span class="o">=</span><span class="s">fe80::8570:c50:a571:bf22</span>
+</span></code></pre></div>
 <h3 id="_6">单进程配置<a class="headerlink" href="#_6" title="Permanent link"></a></h3>
 <p>仅对特定程序应用绑定：</p>
-<pre><code class="language-ini">[DefaultBox]
-BindAdapterIP=firefox.exe,192.168.1.100
-BindAdapterIP=chrome.exe,10.0.0.50
-</code></pre>
-<pre><code class="language-ini">[DefaultBox]  
-BindAdapter=torrent.exe,VPN Connection
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="na">BindAdapterIP</span><span class="o">=</span><span class="s">firefox.exe,192.168.1.100</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="na">BindAdapterIP</span><span class="o">=</span><span class="s">chrome.exe,10.0.0.50</span>
+</span></code></pre></div>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">[DefaultBox]</span><span class="w">  </span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="na">BindAdapter</span><span class="o">=</span><span class="s">torrent.exe,VPN Connection</span>
+</span></code></pre></div>
 <h3 id="_7">多个配置<a class="headerlink" href="#_7" title="Permanent link"></a></h3>
 <p>您可以配置多个单进程绑定：</p>
-<pre><code class="language-ini">[DefaultBox]
-BindAdapterIP=program1.exe,192.168.1.10
-BindAdapterIP=program2.exe,192.168.1.20
-BindAdapter=program3.exe,Ethernet 2
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="na">BindAdapterIP</span><span class="o">=</span><span class="s">program1.exe,192.168.1.10</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="na">BindAdapterIP</span><span class="o">=</span><span class="s">program2.exe,192.168.1.20</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="na">BindAdapter</span><span class="o">=</span><span class="s">program3.exe,Ethernet 2</span>
+</span></code></pre></div>
 <h2 id="_8">重要说明<a class="headerlink" href="#_8" title="Permanent link"></a></h2>
 <blockquote>
 <p><strong>配置优先级:</strong> BindAdapter 对 BindAdapterIP 具有绝对优先权。如果对同一进程配置了两者，则使用 BindAdapter，BindAdapterIP 条目将被完全忽略。</p>

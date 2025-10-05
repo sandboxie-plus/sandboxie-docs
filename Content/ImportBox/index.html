@@ -4531,8 +4531,8 @@
 <h1 id="import-box">Import Box<a class="headerlink" href="#import-box" title="Permanent link"></a></h1>
 <p><strong>ImportBox</strong> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. It allows users to load sandbox configurations from external INI files.</p>
 <h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link"></a></h2>
-<pre><code class="language-ini">ImportBox=&lt;Path to INI file&gt;
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">ImportBox</span><span class="o">=</span><span class="s">&lt;Path to INI file&gt;</span>
+</span></code></pre></div>
 <ul>
 <li><strong>Path to INI file</strong>: The full path to an external INI file containing sandbox configuration settings.</li>
 </ul>
@@ -4541,35 +4541,35 @@
 <h2 id="example-usage">Example Usage<a class="headerlink" href="#example-usage" title="Permanent link"></a></h2>
 <h3 id="basic-import">Basic Import<a class="headerlink" href="#basic-import" title="Permanent link"></a></h3>
 <p>To import sandbox settings from an external file:</p>
-<pre><code class="language-ini">[GlobalSettings]
-ImportBox=C:\Sandboxes\PortableSandbox.ini
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[GlobalSettings]</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">ImportBox</span><span class="o">=</span><span class="s">C:\Sandboxes\PortableSandbox.ini</span>
+</span></code></pre></div>
 <h3 id="multiple-imports">Multiple Imports<a class="headerlink" href="#multiple-imports" title="Permanent link"></a></h3>
 <p>You can import as many sandboxes as you want:</p>
-<pre><code class="language-ini">[GlobalSettings]
-ImportBox=C:\Sandboxes\SecureSandbox.ini
-ImportBox=C:\Sandboxes\NoNetworkSandbox.ini
-ImportBox=C:\Sandboxes\BrowserSandbox.ini
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[GlobalSettings]</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">ImportBox</span><span class="o">=</span><span class="s">C:\Sandboxes\SecureSandbox.ini</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="na">ImportBox</span><span class="o">=</span><span class="s">C:\Sandboxes\NoNetworkSandbox.ini</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="na">ImportBox</span><span class="o">=</span><span class="s">C:\Sandboxes\BrowserSandbox.ini</span>
+</span></code></pre></div>
 <h3 id="portable-configuration-example">Portable Configuration Example<a class="headerlink" href="#portable-configuration-example" title="Permanent link"></a></h3>
 <p>Create a portable configuration file anywhere, for example <code>C:\Sandboxes\BrowserBox.ini</code>:</p>
-<pre><code class="language-ini">[BrowserBox]
-Enabled=y
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">[BrowserBox]</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">Enabled</span><span class="o">=</span><span class="s">y</span>
+</span></code></pre></div>
 <blockquote>
 <p><strong>Important:</strong><br />
 When importing a sandbox from an external INI file, the file must contain exactly one section, and that section’s name must match the filename (without the <code>.ini</code> extension).<br />
 If there are additional sections, or if the section name does not match the filename, the import will fail.</p>
 </blockquote>
 <p>Then import it into Sandboxie:</p>
-<pre><code class="language-ini">[GlobalSettings]
-ImportBox=C:\Sandboxes\BrowserBox.ini
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">[GlobalSettings]</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="na">ImportBox</span><span class="o">=</span><span class="s">C:\Sandboxes\BrowserBox.ini</span>
+</span></code></pre></div>
 <h3 id="import-entire-sandbox-root-directory">Import Entire Sandbox Root Directory<a class="headerlink" href="#import-entire-sandbox-root-directory" title="Permanent link"></a></h3>
 <p>Instead of manually importing each specific sandbox, You can import all sandbox configurations in a directory using a wildcard:</p>
-<pre><code class="language-ini">[GlobalSettings]
-ImportBox=C:\Sandboxes\*
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">[GlobalSettings]</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="na">ImportBox</span><span class="o">=</span><span class="s">C:\Sandboxes\*</span>
+</span></code></pre></div>
 <p>This imports all <code>.ini</code> files in the specified directory, making any sandboxes in that folder available for use. </p>
 <h2 id="user-interface">User Interface<a class="headerlink" href="#user-interface" title="Permanent link"></a></h2>
 <p>In <strong>Sandboxie Plus</strong>, you can manage ImportBox settings through:</p>

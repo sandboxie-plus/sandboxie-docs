@@ -4530,29 +4530,29 @@
 
 <h1 id="_1">开放窗口类<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
 <p><em>OpenWinClass</em> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 中的一个沙箱设置。它用于指定应允许沙盘程序访问的非沙箱窗口的类名。</p>
-<p>示例：</p>
-<pre><code class="language-ini">   .
-   .
-   .
-   [DefaultBox]
-   OpenWinClass=ConsoleWindowClass
-   OpenWinClass=$:program.exe/IgnoreUIPI
-   OpenWinClass=#
-   OpenWinClass=*
-</code></pre>
+<p>示例：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">OpenWinClass</span><span class="o">=</span><span class="s">ConsoleWindowClass</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">   </span><span class="na">OpenWinClass</span><span class="o">=</span><span class="s">$:program.exe/IgnoreUIPI</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">   </span><span class="na">OpenWinClass</span><span class="o">=</span><span class="c1">#</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">   </span><span class="na">OpenWinClass</span><span class="o">=</span><span class="s">*</span>
+</span></code></pre></div></p>
 <p>第一个示例允许 <em>cmd.exe</em> 进程创建的控制台窗口可被沙盘中的程序访问。</p>
 <p>通常情况下，沙盘不会允许沙箱内的程序访问、通信、关闭或销毁沙箱外的窗口。<em>OpenWinClass</em> 设置为这一规则提供了例外，允许访问特定的非沙箱窗口。</p>
-<p><strong>特殊形式</strong></p>
-<pre><code class="language-ini">   OpenWinClass=$:program.exe/IgnoreUIPI
-</code></pre>
-<p>此设置允许在沙箱中运行的程序使用 <code>PostThreadMessage API</code>，直接向运行在沙箱之外目标进程中的线程发送消息。此种 <em>OpenWinClass</em> 设置形式不支持通配符，因此，目标进程的进程名必须与设置中指定的名称相匹配。</p>
-<pre><code>   OpenWinClass=#
-</code></pre>
+<p><strong>特殊形式</strong>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">   </span><span class="na">OpenWinClass</span><span class="o">=</span><span class="s">$:program.exe/IgnoreUIPI</span>
+</span></code></pre></div></p>
+<p>此设置允许在沙箱中运行的程序使用 <code>PostThreadMessage API</code>，直接向运行在沙箱之外目标进程中的线程发送消息。此种 <em>OpenWinClass</em> 设置形式不支持通配符，因此，目标进程的进程名必须与设置中指定的名称相匹配。
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">   </span><span class="na">OpenWinClass</span><span class="o">=</span><span class="c1">#</span>
+</span></code></pre></div></p>
 <p>此设置指示沙盘不要更改由沙箱程序创建的窗口类名。通常，沙盘会将 <em>IEFrame</em> 这样的类名转换为 <em>Sandbox:DefaultBox::IEFrame</em>，以便更好地区分沙箱程序的窗口和系统中其他窗口。</p>
 <p>然而，在某些情况下，沙箱外的程序可能期望窗口类名为特定名称，因此可能无法识别由沙箱程序创建的窗口。指定 <code>OpenWinClass=#</code> 可解决此问题，但会降低隔离度。</p>
-<p>请注意，<code>OpenWinClass=#</code> 不允许与任何沙箱外的窗口通信，并且可能会干扰某些拖放操作。</p>
-<pre><code>   OpenWinClass=*
-</code></pre>
+<p>请注意，<code>OpenWinClass=#</code> 不允许与任何沙箱外的窗口通信，并且可能会干扰某些拖放操作。
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="w">   </span><span class="na">OpenWinClass</span><span class="o">=</span><span class="s">*</span>
+</span></code></pre></div></p>
 <p>此设置指示沙盘不要像上述方式转换窗口类名，同时使沙箱程序能够访问系统中的所有窗口，并进一步禁用与窗口相关的其他部分沙盘功能。此时，窗口标题可能不再显示沙盘标志 [#]。</p>
 <p>请注意，OpenWinClass=* 允许与所有沙箱外窗口的完全通信，但同样可能干扰一些拖放操作。</p>
 <p><strong>识别窗口类名</strong></p>

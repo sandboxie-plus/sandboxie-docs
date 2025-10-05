@@ -4530,12 +4530,12 @@
 
 <h1 id="_1">开放打印后台处理程序<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
 <p><em>OpenPrintSpooler</em> 是一个沙箱设置，用于细致地控制沙箱内的应用程序与打印后台处理程序服务的交互方式。</p>
-<pre><code class="language-ini">   .
-   .
-   .
-   [DefaultBox]
-   OpenPrintSpooler=n
-</code></pre>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">OpenPrintSpooler</span><span class="o">=</span><span class="s">n</span>
+</span></code></pre></div>
 <p>该设置会阻止沙箱内的应用程序在沙箱外部配置打印机。</p>
 <p>通过将 <code>OpenPrintSpooler=y</code>，可以禁用此限制。</p>
 <p>此设置自 0.5.4 / 5.46.0 版本起添加。</p>
