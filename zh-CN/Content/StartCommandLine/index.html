@@ -4672,94 +4672,94 @@
 </ul>
 <hr />
 <h3 id="_2">启动程序<a class="headerlink" href="#_2" title="Permanent link"></a></h3>
-<p>这是默认行为。通过指定程序可执行文件的完整或部分路径，Sandboxie Start 将在 Sandboxie 的监管下启动该程序：
-<div class="language-pwsh highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>  <span class="s2">&quot;C:\Program Files\Sandboxie\Start.exe&quot;</span>  <span class="n">c</span><span class="p">:\</span><span class="n">windows</span><span class="p">\</span><span class="n">system32</span><span class="p">\</span><span class="n">notepad</span><span class="p">.</span><span class="n">exe</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  <span class="s2">&quot;C:\Program Files\Sandboxie\Start.exe&quot;</span>  <span class="n">notepad</span><span class="p">.</span><span class="n">exe</span>
-</span></code></pre></div></p>
-<p>允许使用两个特殊的程序名称：
-<div class="language-pwsh highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>  <span class="s2">&quot;C:\Program Files\Sandboxie\Start.exe&quot;</span>  <span class="n">default_browser</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  <span class="s2">&quot;C:\Program Files\Sandboxie\Start.exe&quot;</span>  <span class="n">mail_agent</span>
-</span></code></pre></div></p>
-<p>根据指定的参数，Sandboxie Start 还可以显示“运行任何程序”对话框窗口或 Sandboxie 开始菜单：
-<div class="language-pwsh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>  <span class="s2">&quot;C:\Program Files\Sandboxie\Start.exe&quot;</span>  <span class="n">run_dialog</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  <span class="s2">&quot;C:\Program Files\Sandboxie\Start.exe&quot;</span>  <span class="n">start_menu</span>
-</span></code></pre></div></p>
-<p>在所有形式中，参数 <em>/box:沙箱名称</em> 都适用，并且可以在 Start.exe 和参数之间指定，以指示除默认的 <em>DefaultBox</em> 之外的沙箱名称。例如：
-<div class="language-pwsh highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>  <span class="s2">&quot;C:\Program Files\Sandboxie\Start.exe&quot;</span>  <span class="p">/</span><span class="n">box</span><span class="p">:</span><span class="n">TestBox</span>  <span class="n">run_dialog</span>
-</span></code></pre></div></p>
+<p>这是默认行为。通过指定程序可执行文件的完整或部分路径，Sandboxie Start 将在 Sandboxie 的监管下启动该程序：</p>
+<pre><code class="language-pwsh">  &quot;C:\Program Files\Sandboxie\Start.exe&quot;  c:\windows\system32\notepad.exe
+  &quot;C:\Program Files\Sandboxie\Start.exe&quot;  notepad.exe
+</code></pre>
+<p>允许使用两个特殊的程序名称：</p>
+<pre><code class="language-pwsh">  &quot;C:\Program Files\Sandboxie\Start.exe&quot;  default_browser
+  &quot;C:\Program Files\Sandboxie\Start.exe&quot;  mail_agent
+</code></pre>
+<p>根据指定的参数，Sandboxie Start 还可以显示“运行任何程序”对话框窗口或 Sandboxie 开始菜单：</p>
+<pre><code class="language-pwsh">  &quot;C:\Program Files\Sandboxie\Start.exe&quot;  run_dialog
+  &quot;C:\Program Files\Sandboxie\Start.exe&quot;  start_menu
+</code></pre>
+<p>在所有形式中，参数 <em>/box:沙箱名称</em> 都适用，并且可以在 Start.exe 和参数之间指定，以指示除默认的 <em>DefaultBox</em> 之外的沙箱名称。例如：</p>
+<pre><code class="language-pwsh">  &quot;C:\Program Files\Sandboxie\Start.exe&quot;  /box:TestBox  run_dialog
+</code></pre>
 <p>/box 参数的一种特殊形式是 _/box:__ask___，它会使 Start.exe 显示沙箱选择对话框。</p>
-<p>参数 <em>/silent</em> 可用于消除一些弹出错误消息。例如：
-<div class="language-pwsh highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>  <span class="s2">&quot;C:\Program Files\Sandboxie\Start.exe&quot;</span>  <span class="p">/</span><span class="n">silent</span>  <span class="n">no_such_program</span><span class="p">.</span><span class="n">exe</span>
-</span></code></pre></div></p>
+<p>参数 <em>/silent</em> 可用于消除一些弹出错误消息。例如：</p>
+<pre><code class="language-pwsh">  &quot;C:\Program Files\Sandboxie\Start.exe&quot;  /silent  no_such_program.exe
+</code></pre>
 <p>在静默和正常操作中，Start.exe 在成功时以零退出代码退出，失败时以非零退出代码退出。在批处理文件中，可以使用 <em>IF ERRORLEVEL</em> 条件检查退出代码。</p>
-<p>参数 <em>/elevate</em> 可用于在启用了用户账户控制 (UAC) 的系统上以管理员权限运行程序。例如：
-<div class="language-pwsh highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>  <span class="s2">&quot;C:\Program Files\Sandboxie\Start.exe&quot;</span>  <span class="p">/</span><span class="n">elevate</span> <span class="n">cmd</span><span class="p">.</span><span class="n">exe</span>
-</span></code></pre></div></p>
-<p>参数 <em>/env</em> 可用于传递环境变量：
-<div class="language-pwsh highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>  <span class="s2">&quot;C:\Program Files\Sandboxie\Start.exe&quot;</span>  <span class="p">/</span><span class="n">env</span><span class="p">:</span><span class="n">VariableName</span><span class="p">=</span><span class="n">VariableValueWithoutSpace</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  <span class="s2">&quot;C:\Program Files\Sandboxie\Start.exe&quot;</span>  <span class="p">/</span><span class="n">env</span><span class="p">:</span><span class="n">VariableName</span><span class="p">=</span><span class="s2">&quot;Variable Value With Spaces&quot;</span>
-</span></code></pre></div></p>
-<p>参数 <em>/hide_window</em> 可用于指示启动的程序不应显示其窗口：
-<div class="language-pwsh highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>  <span class="s2">&quot;C:\Program Files\Sandboxie\Start.exe&quot;</span>  <span class="p">/</span><span class="n">hide_window</span> <span class="n">cmd</span><span class="p">.</span><span class="n">exe</span> <span class="p">/</span><span class="n">c</span> <span class="n">automated_script</span><span class="p">.</span><span class="n">bat</span>
-</span></code></pre></div></p>
-<p>参数 <em>/wait</em> 可用于运行程序，等待其完成，并返回程序的退出状态：
-<div class="language-pwsh highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>  <span class="s2">&quot;C:\Program Files\Sandboxie\Start.exe&quot;</span>  <span class="p">/</span><span class="n">wait</span> <span class="n">cmd</span><span class="p">.</span><span class="n">exe</span>
-</span></code></pre></div></p>
-<p>请注意，Start.exe 是一个 Win32 应用程序，而不是控制台应用程序，因此系统的 "start" 命令在此处很有用，可以强制系统等待 Start.exe 完成：
-<div class="language-pwsh highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>  <span class="nb">start </span><span class="p">/</span><span class="n">wait</span> <span class="s2">&quot;C:\Program Files\Sandboxie\Start.exe&quot;</span> <span class="p">/</span><span class="n">wait</span> <span class="n">cmd</span> <span class="p">/</span><span class="n">c</span> <span class="n">exit</span> <span class="n">9</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>  <span class="nb">echo </span><span class="k">%</span><span class="n">ERRORLEVEL</span><span class="p">%</span>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>  <span class="n">9</span>
-</span></code></pre></div></p>
+<p>参数 <em>/elevate</em> 可用于在启用了用户账户控制 (UAC) 的系统上以管理员权限运行程序。例如：</p>
+<pre><code class="language-pwsh">  &quot;C:\Program Files\Sandboxie\Start.exe&quot;  /elevate cmd.exe
+</code></pre>
+<p>参数 <em>/env</em> 可用于传递环境变量：</p>
+<pre><code class="language-pwsh">  &quot;C:\Program Files\Sandboxie\Start.exe&quot;  /env:VariableName=VariableValueWithoutSpace
+  &quot;C:\Program Files\Sandboxie\Start.exe&quot;  /env:VariableName=&quot;Variable Value With Spaces&quot;
+</code></pre>
+<p>参数 <em>/hide_window</em> 可用于指示启动的程序不应显示其窗口：</p>
+<pre><code class="language-pwsh">  &quot;C:\Program Files\Sandboxie\Start.exe&quot;  /hide_window cmd.exe /c automated_script.bat
+</code></pre>
+<p>参数 <em>/wait</em> 可用于运行程序，等待其完成，并返回程序的退出状态：</p>
+<pre><code class="language-pwsh">  &quot;C:\Program Files\Sandboxie\Start.exe&quot;  /wait cmd.exe
+</code></pre>
+<p>请注意，Start.exe 是一个 Win32 应用程序，而不是控制台应用程序，因此系统的 "start" 命令在此处很有用，可以强制系统等待 Start.exe 完成：</p>
+<pre><code class="language-pwsh">  start /wait &quot;C:\Program Files\Sandboxie\Start.exe&quot; /wait cmd /c exit 9
+  echo %ERRORLEVEL%
+  9
+</code></pre>
 <p>系统等待 Start.exe 完成，而 Start.exe 又等待 "cmd /c exit 9" 完成，然后退出状态 9 一直返回。</p>
-<p>参数可以按任何顺序组合。例如：
-<div class="language-pwsh highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>   <span class="s2">&quot;C:\Program Files\Sandboxie\Start.exe&quot;</span>  <span class="p">/</span><span class="n">box</span><span class="p">:</span><span class="n">CustomBox</span> <span class="p">/</span><span class="n">silent</span> <span class="n">MyProgram</span><span class="p">.</span><span class="n">exe</span>
-</span></code></pre></div></p>
+<p>参数可以按任何顺序组合。例如：</p>
+<pre><code class="language-pwsh">   &quot;C:\Program Files\Sandboxie\Start.exe&quot;  /box:CustomBox /silent MyProgram.exe
+</code></pre>
 <h3 id="_3">停止程序<a class="headerlink" href="#_3" title="Permanent link"></a></h3>
-<p>终止在特定沙箱中运行的所有程序。请注意，该请求会传输到 Sandboxie 服务 SbieSvc，该服务实际执行终止操作。
-<div class="language-pwsh highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>  <span class="s2">&quot;C:\Program Files\Sandboxie\Start.exe&quot;</span>  <span class="p">/</span><span class="n">terminate</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>  <span class="s2">&quot;C:\Program Files\Sandboxie\Start.exe&quot;</span>  <span class="p">/</span><span class="n">box</span><span class="p">:</span><span class="n">TestBox</span>  <span class="p">/</span><span class="n">terminate</span>
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>  <span class="s2">&quot;C:\Program Files\Sandboxie\Start.exe&quot;</span>  <span class="p">/</span><span class="n">terminate_all</span>
-</span></code></pre></div></p>
+<p>终止在特定沙箱中运行的所有程序。请注意，该请求会传输到 Sandboxie 服务 SbieSvc，该服务实际执行终止操作。</p>
+<pre><code class="language-pwsh">  &quot;C:\Program Files\Sandboxie\Start.exe&quot;  /terminate
+  &quot;C:\Program Files\Sandboxie\Start.exe&quot;  /box:TestBox  /terminate
+  &quot;C:\Program Files\Sandboxie\Start.exe&quot;  /terminate_all
+</code></pre>
 <p>如果省略参数 <em>/box:沙箱名称</em>，则将停止在默认沙箱 <em>DefaultBox</em> 中运行的程序。</p>
 <p>形式 <em>/terminate_all</em> 会终止所有沙箱中的所有程序。</p>
 <hr />
 <h3 id="_4">卸载沙箱镜像<a class="headerlink" href="#_4" title="Permanent link"></a></h3>
-<p>这些命令用于卸载由 Sandboxie Plus 创建的加密沙箱镜像或 RAM 磁盘。这些参数从 v1.11.0 / 5.66.0 版本开始可用。
-<div class="language-pwsh highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>  <span class="s2">&quot;C:\Program Files\Sandboxie-Plus\Start.exe&quot;</span>  <span class="p">/</span><span class="n">unmount</span>
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>  <span class="s2">&quot;C:\Program Files\Sandboxie-Plus\Start.exe&quot;</span>  <span class="p">/</span><span class="n">box</span><span class="p">:</span><span class="n">EncryptedBox</span>  <span class="p">/</span><span class="n">unmount</span>
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>  <span class="s2">&quot;C:\Program Files\Sandboxie-Plus\Start.exe&quot;</span>  <span class="p">/</span><span class="n">unmount_all</span>
-</span></code></pre></div></p>
+<p>这些命令用于卸载由 Sandboxie Plus 创建的加密沙箱镜像或 RAM 磁盘。这些参数从 v1.11.0 / 5.66.0 版本开始可用。</p>
+<pre><code class="language-pwsh">  &quot;C:\Program Files\Sandboxie-Plus\Start.exe&quot;  /unmount
+  &quot;C:\Program Files\Sandboxie-Plus\Start.exe&quot;  /box:EncryptedBox  /unmount
+  &quot;C:\Program Files\Sandboxie-Plus\Start.exe&quot;  /unmount_all
+</code></pre>
 <p>如果省略参数 <em>/box:沙箱名称</em>，则将卸载默认沙箱 <em>DefaultBox</em> 的镜像。</p>
 <p>形式 <em>/unmount_all</em> 会终止所有加密沙箱中的所有程序，并卸载所有加密沙箱镜像，包括由 Sandboxie Plus 创建的 RAM 磁盘。</p>
 <h3 id="_5">挂载沙箱镜像<a class="headerlink" href="#_5" title="Permanent link"></a></h3>
-<p>这些命令用于挂载由 Sandboxie Plus 创建的加密沙箱镜像。这些参数从 v1.11.0 / 5.66.0 版本开始可用。
-<div class="language-pwsh highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>  <span class="s2">&quot;C:\Program Files\Sandboxie-Plus\Start.exe&quot;</span>  <span class="p">/</span><span class="n">key</span><span class="p">:</span><span class="no">[box image password]</span> <span class="p">/</span><span class="n">mount_protected</span>
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>  <span class="s2">&quot;C:\Program Files\Sandboxie-Plus\Start.exe&quot;</span>  <span class="p">/</span><span class="n">key</span><span class="p">:</span><span class="no">[box image password]</span> <span class="p">/</span><span class="nb">mount</span>
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>  <span class="s2">&quot;C:\Program Files\Sandboxie-Plus\Start.exe&quot;</span>  <span class="p">/</span><span class="n">box</span><span class="p">:</span><span class="n">EncryptedBox</span>  <span class="p">/</span><span class="n">key</span><span class="p">:</span><span class="no">[box image password]</span> <span class="p">/</span><span class="n">mount_protected</span>
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>  <span class="s2">&quot;C:\Program Files\Sandboxie-Plus\Start.exe&quot;</span>  <span class="p">/</span><span class="n">box</span><span class="p">:</span><span class="n">EncryptedBox</span>  <span class="p">/</span><span class="n">key</span><span class="p">:</span><span class="no">[box image password]</span> <span class="p">/</span><span class="nb">mount</span>
-</span></code></pre></div></p>
+<p>这些命令用于挂载由 Sandboxie Plus 创建的加密沙箱镜像。这些参数从 v1.11.0 / 5.66.0 版本开始可用。</p>
+<pre><code class="language-pwsh">  &quot;C:\Program Files\Sandboxie-Plus\Start.exe&quot;  /key:[box image password] /mount_protected
+  &quot;C:\Program Files\Sandboxie-Plus\Start.exe&quot;  /key:[box image password] /mount
+  &quot;C:\Program Files\Sandboxie-Plus\Start.exe&quot;  /box:EncryptedBox  /key:[box image password] /mount_protected
+  &quot;C:\Program Files\Sandboxie-Plus\Start.exe&quot;  /box:EncryptedBox  /key:[box image password] /mount
+</code></pre>
 <p>如果省略参数 <em>/box:沙箱名称</em>，则将挂载默认沙箱 <em>DefaultBox</em> 的镜像。</p>
 <p>形式 <em>/mount_protected</em> 会以“沙箱根保护”模式挂载加密沙箱镜像。“沙箱根保护”可防止在沙箱外部运行的进程访问加密沙箱的根文件夹。</p>
 <hr />
 <h3 id="_6">列出程序<a class="headerlink" href="#_6" title="Permanent link"></a></h3>
-<p>列出在特定沙箱中运行的所有程序的系统进程 ID 号。
-<div class="language-pwsh highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>  <span class="s2">&quot;C:\Program Files\Sandboxie\Start.exe&quot;</span>  <span class="p">/</span><span class="n">listpids</span>
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>  <span class="s2">&quot;C:\Program Files\Sandboxie\Start.exe&quot;</span>  <span class="p">/</span><span class="n">box</span><span class="p">:</span><span class="n">TestBox</span>  <span class="p">/</span><span class="n">listpids</span>
-</span></code></pre></div></p>
+<p>列出在特定沙箱中运行的所有程序的系统进程 ID 号。</p>
+<pre><code class="language-pwsh">  &quot;C:\Program Files\Sandboxie\Start.exe&quot;  /listpids
+  &quot;C:\Program Files\Sandboxie\Start.exe&quot;  /box:TestBox  /listpids
+</code></pre>
 <p>如果省略参数 <em>/box:沙箱名称</em>，则将列出在默认沙箱 <em>DefaultBox</em> 中运行的程序。</p>
-<p>输出格式为每行一个数字。第一行包含程序的数量，随后每行一个进程 ID。示例输出：
-<div class="language-pwsh highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>    <span class="s2">&quot;C:\Program Files\Sandboxie\Start.exe&quot;</span>  <span class="p">/</span><span class="n">listpids</span> <span class="p">|</span> <span class="n">more</span>
-</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>    <span class="n">3</span>
-</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>    <span class="n">3036</span>
-</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>    <span class="n">2136</span>
-</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>    <span class="n">384</span>
-</span></code></pre></div></p>
+<p>输出格式为每行一个数字。第一行包含程序的数量，随后每行一个进程 ID。示例输出：</p>
+<pre><code class="language-pwsh">    &quot;C:\Program Files\Sandboxie\Start.exe&quot;  /listpids | more
+    3
+    3036
+    2136
+    384
+</code></pre>
 <p>请注意，Start.exe 不是控制台应用程序，因此除非使用 <code>| more</code> 之类的结构对输出进行管道处理，否则输出不会显示在命令提示符窗口中。</p>
 <hr />
 <h3 id="_7">删除沙箱内容<a class="headerlink" href="#_7" title="Permanent link"></a></h3>
-<div class="language-pwsh highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>  <span class="s2">&quot;C:\Program Files\Sandboxie\Start.exe&quot;</span>  <span class="n">delete_sandbox</span>
-</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>  <span class="s2">&quot;C:\Program Files\Sandboxie\Start.exe&quot;</span>  <span class="n">delete_sandbox_silent</span>
-</span></code></pre></div>
+<pre><code class="language-pwsh">  &quot;C:\Program Files\Sandboxie\Start.exe&quot;  delete_sandbox
+  &quot;C:\Program Files\Sandboxie\Start.exe&quot;  delete_sandbox_silent
+</code></pre>
 <p>可以在 Start.exe 和删除命令之间指定 <em>/box:沙箱名称</em> 参数。</p>
 <p>删除命令中的 __silent_ 后缀表示 Sandboxie Start 应静默忽略任何错误，并且不显示任何错误消息。</p>
 <p>删除操作分两个阶段进行：</p>
@@ -4783,28 +4783,28 @@
 </ul>
 </li>
 </ul>
-<p>发出 <em>delete_sandbox</em> 命令会使 Start.exe 依次调用阶段 1 和阶段 2。Start.exe 还接受以下命令来调用特定阶段：
-<div class="language-pwsh highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>  <span class="s2">&quot;C:\Program Files\Sandboxie\Start.exe&quot;</span>  <span class="n">delete_sandbox_phase1</span>
-</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>  <span class="s2">&quot;C:\Program Files\Sandboxie\Start.exe&quot;</span>  <span class="n">delete_sandbox_phase2</span>
-</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>  <span class="s2">&quot;C:\Program Files\Sandboxie\Start.exe&quot;</span>  <span class="n">delete_sandbox_silent_phase1</span>
-</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>  <span class="s2">&quot;C:\Program Files\Sandboxie\Start.exe&quot;</span>  <span class="n">delete_sandbox_silent_phase2</span>
-</span></code></pre></div></p>
+<p>发出 <em>delete_sandbox</em> 命令会使 Start.exe 依次调用阶段 1 和阶段 2。Start.exe 还接受以下命令来调用特定阶段：</p>
+<pre><code class="language-pwsh">  &quot;C:\Program Files\Sandboxie\Start.exe&quot;  delete_sandbox_phase1
+  &quot;C:\Program Files\Sandboxie\Start.exe&quot;  delete_sandbox_phase2
+  &quot;C:\Program Files\Sandboxie\Start.exe&quot;  delete_sandbox_silent_phase1
+  &quot;C:\Program Files\Sandboxie\Start.exe&quot;  delete_sandbox_silent_phase2
+</code></pre>
 <hr />
 <h3 id="_8">重新加载配置<a class="headerlink" href="#_8" title="Permanent link"></a></h3>
-<p>此命令将 SandboxieIni 中的 Sandboxie 配置重新加载到活动的 Sandboxie 驱动程序中。通常在手动编辑 Sandboxie.ini 文件后很有用。
-<div class="language-pwsh highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>  <span class="s2">&quot;C:\Program Files\Sandboxie\Start.exe&quot;</span>  <span class="p">/</span><span class="n">reload</span>
-</span></code></pre></div></p>
+<p>此命令将 SandboxieIni 中的 Sandboxie 配置重新加载到活动的 Sandboxie 驱动程序中。通常在手动编辑 Sandboxie.ini 文件后很有用。</p>
+<pre><code class="language-pwsh">  &quot;C:\Program Files\Sandboxie\Start.exe&quot;  /reload
+</code></pre>
 <p>请注意，重新加载配置对在发出此命令时已经在运行的沙箱程序不会生效。</p>
 <hr />
 <h3 id="_9">禁用强制程序<a class="headerlink" href="#_9" title="Permanent link"></a></h3>
-<p>以下命令可使程序在沙箱外部运行，即使该程序是被强制在沙箱内运行的。这类似于在“运行沙箱程序”命令的沙箱选择窗口中使用“在沙箱外部运行”选项。
-<div class="language-pwsh highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>  <span class="s2">&quot;C:\Program Files\Sandboxie\Start.exe&quot;</span>  <span class="p">/</span><span class="n">dfp</span>            <span class="n">c</span><span class="p">:\</span><span class="n">path</span><span class="p">\</span><span class="n">to</span><span class="p">\</span><span class="n">program</span><span class="p">.</span><span class="n">exe</span>
-</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>  <span class="s2">&quot;C:\Program Files\Sandboxie\Start.exe&quot;</span>  <span class="p">/</span><span class="n">disable_force</span>  <span class="n">c</span><span class="p">:\</span><span class="n">path</span><span class="p">\</span><span class="n">to</span><span class="p">\</span><span class="n">program</span><span class="p">.</span><span class="n">exe</span>
-</span></code></pre></div></p>
+<p>以下命令可使程序在沙箱外部运行，即使该程序是被强制在沙箱内运行的。这类似于在“运行沙箱程序”命令的沙箱选择窗口中使用“在沙箱外部运行”选项。</p>
+<pre><code class="language-pwsh">  &quot;C:\Program Files\Sandboxie\Start.exe&quot;  /dfp            c:\path\to\program.exe
+  &quot;C:\Program Files\Sandboxie\Start.exe&quot;  /disable_force  c:\path\to\program.exe
+</code></pre>
 <p>请注意，/dfp 和 /disable_force 是相同的。您还可以在单击“运行沙箱程序”命令时按住 Ctrl 和 Shift 键来选择此选项。</p>
-<p>此命令的旧形式可以临时为所有程序禁用强制程序模式。其功能类似于在 Sandboxie Control 的<a href="../TrayIconMenu/#禁用强制程序">托盘图标菜单</a>（而不是<a href="../FileMenu/#禁用强制程序">文件菜单</a>）中使用“禁用强制程序”命令。
-<div class="language-pwsh highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>  <span class="s2">&quot;C:\Program Files\Sandboxie\Start.exe&quot;</span>  <span class="n">disable_force</span>
-</span></code></pre></div></p>
+<p>此命令的旧形式可以临时为所有程序禁用强制程序模式。其功能类似于在 Sandboxie Control 的<a href="../TrayIconMenu/#禁用强制程序">托盘图标菜单</a>（而不是<a href="../FileMenu/#禁用强制程序">文件菜单</a>）中使用“禁用强制程序”命令。</p>
+<pre><code class="language-pwsh">  &quot;C:\Program Files\Sandboxie\Start.exe&quot;  disable_force
+</code></pre>
 <p>请注意，此命令语法中缺少斜杠。还要注意，此命令不是一个切换开关。它总是会启用“禁用强制程序”模式，并始终重新启动倒计时计时器。目前，Start.exe 不提供取消此模式的方法。</p>
 <hr />
 <h3 id="_10">相关阅读材料<a class="headerlink" href="#_10" title="Permanent link"></a></h3>

@@ -4531,12 +4531,12 @@
 <h1 id="process-limit">Process Limit<a class="headerlink" href="#process-limit" title="Permanent link"></a></h1>
 <p><em>ProcessLimit</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a> available since v0.9.7 / 5.52.1. This setting allows you to limit the maximum number of processes that Sandboxie will allow in the sandbox at the same time.</p>
 <p><strong>Note:</strong> The start of new processes is delayed for 3 seconds when 80% of the set limit is reached. Once the limit is reached, no new process will be allowed to start (until another process is killed).</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">ProcessLimit</span><span class="o">=</span><span class="s">100</span>
-</span></code></pre></div>
+<pre><code>   .
+   .
+   .
+   [DefaultBox]
+   ProcessLimit=100
+</code></pre>
 
 
 

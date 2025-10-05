@@ -4531,12 +4531,12 @@
 <h1 id="_1">进程数量限制<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
 <p><em>ProcessLimit</em> 是 <a href="SandboxieIni.html">沙盘配置文件</a> 中的一个沙箱设置，自 v0.9.7 / 5.52.1 版本起可用。此设置允许你限制沙盘在同一时间内允许运行的最大进程数。</p>
 <p><strong>注意：</strong> 当达到设定限制的 80% 时，新进程的启动将延迟 3 秒。一旦达到限制，将不允许启动新的进程（直到另一个进程被终止）。</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">ProcessLimit</span><span class="o">=</span><span class="s">100</span>
-</span></code></pre></div>
+<pre><code class="language-ini">   .
+   .
+   .
+   [DefaultBox]
+   ProcessLimit=100
+</code></pre>
 
 
 

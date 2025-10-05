@@ -4532,12 +4532,12 @@
 <p><strong>This feature was removed in SBIE version 4 and up. It is no longer available.</strong></p>
 <p><em>BlockFakeInput</em> was a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It specified whether Sandboxie should allow sandboxed programs to manufacture fake keyboard input and send it to windows of applications running outside that sandbox.</p>
 <p>Usage:</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">BlockFakeInput</span><span class="o">=</span><span class="s">n</span>
-</span></code></pre></div>
+<pre><code>   .
+   .
+   .
+   [DefaultBox]
+   BlockFakeInput=n
+</code></pre>
 <p>Keyboard input is received by the active, highlighted window. This is true whether the keyboard input was manufactured by a program (fake input), or coming from the keyboard (real input).</p>
 <p>By default, Sandboxie will allow a program running in a sandbox to manufacture fake input, provided the recipient window belongs to an application which is running in the same sandbox.</p>
 <p>If the fake input will end up in a window outside that sandbox, Sandboxie will discard the input and issue message <a href="SBIE1304.html">SBIE1304</a>.</p>

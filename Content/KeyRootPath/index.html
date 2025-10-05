@@ -4532,13 +4532,13 @@
 <p><em>KeyRootPath</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. It specifies the registry location where the registry hive for a particular sandbox is mounted.</p>
 <p>As with all sandbox settings, it may also be specified in the global section, and in that case will apply for all sandboxes where the setting is not also specified in the sandbox section.</p>
 <p>See <a href="../SandboxHierarchy/">Sandbox Hierarchy</a> for more information.</p>
-<p>Usage:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">KeyRootPath</span><span class="o">=</span><span class="s">\REGISTRY\USER\%BOXNAME%</span>
-</span></code></pre></div></p>
+<p>Usage:</p>
+<pre><code>   .
+   .
+   .
+   [DefaultBox]
+   KeyRootPath=\REGISTRY\USER\%BOXNAME%
+</code></pre>
 <p>The following substitution variables may be useful in this path.</p>
 <ul>
 <li>The variable %SANDBOX% which expands to the name of the sandbox</li>

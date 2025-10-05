@@ -4531,8 +4531,8 @@
 <h1 id="_1">模拟管理员权限<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
 <p><strong>模拟管理员权限</strong> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 配置文件中的一个沙箱设置，自 0.7.1 / 5.48.5 版本起可用。 它指定 Sandboxie 是否为在此沙箱中运行的程序模拟管理员权限。</p>
 <h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">FakeAdminRights</span><span class="o">=</span><span class="s">[process,]y|n</span>
-</span></code></pre></div>
+<pre><code class="language-ini">FakeAdminRights=[process,]y|n
+</code></pre>
 <ul>
 <li><strong>进程名</strong> (可选): 适用于此规则的可执行文件名。 如果省略，则该规则适用于沙箱中的所有应用程序。</li>
 <li>
@@ -4547,25 +4547,25 @@
 <h2 id="_3">使用示例<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
 <h3 id="1">1. 为所有沙箱化程序启用模拟管理员权限<a class="headerlink" href="#1" title="Permanent link"></a></h3>
 <p>这会使沙箱中的所有应用程序都认为它们拥有管理员权限：</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[DefaultBox]</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">FakeAdminRights</span><span class="o">=</span><span class="s">y</span>
-</span></code></pre></div>
+<pre><code class="language-ini">[DefaultBox]
+FakeAdminRights=y
+</code></pre>
 <h3 id="2">2. 为特定的安装程序启用模拟管理员权限<a class="headerlink" href="#2" title="Permanent link"></a></h3>
 <p>某些安装程序需要管理员权限才能继续。以下配置仅授予 <code>installer.exe</code> 模拟管理员权限，而其他程序则正常运行：</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[DefaultBox]</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">FakeAdminRights</span><span class="o">=</span><span class="s">installer.exe,y</span>
-</span></code></pre></div>
+<pre><code class="language-ini">[DefaultBox]
+FakeAdminRights=installer.exe,y
+</code></pre>
 <h3 id="3">3. 全局启用模拟管理员权限，但对某些安全敏感的程序禁用<a class="headerlink" href="#3" title="Permanent link"></a></h3>
 <p>此配置为除 <code>CredentialUIBroker.exe</code> 等安全敏感程序之外的所有程序提供模拟管理员权限：</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">[DefaultBox]</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">FakeAdminRights</span><span class="o">=</span><span class="s">y</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="na">FakeAdminRights</span><span class="o">=</span><span class="s">CredentialUIBroker.exe,n</span>
-</span></code></pre></div>
+<pre><code class="language-ini">[DefaultBox]
+FakeAdminRights=y
+FakeAdminRights=CredentialUIBroker.exe,n
+</code></pre>
 <h3 id="4">4. 使用否定，即感叹号 (!) 来反转规则<a class="headerlink" href="#4" title="Permanent link"></a></h3>
 <p>使用 <code>!</code> 来反转规则的逻辑。这对于创建例外特别有用：</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">[DefaultBox]</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="na">FakeAdminRights</span><span class="o">=</span><span class="s">!Start.exe,y</span>
-</span></code></pre></div>
+<pre><code class="language-ini">[DefaultBox]
+FakeAdminRights=!Start.exe,y
+</code></pre>
 <p>这意味着：给予除 <code>Start.exe</code> 之外的所有程序启用模拟管理员权限</p>
 <p>以上这些示例演示了：
 1. 启用全局模拟管理员权限

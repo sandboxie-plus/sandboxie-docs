@@ -4531,28 +4531,28 @@
 <h1 id="read-ipc-path">Read Ipc Path<a class="headerlink" href="#read-ipc-path" title="Permanent link"></a></h1>
 <p><em>ReadIpcPath</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a> available since v1.0.16 / 5.55.16. It specifies path patterns for which Sandboxie will allow read access to unsandboxed processes or processes in other boxes. This lets sandboxed programs access resources and services provided by programs running outside the sandbox.</p>
 <p><a href="../ProgramNamePrefix/">Program Name Prefix</a> may be specified.</p>
-<p>Usage:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">ReadIpcPath</span><span class="o">=</span><span class="s">$:program.exe</span>
-</span></code></pre></div></p>
+<p>Usage:</p>
+<pre><code>   .
+   .
+   .
+   [DefaultBox]
+   ReadIpcPath=$:program.exe
+</code></pre>
 <p>This example permits a program running inside the sandbox to have read access into the address space of a target process running outside the sandbox or processes in other boxes. The process name of the target process must match the name specified in the setting.</p>
-<p>It is also possible to restore the old behavior entirely by specifying:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">   </span><span class="na">ReadIpcPath</span><span class="o">=</span><span class="s">$:*</span>
-</span></code></pre></div></p>
-<p>By default, the only process whose memory can be read is <em>explorer.exe</em>. Many processes requires it and Windows File Explorer should not keep any secrets anyway. To block this, you can use:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">   </span><span class="na">ClosedIpcPath</span><span class="o">=</span><span class="s">$:explorer.exe</span>
-</span></code></pre></div></p>
+<p>It is also possible to restore the old behavior entirely by specifying:</p>
+<pre><code>   .
+   .
+   .
+   [DefaultBox]
+   ReadIpcPath=$:*
+</code></pre>
+<p>By default, the only process whose memory can be read is <em>explorer.exe</em>. Many processes requires it and Windows File Explorer should not keep any secrets anyway. To block this, you can use:</p>
+<pre><code>   .
+   .
+   .
+   [DefaultBox]
+   ClosedIpcPath=$:explorer.exe
+</code></pre>
 <p>Related Sandboxie Plus settings:</p>
 <p>Sandbox Options &gt; Resource Access &gt; IPC &gt; Add IPC Path &gt; Access column &gt; Read Only</p>
 <p>Sandbox Options &gt; General Options &gt; Restrictions &gt; Other restrictions &gt; Allow to read memory of unsandboxed processes (not recommended)</p>

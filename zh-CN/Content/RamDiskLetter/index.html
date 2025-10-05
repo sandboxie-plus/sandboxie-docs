@@ -4532,11 +4532,11 @@
 <p><em>RamDiskLetter</em> 是 <a href="../SandboxieIni/">Sandboxie.ini</a> 中的一个全局设置项（在 v1.11.1 / 5.66.1 版本中引入），用于指定分配给内存虚拟磁盘的盘符。该内存虚拟磁盘专为启用了 <a href="../UseRamDisk/">UseRamDisk</a> 设置的沙盒创建。此设置允许用户为内存虚拟磁盘定义一个特定的盘符，以便更轻松地访问。</p>
 <h2 id="_2">用法<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <p>要设置 <code>RamDiskLetter</code>，请在 Sandboxie 配置文件的 <code>[GlobalSettings]</code> 部分下添加以下行：</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[GlobalSettings]</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># 将驱动器号 R 分配给内存虚拟磁盘的示例</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="na">RamDiskLetter</span><span class="o">=</span><span class="s">R:</span>\
-</span></code></pre></div>
+<pre><code class="language-ini">[GlobalSettings]
+
+# 将驱动器号 R 分配给内存虚拟磁盘的示例
+RamDiskLetter=R:\
+</code></pre>
 <h2 id="sandman">SandMan 界面<a class="headerlink" href="#sandman" title="Permanent link"></a></h2>
 <p>可以通过以下步骤选择内存虚拟磁盘盘符设置：</p>
 <ol>

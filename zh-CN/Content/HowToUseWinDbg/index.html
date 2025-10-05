@@ -4549,9 +4549,9 @@
 <hr />
 <p>请下载并安装最新版的 <a href="https://developer.microsoft.com/en-us/windows/downloads/windows-sdk"><em>Windows SDK</em></a>（包括 32 位和 64 位版本）。</p>
 <p>如果你只需要 <em>调试工具</em>，也可以只安装调试组件（Debugging Tools）。</p>
-<p>安装包默认安装在路径：
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">C</span><span class="o">:</span><span class="s">\Program Files (x86)\Windows Kits\10\Debuggers</span>
-</span></code></pre></div></p>
+<p>安装包默认安装在路径：</p>
+<pre><code>C:\Program Files (x86)\Windows Kits\10\Debuggers
+</code></pre>
 <p>它会在开始菜单中创建一个名为 <em>Windows Kits</em> 的应用组，组中包含名为 <em>WinDbg</em> 的调试器程序。</p>
 <p>一般建议使用 32 位调试器，即便你的系统是 64 位。只有在调试 64 位程序时才需要使用 64 位调试器。详细说明可参考：<a href="https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/choosing-a-32-bit-or-64-bit-debugger-package">如何选择 32 位或 64 位调试器工具包</a>。</p>
 <hr />
@@ -4568,9 +4568,9 @@
 <p>然后，在沙箱开始菜单中找到 <em>Windows Kits</em> 组并运行 <em>WinDbg</em>。</p>
 <p>WinDbg 启动后会显示主窗口。</p>
 <p>在调试器中点击“文件”菜单 &gt; 打开可执行文件，然后选择你想要调试的程序的 EXE 文件。</p>
-<p>例如，你可以选择：
-<div class="language-pwsh highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">C</span><span class="p">:\</span><span class="n">Windows</span><span class="p">\</span><span class="n">System32</span><span class="p">\</span><span class="n">notepad</span><span class="p">.</span><span class="n">exe</span>
-</span></code></pre></div></p>
+<p>例如，你可以选择：</p>
+<pre><code class="language-pwsh">C:\Windows\System32\notepad.exe
+</code></pre>
 <p>调试器会打开一个命令窗口用于控制（或调试）你启动的程序。</p>
 <p>使用“调试”菜单 &gt; 运行 命令（或按下 F5）开始执行程序。此时调试器的状态行将变为 <em>BUSY（忙）</em>。接下来请阅读下方的 <strong>最后一步</strong>。</p>
 <hr />
@@ -4592,10 +4592,10 @@
 <p>如果问题尚未出现，你现在可以让程序触发错误。</p>
 <p>一旦程序表现出问题，切换回 WinDbg 的命令窗口。如果状态栏仍显示 <em>BUSY</em>，请点击“调试”菜单 &gt; 中断（或按下 Ctrl+Break）暂停程序。</p>
 <p>当状态不再是 <em>BUSY</em>，依次输入以下命令，每行一条，输入后按 Enter：</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">.sympath srv*C</span><span class="o">:</span><span class="s">\Symbols*https://msdl.microsoft.com/download/symbols</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">.reload</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="na">~* k 99</span>
-</span></code></pre></div>
+<pre><code>.sympath srv*C:\Symbols*https://msdl.microsoft.com/download/symbols
+.reload
+~* k 99
+</code></pre>
 <p>第三条命令将输出一段调试信息。命令完成后，请复制全部日志：点击“编辑”菜单 &gt; 复制窗口文本到剪贴板。
 然后回到沙盘支持页面，在评论中粘贴这段日志。</p>
 <p>非常感谢你的配合！</p>

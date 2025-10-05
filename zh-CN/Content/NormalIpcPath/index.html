@@ -4531,12 +4531,12 @@
 <h1 id="ipc">标准 IPC 路径<a class="headerlink" href="#ipc" title="Permanent link"></a></h1>
 <p><em>NormalIpcPath</em> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 中的一个沙箱设置。它用于指定路径模式，沙盘会针对这些路径应用默认的沙箱方案。该设置在配合 <a href="../../PlusContent/RuleSpecificity/">规则特异性</a> 使用时尤为有用，可以让被配置为“开放”、“只写”甚至“关闭”的父路径下的某些路径恢复为默认的沙箱行为。</p>
 <p>示例：</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">NormalIpcPath</span><span class="o">=</span><span class="s">\RPC Control\AudioSrv</span>
-</span></code></pre></div>
+<pre><code class="language-ini">   .
+   .
+   .
+   [DefaultBox]
+   NormalIpcPath=\RPC Control\AudioSrv
+</code></pre>
 <p>相关的 Sandboxie Plus 设置：沙盘选项 &gt; 资源访问 &gt; IPC &gt; 添加 IPC 路径 &gt; 访问列 &gt; 标准</p>
 
 

@@ -4532,21 +4532,21 @@
 <p><strong>This feature was removed in SBIE version 4.+ and up. It is no longer available.</strong></p>
 <p><em>BlockDrivers</em> was a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. It specified whether Sandboxie should allow sandboxed programs to load drivers into the operating system. However, this setting did <em>not</em> govern the <em>installation</em> of new drivers -- see more below.</p>
 <p>Usage:</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">BlockDrivers</span><span class="o">=</span><span class="s">n</span>
-</span></code></pre></div>
+<pre><code>   .
+   .
+   .
+   [DefaultBox]
+   BlockDrivers=n
+</code></pre>
 <p>Specifying <em>n</em> indicates that a sandboxed program may load drivers into the operating system. If this is not done, Sandboxie will deny the driver load attempt, and instead issue message <a href="../SBIE2103/">SBIE2103</a>.</p>
 <p><strong>Note:</strong> Disabling the protection afforded by BlockDrivers is not recommended.</p>
 <p><strong>Driver Installation</strong></p>
 <p>Before a driver can be loaded, it must first be installed. Driver installation is not affected by the BlockDrivers setting. To allow driver installation, you should add the following OpenKeyPath setting:</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">OpenKeyPath</span><span class="o">=</span><span class="s">HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services</span>
-</span></code></pre></div>
+<pre><code>OpenKeyPath=HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services
+</code></pre>
 <p>And you should additionally <em>open</em> the driver file, using OpenFilePath. This is needed because the driver path that will be set in the registry (in a key created below CurrentControlSet\Services) will typically not point inside the sandbox.</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">OpenFilePath</span><span class="o">=</span><span class="s">c:\program files\MyNewSoftware\SoftwareDriver.sys</span>
-</span></code></pre></div>
+<pre><code>OpenFilePath=c:\program files\MyNewSoftware\SoftwareDriver.sys
+</code></pre>
 <p><strong>Note:</strong> Allowing sandboxed programs to install drivers is not recommended.</p>
 <p>Related <a href="../SandboxieControl/">Sandboxie Control</a> setting: <a href="../RestrictionsSettings/#low-level-access--removed">Sandbox Settings &gt; Restrictions &gt; Low-Level Access</a></p>
 

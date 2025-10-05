@@ -4530,14 +4530,14 @@
 
 <h1 id="force-disable-seconds">Force Disable Seconds<a class="headerlink" href="#force-disable-seconds" title="Permanent link"></a></h1>
 <p><em>ForceDisableSeconds</em> is a global setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It specifies the time, in seconds, that the <a href="FileMenu.html#disable-forced-programs">Disable Forced Programs</a> mode will stay in effect.</p>
-<p>Usage:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[GlobalSettings]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">ForceDisableSeconds</span><span class="o">=</span><span class="s">25</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">   </span><span class="na">ForceDisableSeconds</span><span class="o">=</span><span class="s">0</span>
-</span></code></pre></div></p>
+<p>Usage:</p>
+<pre><code>   .
+   .
+   .
+   [GlobalSettings]
+   ForceDisableSeconds=25
+   ForceDisableSeconds=0
+</code></pre>
 <p>The default value for this setting is 10 seconds. Setting the value to zero effectively disables the <em>Disable Forced Programs</em> feature itself. See also: <a href="ForceDisableAdminOnly.html">ForceDisableAdminOnly</a>.</p>
 <p>The <em>Disable Forced Programs</em> mode is engaged through <a href="SandboxieControl.html">Sandboxie Control</a>, which can also configure the number of seconds. Use the <a href="FileMenu.html#disable-forced-programs">FileMenu &gt; Disable Forced Programs</a> command, or the same command from the <a href="TrayIconMenu.html">Tray Icon Menu</a>.</p>
 <p>When active, the <em>Disable Forced Programs</em> mode causes Sandboxie to issue message <a href="SBIE1301.html">SBIE1301</a> whenever a forced program is started.</p>

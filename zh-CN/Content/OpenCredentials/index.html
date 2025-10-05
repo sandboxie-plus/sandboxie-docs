@@ -6,12 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="OpenCredentials 是 Sandboxie Ini 中的一个沙箱设置。通常写作 OpenCredentials=y（参见 Yes Or No Settings），用于指示沙箱不应隔离 Windows 凭据。例如：
-   .
-   .
-   .
-   [DefaultBox]
-   OpenCredentials=y">
+        <meta name="description" content="OpenCredentials 是 Sandboxie Ini 中的一个沙箱设置。通常写作 OpenCredentials=y（参见 Yes Or No Settings），用于指示沙箱不应隔离 Windows 凭据。例如：">
       
       
       
@@ -4534,13 +4529,13 @@
 
 
 <h1 id="_1">开放凭据<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
-<p>OpenCredentials 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 中的一个沙箱设置。通常写作 <code>OpenCredentials=y</code>（参见 <a href="../YesOrNoSettings/">Yes Or No Settings</a>），用于指示沙箱不应隔离 Windows 凭据。例如：
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">OpenCredentials</span><span class="o">=</span><span class="s">y</span>
-</span></code></pre></div></p>
+<p>OpenCredentials 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 中的一个沙箱设置。通常写作 <code>OpenCredentials=y</code>（参见 <a href="../YesOrNoSettings/">Yes Or No Settings</a>），用于指示沙箱不应隔离 Windows 凭据。例如：</p>
+<pre><code class="language-ini">   .
+   .
+   .
+   [DefaultBox]
+   OpenCredentials=y
+</code></pre>
 <p>表示在 <code>DefaultBox</code> 沙箱中运行的程序将会更新真实的凭据库，而不是更新沙箱中的凭据库实例。</p>
 <p>Windows 凭据主要被 Windows 及 Microsoft 应用程序用于存储以下信息的用户名和密码：</p>
 <ul>

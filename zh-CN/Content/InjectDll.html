@@ -4530,12 +4530,12 @@
 
 <h1 id="dll">注入 Dll<a class="headerlink" href="#dll" title="Permanent link"></a></h1>
 <p><em>InjectDll</em> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 中的一个沙箱设置。它指示沙盘向沙箱内的每个程序“注入”一个或多个 DLL。所谓“注入”，即 DLL 被加载至进程，例如：</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">InjectDll</span><span class="o">=</span><span class="s">c:\Program Files\Sandboxie Utilities\Sample.dll</span>
-</span></code></pre></div>
+<pre><code class="language-ini">   .
+   .
+   .
+   [DefaultBox]
+   InjectDll=c:\Program Files\Sandboxie Utilities\Sample.dll
+</code></pre>
 <p>你应当指定 DLL 的完整路径。如果 DLL 文件本身位于沙箱内，应指定沙箱内部的完整路径。</p>
 <p><strong>注意：</strong> 注入 Dll 设置是用于指定 32 位 DLL，并且在 64 位 Windows 的 64 位进程中会被忽略。要指定 64 位 DLL，请使用 <a href="InjectDll64.html">注入 64 位 Dll</a> 设置。</p>
 <hr />
@@ -4553,9 +4553,9 @@
 <p>被注入的 DLL 会在所有静态链接的 DLL 被加载并初始化完成后，但在程序实际在入口点（entry point）开始执行之前，注入到沙箱进程（或程序）中。</p>
 <hr />
 <p>如果该 DLL 导出符号 <strong>InjectDllMain</strong> 或 <strong>InjectDllMain@8</strong>，沙盘会在 DLL 加载完成后调用此过程，并传递 SbieDll 模块的地址。可以如下方式在你的代码中声明 InjectDllMain：</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">   </span><span class="na">__declspec(dllexport) void __stdcall InjectDllMain(</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">      </span><span class="na">HINSTANCE hSbieDll, ULONG_PTR UnusedParameter);</span>
-</span></code></pre></div>
+<pre><code>   __declspec(dllexport) void __stdcall InjectDllMain(
+      HINSTANCE hSbieDll, ULONG_PTR UnusedParameter);
+</code></pre>
 <p>建议使用 <strong>hSbieDll</strong> 参数作为 SbieDll.Dll 的模块句柄，而不是依赖 GetModuleHandle("SbieDll.dll")。这样，无论 SbieDll.dll 实际的文件名为何，注入 DLL 都能与 SbieDll.dll 正确交互。当然，也可以通过 LoadLibrary 或 GetModuleHandle 使用名称查找 SbieDll。</p>
 <hr />
 <p>目前，该设置无法通过 <a href="SandboxieControl.html">沙盘控制</a> 进行操作。你需要手动在 <a href="SandboxieIni.html">Sandboxie Ini</a> 中编辑此项。</p>

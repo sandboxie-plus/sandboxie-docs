@@ -4532,11 +4532,11 @@
 <p><strong>BindAdapter</strong> and <strong>BindAdapterIP</strong> are sandbox settings in <a href="../SandboxieIni/">Sandboxie Ini</a> available since <strong>v1.15.12 / 5.70.12</strong> and <strong>v1.15.10 / 5.70.10</strong> respectively. These settings control which network adapter or IP address sandboxed programs use for network communications.</p>
 <h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link"></a></h2>
 <h3 id="bindadapter">BindAdapter<a class="headerlink" href="#bindadapter" title="Permanent link"></a></h3>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">BindAdapter</span><span class="o">=</span><span class="s">[&lt;Program&gt;,]&lt;AdapterName&gt;</span>
-</span></code></pre></div>
+<pre><code class="language-ini">BindAdapter=[&lt;Program&gt;,]&lt;AdapterName&gt;
+</code></pre>
 <h3 id="bindadapterip">BindAdapterIP<a class="headerlink" href="#bindadapterip" title="Permanent link"></a></h3>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">BindAdapterIP</span><span class="o">=</span><span class="s">[&lt;Program&gt;,]&lt;IP Address&gt;</span>
-</span></code></pre></div>
+<pre><code class="language-ini">BindAdapterIP=[&lt;Program&gt;,]&lt;IP Address&gt;
+</code></pre>
 <ul>
 <li><strong>Program</strong>: (Optional) Specific program executable name to apply binding to. If omitted, applies to all programs in the sandbox.</li>
 <li><strong>AdapterName</strong>: The friendly name of a network adapter (e.g., "Ethernet", "Wi-Fi", "VPN Connection")</li>
@@ -4551,34 +4551,34 @@
 <h2 id="example-usage">Example Usage<a class="headerlink" href="#example-usage" title="Permanent link"></a></h2>
 <h3 id="basic-adapter-binding">Basic Adapter Binding<a class="headerlink" href="#basic-adapter-binding" title="Permanent link"></a></h3>
 <p>Bind all sandboxed programs to the Wi-Fi adapter:</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[DefaultBox]</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">BindAdapter</span><span class="o">=</span><span class="s">Wi-Fi</span>
-</span></code></pre></div>
+<pre><code class="language-ini">[DefaultBox]
+BindAdapter=Wi-Fi
+</code></pre>
 <h3 id="ip-address-binding">IP Address Binding<a class="headerlink" href="#ip-address-binding" title="Permanent link"></a></h3>
 <p>Force programs to use a specific IPv4 address:</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">[DefaultBox]</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">BindAdapterIP</span><span class="o">=</span><span class="s">192.168.100.123</span>
-</span></code></pre></div>
+<pre><code class="language-ini">[DefaultBox]
+BindAdapterIP=192.168.100.123
+</code></pre>
 <p>Force programs to use a specific IPv6 address:</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">[DefaultBox]</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="na">BindAdapterIP</span><span class="o">=</span><span class="s">fe80::8570:c50:a571:bf22</span>
-</span></code></pre></div>
+<pre><code class="language-ini">[DefaultBox]
+BindAdapterIP=fe80::8570:c50:a571:bf22
+</code></pre>
 <h3 id="per-process-configuration">Per-Process Configuration<a class="headerlink" href="#per-process-configuration" title="Permanent link"></a></h3>
 <p>Apply binding to specific programs only:</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">[DefaultBox]</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="na">BindAdapterIP</span><span class="o">=</span><span class="s">firefox.exe,192.168.1.100</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="na">BindAdapterIP</span><span class="o">=</span><span class="s">chrome.exe,10.0.0.50</span>
-</span></code></pre></div>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">[DefaultBox]</span><span class="w">  </span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="na">BindAdapter</span><span class="o">=</span><span class="s">torrent.exe,VPN Connection</span>
-</span></code></pre></div>
+<pre><code class="language-ini">[DefaultBox]
+BindAdapterIP=firefox.exe,192.168.1.100
+BindAdapterIP=chrome.exe,10.0.0.50
+</code></pre>
+<pre><code class="language-ini">[DefaultBox]  
+BindAdapter=torrent.exe,VPN Connection
+</code></pre>
 <h3 id="multiple-configurations">Multiple Configurations<a class="headerlink" href="#multiple-configurations" title="Permanent link"></a></h3>
 <p>You can configure multiple per-process bindings:</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">[DefaultBox]</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="na">BindAdapterIP</span><span class="o">=</span><span class="s">program1.exe,192.168.1.10</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="na">BindAdapterIP</span><span class="o">=</span><span class="s">program2.exe,192.168.1.20</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="na">BindAdapter</span><span class="o">=</span><span class="s">program3.exe,Ethernet 2</span>
-</span></code></pre></div>
+<pre><code class="language-ini">[DefaultBox]
+BindAdapterIP=program1.exe,192.168.1.10
+BindAdapterIP=program2.exe,192.168.1.20
+BindAdapter=program3.exe,Ethernet 2
+</code></pre>
 <h2 id="important-notes">Important Notes<a class="headerlink" href="#important-notes" title="Permanent link"></a></h2>
 <blockquote>
 <p><strong>Configuration Precedence:</strong> BindAdapter takes absolute precedence over BindAdapterIP. If both are configured for the same process, BindAdapter is used and BindAdapterIP entries are completely ignored.</p>

@@ -4588,10 +4588,10 @@
 <p>If the problem condition has not yet occurred, you should now cause the program to malfunction.</p>
 <p>Once the program exhibits the problem, switch back to the WinDbg debugger command window. If the debugger status line still says <em>BUSY</em>, use the Debug menu &gt; Break command to stop the program. (You can also press Ctrl+Break.)</p>
 <p>When the debugger status line no longer says <em>BUSY</em>, enter the following commands. Enter one command at a time, then press Enter.</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span><span class="na">.sympath srv*C</span><span class="o">:</span><span class="s">\Symbols*https://msdl.microsoft.com/download/symbols</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="na">.reload</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="na">~* k 99</span>
-</span></code></pre></div>
+<pre><code>    .sympath srv*C:\Symbols*https://msdl.microsoft.com/download/symbols
+    .reload
+    ~* k 99
+</code></pre>
 <p>The third command will cause the debugger to produce some output. When the command completes, please copy the entire debug log. Use the Edit menu &gt; <em>Copy Window Text to Clipboard</em> command to copy the entire debug log to your clipboard, then go back to the Sandboxie support and paste this debug log into your comment.</p>
 <p>Thank you in advance.</p>
 

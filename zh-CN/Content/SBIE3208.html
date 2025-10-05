@@ -4550,16 +4550,16 @@
 <p><strong>消息：</strong> SBIE3208 找不到默认 Web 浏览器的可执行文件</p>
 <p><strong>记录位置：</strong> <a href="PopupMessageLog.html">弹出消息日志</a>。</p>
 <p><strong>解释：</strong></p>
-<p>Sandboxie Start.exe 程序试图通过查看以下注册表项中的信息来确定 Web 浏览器可执行程序文件的位置：
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span><span class="na">HKEY_CLASSES_ROOT\.html</span>
-</span></code></pre></div></p>
-<p>通常，该注册表项会指向以下注册表项中的更多信息：
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">    </span><span class="na">HKEY_CLASSES_ROOT\htmlfile</span>
-</span></code></pre></div></p>
-<p>而实际信息来自以下两个注册表项之一：
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">    </span><span class="na">HKEY_CLASSES_ROOT\htmlfile\shell\opennew\command</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="na">HKEY_CLASSES_ROOT\htmlfile\shell\open\command</span>
-</span></code></pre></div></p>
+<p>Sandboxie Start.exe 程序试图通过查看以下注册表项中的信息来确定 Web 浏览器可执行程序文件的位置：</p>
+<pre><code>    HKEY_CLASSES_ROOT\.html
+</code></pre>
+<p>通常，该注册表项会指向以下注册表项中的更多信息：</p>
+<pre><code>    HKEY_CLASSES_ROOT\htmlfile
+</code></pre>
+<p>而实际信息来自以下两个注册表项之一：</p>
+<pre><code>    HKEY_CLASSES_ROOT\htmlfile\shell\opennew\command
+    HKEY_CLASSES_ROOT\htmlfile\shell\open\command
+</code></pre>
 <p>此错误消息表明无法从注册表中提取所需信息。</p>
 <p><strong>解决方法：</strong></p>
 <p>可以尝试通过强制您的 Web 浏览器将自身重置为系统的默认 Web 浏览器来解决此问题。不同的浏览器提供此功能的方式不同，因此请查阅您所使用的特定 Web 浏览器的文档。</p>

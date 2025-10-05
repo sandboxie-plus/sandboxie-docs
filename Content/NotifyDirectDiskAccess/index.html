@@ -4530,13 +4530,13 @@
 
 <h1 id="notify-direct-disk-access">Notify Direct Disk Access<a class="headerlink" href="#notify-direct-disk-access" title="Permanent link"></a></h1>
 <p><em>NotifyDirectDiskAccess</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. It is typically specified as <em>NotifyDirectDiskAccess=y</em>.</p>
-<p>Usage:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">NotifyDirectDiskAccess</span><span class="o">=</span><span class="s">y</span>
-</span></code></pre></div></p>
+<p>Usage:</p>
+<pre><code>   .
+   .
+   .
+   [DefaultBox]
+   NotifyDirectDiskAccess=y
+</code></pre>
 <p>Note that the default behavior of Sandboxie is to deny all direct access requests, unless explicit direct access is given to the hard disk device through the <a href="../OpenFilePath/">OpenFilePath</a> or <a href="../OpenPipePath/">OpenPipePath</a> settings. Normally, a message is not issued when such access is denied.</p>
 <p>This setting can not be altered using <a href="../SandboxieControl/">Sandboxie Control</a> and must be edited in <a href="../SandboxieIni/">Sandboxie Ini</a>.</p>
 

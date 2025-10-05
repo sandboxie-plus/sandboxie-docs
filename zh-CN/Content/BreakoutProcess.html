@@ -4531,15 +4531,15 @@
 <h1 id="_1">分离沙箱进程<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
 <p><em>BreakoutProcess</em> 是 <a href="SandboxieIni.html">沙盘配置文件</a> 中的一项沙箱设置，自 v1.0.8 / 5.55.8 版本起可用。它指定了在沙箱内启动时哪些应用程序应在沙箱外运行。结合使用此设置和 <em>ForceProcess</em> 可以实现一个简单的优先级系统。</p>
 <p>用法：</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">BreakoutProcess</span><span class="o">=</span><span class="s">ProgramName.exe</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">   </span><span class="na">BreakoutProcess</span><span class="o">=</span><span class="s">Program*.exe</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">   </span><span class="na">BreakoutProcess</span><span class="o">=</span><span class="s">Program?.exe</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">   </span><span class="na">BreakoutProcess</span><span class="o">=</span><span class="s">Pro?ram*.exe</span>
-</span></code></pre></div>
+<pre><code class="language-ini">   .
+   .
+   .
+   [DefaultBox]
+   BreakoutProcess=ProgramName.exe
+   BreakoutProcess=Program*.exe
+   BreakoutProcess=Program?.exe
+   BreakoutProcess=Pro?ram*.exe
+</code></pre>
 <ul>
 <li><code>*</code> 表示 Program 之后的任意名称（例如 Program0Test1.exe、Program5Test92G.exe 等）。</li>
 <li><code>?</code> 表示名称中的任意一个字符（例如 Program1.exe、Programg.exe 等）。</li>

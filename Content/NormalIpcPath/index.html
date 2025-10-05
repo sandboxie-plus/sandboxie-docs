@@ -4531,12 +4531,12 @@
 <h1 id="normal-ipc-path">Normal Ipc Path<a class="headerlink" href="#normal-ipc-path" title="Permanent link"></a></h1>
 <p><em>Normal Ipc Path</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. It specifies path patterns for which Sandboxie will apply the default sandboxing scheme. This setting is most useful in combination with <a href="../../PlusContent/RuleSpecificity/">Rule Specificity</a> where it allows to restore default sandboxing behaviour for paths whose parents have been configured as Open, WriteOnly, or even Closed.</p>
 <p>Example:</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">NormalIpcPath</span><span class="o">=</span><span class="s">\RPC Control\AudioSrv</span>
-</span></code></pre></div>
+<pre><code>   .
+   .
+   .
+   [DefaultBox]
+   NormalIpcPath=\RPC Control\AudioSrv
+</code></pre>
 <p>Related Sandboxie Plus setting: Sandbox Options &gt; Resource Access &gt; IPC &gt; Add IPC Path &gt; Access column &gt; Normal</p>
 
 

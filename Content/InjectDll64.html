@@ -6,12 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="InjectDll is a sandbox setting in Sandboxie Ini. It tells Sandboxie to &quot;inject&quot; some DLL into every program in the sandbox. &quot;Inject&quot; means the DLL is
-   .
-   .
-   .
-   [DefaultBox]
-   InjectDll64=c:\Program Files\Sandboxie Utilities\Sample64.dll">
+        <meta name="description" content="InjectDll is a sandbox setting in Sandboxie Ini. It tells Sandboxie to &quot;inject&quot; some DLL into every program in the sandbox. &quot;Inject&quot; means the DLL is">
       
       
       
@@ -4534,13 +4529,13 @@
 
 
 <h1 id="inject-dll-64">Inject Dll 64<a class="headerlink" href="#inject-dll-64" title="Permanent link"></a></h1>
-<p><em>InjectDll</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It tells Sandboxie to "inject" some DLL into every program in the sandbox. "Inject" means the DLL is
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">InjectDll64</span><span class="o">=</span><span class="s">c:\Program Files\Sandboxie Utilities\Sample64.dll</span>
-</span></code></pre></div></p>
+<p><em>InjectDll</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It tells Sandboxie to "inject" some DLL into every program in the sandbox. "Inject" means the DLL is</p>
+<pre><code>   .
+   .
+   .
+   [DefaultBox]
+   InjectDll64=c:\Program Files\Sandboxie Utilities\Sample64.dll
+</code></pre>
 <p>You should specify a full path to the DLL. If the DLL file itself resides within the sandbox, specify the full path inside the sandbox.</p>
 <p><strong>Note:</strong> The InjectDll64 setting specifies 64-bit DLLs, and will be ignored in a 32-bit process, even on 64-bit Windows. Use the <a href="InjectDll.html">InjectDll</a> setting to specify 32-bit DLLs.</p>
 <p>See also: <a href="InjectDll.html">InjectDll</a> for a comprehensive discussion.</p>

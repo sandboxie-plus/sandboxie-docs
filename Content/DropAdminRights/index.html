@@ -4531,12 +4531,12 @@
 <h1 id="drop-admin-rights">Drop Admin Rights<a class="headerlink" href="#drop-admin-rights" title="Permanent link"></a></h1>
 <p><em>DropAdminRights</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. It specifies whether Sandboxie will strip Administrator rights from programs running in this sandbox.</p>
 <p>Usage:</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">DropAdminRights</span><span class="o">=</span><span class="s">y</span>
-</span></code></pre></div>
+<pre><code>   .
+   .
+   .
+   [DefaultBox]
+   DropAdminRights=y
+</code></pre>
 <p>The setting in this page causes Sandboxie to strip administrative rights from programs running in this sandbox.</p>
 <p>Specifically, the security credentials used to start the sandboxed program will not include membership in the Administrators and Power Users groups.</p>
 <p>Note that this has little effect if you are already running under a non-Administrator user account.</p>

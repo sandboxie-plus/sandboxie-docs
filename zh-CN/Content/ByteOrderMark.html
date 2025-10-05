@@ -4532,12 +4532,12 @@
 <p><strong>此功能自 v0.6.5 / 5.47.0 起已移除。</strong></p>
 <p><em>ByteOrderMark</em> 是 <a href="SandboxieIni.html">沙盘配置文件</a> 中的一个全局设置。它通常指定为 ByteOrderMark=y（请参阅 <a href="YesOrNoSettings.html">是或否设置</a>），表示 <a href="SandboxieControl.html">沙盘控制</a> 应在配置文件的顶部插入一个 UTF-16 统一码字节顺序标记 (BOM) 字符。</p>
 <p>用法：</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[GlobalSettings]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">ByteOrderMark</span><span class="o">=</span><span class="s">y</span>
-</span></code></pre></div>
+<pre><code class="language-ini">   .
+   .
+   .
+   [GlobalSettings]
+   ByteOrderMark=y
+</code></pre>
 <p>此设置必须手动编辑到 <a href="SandboxieIni.html">沙盘配置文件</a> 中，然后必须手动 <a href="ConfigureMenu.html#reload-configuration">重新加载</a> 沙盘配置。此后，下次 <a href="SandboxieControl.html">沙盘控制</a> 重写配置时，它将在 <a href="SandboxieIni.html">沙盘配置文件</a> 的前两个字节中插入统一码 BOM 字符，即：（十六进制）FF FE。</p>
 <p>只有在以下两个条件都满足时，你才需要关注此设置：</p>
 <ul>

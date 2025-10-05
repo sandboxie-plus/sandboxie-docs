@@ -4530,13 +4530,13 @@
 
 <h1 id="notify-process-access-denied">Notify Process Access Denied<a class="headerlink" href="#notify-process-access-denied" title="Permanent link"></a></h1>
 <p><em>NotifyProcessAccessDenied</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a> since v1.0.16 / 5.55.16. It is typically specified as <em>NotifyProcessAccessDenied=y</em>, and indicates that Sandboxie should issue message <a href="SBIE2111.html">SBIE2111</a> when programs are denied reading from the address space of the process.</p>
-<p>Usage:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">NotifyProcessAccessDenied</span><span class="o">=</span><span class="s">y</span>
-</span></code></pre></div></p>
+<p>Usage:</p>
+<pre><code>   .
+   .
+   .
+   [DefaultBox]
+   NotifyProcessAccessDenied=y
+</code></pre>
 <p>Related Sandboxie Plus setting: Sandbox Options &gt; General Options &gt; Restrictions &gt; Other restrictions &gt; Issue message 2111 when a process access is denied</p>
 <p>For more information, see <a href="SBIE2111.html">SBIE2111</a>.</p>
 

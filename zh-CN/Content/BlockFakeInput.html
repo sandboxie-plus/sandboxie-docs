@@ -4532,12 +4532,12 @@
 <p><strong>该功能自 SBIE 4 版本及以上已被移除，不再可用</strong></p>
 <p><em>BlockFakeInput</em> 曾是 <a href="SandboxieIni.html">Sandboxie Ini</a> 文件中的一个沙箱设置。它用于指定 Sandboxie 是否允许沙箱中的程序生成伪造的键盘输入，并将其发送到运行在该沙箱外部的应用程序窗口。</p>
 <p>用法示例：</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">BlockFakeInput</span><span class="o">=</span><span class="s">n</span>
-</span></code></pre></div>
+<pre><code class="language-ini">   .
+   .
+   .
+   [DefaultBox]
+   BlockFakeInput=n
+</code></pre>
 <p>键盘输入会被当前活动且高亮的窗口接收。无论该键盘输入是否由程序生成（伪造输入），还是来源于物理键盘（真实输入），都是如此。</p>
 <p>默认情况下，Sandboxie 允许在沙箱中运行的程序生成伪造输入，只要接收该输入的窗口属于同一沙箱中的应用程序。</p>
 <p>如果伪造输入将被发送到该沙箱之外的窗口，Sandboxie 会丢弃该输入，并发出 <a href="SBIE1304.html">SBIE1304</a> 消息。</p>

@@ -4532,12 +4532,12 @@
 <p><em>MonitorAdminOnly</em> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 中的一个全局设置项。如果启用该设置，则在非管理员组成员的用户帐户下运行的 <a href="SandboxieControl.html">沙盘控制</a> 将无法调用 <a href="ResourceAccessMonitor.html">资源访问监视器</a> 功能。</p>
 <p>这样设计的主要原因是，资源访问监视器每次被调用时，会为每个用户会话消耗 64K 字节的系统内存，因此网络管理员可能希望防止普通用户调用该功能。</p>
 <p>用法示例：</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[GlobalSettings]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">MonitorAdminOnly</span><span class="o">=</span><span class="s">y</span>
-</span></code></pre></div>
+<pre><code class="language-ini">   .
+   .
+   .
+   [GlobalSettings]
+   MonitorAdminOnly=y
+</code></pre>
 <p>此设置项专为网络管理员使用而设计。</p>
 
 

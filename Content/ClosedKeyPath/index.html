@@ -4532,12 +4532,12 @@
 <p><em>ClosedKeyPath</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. It specifies path patterns for which Sandboxie will deny <em>all</em> access by sandboxed programs, including <em>read</em> access. This setting essentially blocks registry keys from being accessed by sandboxed programs.</p>
 <p><a href="../ProgramNamePrefix/">Program Name Prefix</a> may be specified.</p>
 <p>Example:</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">ClosedKeyPath</span><span class="o">=</span><span class="s">!msimn.exe,HKEY_CURRENT_USER\Software\Microsoft\Internet Account Manager</span>
-</span></code></pre></div>
+<pre><code>   .
+   .
+   .
+   [DefaultBox]
+   ClosedKeyPath=!msimn.exe,HKEY_CURRENT_USER\Software\Microsoft\Internet Account Manager
+</code></pre>
 <p>The example blocks any program <em>other than</em> Outlook Express (<em>msimn.exe</em>) from accessing the registry key containing configured email accounts for the active user account.</p>
 <p>The value specified for <em>ClosedKeyPath</em> can include wildcards, although for registry keys, the use of wildcards is rarely needed. For more information on this, including examples that show the use of wildcards, see <a href="../OpenFilePath/">OpenFilePath</a>. (<em>OpenFilePath</em> deals with files, not registry keys, but the principle of using wildcards remains the same.)</p>
 <p><strong>Note:</strong> <em>ClosedKeyPath</em> only blocks access to registry keys outside the sandbox, which have not yet been copied (or created) in the sandbox.</p>

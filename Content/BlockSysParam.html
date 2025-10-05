@@ -4532,12 +4532,12 @@
 <p><strong>BlockSysParam feature was removed in SBIE version 4.+ and up. It is no longer available.</strong></p>
 <p><em>BlockSysParam</em> was a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It specified whether Sandboxie should allow sandboxed programs to change various system parameters.</p>
 <p>Usage:</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">BlockSysParam</span><span class="o">=</span><span class="s">n</span>
-</span></code></pre></div>
+<pre><code>   .
+   .
+   .
+   [DefaultBox]
+   BlockSysParam=n
+</code></pre>
 <p>Specifying <em>n</em> indicates that a sandboxed program should be permitted to issue requests to change various system parameters, such as the desktop wallpaper.</p>
 <p>For an extensive discussion about the system parameters that can be changed, please consult the discussion on the <a href="https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-systemparametersinfoa">SystemParametersInfo API</a> on the Microsoft MSDN web site.</p>
 <p><strong>Technical Note:</strong> When Sandboxie blocks a request to change a system parameter, this is logged in the <a href="ResourceAccessMonitor.html">Resource Access Monitor</a> as operation <em>(SystemParametersInfo:nnnnnnnn)</em> where <em>nnnnnnnn</em> is a hexadecimal value corresponding to the <em>uiAction</em> parameter passed to the SystemParametersInfo API.</p>

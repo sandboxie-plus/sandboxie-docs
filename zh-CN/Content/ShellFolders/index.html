@@ -6,10 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="在 Windows 系统中，每个用户账户都有与之关联的个人文件夹，通常被称为“文档”、“音乐”等。Windows 外壳会在以下注册表项中记录每个用户的个人文件夹：
-  HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\
-     . . . User Shell Folders
-     . . . Shell Folders">
+        <meta name="description" content="在 Windows 系统中，每个用户账户都有与之关联的个人文件夹，通常被称为“文档”、“音乐”等。Windows 外壳会在以下注册表项中记录每个用户的个人文件夹：">
       
       
       
@@ -4532,11 +4529,11 @@
 
 
 <h1 id="_1">个人文件夹<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
-<p>在 Windows 系统中，每个用户账户都有与之关联的个人文件夹，通常被称为“文档”、“音乐”等。Windows 外壳会在以下注册表项中记录每个用户的个人文件夹：
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">  </span><span class="na">HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">     </span><span class="na">. . . User Shell Folders</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">     </span><span class="na">. . . Shell Folders</span>
-</span></code></pre></div></p>
+<p>在 Windows 系统中，每个用户账户都有与之关联的个人文件夹，通常被称为“文档”、“音乐”等。Windows 外壳会在以下注册表项中记录每个用户的个人文件夹：</p>
+<pre><code>  HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\
+     . . . User Shell Folders
+     . . . Shell Folders
+</code></pre>
 <p>此键包含多个“注册表值”，每个值标识一个特定的个人文件夹，并包含其绝对文件夹路径。此键中的大多数注册表值的名称与文件夹的“友好”名称相同，如“桌面”、“收藏夹”、“音乐”等。</p>
 <p>然而，在某些情况下，注册表值有所不同：</p>
 <ul>
@@ -4545,13 +4542,13 @@
 <li>“本地应用程序数据”代表位于“本地设置”文件夹下的次要“应用程序数据”文件夹。</li>
 </ul>
 <p>有关可能的文件夹名称的完整列表，请参阅上述注册表项。</p>
-<p>例如，对于用户 joe，注册表值“个人”（它标识“文档”文件夹）可能指定为：
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">  </span><span class="na">C</span><span class="o">:</span><span class="s">\Users\joe\Documents</span>
-</span></code></pre></div></p>
-<p>沙箱软件（Sandboxie）中指定文件夹路径的配置设置通常接受对“外壳文件夹”键中注册表值的引用。这比指定明确的文件夹位置更有用。例如：
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">  </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="na">RecoverFolder</span><span class="o">=</span><span class="s">%Desktop%</span>
-</span></code></pre></div></p>
+<p>例如，对于用户 joe，注册表值“个人”（它标识“文档”文件夹）可能指定为：</p>
+<pre><code>  C:\Users\joe\Documents
+</code></pre>
+<p>沙箱软件（Sandboxie）中指定文件夹路径的配置设置通常接受对“外壳文件夹”键中注册表值的引用。这比指定明确的文件夹位置更有用。例如：</p>
+<pre><code class="language-ini">  [DefaultBox]
+  RecoverFolder=%Desktop%
+</code></pre>
 <p>这表明<a href="../QuickRecovery/">快速恢复</a>应在发出请求的用户的桌面文件夹中查找沙箱化项目。</p>
 
 

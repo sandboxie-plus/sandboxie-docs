@@ -6,13 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="SbieCtrl_HideMessage 是 Sandboxie 配置文件 中的一项用户设置。它指定了哪些 SBIE 消息 不应弹出显示。
-   .
-   .
-   .
-   [UserSettings_054A02CE]
-   SbieCtrl_HideMessage=1101
-   SbieCtrl_HideMessage=1102,Example Message">
+        <meta name="description" content="SbieCtrl_HideMessage 是 Sandboxie 配置文件 中的一项用户设置。它指定了哪些 SBIE 消息 不应弹出显示。">
       
       
       
@@ -4535,14 +4529,14 @@
 
 
 <h1 id="sbie">隐藏 SBIE 消息<a class="headerlink" href="#sbie" title="Permanent link"></a></h1>
-<p>SbieCtrl_HideMessage 是 <a href="SandboxieIni.html">Sandboxie 配置文件</a> 中的一项用户设置。它指定了哪些 <a href="SBIEMessages.html">SBIE 消息</a> 不应弹出显示。
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[UserSettings_054A02CE]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">SbieCtrl_HideMessage</span><span class="o">=</span><span class="s">1101</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">   </span><span class="na">SbieCtrl_HideMessage</span><span class="o">=</span><span class="s">1102,Example Message</span>
-</span></code></pre></div></p>
+<p>SbieCtrl_HideMessage 是 <a href="SandboxieIni.html">Sandboxie 配置文件</a> 中的一项用户设置。它指定了哪些 <a href="SBIEMessages.html">SBIE 消息</a> 不应弹出显示。</p>
+<pre><code class="language-ini">   .
+   .
+   .
+   [UserSettings_054A02CE]
+   SbieCtrl_HideMessage=1101
+   SbieCtrl_HideMessage=1102,Example Message
+</code></pre>
 <p>第一个参数是必需的，它指定了要隐藏的 <em>SBIE 消息</em> 的 ID 号。</p>
 <p>第二个参数是可选的。如果在 Sandboxie Plus 中指定了该参数，则仅隐藏与指定文本匹配的消息；否则，将隐藏该消息的所有出现情况。</p>
 <p>相关的 Sandboxie Plus 设置：全局设置 &gt; 常规配置 &gt; 通知 &gt; SBIE 消息</p>

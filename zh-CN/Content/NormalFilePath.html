@@ -4532,15 +4532,15 @@
 <p><em>NormalFilePath</em> 是 <a href="SandboxieIni.html">沙箱配置文件（Sandboxie Ini）</a> 中的一个沙箱设置项。它用于指定一系列路径模式，使得对于这些模式所匹配的路径，沙箱软件（Sandboxie）会对其应用默认的沙箱方案。该设置与 <a href="../PlusContent/RuleSpecificity.html">规则特异性</a> 结合使用时最为有用，可用于为那些父路径已经被配置为开放、仅写或甚至封禁的路径恢复默认的沙箱行为。</p>
 <p>可以指定 <a href="ProgramNamePrefix.html">程序名称前缀</a>。</p>
 <p>示例：</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">NormalFilePath</span><span class="o">=</span><span class="s">C:\Downloads</span>\
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">   </span><span class="s">NormalFilePath=*.eml</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">   </span><span class="na">NormalFilePath</span><span class="o">=</span><span class="s">iexplore.exe,%Favorites%</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">   </span><span class="na">NormalFilePath</span><span class="o">=</span><span class="s">msimn.exe,*.eml</span>
-</span></code></pre></div>
+<pre><code class="language-ini">   .
+   .
+   .
+   [DefaultBox]
+   NormalFilePath=C:\Downloads\
+   NormalFilePath=*.eml
+   NormalFilePath=iexplore.exe,%Favorites%
+   NormalFilePath=msimn.exe,*.eml
+</code></pre>
 <p>相关的 Sandboxie Plus 设置：沙箱选项 &gt; 资源访问 &gt; 文件 &gt; 添加文件/文件夹 &gt; 访问列 &gt; 标准</p>
 
 

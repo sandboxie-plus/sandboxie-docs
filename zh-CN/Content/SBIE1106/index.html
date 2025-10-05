@@ -4551,9 +4551,9 @@
 <p><strong>记录位置：</strong> <a href="../SystemEventLog/">系统事件日志</a></p>
 <p><strong>解释：</strong></p>
 <p>沙盘的驱动程序组件无法完成初始化。此消息表明驱动程序在尝试确定沙盘的安装文件夹时遇到了错误。具体问题取决于消息中的 <em>yy</em> 值。</p>
-<p>当 yy = 11 时，访问以下注册表项时出现问题：
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span><span class="na">HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SbieDrv</span>
-</span></code></pre></div></p>
+<p>当 yy = 11 时，访问以下注册表项时出现问题：</p>
+<pre><code>    HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SbieDrv
+</code></pre>
 <p>当 yy = 22 或 33 时，从上述注册表项中查询 <strong>ImagePath</strong> 值时出现问题。</p>
 <p>当 yy = 44 时，没有足够的内存来完成操作。</p>
 <p>当 yy = 55 或 66 或 77 时，访问上述注册表项中 <strong>ImagePath</strong> 值指定的文件夹时出现了一些问题。</p>

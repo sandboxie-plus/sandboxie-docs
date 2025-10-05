@@ -4534,11 +4534,11 @@
 <p>The setting for a security hardened box can be enabled by adding <code>UseSecurityMode=y</code> to the box settings section of <strong><a href="../Content/SandboxieIni.html">Sandboxie Ini</a></strong>. It can also be enabled in the Sandman UI. Right-click on a box and select "Sandbox Options" from the drop-down menu (or simply double-click on a box) to bring up the Box Options UI. Select the box type preset as "Security Hardened Sandbox" (with an <strong>orange</strong> box icon) and click OK to apply changes. The status column of Sandman UI labels this box as <strong>Enhanced Isolation</strong>.</p>
 <p><img alt="" src="../Media/Box_SecurityMode.png" /></p>
 <p>Internally, the security hardened mode is based on four settings:</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">DropAdminRights</span><span class="o">=</span><span class="s">y</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">RestrictDevices</span><span class="o">=</span><span class="s">y</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">SysCallLockDown</span><span class="o">=</span><span class="s">y</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="na">UseRuleSpecificity</span><span class="o">=</span><span class="s">y</span>
-</span></code></pre></div>
+<pre><code>DropAdminRights=y
+RestrictDevices=y
+SysCallLockDown=y
+UseRuleSpecificity=y
+</code></pre>
 <ol>
 <li>
 <p><strong><a href="../Content/DropAdminRights.html">DropAdminRights</a>:</strong> Prior to <strong>Sandboxie Plus v1.3.0</strong>, any box with <code>DropAdminRights=y</code> was considered <strong>hardened</strong> and labeled "Enhanced Isolation" in the Sandman UI status column. Starting with <strong>Sandboxie Plus v1.3.0</strong>, only boxes with <code>UseSecurityMode=y</code> have their status listed as "Enhanced Isolation".</p>

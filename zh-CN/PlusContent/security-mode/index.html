@@ -4534,11 +4534,11 @@
 <p>可以通过在 <strong><a href="../../Content/SandboxieIni/">Sandboxie Ini</a></strong> 的沙箱设置部分添加 <code>UseSecurityMode=y</code> 来启用安全强化沙箱的设置。也可以在 Sandman 用户界面中启用该设置。右键单击一个沙箱，然后从下拉菜单中选择“沙箱选项”（或者直接双击一个沙箱）以打开沙箱选项用户界面。选择沙箱类型预设为“安全强化沙箱”（带有 <strong>橙色</strong> 沙箱图标），然后单击“确定”以应用更改。Sandman 用户界面的状态列将此沙箱标记为 <strong>增强隔离</strong>。</p>
 <p><img alt="" src="../../Media/Box_SecurityMode.png" /></p>
 <p>在内部，安全强化模式基于以下四个设置：</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">DropAdminRights</span><span class="o">=</span><span class="s">y</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">RestrictDevices</span><span class="o">=</span><span class="s">y</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">SysCallLockDown</span><span class="o">=</span><span class="s">y</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="na">UseRuleSpecificity</span><span class="o">=</span><span class="s">y</span>
-</span></code></pre></div>
+<pre><code class="language-ini">DropAdminRights=y
+RestrictDevices=y
+SysCallLockDown=y
+UseRuleSpecificity=y
+</code></pre>
 <ol>
 <li>
 <p><strong><a href="../../Content/DropAdminRights/">DropAdminRights</a>：</strong> 在 <strong>Sandboxie Plus v1.3.0</strong> 之前，任何设置了 <code>DropAdminRights=y</code> 的沙箱都被视为 <strong>强化</strong> 沙箱，并在 Sandman 用户界面的状态列中标记为“增强隔离”。从 <strong>Sandboxie Plus v1.3.0</strong> 开始，只有设置了 <code>UseSecurityMode=y</code> 的沙箱其状态才会显示为“增强隔离”。</p>

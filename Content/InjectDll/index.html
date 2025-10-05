@@ -6,12 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="InjectDll is a sandbox setting in Sandboxie Ini. It tells Sandboxie to &quot;inject&quot; some DLL into every program in the sandbox. &quot;Inject&quot; means the DLL is
-   .
-   .
-   .
-   [DefaultBox]
-   InjectDll=c:\Program Files\Sandboxie Utilities\Sample.dll">
+        <meta name="description" content="InjectDll is a sandbox setting in Sandboxie Ini. It tells Sandboxie to &quot;inject&quot; some DLL into every program in the sandbox. &quot;Inject&quot; means the DLL is">
       
       
       
@@ -4534,13 +4529,13 @@
 
 
 <h1 id="inject-dll">Inject Dll<a class="headerlink" href="#inject-dll" title="Permanent link"></a></h1>
-<p><em>InjectDll</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. It tells Sandboxie to "inject" some DLL into every program in the sandbox. "Inject" means the DLL is
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">InjectDll</span><span class="o">=</span><span class="s">c:\Program Files\Sandboxie Utilities\Sample.dll</span>
-</span></code></pre></div></p>
+<p><em>InjectDll</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. It tells Sandboxie to "inject" some DLL into every program in the sandbox. "Inject" means the DLL is</p>
+<pre><code>   .
+   .
+   .
+   [DefaultBox]
+   InjectDll=c:\Program Files\Sandboxie Utilities\Sample.dll
+</code></pre>
 <p>You should specify a full path to the DLL. If the DLL file itself resides within the sandbox, specify the full path inside the sandbox.</p>
 <p><strong>Note:</strong> The InjectDll setting specifies 32-bit DLLs, and will be ignored in a 64-bit process on 64-bit Windows. Use the <a href="../InjectDll64/">InjectDll64</a> setting to specify 64-bit DLLs.</p>
 <hr />
@@ -4557,10 +4552,10 @@
 <p>The behavior described above applies to Sandboxie version 3.46 and later. Earlier versions of Sandboxie implemented a different behavior which is described below:</p>
 <p>The injected DLL is loaded into the sandboxed process (or program) after all the statically-linked DLLs are loaded and initialized, but before the program itself begins to execute at its entry point.</p>
 <hr />
-<p>If the DLL exports the symbol <strong>InjectDllMain</strong> or <strong>InjectDllMain@8</strong>, Sandboxie will call this procedure after the DLL is loaded, and pass the address of the SbieDll module. Declare InjectDllMain in your code:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">   </span><span class="na">__declspec(dllexport) void __stdcall InjectDllMain(</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">      </span><span class="na">HINSTANCE hSbieDll, ULONG_PTR UnusedParameter);</span>
-</span></code></pre></div></p>
+<p>If the DLL exports the symbol <strong>InjectDllMain</strong> or <strong>InjectDllMain@8</strong>, Sandboxie will call this procedure after the DLL is loaded, and pass the address of the SbieDll module. Declare InjectDllMain in your code:</p>
+<pre><code>   __declspec(dllexport) void __stdcall InjectDllMain(
+      HINSTANCE hSbieDll, ULONG_PTR UnusedParameter);
+</code></pre>
 <p>It is recommended to use the <strong>hSbieDll</strong> parameter as the module instance handle for SbieDll.Dll, instead of relying on GetModuleHandle("SbieDll.dll"). This makes it possible for the injected DLL to interact with SbieDll.dll regardless of the actual name used for SbieDll.dll. However, using LoadLibrary or GetModuleHandle to look up SbieDll by name is also fine.</p>
 <hr />
 <p>At this time, this setting cannot be manipulated from <a href="../SandboxieControl/">Sandboxie Control</a>. You have to manually edit it into <a href="../SandboxieIni/">Sandboxie Ini</a>.</p>

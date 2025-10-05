@@ -4531,13 +4531,13 @@
 <h1 id="_1">写入注册表项路径<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
 <p>写入注册表项路径是 <a href="SandboxieIni.html">沙箱ie配置文件（Sandboxie Ini）</a> 中的一项沙箱设置。它指定了一些路径模式，对于这些模式，沙箱ie会隐藏沙箱外部的任何注册表项，同时允许在沙箱内创建新的注册表项和注册表值。</p>
 <p>可以指定 <a href="ProgramNamePrefix.html">程序名称前缀（Program Name Prefix）</a>。</p>
-<p>示例：
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">WriteKeyPath</span><span class="o">=</span><span class="s">HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\TypedPaths</span>
-</span></code></pre></div></p>
+<p>示例：</p>
+<pre><code class="language-ini">   .
+   .
+   .
+   [DefaultBox]
+   WriteKeyPath=HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\TypedPaths
+</code></pre>
 <p>此示例会隐藏沙箱外部 <em>TypedPaths</em> 注册表项中存在的任何数据，同时允许程序在沙箱内对应的 <em>TypedPaths</em> 注册表项中创建新的键和值。这意味着在沙箱中运行的 Windows 资源管理器将无法显示在沙箱外部的 Windows 资源管理器中输入的路径历史记录。但在沙箱中运行的 Windows 资源管理器将能够记录和存储新输入的路径。</p>
 <p>注意：<em>写入注册表项路径</em> 在内部实现为 <a href="ClosedKeyPath.html">封禁注册表项路径</a> 的增强形式。</p>
 <p>相关的 <a href="SandboxieControl.html">沙箱ie控制（Sandboxie Control）</a> 设置：<a href="ResourceAccessSettings.html#registry-access--write-only-access">沙箱设置 &gt; 资源访问 &gt; 注册表访问 &gt; 只写访问</a></p>

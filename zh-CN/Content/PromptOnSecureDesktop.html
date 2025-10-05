@@ -4532,12 +4532,12 @@
 <p><strong>PromptOnSecureDesktop</strong> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 中自 v1.16.0 / 5.71.0 版本开始提供的全局沙盒设置。它控制来自沙盒应用程序的用户账户控制 (UAC) 提升提示是否在安全桌面上显示，同时不影响主机系统行为。</p>
 <p><strong>注意：</strong> 此设置仅在启用 <a href="UseSandboxieUAC.html">使用沙盒 UAC</a> 时有效。</p>
 <p>用法：</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[GlobalSettings]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">PromptOnSecureDesktop</span><span class="o">=</span><span class="s">n</span>
-</span></code></pre></div>
+<pre><code class="language-ini">   .
+   .
+   .
+   [GlobalSettings]
+   PromptOnSecureDesktop=n
+</code></pre>
 <p>此设置确保来自沙盒应用程序的 UAC 提示不会在安全桌面上显示，即使系统配置为其他方式。</p>
 
 

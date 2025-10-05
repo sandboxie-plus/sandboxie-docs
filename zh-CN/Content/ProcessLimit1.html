@@ -4530,24 +4530,24 @@
 
 <h1 id="1">进程数量限制 1<a class="headerlink" href="#1" title="Permanent link"></a></h1>
 <p><strong>自沙盘（Sandboxie）v0.7.1 / 5.48.5 版本起，<em>ProcessLimit1</em> 和 <em>ProcessLimit2</em> 已被移除，转而使用 <a href="ProcessLimit.html">进程限制</a>。</strong></p>
-<p><em>ProcessLimit1</em> 和 <em>ProcessLimit2</em> 是 <a href="SandboxieIni.html">沙盘配置文件（Sandboxie Ini）</a> 中的沙箱设置。它们限制了沙盘在同一时间允许沙箱中运行的最大进程数。
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">ProcessLimit1</span><span class="o">=</span><span class="s">100</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">   </span><span class="na">ProcessLimit2</span><span class="o">=</span><span class="s">200</span>
-</span></code></pre></div></p>
+<p><em>ProcessLimit1</em> 和 <em>ProcessLimit2</em> 是 <a href="SandboxieIni.html">沙盘配置文件（Sandboxie Ini）</a> 中的沙箱设置。它们限制了沙盘在同一时间允许沙箱中运行的最大进程数。</p>
+<pre><code class="language-ini">   .
+   .
+   .
+   [DefaultBox]
+   ProcessLimit1=100
+   ProcessLimit2=200
+</code></pre>
 <p>进程限制 1（ProcessLimit1）：一旦沙箱中同时运行的程序数量超过 X 个，每个新程序将在启动前延迟十秒。X 是 <em>ProcessLimit1</em> 中指定的数字。延迟时间为十秒，不可配置。</p>
 <p>进程限制 2（ProcessLimit2）：一旦沙箱中同时运行的程序数量超过 Y 个，每个新程序将立即终止。Y 是 <em>ProcessLimit2</em> 中指定的数字。</p>
 <p>如上所述，默认值分别为 100 和 200。<em>ProcessLimit2</em> 不能小于 <em>ProcessLimit1</em>。</p>
-<p>通过设置特定的值可以关闭其中一种或两种模式。例如，
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">    </span><span class="na">ProcessLimit2</span><span class="o">=</span><span class="s">999999</span>
-</span></code></pre></div></p>
-<p>这将有效禁用终止功能。另一方面，
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">    </span><span class="na">ProcessLimit1</span><span class="o">=</span><span class="s">50</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="na">ProcessLimit2</span><span class="o">=</span><span class="s">50</span>
-</span></code></pre></div></p>
+<p>通过设置特定的值可以关闭其中一种或两种模式。例如，</p>
+<pre><code>    ProcessLimit2=999999
+</code></pre>
+<p>这将有效禁用终止功能。另一方面，</p>
+<pre><code>    ProcessLimit1=50
+    ProcessLimit2=50
+</code></pre>
 <p>这将有效禁用延迟功能。</p>
 
 

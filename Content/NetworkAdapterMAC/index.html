@@ -4531,32 +4531,34 @@
 <h1 id="network-adapter-mac">Network Adapter MAC<a class="headerlink" href="#network-adapter-mac" title="Permanent link"></a></h1>
 <p><strong>NetworkAdapterMAC</strong> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a> available since <strong>v1.15.2 / 5.70.2</strong>. This setting allows assigning custom MAC addresses to specific network adapters within sandboxes.</p>
 <h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link"></a></h2>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">NetworkAdapterMAC</span><span class="o">=</span><span class="s">&lt;Index&gt;,&lt;MAC Address&gt;</span>
-</span></code></pre></div>
+<pre><code class="language-ini">NetworkAdapterMAC=&lt;Index&gt;,&lt;MAC Address&gt;
+</code></pre>
 <ul>
 <li><strong>Index</strong>: Index value of the target network adapter, starts at 0</li>
 <li><strong>MAC Address</strong>: Custom MAC address in hyphenated format (AA-BB-CC-DD-EE-FF) or plain format (AABBCCDDEEFF)</li>
 </ul>
 <h2 id="example-usage">Example Usage<a class="headerlink" href="#example-usage" title="Permanent link"></a></h2>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[DefaultBox]</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">HideNetworkAdapterMAC</span><span class="o">=</span><span class="s">y</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="na">NetworkAdapterMAC</span><span class="o">=</span><span class="s">0,12-34-56-78-9A-BC</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="na">NetworkAdapterMAC</span><span class="o">=</span><span class="s">1,DE-F0-12-34-56-78</span>
-</span></code></pre></div>
+<pre><code class="language-ini">[DefaultBox]
+HideNetworkAdapterMAC=y
+NetworkAdapterMAC=0,12-34-56-78-9A-BC
+NetworkAdapterMAC=1,DE-F0-12-34-56-78
+</code></pre>
 <h2 id="identifying-network-adapter-index-values">Identifying Network Adapter Index Values<a class="headerlink" href="#identifying-network-adapter-index-values" title="Permanent link"></a></h2>
 <p>Sandboxie assigns index values only to adapters that have MAC addresses, in the order the system enumerates them. Virtual adapters without MAC addresses are skipped.</p>
-<p>To identify which adapters get which Sandboxie index values, get a rough list of adapters with MAC addresses (run in Command Prompt):
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">wmic path win32_networkadapter where &quot;MACAddress is not null&quot; get netconnectionid,name,macaddress</span>
-</span></code></pre></div></p>
+<p>To identify which adapters get which Sandboxie index values, get a rough list of adapters with MAC addresses (run in Command Prompt):</p>
+<pre><code>wmic path win32_networkadapter where &quot;MACAddress is not null&quot; get netconnectionid,name,macaddress
+</code></pre>
 <p>Sandboxie assigns index values starting at 0 for the first adapter in this list, then 1, 2, 3, etc. However, Sandboxie's internal enumeration order may not match the command output order.</p>
 <p>For accurate mapping, use the testing method:</p>
 <ol>
-<li>Set unique MAC addresses for each index:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">NetworkAdapterMAC</span><span class="o">=</span><span class="s">0,AA-00-00-00-00-00</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">NetworkAdapterMAC</span><span class="o">=</span><span class="s">1,AA-11-11-11-11-11</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="na">NetworkAdapterMAC</span><span class="o">=</span><span class="s">2,AA-22-22-22-22-22</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="na">NetworkAdapterMAC</span><span class="o">=</span><span class="s">3,AA-33-33-33-33-33</span>
-</span></code></pre></div></li>
+<li>Set unique MAC addresses for each index:</li>
+</ol>
+<pre><code class="language-ini">NetworkAdapterMAC=0,AA-00-00-00-00-00
+NetworkAdapterMAC=1,AA-11-11-11-11-11
+NetworkAdapterMAC=2,AA-22-22-22-22-22
+NetworkAdapterMAC=3,AA-33-33-33-33-33
+</code></pre>
+<ol>
 <li>Run <code>ipconfig /all</code> inside the sandbox to see which adapter has which test MAC</li>
 </ol>
 <h2 id="important-notes">Important Notes<a class="headerlink" href="#important-notes" title="Permanent link"></a></h2>

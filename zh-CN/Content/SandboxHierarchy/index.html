@@ -4617,16 +4617,16 @@
 <p>当沙箱化程序创建（或修改）对象（如文件）时，实际上会创建某种数据。沙盘会在不影响系统的地方创建这些对象，以保护系统免受有害更改的影响。但这些对象必须存放在系统的某个位置。本页面描述了各种类型的沙箱化对象的存放位置。</p>
 <p>从沙盘 2.80 版本开始，沙箱的布局不再与计算机特定的设备名称和账户名称相关联。有关更多信息，请参阅<a href="../PortableSandbox/">可移植沙箱</a>。</p>
 <h3 id="_3">文件<a class="headerlink" href="#_3" title="Permanent link"></a></h3>
-<p>文件根据以下层次结构创建在 <em>Sandbox</em> 文件夹中：
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">  </span><span class="na">. FileRootPath</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">. . drive</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">. . . C</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">. . . D</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">. . . Q</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">. . user</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="na">. . . all</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="na">. . . current</span>
-</span></code></pre></div></p>
+<p>文件根据以下层次结构创建在 <em>Sandbox</em> 文件夹中：</p>
+<pre><code>  . FileRootPath
+  . . drive
+  . . . C
+  . . . D
+  . . . Q
+  . . user
+  . . . all
+  . . . current
+</code></pre>
 <p><a href="../FileRootPath/">文件根路径</a> 设置指定了特定沙箱的根路径。换句话说，如果 <a href="../FileRootPath/">文件根路径</a> 指定的文件夹为 <em>C:\MySandbox</em>，那么子文件夹 <em>drive</em> 和 <em>user</em> 将分别创建为 <em>C:\MySandbox\drive</em> 和 <em>C:\MySandbox\user</em>。</p>
 <p>如果省略 <a href="../FileRootPath/">文件根路径</a> 设置，则会使用 <a href="../BoxRootFolder/">沙箱根文件夹</a> 设置。<a href="../BoxRootFolder/">沙箱根文件夹</a> 设置指定了一组沙箱的路径。换句话说，如果 <a href="../BoxRootFolder/">沙箱根文件夹</a> 指定的文件夹为 <em>C:\MySandbox</em>，并且假设沙箱名为 DefaultBox，那么子文件夹 <em>drive</em> 和 <em>user</em> 将分别创建为 <em>C:\MySandbox\Sandbox\DefaultBox\drive</em> 和 <em>C:\MySandbox\Sandbox\DefaultBox\user</em>。请注意，<a href="../BoxRootFolder/">沙箱根文件夹</a> 是一个已弃用的设置。</p>
 <p>当沙箱化程序创建新文件或修改现有文件时，沙盘会将这些操作重定向到沙箱内的路径。如果沙箱化程序试图创建文件 <em>C:\NEW.TXT</em>，它将被重定向为创建 <em>(<a href="../FileRootPath/">文件根路径</a>)\drive\C\NEW.TXT</em>。</p>
@@ -4641,13 +4641,13 @@
 <h3 id="_4">注册表<a class="headerlink" href="#_4" title="Permanent link"></a></h3>
 <p>注册表项在沙箱化的注册表配置单元中创建。“注册表配置单元”是 Microsoft Windows 术语，指的是一组相关的注册表项，这些项存储在单个“配置单元文件”中。</p>
 <p>沙盘在 <em>Sandbox</em> 文件夹中创建配置单元文件，即 <em>RegHive</em> 和 <em>RegHive.LOG</em> 文件。当沙箱化程序启动时，这个配置单元会被挂载（换句话说，加载到注册表中）。当所有沙箱化程序结束时，该配置单元会被卸载。</p>
-<p>沙箱化的配置单元在 Windows 注册表的全局结构中具有以下位置和结构：
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w"> </span><span class="na">. HKEY_USERS</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w"> </span><span class="na">. . KeyRootPath</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w"> </span><span class="na">. . . machine</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w"> </span><span class="na">. . . user</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w"> </span><span class="na">. . . . current</span>
-</span></code></pre></div></p>
+<p>沙箱化的配置单元在 Windows 注册表的全局结构中具有以下位置和结构：</p>
+<pre><code> . HKEY_USERS
+ . . KeyRootPath
+ . . . machine
+ . . . user
+ . . . . current
+</code></pre>
 <p><a href="../KeyRootPath/">注册表项根路径</a> 设置指定了特定沙箱的根路径。如果省略，它默认设置为 <em>HKEY_USERS\Sandbox</em>(用户名)<em>(沙箱名)</em>。例如，如果用户 joe 使用的沙箱名为 DefaultBox，则默认的 <a href="../KeyRootPath/">注册表项根路径</a> 为 <em>HKEY_USERS\Sandbox_joe_DefaultBox</em>。</p>
 <p>当沙箱化程序创建新的注册表项或修改现有项时，沙盘会将这些操作重定向到沙箱内的路径。如果沙箱化程序试图创建项 <em>HKEY_LOCAL_MACHINE\Software\NewKey</em>，它将被重定向为创建 <em>(<a href="../KeyRootPath/">注册表项根路径</a>)\machine\Software\NewKey</em>。</p>
 <p>如果沙箱化程序试图创建项 <em>HKEY_CURRENT_USER\Software\NewKey</em>，它将被重定向为创建 <em>(<a href="../KeyRootPath/">注册表项根路径</a>)\user\current\Software\NewKey</em>。</p>
@@ -4668,14 +4668,14 @@
 <h3 id="_5">进程间对象<a class="headerlink" href="#_5" title="Permanent link"></a></h3>
 <p>这些对象由程序用于共享信息、同步处理和提供服务。这些对象永远不会写入磁盘，并且在系统关闭时会消失。</p>
 <p>沙盘会隔离这些对象，以便可以同时运行沙箱化和非沙箱化的同一程序。它还可以防止沙箱化程序干扰非沙箱化程序。</p>
-<p>这些对象在 NT 对象命名空间中创建。它们在该命名空间中的位置和结构如下：
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w"> </span><span class="na">. IpcRootPath</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w"> </span><span class="na">. . BaseNamedObjects</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w"> </span><span class="na">. . . Global</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w"> </span><span class="na">. . . Local</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w"> </span><span class="na">. . . Session</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w"> </span><span class="na">. . RPC Control</span>
-</span></code></pre></div></p>
+<p>这些对象在 NT 对象命名空间中创建。它们在该命名空间中的位置和结构如下：</p>
+<pre><code> . IpcRootPath
+ . . BaseNamedObjects
+ . . . Global
+ . . . Local
+ . . . Session
+ . . RPC Control
+</code></pre>
 <p><a href="../IpcRootPath/">IPC 根路径</a> 设置指定了特定沙箱的根路径。如果省略，它默认设置为 <em>\Sandbox(用户名)(沙箱名)\Session</em>(会话编号)<em>。例如，如果用户 joe 在会话零中运行，并使用沙箱 DefaultBox，则默认的 <a href="../IpcRootPath/">IPC 根路径</a> 为 </em>\Sandbox\joe\DefaultBox\Session_0_。</p>
 <p>在 <a href="../IpcRootPath/">IPC 根路径</a> 以下，有构成 NT 命名空间的“对象目录”，这些目录与沙箱区域外现有对象目录的布局相匹配。这些目录以“持久”属性创建，这意味着它们只会在系统关闭时消失。</p>
 <p>沙箱化程序创建的对象在沙箱对象目录中创建。如果程序在沙盘的监管之外运行，它通常会在 \BaseNamedObjects 对象目录中创建此类对象。</p>

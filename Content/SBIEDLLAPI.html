@@ -4703,651 +4703,625 @@
 <li>Injecting custom DLLs into sandboxed programs. See <a href="InjectDll.html">InjectDll</a>.</li>
 <li>Calling Sandboxie entrypoints from programs running (sandboxed or not). Described here.</li>
 </ul>
-<p>The entrypoints described here are all exported by <em>SbieDll.dll</em>. To access an entrypoint, you should dynamically load this DLL into your program, and get the address of the desired entrypoint. For example,
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">        </span><span class="na">__declspec(dllexport) void __stdcall InjectDllMain(HINSTANCE hSbieDll, ULONG_PTR UnusedParameter)</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="na">{</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">        </span><span class="na">//</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">            </span><span class="na">// locate the address of SbieDll_Hook in SbieDll.dll</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">            </span><span class="na">//</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">            </span><span class="na">typedef void *(__stdcall *P_SbieDll_Hook)(</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">                    </span><span class="na">const char *ApiName, void *ApiFunc, void *NewFunc);</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">            </span><span class="na">P_SbieDll_Hook p_SbieDll_Hook</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">GetProcAddress(hSbieDll, &quot;SbieDll_Hook&quot;)</span><span class="c1">;</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">        </span><span class="na">//</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">            </span><span class="na">// invoke SbieDll_Hook through the function pointer</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">            </span><span class="na">//</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">            </span><span class="na">p_SbieDll_Hook(...);</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="na">}</span>
-</span></code></pre></div></p>
+<p>The entrypoints described here are all exported by <em>SbieDll.dll</em>. To access an entrypoint, you should dynamically load this DLL into your program, and get the address of the desired entrypoint. For example,</p>
+<pre><code>        __declspec(dllexport) void __stdcall InjectDllMain(HINSTANCE hSbieDll, ULONG_PTR UnusedParameter)
+    {
+        //
+            // locate the address of SbieDll_Hook in SbieDll.dll
+            //
+
+            typedef void *(__stdcall *P_SbieDll_Hook)(
+                    const char *ApiName, void *ApiFunc, void *NewFunc);
+
+            P_SbieDll_Hook p_SbieDll_Hook = GetProcAddress(hSbieDll, &quot;SbieDll_Hook&quot;);
+
+        //
+            // invoke SbieDll_Hook through the function pointer
+            //
+
+            p_SbieDll_Hook(...);
+    }
+</code></pre>
 <p>Note the use of <em>InjectDllMain</em> (see <a href="InjectDll.html">Inject Dll</a>) to get a handle to the loaded instance of SbieDll. That is the recommended approach. However, using LoadLibrary or GetModuleHandle to look up SbieDll by name is also fine.</p>
 <hr />
 <h3 id="enumerate-sandbox-names">Enumerate Sandbox Names<a class="headerlink" href="#enumerate-sandbox-names" title="Permanent link"></a></h3>
 <ul>
-<li>
-<p>Prototype:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">        </span><span class="na">typedef LONG (__stdcall *P_SbieApi_EnumBoxes)(</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">                </span><span class="na">LONG index,                 // initialize to -1</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">                </span><span class="na">WCHAR *box_name);           // pointer to WCHAR [34]</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Export Name:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">        </span><span class="na">SbieApi_EnumBoxes</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Parameters:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="w">        </span><span class="na">index [in] specifies which sandbox to return.  Initialize to -1.</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">        </span><span class="na">Sandboxes are enumerated in the order they appear in Sandboxie.ini.</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">        </span><span class="na">box_name [out] receives the sandbox name.</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="na">Note</span><span class="o">:</span><span class="w">  </span><span class="s">this function cannot be used by a sandboxed program.</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Return Value:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="w">        </span><span class="na">Returns the next value to use for the index parameter.</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">        </span><span class="na">Returns -1 when there is nothing left to enumerate.</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Sample Code:</p>
-</li>
+<li>Prototype:</li>
 </ul>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="w">        </span><span class="na">WCHAR name[34];</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">        </span><span class="na">int index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">-1</span><span class="c1">;</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">        </span><span class="na">while (1) {</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">                </span><span class="na">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">SbieApi_EnumBoxes(index, name)</span><span class="c1">;</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">                </span><span class="na">if (index</span><span class="w"> </span><span class="o">=</span><span class="s">= -1)</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">                    </span><span class="na">break;</span>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">                </span><span class="na">SandboxNames_StringArray.add(name);</span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">        </span><span class="na">}</span>
-</span></code></pre></div>
+<pre><code>        typedef LONG (__stdcall *P_SbieApi_EnumBoxes)(
+                LONG index,                 // initialize to -1
+                WCHAR *box_name);           // pointer to WCHAR [34]
+</code></pre>
+<ul>
+<li>Export Name:</li>
+</ul>
+<pre><code>        SbieApi_EnumBoxes
+</code></pre>
+<ul>
+<li>Parameters:</li>
+</ul>
+<pre><code>        index [in] specifies which sandbox to return.  Initialize to -1.
+        Sandboxes are enumerated in the order they appear in Sandboxie.ini.
+
+        box_name [out] receives the sandbox name.
+
+        Note:  this function cannot be used by a sandboxed program.
+</code></pre>
+<ul>
+<li>Return Value:</li>
+</ul>
+<pre><code>        Returns the next value to use for the index parameter.
+        Returns -1 when there is nothing left to enumerate.
+</code></pre>
+<ul>
+<li>Sample Code:</li>
+</ul>
+<pre><code>        WCHAR name[34];
+        int index = -1;
+        while (1) {
+                index = SbieApi_EnumBoxes(index, name);
+                if (index == -1)
+                    break;
+                SandboxNames_StringArray.add(name);
+        }
+</code></pre>
 <hr />
 <h3 id="query-sandbox-paths-by-sandbox-name">Query Sandbox Paths by Sandbox Name<a class="headerlink" href="#query-sandbox-paths-by-sandbox-name" title="Permanent link"></a></h3>
 <ul>
-<li>
-<p>Prototype:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="w">        </span><span class="na">typedef LONG (__stdcall *P_SbieApi_QueryBoxPath)(</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">                </span><span class="na">const WCHAR *box_name,      // pointer to WCHAR [34]</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">                </span><span class="na">WCHAR *file_path,</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">                </span><span class="na">WCHAR *key_path,</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">                </span><span class="na">WCHAR *ipc_path,</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">                </span><span class="na">ULONG *file_path_len,</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">                </span><span class="na">ULONG *key_path_len,</span>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">                </span><span class="na">ULONG *ipc_path_len);</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Export Name:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="w">        </span><span class="na">SbieApi_QueryBoxPath</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Parameters:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="w">        </span><span class="na">box_name [in] specifies the name of the sandbox for which</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">        </span><span class="na">to return path information.</span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">        </span><span class="na">file_path [out] receives the path to the root directory of</span>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">        </span><span class="na">the sandbox, as set by the FileRootPath setting.</span>
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">        </span><span class="na">The buffer receives at most the number of bytes specified</span>
-</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">        </span><span class="na">by the file_path_len parameter.  Pass NULL to ignore this</span>
-</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">        </span><span class="na">parameter.</span>
-</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>
-</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">        </span><span class="na">key_path [out] receives the path to the root key of the</span>
-</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">        </span><span class="na">sandbox registry, as set by the KeyRootPath setting.</span>
-</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">        </span><span class="na">The buffer receives at most the number of bytes specified</span>
-</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">        </span><span class="na">by the key_path_len parameter.  Pass NULL to ignore this</span>
-</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">        </span><span class="na">parameter.</span>
-</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>
-</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">        </span><span class="na">ipc_path [out] receives the path to the root object directory</span>
-</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">        </span><span class="na">of the sandbox, as set by the IpcRootPath setting.</span>
-</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">        </span><span class="na">The buffer receives at most the number of bytes specified</span>
-</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="w">        </span><span class="na">by the ipc_path_len parameter.  Pass NULL to ignore this</span>
-</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="w">        </span><span class="na">parameter.</span>
-</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a>
-</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="w">        </span><span class="na">file_path_len [in/out] specifies the length in bytes of the</span>
-</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="w">        </span><span class="na">file_path buffer.  On return, receives the length in bytes</span>
-</span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a><span class="w">        </span><span class="na">needed to receive a complete buffer.</span>
-</span><span id="__span-8-25"><a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a>
-</span><span id="__span-8-26"><a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a><span class="w">        </span><span class="na">key_path_len [in/out] specifies the length in bytes of the</span>
-</span><span id="__span-8-27"><a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a><span class="w">        </span><span class="na">key_path buffer.  On return, receives the length in bytes</span>
-</span><span id="__span-8-28"><a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a><span class="w">        </span><span class="na">needed to receive a complete buffer.</span>
-</span><span id="__span-8-29"><a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a>
-</span><span id="__span-8-30"><a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a><span class="w">        </span><span class="na">ipc_path_len [in/out] specifies the length in bytes of the</span>
-</span><span id="__span-8-31"><a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a><span class="w">        </span><span class="na">ipc_path buffer.  On return, receives the length in bytes</span>
-</span><span id="__span-8-32"><a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a><span class="w">        </span><span class="na">needed to receive a complete buffer.</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Return Value:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="w">        </span><span class="na">Returns zero on success, a non-zero value on error.</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Sample Code:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="w">        </span><span class="na">ULONG FileLen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">0</span><span class="c1">;</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">        </span><span class="na">ULONG KeyLen</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s">0</span><span class="c1">;</span>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">        </span><span class="na">ULONG IpcLen</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s">0</span><span class="c1">;</span>
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">        </span><span class="na">SbieApi_QueryBoxPath(</span>
-</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">                </span><span class="na">NULL, NULL, NULL, NULL, &amp;FileLen, &amp;KeyLen, &amp;IpcLen);</span>
-</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>
-</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">        </span><span class="na">// note that lengths are returned as the number of bytes,</span>
-</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">        </span><span class="na">// rather than number of WCHAR characters</span>
-</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>
-</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">        </span><span class="na">WCHAR *FileBuf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">malloc(FileLen)</span><span class="c1">;</span>
-</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">        </span><span class="na">WCHAR *KeyBuf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">malloc(KeyLen)</span><span class="c1">;</span>
-</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">        </span><span class="na">WCHAR *IpcBuf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">malloc(IpcLen)</span><span class="c1">;</span>
-</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>
-</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">        </span><span class="na">SbieApi_QueryBoxPath(</span>
-</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">                </span><span class="na">FileBuf, KeyBuf, IpcBuf, &amp;FileLen, &amp;KeyLen, &amp;IpcLen);</span>
-</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>
-</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="w">        </span><span class="na">// now use wcslen to count the number of characters</span>
-</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>
-</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a><span class="w">        </span><span class="na">FileLen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">wcslen(FileBuf)</span><span class="c1">;</span>
-</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a><span class="w">        </span><span class="na">KeyLen</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s">wcslen(KeyBuf)</span><span class="c1">;</span>
-</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a><span class="w">        </span><span class="na">IpcLen</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s">wcslen(IpcBuf)</span><span class="c1">;</span>
-</span></code></pre></div></p>
-</li>
+<li>Prototype:</li>
 </ul>
+<pre><code>        typedef LONG (__stdcall *P_SbieApi_QueryBoxPath)(
+                const WCHAR *box_name,      // pointer to WCHAR [34]
+                WCHAR *file_path,
+                WCHAR *key_path,
+                WCHAR *ipc_path,
+                ULONG *file_path_len,
+                ULONG *key_path_len,
+                ULONG *ipc_path_len);
+</code></pre>
+<ul>
+<li>Export Name:</li>
+</ul>
+<pre><code>        SbieApi_QueryBoxPath
+</code></pre>
+<ul>
+<li>Parameters:</li>
+</ul>
+<pre><code>        box_name [in] specifies the name of the sandbox for which
+        to return path information.
+
+        file_path [out] receives the path to the root directory of
+        the sandbox, as set by the FileRootPath setting.
+        The buffer receives at most the number of bytes specified
+        by the file_path_len parameter.  Pass NULL to ignore this
+        parameter.
+
+        key_path [out] receives the path to the root key of the
+        sandbox registry, as set by the KeyRootPath setting.
+        The buffer receives at most the number of bytes specified
+        by the key_path_len parameter.  Pass NULL to ignore this
+        parameter.
+
+        ipc_path [out] receives the path to the root object directory
+        of the sandbox, as set by the IpcRootPath setting.
+        The buffer receives at most the number of bytes specified
+        by the ipc_path_len parameter.  Pass NULL to ignore this
+        parameter.
+
+        file_path_len [in/out] specifies the length in bytes of the
+        file_path buffer.  On return, receives the length in bytes
+        needed to receive a complete buffer.
+
+        key_path_len [in/out] specifies the length in bytes of the
+        key_path buffer.  On return, receives the length in bytes
+        needed to receive a complete buffer.
+
+        ipc_path_len [in/out] specifies the length in bytes of the
+        ipc_path buffer.  On return, receives the length in bytes
+        needed to receive a complete buffer.
+</code></pre>
+<ul>
+<li>Return Value:</li>
+</ul>
+<pre><code>        Returns zero on success, a non-zero value on error.
+</code></pre>
+<ul>
+<li>Sample Code:</li>
+</ul>
+<pre><code>        ULONG FileLen = 0;
+        ULONG KeyLen  = 0;
+        ULONG IpcLen  = 0;
+
+        SbieApi_QueryBoxPath(
+                NULL, NULL, NULL, NULL, &amp;FileLen, &amp;KeyLen, &amp;IpcLen);
+
+        // note that lengths are returned as the number of bytes,
+        // rather than number of WCHAR characters
+
+        WCHAR *FileBuf = malloc(FileLen);
+        WCHAR *KeyBuf = malloc(KeyLen);
+        WCHAR *IpcBuf = malloc(IpcLen);
+
+        SbieApi_QueryBoxPath(
+                FileBuf, KeyBuf, IpcBuf, &amp;FileLen, &amp;KeyLen, &amp;IpcLen);
+
+        // now use wcslen to count the number of characters
+
+        FileLen = wcslen(FileBuf);
+        KeyLen  = wcslen(KeyBuf);
+        IpcLen  = wcslen(IpcBuf);
+</code></pre>
 <hr />
 <h3 id="query-sandbox-paths-by-process-id">Query Sandbox Paths by Process ID<a class="headerlink" href="#query-sandbox-paths-by-process-id" title="Permanent link"></a></h3>
 <ul>
-<li>
-<p>Prototype:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="w">        </span><span class="na">typedef LONG (__stdcall *P_SbieApi_QueryProcessPath)(</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">                </span><span class="na">HANDLE process_id,</span>
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">                </span><span class="na">WCHAR *file_path,</span>
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">                </span><span class="na">WCHAR *key_path,</span>
-</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">                </span><span class="na">WCHAR *ipc_path,</span>
-</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">                </span><span class="na">ULONG *file_path_len,</span>
-</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">                </span><span class="na">ULONG *key_path_len,</span>
-</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">                </span><span class="na">ULONG *ipc_path_len);</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Export Name:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="w">        </span><span class="na">SbieApi_QueryProcessPath</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Parameters:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="w">        </span><span class="na">process_id [in] specifies the ID of the sandboxed process to query.</span>
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">        </span><span class="na">file_path [out]</span>
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
-</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">        </span><span class="na">key_path [out]</span>
-</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
-</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">        </span><span class="na">ipc_path [out]</span>
-</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>
-</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">        </span><span class="na">file_path_len [in/out]</span>
-</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>
-</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="w">        </span><span class="na">key_path_len [in/out]</span>
-</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>
-</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="w">        </span><span class="na">ipc_path_len [in/out]</span>
-</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>
-</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="w">        </span><span class="na">The last six parameters are similar to the last six parameters for</span>
-</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="w">        </span><span class="na">the QueryBoxPath function, discussed above.  However, QueryProcessPath</span>
-</span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="w">        </span><span class="na">(this function) returns the sandbox paths that are in use by a running</span>
-</span><span id="__span-13-18"><a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a><span class="w">        </span><span class="na">program, whereas QueryBoxPath returns the paths as they are recorded</span>
-</span><span id="__span-13-19"><a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a><span class="w">        </span><span class="na">in the Sandboxie configuration.</span>
-</span><span id="__span-13-20"><a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a>
-</span><span id="__span-13-21"><a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a><span class="w">        </span><span class="na">Or put another way</span><span class="o">:</span><span class="w">  </span><span class="s">Suppose a sandboxed program starts with PID 124,</span>
-</span><span id="__span-13-22"><a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a><span class="w">        </span><span class="na">and then some sandbox path (for instance FileRootPath) is set to a</span>
-</span><span id="__span-13-23"><a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a><span class="w">        </span><span class="na">new value.  At this point, QueryBoxPath will return the new value, but</span>
-</span><span id="__span-13-24"><a id="__codelineno-13-24" name="__codelineno-13-24" href="#__codelineno-13-24"></a><span class="w">        </span><span class="na">QueryProcessPath for PID 124 will return the old value.</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Return Value:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="w">        </span><span class="na">Returns zero on success, a non-zero value on error.</span>
-</span></code></pre></div></p>
-</li>
+<li>Prototype:</li>
 </ul>
+<pre><code>        typedef LONG (__stdcall *P_SbieApi_QueryProcessPath)(
+                HANDLE process_id,
+                WCHAR *file_path,
+                WCHAR *key_path,
+                WCHAR *ipc_path,
+                ULONG *file_path_len,
+                ULONG *key_path_len,
+                ULONG *ipc_path_len);
+</code></pre>
+<ul>
+<li>Export Name:</li>
+</ul>
+<pre><code>        SbieApi_QueryProcessPath
+</code></pre>
+<ul>
+<li>Parameters:</li>
+</ul>
+<pre><code>        process_id [in] specifies the ID of the sandboxed process to query.
+
+        file_path [out]
+
+        key_path [out]
+
+        ipc_path [out]
+
+        file_path_len [in/out]
+
+        key_path_len [in/out]
+
+        ipc_path_len [in/out]
+
+        The last six parameters are similar to the last six parameters for
+        the QueryBoxPath function, discussed above.  However, QueryProcessPath
+        (this function) returns the sandbox paths that are in use by a running
+        program, whereas QueryBoxPath returns the paths as they are recorded
+        in the Sandboxie configuration.
+
+        Or put another way:  Suppose a sandboxed program starts with PID 124,
+        and then some sandbox path (for instance FileRootPath) is set to a
+        new value.  At this point, QueryBoxPath will return the new value, but
+        QueryProcessPath for PID 124 will return the old value.
+</code></pre>
+<ul>
+<li>Return Value:</li>
+</ul>
+<pre><code>        Returns zero on success, a non-zero value on error.
+</code></pre>
 <hr />
 <h3 id="enumerate-running-processes">Enumerate Running Processes<a class="headerlink" href="#enumerate-running-processes" title="Permanent link"></a></h3>
 <ul>
-<li>
-<p>Prototype:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="w">        </span><span class="na">typedef LONG (__stdcall *P_SbieApi_EnumProcessEx)(</span>
-</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">                </span><span class="na">const WCHAR *box_name,      // pointer to WCHAR [34]</span>
-</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">                </span><span class="na">BOOLEAN all_sessions,</span>
-</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">                </span><span class="na">ULONG which_session,</span>
-</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">                </span><span class="na">ULONG *boxed_pids,         // pointer to ULONG []</span>
-</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">                </span><span class="na">ULONG *boxed_count);</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Export Name:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="w">        </span><span class="na">SbieApi_EnumProcessEx</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Parameters:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="w">        </span><span class="na">box_name [in] specifies the name of the sandbox in which</span>
-</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">        </span><span class="na">processes will be enumerated.</span>
-</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
-</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">        </span><span class="na">all_sessions [in] specifies TRUE to enumerate processes in all</span>
-</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">        </span><span class="na">logon sessions or only in a particular logon session</span>
-</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>
-</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w">        </span><span class="na">which_session [in] specifies the logon session number in which</span>
-</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="w">        </span><span class="na">processes will be enumerated.  Ignored if all_sessions if TRUE.</span>
-</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="w">        </span><span class="na">Pass the value -1 to specify the current logon session.</span>
-</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>
-</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="w">        </span><span class="na">boxed_pids [out] receives the process ID (PID) numbers.</span>
-</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a><span class="w">        </span><span class="na">The first ULONG receives the number of processes enumerated.</span>
-</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="w">        </span><span class="na">The second ULONG receives the first PID, the third ULONG receives</span>
-</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a><span class="w">        </span><span class="na">the second PID, and so on.</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Return Value:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="w">       </span><span class="na">Returns zero on success, a non-zero value on error.</span>
-</span></code></pre></div></p>
-</li>
+<li>Prototype:</li>
 </ul>
+<pre><code>        typedef LONG (__stdcall *P_SbieApi_EnumProcessEx)(
+                const WCHAR *box_name,      // pointer to WCHAR [34]
+                BOOLEAN all_sessions,
+                ULONG which_session,
+                ULONG *boxed_pids,         // pointer to ULONG []
+                ULONG *boxed_count);
+</code></pre>
+<ul>
+<li>Export Name:</li>
+</ul>
+<pre><code>        SbieApi_EnumProcessEx
+</code></pre>
+<ul>
+<li>Parameters:</li>
+</ul>
+<pre><code>        box_name [in] specifies the name of the sandbox in which
+        processes will be enumerated.
+
+        all_sessions [in] specifies TRUE to enumerate processes in all
+        logon sessions or only in a particular logon session
+
+        which_session [in] specifies the logon session number in which
+        processes will be enumerated.  Ignored if all_sessions if TRUE.
+        Pass the value -1 to specify the current logon session.
+
+        boxed_pids [out] receives the process ID (PID) numbers.
+        The first ULONG receives the number of processes enumerated.
+        The second ULONG receives the first PID, the third ULONG receives
+        the second PID, and so on.
+</code></pre>
+<ul>
+<li>Return Value:</li>
+</ul>
+<pre><code>       Returns zero on success, a non-zero value on error.
+</code></pre>
 <hr />
 <h3 id="query-process-information">Query Process Information<a class="headerlink" href="#query-process-information" title="Permanent link"></a></h3>
 <ul>
-<li>
-<p>Prototype:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="w">        </span><span class="na">typedef LONG (__stdcall *P_SbieApi_QueryProcess)(</span>
-</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">                </span><span class="na">HANDLE process_id,</span>
-</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">                </span><span class="na">WCHAR *box_name,            // pointer to WCHAR [34]</span>
-</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">                </span><span class="na">WCHAR *image_name,          // pointer to WCHAR [96]</span>
-</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">                </span><span class="na">WCHAR *sid_string,          // pointer to WCHAR [96]</span>
-</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="w">                </span><span class="na">ULONG *session_id);</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Export Name:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="w">        </span><span class="na">SbieApi_QueryProcess</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Parameters:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="w">        </span><span class="na">process_id [in] specifies the ID of the sandboxed process to query.</span>
-</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>
-</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">        </span><span class="na">box_name [out] receives the name of the sandbox in which the</span>
-</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="w">        </span><span class="na">process is running.  Pass NULL to ignore this parameter.</span>
-</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>
-</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="w">        </span><span class="na">image_name [out] receives the process name.  Pass NULL to ignore</span>
-</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="w">        </span><span class="na">this parameter.</span>
-</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>
-</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="w">        </span><span class="na">sid_string [out] receives the SID string for the process.</span>
-</span><span id="__span-21-10"><a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a><span class="w">        </span><span class="na">Pass NULL to ignore this parameter.</span>
-</span><span id="__span-21-11"><a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a>
-</span><span id="__span-21-12"><a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a><span class="w">        </span><span class="na">session_id [out] receives the logon session number in which</span>
-</span><span id="__span-21-13"><a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a><span class="w">        </span><span class="na">the process is running.  Pass NULL to ignore this parameter.</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Return Value:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="w">        </span><span class="na">Returns zero on success, a non-zero value on error.</span>
-</span></code></pre></div></p>
-</li>
+<li>Prototype:</li>
 </ul>
+<pre><code>        typedef LONG (__stdcall *P_SbieApi_QueryProcess)(
+                HANDLE process_id,
+                WCHAR *box_name,            // pointer to WCHAR [34]
+                WCHAR *image_name,          // pointer to WCHAR [96]
+                WCHAR *sid_string,          // pointer to WCHAR [96]
+                ULONG *session_id);
+</code></pre>
+<ul>
+<li>Export Name:</li>
+</ul>
+<pre><code>        SbieApi_QueryProcess
+</code></pre>
+<ul>
+<li>Parameters:</li>
+</ul>
+<pre><code>        process_id [in] specifies the ID of the sandboxed process to query.
+
+        box_name [out] receives the name of the sandbox in which the
+        process is running.  Pass NULL to ignore this parameter.
+
+        image_name [out] receives the process name.  Pass NULL to ignore
+        this parameter.
+
+        sid_string [out] receives the SID string for the process.
+        Pass NULL to ignore this parameter.
+
+        session_id [out] receives the logon session number in which
+        the process is running.  Pass NULL to ignore this parameter.
+</code></pre>
+<ul>
+<li>Return Value:</li>
+</ul>
+<pre><code>        Returns zero on success, a non-zero value on error.
+</code></pre>
 <hr />
 <h3 id="terminate-a-single-sandboxed-process">Terminate a Single Sandboxed Process<a class="headerlink" href="#terminate-a-single-sandboxed-process" title="Permanent link"></a></h3>
 <ul>
-<li>
-<p>Prototype:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="w">        </span><span class="na">typedef BOOLEAN (__stdcall *P_SbieDll_KillOne)(</span>
-</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="w">                </span><span class="na">HANDLE process_id);</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Export Name:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="w">        </span><span class="na">SbieDll_KillOne</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Parameters:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="w">        </span><span class="na">process_id [in] specifies the process ID for the sandboxed</span>
-</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="w">        </span><span class="na">process that should be terminated.</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Return Value:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="w">        </span><span class="na">Returns TRUE on success, FALSE on failure.</span>
-</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>
-</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="w">        </span><span class="na">The target process is terminated by the Sandboxie service</span>
-</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="w">        </span><span class="na">(SbieSvc) with exit code 1 through a call to the Windows API</span>
-</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="w">        </span><span class="na">TerminateProcess (ProcessId, 1).</span>
-</span></code></pre></div></p>
-</li>
+<li>Prototype:</li>
 </ul>
+<pre><code>        typedef BOOLEAN (__stdcall *P_SbieDll_KillOne)(
+                HANDLE process_id);
+</code></pre>
+<ul>
+<li>Export Name:</li>
+</ul>
+<pre><code>        SbieDll_KillOne
+</code></pre>
+<ul>
+<li>Parameters:</li>
+</ul>
+<pre><code>        process_id [in] specifies the process ID for the sandboxed
+        process that should be terminated.
+</code></pre>
+<ul>
+<li>Return Value:</li>
+</ul>
+<pre><code>        Returns TRUE on success, FALSE on failure.
+
+        The target process is terminated by the Sandboxie service
+        (SbieSvc) with exit code 1 through a call to the Windows API
+        TerminateProcess (ProcessId, 1).
+</code></pre>
 <hr />
 <h3 id="terminate-all-sandboxed-processes">Terminate All Sandboxed Processes<a class="headerlink" href="#terminate-all-sandboxed-processes" title="Permanent link"></a></h3>
 <ul>
-<li>
-<p>Prototype:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="w">        </span><span class="na">typedef BOOLEAN (__stdcall *P_SbieDll_KillAll)(</span>
-</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="w">                </span><span class="na">ULONG session_id,</span>
-</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="w">                </span><span class="na">const WCHAR *box_name);</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Export Name:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="w">        </span><span class="na">SbieDll_KillAll</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Parameters:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="w">        </span><span class="na">session_id [in] specifies the logon session number in which</span>
-</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="w">        </span><span class="na">sandboxed programs should be terminated.</span>
-</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>
-</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="w">        </span><span class="na">box_name [in] specifies the sandbox name in which sandboxed</span>
-</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a><span class="w">        </span><span class="na">programs should be terminated.  Specify -1 to indicate the</span>
-</span><span id="__span-29-6"><a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a><span class="w">        </span><span class="na">current logon session.</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Return Value:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="w">        </span><span class="na">Returns TRUE on success, FALSE on failure.</span>
-</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>
-</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="w">        </span><span class="na">The target processes are terminated in the fashion described</span>
-</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="w">        </span><span class="na">above; see SbieDll_KillOne.</span>
-</span></code></pre></div></p>
-</li>
+<li>Prototype:</li>
 </ul>
+<pre><code>        typedef BOOLEAN (__stdcall *P_SbieDll_KillAll)(
+                ULONG session_id,
+                const WCHAR *box_name);
+</code></pre>
+<ul>
+<li>Export Name:</li>
+</ul>
+<pre><code>        SbieDll_KillAll
+</code></pre>
+<ul>
+<li>Parameters:</li>
+</ul>
+<pre><code>        session_id [in] specifies the logon session number in which
+        sandboxed programs should be terminated.
+
+        box_name [in] specifies the sandbox name in which sandboxed
+        programs should be terminated.  Specify -1 to indicate the
+        current logon session.
+</code></pre>
+<ul>
+<li>Return Value:</li>
+</ul>
+<pre><code>        Returns TRUE on success, FALSE on failure.
+
+        The target processes are terminated in the fashion described
+        above; see SbieDll_KillOne.
+</code></pre>
 <hr />
 <h3 id="query-configuration-from-sandboxieini">Query Configuration from Sandboxie.ini<a class="headerlink" href="#query-configuration-from-sandboxieini" title="Permanent link"></a></h3>
 <ul>
-<li>
-<p>Prototype:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="w">        </span><span class="na">typedef LONG (__stdcall *P_SbieApi_QueryConf)(</span>
-</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="w">                </span><span class="na">const WCHAR *section_name,  // pointer to WCHAR [34]</span>
-</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="w">                </span><span class="na">const WCHAR *setting_name,  // pointer to WCHAR [66]</span>
-</span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="w">                </span><span class="na">ULONG setting_index,</span>
-</span><span id="__span-31-5"><a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a><span class="w">                </span><span class="na">WCHAR *value,</span>
-</span><span id="__span-31-6"><a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a><span class="w">                </span><span class="na">ULONG value_len)</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Export Name:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="w">        </span><span class="na">SbieApi_QueryConf</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Parameters:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="w">        </span><span class="na">section_name [in] specifies the section name that contains</span>
-</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="w">        </span><span class="na">the setting to query.</span>
-</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>
-</span><span id="__span-33-4"><a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="w">        </span><span class="na">setting_name [in] specifies the setting name to query.</span>
-</span><span id="__span-33-5"><a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a>
-</span><span id="__span-33-6"><a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a><span class="w">        </span><span class="na">setting_index [in] specifies the zero-based index number</span>
-</span><span id="__span-33-7"><a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a><span class="w">        </span><span class="na">for a setting that may appear multiple times.  The index</span>
-</span><span id="__span-33-8"><a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a><span class="w">        </span><span class="na">number can be logically OR&#39;ed with these special values</span><span class="o">:</span>
-</span><span id="__span-33-9"><a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a>
-</span><span id="__span-33-10"><a id="__codelineno-33-10" name="__codelineno-33-10" href="#__codelineno-33-10"></a><span class="w">            </span><span class="na">0x40000000 - do not scan the [GlobalSettings] section</span>
-</span><span id="__span-33-11"><a id="__codelineno-33-11" name="__codelineno-33-11" href="#__codelineno-33-11"></a><span class="w">            </span><span class="na">if the specified setting name does appear in the</span>
-</span><span id="__span-33-12"><a id="__codelineno-33-12" name="__codelineno-33-12" href="#__codelineno-33-12"></a><span class="w">            </span><span class="na">specified section.</span>
-</span><span id="__span-33-13"><a id="__codelineno-33-13" name="__codelineno-33-13" href="#__codelineno-33-13"></a>
-</span><span id="__span-33-14"><a id="__codelineno-33-14" name="__codelineno-33-14" href="#__codelineno-33-14"></a><span class="w">            </span><span class="na">0x20000000 - do not expand any variables in the result.</span>
-</span><span id="__span-33-15"><a id="__codelineno-33-15" name="__codelineno-33-15" href="#__codelineno-33-15"></a>
-</span><span id="__span-33-16"><a id="__codelineno-33-16" name="__codelineno-33-16" href="#__codelineno-33-16"></a><span class="w">            </span><span class="na">0x10000000 - ignore any settings that originate from</span>
-</span><span id="__span-33-17"><a id="__codelineno-33-17" name="__codelineno-33-17" href="#__codelineno-33-17"></a><span class="w">            </span><span class="na">a template (typically defined in the Templates.ini file).</span>
-</span><span id="__span-33-18"><a id="__codelineno-33-18" name="__codelineno-33-18" href="#__codelineno-33-18"></a><span class="w">            </span><span class="na">only query those settings that appear explicitly in the</span>
-</span><span id="__span-33-19"><a id="__codelineno-33-19" name="__codelineno-33-19" href="#__codelineno-33-19"></a><span class="w">            </span><span class="na">Sandboxie.ini file.</span>
-</span><span id="__span-33-20"><a id="__codelineno-33-20" name="__codelineno-33-20" href="#__codelineno-33-20"></a>
-</span><span id="__span-33-21"><a id="__codelineno-33-21" name="__codelineno-33-21" href="#__codelineno-33-21"></a><span class="w">        </span><span class="na">value [out] receives the value of the specified setting.</span>
-</span><span id="__span-33-22"><a id="__codelineno-33-22" name="__codelineno-33-22" href="#__codelineno-33-22"></a>
-</span><span id="__span-33-23"><a id="__codelineno-33-23" name="__codelineno-33-23" href="#__codelineno-33-23"></a><span class="w">        </span><span class="na">value_len [in] specifies the maximum length in bytes of</span>
-</span><span id="__span-33-24"><a id="__codelineno-33-24" name="__codelineno-33-24" href="#__codelineno-33-24"></a><span class="w">        </span><span class="na">the buffer pointed to by the value parameter.</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Return Value:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="w">        </span><span class="na">Returns zero on success.  Returns 0xC000008B if the setting</span>
-</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="w">        </span><span class="na">was not found.  Any other return value indicates some other error.</span>
-</span></code></pre></div></p>
-</li>
+<li>Prototype:</li>
 </ul>
+<pre><code>        typedef LONG (__stdcall *P_SbieApi_QueryConf)(
+                const WCHAR *section_name,  // pointer to WCHAR [34]
+                const WCHAR *setting_name,  // pointer to WCHAR [66]
+                ULONG setting_index,
+                WCHAR *value,
+                ULONG value_len)
+</code></pre>
+<ul>
+<li>Export Name:</li>
+</ul>
+<pre><code>        SbieApi_QueryConf
+</code></pre>
+<ul>
+<li>Parameters:</li>
+</ul>
+<pre><code>        section_name [in] specifies the section name that contains
+        the setting to query.
+
+        setting_name [in] specifies the setting name to query.
+
+        setting_index [in] specifies the zero-based index number
+        for a setting that may appear multiple times.  The index
+        number can be logically OR'ed with these special values:
+
+            0x40000000 - do not scan the [GlobalSettings] section
+            if the specified setting name does appear in the
+            specified section.
+
+            0x20000000 - do not expand any variables in the result.
+
+            0x10000000 - ignore any settings that originate from
+            a template (typically defined in the Templates.ini file).
+            only query those settings that appear explicitly in the
+            Sandboxie.ini file.
+
+        value [out] receives the value of the specified setting.
+
+        value_len [in] specifies the maximum length in bytes of
+        the buffer pointed to by the value parameter.
+</code></pre>
+<ul>
+<li>Return Value:</li>
+</ul>
+<pre><code>        Returns zero on success.  Returns 0xC000008B if the setting
+        was not found.  Any other return value indicates some other error.
+</code></pre>
 <hr />
 <h3 id="update-configuration-in-sandboxieini">Update Configuration in Sandboxie.ini<a class="headerlink" href="#update-configuration-in-sandboxieini" title="Permanent link"></a></h3>
 <ul>
-<li>
-<p>Prototype:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="w">        </span><span class="na">typedef LONG (__stdcall *P_SbieDll_UpdateConf)(</span>
-</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="w">            </span><span class="na">WCHAR operation_code,</span>
-</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="w">            </span><span class="na">const WCHAR *password,      // limited to 64 chars</span>
-</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="w">                </span><span class="na">const WCHAR *section_name,  // limited to 32 chars</span>
-</span><span id="__span-35-5"><a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a><span class="w">                </span><span class="na">const WCHAR *setting_name,  // limited to 64 chars</span>
-</span><span id="__span-35-6"><a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a><span class="w">                </span><span class="na">const WCHAR *value)         // limited to 2000 chars</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Export Name:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="w">        </span><span class="na">SbieDll_UpdateConf</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Parameters:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="w">        </span><span class="na">operation_code [in] specifies how to update the request setting</span><span class="o">:</span>
-</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="w">        </span><span class="na">&#39;s&#39; to set (overwrite), replacing any existing values</span>
-</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a><span class="w">        </span><span class="na">&#39;a&#39; to append the new value at the bottom of a list of values</span>
-</span><span id="__span-37-4"><a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a><span class="w">            </span><span class="na">(or simply set the new value if there isn&#39;t one already)</span>
-</span><span id="__span-37-5"><a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a><span class="w">        </span><span class="na">&#39;i&#39; to insert the new value at the top of a list of values</span>
-</span><span id="__span-37-6"><a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a><span class="w">            </span><span class="na">(or simply set the new value if there isn&#39;t one already)</span>
-</span><span id="__span-37-7"><a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a><span class="w">        </span><span class="na">&#39;d&#39; to delete an existing value in a list of values</span>
-</span><span id="__span-37-8"><a id="__codelineno-37-8" name="__codelineno-37-8" href="#__codelineno-37-8"></a>
-</span><span id="__span-37-9"><a id="__codelineno-37-9" name="__codelineno-37-9" href="#__codelineno-37-9"></a><span class="w">        </span><span class="na">password [in] specifies the password to use if one is required,</span>
-</span><span id="__span-37-10"><a id="__codelineno-37-10" name="__codelineno-37-10" href="#__codelineno-37-10"></a><span class="w">        </span><span class="na">or NULL or an empty string otherwise.</span>
-</span><span id="__span-37-11"><a id="__codelineno-37-11" name="__codelineno-37-11" href="#__codelineno-37-11"></a>
-</span><span id="__span-37-12"><a id="__codelineno-37-12" name="__codelineno-37-12" href="#__codelineno-37-12"></a><span class="w">        </span><span class="na">section_name [in] is a required parameter which specifies the</span>
-</span><span id="__span-37-13"><a id="__codelineno-37-13" name="__codelineno-37-13" href="#__codelineno-37-13"></a><span class="w">        </span><span class="na">section name that contains the setting to set.</span>
-</span><span id="__span-37-14"><a id="__codelineno-37-14" name="__codelineno-37-14" href="#__codelineno-37-14"></a>
-</span><span id="__span-37-15"><a id="__codelineno-37-15" name="__codelineno-37-15" href="#__codelineno-37-15"></a><span class="w">        </span><span class="na">setting_name [in] is a required parameter which specifies the</span>
-</span><span id="__span-37-16"><a id="__codelineno-37-16" name="__codelineno-37-16" href="#__codelineno-37-16"></a><span class="w">        </span><span class="na">setting name to set.</span>
-</span><span id="__span-37-17"><a id="__codelineno-37-17" name="__codelineno-37-17" href="#__codelineno-37-17"></a>
-</span><span id="__span-37-18"><a id="__codelineno-37-18" name="__codelineno-37-18" href="#__codelineno-37-18"></a><span class="w">        </span><span class="na">value [ini] is an optional parameter specifies the new value.</span>
-</span><span id="__span-37-19"><a id="__codelineno-37-19" name="__codelineno-37-19" href="#__codelineno-37-19"></a>
-</span><span id="__span-37-20"><a id="__codelineno-37-20" name="__codelineno-37-20" href="#__codelineno-37-20"></a><span class="w">        </span><span class="na">If operation_code is &#39;s&#39; and value is omitted, the corresponding</span>
-</span><span id="__span-37-21"><a id="__codelineno-37-21" name="__codelineno-37-21" href="#__codelineno-37-21"></a><span class="w">        </span><span class="na">setting in the specified section will be deleted.</span>
-</span><span id="__span-37-22"><a id="__codelineno-37-22" name="__codelineno-37-22" href="#__codelineno-37-22"></a>
-</span><span id="__span-37-23"><a id="__codelineno-37-23" name="__codelineno-37-23" href="#__codelineno-37-23"></a><span class="w">        </span><span class="na">If operation_code is &#39;s&#39; and setting_name is &quot;*&quot; (wildcard star)</span>
-</span><span id="__span-37-24"><a id="__codelineno-37-24" name="__codelineno-37-24" href="#__codelineno-37-24"></a><span class="w">        </span><span class="na">and value is omitted, this function deletes a complete section</span>
-</span><span id="__span-37-25"><a id="__codelineno-37-25" name="__codelineno-37-25" href="#__codelineno-37-25"></a><span class="w">        </span><span class="na">from the configuration file.</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Return Value:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="w">        </span><span class="na">Returns zero on success.</span>
-</span></code></pre></div></p>
-</li>
+<li>Prototype:</li>
 </ul>
+<pre><code>        typedef LONG (__stdcall *P_SbieDll_UpdateConf)(
+            WCHAR operation_code,
+            const WCHAR *password,      // limited to 64 chars
+                const WCHAR *section_name,  // limited to 32 chars
+                const WCHAR *setting_name,  // limited to 64 chars
+                const WCHAR *value)         // limited to 2000 chars
+</code></pre>
+<ul>
+<li>Export Name:</li>
+</ul>
+<pre><code>        SbieDll_UpdateConf
+</code></pre>
+<ul>
+<li>Parameters:</li>
+</ul>
+<pre><code>        operation_code [in] specifies how to update the request setting:
+        's' to set (overwrite), replacing any existing values
+        'a' to append the new value at the bottom of a list of values
+            (or simply set the new value if there isn't one already)
+        'i' to insert the new value at the top of a list of values
+            (or simply set the new value if there isn't one already)
+        'd' to delete an existing value in a list of values
+
+        password [in] specifies the password to use if one is required,
+        or NULL or an empty string otherwise.
+
+        section_name [in] is a required parameter which specifies the
+        section name that contains the setting to set.
+
+        setting_name [in] is a required parameter which specifies the
+        setting name to set.
+
+        value [ini] is an optional parameter specifies the new value.
+
+        If operation_code is 's' and value is omitted, the corresponding
+        setting in the specified section will be deleted.
+
+        If operation_code is 's' and setting_name is &quot;*&quot; (wildcard star)
+        and value is omitted, this function deletes a complete section
+        from the configuration file.
+</code></pre>
+<ul>
+<li>Return Value:</li>
+</ul>
+<pre><code>        Returns zero on success.
+</code></pre>
 <hr />
 <h3 id="reload-configuration-from-sandboxieini">Reload Configuration from Sandboxie.ini<a class="headerlink" href="#reload-configuration-from-sandboxieini" title="Permanent link"></a></h3>
 <ul>
-<li>
-<p>Prototype:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="w">        </span><span class="na">typedef LONG (__stdcall *P_SbieApi_ReloadConf)(</span>
-</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="w">                </span><span class="na">ULONG session_id);</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Export Name:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="w">        </span><span class="na">SbieApi_ReloadConf</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Parameters:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="w">        </span><span class="na">session_id [in] specifies the logon session number to which</span>
-</span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="w">        </span><span class="na">Sandboxie will log any error messages.  Pass -1 for the current</span>
-</span><span id="__span-41-3"><a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a><span class="w">        </span><span class="na">logon session.</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Return Value:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="w">        </span><span class="na">Returns zero on success, a non-zero value on error.</span>
-</span></code></pre></div></p>
-</li>
+<li>Prototype:</li>
 </ul>
+<pre><code>        typedef LONG (__stdcall *P_SbieApi_ReloadConf)(
+                ULONG session_id);
+</code></pre>
+<ul>
+<li>Export Name:</li>
+</ul>
+<pre><code>        SbieApi_ReloadConf
+</code></pre>
+<ul>
+<li>Parameters:</li>
+</ul>
+<pre><code>        session_id [in] specifies the logon session number to which
+        Sandboxie will log any error messages.  Pass -1 for the current
+        logon session.
+</code></pre>
+<ul>
+<li>Return Value:</li>
+</ul>
+<pre><code>        Returns zero on success, a non-zero value on error.
+</code></pre>
 <hr />
 <h3 id="hook-a-user-mode-entrypoint">Hook a User-Mode Entrypoint<a class="headerlink" href="#hook-a-user-mode-entrypoint" title="Permanent link"></a></h3>
 <ul>
-<li>
-<p>Prototype:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="w">        </span><span class="na">typedef void *(__stdcall *P_SbieDll_Hook)(</span>
-</span><span id="__span-43-2"><a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a><span class="w">                </span><span class="na">const char *name,</span>
-</span><span id="__span-43-3"><a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a><span class="w">                </span><span class="na">void *source_func,</span>
-</span><span id="__span-43-4"><a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a><span class="w">                </span><span class="na">void *detour_func);</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Export Name:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="w">        </span><span class="na">SbieDll_Hook</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Parameters:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="w">        </span><span class="na">name [in] specifies an ASCII-string naming the entrypoint to</span>
-</span><span id="__span-45-2"><a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a><span class="w">        </span><span class="na">be hooked.  In case of error, SbieDll_Hook logs a Sandboxie</span>
-</span><span id="__span-45-3"><a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a><span class="w">        </span><span class="na">error message which includes this descriptive name.</span>
-</span><span id="__span-45-4"><a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a>
-</span><span id="__span-45-5"><a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a><span class="w">        </span><span class="na">source_func [in] pointer to the function to hook.</span>
-</span><span id="__span-45-6"><a id="__codelineno-45-6" name="__codelineno-45-6" href="#__codelineno-45-6"></a>
-</span><span id="__span-45-7"><a id="__codelineno-45-7" name="__codelineno-45-7" href="#__codelineno-45-7"></a><span class="w">        </span><span class="na">detour_func [in] pointer to the hook code.</span>
-</span><span id="__span-45-8"><a id="__codelineno-45-8" name="__codelineno-45-8" href="#__codelineno-45-8"></a>
-</span><span id="__span-45-9"><a id="__codelineno-45-9" name="__codelineno-45-9" href="#__codelineno-45-9"></a><span class="w">        </span><span class="na">This function will cause the source function to invoke the detour</span>
-</span><span id="__span-45-10"><a id="__codelineno-45-10" name="__codelineno-45-10" href="#__codelineno-45-10"></a><span class="w">        </span><span class="na">function.  In other words, the detour function will intercept all</span>
-</span><span id="__span-45-11"><a id="__codelineno-45-11" name="__codelineno-45-11" href="#__codelineno-45-11"></a><span class="w">        </span><span class="na">calls to the source function.</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Return Value:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="w">        </span><span class="na">Returns a function pointer which can be used by the detour</span>
-</span><span id="__span-46-2"><a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a><span class="w">        </span><span class="na">function to invoke the source function.</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Sample Code:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="w">       </span><span class="na">typedef BOOL (__stdcall *P_DeleteFileW)(const WCHAR *Path);</span>
-</span><span id="__span-47-2"><a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a>
-</span><span id="__span-47-3"><a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a><span class="w">       </span><span class="na">P_DeleteFileW pDeleteFileW</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">NULL</span><span class="c1">;</span>
-</span><span id="__span-47-4"><a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a>
-</span><span id="__span-47-5"><a id="__codelineno-47-5" name="__codelineno-47-5" href="#__codelineno-47-5"></a><span class="w">       </span><span class="na">BOOL __stdcall MyDeleteFileW(const WCHAR *Path)</span>
-</span><span id="__span-47-6"><a id="__codelineno-47-6" name="__codelineno-47-6" href="#__codelineno-47-6"></a><span class="w">        </span><span class="na">{</span>
-</span><span id="__span-47-7"><a id="__codelineno-47-7" name="__codelineno-47-7" href="#__codelineno-47-7"></a><span class="w">            </span><span class="na">if (Path[0]</span><span class="w"> </span><span class="o">=</span><span class="s">= L&#39;C&#39;) {</span>
-</span><span id="__span-47-8"><a id="__codelineno-47-8" name="__codelineno-47-8" href="#__codelineno-47-8"></a>
-</span><span id="__span-47-9"><a id="__codelineno-47-9" name="__codelineno-47-9" href="#__codelineno-47-9"></a><span class="w">                </span><span class="na">// silently ignore requests to delete any file on drive C</span>
-</span><span id="__span-47-10"><a id="__codelineno-47-10" name="__codelineno-47-10" href="#__codelineno-47-10"></a>
-</span><span id="__span-47-11"><a id="__codelineno-47-11" name="__codelineno-47-11" href="#__codelineno-47-11"></a><span class="w">                </span><span class="na">SetLastError(0);</span>
-</span><span id="__span-47-12"><a id="__codelineno-47-12" name="__codelineno-47-12" href="#__codelineno-47-12"></a><span class="w">                </span><span class="na">return TRUE;</span>
-</span><span id="__span-47-13"><a id="__codelineno-47-13" name="__codelineno-47-13" href="#__codelineno-47-13"></a>
-</span><span id="__span-47-14"><a id="__codelineno-47-14" name="__codelineno-47-14" href="#__codelineno-47-14"></a><span class="w">            </span><span class="na">} else {</span>
-</span><span id="__span-47-15"><a id="__codelineno-47-15" name="__codelineno-47-15" href="#__codelineno-47-15"></a>
-</span><span id="__span-47-16"><a id="__codelineno-47-16" name="__codelineno-47-16" href="#__codelineno-47-16"></a><span class="w">                </span><span class="na">// otherwise invoke the original DeleteFileW function</span>
-</span><span id="__span-47-17"><a id="__codelineno-47-17" name="__codelineno-47-17" href="#__codelineno-47-17"></a>
-</span><span id="__span-47-18"><a id="__codelineno-47-18" name="__codelineno-47-18" href="#__codelineno-47-18"></a><span class="w">                </span><span class="na">return pDeleteFileW(Path);</span>
-</span><span id="__span-47-19"><a id="__codelineno-47-19" name="__codelineno-47-19" href="#__codelineno-47-19"></a><span class="w">            </span><span class="na">}</span>
-</span><span id="__span-47-20"><a id="__codelineno-47-20" name="__codelineno-47-20" href="#__codelineno-47-20"></a><span class="w">        </span><span class="na">}</span>
-</span><span id="__span-47-21"><a id="__codelineno-47-21" name="__codelineno-47-21" href="#__codelineno-47-21"></a>
-</span><span id="__span-47-22"><a id="__codelineno-47-22" name="__codelineno-47-22" href="#__codelineno-47-22"></a><span class="w">        </span><span class="na">main()</span>
-</span><span id="__span-47-23"><a id="__codelineno-47-23" name="__codelineno-47-23" href="#__codelineno-47-23"></a><span class="w">        </span><span class="na">{</span>
-</span><span id="__span-47-24"><a id="__codelineno-47-24" name="__codelineno-47-24" href="#__codelineno-47-24"></a><span class="w">            </span><span class="na">pDeleteFileW</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">GetProcAddress(kernel32dll, &quot;DeleteFileW&quot;)</span><span class="c1">;</span>
-</span><span id="__span-47-25"><a id="__codelineno-47-25" name="__codelineno-47-25" href="#__codelineno-47-25"></a><span class="w">            </span><span class="na">pDeleteFileW</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">SbieDll_Hook(&quot;DeleteFile&quot;,</span>
-</span><span id="__span-47-26"><a id="__codelineno-47-26" name="__codelineno-47-26" href="#__codelineno-47-26"></a><span class="w">                                        </span><span class="na">pDeleteFileW,</span>
-</span><span id="__span-47-27"><a id="__codelineno-47-27" name="__codelineno-47-27" href="#__codelineno-47-27"></a><span class="w">                                        </span><span class="na">MyDeleteFileW);</span>
-</span><span id="__span-47-28"><a id="__codelineno-47-28" name="__codelineno-47-28" href="#__codelineno-47-28"></a><span class="w">        </span><span class="na">}</span>
-</span></code></pre></div></p>
-</li>
+<li>Prototype:</li>
 </ul>
+<pre><code>        typedef void *(__stdcall *P_SbieDll_Hook)(
+                const char *name,
+                void *source_func,
+                void *detour_func);
+</code></pre>
+<ul>
+<li>Export Name:</li>
+</ul>
+<pre><code>        SbieDll_Hook
+</code></pre>
+<ul>
+<li>Parameters:</li>
+</ul>
+<pre><code>        name [in] specifies an ASCII-string naming the entrypoint to
+        be hooked.  In case of error, SbieDll_Hook logs a Sandboxie
+        error message which includes this descriptive name.
+
+        source_func [in] pointer to the function to hook.
+
+        detour_func [in] pointer to the hook code.
+
+        This function will cause the source function to invoke the detour
+        function.  In other words, the detour function will intercept all
+        calls to the source function.
+</code></pre>
+<ul>
+<li>Return Value:</li>
+</ul>
+<pre><code>        Returns a function pointer which can be used by the detour
+        function to invoke the source function.
+</code></pre>
+<ul>
+<li>Sample Code:</li>
+</ul>
+<pre><code>       typedef BOOL (__stdcall *P_DeleteFileW)(const WCHAR *Path);
+
+       P_DeleteFileW pDeleteFileW = NULL;
+
+       BOOL __stdcall MyDeleteFileW(const WCHAR *Path)
+        {
+            if (Path[0] == L'C') {
+
+                // silently ignore requests to delete any file on drive C
+
+                SetLastError(0);
+                return TRUE;
+
+            } else {
+
+                // otherwise invoke the original DeleteFileW function
+
+                return pDeleteFileW(Path);
+            }
+        }
+
+        main()
+        {
+            pDeleteFileW = GetProcAddress(kernel32dll, &quot;DeleteFileW&quot;);
+            pDeleteFileW = SbieDll_Hook(&quot;DeleteFile&quot;,
+                                        pDeleteFileW,
+                                        MyDeleteFileW);
+        }
+</code></pre>
 <hr />
 <h3 id="register-for-dll-loadunload-callbacks">Register for DLL Load/Unload Callbacks<a class="headerlink" href="#register-for-dll-loadunload-callbacks" title="Permanent link"></a></h3>
 <ul>
-<li>Prototype:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="w">       </span><span class="na">typedef void (__stdcall *P_DllCallback)(const WCHAR *ImageName, HMODULE ImageBase);</span>
-</span></code></pre></div></li>
+<li>Prototype:</li>
 </ul>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="w">       </span><span class="na">typedef BOOLEAN *(__stdcall *P_SbieDll_RegisterDllCallback)(</span>
-</span><span id="__span-49-2"><a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a><span class="w">               </span><span class="na">P_DllCallback pCallback);</span>
-</span></code></pre></div>
+<pre><code>       typedef void (__stdcall *P_DllCallback)(const WCHAR *ImageName, HMODULE ImageBase);
+</code></pre>
+<pre><code>       typedef BOOLEAN *(__stdcall *P_SbieDll_RegisterDllCallback)(
+               P_DllCallback pCallback);
+</code></pre>
 <ul>
-<li>
-<p>Export Name:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a><span class="w">       </span><span class="na">SbieDll_RegisterDllCallback</span>
-</span><span id="__span-50-2"><a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a>
-</span><span id="__span-50-3"><a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a><span class="w">       </span><span class="na">This API is available starting with version 3.46 of Sandboxie.</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Parameters:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a><span class="w">       </span><span class="na">pCallback specifies a callback function to be invoked whenever</span>
-</span><span id="__span-51-2"><a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a><span class="w">       </span><span class="na">any DLL is loaded or unloaded in the process.  The callback</span>
-</span><span id="__span-51-3"><a id="__codelineno-51-3" name="__codelineno-51-3" href="#__codelineno-51-3"></a><span class="w">       </span><span class="na">function cannot be unregistered.</span>
-</span></code></pre></div></p>
-</li>
+<li>Export Name:</li>
 </ul>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="w">       </span><span class="na">The ImageName (first) parameter to the callback function</span>
-</span><span id="__span-52-2"><a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a><span class="w">       </span><span class="na">specifies the UNICODE name string for the DLL that was loaded</span>
-</span><span id="__span-52-3"><a id="__codelineno-52-3" name="__codelineno-52-3" href="#__codelineno-52-3"></a><span class="w">       </span><span class="na">or unloaded.  The name string does not include a path.</span>
-</span></code></pre></div>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="w">       </span><span class="na">The ImageBase (second) parameter to the callback function</span>
-</span><span id="__span-53-2"><a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a><span class="w">       </span><span class="na">specifies the load base address for the DLL, when the callback</span>
-</span><span id="__span-53-3"><a id="__codelineno-53-3" name="__codelineno-53-3" href="#__codelineno-53-3"></a><span class="w">       </span><span class="na">function is invoked to notify of a DLL load.  When the callback</span>
-</span><span id="__span-53-4"><a id="__codelineno-53-4" name="__codelineno-53-4" href="#__codelineno-53-4"></a><span class="w">       </span><span class="na">function is invoked to notify of a DLL unload, this parameter</span>
-</span><span id="__span-53-5"><a id="__codelineno-53-5" name="__codelineno-53-5" href="#__codelineno-53-5"></a><span class="w">       </span><span class="na">is set to zero.</span>
-</span></code></pre></div>
+<pre><code>       SbieDll_RegisterDllCallback
+
+       This API is available starting with version 3.46 of Sandboxie.
+</code></pre>
 <ul>
-<li>Return Value:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="w">       </span><span class="na">Returns TRUE on success, FALSE if the callback cannot be registered.</span>
-</span><span id="__span-54-2"><a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a><span class="w">       </span><span class="na">As of version 3.46, Sandboxie supports up to 8 registrations within</span>
-</span><span id="__span-54-3"><a id="__codelineno-54-3" name="__codelineno-54-3" href="#__codelineno-54-3"></a><span class="w">       </span><span class="na">a single process.</span>
-</span></code></pre></div></li>
+<li>Parameters:</li>
 </ul>
+<pre><code>       pCallback specifies a callback function to be invoked whenever
+       any DLL is loaded or unloaded in the process.  The callback
+       function cannot be unregistered.
+</code></pre>
+<pre><code>       The ImageName (first) parameter to the callback function
+       specifies the UNICODE name string for the DLL that was loaded
+       or unloaded.  The name string does not include a path.
+</code></pre>
+<pre><code>       The ImageBase (second) parameter to the callback function
+       specifies the load base address for the DLL, when the callback
+       function is invoked to notify of a DLL load.  When the callback
+       function is invoked to notify of a DLL unload, this parameter
+       is set to zero.
+</code></pre>
+<ul>
+<li>Return Value:</li>
+</ul>
+<pre><code>       Returns TRUE on success, FALSE if the callback cannot be registered.
+       As of version 3.46, Sandboxie supports up to 8 registrations within
+       a single process.
+</code></pre>
 <hr />
 <h3 id="get-sandboxie-home-folder">Get Sandboxie Home Folder<a class="headerlink" href="#get-sandboxie-home-folder" title="Permanent link"></a></h3>
 <ul>
-<li>
-<p>Prototype:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a><span class="w">       </span><span class="na">typedef LONG *(__stdcall *P_SbieApi_GetHomePath)(</span>
-</span><span id="__span-55-2"><a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a><span class="w">               </span><span class="na">WCHAR *NtPath,</span>
-</span><span id="__span-55-3"><a id="__codelineno-55-3" name="__codelineno-55-3" href="#__codelineno-55-3"></a><span class="w">               </span><span class="na">ULONG NtPathMaxLen,</span>
-</span><span id="__span-55-4"><a id="__codelineno-55-4" name="__codelineno-55-4" href="#__codelineno-55-4"></a><span class="w">               </span><span class="na">WCHAR *DosPath,</span>
-</span><span id="__span-55-5"><a id="__codelineno-55-5" name="__codelineno-55-5" href="#__codelineno-55-5"></a><span class="w">               </span><span class="na">ULONG DosPathMaxLen);</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Export Name:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-56-1"><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a><span class="w">       </span><span class="na">SbieApi_GetHomePath</span>
-</span><span id="__span-56-2"><a id="__codelineno-56-2" name="__codelineno-56-2" href="#__codelineno-56-2"></a>
-</span><span id="__span-56-3"><a id="__codelineno-56-3" name="__codelineno-56-3" href="#__codelineno-56-3"></a><span class="w">       </span><span class="na">This API is available starting with version 3.52 of Sandboxie.</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Parameters:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a><span class="w">       </span><span class="na">NtPath specifies a pointer to a buffer which will receive the</span>
-</span><span id="__span-57-2"><a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a><span class="w">       </span><span class="na">full path of the Sandboxie installation folder in NT-path syntax.</span>
-</span><span id="__span-57-3"><a id="__codelineno-57-3" name="__codelineno-57-3" href="#__codelineno-57-3"></a>
-</span><span id="__span-57-4"><a id="__codelineno-57-4" name="__codelineno-57-4" href="#__codelineno-57-4"></a><span class="w">       </span><span class="na">NtPathMaxLen specifies the size of the NtPath buffer.  Specify</span>
-</span><span id="__span-57-5"><a id="__codelineno-57-5" name="__codelineno-57-5" href="#__codelineno-57-5"></a><span class="w">       </span><span class="na">NULL for NtPath and zero for NtPathMaxLen to not receive the</span>
-</span><span id="__span-57-6"><a id="__codelineno-57-6" name="__codelineno-57-6" href="#__codelineno-57-6"></a><span class="w">       </span><span class="na">NT path.</span>
-</span><span id="__span-57-7"><a id="__codelineno-57-7" name="__codelineno-57-7" href="#__codelineno-57-7"></a>
-</span><span id="__span-57-8"><a id="__codelineno-57-8" name="__codelineno-57-8" href="#__codelineno-57-8"></a><span class="w">       </span><span class="na">DosPath specifies a pointer to a buffer which will receive the</span>
-</span><span id="__span-57-9"><a id="__codelineno-57-9" name="__codelineno-57-9" href="#__codelineno-57-9"></a><span class="w">       </span><span class="na">full path of the Sandboxie installation folder in DOS-path syntax.</span>
-</span><span id="__span-57-10"><a id="__codelineno-57-10" name="__codelineno-57-10" href="#__codelineno-57-10"></a>
-</span><span id="__span-57-11"><a id="__codelineno-57-11" name="__codelineno-57-11" href="#__codelineno-57-11"></a><span class="w">       </span><span class="na">DosPathMaxLen specifies the size of the DosPath buffer.  Specify</span>
-</span><span id="__span-57-12"><a id="__codelineno-57-12" name="__codelineno-57-12" href="#__codelineno-57-12"></a><span class="w">       </span><span class="na">NULL for DosPath and zero for DosPathMaxLen to not receive the</span>
-</span><span id="__span-57-13"><a id="__codelineno-57-13" name="__codelineno-57-13" href="#__codelineno-57-13"></a><span class="w">       </span><span class="na">NT path.</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Return Value:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a><span class="w">       </span><span class="na">Returns zero on success, a non-zero value on error.</span>
-</span><span id="__span-58-2"><a id="__codelineno-58-2" name="__codelineno-58-2" href="#__codelineno-58-2"></a>
-</span><span id="__span-58-3"><a id="__codelineno-58-3" name="__codelineno-58-3" href="#__codelineno-58-3"></a><span class="w">       </span><span class="na">STATUS_BUFFER_TOO_SMALL (0xC0000023) indicates either NtPathMaxLen</span>
-</span><span id="__span-58-4"><a id="__codelineno-58-4" name="__codelineno-58-4" href="#__codelineno-58-4"></a><span class="w">       </span><span class="na">or DosPathMaxLen specifies a buffer that is too small.  Increase</span>
-</span><span id="__span-58-5"><a id="__codelineno-58-5" name="__codelineno-58-5" href="#__codelineno-58-5"></a><span class="w">       </span><span class="na">the size of the input buffer and retry the call.</span>
-</span></code></pre></div></p>
-</li>
+<li>Prototype:</li>
 </ul>
+<pre><code>       typedef LONG *(__stdcall *P_SbieApi_GetHomePath)(
+               WCHAR *NtPath,
+               ULONG NtPathMaxLen,
+               WCHAR *DosPath,
+               ULONG DosPathMaxLen);
+</code></pre>
+<ul>
+<li>Export Name:</li>
+</ul>
+<pre><code>       SbieApi_GetHomePath
+
+       This API is available starting with version 3.52 of Sandboxie.
+</code></pre>
+<ul>
+<li>Parameters:</li>
+</ul>
+<pre><code>       NtPath specifies a pointer to a buffer which will receive the
+       full path of the Sandboxie installation folder in NT-path syntax.
+
+       NtPathMaxLen specifies the size of the NtPath buffer.  Specify
+       NULL for NtPath and zero for NtPathMaxLen to not receive the
+       NT path.
+
+       DosPath specifies a pointer to a buffer which will receive the
+       full path of the Sandboxie installation folder in DOS-path syntax.
+
+       DosPathMaxLen specifies the size of the DosPath buffer.  Specify
+       NULL for DosPath and zero for DosPathMaxLen to not receive the
+       NT path.
+</code></pre>
+<ul>
+<li>Return Value:</li>
+</ul>
+<pre><code>       Returns zero on success, a non-zero value on error.
+
+       STATUS_BUFFER_TOO_SMALL (0xC0000023) indicates either NtPathMaxLen
+       or DosPathMaxLen specifies a buffer that is too small.  Increase
+       the size of the input buffer and retry the call.
+</code></pre>
 
 
 

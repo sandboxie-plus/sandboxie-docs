@@ -4530,13 +4530,13 @@
 
 <h1 id="clsid">关闭 Clsid<a class="headerlink" href="#clsid" title="Permanent link"></a></h1>
 <p><em>ClosedClsid</em> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 配置文件中的一个沙箱设置，自 v0.5.3a / 5.45.2 版本起可用。该设置用于指定应禁止沙箱程序访问的非沙箱 COM 类标识符（CLSID）。</p>
-<p>用法示例：
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">ClosedClsid</span><span class="o">=</span><span class="s">{8BC3F05E-D86B-11D0-A075-00C04FB68820}</span>
-</span></code></pre></div></p>
+<p>用法示例：</p>
+<pre><code class="language-ini">   .
+   .
+   .
+   [DefaultBox]
+   ClosedClsid={8BC3F05E-D86B-11D0-A075-00C04FB68820}
+</code></pre>
 <p>此示例将使沙箱程序无法访问 <em>Windows Management and Instrumentation</em>。</p>
 <p>相关的 Sandboxie Plus 设置：沙箱选项 &gt; 资源访问 &gt; COM &gt; 添加 COM 对象 &gt; 访问列 &gt; 封禁（关闭）</p>
 

@@ -4530,14 +4530,14 @@
 
 <h1 id="_1">强制禁用等待秒数<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
 <p><em>ForceDisableSeconds</em> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 中的一个全局设置项。它用于指定 <a href="../FileMenu/#disable-forced-programs">禁用强制程序</a> 模式保持生效的时间（以秒为单位）。</p>
-<p>用法如下：
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[GlobalSettings]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">ForceDisableSeconds</span><span class="o">=</span><span class="s">25</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">   </span><span class="na">ForceDisableSeconds</span><span class="o">=</span><span class="s">0</span>
-</span></code></pre></div></p>
+<p>用法如下：</p>
+<pre><code class="language-ini">   .
+   .
+   .
+   [GlobalSettings]
+   ForceDisableSeconds=25
+   ForceDisableSeconds=0
+</code></pre>
 <p>该设置项的默认值为 10 秒。如果将其设置为零，则实际上会禁用 <em>禁用强制程序</em> 功能。另请参阅：<a href="../ForceDisableAdminOnly/">ForceDisableAdminOnly</a>。</p>
 <p><em>禁用强制程序</em> 模式可通过 <a href="../SandboxieControl/">沙盘控制</a> 启用，该界面也可配置生效的时间秒数。请使用 <a href="../FileMenu/#disable-forced-programs">文件菜单 &gt; 禁用强制程序</a> 命令，或通过 <a href="../TrayIconMenu/">托盘图标菜单</a> 执行相同命令。</p>
 <p>当该模式处于活动状态时，每当启动强制进程时，沙盘会发出消息 <a href="../SBIE1301/">SBIE1301</a>。</p>

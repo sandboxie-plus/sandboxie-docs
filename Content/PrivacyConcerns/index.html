@@ -4565,19 +4565,19 @@
 </ul>
 <p><strong>MUI Cache</strong></p>
 <p>Windows Explorer records in the registry the names of programs that are launched directly through it. This includes launching programs through the Start menu, the desktop, the quick launch area, or any folder views. It is true even if the right-click "Run Sandboxed" action is used to launch the program under Sandboxie.</p>
-<p>The recorded information is kept in this registry key:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">HKEY_CURRENT_USER\Software\Microsoft\Windows\ShellNoRoam\MUICache</span>
-</span></code></pre></div></p>
+<p>The recorded information is kept in this registry key:</p>
+<pre><code>   HKEY_CURRENT_USER\Software\Microsoft\Windows\ShellNoRoam\MUICache
+</code></pre>
 <p>If launch a program through a Sandboxie facility (such as the Sandboxie Start menu) or through a program which is already running under Sandboxie, then this information is kept in the registry inside the sandbox.</p>
 <p>There are various third-party registry cleaning tools that can erase this information.</p>
 <p><strong>Windows Taskbar</strong></p>
-<p>On Windows 7 and later, Windows Explorer stores information associated with icons on the taskbar. This information includes the icon for the program and the command used to launch it. The information is stored in files in the following folder, within the user profile folder:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">   </span><span class="na">%Appdata%\Microsoft\Internet Explorer\Quick Launch\User Pinned\ImplicitAppShortcuts</span>
-</span></code></pre></div></p>
-<p>The <a href="../ApplicationsSettings/#miscellaneous">Sandbox Settings &gt; Applications &gt; Miscellaneous</a> settings page includes the setting "Permit programs to update jump lists in the Windows 7 taskbar". If this setting is enabled, additional files are created in the following folders, within the user profile folder:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">   </span><span class="na">%Appdata%\Microsoft\Windows\Recent\CustomDestinations</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">   </span><span class="na">%Appdata%\Microsoft\Windows\Recent\AutomaticDestinations</span>
-</span></code></pre></div></p>
+<p>On Windows 7 and later, Windows Explorer stores information associated with icons on the taskbar. This information includes the icon for the program and the command used to launch it. The information is stored in files in the following folder, within the user profile folder:</p>
+<pre><code>   %Appdata%\Microsoft\Internet Explorer\Quick Launch\User Pinned\ImplicitAppShortcuts
+</code></pre>
+<p>The <a href="../ApplicationsSettings/#miscellaneous">Sandbox Settings &gt; Applications &gt; Miscellaneous</a> settings page includes the setting "Permit programs to update jump lists in the Windows 7 taskbar". If this setting is enabled, additional files are created in the following folders, within the user profile folder:</p>
+<pre><code>   %Appdata%\Microsoft\Windows\Recent\CustomDestinations
+   %Appdata%\Microsoft\Windows\Recent\AutomaticDestinations
+</code></pre>
 <p><strong>Windows Page File</strong></p>
 <p>During its normal course of operation, Windows sometimes needs to put away the contents of memory used by one program in order to make room for another program. The memory contents are stored in the Windows <a href="https://www.howtogeek.com/126430/what-is-the-windows-page-file">page file</a>.</p>
 <p>Programs that run under Sandboxie are still running in the same Windows operating system as any other program in the computer, so portions of sandboxed and normal programs may end up sitting side by side in the same page file.</p>

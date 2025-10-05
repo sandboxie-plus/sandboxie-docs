@@ -4550,10 +4550,10 @@
 <p><strong>Message:</strong> SBIE2307 Could not map drive <em>x__[<a href="NtStatusCodes.html">ntstatus</a>]</em></p>
 <p><strong>Logged To:</strong> <a href="PopupMessageLog.html">Popup Message Log</a>.</p>
 <p><strong>Explanation:</strong></p>
-<p>Internally, Windows does not recognize drive letters such as A: or C: and instead uses a naming scheme that identifies devices. For example
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span><span class="na">\Device\Floppy0</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="na">\Device\HarddiskVolume1</span>
-</span></code></pre></div></p>
+<p>Internally, Windows does not recognize drive letters such as A: or C: and instead uses a naming scheme that identifies devices. For example</p>
+<pre><code>    \Device\Floppy0
+    \Device\HarddiskVolume1
+</code></pre>
 <p>May be the internal name for drives A: and C: respectively.</p>
 <p>Sandboxie works in this lower level of Windows and uses the internal names. But for convenience, when files are stored in the sandbox folder, they are stored as <em>\sandbox\drive\a</em> and <em>\sandbox\drive\c</em>.</p>
 <p>Therefore for every drive, Sandboxie needs to know its associated internal name, so it can map, for example, between C: and <em>\Device\HarddiskVolume1</em>.</p>

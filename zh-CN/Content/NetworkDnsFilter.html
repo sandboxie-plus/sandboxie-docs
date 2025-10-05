@@ -4533,16 +4533,16 @@
 <p><strong>NetworkDnsFilter</strong> 是 <a href="SandboxieIni.html">沙盘配置文件（Sandboxie.ini）</a> 中的一个沙盘配置项，自 <strong>v1.14.0 / 5.69.0</strong> 版本起提供，且需要<a href="https://sandboxie-plus.com/supporter-certificate/">支持者证书</a>才能启用。
 它允许用户按进程粒度对特定域名的 DNS 查询进行阻止或重定向，从而控制沙盘内的网络流量。</p>
 <h2 id="_1">语法<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">NetworkDnsFilter</span><span class="o">=</span><span class="s">[进程,]域名[:IP地址]</span>
-</span></code></pre></div>
+<pre><code class="language-ini">NetworkDnsFilter=[进程,]域名[:IP地址]
+</code></pre>
 <ul>
 <li><strong>进程</strong>（可选）：要应用规则的可执行程序名。如果省略，则该规则对所有沙盘应用生效。</li>
 <li><strong>域名</strong>：要过滤的完整域名（FQDN），不支持通配符。</li>
 <li><strong>IP地址</strong>（可选）：将该域名重定向到的 IP 地址。如果留空，则表示阻止该域名的访问。</li>
 </ul>
 <h3 id="_2">示例：<a class="headerlink" href="#_2" title="Permanent link"></a></h3>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">NetworkDnsFilter</span><span class="o">=</span><span class="s">program.exe,example.com:1.1.1.1</span>
-</span></code></pre></div>
+<pre><code class="language-ini">NetworkDnsFilter=program.exe,example.com:1.1.1.1
+</code></pre>
 <p>此示例中：</p>
 <ul>
 <li><code>program.exe</code> 是要应用该规则的进程。</li>
@@ -4552,24 +4552,24 @@
 <h2 id="_3">使用示例<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
 <h3 id="1">1. 重定向所有对某域名的请求<a class="headerlink" href="#1" title="Permanent link"></a></h3>
 <p>此规则会将所有沙盘应用对 <code>example.com</code> 的 DNS 请求重定向到 <code>1.1.1.1</code>：</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[DefaultBox]</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">NetworkDnsFilter</span><span class="o">=</span><span class="s">example.com:1.1.1.1</span>
-</span></code></pre></div>
+<pre><code class="language-ini">[DefaultBox]
+NetworkDnsFilter=example.com:1.1.1.1
+</code></pre>
 <h3 id="2">2. 仅对特定应用重定向域名请求<a class="headerlink" href="#2" title="Permanent link"></a></h3>
 <p>此规则仅对沙盘中的 program.exe 应用，将对 <code>example.com</code> 的请求重定向到 <code>1.1.1.1</code>：</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">[DefaultBox]</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">NetworkDnsFilter</span><span class="o">=</span><span class="s">program.exe,example.com:1.1.1.1</span>
-</span></code></pre></div>
+<pre><code class="language-ini">[DefaultBox]
+NetworkDnsFilter=program.exe,example.com:1.1.1.1
+</code></pre>
 <h3 id="3">3. 阻止所有对某域名的请求<a class="headerlink" href="#3" title="Permanent link"></a></h3>
 <p>此规则会阻止所有沙盘应用对 <code>example.com</code> 的 DNS 请求（即不进行域名解析）：</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">[DefaultBox]</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="na">NetworkDnsFilter</span><span class="o">=</span><span class="s">example.com</span>
-</span></code></pre></div>
+<pre><code class="language-ini">[DefaultBox]
+NetworkDnsFilter=example.com
+</code></pre>
 <h3 id="4">4. 仅对特定应用阻止域名请求<a class="headerlink" href="#4" title="Permanent link"></a></h3>
 <p>此规则仅阻止沙盘中的 <code>program.exe</code> 对 <code>example.com</code> 进行 DNS 请求：</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">[DefaultBox]</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="na">NetworkDnsFilter</span><span class="o">=</span><span class="s">program.exe,example.com</span>
-</span></code></pre></div>
+<pre><code class="language-ini">[DefaultBox]
+NetworkDnsFilter=program.exe,example.com
+</code></pre>
 <h2 id="_4">注意事项<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
 <ul>
 <li><strong>不支持通配符</strong>：必须指定完整域名，不支持诸如 <code>*.example.com</code> 的通配符写法。</li>
