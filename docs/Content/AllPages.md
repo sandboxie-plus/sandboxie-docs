@@ -726,6 +726,8 @@
 
 [SBIE9305](SBIE9305.md)
 
+[SbieIni Command Line](SbieIniCommandLine.md)
+
 [Secure Delete Sandbox](SecureDeleteSandbox.md)
 
 [Security Mode](../PlusContent/security-mode.md)

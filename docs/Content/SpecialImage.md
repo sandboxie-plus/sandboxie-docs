@@ -19,6 +19,7 @@ SpecialImage=<category>,<executable>
 ```
 
 Where:
+
 - `<category>` is one of the predefined application types
 - `<executable>` is the name of the application executable file (case-insensitive)
 

@@ -19,6 +19,7 @@ DropChildProcessToken=<executable>,y
 ```
 
 Where:
+
 - `<executable>` is the name of the application executable file (case-insensitive).
 - The value must be `y` to enable the setting.
 
