@@ -4925,9 +4925,9 @@
 <p><code>/keep_alive</code> is only effective when the supervising <code>Start.exe</code> instance runs inside the sandbox (the boxed instance). When run outside a sandbox it has no effect.</p>
 </div>
 <ul>
-<li>Start.exe captures the launched process handle (it uses ShellExecuteEx/CreateProcess with SEE_MASK_NOCLOSEPROCESS when waiting).</li>
-<li>Start.exe waits for the child process to exit and reads its exit code with GetExitCodeProcess.</li>
-<li>If the child exits with EXIT_SUCCESS (zero), Start.exe finishes and returns that zero exit code.</li>
+<li>Start.exe captures the launched process handle (it uses <code>ShellExecuteEx</code>/<code>CreateProcess</code> with <code>SEE_MASK_NOCLOSEPROCESS</code> when waiting).</li>
+<li>Start.exe waits for the child process to exit and reads its exit code with <code>GetExitCodeProcess</code>.</li>
+<li>If the child exits with <code>EXIT_SUCCESS</code> (zero), Start.exe finishes and returns that zero exit code.</li>
 <li>If the child exits with a non-zero code, and <code>/keep_alive</code> is still in effect, Start.exe will attempt to restart the program and supervise it again. The loop retries a limited number of times:</li>
 <li>The implementation increments a retry counter and will retry while the counter is less than 5 (i.e., up to 5 retries).</li>
 <li>Very short runs (the code treats runs shorter than ~5 seconds as initialization failures) contribute to the retry count; longer runs reset the failure counter.</li>
