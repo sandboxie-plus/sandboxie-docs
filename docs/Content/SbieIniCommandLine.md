@@ -4,7 +4,7 @@ SbieIni is a small command-line utility for querying and updating the Sandboxie 
 
 ## Quick start
 
-```cmd
+```batch
 SbieIni queryex DefaultBox RecoverFolder
 SbieIni set DefaultBox RecoverFolder %Desktop%
 ```
@@ -20,7 +20,7 @@ SbieIni supports two primary workflows:
 
 Basic forms:
 
-```cmd
+```batch
 SbieIni query    <section> [setting]
 SbieIni queryex  [/expand] [/boxes] <section> [setting]
 
@@ -40,25 +40,25 @@ Purpose: inspect sections and settings.
 
 How to list sections:
 
-```cmd
+```batch
 SbieIni query *
 ```
 
 How to list settings in a section:
 
-```cmd
+```batch
 SbieIni query DefaultBox *
 ```
 
 How to get the value(s) for a setting:
 
-```cmd
+```batch
 SbieIni query DefaultBox RecoverFolder
 ```
 
 How to expand variables (NT→DOS path translation):
 
-```cmd
+```batch
 SbieIni queryex DefaultBox RecoverFolder
 ```
 
@@ -68,13 +68,13 @@ Purpose: modify configuration contents.
 
 ### Set — replace existing lines of a setting (or remove them if no value supplied)
 
-```cmd
+```batch
 SbieIni set <section> <setting> <value>
 ```
 
 ### Append — add a new value line after existing entries
 
-```cmd
+```batch
 SbieIni append <section> <setting> <value>
 ```
 
@@ -82,13 +82,13 @@ SbieIni append <section> <setting> <value>
 
 Note: in some builds `insert` may behave like `append`; test if order matters.
 
-```cmd
+```batch
 SbieIni insert <section> <setting> <value>
 ```
 
 ### Delete — remove a value line that exactly matches the supplied value
 
-```cmd
+```batch
 SbieIni delete <section> <setting> <value>
 ```
 
@@ -102,7 +102,7 @@ SbieIni delete <section> <setting> <value>
 
 ## Examples
 
-```cmd
+```batch
 SbieIni query * | sort > Sections.txt
 SbieIni query DefaultBox RecoverFolder
 SbieIni queryex DefaultBox RecoverFolder
@@ -115,10 +115,10 @@ SbieIni delete DefaultBox RecoverFolder "C:\Old\Path"
 
 The authoritative behavior lives in the `apps/ini` sources. Key implementation points:
 
-- apps/ini/cmd.c — argument parsing helpers.
-- apps/ini/query.c — query implementation and SBIEDLL query helpers.
-- apps/ini/update.c — update verbs, `/passwd` prompt, `/drv` vs DLL path.
-- apps/ini/main.c — program entry and usage handling.
+- `apps/ini/cmd.c` — argument parsing helpers.
+- `apps/ini/query.c` — query implementation and SBIEDLL query helpers.
+- `apps/ini/update.c` — update verbs, `/passwd` prompt, `/drv` vs DLL path.
+- `apps/ini/main.c` — program entry and usage handling.
 
 ## Forum/source note
 

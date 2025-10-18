@@ -226,9 +226,9 @@ Keep Start.exe alive and supervise the started program. This switch implements a
 > [!Note]
 > `/keep_alive` is only effective when the supervising `Start.exe` instance runs inside the sandbox (the boxed instance). When run outside a sandbox it has no effect.
 
-- Start.exe captures the launched process handle (it uses ShellExecuteEx/CreateProcess with SEE_MASK_NOCLOSEPROCESS when waiting).
-- Start.exe waits for the child process to exit and reads its exit code with GetExitCodeProcess.
-- If the child exits with EXIT_SUCCESS (zero), Start.exe finishes and returns that zero exit code.
+- Start.exe captures the launched process handle (it uses `ShellExecuteEx`/`CreateProcess` with `SEE_MASK_NOCLOSEPROCESS` when waiting).
+- Start.exe waits for the child process to exit and reads its exit code with `GetExitCodeProcess`.
+- If the child exits with `EXIT_SUCCESS` (zero), Start.exe finishes and returns that zero exit code.
 - If the child exits with a non-zero code, and `/keep_alive` is still in effect, Start.exe will attempt to restart the program and supervise it again. The loop retries a limited number of times:
   - The implementation increments a retry counter and will retry while the counter is less than 5 (i.e., up to 5 retries).
   - Very short runs (the code treats runs shorter than ~5 seconds as initialization failures) contribute to the retry count; longer runs reset the failure counter.
