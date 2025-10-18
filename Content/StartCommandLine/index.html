@@ -16,7 +16,7 @@
         <link rel="prev" href="../UsageTips/">
       
       
-        <link rel="next" href="../SandboxieIni/">
+        <link rel="next" href="../SbieIniCommandLine/">
       
       
       <link rel="icon" href="../../material/assets/images/favicon.ico">
@@ -649,6 +649,8 @@
       
         
       
+        
+      
     
     
     
@@ -809,6 +811,84 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#advanced-internal-switches" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced / Internal switches
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced / Internal switches">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#keep_alive" class="md-nav__link">
+    <span class="md-ellipsis">
+      /keep_alive
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fake_admin" class="md-nav__link">
+    <span class="md-ellipsis">
+      /fake_admin
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#force_children-or-fcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      /force_children (or /fcp)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#envrefresh" class="md-nav__link">
+    <span class="md-ellipsis">
+      /env:=Refresh
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uac_prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      /uac_prompt
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mount_hive" class="md-nav__link">
+    <span class="md-ellipsis">
+      mount_hive
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run_sbie_ctrl-and-open_agentparam" class="md-nav__link">
+    <span class="md-ellipsis">
+      run_sbie_ctrl and open_agent[:param]
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#related-reading-material" class="md-nav__link">
     <span class="md-ellipsis">
       Related Reading Material
@@ -821,6 +901,29 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SbieIniCommandLine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SbieIni Command Line
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -4813,6 +4916,66 @@
 </span></code></pre></div></p>
 <p>Note the missing slash in this command syntax. Note also that this command is not a toggle. It always puts the Disable Forced Programs mode into effect and always restarts the countdown timer. At this time, Start.exe does not offer a way to request the cancellation of this mode.</p>
 <hr />
+<h3 id="advanced-internal-switches">Advanced / Internal switches<a class="headerlink" href="#advanced-internal-switches" title="Permanent link"></a></h3>
+<p>The following switches are intended primarily for advanced usage, automation, or internal/debugging scenarios. They are implemented in the Start.exe source (<code>start.cpp</code>). These options may change across versions and are not typically needed by end users.</p>
+<h4 id="keep_alive">/keep_alive<a class="headerlink" href="#keep_alive" title="Permanent link"></a></h4>
+<p>Keep Start.exe alive and supervise the started program. This switch implements a restart loop (supervisor) rather than a simple one-shot wait. The behavior implemented in <code>start.cpp</code> is:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>/keep_alive</code> is only effective when the supervising <code>Start.exe</code> instance runs inside the sandbox (the boxed instance). When run outside a sandbox it has no effect.</p>
+</div>
+<ul>
+<li>Start.exe captures the launched process handle (it uses ShellExecuteEx/CreateProcess with SEE_MASK_NOCLOSEPROCESS when waiting).</li>
+<li>Start.exe waits for the child process to exit and reads its exit code with GetExitCodeProcess.</li>
+<li>If the child exits with EXIT_SUCCESS (zero), Start.exe finishes and returns that zero exit code.</li>
+<li>If the child exits with a non-zero code, and <code>/keep_alive</code> is still in effect, Start.exe will attempt to restart the program and supervise it again. The loop retries a limited number of times:</li>
+<li>The implementation increments a retry counter and will retry while the counter is less than 5 (i.e., up to 5 retries).</li>
+<li>Very short runs (the code treats runs shorter than ~5 seconds as initialization failures) contribute to the retry count; longer runs reset the failure counter.</li>
+<li>If the program cannot be started at all, Start disables keep-alive for that invocation (no retries).</li>
+</ul>
+<p>In short: use <code>/keep_alive</code> when you want Start.exe to remain the supervising parent and to automatically restart the launched program on non-graceful exits (with a small retry/backoff policy). This differs from <code>/wait</code>: <code>/wait</code> causes Start.exe to wait and then exit when the child exits; <code>/keep_alive</code> keeps Start.exe supervising and will restart the child when it crashes or exits non-zero, up to the retry limit.</p>
+<p>Final result:
+- On a successful (0) exit the final returned exit code is 0.
+- If retries are exhausted and the program keeps exiting with non-zero codes, Start.exe will stop retrying and return the last non-zero exit code.</p>
+<p>Example:
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="na">&quot;Start.exe&quot; /keep_alive notepad.exe</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="na">&quot;Start.exe&quot; Start.exe /keep_alive notepad.exe</span>
+</span></code></pre></div>
+This is useful when you want the started program to remain available inside the box (restarted after crashes) and also keep Start.exe as the supervising parent process for the session.</p>
+<h4 id="fake_admin">/fake_admin<a class="headerlink" href="#fake_admin" title="Permanent link"></a></h4>
+<p>Mark the started program as having a faked Administrator context inside the sandbox. This can help some installers or legacy programs that detect administrator state and behave differently. This is a sandbox-side compatibility measure and is not the same as a real UAC elevation.</p>
+<p>Example:
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="na">&quot;Start.exe&quot; /fake_admin setup.exe</span>
+</span></code></pre></div></p>
+<h4 id="force_children-or-fcp">/force_children (or /fcp)<a class="headerlink" href="#force_children-or-fcp" title="Permanent link"></a></h4>
+<p>Mark the started process so that any child processes it creates will be forced into the specified sandbox. It does not, by itself, place the initially started program (e.g. the installer) into the sandbox. Start.exe issues an API call to force children when this option is present.</p>
+<p>Example:
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="na">&quot;Start.exe&quot; /fcp myinstaller.exe</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="na">&quot;Start.exe&quot; /force_children myinstaller.exe</span>
+</span></code></pre></div></p>
+<h4 id="envrefresh">/env:=Refresh<a class="headerlink" href="#envrefresh" title="Permanent link"></a></h4>
+<p>Trigger an environment refresh for the currently boxed process. When invoked from a boxed instance Start.exe calls an internal <code>Env_Refresh</code> helper; when run outside a sandbox it has no effect. Use <code>/env:Name=Value</code> to set individual environment variables instead.</p>
+<p>Example:
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="na">&quot;Start.exe&quot; /env</span><span class="o">:</span><span class="s">=Refresh</span>
+</span></code></pre></div></p>
+<h4 id="uac_prompt">/uac_prompt<a class="headerlink" href="#uac_prompt" title="Permanent link"></a></h4>
+<p>Invoke Sandboxie's secure UAC prompt UI (the boxed UAC dialog) with parameters. This is primarily an internal helper used by other Sandboxie components to display a secure UAC prompt. The command accepts internal parameters used to populate the dialog (typically generated by service/agent code).</p>
+<p>Example:
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="na">&quot;Start.exe&quot; uac_prompt &lt;internal-pkt-params&gt;</span>
+</span></code></pre></div></p>
+<h4 id="mount_hive">mount_hive<a class="headerlink" href="#mount_hive" title="Permanent link"></a></h4>
+<p>Request the sandboxed instance to mount a registry hive copy for access by boxed programs. When invoked outside the sandbox Start.exe forwards the command to the boxed instance so the boxed instance performs the mount; when invoked inside the sandbox the mount is performed directly.</p>
+<p>Example:
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="na">&quot;Start.exe&quot; mount_hive</span>
+</span></code></pre></div></p>
+<h4 id="run_sbie_ctrl-and-open_agentparam">run_sbie_ctrl and open_agent[:param]<a class="headerlink" href="#run_sbie_ctrl-and-open_agentparam" title="Permanent link"></a></h4>
+<p>Internal service control commands used to ask the Sandboxie service/agent to run Sandboxie Agent or perform agent tasks. <code>run_sbie_ctrl</code> sends a request to the service to launch the Agent UI. <code>open_agent:</code> can pass an argument to the agent/service. These are primarily used by helper tooling and automation.</p>
+<p>Example:
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="na">&quot;Start.exe&quot; run_sbie_ctrl</span>
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="na">&quot;Start.exe&quot; open_agent</span><span class="o">:</span><span class="s">SandMan.exe</span>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="na">&quot;Start.exe&quot; open_agent</span><span class="o">:</span><span class="s">&quot;SandMan.exe -autorun&quot;</span>
+</span></code></pre></div></p>
+<hr />
 <h3 id="related-reading-material">Related Reading Material<a class="headerlink" href="#related-reading-material" title="Permanent link"></a></h3>
 <p>See also: <a href="../InjectDll/">InjectDll</a> and <a href="../SBIEDLLAPI/">SBIE DLL API</a></p>
 <p>Go to <a href="../HelpTopics/">Help Topics</a>.</p>
@@ -4871,13 +5034,13 @@
         
         
           
-          <a href="../SandboxieIni/" class="md-footer__link md-footer__link--next" aria-label="Next: Sandboxie Ini">
+          <a href="../SbieIniCommandLine/" class="md-footer__link md-footer__link--next" aria-label="Next: SbieIni Command Line">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Sandboxie Ini
+                SbieIni Command Line
               </div>
             </div>
             <div class="md-footer__button md-icon">

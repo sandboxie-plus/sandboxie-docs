@@ -641,6 +641,8 @@
       
         
       
+        
+      
     
     
     
@@ -685,6 +687,29 @@
   
   <span class="md-ellipsis">
     启动命令行
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="SbieIniCommandLine.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SbieIni Command Line
     
   </span>
   
@@ -4531,6 +4556,10 @@
 <h1 id="sbie2328">SBIE2328<a class="headerlink" href="#sbie2328" title="Permanent link"></a></h1>
 <p><strong>Message</strong> SBIE2328 Failed to resolve chrome sandbox hook %2</p>
 <p><strong>Severity</strong>: Error (popup)</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In some builds the explicit SBIE2328 popup is disabled in the hook installer. In that case the unresolved hook is recorded in the hook monitor / trace output (the monitor message includes "Chrome Hook Unresolved") and in hook statistics rather than showing a user-facing popup. If you do not see a popup, check the Monitor/Trace output, the resource/monitor windows in Sandboxie Manager, or enable API/hook tracing to collect diagnostic details.</p>
+</div>
 <h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link"></a></h2>
 <p>This message indicates that Sandboxie's DLL hook code attempted to detect or follow a browser (Chromium/Chrome-derived or Firefox) runtime hook but was unable to resolve the target address. The message includes the name of the function it tried to resolve.</p>
 <p>Sandboxie contains heuristic logic that recognises the way some browsers install an in-process hook (a small trampoline that jumps to a table of function pointers). When the pattern is recognised, Sandboxie will try to locate the real target function and hook it instead of the small trampoline. If that resolution fails, SBIE2328 is raised.</p>
