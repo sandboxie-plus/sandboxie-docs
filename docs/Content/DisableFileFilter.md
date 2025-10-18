@@ -17,6 +17,7 @@ DisableFileFilter=<y/n>
 ```
 
 Where:
+
 - `y` disables file system filtering completely
 - `n` (default) maintains normal file filtering behavior
 

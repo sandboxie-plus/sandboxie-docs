@@ -1,4 +1,4 @@
-﻿# No Security Filtering
+# No Security Filtering
 
 _NoSecurityFiltering_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md) available since v1.0.0 / 5.55.0. This setting disables all remaining security filtering mechanisms in [Application Compartment](../PlusContent/compartment-mode.md) mode, providing maximum compatibility at the cost of virtually all security protections.
 
@@ -22,6 +22,7 @@ NoSecurityFiltering=<y/n>
 ```
 
 Where:
+
 - `y` disables all security filtering (only effective in Application Compartment mode).
 - `n` (default) maintains standard filtering mechanisms.
 

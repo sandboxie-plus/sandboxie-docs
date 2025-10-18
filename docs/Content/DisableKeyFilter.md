@@ -17,6 +17,7 @@ DisableKeyFilter=<y/n>
 ```
 
 Where:
+
 - `y` disables registry filtering completely.
 - `n` (default) maintains normal registry filtering behavior.
 

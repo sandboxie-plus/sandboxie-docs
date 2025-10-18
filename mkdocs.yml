@@ -537,6 +537,7 @@ nav:
   - Content/UsageTips.md
   - Command Line Usage:
     - Content/StartCommandLine.md
+    - Content/SbieIniCommandLine.md
   - Content/SandboxieIni.md
 - Content/KnownConflicts.md
 - Sandboxie Plus:

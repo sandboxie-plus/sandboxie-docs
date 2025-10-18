@@ -22,6 +22,7 @@ DisableObjectFilter=<y/n>
 ```
 
 Where:
+
 - `y` disables object filtering for this sandbox
 - `n` (default) maintains object filtering when globally enabled
 
