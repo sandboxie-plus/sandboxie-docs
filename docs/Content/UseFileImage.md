@@ -24,7 +24,7 @@ UseFileImage=y
 
 When this setting is enabled, the Sandboxie service creates a virtual disk image file with extension `.box`. The image file path is determined by the service[^1] which appends `.box` to the sandbox's file root[^2] path. The sandbox file system is then mounted from this image using the ImDisk virtual disk driver through the mount manager[^3]. All file I/O operations within the sandbox are redirected to the mounted image rather than creating files directly on the host file system.
 
-<!--The image file supports optional encryption using AES, Serpent, or Twofish algorithms with XTS mode.-->Password protection and header backup/restore operations are available through the SandMan GUI or the ImBox command-line utility.
+Password protection and header backup/restore operations are available through the SandMan GUI or the ImBox command-line utility.
 
 ## SandMan GUI
 

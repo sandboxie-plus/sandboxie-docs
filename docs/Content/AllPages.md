@@ -104,9 +104,13 @@
 
 [Cover Boxed Windows](CoverBoxedWindows.md)
 
+[Custom Chromium Flags](CustomChromiumFlags.md)
+
 [Custom Locale/LangID](CustomLCID.md)
 
 ### D
+
+[Default Folder](DefaultFolder.md)
 
 [Delete Command](DeleteCommand.md)
 
@@ -122,11 +126,21 @@
 
 [Detecting Key Loggers](DetectingKeyLoggers.md)
 
+[Disable File Filter](DisableFileFilter.md)
+
+[Disable Key Filter](DisableKeyFilter.md)
+
+[Disable Object Filter](DisableObjectFilter.md)
+
 [Disable RT Blacklist](DisableRTBlacklist.md)
+
+[Disk Serial Number](DiskSerialNumber.md)
 
 [DNS Filter](../PlusContent/DNSFilter.md)
 
 [Drop Admin Rights](DropAdminRights.md)
+
+[Drop Child Process Token](DropChildProcessToken.md)
 
 ### E
 
@@ -137,6 +151,8 @@
 [Email Protection](EmailProtection.md)
 
 [Enabled](Enabled.md)
+
+[Enable EFS](EnableEFS.md)
 
 [Expandable Variables](ExpandableVariables.md)
 
@@ -214,6 +230,8 @@
 
 [Hide Sandboxie Processes](HideSbieProcesses.md)
 
+[Hook Trace](HookTrace.md)
+
 [How It Works](HowitWorks.md)
 
 [How To Use Win Dbg](HowToUseWinDbg.md)
@@ -252,6 +270,10 @@
 
 [Linger Process](LingerProcess.md)
 
+[Lock Box To User](LockBoxToUser.md)
+
+[Log Message Events](LogMessageEvents.md)
+
 ### M
 
 [Mark Of The Web Box](MarkOfTheWebBox.md)
@@ -271,6 +293,10 @@
 [Never Delete](NeverDelete.md)
 
 [No Rename Win Class](NoRenameWinClass.md)
+
+[No Security Filtering](NoSecurityFiltering.md)
+
+[No Security Isolation](NoSecurityIsolation.md)
 
 [Normal File Path](NormalFilePath.md)
 
@@ -598,6 +624,8 @@
 
 [SBIE2223](SBIE2223.md)
 
+[SBIE2225](SBIE2225.md)
+
 [SBIE2303](SBIE2303.md)
 
 [SBIE2304](SBIE2304.md)
@@ -640,6 +668,10 @@
 
 [SBIE2327](SBIE2327.md)
 
+[SBIE2328](SBIE2328.md)
+
+[SBIE2329](SBIE2329.md)
+
 [SBIE2331](SBIE2331.md)
 
 [SBIE2332](SBIE2332.md)
@@ -651,6 +683,12 @@
 [SBIE3208](SBIE3208.md)
 
 [SBIE3209](SBIE3209.md)
+
+[SBIE6004](SBIE6004.md)
+
+[SBIE6008](SBIE6008.md)
+
+[SBIE6009](SBIE6009.md)
 
 [SBIE9101](SBIE9101.md)
 
@@ -700,6 +738,8 @@
 
 [Show For Run In](ShowForRunIn.md)
 
+[Special Image](SpecialImage.md)
+
 [Start Command Line](StartCommandLine.md)
 
 [Start Program](StartProgram.md)
@@ -729,6 +769,10 @@
 [USB Sandboxing](../PlusContent/USBSandboxing.md)
 
 [Use File Image](UseFileImage.md)
+
+[Use Non Rude Hwnd Hack](UseNonRudeHwndHack.md)
+
+[Use Original ACLs](UseOriginalACLs.md)
 
 [Use Privacy Mode](UsePrivacyMode.md)
 
