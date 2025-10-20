@@ -56,7 +56,7 @@ How to get the value(s) for a setting:
 SbieIni.exe query DefaultBox RecoverFolder
 ```
 
-How to expand variables (NT→DOS path translation):
+How to expand variables to paths:
 
 ```batch
 SbieIni.exe queryex DefaultBox RecoverFolder
