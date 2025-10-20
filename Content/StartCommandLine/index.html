@@ -1580,6 +1580,18 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -3665,6 +3677,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../SBIE2225/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SBIE2225
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../SBIE2303/" class="md-nav__link">
         
   
@@ -4148,6 +4183,52 @@
   
   
     <li class="md-nav__item">
+      <a href="../SBIE2328/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SBIE2328
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SBIE2329/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SBIE2329
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../SBIE2331/" class="md-nav__link">
         
   
@@ -4269,6 +4350,75 @@
   
   <span class="md-ellipsis">
     SBIE3209
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SBIE6004/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SBIE6004
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SBIE6008/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SBIE6008
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SBIE6009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SBIE6009
     
   </span>
   
@@ -4928,15 +5078,26 @@
 <li>Start.exe captures the launched process handle (it uses <code>ShellExecuteEx</code>/<code>CreateProcess</code> with <code>SEE_MASK_NOCLOSEPROCESS</code> when waiting).</li>
 <li>Start.exe waits for the child process to exit and reads its exit code with <code>GetExitCodeProcess</code>.</li>
 <li>If the child exits with <code>EXIT_SUCCESS</code> (zero), Start.exe finishes and returns that zero exit code.</li>
-<li>If the child exits with a non-zero code, and <code>/keep_alive</code> is still in effect, Start.exe will attempt to restart the program and supervise it again. The loop retries a limited number of times:</li>
+<li>
+<p>If the child exits with a non-zero code, and <code>/keep_alive</code> is still in effect, Start.exe will attempt to restart the program and supervise it again. The loop retries a limited number of times:</p>
+<ul>
 <li>The implementation increments a retry counter and will retry while the counter is less than 5 (i.e., up to 5 retries).</li>
 <li>Very short runs (the code treats runs shorter than ~5 seconds as initialization failures) contribute to the retry count; longer runs reset the failure counter.</li>
-<li>If the program cannot be started at all, Start disables keep-alive for that invocation (no retries).</li>
 </ul>
-<p>In short: use <code>/keep_alive</code> when you want Start.exe to remain the supervising parent and to automatically restart the launched program on non-graceful exits (with a small retry/backoff policy). This differs from <code>/wait</code>: <code>/wait</code> causes Start.exe to wait and then exit when the child exits; <code>/keep_alive</code> keeps Start.exe supervising and will restart the child when it crashes or exits non-zero, up to the retry limit.</p>
-<p>Final result:
-- On a successful (0) exit the final returned exit code is 0.
-- If retries are exhausted and the program keeps exiting with non-zero codes, Start.exe will stop retrying and return the last non-zero exit code.</p>
+</li>
+<li>
+<p>If the program cannot be started at all, Start disables keep-alive for that invocation (no retries).</p>
+</li>
+</ul>
+<p>In short:</p>
+<ul>
+<li>Use <code>/keep_alive</code> when you want Start.exe to remain the supervising parent and to automatically restart the launched program on non-graceful exits (with a small retry/backoff policy). This differs from <code>/wait</code>: <code>/wait</code> causes Start.exe to wait and then exit when the child exits; <code>/keep_alive</code> keeps Start.exe supervising and will restart the child when it crashes or exits non-zero, up to the retry limit.</li>
+</ul>
+<p>Final result:</p>
+<ul>
+<li>On a successful (0) exit the final returned exit code is 0.</li>
+<li>If retries are exhausted and the program keeps exiting with non-zero codes, Start.exe will stop retrying and return the last non-zero exit code.</li>
+</ul>
 <p>Example:
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="na">&quot;Start.exe&quot; /keep_alive notepad.exe</span>
 </span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="na">&quot;Start.exe&quot; Start.exe /keep_alive notepad.exe</span>

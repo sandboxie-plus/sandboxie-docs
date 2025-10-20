@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="SbieIni is a small command-line utility for querying and updating the Sandboxie configuration file Sandboxie.ini. This page documents common invocation forms, examples for automation, and implementation references for maintainers.">
+        <meta name="description" content="SbieIni.exe is a small command-line utility for querying and updating the Sandboxie configuration file Sandboxie.ini. This page documents common invocation forms, examples for automation, and implementation references for maintainers.">
       
       
       
@@ -1275,6 +1275,18 @@
   
     
     
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
       
         
       
@@ -3629,6 +3641,29 @@
   
   
     <li class="md-nav__item">
+      <a href="SBIE2225.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SBIE2225
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="SBIE2303.html" class="md-nav__link">
         
   
@@ -4112,6 +4147,52 @@
   
   
     <li class="md-nav__item">
+      <a href="SBIE2328.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SBIE2328
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="SBIE2329.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SBIE2329
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="SBIE2331.html" class="md-nav__link">
         
   
@@ -4233,6 +4314,75 @@
   
   <span class="md-ellipsis">
     SBIE3209
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="SBIE6004.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SBIE6004
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="SBIE6008.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SBIE6008
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="SBIE6009.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SBIE6009
     
   </span>
   
@@ -4727,23 +4877,23 @@
 
 
 <h1 id="sbieini-command-line">SbieIni Command Line<a class="headerlink" href="#sbieini-command-line" title="Permanent link"></a></h1>
-<p>SbieIni is a small command-line utility for querying and updating the Sandboxie configuration file <a href="SandboxieIni.html">Sandboxie.ini</a>. This page documents common invocation forms, examples for automation, and implementation references for maintainers.</p>
+<p>SbieIni.exe is a small command-line utility for querying and updating the Sandboxie configuration file <a href="SandboxieIni.html">Sandboxie.ini</a>. This page documents common invocation forms, examples for automation, and implementation references for maintainers.</p>
 <h2 id="quick-start">Quick start<a class="headerlink" href="#quick-start" title="Permanent link"></a></h2>
-<div class="language-batch highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>SbieIni queryex DefaultBox RecoverFolder
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>SbieIni set DefaultBox RecoverFolder <span class="nv">%Desktop%</span>
+<div class="language-batch highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>SbieIni.exe queryex DefaultBox RecoverFolder
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>SbieIni.exe set DefaultBox RecoverFolder <span class="nv">%Desktop%</span>
 </span></code></pre></div>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h2>
-<p>SbieIni supports two primary workflows:</p>
+<p>SbieIni.exe supports two primary workflows:</p>
 <ul>
 <li>Querying configuration values (read-only)</li>
 <li>Updating the configuration (<code>set</code>, <code>append</code>, <code>insert</code>, <code>delete</code>)</li>
 </ul>
 <h2 id="invocation-summary">Invocation summary<a class="headerlink" href="#invocation-summary" title="Permanent link"></a></h2>
 <p>Basic forms:</p>
-<div class="language-batch highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>SbieIni query    <span class="p">&lt;</span>section<span class="p">&gt;</span> [setting]
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>SbieIni queryex  [/expand] [/boxes] <span class="p">&lt;</span>section<span class="p">&gt;</span> [setting]
+<div class="language-batch highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>SbieIni.exe query    <span class="p">&lt;</span>section<span class="p">&gt;</span> [setting]
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>SbieIni.exe queryex  [/expand] [/boxes] <span class="p">&lt;</span>section<span class="p">&gt;</span> [setting]
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>SbieIni set<span class="p">|</span>append<span class="p">|</span>insert<span class="p">|</span>delete [/passwd:********] [/drv] <span class="p">&lt;</span>section<span class="p">&gt;</span> &lt;setting<span class="p">&gt;</span> &lt;value&gt;
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>SbieIni.exe set<span class="p">|</span>append<span class="p">|</span>insert<span class="p">|</span>delete [/passwd:********] [/drv] <span class="p">&lt;</span>section<span class="p">&gt;</span> &lt;setting<span class="p">&gt;</span> &lt;value&gt;
 </span></code></pre></div>
 <p>Notes:</p>
 <ul>
@@ -4755,47 +4905,47 @@
 <h2 id="querying-configuration-read-only">Querying configuration (read-only)<a class="headerlink" href="#querying-configuration-read-only" title="Permanent link"></a></h2>
 <p>Purpose: inspect sections and settings.</p>
 <p>How to list sections:</p>
-<div class="language-batch highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>SbieIni query *
+<div class="language-batch highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>SbieIni.exe query *
 </span></code></pre></div>
 <p>How to list settings in a section:</p>
-<div class="language-batch highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>SbieIni query DefaultBox *
+<div class="language-batch highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>SbieIni.exe query DefaultBox *
 </span></code></pre></div>
 <p>How to get the value(s) for a setting:</p>
-<div class="language-batch highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>SbieIni query DefaultBox RecoverFolder
+<div class="language-batch highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>SbieIni.exe query DefaultBox RecoverFolder
 </span></code></pre></div>
 <p>How to expand variables (NT→DOS path translation):</p>
-<div class="language-batch highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>SbieIni queryex DefaultBox RecoverFolder
+<div class="language-batch highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>SbieIni.exe queryex DefaultBox RecoverFolder
 </span></code></pre></div>
 <h2 id="update-operations-set-append-insert-delete">Update operations (set / append / insert / delete)<a class="headerlink" href="#update-operations-set-append-insert-delete" title="Permanent link"></a></h2>
 <p>Purpose: modify configuration contents.</p>
 <h3 id="set-replace-existing-lines-of-a-setting-or-remove-them-if-no-value-supplied">Set — replace existing lines of a setting (or remove them if no value supplied)<a class="headerlink" href="#set-replace-existing-lines-of-a-setting-or-remove-them-if-no-value-supplied" title="Permanent link"></a></h3>
-<div class="language-batch highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>SbieIni set <span class="p">&lt;</span>section<span class="p">&gt;</span> &lt;setting<span class="p">&gt;</span> &lt;value&gt;
+<div class="language-batch highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>SbieIni.exe set <span class="p">&lt;</span>section<span class="p">&gt;</span> &lt;setting<span class="p">&gt;</span> &lt;value&gt;
 </span></code></pre></div>
 <h3 id="append-add-a-new-value-line-after-existing-entries">Append — add a new value line after existing entries<a class="headerlink" href="#append-add-a-new-value-line-after-existing-entries" title="Permanent link"></a></h3>
-<div class="language-batch highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>SbieIni append <span class="p">&lt;</span>section<span class="p">&gt;</span> &lt;setting<span class="p">&gt;</span> &lt;value&gt;
+<div class="language-batch highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>SbieIni.exe append <span class="p">&lt;</span>section<span class="p">&gt;</span> &lt;setting<span class="p">&gt;</span> &lt;value&gt;
 </span></code></pre></div>
 <h3 id="insert-add-a-new-value-line-before-existing-entries">Insert — add a new value line before existing entries<a class="headerlink" href="#insert-add-a-new-value-line-before-existing-entries" title="Permanent link"></a></h3>
 <p>Note: in some builds <code>insert</code> may behave like <code>append</code>; test if order matters.</p>
-<div class="language-batch highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>SbieIni insert <span class="p">&lt;</span>section<span class="p">&gt;</span> &lt;setting<span class="p">&gt;</span> &lt;value&gt;
+<div class="language-batch highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>SbieIni.exe insert <span class="p">&lt;</span>section<span class="p">&gt;</span> &lt;setting<span class="p">&gt;</span> &lt;value&gt;
 </span></code></pre></div>
 <h3 id="delete-remove-a-value-line-that-exactly-matches-the-supplied-value">Delete — remove a value line that exactly matches the supplied value<a class="headerlink" href="#delete-remove-a-value-line-that-exactly-matches-the-supplied-value" title="Permanent link"></a></h3>
-<div class="language-batch highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>SbieIni delete <span class="p">&lt;</span>section<span class="p">&gt;</span> &lt;setting<span class="p">&gt;</span> &lt;value&gt;
+<div class="language-batch highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>SbieIni.exe delete <span class="p">&lt;</span>section<span class="p">&gt;</span> &lt;setting<span class="p">&gt;</span> &lt;value&gt;
 </span></code></pre></div>
 <h2 id="advanced-and-automation-notes">Advanced and automation notes<a class="headerlink" href="#advanced-and-automation-notes" title="Permanent link"></a></h2>
 <ul>
-<li>To delete an entire box: <code>SbieIni set BoxName * ""</code> (removes all lines for that section). Use with extreme caution.</li>
+<li>To delete an entire box: <code>SbieIni.exe set BoxName * ""</code> (removes all lines for that section). Use with extreme caution.</li>
 <li>Batch files: escape percent variables as <code>%%VAR%%</code>.</li>
 <li>If values include spaces, wrap them in double-quotes.</li>
 <li>Avoid running updates while <code>Sandboxie.ini</code> is open/locked by another process.</li>
 <li>For driver-level updates or automation where immediate driver state is required, use <code>/drv</code> (service/driver must be available and caller needs necessary privileges).</li>
 </ul>
 <h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link"></a></h2>
-<div class="language-batch highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>SbieIni query * <span class="p">|</span> sort <span class="p">&gt;</span> Sections.txt
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>SbieIni query DefaultBox RecoverFolder
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>SbieIni queryex DefaultBox RecoverFolder
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>SbieIni append DefaultBox Template RoboForm
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>SbieIni set DefaultBox AutoRecover n
-</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>SbieIni delete DefaultBox RecoverFolder <span class="s2">&quot;C:\Old\Path&quot;</span>
+<div class="language-batch highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>SbieIni.exe query * <span class="p">|</span> sort <span class="p">&gt;</span> Sections.txt
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>SbieIni.exe query DefaultBox RecoverFolder
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>SbieIni.exe queryex DefaultBox RecoverFolder
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>SbieIni.exe append DefaultBox Template RoboForm
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>SbieIni.exe set DefaultBox AutoRecover n
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>SbieIni.exe delete DefaultBox RecoverFolder <span class="s2">&quot;C:\Old\Path&quot;</span>
 </span></code></pre></div>
 <h2 id="implementation-and-references">Implementation and references<a class="headerlink" href="#implementation-and-references" title="Permanent link"></a></h2>
 <p>The authoritative behavior lives in the <code>apps/ini</code> sources. Key implementation points:</p>
