@@ -24,7 +24,7 @@ You can enable the setting from the Sandboxie Manager (also known as SandMan) fo
 5. Check the option labeled "Allow sandboxed processes to open files protected by EFS".
 6. Click "Apply" or "OK" to save the setting.
 
-This mirrors the `EnableEFS=y` setting in the box section of `Sandboxie.ini` but is more convenient when configuring a single sandbox via the GUI.
+This mirrors the `EnableEFS=y` setting in the box section of [Sandboxie.Ini](SandboxieIni.md) but is more convenient when configuring a single sandbox via the GUI.
 
 ## Overview
 
@@ -47,17 +47,17 @@ When `EnableEFS` is enabled:
 
 ## Certificate Requirements
 
-This feature requires an advanced supporter certificate that includes the encryption feature flag (`opt_enc`)[^8]. Without this certificate, attempts to use EFS will result in error message [SBIE6004](SBIE6004.md).
+This feature requires an advanced supporter certificate that includes the encryption feature flag (`opt_enc`)[^8]. Without this certificate, attempts to use EFS will result in error message `SBIE6004`.
 
-## Error Messages
+## Related Messages
 
-- **[SBIE2225](SBIE2225.md)**: "An attempt was made to access an EFS file" - Warning logged when EFS access fails[^9]
-- **[SBIE6004](SBIE6004.md)**: Certificate requirement error when advanced supporter certificate is not present
+- [SBIE2225](SBIE2225.md) - "An attempt was made to access an EFS file" - Warning logged when EFS access fails[^9]
+- [SBIE6004](SBIE6004.md) - Certificate requirement error when advanced supporter certificate is not present
 
 ## Limitations
 
 - Only works with files on hard disk volumes (paths starting with `\Device\HarddiskVolume`)[^10].
-- Subject to the sandbox's normal file [access rules](ResourceAccess.md) (`OpenFilePath`, `ClosedFilePath`, etc.).
+- Subject to the sandbox's file [resource access rules](ResourceAccess.md) (`OpenFilePath`, `ClosedFilePath`, etc.).
 
 [^1]: Certificate verification is performed in `UserServer::OpenFile()` method checking for `CertInfo.active && CertInfo.opt_enc`
 [^2]: EFS file detection occurs in `File_NtCreateFile12()` by checking if `(FileType & TYPE_EFS) != 0` where `TYPE_EFS` is defined as `FILE_ATTRIBUTE_ENCRYPTED`

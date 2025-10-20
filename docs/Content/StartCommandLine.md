@@ -230,13 +230,18 @@ Keep Start.exe alive and supervise the started program. This switch implements a
 - Start.exe waits for the child process to exit and reads its exit code with `GetExitCodeProcess`.
 - If the child exits with `EXIT_SUCCESS` (zero), Start.exe finishes and returns that zero exit code.
 - If the child exits with a non-zero code, and `/keep_alive` is still in effect, Start.exe will attempt to restart the program and supervise it again. The loop retries a limited number of times:
-  - The implementation increments a retry counter and will retry while the counter is less than 5 (i.e., up to 5 retries).
-  - Very short runs (the code treats runs shorter than ~5 seconds as initialization failures) contribute to the retry count; longer runs reset the failure counter.
+
+    - The implementation increments a retry counter and will retry while the counter is less than 5 (i.e., up to 5 retries).
+    - Very short runs (the code treats runs shorter than ~5 seconds as initialization failures) contribute to the retry count; longer runs reset the failure counter.
+
 - If the program cannot be started at all, Start disables keep-alive for that invocation (no retries).
 
-In short: use `/keep_alive` when you want Start.exe to remain the supervising parent and to automatically restart the launched program on non-graceful exits (with a small retry/backoff policy). This differs from `/wait`: `/wait` causes Start.exe to wait and then exit when the child exits; `/keep_alive` keeps Start.exe supervising and will restart the child when it crashes or exits non-zero, up to the retry limit.
+In short:
+
+- Use `/keep_alive` when you want Start.exe to remain the supervising parent and to automatically restart the launched program on non-graceful exits (with a small retry/backoff policy). This differs from `/wait`: `/wait` causes Start.exe to wait and then exit when the child exits; `/keep_alive` keeps Start.exe supervising and will restart the child when it crashes or exits non-zero, up to the retry limit.
 
 Final result:
+
 - On a successful (0) exit the final returned exit code is 0.
 - If retries are exhausted and the program keeps exiting with non-zero codes, Start.exe will stop retrying and return the last non-zero exit code.
 

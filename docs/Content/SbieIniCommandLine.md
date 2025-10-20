@@ -1,17 +1,17 @@
 # SbieIni Command Line
 
-SbieIni is a small command-line utility for querying and updating the Sandboxie configuration file [Sandboxie.ini](SandboxieIni.md). This page documents common invocation forms, examples for automation, and implementation references for maintainers.
+SbieIni.exe is a small command-line utility for querying and updating the Sandboxie configuration file [Sandboxie.ini](SandboxieIni.md). This page documents common invocation forms, examples for automation, and implementation references for maintainers.
 
 ## Quick start
 
 ```batch
-SbieIni queryex DefaultBox RecoverFolder
-SbieIni set DefaultBox RecoverFolder %Desktop%
+SbieIni.exe queryex DefaultBox RecoverFolder
+SbieIni.exe set DefaultBox RecoverFolder %Desktop%
 ```
 
 ## Overview
 
-SbieIni supports two primary workflows:
+SbieIni.exe supports two primary workflows:
 
 - Querying configuration values (read-only)
 - Updating the configuration (`set`, `append`, `insert`, `delete`)
@@ -21,10 +21,10 @@ SbieIni supports two primary workflows:
 Basic forms:
 
 ```batch
-SbieIni query    <section> [setting]
-SbieIni queryex  [/expand] [/boxes] <section> [setting]
+SbieIni.exe query    <section> [setting]
+SbieIni.exe queryex  [/expand] [/boxes] <section> [setting]
 
-SbieIni set|append|insert|delete [/passwd:********] [/drv] <section> <setting> <value>
+SbieIni.exe set|append|insert|delete [/passwd:********] [/drv] <section> <setting> <value>
 ```
 
 Notes:
@@ -41,25 +41,25 @@ Purpose: inspect sections and settings.
 How to list sections:
 
 ```batch
-SbieIni query *
+SbieIni.exe query *
 ```
 
 How to list settings in a section:
 
 ```batch
-SbieIni query DefaultBox *
+SbieIni.exe query DefaultBox *
 ```
 
 How to get the value(s) for a setting:
 
 ```batch
-SbieIni query DefaultBox RecoverFolder
+SbieIni.exe query DefaultBox RecoverFolder
 ```
 
 How to expand variables (NT→DOS path translation):
 
 ```batch
-SbieIni queryex DefaultBox RecoverFolder
+SbieIni.exe queryex DefaultBox RecoverFolder
 ```
 
 ## Update operations (set / append / insert / delete)
@@ -69,13 +69,13 @@ Purpose: modify configuration contents.
 ### Set — replace existing lines of a setting (or remove them if no value supplied)
 
 ```batch
-SbieIni set <section> <setting> <value>
+SbieIni.exe set <section> <setting> <value>
 ```
 
 ### Append — add a new value line after existing entries
 
 ```batch
-SbieIni append <section> <setting> <value>
+SbieIni.exe append <section> <setting> <value>
 ```
 
 ### Insert — add a new value line before existing entries
@@ -83,18 +83,18 @@ SbieIni append <section> <setting> <value>
 Note: in some builds `insert` may behave like `append`; test if order matters.
 
 ```batch
-SbieIni insert <section> <setting> <value>
+SbieIni.exe insert <section> <setting> <value>
 ```
 
 ### Delete — remove a value line that exactly matches the supplied value
 
 ```batch
-SbieIni delete <section> <setting> <value>
+SbieIni.exe delete <section> <setting> <value>
 ```
 
 ## Advanced and automation notes
 
-- To delete an entire box: `SbieIni set BoxName * ""` (removes all lines for that section). Use with extreme caution.
+- To delete an entire box: `SbieIni.exe set BoxName * ""` (removes all lines for that section). Use with extreme caution.
 - Batch files: escape percent variables as `%%VAR%%`.
 - If values include spaces, wrap them in double-quotes.
 - Avoid running updates while `Sandboxie.ini` is open/locked by another process.
@@ -103,12 +103,12 @@ SbieIni delete <section> <setting> <value>
 ## Examples
 
 ```batch
-SbieIni query * | sort > Sections.txt
-SbieIni query DefaultBox RecoverFolder
-SbieIni queryex DefaultBox RecoverFolder
-SbieIni append DefaultBox Template RoboForm
-SbieIni set DefaultBox AutoRecover n
-SbieIni delete DefaultBox RecoverFolder "C:\Old\Path"
+SbieIni.exe query * | sort > Sections.txt
+SbieIni.exe query DefaultBox RecoverFolder
+SbieIni.exe queryex DefaultBox RecoverFolder
+SbieIni.exe append DefaultBox Template RoboForm
+SbieIni.exe set DefaultBox AutoRecover n
+SbieIni.exe delete DefaultBox RecoverFolder "C:\Old\Path"
 ```
 
 ## Implementation and references

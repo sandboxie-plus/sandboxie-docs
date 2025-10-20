@@ -128,6 +128,8 @@
 
 [Disable File Filter](DisableFileFilter.md)
 
+[Disable Force Rules](DisableForceRules.md)
+
 [Disable Key Filter](DisableKeyFilter.md)
 
 [Disable Object Filter](DisableObjectFilter.md)
@@ -178,6 +180,8 @@
 
 [Firefox Tips](FirefoxTips.md)
 
+[Force Child Processes](ForceChildren.md)
+
 [Force Disable Admin Only](ForceDisableAdminOnly.md)
 
 [Force Disable Seconds](ForceDisableSeconds.md)
@@ -191,6 +195,8 @@
 [Forget Password](ForgetPassword.md)
 
 [Frequently Asked Questions](FrequentlyAskedQuestions.md)
+
+[Function Skip Hook](FuncSkipHook.md)
 
 ### G
 
@@ -739,6 +745,8 @@
 [Shell Folders](ShellFolders.md)
 
 [Show For Run In](ShowForRunIn.md)
+
+[Skip Hook](SkipHook.md)
 
 [Special Image](SpecialImage.md)
 
