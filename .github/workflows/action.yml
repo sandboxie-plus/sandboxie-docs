@@ -30,8 +30,16 @@ jobs:
         uses: lycheeverse/lychee-action@v2.7.0
         with:
           # Check all markdown files in repo
-          args: --user-agent 'curl' -v --no-progress --max-redirects 100 --accept 200,403,429,500 './docs/**/*.md'
+          args: --user-agent 'curl' -v --no-progress --max-redirects 100 --accept 200,403,429,500 -- --max-summary-size 950000 './docs/**/*.md'
           fail: true
+          output: lychee-report.md
+
+      - name: Upload Lychee report artifact
+        uses: actions/upload-artifact@v5.0.0
+        with:
+          name: lychee-report
+          path: lychee-report.md
+          retention-days: 30
 
       # To avoid automated spam, try to find an existing open issue before opening a new one
       # Source: https://github.com/cilium/tetragon/pull/805
