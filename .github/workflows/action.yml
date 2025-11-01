@@ -26,11 +26,17 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
+      - name: Get latest curl version from GitHub API
+        id: curl_version
+        run: |
+          version=$(curl -s https://api.github.com/repos/curl/curl/releases/latest | jq -r '.tag_name' | sed 's/curl-//')
+          echo "latest_version=$version" >> $GITHUB_OUTPUT
+
       - name: Lychee Broken Link Checker
         uses: lycheeverse/lychee-action@v2.7.0
         with:
           # Check all markdown files in repo
-          args: --user-agent 'curl' -v --no-progress --max-redirects 100 --accept 200,403,429,500 -- --max-summary-size 950000 './docs/**/*.md'
+          args: --user-agent "curl/${{ steps.curl_version.outputs.latest_version }}" -v --no-progress --max-redirects 100 --accept 200,403,429,500 -- --max-summary-size 950000 './docs/**/*.md'
           fail: true
           output: lychee-report.md
 
