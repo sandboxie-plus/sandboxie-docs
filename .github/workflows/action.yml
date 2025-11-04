@@ -39,10 +39,10 @@ jobs:
         uses: actions/cache@v4.3.0
         id: lychee-cache
         with:
-          path: docs/.lychee-cache
-          key: lychee-cache-${{ runner.os }}-docs
+          path: .lychee-cache
+          key: lychee-cache-${{ github.repository }}-docs
           restore-keys: |
-            lychee-cache-${{ runner.os }}-docs
+            lychee-cache-${{ github.repository }}-docs
 
       - name: Ensure cache dir exists
         run: mkdir -p docs/.lychee-cache
@@ -91,8 +91,8 @@ jobs:
         if: always()
         uses: actions/cache@v4.3.0
         with:
-          path: docs/.lychee-cache
-          key: lychee-cache-${{ runner.os }}-docs
+          path: .lychee-cache
+          key: lychee-cache-${{ github.repository }}-docs
 
       - name: Upload Lychee report artifact
         if: failure()
