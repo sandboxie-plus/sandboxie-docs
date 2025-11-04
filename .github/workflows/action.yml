@@ -59,8 +59,7 @@ jobs:
             --max-redirects 100
             --accept 200,403,429,500
             --cache "${{ github.workspace }}/docs/.lychee-cache"
-            --cache-ttl-success "7d"
-            --cache-ttl-failure "1d"
+            --max-cache-age 1d
             './**/*.md'
             --exclude './ar/**'
             --exclude './de/**'
