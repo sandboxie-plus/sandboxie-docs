@@ -55,8 +55,6 @@ jobs:
           restore-keys: |
             lychee-${{ runner.os }}-${{ github.ref }}-${{ steps.date.outputs.today }}
             lychee-${{ runner.os }}-${{ github.ref }}-
-            #lychee-${{ runner.os }}-
-            #lychee-
 
       - name: Ensure cache dir exists
         run: mkdir -p .lychee-cache
