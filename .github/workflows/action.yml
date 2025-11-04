@@ -28,25 +28,52 @@ jobs:
     steps:
       - uses: actions/checkout@v5.0.0
 
+      # Get latest curl version for user-agent header
       - name: Get latest curl version from GitHub API
         id: curl_version
         run: |
-          version=$(curl -s https://api.github.com/repos/curl/curl/releases/latest | jq -r '.tag_name' | sed 's/curl-//' | sed 's/_/./g')
+          version=$(curl -s https://api.github.com/repos/curl/curl/releases/latest \
+            | jq -r '.tag_name' | sed 's/curl-//' | sed 's/_/./g')
           echo "latest_version=$version" >> $GITHUB_OUTPUT
 
-      # Restore cached Lychee results for faster runs
+      # Generate date for daily cache fallback
+      - name: Get current date
+        id: date
+        run: echo "today=$(date +'%Y%m%d')" >> $GITHUB_OUTPUT
+
+      # =========================================================================
+      # CACHE RESTORE STEP - The Decision Point
+      # =========================================================================
       - name: Restore lychee cache
-        uses: actions/cache@v4.3.0
-        id: lychee-cache
+        id: restore-cache
+        uses: actions/cache/restore@v4.3.0
         with:
           path: .lychee-cache
-          key: lychee-cache-${{ github.repository }}-docs
+          # Primary: Content-based key (most specific)
+          key: lychee-${{ runner.os }}-${{ github.ref }}-${{ hashFiles('docs/Content/*.md', 'docs/PlusContent/*.md', "docs/README.md") }}
+          # Fallback hierarchy:
           restore-keys: |
-            lychee-cache-${{ github.repository }}-docs
+            lychee-${{ runner.os }}-${{ github.ref }}-${{ steps.date.outputs.today }}
+            lychee-${{ runner.os }}-${{ github.ref }}-
+            #lychee-${{ runner.os }}-
+            #lychee-
 
       - name: Ensure cache dir exists
         run: mkdir -p .lychee-cache
 
+      # =========================================================================
+      # CACHE HIT SCENARIO - Fast Path
+      # =========================================================================
+      - name: Log cache status
+        run: |
+          if [ "${{ steps.restore-cache.outputs.cache-hit }}" = "true" ]; then
+            echo "🎯 CACHE HIT: Using cached link check results"
+            echo "Cache Key: ${{ steps.restore-cache.outputs.cache-primary-key }}"
+          else
+            echo "🔄 CACHE MISS: Will check all links and create new cache"
+          fi
+
+      # Run Lychee link checker
       - name: Lychee Broken Link Checker
         id: lychee
         uses: lycheeverse/lychee-action@v2.7.0
@@ -86,15 +113,27 @@ jobs:
           fail: true
           output: lychee-report.md
 
-      # Save updated cache (Lychee handles internal TTL)
+      # =========================================================================
+      # CACHE SAVE STEP - Different Behavior Based on Scenario
+      # =========================================================================
       - name: Save lychee cache
         if: always()
-        uses: actions/cache@v4.3.0
+        uses: actions/cache/save@v4.3.0
         with:
           path: .lychee-cache
-          key: lychee-cache-${{ github.repository }}-docs
+          key: ${{ steps.restore-cache.outputs.cache-primary-key }}
 
-      - name: Upload Lychee report artifact
+      - name: Log cache save result
+        if: always()
+        run: |
+          if [ "${{ steps.restore-cache.outputs.cache-hit }}" = "true" ]; then
+            echo "✅ Cache was updated with fresh link data"
+          else
+            echo "🆕 New cache created with all link check results"
+          fi
+
+      # Upload report as artifact if broken links are found
+      - name: Upload Lychee report
         if: failure()
         uses: actions/upload-artifact@v5.0.0
         with:
@@ -111,11 +150,12 @@ jobs:
           ISSUE_NAME: "Link Checker Report"
         run: |
           encoded_issue_name=$(echo "$ISSUE_NAME" | sed 's/ /%20/g')
-          response=$(curl -s -X GET "https://api.github.com/search/issues?q=$encoded_issue_name+repo:${{ github.repository }}+state:open+label:automated-report&type=Issues")
+          response=$(curl -s -X GET \
+            "https://api.github.com/search/issues?q=$encoded_issue_name+repo:${{ github.repository }}+state:open+label:automated-report&type=Issues")
           issue_number=$(echo "$response" | jq -r '.items[0].number // empty')
           echo "issue_number=$issue_number" >> $GITHUB_OUTPUT
 
-      - name: Create or update issue
+      - name: Create issue from file
         if: failure() && github.ref == 'refs/heads/main'
         uses: peter-evans/create-issue-from-file@v6.0.0
         with:
