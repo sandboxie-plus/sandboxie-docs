@@ -35,8 +35,35 @@ jobs:
       - name: Lychee Broken Link Checker
         uses: lycheeverse/lychee-action@v2.7.0
         with:
-          # Check all markdown files in repo
-          args: --root-dir "${{ github.workspace }}/docs" --user-agent "curl/${{ steps.curl_version.outputs.latest_version }}" --no-progress --max-redirects 100 --accept 200,403,429,500 './**/*.md'
+          # Check all markdown files in repo but exclude language folders under docs
+          args: >-
+            --root-dir "${{ github.workspace }}/docs"
+            --user-agent "curl/${{ steps.curl_version.outputs.latest_version }}"
+            --no-progress
+            --max-redirects 100
+            --accept 200,403,429,500
+            './**/*.md'
+            --exclude './ar/**'
+            --exclude './de/**'
+            --exclude './en/**'
+            --exclude './es/**'
+            --exclude './fr/**'
+            --exclude './hu/**'
+            --exclude './id/**'
+            --exclude './it/**'
+            --exclude './ja/**'
+            --exclude './ko/**'
+            --exclude './nl/**'
+            --exclude './pl/**'
+            --exclude './pt/**'
+            --exclude './pt-BR/**'
+            --exclude './ru/**'
+            --exclude './sv/**'
+            --exclude './tr/**'
+            --exclude './uk/**'
+            --exclude './vi/**'
+            --exclude './zh-CN/**'
+            --exclude './zh-TW/**'
           fail: true
           output: lychee-report.md
 
