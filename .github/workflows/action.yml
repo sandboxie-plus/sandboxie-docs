@@ -1,7 +1,8 @@
 name: Check broken links
+
 on:
   schedule:
-    - cron: '0 8 * * *'
+    - cron: '0 8 * * *'  # Run daily at 08:00 UTC
   # Triggers the workflow on push or pull request events
   push:
     branches: [ main ]
@@ -23,8 +24,9 @@ jobs:
       issues: write
       actions: write
       pull-requests: write
+
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v5.0.0
 
       - name: Get latest curl version from GitHub API
         id: curl_version
@@ -32,40 +34,66 @@ jobs:
           version=$(curl -s https://api.github.com/repos/curl/curl/releases/latest | jq -r '.tag_name' | sed 's/curl-//' | sed 's/_/./g')
           echo "latest_version=$version" >> $GITHUB_OUTPUT
 
+      # Restore cached Lychee results for faster runs
+      - name: Restore lychee cache
+        uses: actions/cache@v4.3.0
+        id: lychee-cache
+        with:
+          path: docs/.lychee-cache
+          key: lychee-cache-${{ runner.os }}-docs
+          restore-keys: |
+            lychee-cache-${{ runner.os }}-docs
+
+      - name: Ensure cache dir exists
+        run: mkdir -p docs/.lychee-cache
+
       - name: Lychee Broken Link Checker
+        id: lychee
         uses: lycheeverse/lychee-action@v2.7.0
         with:
-          # Check all markdown files in repo but exclude language folders under docs
+          # Check all markdown files in docs but exclude language folders under docs
           args: >-
             --root-dir "${{ github.workspace }}/docs"
             --user-agent "curl/${{ steps.curl_version.outputs.latest_version }}"
             --no-progress
             --max-redirects 100
             --accept 200,403,429,500
+            --cache-dir "${{ github.workspace }}/docs/.lychee-cache"
+            --cache-ttl-success "7d"
+            --cache-ttl-failure "1d"
             './**/*.md'
-            --exclude 'ar/**'
-            --exclude 'de/**'
-            --exclude 'en/**'
-            --exclude 'es/**'
-            --exclude 'fr/**'
-            --exclude 'hu/**'
-            --exclude 'id/**'
-            --exclude 'it/**'
-            --exclude 'ja/**'
-            --exclude 'ko/**'
-            --exclude 'nl/**'
-            --exclude 'pl/**'
-            --exclude 'pt/**'
-            --exclude 'pt-BR/**'
-            --exclude 'ru/**'
-            --exclude 'sv/**'
-            --exclude 'tr/**'
-            --exclude 'uk/**'
-            --exclude 'vi/**'
-            --exclude 'zh-CN/**'
-            --exclude 'zh-TW/**'
+            --exclude './ar/**'
+            --exclude './de/**'
+            --exclude './en/**'
+            --exclude './es/**'
+            --exclude './fr/**'
+            --exclude './hu/**'
+            --exclude './id/**'
+            --exclude './it/**'
+            --exclude './ja/**'
+            --exclude './ko/**'
+            --exclude './nl/**'
+            --exclude './pl/**'
+            --exclude './pt/**'
+            --exclude './pt-BR/**'
+            --exclude './ru/**'
+            --exclude './sv/**'
+            --exclude './tr/**'
+            --exclude './uk/**'
+            --exclude './vi/**'
+            --exclude './zh-CN/**'
+            --exclude './zh-TW/**'
+            --verbose
           fail: true
           output: lychee-report.md
+
+      # Save updated cache (Lychee handles internal TTL)
+      - name: Save lychee cache
+        if: always()
+        uses: actions/cache@v4.3.0
+        with:
+          path: docs/.lychee-cache
+          key: lychee-cache-${{ runner.os }}-docs
 
       - name: Upload Lychee report artifact
         if: failure()
@@ -78,19 +106,21 @@ jobs:
       # To avoid automated spam, try to find an existing open issue before opening a new one
       # Source: https://github.com/cilium/tetragon/pull/805
       - name: Search for existing issue number
-        id: search-issue
-        if: always()
+        if: failure() && github.ref == 'refs/heads/main'
+        id: search_issue
+        env:
+          ISSUE_NAME: "Link Checker Report"
         run: |
           encoded_issue_name=$(echo "$ISSUE_NAME" | sed 's/ /%20/g')
-          response=$(curl -s -X GET "https://api.github.com/search/issues?q=$encoded_issue_name+repo:sandboxie-plus/sandboxie-docs+state:open+label:automated-report&type=Issues")
+          response=$(curl -s -X GET "https://api.github.com/search/issues?q=$encoded_issue_name+repo:${{ github.repository }}+state:open+label:automated-report&type=Issues")
           issue_number=$(echo "$response" | jq -r '.items[0].number // empty')
           echo "issue_number=$issue_number" >> $GITHUB_OUTPUT
 
-      - name: Create issue from file
-        if: always() && env.lychee_exit_code != 0
-        uses: peter-evans/create-issue-from-file@v6
+      - name: Create or update issue
+        if: failure() && github.ref == 'refs/heads/main'
+        uses: peter-evans/create-issue-from-file@v6.0.0
         with:
           title: Link Checker Report
-          content-filepath: ./lychee/out.md
-          issue-number: ${{ steps.search-issue.outputs.issue_number }}
+          content-filepath: lychee-report.md
+          issue-number: ${{ steps.search_issue.outputs.issue_number }}
           labels: automated-report
