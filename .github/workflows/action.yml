@@ -36,11 +36,6 @@ jobs:
             | jq -r '.tag_name' | sed 's/curl-//' | sed 's/_/./g')
           echo "latest_version=$version" >> $GITHUB_OUTPUT
 
-      # Generate date for daily cache fallback
-      - name: Get current date
-        id: date
-        run: echo "today=$(date +'%Y%m%d')" >> $GITHUB_OUTPUT
-
       # =========================================================================
       # CACHE RESTORE STEP - The Decision Point
       # =========================================================================
@@ -53,7 +48,6 @@ jobs:
           key: lychee-${{ runner.os }}-${{ github.ref }}-${{ hashFiles('docs/Content/*.md', 'docs/PlusContent/*.md', 'docs/README.md') }}
           # Fallback hierarchy:
           restore-keys: |
-            lychee-${{ runner.os }}-${{ github.ref }}-${{ steps.date.outputs.today }}
             lychee-${{ runner.os }}-${{ github.ref }}-
 
       - name: Ensure cache dir exists
