@@ -58,7 +58,7 @@ jobs:
             --no-progress
             --max-redirects 100
             --accept 200,403,429,500
-            --cache-dir "${{ github.workspace }}/docs/.lychee-cache"
+            --cache "${{ github.workspace }}/docs/.lychee-cache"
             --cache-ttl-success "7d"
             --cache-ttl-failure "1d"
             './**/*.md'
