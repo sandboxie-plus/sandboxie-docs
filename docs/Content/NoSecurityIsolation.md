@@ -77,7 +77,7 @@ In Application Compartment mode, three key path behaviors are automatically disa
 ### Complementary
 
 - **[NoSecurityFiltering](NoSecurityFiltering.md)**: Further disables filtering[^9].
-- **[OriginalToken](OriginalToken.md)**: Auto-enabled in compartment mode.
+- **OriginalToken**: Auto-enabled in compartment mode.
 - **Template Paths**: `TemplateAppCPaths` are applied[^10].
 
 ### Job Object Limits (Disabled)
@@ -130,3 +130,4 @@ These settings become ineffective due to Job Object exclusion:
 [^10]: **Template Paths**: `Process_GetPaths(proc, list, L"TemplateAppCPaths", setting_name, FALSE)` applies compartment-specific template paths.
 
 [^11]: **Auto Fallback**: `!Dyndata_Active && !proc->bAppCompartment` triggers automatic compartment mode with `Log_Msg1(MSG_1207, info)`.
+
