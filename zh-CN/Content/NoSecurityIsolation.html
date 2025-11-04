@@ -4721,9 +4721,9 @@
 <h2 id="how-it-works">How It Works<a class="headerlink" href="#how-it-works" title="Permanent link"></a></h2>
 <p>When enabled, the driver sets <code>bAppCompartment = TRUE</code>, fundamentally changing Sandboxie's operation by:</p>
 <ul>
-<li><strong>Bypassing token filtering</strong>: Both primary and impersonation tokens remain unmodified<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">2</a></sup><sup id="fnref:2"><a class="footnote-ref" href="#fn:2">3</a></sup><sup id="fnref:3"><a class="footnote-ref" href="#fn:3">4</a></sup></li>
-<li><strong>Excluding Job Objects</strong>: Processes avoid Windows Job Object restrictions<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">5</a></sup>  </li>
-<li><strong>Relaxing path controls</strong>: Default security-oriented path blocking is disabled<sup id="fnref2:5"><a class="footnote-ref" href="#fn:5">1</a></sup></li>
+<li><strong>Bypassing token filtering</strong>: Both primary and impersonation tokens remain unmodified<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup><sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup><sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></li>
+<li><strong>Excluding Job Objects</strong>: Processes avoid Windows Job Object restrictions<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>  </li>
+<li><strong>Relaxing path controls</strong>: Default security-oriented path blocking is disabled<sup id="fnref2:5"><a class="footnote-ref" href="#fn:5">5</a></sup></li>
 </ul>
 <h2 id="feature-matrix">Feature Matrix<a class="headerlink" href="#feature-matrix" title="Permanent link"></a></h2>
 <table>
@@ -4778,7 +4778,7 @@
 </tbody>
 </table>
 <h2 id="path-control-changes">Path Control Changes<a class="headerlink" href="#path-control-changes" title="Permanent link"></a></h2>
-<p>In Application Compartment mode, three key path behaviors are automatically disabled<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">1</a></sup>:</p>
+<p>In Application Compartment mode, three key path behaviors are automatically disabled<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>:</p>
 <ul>
 <li><strong><code>AlwaysCloseForBoxed</code></strong>: Boxed processes can access normally blocked paths<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup>.</li>
 <li><strong><code>DontOpenForBoxed</code></strong>: Open path rules apply equally to all processes<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup>.</li>
@@ -4787,7 +4787,7 @@
 <h2 id="compatibility-integration">Compatibility &amp; Integration<a class="headerlink" href="#compatibility-integration" title="Permanent link"></a></h2>
 <h3 id="automatic-activation">Automatic Activation<a class="headerlink" href="#automatic-activation" title="Permanent link"></a></h3>
 <ul>
-<li><strong>Unsupported Windows builds</strong>: Automatically enabled with warning MSG_1207<sup id="fnref:11"><a class="footnote-ref" href="#fn:11">9</a></sup>.</li>
+<li><strong>Unsupported Windows builds</strong>: Automatically enabled with warning MSG_1207<sup id="fnref:11"><a class="footnote-ref" href="#fn:11">11</a></sup>.</li>
 <li><strong>Sandboxie Plus box types</strong>: Pre-configured in <code>Application Compartment</code> and <code>Application Compartment with Data Protection</code>.</li>
 </ul>
 <h3 id="enhanced-compatibility">Enhanced Compatibility<a class="headerlink" href="#enhanced-compatibility" title="Permanent link"></a></h3>
@@ -4809,9 +4809,9 @@
 <h2 id="related-settings">Related Settings<a class="headerlink" href="#related-settings" title="Permanent link"></a></h2>
 <h3 id="complementary">Complementary<a class="headerlink" href="#complementary" title="Permanent link"></a></h3>
 <ul>
-<li><strong><a href="NoSecurityFiltering.html">NoSecurityFiltering</a></strong>: Further disables filtering<sup id="fnref:9"><a class="footnote-ref" href="#fn:9">10</a></sup>.</li>
+<li><strong><a href="NoSecurityFiltering.html">NoSecurityFiltering</a></strong>: Further disables filtering<sup id="fnref:9"><a class="footnote-ref" href="#fn:9">9</a></sup>.</li>
 <li><strong><a href="OriginalToken.md">OriginalToken</a></strong>: Auto-enabled in compartment mode.</li>
-<li><strong>Template Paths</strong>: <code>TemplateAppCPaths</code> are applied<sup id="fnref:10"><a class="footnote-ref" href="#fn:10">11</a></sup>.</li>
+<li><strong>Template Paths</strong>: <code>TemplateAppCPaths</code> are applied<sup id="fnref:10"><a class="footnote-ref" href="#fn:10">10</a></sup>.</li>
 </ul>
 <h3 id="job-object-limits-disabled">Job Object Limits (Disabled)<a class="headerlink" href="#job-object-limits-disabled" title="Permanent link"></a></h3>
 <p>These settings become ineffective due to Job Object exclusion:</p>
@@ -4843,20 +4843,20 @@
 <div class="footnote">
 <hr />
 <ol>
-<li id="fn:5">
-<p><strong>Path Handling</strong>: Three behaviors disabled in <code>process.c</code>: <code>always_close_for_boxed</code>, <code>dont_open_for_boxed</code>, and <code>protect_host_images</code>.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:5" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
 <li id="fn:1">
-<p><strong>Token Bypass</strong>: <code>Token_ReplacePrimary</code> returns <code>TRUE</code> when <code>proc-&gt;bAppCompartment</code> is set, bypassing all token filtering operations.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p><strong>Token Bypass</strong>: <code>Token_ReplacePrimary</code> returns <code>TRUE</code> when <code>proc-&gt;bAppCompartment</code> is set, bypassing all token filtering operations.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p><strong>Primary Tokens</strong>: Left unmodified in <code>token.c</code> when Application Compartment mode is active.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p><strong>Primary Tokens</strong>: Left unmodified in <code>token.c</code> when Application Compartment mode is active.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p><strong>Impersonation Tokens</strong>: <code>Thread_CheckTokenForImpersonation</code> returns <code>STATUS_SUCCESS</code> without restrictions when <code>proc-&gt;bAppCompartment</code> is enabled.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p><strong>Impersonation Tokens</strong>: <code>Thread_CheckTokenForImpersonation</code> returns <code>STATUS_SUCCESS</code> without restrictions when <code>proc-&gt;bAppCompartment</code> is enabled.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
-<p><strong>Job Object Exclusion</strong>: Condition <code>new_proc-&gt;bAppCompartment</code> in <code>process.c</code> excludes processes from Windows Job Objects.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+<p><strong>Job Object Exclusion</strong>: Condition <code>new_proc-&gt;bAppCompartment</code> in <code>process.c</code> excludes processes from Windows Job Objects.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:5">
+<p><strong>Path Handling</strong>: Three behaviors disabled in <code>process.c</code>: <code>always_close_for_boxed</code>, <code>dont_open_for_boxed</code>, and <code>protect_host_images</code>.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 <li id="fn:6">
 <p><strong>AlwaysCloseForBoxed</strong>: <code>proc-&gt;always_close_for_boxed = !proc-&gt;bAppCompartment &amp;&amp; Conf_Get_Boolean(...)</code> ensures boxed processes aren't blocked from normally closed paths.&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
@@ -4867,14 +4867,14 @@
 <li id="fn:8">
 <p><strong>ProtectHostImages</strong>: <code>proc-&gt;protect_host_images = !proc-&gt;bAppCompartment &amp;&amp; Conf_Get_Boolean(...)</code> disables host binary protection.&#160;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 8 in the text">&#8617;</a></p>
 </li>
-<li id="fn:11">
-<p><strong>Auto Fallback</strong>: <code>!Dyndata_Active &amp;&amp; !proc-&gt;bAppCompartment</code> triggers automatic compartment mode with <code>Log_Msg1(MSG_1207, info)</code>.&#160;<a class="footnote-backref" href="#fnref:11" title="Jump back to footnote 9 in the text">&#8617;</a></p>
-</li>
 <li id="fn:9">
-<p><strong>Security Filtering</strong>: <code>no_filtering = proc-&gt;bAppCompartment &amp;&amp; Conf_Get_Boolean(..., L"NoSecurityFiltering", ...)</code> enables complete filtering bypass.&#160;<a class="footnote-backref" href="#fnref:9" title="Jump back to footnote 10 in the text">&#8617;</a></p>
+<p><strong>Security Filtering</strong>: <code>no_filtering = proc-&gt;bAppCompartment &amp;&amp; Conf_Get_Boolean(..., L"NoSecurityFiltering", ...)</code> enables complete filtering bypass.&#160;<a class="footnote-backref" href="#fnref:9" title="Jump back to footnote 9 in the text">&#8617;</a></p>
 </li>
 <li id="fn:10">
-<p><strong>Template Paths</strong>: <code>Process_GetPaths(proc, list, L"TemplateAppCPaths", setting_name, FALSE)</code> applies compartment-specific template paths.&#160;<a class="footnote-backref" href="#fnref:10" title="Jump back to footnote 11 in the text">&#8617;</a></p>
+<p><strong>Template Paths</strong>: <code>Process_GetPaths(proc, list, L"TemplateAppCPaths", setting_name, FALSE)</code> applies compartment-specific template paths.&#160;<a class="footnote-backref" href="#fnref:10" title="Jump back to footnote 10 in the text">&#8617;</a></p>
+</li>
+<li id="fn:11">
+<p><strong>Auto Fallback</strong>: <code>!Dyndata_Active &amp;&amp; !proc-&gt;bAppCompartment</code> triggers automatic compartment mode with <code>Log_Msg1(MSG_1207, info)</code>.&#160;<a class="footnote-backref" href="#fnref:11" title="Jump back to footnote 11 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

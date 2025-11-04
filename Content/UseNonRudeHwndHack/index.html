@@ -4717,8 +4717,8 @@
 <p>This setting controls the <code>Gui_NonRudeHWND_Hack</code> variable in Sandboxie's GUI property handling code<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. When enabled, Sandboxie intercepts calls to <code>SetPropW()</code> and <code>SetPropA()</code> functions and specifically allows the NonRudeHWND property to be set successfully, returning <code>TRUE</code> without actually performing the operation<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</p>
 <p>The hack works by:</p>
 <ol>
-<li>Intercepting <code>SetProp</code> calls with the property name "NonRudeHWND"<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">4</a></sup></li>
-<li>When this specific property is detected, returning success immediately<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">5</a></sup></li>
+<li>Intercepting <code>SetProp</code> calls with the property name "NonRudeHWND"<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></li>
+<li>When this specific property is detected, returning success immediately<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></li>
 <li>Allowing the application to believe the property was set correctly</li>
 <li>This enables proper fullscreen behavior without compromising sandbox security</li>
 </ol>
@@ -4726,7 +4726,7 @@
 <p>By default, this setting is:
 - <strong>Enabled</strong> (<code>y</code>) when <strong>not</strong> running in app compartment mode
 - <strong>Disabled</strong> (<code>n</code>) when running in app compartment mode</p>
-<p>The logic is: <code>!Dll_CompartmentMode</code><sup id="fnref:5"><a class="footnote-ref" href="#fn:5">3</a></sup> - meaning it's enabled unless compartment mode is active.</p>
+<p>The logic is: <code>!Dll_CompartmentMode</code><sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup> - meaning it's enabled unless compartment mode is active.</p>
 <h2 id="important-notes">Important Notes<a class="headerlink" href="#important-notes" title="Permanent link"></a></h2>
 <ul>
 <li>This setting only affects how Sandboxie handles the NonRudeHWND property - it doesn't modify Windows' actual taskbar behavior</li>
@@ -4743,14 +4743,14 @@
 <li id="fn:2">
 <p><strong>Source</strong>: guiprop.c: The <code>Gui_SetPropW()</code> and <code>Gui_SetPropA()</code> functions check for NonRudeHWND property and return <code>TRUE</code> immediately when the hack is enabled.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
-<li id="fn:5">
-<p><strong>Source</strong>: guiprop.c: <code>Gui_NonRudeHWND_Hack = SbieApi_QueryConfBool(NULL, L"UseNonRudeHwndHack", !Dll_CompartmentMode);</code>&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 3 in the text">&#8617;</a></p>
-</li>
 <li id="fn:3">
-<p><strong>Source</strong>: guiprop.c: <code>if (_wcsicmp(lpString, L"NonRudeHWND") == 0)</code> and line 537: <code>if (strcmp(lpString, "NonRudeHWND") == 0)</code>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p><strong>Source</strong>: guiprop.c: <code>if (_wcsicmp(lpString, L"NonRudeHWND") == 0)</code> and line 537: <code>if (strcmp(lpString, "NonRudeHWND") == 0)</code>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
-<p><strong>Source</strong>: guiprop.c: <code>return TRUE;</code> - The function returns success without actually setting the property.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+<p><strong>Source</strong>: guiprop.c: <code>return TRUE;</code> - The function returns success without actually setting the property.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:5">
+<p><strong>Source</strong>: guiprop.c: <code>Gui_NonRudeHWND_Hack = SbieApi_QueryConfBool(NULL, L"UseNonRudeHwndHack", !Dll_CompartmentMode);</code>&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

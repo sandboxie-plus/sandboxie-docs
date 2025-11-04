@@ -4724,13 +4724,13 @@
 <p>When <code>DropChildProcessToken</code> is enabled, Sandboxie modifies its process creation behavior during child process initialization:</p>
 <ol>
 <li>
-<p><strong>Token Nullification</strong>: During <code>CreateProcessInternalW</code>, the system checks if the target application matches any configured <code>DropChildProcessToken</code> entries and sets the process token to <code>NULL</code><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">3</a></sup>.</p>
+<p><strong>Token Nullification</strong>: During <code>CreateProcessInternalW</code>, the system checks if the target application matches any configured <code>DropChildProcessToken</code> entries and sets the process token to <code>NULL</code><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
 </li>
 <li>
-<p><strong>Automatic Application</strong>: The setting automatically applies to specific application types - Adobe Acrobat Reader and plugin containers receive this treatment by default through hardcoded image type detection<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">4</a></sup>.</p>
+<p><strong>Automatic Application</strong>: The setting automatically applies to specific application types - Adobe Acrobat Reader and plugin containers receive this treatment by default through hardcoded image type detection<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</p>
 </li>
 <li>
-<p><strong>Green Box Compatibility</strong>: This mechanism helps applications that struggle with Sandboxie's restricted security tokens to function in compartment mode, where compatibility is prioritized over strict isolation<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">5</a></sup>.</p>
+<p><strong>Green Box Compatibility</strong>: This mechanism helps applications that struggle with Sandboxie's restricted security tokens to function in compartment mode, where compatibility is prioritized over strict isolation<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>.</p>
 </li>
 </ol>
 <h2 id="default-behavior">Default Behavior<a class="headerlink" href="#default-behavior" title="Permanent link"></a></h2>
@@ -4765,9 +4765,9 @@
 <p>The token dropping mechanism:</p>
 <ul>
 <li>Operates during the <code>Proc_CreateProcessInternalW</code> function in the DLL injection layer.</li>
-<li>Uses <code>Config_GetSettingsForImageName_bool</code> to query per-application settings with a default value of <code>FALSE</code><sup id="fnref:4"><a class="footnote-ref" href="#fn:4">1</a></sup>.</li>
+<li>Uses <code>Config_GetSettingsForImageName_bool</code> to query per-application settings with a default value of <code>FALSE</code><sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>.</li>
 <li>Integrates with the image type classification system to automatically handle known problematic application types.</li>
-<li>Sets <code>hToken = NULL</code> to bypass normal token creation and restriction processes<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">2</a></sup>.</li>
+<li>Sets <code>hToken = NULL</code> to bypass normal token creation and restriction processes<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>.</li>
 <li>Affects the <code>CreateProcessInternalW</code> call chain where restricted tokens would normally be applied.</li>
 </ul>
 <h2 id="related-compatibility-settings">Related Compatibility Settings<a class="headerlink" href="#related-compatibility-settings" title="Permanent link"></a></h2>
@@ -4814,20 +4814,20 @@
 <div class="footnote">
 <hr />
 <ol>
-<li id="fn:4">
-<p>Configuration query in <code>proc.c</code>: The system uses <code>Config_GetSettingsForImageName_bool(L"DropChildProcessToken", FALSE)</code> to retrieve per-application settings, with the <code>FALSE</code> default ensuring the feature is only active when explicitly enabled.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-<li id="fn:5">
-<p>Token bypass implementation in <code>proc.c</code>: Setting <code>hToken = NULL</code> in the <code>CreateProcessInternalW</code> function effectively disables the entire restricted token creation pipeline, allowing child processes to inherit their parent's full security context.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 2 in the text">&#8617;</a></p>
-</li>
 <li id="fn:1">
-<p>Token nullification in <code>proc.c</code>: The function <code>Proc_CreateProcessInternalW</code> checks <code>Config_GetSettingsForImageName_bool(L"DropChildProcessToken", FALSE)</code> and sets <code>hToken = NULL</code> when the condition is met, bypassing the normal restricted token creation process.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>Token nullification in <code>proc.c</code>: The function <code>Proc_CreateProcessInternalW</code> checks <code>Config_GetSettingsForImageName_bool(L"DropChildProcessToken", FALSE)</code> and sets <code>hToken = NULL</code> when the condition is met, bypassing the normal restricted token creation process.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>Automatic application in <code>proc.c</code>: The condition <code>Dll_ImageType == DLL_IMAGE_ACROBAT_READER || Dll_ImageType == DLL_IMAGE_PLUGIN_CONTAINER</code> automatically applies token dropping to Adobe Reader and plugin containers regardless of explicit configuration.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p>Automatic application in <code>proc.c</code>: The condition <code>Dll_ImageType == DLL_IMAGE_ACROBAT_READER || Dll_ImageType == DLL_IMAGE_PLUGIN_CONTAINER</code> automatically applies token dropping to Adobe Reader and plugin containers regardless of explicit configuration.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p>Green box compatibility mechanism: This setting addresses the fundamental tension between Sandboxie's security model and application compatibility by allowing selective bypassing of token restrictions while maintaining file system and registry virtualization.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+<p>Green box compatibility mechanism: This setting addresses the fundamental tension between Sandboxie's security model and application compatibility by allowing selective bypassing of token restrictions while maintaining file system and registry virtualization.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p>Configuration query in <code>proc.c</code>: The system uses <code>Config_GetSettingsForImageName_bool(L"DropChildProcessToken", FALSE)</code> to retrieve per-application settings, with the <code>FALSE</code> default ensuring the feature is only active when explicitly enabled.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:5">
+<p>Token bypass implementation in <code>proc.c</code>: Setting <code>hToken = NULL</code> in the <code>CreateProcessInternalW</code> function effectively disables the entire restricted token creation pipeline, allowing child processes to inherit their parent's full security context.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

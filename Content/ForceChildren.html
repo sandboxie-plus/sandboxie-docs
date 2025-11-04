@@ -4730,17 +4730,17 @@
 <p>Matching attempts (in priority order, roughly):</p>
 <ul>
 <li>The parent's image name is compared to <code>ForceChildren</code> entries that are image names or image patterns.<sup id="fnref3:4"><a class="footnote-ref" href="#fn:4">4</a></sup></li>
-<li>The parent's canonicalized image path and/or working directory may be compared against wildcard path patterns from <code>ForceChildren</code> entries (entries containing <code>*</code>).<sup id="fnref2:5"><a class="footnote-ref" href="#fn:5">8</a></sup></li>
+<li>The parent's canonicalized image path and/or working directory may be compared against wildcard path patterns from <code>ForceChildren</code> entries (entries containing <code>*</code>).<sup id="fnref2:5"><a class="footnote-ref" href="#fn:5">5</a></sup></li>
 </ul>
 </li>
 <li>
 <p>Rules that contain wildcards use a pattern engine; rules without wildcards use NLS-aware string comparison and image matching helper routines for correct language-aware checks.<sup id="fnref2:2"><a class="footnote-ref" href="#fn:2">2</a></sup><sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></p>
 </li>
 <li>
-<p>A <code>ForceChildren</code> match for a box is subject to the box being enabled for the current user/session and having force rules enabled. Settings such as <code>DisableForceRules</code> in a box will prevent force rules for that box from being applied.<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">5</a></sup></p>
+<p>A <code>ForceChildren</code> match for a box is subject to the box being enabled for the current user/session and having force rules enabled. Settings such as <code>DisableForceRules</code> in a box will prevent force rules for that box from being applied.<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup></p>
 </li>
 <li>
-<p>Certain system processes and Sandboxie internals are exempt from forcing. The home directory of Sandboxie is never forced.<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">6</a></sup></p>
+<p>Certain system processes and Sandboxie internals are exempt from forcing. The home directory of Sandboxie is never forced.<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup></p>
 </li>
 </ul>
 <h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link"></a></h2>
@@ -4773,7 +4773,7 @@
 <p><code>ForceChildren</code> entries are evaluated along with <code>ForceFolder</code> and <code>ForceProcess</code> entries when the driver determines which box (if any) a newly-started process should use.</p>
 </li>
 <li>
-<p>If alerting is enabled for a matching rule (e.g., when force rules are restricted by policy), the driver may show an alert instead of forcing the process. The driver tracks an "alert" state that can prevent forcing and optionally log or notify the user.<sup id="fnref:8"><a class="footnote-ref" href="#fn:8">7</a></sup></p>
+<p>If alerting is enabled for a matching rule (e.g., when force rules are restricted by policy), the driver may show an alert instead of forcing the process. The driver tracks an "alert" state that can prevent forcing and optionally log or notify the user.<sup id="fnref:8"><a class="footnote-ref" href="#fn:8">8</a></sup></p>
 </li>
 <li>
 <p>The <code>ForceChildren</code> setting complements <code>ForceProcess</code> (which directly forces named processes regardless of parent) and <code>ForceFolder</code> (which forces processes based on folder paths). Use <code>ForceChildren</code> when you want to force processes that are spawned by particular parents.</p>
@@ -4788,7 +4788,7 @@
 <p>When matching by image name the driver uses a helper <code>Process_MatchImage</code> which implements language-aware and image-name-specific matching logic.<sup id="fnref2:4"><a class="footnote-ref" href="#fn:4">4</a></sup></p>
 </li>
 <li>
-<p>The code ensures duplicate backslashes are removed and reparse points are resolved before use; translation to NT-style paths is performed where possible. If translation cannot be performed, the original path is used for matching.<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup><sup id="fnref:5"><a class="footnote-ref" href="#fn:5">8</a></sup></p>
+<p>The code ensures duplicate backslashes are removed and reparse points are resolved before use; translation to NT-style paths is performed where possible. If translation cannot be performed, the original path is used for matching.<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup><sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup></p>
 </li>
 </ul>
 <h2 id="see-also">See also<a class="headerlink" href="#see-also" title="Permanent link"></a></h2>
@@ -4832,17 +4832,17 @@
 <li id="fn:4">
 <p>Image-name matching delegates to <code>Process_MatchImage</code> (used by the driver when entries don't contain backslashes).&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:4" title="Jump back to footnote 4 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
+<li id="fn:5">
+<p>The driver translates DOS-style paths to NT-style paths using <code>Process_TranslateDosToNt</code> which wraps <code>File_TranslateDosToNt</code> and falls back to copying the original if translation fails with a syntax error.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
 <li id="fn:6">
-<p>Only boxes that are enabled for the current SID/session and that don't have <code>DisableForceRules</code> set are considered when building the force-data lists.&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+<p>Only boxes that are enabled for the current SID/session and that don't have <code>DisableForceRules</code> set are considered when building the force-data lists.&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
 </li>
 <li id="fn:7">
-<p>Paths under the Sandboxie home directory are excluded from forcing; the code explicitly checks and skips matches under <code>Driver_HomePathNt</code>.&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+<p>Paths under the Sandboxie home directory are excluded from forcing; the code explicitly checks and skips matches under <code>Driver_HomePathNt</code>.&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
 </li>
 <li id="fn:8">
-<p>When alerting rules match, the driver may set an alert state (<code>IsAlert</code>) and defer forcing. Alerts may produce logged messages and, depending on settings, can prevent the process from starting under a box.&#160;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 7 in the text">&#8617;</a></p>
-</li>
-<li id="fn:5">
-<p>The driver translates DOS-style paths to NT-style paths using <code>Process_TranslateDosToNt</code> which wraps <code>File_TranslateDosToNt</code> and falls back to copying the original if translation fails with a syntax error.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 8 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:5" title="Jump back to footnote 8 in the text">&#8617;</a></p>
+<p>When alerting rules match, the driver may set an alert state (<code>IsAlert</code>) and defer forcing. Alerts may produce logged messages and, depending on settings, can prevent the process from starting under a box.&#160;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 8 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

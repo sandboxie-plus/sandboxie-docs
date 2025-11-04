@@ -4720,10 +4720,10 @@
 <h2 id="behavior">Behavior<a class="headerlink" href="#behavior" title="Permanent link"></a></h2>
 <ul>
 <li>
-<p>When the driver enumerates configuration sections to build the in-memory force rules it calls <code>Conf_IsBoxEnabled</code> and then checks <code>DisableForceRules</code>. If <code>DisableForceRules</code> is set for a box, that box is skipped for force-rule processing and none of its <code>ForceFolder</code>, <code>ForceProcess</code> or <code>ForceChildren</code> entries will be used.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">3</a></sup></p>
+<p>When the driver enumerates configuration sections to build the in-memory force rules it calls <code>Conf_IsBoxEnabled</code> and then checks <code>DisableForceRules</code>. If <code>DisableForceRules</code> is set for a box, that box is skipped for force-rule processing and none of its <code>ForceFolder</code>, <code>ForceProcess</code> or <code>ForceChildren</code> entries will be used.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
 </li>
 <li>
-<p>Other settings that affect whether a box is considered at all include box enablement for the current SID/session — a box not enabled for the current user/session is not considered during force list creation.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">4</a></sup></p>
+<p>Other settings that affect whether a box is considered at all include box enablement for the current SID/session — a box not enabled for the current user/session is not considered during force list creation.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
 </li>
 <li>
 <p><code>DisableForceRules</code> does not remove the box or alter other non-force behavior; it only prevents the driver from adding that box's force entries to the runtime force lists.</p>
@@ -4752,11 +4752,11 @@
 </ul>
 </li>
 </ul>
-<p>These UI controls map directly to the <code>DisableForceRules</code> box setting and update it immediately for the selected box.<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">1</a></sup><sup id="fnref:5"><a class="footnote-ref" href="#fn:5">2</a></sup></p>
+<p>These UI controls map directly to the <code>DisableForceRules</code> box setting and update it immediately for the selected box.<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup><sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup></p>
 <h2 id="implementation-notes-driver-behavior">Implementation notes (driver behavior)<a class="headerlink" href="#implementation-notes-driver-behavior" title="Permanent link"></a></h2>
 <ul>
 <li>
-<p>The driver calls <code>Process_CreateForceData</code> to build an in-memory list of <code>FORCE_BOX</code> entries for each enabled box. During creation it iterates config sections and skips any box where <code>Conf_Get_Boolean(section, L"DisableForceRules", 0, FALSE)</code> returns true.<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">3</a></sup></p>
+<p>The driver calls <code>Process_CreateForceData</code> to build an in-memory list of <code>FORCE_BOX</code> entries for each enabled box. During creation it iterates config sections and skips any box where <code>Conf_Get_Boolean(section, L"DisableForceRules", 0, FALSE)</code> returns true.<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
 </li>
 <li>
 <p>Skipping a box in <code>Process_CreateForceData</code> means none of its <code>ForceFolder</code>, <code>ForceProcess</code> or <code>ForceChildren</code> lists are added to the runtime <code>boxes</code> list used by <code>Process_GetForcedStartBox</code> and related checks.</p>
@@ -4772,20 +4772,20 @@
 <div class="footnote">
 <hr />
 <ol>
-<li id="fn:4">
-<p>The presets menu toggle is implemented in SandMan's <code>SbieView.cpp</code> (<code>m_pMenuPresetsForce</code>) and calls <code>SetBoolSafe("DisableForceRules", ...)</code> to change the setting.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-<li id="fn:5">
-<p>The box options dialog reads/writes the checkbox <code>ui.chkDisableForced</code> in <code>OptionsForce.cpp</code> and persists the <code>DisableForceRules</code> setting when the options are saved.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 2 in the text">&#8617;</a></p>
-</li>
 <li id="fn:1">
-<p>See how <code>Process_CreateForceData</code> loops all config sections and <code>if (Conf_Get_Boolean(section, L"DisableForceRules", 0, FALSE)) continue;</code> to skip boxes with the setting enabled.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>See how <code>Process_CreateForceData</code> loops all config sections and <code>if (Conf_Get_Boolean(section, L"DisableForceRules", 0, FALSE)) continue;</code> to skip boxes with the setting enabled.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>Conf_IsBoxEnabled is used to decide whether a box is active for the current SID/session before any force lists are built for it.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p>Conf_IsBoxEnabled is used to decide whether a box is active for the current SID/session before any force lists are built for it.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p>The driver checks global/session-level flags such as <code>AllowForceSystem</code> and session-based force-disabled flags when deciding whether processes can be forced; <code>DisableForceRules</code> only affects per-box inclusion in force lists.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+<p>The driver checks global/session-level flags such as <code>AllowForceSystem</code> and session-based force-disabled flags when deciding whether processes can be forced; <code>DisableForceRules</code> only affects per-box inclusion in force lists.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p>The presets menu toggle is implemented in SandMan's <code>SbieView.cpp</code> (<code>m_pMenuPresetsForce</code>) and calls <code>SetBoolSafe("DisableForceRules", ...)</code> to change the setting.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:5">
+<p>The box options dialog reads/writes the checkbox <code>ui.chkDisableForced</code> in <code>OptionsForce.cpp</code> and persists the <code>DisableForceRules</code> setting when the options are saved.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

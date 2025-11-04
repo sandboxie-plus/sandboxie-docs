@@ -4714,8 +4714,8 @@
 <p>When <code>LockBoxToUser=y</code> is specified, Sandboxie creates sandbox folders with more restrictive ACLs that only allow access to:</p>
 <ul>
 <li>The user who created the sandbox.</li>
-<li>The SYSTEM account<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">3</a></sup> .</li>
-<li>Administrators group<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">4</a></sup>.</li>
+<li>The SYSTEM account<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> .</li>
+<li>Administrators group<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>.</li>
 </ul>
 <p>This setting enhances security and privacy in multi-user environments by preventing unauthorized access to sandbox contents.</p>
 <h2 id="security-considerations">Security Considerations<a class="headerlink" href="#security-considerations" title="Permanent link"></a></h2>
@@ -4725,7 +4725,7 @@
 <p>For this setting to be effective, ensure that your sandbox root folder path contains the <code>%USER%</code> macro so that each user gets a dedicated sandbox folder. The default path <code>\??\\%SystemDrive%\\Sandbox\\%USER%\\%SANDBOX%</code> includes this macro and is recommended for multi-user systems.</p>
 </div>
 <h2 id="implementation-details">Implementation Details<a class="headerlink" href="#implementation-details" title="Permanent link"></a></h2>
-<p>When <code>LockBoxToUser=y</code> is enabled, Sandboxie modifies the security descriptor creation process<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">2</a></sup> to use a more restrictive set of SIDs:</p>
+<p>When <code>LockBoxToUser=y</code> is enabled, Sandboxie modifies the security descriptor creation process<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup> to use a more restrictive set of SIDs:</p>
 <ul>
 <li><strong>System Logon SID</strong> (<code>S-1-5-18</code>): Allows SYSTEM account access.</li>
 <li><strong>Administrators SID</strong> (<code>S-1-5-32-544</code>): Allows local administrators access.</li>
@@ -4742,14 +4742,14 @@
 <li id="fn:1">
 <p>Access Control Lists (ACLs) are Windows security structures that define which users and groups can access specific resources and what permissions they have. They are part of the Windows security model that controls access to files, folders, registry keys, and other objects.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
-<li id="fn:4">
-<p>The security descriptor creation is handled in the <code>Secure_InitSecurityDescriptors()</code> function in <code>secure.c</code>, which queries the <code>LockBoxToUser</code> configuration setting and creates different ACL structures based on its value. When enabled, it creates a 512-byte ACL with restricted SIDs instead of the default 256-byte ACL with broader access permissions.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 2 in the text">&#8617;</a></p>
-</li>
 <li id="fn:2">
-<p>The SYSTEM account (SID <code>S-1-5-18</code>) is a built-in Windows account with the highest privileges on the local computer. Sandboxie runs core components under this account and needs access to sandbox folders for proper operation.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>The SYSTEM account (SID <code>S-1-5-18</code>) is a built-in Windows account with the highest privileges on the local computer. Sandboxie runs core components under this account and needs access to sandbox folders for proper operation.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p>The Administrators group (SID <code>S-1-5-32-544</code>) contains user accounts that have administrative privileges on the computer. Members of this group can access sandbox folders for system maintenance and troubleshooting purposes.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p>The Administrators group (SID <code>S-1-5-32-544</code>) contains user accounts that have administrative privileges on the computer. Members of this group can access sandbox folders for system maintenance and troubleshooting purposes.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p>The security descriptor creation is handled in the <code>Secure_InitSecurityDescriptors()</code> function in <code>secure.c</code>, which queries the <code>LockBoxToUser</code> configuration setting and creates different ACL structures based on its value. When enabled, it creates a 512-byte ACL with restricted SIDs instead of the default 256-byte ACL with broader access permissions.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

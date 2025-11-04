@@ -4707,7 +4707,7 @@
 <p><em>EnableEFS</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a> available since v1.15.0 / 5.70.0. It allows sandboxed processes to access files protected by the Windows Encrypting File System (EFS).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This setting requires an active advanced <a href="https://sandboxie-plus.com/supporter-certificate/">supporter certificate</a><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">2</a></sup>.</p>
+<p>This setting requires an active advanced <a href="https://sandboxie-plus.com/supporter-certificate/">supporter certificate</a><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
 </div>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
@@ -4730,19 +4730,19 @@
 <h2 id="how-it-works">How It Works<a class="headerlink" href="#how-it-works" title="Permanent link"></a></h2>
 <p>When <code>EnableEFS</code> is enabled:</p>
 <ol>
-<li><strong>EFS Detection</strong>: Sandboxie detects when a sandboxed process attempts to access an EFS-encrypted file or folder<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">3</a></sup></li>
-<li><strong>Certificate Verification</strong>: The system verifies that a valid advanced supporter certificate with encryption features is present<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">4</a></sup></li>
-<li><strong>Proxy Access</strong>: Instead of blocking the access, Sandboxie uses a proxy mechanism to handle the file operation outside the sandbox<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">5</a></sup></li>
-<li><strong>Handle Duplication</strong>: The file handle is created in the UserServer service and then duplicated back into the sandboxed process<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">6</a></sup></li>
+<li><strong>EFS Detection</strong>: Sandboxie detects when a sandboxed process attempts to access an EFS-encrypted file or folder<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></li>
+<li><strong>Certificate Verification</strong>: The system verifies that a valid advanced supporter certificate with encryption features is present<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></li>
+<li><strong>Proxy Access</strong>: Instead of blocking the access, Sandboxie uses a proxy mechanism to handle the file operation outside the sandbox<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></li>
+<li><strong>Handle Duplication</strong>: The file handle is created in the UserServer service and then duplicated back into the sandboxed process<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup></li>
 </ol>
 <h2 id="security-considerations">Security Considerations<a class="headerlink" href="#security-considerations" title="Permanent link"></a></h2>
 <ul>
 <li><strong>Reduced Isolation</strong>: Enabling EFS access reduces the security isolation of the sandbox, as it allows direct access to encrypted files that would normally be blocked</li>
-<li><strong>Path Validation</strong>: The proxy service validates that the requested file path matches configured access rules before allowing the operation<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">7</a></sup></li>
-<li><strong>Write Access Control</strong>: Write operations to EFS files are subject to additional validation based on the sandbox's file access configuration<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">8</a></sup></li>
+<li><strong>Path Validation</strong>: The proxy service validates that the requested file path matches configured access rules before allowing the operation<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup></li>
+<li><strong>Write Access Control</strong>: Write operations to EFS files are subject to additional validation based on the sandbox's file access configuration<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup></li>
 </ul>
 <h2 id="certificate-requirements">Certificate Requirements<a class="headerlink" href="#certificate-requirements" title="Permanent link"></a></h2>
-<p>This feature requires an advanced supporter certificate that includes the encryption feature flag (<code>opt_enc</code>)<sup id="fnref:8"><a class="footnote-ref" href="#fn:8">1</a></sup>. Without this certificate, attempts to use EFS will result in error message <code>SBIE6004</code>.</p>
+<p>This feature requires an advanced supporter certificate that includes the encryption feature flag (<code>opt_enc</code>)<sup id="fnref:8"><a class="footnote-ref" href="#fn:8">8</a></sup>. Without this certificate, attempts to use EFS will result in error message <code>SBIE6004</code>.</p>
 <h2 id="related-messages">Related Messages<a class="headerlink" href="#related-messages" title="Permanent link"></a></h2>
 <ul>
 <li><a href="SBIE2225.html">SBIE2225</a> - "An attempt was made to access an EFS file" - Warning logged when EFS access fails<sup id="fnref:9"><a class="footnote-ref" href="#fn:9">9</a></sup></li>
@@ -4756,29 +4756,29 @@
 <div class="footnote">
 <hr />
 <ol>
-<li id="fn:8">
-<p>The encryption feature flag <code>opt_enc</code> is defined in the certificate verification structure as part of Box Encryption and Box Protection features&#160;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
 <li id="fn:1">
-<p>Certificate verification is performed in <code>UserServer::OpenFile()</code> method checking for <code>CertInfo.active &amp;&amp; CertInfo.opt_enc</code>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>Certificate verification is performed in <code>UserServer::OpenFile()</code> method checking for <code>CertInfo.active &amp;&amp; CertInfo.opt_enc</code>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>EFS file detection occurs in <code>File_NtCreateFile12()</code> by checking if <code>(FileType &amp; TYPE_EFS) != 0</code> where <code>TYPE_EFS</code> is defined as <code>FILE_ATTRIBUTE_ENCRYPTED</code>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>EFS file detection occurs in <code>File_NtCreateFile12()</code> by checking if <code>(FileType &amp; TYPE_EFS) != 0</code> where <code>TYPE_EFS</code> is defined as <code>FILE_ATTRIBUTE_ENCRYPTED</code>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p>The certificate check validates both that a certificate is active and has the encryption option flag set: <code>!(CertInfo.active &amp;&amp; CertInfo.opt_enc)</code>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p>The certificate check validates both that a certificate is active and has the encryption option flag set: <code>!(CertInfo.active &amp;&amp; CertInfo.opt_enc)</code>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
-<p>EFS proxy mechanism is implemented through <code>File_NtCreateFileProxy()</code> which sends requests to the UserServer service via <code>SbieDll_CallProxySvr()</code>&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+<p>EFS proxy mechanism is implemented through <code>File_NtCreateFileProxy()</code> which sends requests to the UserServer service via <code>SbieDll_CallProxySvr()</code>&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 <li id="fn:5">
-<p>Handle duplication is performed in the UserServer using <code>DuplicateHandle()</code> to transfer the file handle from the service process to the sandboxed process&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+<p>Handle duplication is performed in the UserServer using <code>DuplicateHandle()</code> to transfer the file handle from the service process to the sandboxed process&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 <li id="fn:6">
-<p>Path validation in UserServer checks that the path starts with <code>\Device\HarddiskVolume</code> and validates against file access rules using <code>SbieDll_MatchPathImpl()</code>&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+<p>Path validation in UserServer checks that the path starts with <code>\Device\HarddiskVolume</code> and validates against file access rules using <code>SbieDll_MatchPathImpl()</code>&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
 </li>
 <li id="fn:7">
-<p>Write access validation checks for write-related access flags, creation dispositions other than <code>FILE_OPEN</code>, and the <code>FILE_DELETE_ON_CLOSE</code> option&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 8 in the text">&#8617;</a></p>
+<p>Write access validation checks for write-related access flags, creation dispositions other than <code>FILE_OPEN</code>, and the <code>FILE_DELETE_ON_CLOSE</code> option&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+</li>
+<li id="fn:8">
+<p>The encryption feature flag <code>opt_enc</code> is defined in the certificate verification structure as part of Box Encryption and Box Protection features&#160;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 8 in the text">&#8617;</a></p>
 </li>
 <li id="fn:9">
 <p>Error logging occurs when <code>File_NtCreateFileProxy()</code> fails with <code>SbieApi_Log(2225, TruePath)</code>&#160;<a class="footnote-backref" href="#fnref:9" title="Jump back to footnote 9 in the text">&#8617;</a></p>

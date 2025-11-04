@@ -4717,20 +4717,20 @@
 <p>When <code>CustomChromiumFlags</code> is configured, Sandboxie modifies the command line of applications identified as Chromium-based browsers during process initialization:</p>
 <ol>
 <li>
-<p><strong>Browser Detection</strong>: The setting applies only to applications classified as Chrome through the <a href="SpecialImage.html"><code>SpecialImage</code></a> configuration or automatic detection<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">4</a></sup>.</p>
+<p><strong>Browser Detection</strong>: The setting applies only to applications classified as Chrome through the <a href="SpecialImage.html"><code>SpecialImage</code></a> configuration or automatic detection<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
 </li>
 <li>
-<p><strong>Command Line Injection</strong>: During kernel initialization, Sandboxie intercepts the process parameters and reconstructs the command line by inserting the custom flags<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">5</a></sup> between the executable path and existing arguments<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">6</a></sup>.</p>
+<p><strong>Command Line Injection</strong>: During kernel initialization, Sandboxie intercepts the process parameters and reconstructs the command line by inserting the custom flags<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup> between the executable path and existing arguments<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</p>
 </li>
 <li>
-<p><strong>Child Process Filtering</strong>: The flags are only added to main browser processes, not to child processes that contain the <code>--type=</code> parameter, preventing duplication and potential conflicts<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">7</a></sup>.</p>
+<p><strong>Child Process Filtering</strong>: The flags are only added to main browser processes, not to child processes that contain the <code>--type=</code> parameter, preventing duplication and potential conflicts<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>.</p>
 </li>
 </ol>
 <h2 id="default-configuration">Default Configuration<a class="headerlink" href="#default-configuration" title="Permanent link"></a></h2>
 <p>Sandboxie includes a default value to ensure browser compatibility:</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">CustomChromiumFlags</span><span class="o">=</span><span class="s">--disable-features=PrintCompositorLPAC</span>
 </span></code></pre></div>
-<p>This default flag disables the Print Compositor LPAC (Low Privilege App Container) feature which can cause compatibility issues in sandboxed environments<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">1</a></sup>.</p>
+<p>This default flag disables the Print Compositor LPAC (Low Privilege App Container) feature which can cause compatibility issues in sandboxed environments<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>.</p>
 <h2 id="usage-examples">Usage Examples<a class="headerlink" href="#usage-examples" title="Permanent link"></a></h2>
 <ul>
 <li>
@@ -4758,9 +4758,9 @@
 <h2 id="implementation-notes">Implementation Notes<a class="headerlink" href="#implementation-notes" title="Permanent link"></a></h2>
 <p>The setting is processed during DLL initialization when Sandboxie detects a Chromium-based browser. The system:</p>
 <ul>
-<li>Queries the configuration using <code>SbieApi_QueryConfAsIs</code> with the key <code>CustomChromiumFlags</code><sup id="fnref:5"><a class="footnote-ref" href="#fn:5">2</a></sup></li>
+<li>Queries the configuration using <code>SbieApi_QueryConfAsIs</code> with the key <code>CustomChromiumFlags</code><sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup></li>
 <li>Allocates additional memory for the expanded command line to accommodate the custom flags</li>
-<li>Reconstructs the command line by copying the executable path, inserting the custom flags, and appending remaining arguments<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">3</a></sup></li>
+<li>Reconstructs the command line by copying the executable path, inserting the custom flags, and appending remaining arguments<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup></li>
 <li>Hooks the <code>GetCommandLineW</code> and <code>GetCommandLineA</code> functions to return the modified command line to the application</li>
 </ul>
 <h2 id="browser-support">Browser Support<a class="headerlink" href="#browser-support" title="Permanent link"></a></h2>
@@ -4779,26 +4779,26 @@
 <div class="footnote">
 <hr />
 <ol>
-<li id="fn:4">
-<p>Default configuration in <code>Templates.ini</code>: The default <code>--disable-features=PrintCompositorLPAC</code> flag prevents Low Privilege App Container printing issues that can cause browser instability in sandboxed environments.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-<li id="fn:5">
-<p>Configuration query in <code>kernel.c</code>: <code>SbieApi_QueryConfAsIs(NULL, L"CustomChromiumFlags", 0, CustomChromiumFlags, ARRAYSIZE(CustomChromiumFlags))</code> retrieves the setting value during kernel initialization.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 2 in the text">&#8617;</a></p>
-</li>
-<li id="fn:6">
-<p>Command line modification in <code>kernel.c</code>: The system copies the original executable path, appends the custom flags with proper spacing, and concatenates the remaining arguments to create the modified command line.&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 3 in the text">&#8617;</a></p>
-</li>
 <li id="fn:1">
-<p>Browser detection in <code>dllmain.c</code>: Applications are classified as <code>DLL_IMAGE_GOOGLE_CHROME</code> through the <code>SpecialImage</code> configuration system, which maps browser executables to the Chrome image type for specialized handling.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 4 in the text">&#8617;</a></p>
-</li>
-<li id="fn:7">
-<p>List of Chromium Command Line Switches - <code>https://peter.sh/experiments/chromium-command-line-switches/</code>&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+<p>Browser detection in <code>dllmain.c</code>: Applications are classified as <code>DLL_IMAGE_GOOGLE_CHROME</code> through the <code>SpecialImage</code> configuration system, which maps browser executables to the Chrome image type for specialized handling.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>Command line reconstruction in <code>kernel.c</code>: The system calls <code>SbieDll_FindArgumentEnd</code> to locate the boundary between the executable path and arguments, then allocates expanded memory and reconstructs the command line with injected flags.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+<p>Command line reconstruction in <code>kernel.c</code>: The system calls <code>SbieDll_FindArgumentEnd</code> to locate the boundary between the executable path and arguments, then allocates expanded memory and reconstructs the command line with injected flags.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p>Child process filtering in <code>kernel.c</code>: The condition <code>!wcsstr(ProcessParms-&gt;CommandLine.Buffer, L" --type=")</code> ensures that only main browser processes receive the custom flags, excluding renderer and utility processes.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+<p>Child process filtering in <code>kernel.c</code>: The condition <code>!wcsstr(ProcessParms-&gt;CommandLine.Buffer, L" --type=")</code> ensures that only main browser processes receive the custom flags, excluding renderer and utility processes.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p>Default configuration in <code>Templates.ini</code>: The default <code>--disable-features=PrintCompositorLPAC</code> flag prevents Low Privilege App Container printing issues that can cause browser instability in sandboxed environments.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:5">
+<p>Configuration query in <code>kernel.c</code>: <code>SbieApi_QueryConfAsIs(NULL, L"CustomChromiumFlags", 0, CustomChromiumFlags, ARRAYSIZE(CustomChromiumFlags))</code> retrieves the setting value during kernel initialization.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:6">
+<p>Command line modification in <code>kernel.c</code>: The system copies the original executable path, appends the custom flags with proper spacing, and concatenates the remaining arguments to create the modified command line.&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
+<li id="fn:7">
+<p>List of Chromium Command Line Switches - <code>https://peter.sh/experiments/chromium-command-line-switches/</code>&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

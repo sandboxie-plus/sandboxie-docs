@@ -4724,13 +4724,13 @@
 <p>When <code>SpecialImage</code> is configured, Sandboxie performs application classification during DLL initialization:</p>
 <ol>
 <li>
-<p><strong>Image Type Detection</strong>: During process startup, the system queries all <code>SpecialImage</code> configurations and matches the current executable against defined mappings<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">2</a></sup>.</p>
+<p><strong>Image Type Detection</strong>: During process startup, the system queries all <code>SpecialImage</code> configurations and matches the current executable against defined mappings<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
 </li>
 <li>
-<p><strong>Internal Classification</strong>: Matched applications are assigned internal image types (such as <code>DLL_IMAGE_GOOGLE_CHROME</code> or <code>DLL_IMAGE_MOZILLA_FIREFOX</code>) that determine specialized behavior<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">3</a></sup>.</p>
+<p><strong>Internal Classification</strong>: Matched applications are assigned internal image types (such as <code>DLL_IMAGE_GOOGLE_CHROME</code> or <code>DLL_IMAGE_MOZILLA_FIREFOX</code>) that determine specialized behavior<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</p>
 </li>
 <li>
-<p><strong>Behavior Customization</strong>: The assigned image type influences various aspects including GUI handling, process restrictions, file access patterns, and security token management<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">4</a></sup>.</p>
+<p><strong>Behavior Customization</strong>: The assigned image type influences various aspects including GUI handling, process restrictions, file access patterns, and security token management<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>.</p>
 </li>
 </ol>
 <h2 id="supported-categories">Supported Categories<a class="headerlink" href="#supported-categories" title="Permanent link"></a></h2>
@@ -4769,16 +4769,16 @@
 <h2 id="category-specific-behaviors">Category-Specific Behaviors<a class="headerlink" href="#category-specific-behaviors" title="Permanent link"></a></h2>
 <ul>
 <li>
-<p><strong>Chrome Applications</strong>: Receive specialized sandbox handling, custom command line flags via <a href="../CustomChromiumFlags/">CustomChromiumFlags</a>, restricted token management for child processes, and optimized GUI window station handling<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">5</a></sup>.</p>
+<p><strong>Chrome Applications</strong>: Receive specialized sandbox handling, custom command line flags via <a href="../CustomChromiumFlags/">CustomChromiumFlags</a>, restricted token management for child processes, and optimized GUI window station handling<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>.</p>
 </li>
 <li>
-<p><strong>Firefox Applications</strong>: Get tailored file access permissions, specialized D3D11 handling on specific Windows versions, sandbox process token modifications, and customized GUI enumeration behavior<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">6</a></sup>.</p>
+<p><strong>Firefox Applications</strong>: Get tailored file access permissions, specialized D3D11 handling on specific Windows versions, sandbox process token modifications, and customized GUI enumeration behavior<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>.</p>
 </li>
 <li>
 <p><strong>Email Clients</strong>: Receive appropriate file system access permissions and specialized handling for mail database operations.</p>
 </li>
 <li>
-<p><strong>Plugin Containers</strong>: Have their process tokens dropped to prevent privilege escalation and receive specialized restricted token handling<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">7</a></sup>.</p>
+<p><strong>Plugin Containers</strong>: Have their process tokens dropped to prevent privilege escalation and receive specialized restricted token handling<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup>.</p>
 </li>
 </ul>
 <p><strong>Security Implications</strong></p>
@@ -4791,7 +4791,7 @@
 <h2 id="implementation-notes">Implementation Notes<a class="headerlink" href="#implementation-notes" title="Permanent link"></a></h2>
 <p>The image type classification system:</p>
 <ul>
-<li>Queries configuration during DLL initialization using <code>SbieApi_QueryConfAsIs</code> with indexed access to handle multiple mappings<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">1</a></sup></li>
+<li>Queries configuration during DLL initialization using <code>SbieApi_QueryConfAsIs</code> with indexed access to handle multiple mappings<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup></li>
 <li>Performs case-insensitive string matching between the current executable name and configured mappings</li>
 <li>Falls back to automatic detection for well-known applications if no explicit mapping exists</li>
 <li>Stores the determined image type globally for use throughout the sandboxing process</li>
@@ -4826,26 +4826,26 @@
 <div class="footnote">
 <hr />
 <ol>
-<li id="fn:7">
-<p>Configuration query mechanism in <code>dllmain.c</code>: The system uses <code>SbieApi_QueryConfAsIs(NULL, L"SpecialImage", index, buf, 90 * sizeof(WCHAR))</code> with incrementing index values to retrieve all SpecialImage entries, parsing each comma-separated value pair until no more entries exist.&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
 <li id="fn:1">
-<p>Image type detection in <code>dllmain.c</code>: The function <code>Dll_GetImageType</code> iterates through all <code>SpecialImage</code> configurations using indexed queries, parsing the comma-separated category and executable pairs to find matches against the current process executable name.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>Image type detection in <code>dllmain.c</code>: The function <code>Dll_GetImageType</code> iterates through all <code>SpecialImage</code> configurations using indexed queries, parsing the comma-separated category and executable pairs to find matches against the current process executable name.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>Internal classification mapping in <code>dllmain.c</code>: String comparisons map category names to internal constants: "chrome" maps to <code>DLL_IMAGE_GOOGLE_CHROME</code>, "firefox" to <code>DLL_IMAGE_MOZILLA_FIREFOX</code>, "thunderbird" to <code>DLL_IMAGE_MOZILLA_THUNDERBIRD</code>, "browser" to <code>DLL_IMAGE_OTHER_WEB_BROWSER</code>, "mail" to <code>DLL_IMAGE_OTHER_MAIL_CLIENT</code>, and "plugin" to <code>DLL_IMAGE_PLUGIN_CONTAINER</code>.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>Internal classification mapping in <code>dllmain.c</code>: String comparisons map category names to internal constants: "chrome" maps to <code>DLL_IMAGE_GOOGLE_CHROME</code>, "firefox" to <code>DLL_IMAGE_MOZILLA_FIREFOX</code>, "thunderbird" to <code>DLL_IMAGE_MOZILLA_THUNDERBIRD</code>, "browser" to <code>DLL_IMAGE_OTHER_WEB_BROWSER</code>, "mail" to <code>DLL_IMAGE_OTHER_MAIL_CLIENT</code>, and "plugin" to <code>DLL_IMAGE_PLUGIN_CONTAINER</code>.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p>Behavior customization throughout codebase: The assigned image type influences multiple subsystems including GUI window enumeration in <code>guienum.c</code>, process creation and token handling in <code>proc.c</code>, file access permissions in <code>file.c</code>, and specialized browser handling in <code>kernel.c</code>.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p>Behavior customization throughout codebase: The assigned image type influences multiple subsystems including GUI window enumeration in <code>guienum.c</code>, process creation and token handling in <code>proc.c</code>, file access permissions in <code>file.c</code>, and specialized browser handling in <code>kernel.c</code>.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
-<p>Chrome-specific handling in <code>kernel.c</code>: Applications classified as <code>DLL_IMAGE_GOOGLE_CHROME</code> receive automatic injection of custom command line flags through the <code>CustomChromiumFlags</code> mechanism, with special handling to avoid flag duplication in child processes containing the "--type=" parameter.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+<p>Chrome-specific handling in <code>kernel.c</code>: Applications classified as <code>DLL_IMAGE_GOOGLE_CHROME</code> receive automatic injection of custom command line flags through the <code>CustomChromiumFlags</code> mechanism, with special handling to avoid flag duplication in child processes containing the "--type=" parameter.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 <li id="fn:5">
-<p>Firefox-specific optimizations in <code>guienum.c</code> and <code>proc.c</code>: Firefox applications receive specialized D3D11 graphics handling on Windows 10+, custom sandbox process token management for contentproc children, and tailored GUI window station behavior for better compatibility.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+<p>Firefox-specific optimizations in <code>guienum.c</code> and <code>proc.c</code>: Firefox applications receive specialized D3D11 graphics handling on Windows 10+, custom sandbox process token management for contentproc children, and tailored GUI window station behavior for better compatibility.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 <li id="fn:6">
-<p>Plugin container restrictions in <code>proc.c</code>: Applications classified as <code>DLL_IMAGE_PLUGIN_CONTAINER</code> automatically have their security tokens dropped entirely during process creation to prevent privilege escalation, along with Adobe Reader and other sandboxed plugin systems.&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+<p>Plugin container restrictions in <code>proc.c</code>: Applications classified as <code>DLL_IMAGE_PLUGIN_CONTAINER</code> automatically have their security tokens dropped entirely during process creation to prevent privilege escalation, along with Adobe Reader and other sandboxed plugin systems.&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
+<li id="fn:7">
+<p>Configuration query mechanism in <code>dllmain.c</code>: The system uses <code>SbieApi_QueryConfAsIs(NULL, L"SpecialImage", index, buf, 90 * sizeof(WCHAR))</code> with incrementing index values to retrieve all SpecialImage entries, parsing each comma-separated value pair until no more entries exist.&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

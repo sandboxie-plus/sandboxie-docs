@@ -4715,9 +4715,9 @@
 <h2 id="behavior">Behavior<a class="headerlink" href="#behavior" title="Permanent link"></a></h2>
 <p>The <code>LogMessageEvents</code> setting affects how Sandboxie handles message logging at the driver level<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>. When a message is generated:</p>
 <ol>
-<li>The message is first processed through the normal Sandboxie message system<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">7</a></sup>.</li>
-<li>If <code>LogMessageEvents</code> is enabled, the message is additionally sent to the Windows Event Log as an informational event<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">8</a></sup>.</li>
-<li>The event includes the formatted message text and is tagged with the appropriate SBIE message code<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">9</a></sup>.</li>
+<li>The message is first processed through the normal Sandboxie message system<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>.</li>
+<li>If <code>LogMessageEvents</code> is enabled, the message is additionally sent to the Windows Event Log as an informational event<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>.</li>
+<li>The event includes the formatted message text and is tagged with the appropriate SBIE message code<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>.</li>
 </ol>
 <h2 id="usage-scenarios">Usage Scenarios<a class="headerlink" href="#usage-scenarios" title="Permanent link"></a></h2>
 <p>This setting is particularly useful for:</p>
@@ -4728,7 +4728,7 @@
 <li><strong>Automation</strong>: Allowing monitoring tools to watch for specific Sandboxie events through standard Windows Event Log APIs.</li>
 </ul>
 <h2 id="message-filtering">Message Filtering<a class="headerlink" href="#message-filtering" title="Permanent link"></a></h2>
-<p>Not all Sandboxie messages are logged to the event log when this setting is enabled. The following message types are specifically excluded from event logging<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">3</a></sup>:</p>
+<p>Not all Sandboxie messages are logged to the event log when this setting is enabled. The following message types are specifically excluded from event logging<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup>:</p>
 <ul>
 <li><strong>MSG_2199</strong>: Auto Recovery notifications.</li>
 <li><strong>MSG_2198</strong>: File Migration progress notifications.</li>
@@ -4738,11 +4738,11 @@
 <h2 id="performance-considerations">Performance Considerations<a class="headerlink" href="#performance-considerations" title="Permanent link"></a></h2>
 <p>Enabling <code>LogMessageEvents</code> has minimal performance impact under normal circumstances. However, in environments with high sandbox activity, the additional event log writes may contribute to system overhead. The setting should be used judiciously in production environments where maximum performance is critical.</p>
 <h2 id="implementation-notes">Implementation Notes<a class="headerlink" href="#implementation-notes" title="Permanent link"></a></h2>
-<p>The <code>LogMessageEvents</code> functionality is implemented at both the kernel driver level and the service level<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">4</a></sup>:</p>
+<p>The <code>LogMessageEvents</code> functionality is implemented at both the kernel driver level and the service level<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup>:</p>
 <ul>
-<li>The driver component (SbieDrv) checks the setting during configuration loading<sup id="fnref:8"><a class="footnote-ref" href="#fn:8">10</a></sup></li>
-<li>Messages are processed through the service component which formats and writes them to the event log<sup id="fnref:9"><a class="footnote-ref" href="#fn:9">11</a></sup></li>
-<li>The setting is cached for performance and re-read when the configuration is reloaded<sup id="fnref:10"><a class="footnote-ref" href="#fn:10">12</a></sup></li>
+<li>The driver component (SbieDrv) checks the setting during configuration loading<sup id="fnref:8"><a class="footnote-ref" href="#fn:8">8</a></sup></li>
+<li>Messages are processed through the service component which formats and writes them to the event log<sup id="fnref:9"><a class="footnote-ref" href="#fn:9">9</a></sup></li>
+<li>The setting is cached for performance and re-read when the configuration is reloaded<sup id="fnref:10"><a class="footnote-ref" href="#fn:10">10</a></sup></li>
 </ul>
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link"></a></h2>
 <p>If <code>LogMessageEvents</code> is enabled but events are not appearing in the Windows Event Log:</p>
@@ -4753,7 +4753,7 @@
 <li>Verify that Windows Event Log service is running.</li>
 </ol>
 <h2 id="historical-context">Historical Context<a class="headerlink" href="#historical-context" title="Permanent link"></a></h2>
-<p>This feature was introduced in Sandboxie Plus version 1.15.2 / 5.70.2 as part of enhanced monitoring capabilities<sup id="fnref:11"><a class="footnote-ref" href="#fn:11">5</a></sup>. A critical bug that could cause system crashes (BSoD) when using this setting was fixed in version 1.15.4<sup id="fnref:12"><a class="footnote-ref" href="#fn:12">6</a></sup>.</p>
+<p>This feature was introduced in Sandboxie Plus version 1.15.2 / 5.70.2 as part of enhanced monitoring capabilities<sup id="fnref:11"><a class="footnote-ref" href="#fn:11">11</a></sup>. A critical bug that could cause system crashes (BSoD) when using this setting was fixed in version 1.15.4<sup id="fnref:12"><a class="footnote-ref" href="#fn:12">12</a></sup>.</p>
 <div class="footnote">
 <hr />
 <ol>
@@ -4763,35 +4763,35 @@
 <li id="fn:2">
 <p>Source: <code>Log_LogMessageEvents</code> boolean variable definition in <code>/Sandboxie/core/drv/log.c</code>.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
-<li id="fn:6">
-<p>Source: Message filtering logic in <code>/Sandboxie/core/svc/DriverAssistLog.cpp</code>.&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 3 in the text">&#8617;</a></p>
-</li>
-<li id="fn:7">
-<p>Source: Data communication via <code>Api_SendServiceMessage</code> in <code>/Sandboxie/core/drv/log.c</code>.&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 4 in the text">&#8617;</a></p>
-</li>
-<li id="fn:11">
-<p>Source: CHANGELOG.md entry for version 1.15.2 / 5.70.2&#160;<a class="footnote-backref" href="#fnref:11" title="Jump back to footnote 5 in the text">&#8617;</a></p>
-</li>
-<li id="fn:12">
-<p>Source: CHANGELOG.md entry for version 1.15.4 / 5.70.4 BSoD fix&#160;<a class="footnote-backref" href="#fnref:12" title="Jump back to footnote 6 in the text">&#8617;</a></p>
-</li>
 <li id="fn:3">
-<p>Source: <code>Log_Popup_Msg</code> function call logic in <code>/Sandboxie/core/drv/log.c</code>.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+<p>Source: <code>Log_Popup_Msg</code> function call logic in <code>/Sandboxie/core/drv/log.c</code>.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
-<p>Source: <code>ReportEvent</code> call in <code>/Sandboxie/core/svc/main.cpp</code>.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 8 in the text">&#8617;</a></p>
+<p>Source: <code>ReportEvent</code> call in <code>/Sandboxie/core/svc/main.cpp</code>.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 <li id="fn:5">
-<p>Source: Message formatting in <code>SbieDll_FormatMessage2</code> call in <code>/Sandboxie/core/svc/main.cpp</code>.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 9 in the text">&#8617;</a></p>
+<p>Source: Message formatting in <code>SbieDll_FormatMessage2</code> call in <code>/Sandboxie/core/svc/main.cpp</code>.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:6">
+<p>Source: Message filtering logic in <code>/Sandboxie/core/svc/DriverAssistLog.cpp</code>.&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
+<li id="fn:7">
+<p>Source: Data communication via <code>Api_SendServiceMessage</code> in <code>/Sandboxie/core/drv/log.c</code>.&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
 </li>
 <li id="fn:8">
-<p>Source: Configuration loading in <code>Conf_Get_Boolean</code> call in <code>/Sandboxie/core/drv/conf.c</code>.&#160;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 10 in the text">&#8617;</a></p>
+<p>Source: Configuration loading in <code>Conf_Get_Boolean</code> call in <code>/Sandboxie/core/drv/conf.c</code>.&#160;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 8 in the text">&#8617;</a></p>
 </li>
 <li id="fn:9">
-<p>Source: <code>LogMessage</code> function in <code>/Sandboxie/core/svc/DriverAssistLog.cpp</code>.&#160;<a class="footnote-backref" href="#fnref:9" title="Jump back to footnote 11 in the text">&#8617;</a></p>
+<p>Source: <code>LogMessage</code> function in <code>/Sandboxie/core/svc/DriverAssistLog.cpp</code>.&#160;<a class="footnote-backref" href="#fnref:9" title="Jump back to footnote 9 in the text">&#8617;</a></p>
 </li>
 <li id="fn:10">
-<p>Source: <code>Log_LogMessageEvents</code> global variable caching in <code>/Sandboxie/core/drv/log.h</code>.&#160;<a class="footnote-backref" href="#fnref:10" title="Jump back to footnote 12 in the text">&#8617;</a></p>
+<p>Source: <code>Log_LogMessageEvents</code> global variable caching in <code>/Sandboxie/core/drv/log.h</code>.&#160;<a class="footnote-backref" href="#fnref:10" title="Jump back to footnote 10 in the text">&#8617;</a></p>
+</li>
+<li id="fn:11">
+<p>Source: CHANGELOG.md entry for version 1.15.2 / 5.70.2&#160;<a class="footnote-backref" href="#fnref:11" title="Jump back to footnote 11 in the text">&#8617;</a></p>
+</li>
+<li id="fn:12">
+<p>Source: CHANGELOG.md entry for version 1.15.4 / 5.70.4 BSoD fix&#160;<a class="footnote-backref" href="#fnref:12" title="Jump back to footnote 12 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
