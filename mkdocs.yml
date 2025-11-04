@@ -3,7 +3,7 @@ site_name: Sandboxie Documentation
 site_url: https://sandboxie-plus.github.io/sandboxie-docs/
 site_description: Sandboxie Plus lets you run programs in isolated sandboxes on Windows, enhancing security and privacy by containing changes from the rest of the system.
 
-exclude_docs:
+exclude_docs: |
   /ar/
   /de/
   /en/
