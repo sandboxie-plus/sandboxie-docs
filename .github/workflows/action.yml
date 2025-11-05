@@ -19,6 +19,9 @@ jobs:
   LinkChecker:
     name: Link Checker
     runs-on: ubuntu-latest
+    concurrency:
+      group: check-links-${{ github.ref }}
+      cancel-in-progress: true
     permissions:
       contents: read
       issues: write
