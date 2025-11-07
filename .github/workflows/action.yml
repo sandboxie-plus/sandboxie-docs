@@ -82,7 +82,7 @@ jobs:
             --max-redirects 100
             --accept 200,403,429,500
             --cache
-            --max-cache-age 1d
+            --max-cache-age 7d
             './**/*.md'
             --exclude './ar/**'
             --exclude './de/**'
@@ -113,7 +113,7 @@ jobs:
       # CACHE SAVE STEP - Different Behavior Based on Scenario
       # =========================================================================
       - name: Save lychee cache
-        if: always()
+        if: steps.restore-cache.outputs.cache-hit != 'true'
         uses: actions/cache/save@v4.3.0
         with:
           path: .lycheecache
@@ -123,9 +123,9 @@ jobs:
         if: always()
         run: |
           if [ "${{ steps.restore-cache.outputs.cache-hit }}" = "true" ]; then
-            echo "✅ Cache was updated with fresh link data"
+            echo "✅ Cache refreshed with link data from the last 7 days"
           else
-            echo "🆕 New cache created with all link check results"
+            echo "🆕 New cache created with current link check results"
           fi
 
       # Upload report as artifact if broken links are found
@@ -135,7 +135,6 @@ jobs:
         with:
           name: lychee-report
           path: lychee-report.md
-          retention-days: 30
 
       # To avoid automated spam, try to find an existing open issue before opening a new one
       # Source: https://github.com/cilium/tetragon/pull/805
