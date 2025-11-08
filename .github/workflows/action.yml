@@ -14,6 +14,18 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs:
+      cache_max_age_days:
+        description: 'Cache max age in days (default: 30)'
+        required: false
+        default: '30'
+        type: choice
+        options:
+          - 1
+          - 3
+          - 7
+          - 14
+          - 30
 
 jobs:
   LinkChecker:
@@ -31,6 +43,22 @@ jobs:
     steps:
       - uses: actions/checkout@v5.0.0
 
+      # Set cache days based on trigger type
+      - name: Set cache duration
+        id: cache_duration
+        run: |
+          # For workflow_dispatch (manual runs), use the input value or default to 30
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            CACHE_DAYS="${{ github.event.inputs.cache_max_age_days || 30 }}"
+            echo "Manual run: Using cache duration from input: $CACHE_DAYS days"
+          else
+            # For schedule, push, pull_request triggers (automated runs), use default 7
+            CACHE_DAYS="7"
+            echo "Automated run: Using default cache duration: $CACHE_DAYS days"
+          fi
+          echo "CACHE_DAYS=$CACHE_DAYS" >> $GITHUB_ENV
+          echo "Using cache duration: $CACHE_DAYS days"
+
       # Get latest curl version for user-agent header
       - name: Get latest curl version from GitHub API
         id: curl_version
@@ -47,15 +75,28 @@ jobs:
         uses: actions/cache/restore@v4.3.0
         with:
           path: .lycheecache
-          # Primary: Content-based key (most specific)
-          key: lychee-${{ runner.os }}-${{ github.ref }}-${{ hashFiles('docs/Content/*.md', 'docs/PlusContent/*.md', 'docs/README.md') }}
+          # Primary: Content-based key with cache duration
+          key: lychee-${{ runner.os }}-${{ github.ref }}-${{ env.CACHE_DAYS }}d-${{ hashFiles('docs/Content/*.md', 'docs/PlusContent/*.md', 'docs/README.md') }}
           # Fallback hierarchy:
           restore-keys: |
+            lychee-${{ runner.os }}-${{ github.ref }}-${{ env.CACHE_DAYS }}d-
             lychee-${{ runner.os }}-${{ github.ref }}-
 
       - name: List cache entries
-        if: steps.restore-cache.outputs.cache-hit == 'true'
-        run: cat .lycheecache
+        if: always()
+        run: |
+          echo "=== Cache Status ==="
+          echo "Cache Hit: ${{ steps.restore-cache.outputs.cache-hit }}"
+          echo "Primary Key: ${{ steps.restore-cache.outputs.cache-primary-key }}"
+          echo "Matched Key: ${{ steps.restore-cache.outputs.cache-matched-key }}"
+          
+          echo "=== Cache Contents ==="
+          if [ -f .lycheecache ]; then
+            echo "Cache file exists with contents:"
+            cat .lycheecache
+          else
+            echo "No cache file present"
+          fi
 
       # =========================================================================
       # CACHE HIT SCENARIO - Fast Path
@@ -68,6 +109,7 @@ jobs:
           else
             echo "🔄 CACHE MISS: Will check all links and create new cache"
           fi
+          echo "Cache Max Age: $CACHE_DAYS days"
 
       # Run Lychee link checker
       - name: Lychee Broken Link Checker
@@ -82,7 +124,7 @@ jobs:
             --max-redirects 100
             --accept 200,403,429,500
             --cache
-            --max-cache-age 7d
+            --max-cache-age "$CACHE_DAYS"d
             './**/*.md'
             --exclude './ar/**'
             --exclude './de/**'
@@ -123,9 +165,10 @@ jobs:
         if: always()
         run: |
           if [ "${{ steps.restore-cache.outputs.cache-hit }}" = "true" ]; then
-            echo "✅ Cache refreshed with link data from the last 7 days"
+            echo "⏭️  Cache save skipped (using existing cache)"
           else
-            echo "🆕 New cache created with current link check results"
+            echo "💾 New cache created with current link check results"
+            echo "Cache Key: ${{ steps.restore-cache.outputs.cache-primary-key }}"
           fi
 
       # Upload report as artifact if broken links are found
