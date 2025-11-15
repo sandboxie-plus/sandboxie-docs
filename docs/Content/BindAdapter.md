@@ -83,6 +83,7 @@ BindAdapter=program3.exe,Ethernet 2
 > **Configuration Precedence:** BindAdapter takes absolute precedence over BindAdapterIP. If both are configured for the same process, BindAdapter is used and BindAdapterIP entries are completely ignored.
 >
 > **Priority System:** Multiple entries follow a "most specific wins" policy:
+> 
 > - Exact program name match (e.g., `BindAdapter=chrome.exe,Ethernet`) has highest priority
 > - Negation match (e.g., `BindAdapter=!firefox.exe,Wi-Fi`) has medium priority  
 > - Global match (e.g., `BindAdapter=Ethernet`) has lowest priority
@@ -91,6 +92,7 @@ BindAdapter=program3.exe,Ethernet 2
 > **Single IP Limitation:** Only one IP address per family is active. IPv4 and IPv6 entries are processed independently, each following the "most specific wins" policy. Multiple entries of the same address family compete with each other (first-found wins when specificity is equal). You cannot bind to multiple IPv4 or multiple IPv6 addresses simultaneously, but you can have one IPv4 and one IPv6 address active at the same time.
 >
 > **Failure Behavior:** BindAdapter and BindAdapterIP handle unavailable resources differently:
+> 
 > - **BindAdapter**: If the adapter name is not found, falls back to localhost (127.0.0.1 and ::1) with no error reported
 > - **BindAdapterIP**: If the IP address is not bound to any host NIC, all network connections will fail silently
 >
@@ -103,6 +105,7 @@ In **Sandboxie Plus**, you can configure these settings through:
 **Sandbox Options** > **Network Options** > **Other Options**
 
 The interface provides:
+
 - A dropdown menu to select from available network adapters for **BindAdapter**
 - Text fields for IPv4 and IPv6 addresses for **BindAdapterIP**
 
