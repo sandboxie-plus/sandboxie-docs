@@ -5638,23 +5638,29 @@
 <h2 id="important-notes">Important Notes<a class="headerlink" href="#important-notes" title="Permanent link"></a></h2>
 <blockquote>
 <p><strong>Configuration Precedence:</strong> BindAdapter takes absolute precedence over BindAdapterIP. If both are configured for the same process, BindAdapter is used and BindAdapterIP entries are completely ignored.</p>
-<p><strong>Priority System:</strong> Multiple entries follow a "most specific wins" policy:
-- Exact program name match (e.g., <code>BindAdapter=chrome.exe,Ethernet</code>) has highest priority
-- Negation match (e.g., <code>BindAdapter=!firefox.exe,Wi-Fi</code>) has medium priority<br />
-- Global match (e.g., <code>BindAdapter=Ethernet</code>) has lowest priority
-- Only the most specific matching entry is used; others are ignored</p>
+<p><strong>Priority System:</strong> Multiple entries follow a "most specific wins" policy:</p>
+<ul>
+<li>Exact program name match (e.g., <code>BindAdapter=chrome.exe,Ethernet</code>) has highest priority</li>
+<li>Negation match (e.g., <code>BindAdapter=!firefox.exe,Wi-Fi</code>) has medium priority  </li>
+<li>Global match (e.g., <code>BindAdapter=Ethernet</code>) has lowest priority</li>
+<li>Only the most specific matching entry is used; others are ignored</li>
+</ul>
 <p><strong>Single IP Limitation:</strong> Only one IP address per family is active. IPv4 and IPv6 entries are processed independently, each following the "most specific wins" policy. Multiple entries of the same address family compete with each other (first-found wins when specificity is equal). You cannot bind to multiple IPv4 or multiple IPv6 addresses simultaneously, but you can have one IPv4 and one IPv6 address active at the same time.</p>
-<p><strong>Failure Behavior:</strong> BindAdapter and BindAdapterIP handle unavailable resources differently:
-- <strong>BindAdapter</strong>: If the adapter name is not found, falls back to localhost (127.0.0.1 and ::1) with no error reported
-- <strong>BindAdapterIP</strong>: If the IP address is not bound to any host NIC, all network connections will fail silently</p>
+<p><strong>Failure Behavior:</strong> BindAdapter and BindAdapterIP handle unavailable resources differently:</p>
+<ul>
+<li><strong>BindAdapter</strong>: If the adapter name is not found, falls back to localhost (127.0.0.1 and ::1) with no error reported</li>
+<li><strong>BindAdapterIP</strong>: If the IP address is not bound to any host NIC, all network connections will fail silently</li>
+</ul>
 <p><strong>UI Limitation:</strong> Per-process binding configurations can only be set by manually editing the Sandboxie.ini file. The user interface only supports global (all programs) binding configurations.</p>
 </blockquote>
 <h2 id="user-interface">User Interface<a class="headerlink" href="#user-interface" title="Permanent link"></a></h2>
 <p>In <strong>Sandboxie Plus</strong>, you can configure these settings through:</p>
 <p><strong>Sandbox Options</strong> &gt; <strong>Network Options</strong> &gt; <strong>Other Options</strong></p>
-<p>The interface provides:
-- A dropdown menu to select from available network adapters for <strong>BindAdapter</strong>
-- Text fields for IPv4 and IPv6 addresses for <strong>BindAdapterIP</strong></p>
+<p>The interface provides:</p>
+<ul>
+<li>A dropdown menu to select from available network adapters for <strong>BindAdapter</strong></li>
+<li>Text fields for IPv4 and IPv6 addresses for <strong>BindAdapterIP</strong></li>
+</ul>
 <p><img alt="Bind Adapter Configuration" src="../Media/BindAdapter.png" /></p>
 <h2 id="related-settings">Related Settings<a class="headerlink" href="#related-settings" title="Permanent link"></a></h2>
 <ul>
