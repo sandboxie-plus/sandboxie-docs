@@ -41,7 +41,7 @@ jobs:
       pull-requests: write
 
     steps:
-      - uses: actions/checkout@v5.0.0
+      - uses: actions/checkout@v6
 
       # Set cache days based on trigger type
       - name: Set cache duration
