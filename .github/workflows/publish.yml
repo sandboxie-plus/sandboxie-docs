@@ -250,6 +250,6 @@ jobs:
         git config user.name 'github-actions[bot]'
         git config user.email 'github-actions[bot]@users.noreply.github.com'
         ghp-import site --push
-    - uses: actions/upload-artifact@v5.0.0
+    - uses: actions/upload-artifact@v6.0.0
       with:
         path: './site'
