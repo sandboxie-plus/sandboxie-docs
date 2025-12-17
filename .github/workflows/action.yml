@@ -72,7 +72,7 @@ jobs:
       # =========================================================================
       - name: Restore lychee cache
         id: restore-cache
-        uses: actions/cache/restore@v4.3.0
+        uses: actions/cache/restore@v5.0.1
         with:
           path: .lycheecache
           # Primary: Content-based key with cache duration
@@ -156,7 +156,7 @@ jobs:
       # =========================================================================
       - name: Save lychee cache
         if: steps.restore-cache.outputs.cache-hit != 'true'
-        uses: actions/cache/save@v4.3.0
+        uses: actions/cache/save@v5.0.1
         with:
           path: .lycheecache
           key: ${{ steps.restore-cache.outputs.cache-primary-key }}
