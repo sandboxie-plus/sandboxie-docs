@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="NoSecurityFiltering is a sandbox setting in Sandboxie Ini available since v1.0.0 / 5.55.0. This setting disables all remaining security filtering mechanisms in Application Compartment mode, providing maximum compatibility at the cost of virtually all security protections.">
+        <meta name="description" content="NoSecurityFiltering 是沙盘配置（Sandboxie Ini）中的一个沙箱设置，自 v1.0.0 / 5.55.0 起可用。该设置在应用程序隔离（Application Compartment）模式下，禁用所有剩余的安全过滤机制，从而实现最大兼容性，但几乎失去了所有安全防护。">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>No Security Filtering - Sandboxie 文档</title>
+        <title>无安全过滤 - Sandboxie 文档</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#no-security-filtering" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              No Security Filtering
+              无安全过滤
             
           </span>
         </div>
@@ -799,7 +799,7 @@
   <span class="md-ellipsis">
     
   
-    SbieIni Command Line
+    SbieIni 命令行
   
 
     
@@ -5584,72 +5584,72 @@
   
 
 
-<h1 id="no-security-filtering">No Security Filtering<a class="headerlink" href="#no-security-filtering" title="Permanent link"></a></h1>
-<p><em>NoSecurityFiltering</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a> available since v1.0.0 / 5.55.0. This setting disables all remaining security filtering mechanisms in <a href="../../PlusContent/compartment-mode/">Application Compartment</a> mode, providing maximum compatibility at the cost of virtually all security protections.</p>
-<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link"></a></h2>
+<h1 id="_1">无安全过滤<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<p><em>NoSecurityFiltering</em> 是沙盘配置（<a href="../SandboxieIni/">Sandboxie Ini</a>）中的一个沙箱设置，自 v1.0.0 / 5.55.0 起可用。该设置在应用程序隔离（<a href="../../PlusContent/compartment-mode/">Application Compartment</a>）模式下，禁用所有剩余的安全过滤机制，从而实现最大兼容性，但几乎失去了所有安全防护。</p>
+<h2 id="_2">前提条件<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Important</p>
-<p><code>NoSecurityFiltering</code> only functions when <strong><a href="../NoSecurityIsolation/">NoSecurityIsolation</a></strong> is also enabled. This setting has no effect in standard sandbox mode.</p>
+<p><code>NoSecurityFiltering</code> 仅在<strong><a href="../NoSecurityIsolation/">NoSecurityIsolation</a></strong>也被启用时才起作用。该设置在标准沙箱模式下无效。</p>
 </div>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h2>
+<h2 id="_3">使用方法<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">NoSecurityFiltering</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link"></a></h2>
+<h2 id="_4">语法<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">NoSecurityFiltering</span><span class="o">=</span><span class="s">&lt;y/n&gt;</span>
 </span></code></pre></div>
-<p>Where:</p>
+<p>其中：</p>
 <ul>
-<li><code>y</code> disables all security filtering (only effective in Application Compartment mode).</li>
-<li><code>n</code> (default) maintains standard filtering mechanisms.</li>
+<li><code>y</code> 禁用所有安全过滤（仅在应用程序隔离模式下有效）</li>
+<li><code>n</code>（默认）保持标准的过滤机制</li>
 </ul>
-<h2 id="interaction-with-individual-filter-settings">Interaction with Individual Filter Settings<a class="headerlink" href="#interaction-with-individual-filter-settings" title="Permanent link"></a></h2>
-<p><code>NoSecurityFiltering</code> serves as a master override that enables the individual filter disable settings:</p>
+<h2 id="_5">与各类过滤设置的交互<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
+<p><code>NoSecurityFiltering</code> 作为主控设置，会启用各独立过滤禁用选项：</p>
 <ul>
-<li><strong><a href="../DisableFileFilter/">DisableFileFilter</a></strong>: Disabled file filtering (same effect as <code>NoSecurityFiltering</code> for files).</li>
-<li><strong><a href="../DisableKeyFilter/">DisableKeyFilter</a></strong>: Disabled registry filtering (same effect as <code>NoSecurityFiltering</code> for registry).</li>
-<li><strong><a href="../DisableObjectFilter/">DisableObjectFilter</a></strong>: Disabled object filtering (same effect as <code>NoSecurityFiltering</code> for objects).</li>
+<li><strong><a href="../DisableFileFilter/">DisableFileFilter</a></strong>：禁用文件过滤（对文件与 <code>NoSecurityFiltering</code> 同效）</li>
+<li><strong><a href="../DisableKeyFilter/">DisableKeyFilter</a></strong>：禁用注册表过滤（对注册表与 <code>NoSecurityFiltering</code> 同效）</li>
+<li><strong><a href="../DisableObjectFilter/">DisableObjectFilter</a></strong>：禁用对象过滤（对对象与 <code>NoSecurityFiltering</code> 同效）</li>
 </ul>
-<p>When <code>NoSecurityFiltering=y</code> is set, all three individual disable settings are automatically activated<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup><sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>[^3].</p>
-<h2 id="ui-integration">UI Integration<a class="headerlink" href="#ui-integration" title="Permanent link"></a></h2>
-<p>In Sandboxie Plus, this setting appears as:</p>
+<p>当设置 <code>NoSecurityFiltering=y</code> 时，三项独立的禁用设置会自动激活<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup><sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>[^3]</p>
+<h2 id="_6">用户界面集成<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
+<p>在 Sandboxie Plus 中，此设置显示为：</p>
 <ul>
-<li><strong>Checkbox</strong>: "Disable Security Filtering (not recommended)"<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</li>
-<li><strong>Location</strong>: Sandbox Options &gt; Security Options &gt; Sandbox Isolation.</li>
-<li><strong>Availability</strong>: Only enabled when "Disable Security Isolation" is checked<sup id="fnref2:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</li>
+<li><strong>复选框</strong>：”Disable Security Filtering (not recommended)”<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
+<li><strong>位置</strong>：沙箱选项 &gt; 安全选项 &gt; 沙箱隔离</li>
+<li><strong>可用性</strong>：仅在“Disable Security Isolation”被勾选时可用<sup id="fnref2:2"><a class="footnote-ref" href="#fn:2">2</a></sup></li>
 </ul>
-<h2 id="use-cases">Use Cases<a class="headerlink" href="#use-cases" title="Permanent link"></a></h2>
-<p>This extreme configuration might be justified for:</p>
+<h2 id="_7">使用场景<a class="headerlink" href="#_7" title="Permanent link"></a></h2>
+<p>此极端配置可用于以下情况：</p>
 <ul>
-<li><strong>Legacy Software</strong>: Applications with severe compatibility issues.</li>
-<li><strong>Development Tools</strong>: Build systems requiring unrestricted system access.</li>
-<li><strong>System Utilities</strong>: Administrative tools that must access host resources.</li>
-<li><strong>Testing Scenarios</strong>: When you need to verify application behavior without any restrictions.</li>
+<li><strong>旧版软件</strong>：存在严重兼容性问题的应用程序</li>
+<li><strong>开发工具</strong>：需无障碍访问系统资源的构建系统</li>
+<li><strong>系统工具</strong>：必须访问主机资源的管理工具</li>
+<li><strong>测试场景</strong>：需要验证应用程序在无任何限制下的行为</li>
 </ul>
-<h2 id="debugging-and-development">Debugging and Development<a class="headerlink" href="#debugging-and-development" title="Permanent link"></a></h2>
-<p><code>NoSecurityFiltering</code> can be useful for:</p>
+<h2 id="_8">调试与开发场景<a class="headerlink" href="#_8" title="Permanent link"></a></h2>
+<p><code>NoSecurityFiltering</code> 适用于：</p>
 <ul>
-<li><strong>Diagnosing Compatibility Issues</strong>: Determining if filtering mechanisms cause application problems.</li>
-<li><strong>Development Testing</strong>: Running development tools that require unrestricted access.</li>
-<li><strong>Legacy Application Support</strong>: Supporting applications that cannot function with any filtering.</li>
+<li><strong>诊断兼容性问题</strong>：判断过滤机制是否导致程序出错</li>
+<li><strong>开发测试</strong>：运行需无限制访问的开发工具</li>
+<li><strong>旧程序支持</strong>：支持不兼容任何过滤的应用程序</li>
 </ul>
-<h2 id="related-settings">Related Settings<a class="headerlink" href="#related-settings" title="Permanent link"></a></h2>
-<h3 id="alternative-granular-controls">Alternative Granular Controls<a class="headerlink" href="#alternative-granular-controls" title="Permanent link"></a></h3>
-<p>Instead of disabling all filtering, consider these individual controls:</p>
+<h2 id="_9">相关设置<a class="headerlink" href="#_9" title="Permanent link"></a></h2>
+<h3 id="_10">替代的细化控制<a class="headerlink" href="#_10" title="Permanent link"></a></h3>
+<p>如果不希望全部禁用过滤，可考虑下列独立选项：</p>
 <ul>
-<li><strong><a href="../DisableFileFilter/">DisableFileFilter</a></strong>: Disables only file system filtering.</li>
-<li><strong><a href="../DisableKeyFilter/">DisableKeyFilter</a></strong>: Disables only registry filtering.</li>
-<li><strong><a href="../DisableObjectFilter/">DisableObjectFilter</a></strong>: Disables only object filtering.</li>
+<li><strong><a href="../DisableFileFilter/">DisableFileFilter</a></strong>：仅禁用文件系统过滤</li>
+<li><strong><a href="../DisableKeyFilter/">DisableKeyFilter</a></strong>：仅禁用注册表过滤</li>
+<li><strong><a href="../DisableObjectFilter/">DisableObjectFilter</a></strong>：仅禁用对象过滤</li>
 </ul>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p>UI label in <code>OptionsWindow.ui</code>: The checkbox text "Disable Security Filtering (not recommended)" clearly indicates the security implications and discourages casual use of this setting.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>UI 选项在 <code>OptionsWindow.ui</code>：复选框文本为 “Disable Security Filtering (not recommended)” 明确提示安全影响并不建议随意启用&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>UI dependency in <code>OptionsAdvanced.cpp</code>: The code <code>ui.chkNoSecurityFiltering-&gt;setEnabled(ui.chkNoSecurityIsolation-&gt;isChecked());</code> ensures that NoSecurityFiltering can only be enabled when NoSecurityIsolation is also active, enforcing the Application Compartment mode prerequisite.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>UI 依赖在 <code>OptionsAdvanced.cpp</code>：代码 <code>ui.chkNoSecurityFiltering-&gt;setEnabled(ui.chkNoSecurityIsolation-&gt;isChecked());</code> 确保仅当已启用 NoSecurityIsolation 时才可启用 NoSecurityFiltering，从而落实应用程序隔离模式前提&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="LockBoxToUser is a setting in Sandboxie Ini available since v1.15.0 / 5.70.0. It controls whether Sandboxie restricts sandbox folder access to only the user who created the sandbox.">
+        <meta name="description" content="LockBoxToUser 是自 v1.15.0 / 5.70.0 起在 沙盘配置 中可用的一个设置。该设置用于控制沙盘是否仅允许创建沙箱的用户访问沙箱文件夹。">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>Lock Box To User - Sandboxie 文档</title>
+        <title>将沙箱锁定到用户 - Sandboxie 文档</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lock-box-to-user" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Lock Box To User
+              将沙箱锁定到用户
             
           </span>
         </div>
@@ -799,7 +799,7 @@
   <span class="md-ellipsis">
     
   
-    SbieIni Command Line
+    SbieIni 命令行
   
 
     
@@ -5584,53 +5584,53 @@
   
 
 
-<h1 id="lock-box-to-user">Lock Box To User<a class="headerlink" href="#lock-box-to-user" title="Permanent link"></a></h1>
-<p><em>LockBoxToUser</em> is a setting in <a href="SandboxieIni.html">Sandboxie Ini</a> available since v1.15.0 / 5.70.0. It controls whether Sandboxie restricts sandbox folder access to only the user who created the sandbox.</p>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h2>
+<h1 id="_1">将沙箱锁定到用户<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<p><em>LockBoxToUser</em> 是自 v1.15.0 / 5.70.0 起在 <a href="SandboxieIni.html">沙盘配置</a> 中可用的一个设置。该设置用于控制沙盘是否仅允许创建沙箱的用户访问沙箱文件夹。</p>
+<h2 id="_2">使用方法<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[GlobalSettings]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">LockBoxToUser</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>By default (when <code>LockBoxToUser</code> is not specified or set to <code>n</code>), Sandboxie creates sandbox folders with ACLs<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> that allow access to all authenticated users on the system. This means any logged-in user can potentially access files stored in sandbox folders created by other users.</p>
-<p>When <code>LockBoxToUser=y</code> is specified, Sandboxie creates sandbox folders with more restrictive ACLs that only allow access to:</p>
+<p>默认情况下（未指定 <code>LockBoxToUser</code> 或设置为 <code>n</code> 时），沙盘会使用允许系统内所有已验证用户访问的 ACLs<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> 来创建沙箱文件夹。这意味着任何已登录用户都可能访问其他用户创建的沙箱文件夹中的文件。</p>
+<p>当指定 <code>LockBoxToUser=y</code> 时，沙盘会创建更加严格的 ACLs，只允许以下账户访问：</p>
 <ul>
-<li>The user who created the sandbox.</li>
-<li>The SYSTEM account<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> .</li>
-<li>Administrators group<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>.</li>
+<li>创建沙箱的用户</li>
+<li>SYSTEM 账户<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></li>
+<li>Administrators 组<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></li>
 </ul>
-<p>This setting enhances security and privacy in multi-user environments by preventing unauthorized access to sandbox contents.</p>
-<h2 id="security-considerations">Security Considerations<a class="headerlink" href="#security-considerations" title="Permanent link"></a></h2>
-<p>This setting was introduced to address a security vulnerability (<a href="https://github.com/sandboxie-plus/Sandboxie/security/advisories/GHSA-4chj-3c28-gvmp">CVE-2024-49360</a>) where sandbox files were accessible to all users on a system.</p>
+<p>该设置在多用户环境下增强了安全性和隐私性，能够防止未授权用户访问沙箱内容。</p>
+<h2 id="_3">安全性考虑<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
+<p>该设置旨在解决一个安全漏洞（<a href="https://github.com/sandboxie-plus/Sandboxie/security/advisories/GHSA-4chj-3c28-gvmp">CVE-2024-49360</a>），该漏洞使得系统上的所有用户都能访问沙箱内的文件。</p>
 <div class="admonition warning">
 <p class="admonition-title">Important</p>
-<p>For this setting to be effective, ensure that your sandbox root folder path contains the <code>%USER%</code> macro so that each user gets a dedicated sandbox folder. The default path <code>\??\\%SystemDrive%\\Sandbox\\%USER%\\%SANDBOX%</code> includes this macro and is recommended for multi-user systems.</p>
+<p>为确保此设置有效，请确保您的沙箱根文件夹路径包含 <code>%USER%</code> 宏，这样每个用户都能拥有独立的沙箱文件夹。默认路径 <code>\??\%SystemDrive%\Sandbox\%USER%\%SANDBOX%</code> 已包含该宏，推荐在多用户系统中使用。</p>
 </div>
-<h2 id="implementation-details">Implementation Details<a class="headerlink" href="#implementation-details" title="Permanent link"></a></h2>
-<p>When <code>LockBoxToUser=y</code> is enabled, Sandboxie modifies the security descriptor creation process<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup> to use a more restrictive set of SIDs:</p>
+<h2 id="_4">实现细节<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
+<p>启用 <code>LockBoxToUser=y</code> 时，沙盘会修改安全描述符生成过程<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>，采用更为严格的 SID 集合：</p>
 <ul>
-<li><strong>System Logon SID</strong> (<code>S-1-5-18</code>): Allows SYSTEM account access.</li>
-<li><strong>Administrators SID</strong> (<code>S-1-5-32-544</code>): Allows local administrators access.</li>
-<li><strong>User SID</strong>: Allows the creating user access.</li>
+<li><strong>System Logon SID</strong> (<code>S-1-5-18</code>)：允许 SYSTEM 账户访问</li>
+<li><strong>Administrators SID</strong> (<code>S-1-5-32-544</code>)：允许本地管理员访问</li>
+<li><strong>用户 SID</strong>：允许创建沙箱的用户访问</li>
 </ul>
-<p>When disabled, the standard behavior grants access to:</p>
+<p>禁用该选项时，标准行为会允许以下账户访问：</p>
 <ul>
-<li><strong>Authenticated Users SID</strong> (<code>S-1-5-11</code>): Allows all authenticated users access.</li>
-<li><strong>User SID</strong>: Allows the creating user access.</li>
+<li><strong>Authenticated Users SID</strong> (<code>S-1-5-11</code>)：允许所有已验证用户访问</li>
+<li><strong>用户 SID</strong>：允许创建沙箱的用户访问</li>
 </ul>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p>Access Control Lists (ACLs) are Windows security structures that define which users and groups can access specific resources and what permissions they have. They are part of the Windows security model that controls access to files, folders, registry keys, and other objects.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>访问控制列表（ACLs）是 Windows 的安全结构，用于定义哪些用户和组可以访问特定资源以及他们拥有的权限。它们是 Windows 安全模型的一部分，用于控制对文件、文件夹、注册表项和其他对象的访问。&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>The SYSTEM account (SID <code>S-1-5-18</code>) is a built-in Windows account with the highest privileges on the local computer. Sandboxie runs core components under this account and needs access to sandbox folders for proper operation.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>SYSTEM 账户（SID <code>S-1-5-18</code>）是 Windows 内置的账户，拥有本地计算机最高权限。沙盘的核心组件在该账户下运行，并需要对沙箱文件夹进行访问以确保正常运作。&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p>The Administrators group (SID <code>S-1-5-32-544</code>) contains user accounts that have administrative privileges on the computer. Members of this group can access sandbox folders for system maintenance and troubleshooting purposes.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>Administrators 组（SID <code>S-1-5-32-544</code>）包含具有计算机管理员权限的用户账户。该组成员可以访问沙箱文件夹，以便进行系统维护和故障排查。&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
-<p>The security descriptor creation is handled in the <code>Secure_InitSecurityDescriptors()</code> function in <code>secure.c</code>, which queries the <code>LockBoxToUser</code> configuration setting and creates different ACL structures based on its value. When enabled, it creates a 512-byte ACL with restricted SIDs instead of the default 256-byte ACL with broader access permissions.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p>安全描述符生成由 <code>Secure_InitSecurityDescriptors()</code> 函数在 <code>secure.c</code> 中处理。该函数会查询 <code>LockBoxToUser</code> 配置项，并根据其值生成不同的 ACL 结构。启用时，会创建一个包含受限 SID 的 512 字节 ACL，而默认情况下则生成包含更广泛访问权限的 256 字节 ACL。&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

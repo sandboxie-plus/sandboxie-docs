@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Message SBIE6008 The configuration %3 of box %2 requires a supporter certificate and can not be used without it.">
+        <meta name="description" content="Sandboxie Plus lets you run programs in isolated sandboxes on Windows, enhancing security and privacy by containing changes from the rest of the system.">
       
       
       
@@ -803,7 +803,7 @@
   <span class="md-ellipsis">
     
   
-    SbieIni Command Line
+    SbieIni 命令行
   
 
     
@@ -5024,10 +5024,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#description" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Description
+        说明
       
     </span>
   </a>
@@ -5035,10 +5035,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#typical-causes" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Typical Causes
+        常见原因
       
     </span>
   </a>
@@ -5046,10 +5046,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#suggested-actions" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Suggested Actions
+        建议操作
       
     </span>
   </a>
@@ -5057,10 +5057,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#related-messages" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Related Messages
+        相关信息
       
     </span>
   </a>
@@ -5684,27 +5684,27 @@
 
 
 <h1 id="sbie6008">SBIE6008<a class="headerlink" href="#sbie6008" title="Permanent link"></a></h1>
-<p><strong>Message</strong> SBIE6008 The configuration %3 of box %2 requires a supporter certificate and can not be used without it.</p>
-<p><strong>Severity</strong>: Error (popup)</p>
-<h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link"></a></h2>
-<p>This error is displayed when a box configuration uses features that require a supporter certificate, and the system does not have a valid certificate allowing use of that configuration. Unlike SBIE6004, which warns about certificate requirements and a grace period, SBIE6008 indicates the configuration cannot be used at all without the certificate.</p>
-<h2 id="typical-causes">Typical Causes<a class="headerlink" href="#typical-causes" title="Permanent link"></a></h2>
+<p><strong>信息</strong> SBIE6008 沙箱 %2 的配置 %3 需要支持者证书，否则无法使用</p>
+<p><strong>严重性</strong>: 错误（弹窗）</p>
+<h2 id="_1">说明<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
+<p>当沙箱配置使用了需要支持者证书的功能，而系统中没有有效证书允许该配置使用时，会显示此错误。与 SBIE6004 不同，SBIE6004 只是提示证书需求并给予宽限期，而 SBIE6008 表示没有证书完全无法使用该配置</p>
+<h2 id="_2">常见原因<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <ul>
-<li>A box configuration enables one or more features gated behind a supporter certificate (for example, certain encryption or security mode settings).</li>
-<li>No supporter certificate is installed, or the installed certificate is not valid/active.</li>
-<li>The certificate is missing required option flags for the specific configuration.</li>
+<li>沙箱配置启用了一个或多个受支持者证书控制的功能（如特定加密或安全模式设置）</li>
+<li>未安装支持者证书，或者已安装的证书无效或未激活</li>
+<li>证书缺少该配置所需的选项标志</li>
 </ul>
-<h2 id="suggested-actions">Suggested Actions<a class="headerlink" href="#suggested-actions" title="Permanent link"></a></h2>
+<h2 id="_3">建议操作<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
 <ol>
-<li>Inspect the configuration referenced by the message (<code>%3</code> is the configuration identifier) and disable features requiring a supporter certificate if you don't intend to supply one.</li>
-<li>Install and activate a supporter certificate that includes the required option flags for the configuration.</li>
-<li>Restart Sandboxie service and driver after installing the certificate so the new certificate is detected.</li>
-<li>If the configuration should be usable without a certificate, review the feature flags and consult the driver/service logs to find why the certificate check failed.</li>
+<li>检查消息中引用的配置（<code>%3</code> 为配置标识符），如果不打算提供支持者证书，请禁用需要证书的功能</li>
+<li>安装并激活包含该配置所需选项标志的支持者证书</li>
+<li>安装证书后，请重启沙盘服务和驱动，以便检测到新证书</li>
+<li>如果该配置应当无需证书即可使用，请检查功能标志，并查看驱动/服务日志，查找证书检查失败的原因</li>
 </ol>
-<h2 id="related-messages">Related Messages<a class="headerlink" href="#related-messages" title="Permanent link"></a></h2>
+<h2 id="_4">相关信息<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
 <ul>
-<li><a href="SBIE6004.html">SBIE6004</a> - A certificate-warning message (grace period) indicating the configuration requires a supporter certificate. <code>6009</code> specifically requires the advanced certificate variant.</li>
-<li><a href="SBIE6009.html">SBIE6009</a> - Advanced supporter certificate required.</li>
+<li><a href="SBIE6004.html">SBIE6004</a> - 关于证书警告消息（宽限期），提示配置需要支持者证书。<code>6009</code> 明确要求高级证书版本</li>
+<li><a href="SBIE6009.html">SBIE6009</a> - 需要高级支持者证书</li>
 </ul>
 
 
@@ -5712,9 +5712,6 @@
 
 
 
-
-  
-  
 
 
 

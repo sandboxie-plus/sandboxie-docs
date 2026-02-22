@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="NoSecurityIsolation is a sandbox setting available since v1.0.0 / 5.55.0 that transforms Sandboxie from a secure isolation environment into an Application Compartment mode, prioritizing compatibility over security.">
+        <meta name="description" content="NoSecurityIsolation 是自 v1.0.0 / 5.55.0 起提供的一项沙箱设置，将沙盘从安全隔离环境转换为 应用程序隔离 模式，优先考虑兼容性而非安全性。">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>No Security Isolation - Sandboxie 文档</title>
+        <title>无安全隔离 - Sandboxie 文档</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#no-security-isolation" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              No Security Isolation
+              无安全隔离
             
           </span>
         </div>
@@ -799,7 +799,7 @@
   <span class="md-ellipsis">
     
   
-    SbieIni Command Line
+    SbieIni 命令行
   
 
     
@@ -5584,178 +5584,178 @@
   
 
 
-<h1 id="no-security-isolation">No Security Isolation<a class="headerlink" href="#no-security-isolation" title="Permanent link"></a></h1>
-<p><em>NoSecurityIsolation</em> is a sandbox setting available since v1.0.0 / 5.55.0 that transforms Sandboxie from a secure isolation environment into an <strong>Application Compartment</strong> mode, prioritizing compatibility over security.</p>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h2>
+<h1 id="_1">无安全隔离<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<p><em>NoSecurityIsolation</em> 是自 v1.0.0 / 5.55.0 起提供的一项沙箱设置，将沙盘从安全隔离环境转换为 <strong>应用程序隔离</strong> 模式，优先考虑兼容性而非安全性。</p>
+<h2 id="_2">用法<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">NoSecurityIsolation</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link"></a></h2>
+<h2 id="_3">语法<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">NoSecurityIsolation</span><span class="o">=</span><span class="s">&lt;y/n&gt;</span>
 </span></code></pre></div>
-<p>Where:</p>
+<p>其中：</p>
 <ul>
-<li><code>y</code> enables compartment mode,</li>
-<li><code>n</code> (default) maintains security isolation.</li>
+<li><code>y</code> 启用隔离模式，</li>
+<li><code>n</code>（默认值）保持安全隔离。</li>
 </ul>
-<h2 id="how-it-works">How It Works<a class="headerlink" href="#how-it-works" title="Permanent link"></a></h2>
-<p>When enabled, the driver sets <code>bAppCompartment = TRUE</code>, fundamentally changing Sandboxie's operation by:</p>
+<h2 id="_4">工作机制<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
+<p>启用后，驱动会设置 <code>bAppCompartment = TRUE</code>，从根本上改变沙盘的运行方式，具体表现为：</p>
 <ul>
-<li><strong>Bypassing token filtering</strong>: Both primary and impersonation tokens remain unmodified<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup><sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup><sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></li>
-<li><strong>Excluding Job Objects</strong>: Processes avoid Windows Job Object restrictions<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>  </li>
-<li><strong>Relaxing path controls</strong>: Default security-oriented path blocking is disabled<sup id="fnref2:5"><a class="footnote-ref" href="#fn:5">5</a></sup></li>
+<li><strong>绕过令牌过滤</strong>：主令牌和模拟令牌均保持未修改<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup><sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup><sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></li>
+<li><strong>不使用作业对象</strong>：进程不受 Windows 作业对象限制<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></li>
+<li><strong>放宽路径控制</strong>：默认的安全路径阻断功能被禁用<sup id="fnref2:5"><a class="footnote-ref" href="#fn:5">5</a></sup></li>
 </ul>
-<h2 id="feature-matrix">Feature Matrix<a class="headerlink" href="#feature-matrix" title="Permanent link"></a></h2>
+<h2 id="_5">功能矩阵<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
 <table>
 <thead>
 <tr>
-<th>Feature</th>
-<th>Standard Sandbox</th>
-<th>Application Compartment</th>
+<th>功能</th>
+<th>标准沙箱</th>
+<th>应用程序隔离</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>File System Virtualization</strong></td>
+<td><strong>文件系统虚拟化</strong></td>
 <td>✓</td>
 <td>✓</td>
 </tr>
 <tr>
-<td><strong>Registry Virtualization</strong></td>
+<td><strong>注册表虚拟化</strong></td>
 <td>✓</td>
 <td>✓</td>
 </tr>
 <tr>
-<td><strong>Object Namespace Isolation</strong></td>
+<td><strong>对象命名空间隔离</strong></td>
 <td>✓</td>
 <td>✓</td>
 </tr>
 <tr>
-<td><strong>Process Monitoring</strong></td>
+<td><strong>进程监控</strong></td>
 <td>✓</td>
 <td>✓</td>
 </tr>
 <tr>
-<td><strong>Token-Based Security</strong></td>
+<td><strong>基于令牌的安全</strong></td>
 <td>✓</td>
 <td>✗</td>
 </tr>
 <tr>
-<td><strong>Privilege Restrictions</strong></td>
+<td><strong>权限限制</strong></td>
 <td>✓</td>
 <td>✗</td>
 </tr>
 <tr>
-<td><strong>Job Object Assignments</strong></td>
+<td><strong>作业对象分配</strong></td>
 <td>✓</td>
 <td>✗</td>
 </tr>
 <tr>
-<td><strong>Security Path Blocking</strong></td>
+<td><strong>安全路径阻断</strong></td>
 <td>✓</td>
 <td>✗</td>
 </tr>
 </tbody>
 </table>
-<h2 id="path-control-changes">Path Control Changes<a class="headerlink" href="#path-control-changes" title="Permanent link"></a></h2>
-<p>In Application Compartment mode, three key path behaviors are automatically disabled<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>:</p>
+<h2 id="_6">路径控制变化<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
+<p>在应用程序隔离模式下，三项关键路径行为会自动禁用<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>：</p>
 <ul>
-<li><strong><code>AlwaysCloseForBoxed</code></strong>: Boxed processes can access normally blocked paths<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup>.</li>
-<li><strong><code>DontOpenForBoxed</code></strong>: Open path rules apply equally to all processes<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup>.</li>
-<li><strong><code>ProtectHostImages</code></strong>: Host binary protection is relaxed<sup id="fnref:8"><a class="footnote-ref" href="#fn:8">8</a></sup>.</li>
+<li><strong><code>AlwaysCloseForBoxed</code></strong>：沙箱进程可访问通常被阻断的路径<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup></li>
+<li><strong><code>DontOpenForBoxed</code></strong>：打开路径规则对所有进程均等适用<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup></li>
+<li><strong><code>ProtectHostImages</code></strong>：放宽对宿主二进制文件的保护<sup id="fnref:8"><a class="footnote-ref" href="#fn:8">8</a></sup></li>
 </ul>
-<h2 id="compatibility-integration">Compatibility &amp; Integration<a class="headerlink" href="#compatibility-integration" title="Permanent link"></a></h2>
-<h3 id="automatic-activation">Automatic Activation<a class="headerlink" href="#automatic-activation" title="Permanent link"></a></h3>
+<h2 id="_7">兼容性与集成<a class="headerlink" href="#_7" title="Permanent link"></a></h2>
+<h3 id="_8">自动激活<a class="headerlink" href="#_8" title="Permanent link"></a></h3>
 <ul>
-<li><strong>Unsupported Windows builds</strong>: Automatically enabled with warning MSG_1207<sup id="fnref:11"><a class="footnote-ref" href="#fn:11">11</a></sup>.</li>
-<li><strong>Sandboxie Plus box types</strong>: Pre-configured in <code>Application Compartment</code> and <code>Application Compartment with Data Protection</code>.</li>
+<li><strong>不支持的 Windows 版本</strong>：自动启用并显示警告 MSG_1207<sup id="fnref:11"><a class="footnote-ref" href="#fn:11">11</a></sup></li>
+<li><strong>沙盘 Plus 沙箱类型</strong>：在 <code>应用程序隔离</code> 和 <code>应用程序隔离并保护数据</code> 中预设开启</li>
 </ul>
-<h3 id="enhanced-compatibility">Enhanced Compatibility<a class="headerlink" href="#enhanced-compatibility" title="Permanent link"></a></h3>
+<h3 id="_9">兼容性提升<a class="headerlink" href="#_9" title="Permanent link"></a></h3>
 <ul>
-<li>Processes interact freely with the host system.</li>
-<li>Reduced conflicts with privilege-dependent applications.</li>
-<li>Better support for complex software and development tools.</li>
+<li>进程可与主机系统自由交互</li>
+<li>降低与依赖权限的应用程序的冲突</li>
+<li>更好地支持复杂软件与开发工具</li>
 </ul>
-<h2 id="security-implications">Security Implications<a class="headerlink" href="#security-implications" title="Permanent link"></a></h2>
+<h2 id="_10">安全影响<a class="headerlink" href="#_10" title="Permanent link"></a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Important</p>
-<p>Application Compartment mode significantly reduces security isolation:</p>
+<p>应用程序隔离模式显著降低安全隔离能力：</p>
 <ul>
-<li>Processes run with original security context and privileges.</li>
-<li>No token-based protection or privilege dropping.</li>
-<li>Sandbox provides virtualization but not security boundary.</li>
+<li>进程以原有的安全上下文和权限运行</li>
+<li>无基于令牌的保护或权限降级</li>
+<li>沙盘仅提供虚拟化，不提供安全边界</li>
 </ul>
 </div>
-<h2 id="related-settings">Related Settings<a class="headerlink" href="#related-settings" title="Permanent link"></a></h2>
-<h3 id="complementary">Complementary<a class="headerlink" href="#complementary" title="Permanent link"></a></h3>
+<h2 id="_11">相关设置<a class="headerlink" href="#_11" title="Permanent link"></a></h2>
+<h3 id="_12">配套项<a class="headerlink" href="#_12" title="Permanent link"></a></h3>
 <ul>
-<li><strong><a href="../NoSecurityFiltering/">NoSecurityFiltering</a></strong>: Further disables filtering<sup id="fnref:9"><a class="footnote-ref" href="#fn:9">9</a></sup>.</li>
-<li><strong>OriginalToken</strong>: Auto-enabled in compartment mode.</li>
-<li><strong>Template Paths</strong>: <code>TemplateAppCPaths</code> are applied<sup id="fnref:10"><a class="footnote-ref" href="#fn:10">10</a></sup>.</li>
+<li><strong><a href="../NoSecurityFiltering/">NoSecurityFiltering</a></strong>：进一步禁用过滤<sup id="fnref:9"><a class="footnote-ref" href="#fn:9">9</a></sup></li>
+<li><strong>OriginalToken</strong>：在隔离模式下自动启用</li>
+<li><strong>模板路径</strong>：应用 <code>TemplateAppCPaths</code><sup id="fnref:10"><a class="footnote-ref" href="#fn:10">10</a></sup></li>
 </ul>
-<h3 id="job-object-limits-disabled">Job Object Limits (Disabled)<a class="headerlink" href="#job-object-limits-disabled" title="Permanent link"></a></h3>
-<p>These settings become ineffective due to Job Object exclusion:</p>
+<h3 id="_13">作业对象限制（已禁用）<a class="headerlink" href="#_13" title="Permanent link"></a></h3>
+<p>以下设置因作业对象排除而失效：</p>
 <ul>
 <li><code>ProcessNumberLimit</code></li>
 <li><code>ProcessMemoryLimit</code></li>
 <li><code>TotalMemoryLimit</code></li>
 </ul>
-<h2 id="use-cases-troubleshooting">Use Cases &amp; Troubleshooting<a class="headerlink" href="#use-cases-troubleshooting" title="Permanent link"></a></h2>
-<p><strong>When to Enable:</strong></p>
+<h2 id="_14">使用场景与故障排查<a class="headerlink" href="#_14" title="Permanent link"></a></h2>
+<p><strong>启用时机：</strong></p>
 <ul>
-<li>Software testing and development environments.</li>
-<li>Legacy applications requiring full system privileges.</li>
-<li>Token restriction compatibility issues.</li>
-<li>Virtualization-only scenarios (file/registry separation).</li>
+<li>软件测试和开发环境</li>
+<li>需要完整系统权限的遗留应用</li>
+<li>令牌限制兼容性问题</li>
+<li>仅需虚拟化（文件/注册表隔离）场景</li>
 </ul>
-<p><strong>Common Triggers:</strong></p>
+<p><strong>常见触发因素：</strong></p>
 <ul>
-<li>Applications failing to start due to token restrictions.</li>
-<li>Administrative privilege requirements.</li>
-<li>Complex software compatibility issues.</li>
+<li>应用因令牌限制无法启动</li>
+<li>需要管理员权限</li>
+<li>复杂软件兼容性问题</li>
 </ul>
-<h2 id="related">Related<a class="headerlink" href="#related" title="Permanent link"></a></h2>
+<h2 id="_15">相关<a class="headerlink" href="#_15" title="Permanent link"></a></h2>
 <ul>
-<li><strong>Sandboxie Plus</strong>: Sandbox Options &gt; Security Options &gt; Security Isolation</li>
-<li><a href="../../PlusContent/box-preset-comparison/">Box Types</a></li>
+<li><strong>沙盘 Plus</strong>：沙箱选项 &gt; 安全选项 &gt; 安全隔离</li>
+<li><a href="../../PlusContent/box-preset-comparison/">沙箱类型</a></li>
 <li><a href="../DropChildProcessToken/">DropChildProcessToken</a></li>
 </ul>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p><strong>Token Bypass</strong>: <code>Token_ReplacePrimary</code> returns <code>TRUE</code> when <code>proc-&gt;bAppCompartment</code> is set, bypassing all token filtering operations.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p><strong>令牌绕过</strong>：<code>Token_ReplacePrimary</code> 在 <code>proc-&gt;bAppCompartment</code> 设置后返回 <code>TRUE</code>，从而绕过所有令牌过滤操作&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p><strong>Primary Tokens</strong>: Left unmodified in <code>token.c</code> when Application Compartment mode is active.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p><strong>主令牌</strong>：在 <code>token.c</code> 中，应用程序隔离模式下保持未修改&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p><strong>Impersonation Tokens</strong>: <code>Thread_CheckTokenForImpersonation</code> returns <code>STATUS_SUCCESS</code> without restrictions when <code>proc-&gt;bAppCompartment</code> is enabled.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p><strong>模拟令牌</strong>：<code>Thread_CheckTokenForImpersonation</code> 在启用 <code>proc-&gt;bAppCompartment</code> 时返回 <code>STATUS_SUCCESS</code>，不做限制&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
-<p><strong>Job Object Exclusion</strong>: Condition <code>new_proc-&gt;bAppCompartment</code> in <code>process.c</code> excludes processes from Windows Job Objects.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p><strong>作业对象排除</strong>：<code>process.c</code> 中 <code>new_proc-&gt;bAppCompartment</code> 条件排除进程加入 Windows 作业对象&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 <li id="fn:5">
-<p><strong>Path Handling</strong>: Three behaviors disabled in <code>process.c</code>: <code>always_close_for_boxed</code>, <code>dont_open_for_boxed</code>, and <code>protect_host_images</code>.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+<p><strong>路径处理</strong>：<code>process.c</code> 中禁用三项行为：<code>always_close_for_boxed</code>、<code>dont_open_for_boxed</code>、<code>protect_host_images</code>&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 <li id="fn:6">
-<p><strong>AlwaysCloseForBoxed</strong>: <code>proc-&gt;always_close_for_boxed = !proc-&gt;bAppCompartment &amp;&amp; Conf_Get_Boolean(...)</code> ensures boxed processes aren't blocked from normally closed paths.&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+<p><strong>AlwaysCloseForBoxed</strong>：<code>proc-&gt;always_close_for_boxed = !proc-&gt;bAppCompartment &amp;&amp; Conf_Get_Boolean(...)</code>，确保沙箱进程不会因通常关闭的路径被阻断&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
 </li>
 <li id="fn:7">
-<p><strong>DontOpenForBoxed</strong>: <code>proc-&gt;dont_open_for_boxed = !proc-&gt;bAppCompartment &amp;&amp; Conf_Get_Boolean(...)</code> allows equal path rule application.&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+<p><strong>DontOpenForBoxed</strong>：<code>proc-&gt;dont_open_for_boxed = !proc-&gt;bAppCompartment &amp;&amp; Conf_Get_Boolean(...)</code>，允许所有进程均等应用路径规则&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
 </li>
 <li id="fn:8">
-<p><strong>ProtectHostImages</strong>: <code>proc-&gt;protect_host_images = !proc-&gt;bAppCompartment &amp;&amp; Conf_Get_Boolean(...)</code> disables host binary protection.&#160;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 8 in the text">&#8617;</a></p>
+<p><strong>ProtectHostImages</strong>：<code>proc-&gt;protect_host_images = !proc-&gt;bAppCompartment &amp;&amp; Conf_Get_Boolean(...)</code>，禁用宿主二进制文件保护&#160;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 8 in the text">&#8617;</a></p>
 </li>
 <li id="fn:9">
-<p><strong>Security Filtering</strong>: <code>no_filtering = proc-&gt;bAppCompartment &amp;&amp; Conf_Get_Boolean(..., L"NoSecurityFiltering", ...)</code> enables complete filtering bypass.&#160;<a class="footnote-backref" href="#fnref:9" title="Jump back to footnote 9 in the text">&#8617;</a></p>
+<p><strong>安全过滤</strong>：<code>no_filtering = proc-&gt;bAppCompartment &amp;&amp; Conf_Get_Boolean(..., L"NoSecurityFiltering", ...)</code>，即可完全绕过过滤&#160;<a class="footnote-backref" href="#fnref:9" title="Jump back to footnote 9 in the text">&#8617;</a></p>
 </li>
 <li id="fn:10">
-<p><strong>Template Paths</strong>: <code>Process_GetPaths(proc, list, L"TemplateAppCPaths", setting_name, FALSE)</code> applies compartment-specific template paths.&#160;<a class="footnote-backref" href="#fnref:10" title="Jump back to footnote 10 in the text">&#8617;</a></p>
+<p><strong>模板路径</strong>：<code>Process_GetPaths(proc, list, L"TemplateAppCPaths", setting_name, FALSE)</code> 应用隔离模式专用模板路径&#160;<a class="footnote-backref" href="#fnref:10" title="Jump back to footnote 10 in the text">&#8617;</a></p>
 </li>
 <li id="fn:11">
-<p><strong>Auto Fallback</strong>: <code>!Dyndata_Active &amp;&amp; !proc-&gt;bAppCompartment</code> triggers automatic compartment mode with <code>Log_Msg1(MSG_1207, info)</code>.&#160;<a class="footnote-backref" href="#fnref:11" title="Jump back to footnote 11 in the text">&#8617;</a></p>
+<p><strong>自动回退</strong>：<code>!Dyndata_Active &amp;&amp; !proc-&gt;bAppCompartment</code> 触发自动隔离模式，并记录 <code>Log_Msg1(MSG_1207, info)</code>&#160;<a class="footnote-backref" href="#fnref:11" title="Jump back to footnote 11 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

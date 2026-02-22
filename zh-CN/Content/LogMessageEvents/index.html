@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="LogMessageEvents is a global setting in Sandboxie Ini available since v1.15.2 / 5.70.2. It indicates that Sandboxie should log all Sandboxie messages to the Windows System Event Log.">
+        <meta name="description" content="LogMessageEvents 是自 v1.15.2 / 5.70.2 起在 沙盘配置 中提供的全局设置。该选项表示沙盘应将所有沙盘消息记录到 Windows 系统事件日志">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>Log Message Events - Sandboxie 文档</title>
+        <title>日志消息事件 - Sandboxie 文档</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#log-message-events" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Log Message Events
+              日志消息事件
             
           </span>
         </div>
@@ -799,7 +799,7 @@
   <span class="md-ellipsis">
     
   
-    SbieIni Command Line
+    SbieIni 命令行
   
 
     
@@ -5584,95 +5584,95 @@
   
 
 
-<h1 id="log-message-events">Log Message Events<a class="headerlink" href="#log-message-events" title="Permanent link"></a></h1>
-<p><em>LogMessageEvents</em> is a global setting in <a href="../SandboxieIni/">Sandboxie Ini</a> available since v1.15.2 / 5.70.2. It indicates that Sandboxie should log all Sandboxie messages to the Windows <a href="../SystemEventLog/">System Event Log</a>.</p>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h2>
+<h1 id="_1">日志消息事件<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<p><em>LogMessageEvents</em> 是自 v1.15.2 / 5.70.2 起在 <a href="../SandboxieIni/">沙盘配置</a> 中提供的全局设置。该选项表示沙盘应将所有沙盘消息记录到 Windows <a href="../SystemEventLog/">系统事件日志</a></p>
+<h2 id="_2">用法<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[GlobalSettings]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">LogMessageEvents</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h2>
-<p>When enabled, this setting causes all Sandboxie messages (SBIE codes) to be written to the Windows System Event Log with a source of <code>SbieDrv</code><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. This provides a centralized location for viewing and monitoring all Sandboxie activity, including errors, warnings, and informational messages that would normally only appear in popup dialogs or the Sandboxie message log.</p>
-<h2 id="behavior">Behavior<a class="headerlink" href="#behavior" title="Permanent link"></a></h2>
-<p>The <code>LogMessageEvents</code> setting affects how Sandboxie handles message logging at the driver level<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>. When a message is generated:</p>
+<h2 id="_3">概述<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
+<p>启用该设置后，所有沙盘消息（SBIE 代码）都会以 <code>SbieDrv</code> 作为来源被写入 Windows 系统事件日志<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>。这样可以为查看和监控所有沙盘活动提供一个集中的位置，包括原本只会出现在弹窗或沙盘消息日志中的错误、警告及信息性消息</p>
+<h2 id="_4">行为说明<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
+<p><code>LogMessageEvents</code> 设置会影响沙盘在驱动层面的消息日志处理方式<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>。当产生消息时：</p>
 <ol>
-<li>The message is first processed through the normal Sandboxie message system<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>.</li>
-<li>If <code>LogMessageEvents</code> is enabled, the message is additionally sent to the Windows Event Log as an informational event<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>.</li>
-<li>The event includes the formatted message text and is tagged with the appropriate SBIE message code<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>.</li>
+<li>消息首先会通过常规的沙盘消息系统进行处理<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></li>
+<li>如果启用了 <code>LogMessageEvents</code>，消息还会作为信息事件被额外发送到 Windows 事件日志中<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></li>
+<li>该事件包含格式化的消息文本，并标记有相应的 SBIE 消息码<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup></li>
 </ol>
-<h2 id="usage-scenarios">Usage Scenarios<a class="headerlink" href="#usage-scenarios" title="Permanent link"></a></h2>
-<p>This setting is particularly useful for:</p>
+<h2 id="_5">使用场景<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
+<p>此设置特别适用于：</p>
 <ul>
-<li><strong>System Administrators</strong>: Monitoring Sandboxie activity across multiple systems through centralized log management.</li>
-<li><strong>Debugging</strong>: Capturing a complete record of Sandboxie operations for troubleshooting.</li>
-<li><strong>Compliance</strong>: Maintaining audit logs of sandboxed application behavior.</li>
-<li><strong>Automation</strong>: Allowing monitoring tools to watch for specific Sandboxie events through standard Windows Event Log APIs.</li>
+<li><strong>系统管理员</strong>：通过集中日志管理，监控多台系统上的沙盘活动</li>
+<li><strong>调试排障</strong>：完整捕获沙盘操作记录，便于故障排查</li>
+<li><strong>合规审计</strong>：维护受沙箱隔离的应用程序行为审计日志</li>
+<li><strong>自动化监控</strong>：允许监控工具通过标准 Windows 事件日志 API 关注特定沙盘事件</li>
 </ul>
-<h2 id="message-filtering">Message Filtering<a class="headerlink" href="#message-filtering" title="Permanent link"></a></h2>
-<p>Not all Sandboxie messages are logged to the event log when this setting is enabled. The following message types are specifically excluded from event logging<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup>:</p>
+<h2 id="_6">消息过滤<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
+<p>启用该设置后，并非所有沙盘消息都会被记录到事件日志。以下消息类型被明确排除在事件日志记录之外<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup>：</p>
 <ul>
-<li><strong>MSG_2199</strong>: Auto Recovery notifications.</li>
-<li><strong>MSG_2198</strong>: File Migration progress notifications.</li>
-<li><strong>MSG_1399</strong>: Process Start notifications.</li>
+<li><strong>MSG_2199</strong>：自动恢复通知</li>
+<li><strong>MSG_2198</strong>：文件迁移进度通知</li>
+<li><strong>MSG_1399</strong>：进程启动通知</li>
 </ul>
-<p>These exclusions prevent the event log from being overwhelmed with routine operational messages that occur frequently during normal Sandboxie operation.</p>
-<h2 id="performance-considerations">Performance Considerations<a class="headerlink" href="#performance-considerations" title="Permanent link"></a></h2>
-<p>Enabling <code>LogMessageEvents</code> has minimal performance impact under normal circumstances. However, in environments with high sandbox activity, the additional event log writes may contribute to system overhead. The setting should be used judiciously in production environments where maximum performance is critical.</p>
-<h2 id="implementation-notes">Implementation Notes<a class="headerlink" href="#implementation-notes" title="Permanent link"></a></h2>
-<p>The <code>LogMessageEvents</code> functionality is implemented at both the kernel driver level and the service level<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup>:</p>
+<p>这些排除措施防止在正常沙盘操作期间，常规操作性消息频繁发生而造成事件日志拥挤</p>
+<h2 id="_7">性能考量<a class="headerlink" href="#_7" title="Permanent link"></a></h2>
+<p>在正常情况下，启用 <code>LogMessageEvents</code> 对性能影响极小。但在沙箱活动频繁的环境中，额外的事件日志写入可能会带来系统开销。在对性能要求极高的生产环境下，请谨慎使用该设置</p>
+<h2 id="_8">实现说明<a class="headerlink" href="#_8" title="Permanent link"></a></h2>
+<p><code>LogMessageEvents</code> 功能在内核驱动层和服务层均有实现<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup>：</p>
 <ul>
-<li>The driver component (SbieDrv) checks the setting during configuration loading<sup id="fnref:8"><a class="footnote-ref" href="#fn:8">8</a></sup></li>
-<li>Messages are processed through the service component which formats and writes them to the event log<sup id="fnref:9"><a class="footnote-ref" href="#fn:9">9</a></sup></li>
-<li>The setting is cached for performance and re-read when the configuration is reloaded<sup id="fnref:10"><a class="footnote-ref" href="#fn:10">10</a></sup></li>
+<li>驱动组件（SbieDrv）在加载配置时检查该设置<sup id="fnref:8"><a class="footnote-ref" href="#fn:8">8</a></sup></li>
+<li>消息通过服务组件进行处理，格式化后写入事件日志<sup id="fnref:9"><a class="footnote-ref" href="#fn:9">9</a></sup></li>
+<li>为提升性能，该设置被缓存，并在配置重新加载时重新读取<sup id="fnref:10"><a class="footnote-ref" href="#fn:10">10</a></sup></li>
 </ul>
-<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link"></a></h2>
-<p>If <code>LogMessageEvents</code> is enabled but events are not appearing in the Windows Event Log:</p>
+<h2 id="_9">故障排查<a class="headerlink" href="#_9" title="Permanent link"></a></h2>
+<p>如已启用 <code>LogMessageEvents</code>，但在 Windows 事件日志中没有相关事件，请按如下步骤排查：</p>
 <ol>
-<li>Verify the setting is properly configured in the <code>[GlobalSettings]</code> section.</li>
-<li>Check that the Sandboxie service has appropriate permissions to write to the Event Log.</li>
-<li>Restart the Sandboxie service after changing the setting.</li>
-<li>Verify that Windows Event Log service is running.</li>
+<li>确认该设置已正确配置在 <code>[GlobalSettings]</code> 部分</li>
+<li>检查沙盘服务是否有写入事件日志的权限</li>
+<li>在更改设置后，重启沙盘服务</li>
+<li>确认 Windows 事件日志服务正在运行</li>
 </ol>
-<h2 id="historical-context">Historical Context<a class="headerlink" href="#historical-context" title="Permanent link"></a></h2>
-<p>This feature was introduced in Sandboxie Plus version 1.15.2 / 5.70.2 as part of enhanced monitoring capabilities<sup id="fnref:11"><a class="footnote-ref" href="#fn:11">11</a></sup>. A critical bug that could cause system crashes (BSoD) when using this setting was fixed in version 1.15.4<sup id="fnref:12"><a class="footnote-ref" href="#fn:12">12</a></sup>.</p>
+<h2 id="_10">历史背景<a class="headerlink" href="#_10" title="Permanent link"></a></h2>
+<p>该功能是作为增强监控能力的一部分，在 Sandboxie Plus 版本 1.15.2 / 5.70.2 中引入的<sup id="fnref:11"><a class="footnote-ref" href="#fn:11">11</a></sup>。曾存在一个关键性缺陷，在使用本设置时可能导致系统崩溃（蓝屏），该问题已在 1.15.4 版本修复<sup id="fnref:12"><a class="footnote-ref" href="#fn:12">12</a></sup></p>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p>Source: <code>LogMessage_Event</code> function in <code>/Sandboxie/core/svc/main.cpp</code>.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>来源：<code>LogMessage_Event</code> 函数位于 <code>/Sandboxie/core/svc/main.cpp</code>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>Source: <code>Log_LogMessageEvents</code> boolean variable definition in <code>/Sandboxie/core/drv/log.c</code>.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>来源：<code>Log_LogMessageEvents</code> 布尔变量定义在 <code>/Sandboxie/core/drv/log.c</code>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p>Source: <code>Log_Popup_Msg</code> function call logic in <code>/Sandboxie/core/drv/log.c</code>.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>来源：<code>Log_Popup_Msg</code> 函数调用逻辑位于 <code>/Sandboxie/core/drv/log.c</code>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
-<p>Source: <code>ReportEvent</code> call in <code>/Sandboxie/core/svc/main.cpp</code>.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p>来源：<code>ReportEvent</code> 调用位于 <code>/Sandboxie/core/svc/main.cpp</code>&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 <li id="fn:5">
-<p>Source: Message formatting in <code>SbieDll_FormatMessage2</code> call in <code>/Sandboxie/core/svc/main.cpp</code>.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+<p>来源：消息格式化见 <code>SbieDll_FormatMessage2</code> 调用于 <code>/Sandboxie/core/svc/main.cpp</code>&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 <li id="fn:6">
-<p>Source: Message filtering logic in <code>/Sandboxie/core/svc/DriverAssistLog.cpp</code>.&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+<p>来源：消息过滤逻辑位于 <code>/Sandboxie/core/svc/DriverAssistLog.cpp</code>&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
 </li>
 <li id="fn:7">
-<p>Source: Data communication via <code>Api_SendServiceMessage</code> in <code>/Sandboxie/core/drv/log.c</code>.&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+<p>来源：通过 <code>Api_SendServiceMessage</code> 进行数据通信，位于 <code>/Sandboxie/core/drv/log.c</code>&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
 </li>
 <li id="fn:8">
-<p>Source: Configuration loading in <code>Conf_Get_Boolean</code> call in <code>/Sandboxie/core/drv/conf.c</code>.&#160;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 8 in the text">&#8617;</a></p>
+<p>来源：配置加载见 <code>Conf_Get_Boolean</code> 调用位于 <code>/Sandboxie/core/drv/conf.c</code>&#160;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 8 in the text">&#8617;</a></p>
 </li>
 <li id="fn:9">
-<p>Source: <code>LogMessage</code> function in <code>/Sandboxie/core/svc/DriverAssistLog.cpp</code>.&#160;<a class="footnote-backref" href="#fnref:9" title="Jump back to footnote 9 in the text">&#8617;</a></p>
+<p>来源：<code>LogMessage</code> 函数位于 <code>/Sandboxie/core/svc/DriverAssistLog.cpp</code>&#160;<a class="footnote-backref" href="#fnref:9" title="Jump back to footnote 9 in the text">&#8617;</a></p>
 </li>
 <li id="fn:10">
-<p>Source: <code>Log_LogMessageEvents</code> global variable caching in <code>/Sandboxie/core/drv/log.h</code>.&#160;<a class="footnote-backref" href="#fnref:10" title="Jump back to footnote 10 in the text">&#8617;</a></p>
+<p>来源：<code>Log_LogMessageEvents</code> 全局变量缓存于 <code>/Sandboxie/core/drv/log.h</code>&#160;<a class="footnote-backref" href="#fnref:10" title="Jump back to footnote 10 in the text">&#8617;</a></p>
 </li>
 <li id="fn:11">
-<p>Source: CHANGELOG.md entry for version 1.15.2 / 5.70.2&#160;<a class="footnote-backref" href="#fnref:11" title="Jump back to footnote 11 in the text">&#8617;</a></p>
+<p>来源：版本 1.15.2 / 5.70.2 的 CHANGELOG.md 条目&#160;<a class="footnote-backref" href="#fnref:11" title="Jump back to footnote 11 in the text">&#8617;</a></p>
 </li>
 <li id="fn:12">
-<p>Source: CHANGELOG.md entry for version 1.15.4 / 5.70.4 BSoD fix&#160;<a class="footnote-backref" href="#fnref:12" title="Jump back to footnote 12 in the text">&#8617;</a></p>
+<p>来源：版本 1.15.4 / 5.70.4 BSoD 修复的 CHANGELOG.md 条目&#160;<a class="footnote-backref" href="#fnref:12" title="Jump back to footnote 12 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

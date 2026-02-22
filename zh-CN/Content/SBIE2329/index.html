@@ -803,7 +803,7 @@
   <span class="md-ellipsis">
     
   
-    SbieIni Command Line
+    SbieIni 命令行
   
 
     
@@ -4800,10 +4800,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#description" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Description
+        描述
       
     </span>
   </a>
@@ -4811,10 +4811,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#typical-causes" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Typical Causes
+        常见原因
       
     </span>
   </a>
@@ -4822,10 +4822,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#suggested-actions" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Suggested Actions
+        建议操作
       
     </span>
   </a>
@@ -4833,10 +4833,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#related-messages" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Related Messages
+        相关消息
       
     </span>
   </a>
@@ -4844,10 +4844,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#implementation-notes-and-footnotes" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Implementation notes and footnotes
+        实现说明及脚注
       
     </span>
   </a>
@@ -5695,46 +5695,46 @@
 
 
 <h1 id="sbie2329">SBIE2329<a class="headerlink" href="#sbie2329" title="Permanent link"></a></h1>
-<p><strong>Message</strong> SBIE2329 Failed to find FFS sequence %2</p>
-<p><strong>Severity</strong>: Error (popup)</p>
-<h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link"></a></h2>
-<p>This message is raised when Sandboxie's DLL hook installer attempts to find a <code>Fast-Forward Sequence (FFS)</code> target for a function but cannot recognise the expected instruction pattern. Sandboxie uses <code>FFS</code> detection to follow small trampoline stubs (commonly used by browsers or other applications) to the real/native target and install hooks there. When that sequence cannot be found or resolved, <code>SBIE2329</code> is logged and the hook installer may fall back to a different hooking strategy or report failure.</p>
-<p>The message includes the name of the function for which the <code>FFS</code> sequence could not be found.</p>
-<h2 id="typical-causes">Typical Causes<a class="headerlink" href="#typical-causes" title="Permanent link"></a></h2>
+<p><strong>消息</strong> SBIE2329 无法找到 FFS 序列 %2</p>
+<p><strong>严重性</strong>：错误（弹窗）</p>
+<h2 id="_1">描述<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
+<p>当沙盘的 DLL 钩子安装程序尝试为某个函数寻找 <code>快速前进序列（FFS）</code> 的目标，但未能识别期望的指令模式时，会触发此条消息。沙盘通过检测 <code>FFS</code>，来跟踪小型跳板存根（常见于浏览器或其他应用程序），定位到真实/本机目标并在其上安装钩子。如果无法找到或解析该序列，则记录 <code>SBIE2329</code>，钩子安装程序可能会采用其他策略或报告失败。</p>
+<p>该消息会包含未能找到 <code>FFS</code> 序列的函数名称。</p>
+<h2 id="_2">常见原因<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <ul>
-<li>The target binary has changed (new browser or application version) and the heuristic patterns no longer match.</li>
-<li>The function prolog is compiled or optimized differently (different toolchain, compile-time options) so the <code>FFS</code> pattern is not present.</li>
-<li>The code is obfuscated, packed, or replaced by a small stub that doesn't contain the expected <code>FFS</code> table/pointer.</li>
-<li>Architecture/compatibility differences (x86 vs x64 vs ARM) where the available heuristics don't cover the observed pattern.</li>
+<li>目标二进制文件已更改（新的浏览器或应用程序版本），导致启发式模式不再匹配</li>
+<li>函数前序由不同的工具链、编译选项编译或优化，因此不存在 <code>FFS</code> 模式</li>
+<li>代码被混淆、加壳，或被一个不包含期望 <code>FFS</code> 表或指针的小存根替换</li>
+<li>架构/兼容性差异（x86、x64、ARM），现有启发式方法未能覆盖已观察到的模式</li>
 </ul>
-<h2 id="suggested-actions">Suggested Actions<a class="headerlink" href="#suggested-actions" title="Permanent link"></a></h2>
+<h2 id="_3">建议操作<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
 <ol>
-<li>Update to the latest Sandboxie build — hook heuristics are updated periodically to handle new browser/application layouts.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
-<li>Test with a different build or vendor of the same program (a different Chromium-based build, a different Firefox build) to confirm whether the issue is specific to a particular build.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></li>
-<li>If hooking for that specific function is non-essential, disable the heuristic for it by skipping the function/module from hooking (use the function-level or module-level skip settings or the tracing/hook-skip configuration exposed by the DLL). This prevents the <code>FFS</code> resolution attempt for the named function.<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></li>
-<li>Collect diagnostics to report to maintainers: process image name, module name and base, function name (as reported in the popup), OS build, and a small memory dump or disassembly of the function prolog so maintainers can update the heuristic.<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></li>
+<li>更新至最新的沙盘版本 —— 钩子启发式会定期更新，以适配新的浏览器或应用程序布局<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
+<li>使用同一程序的不同构建或厂商版本进行测试（例如不同的 Chromium 构建、不同的 Firefox 构建），以确认问题是否只影响某特定版本<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></li>
+<li>如果该函数的钩子并非必须，可通过跳过该函数或模块的钩子（使用函数级或模块级跳过设定，或 DLL 提供的跟踪/钩子跳过配置）禁用相应启发式。这样可避免对命名函数进行 <code>FFS</code> 解析尝试<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></li>
+<li>收集诊断信息反馈给维护者：进程镜像名称、模块名称及基址、弹窗显示的函数名称、操作系统版本、以及函数前序的小型内存转储或反汇编，以便维护者更新启发式<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></li>
 </ol>
-<h2 id="related-messages">Related Messages<a class="headerlink" href="#related-messages" title="Permanent link"></a></h2>
+<h2 id="_4">相关消息<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
 <ul>
-<li><a href="../SBIE2303/">SBIE2303</a> — Generic hook error used for various hook failures</li>
-<li><a href="../SBIE2328/">SBIE2328</a> — Failed to resolve chrome sandbox hook (Chrome/Firefox trampoline heuristics)</li>
+<li><a href="../SBIE2303/">SBIE2303</a> —— 用于各种钩子失败的泛用钩子错误</li>
+<li><a href="../SBIE2328/">SBIE2328</a> —— 无法解析 Chrome 沙箱钩子（用于 Chrome/Firefox 跳板启发式）</li>
 </ul>
-<h2 id="implementation-notes-and-footnotes">Implementation notes and footnotes<a class="headerlink" href="#implementation-notes-and-footnotes" title="Permanent link"></a></h2>
-<p>These notes are for maintainers and advanced users who want to trace how and where SBIE2329 can be produced. Line numbers are intentionally omitted.</p>
+<h2 id="_5">实现说明及脚注<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
+<p>以下说明供维护者和高级用户追踪 SBIE2329 的产生过程。无行号。</p>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p>The <code>FFS</code> detection and resolution helpers are implemented in <code>common/hook_util.c</code> (functions such as <code>Hook_GetFFSTarget</code>, <code>Hook_GetFFSTargetOld</code>, and <code>Hook_GetFFSTargetNew</code>). These functions contain the architecture-aware heuristics that recognise <code>FFS</code> prolog sequences and resolve them to the real/native target address.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p><code>FFS</code> 检测与解析工具实现于 <code>common/hook_util.c</code>（如<code>Hook_GetFFSTarget</code>、<code>Hook_GetFFSTargetOld</code>、<code>Hook_GetFFSTargetNew</code> 等函数）。这些函数内含架构感知的启发式，可以识别 <code>FFS</code> 前序并解析其真实/本机目标地址&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>The DLL hook installer (<code>core/dll/dllhook.c</code>) calls <code>Hook_GetFFSTarget()</code> when attempting to install a hook. If no <code>FFS</code> target is found the hook path logs <code>SBIE2329</code> via a call to the logging API (the code calls <code>SbieApi_Log(2329, ...)</code> for unresolved <code>FFS</code> cases) and records hook statistics indicating the absence of an <code>FFS</code> target.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>DLL 钩子安装程序（<code>core/dll/dllhook.c</code>）在尝试安装钩子时会调用 <code>Hook_GetFFSTarget()</code>。若未找到 <code>FFS</code> 目标，则钩子路径通过调用日志 API 记录 <code>SBIE2329</code>（代码调用 <code>SbieApi_Log(2329, ...)</code>），并记录钩子统计信息表明缺乏 <code>FFS</code> 目标&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p><code>Hook_GetFFSTarget()</code> is reused from other places that rely on the same resolution logic (for example injection and tracing code paths in <code>core/low/inject.c</code> and <code>core/dll/gui.c</code>), so failures may surface in multiple subsystems when the same heuristic cannot resolve a trampoline.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p><code>Hook_GetFFSTarget()</code> 也被其他依赖同样解析逻辑的路径复用（例如 <code>core/low/inject.c</code> 与 <code>core/dll/gui.c</code> 的注入及跟踪代码），因此同一启发式无法解析跳板时，多个子系统都可能出现失败&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
-<p>When filing bug reports, include the function name shown in the popup and the module image (or a small extracted prolog/disassembly). That information is typically sufficient for maintainers to reproduce the pattern and extend the heuristic.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p>提交 Bug 报告时，请包含弹窗显示的函数名称与模块镜像（或提取的函数前序/反汇编片段）。这些信息通常足够维护者复现实例并完善启发式&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

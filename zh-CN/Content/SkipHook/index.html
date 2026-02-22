@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="SkipHook is a sandbox setting in Sandboxie Ini used to prevent Sandboxie from installing specific hooks for particular modules or hook identifiers. It is consulted by callers that use the Dll_SkipHook helper.">
+        <meta name="description" content="SkipHook 是沙盘配置（Sandboxie Ini）中的一个沙箱设置，用于阻止沙盘为特定模块或钩子标识符安装指定钩子。调用者在使用 Dll_SkipHook 辅助函数时会参考该设置。">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>Skip Hook - Sandboxie 文档</title>
+        <title>跳过钩子 - Sandboxie 文档</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#skip-hook" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Skip Hook
+              跳过钩子
             
           </span>
         </div>
@@ -799,7 +799,7 @@
   <span class="md-ellipsis">
     
   
-    SbieIni Command Line
+    SbieIni 命令行
   
 
     
@@ -5584,46 +5584,46 @@
   
 
 
-<h1 id="skip-hook">Skip Hook<a class="headerlink" href="#skip-hook" title="Permanent link"></a></h1>
-<p><code>SkipHook</code> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a> used to prevent Sandboxie from installing specific hooks for particular modules or hook identifiers. It is consulted by callers that use the <code>Dll_SkipHook</code> helper.</p>
-<p>Use this setting for module- or hook-name-level exclusions where a comma-separated list of identifiers is more convenient than a per-function list.</p>
-<h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link"></a></h2>
+<h1 id="_1">跳过钩子<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<p><code>SkipHook</code> 是沙盘配置（<a href="../SandboxieIni/">Sandboxie Ini</a>）中的一个沙箱设置，用于阻止沙盘为特定模块或钩子标识符安装指定钩子。调用者在使用 <code>Dll_SkipHook</code> 辅助函数时会参考该设置。</p>
+<p>请将此设置用于基于模块或钩子名称的排除场景——当逗号分隔的标识符列表比按函数逐一列出更便捷时。</p>
+<h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1">; Skip hooks for specific module/hook identifiers (comma-separated list)</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1">; 针对特定模块/钩子标识符跳过钩子（逗号分隔列表）</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="na">SkipHook</span><span class="o">=</span><span class="s">[&lt;program&gt;,]&lt;entry1&gt;,&lt;entry2&gt;,...</span>
 </span></code></pre></div>
-<p>Notes:</p>
+<p>注意事项：</p>
 <ul>
-<li>Entries are comma-separated tokens. Each token may optionally be prefixed with a program/image name followed by a comma (for example: <code>PotPlayer64.exe,cocreate</code>) to scope the token to a particular program. When a program prefix is present the remaining token(s) apply for that program only.</li>
-<li>Each token (the part after any optional program prefix) is compared to the requested hook name using a case-insensitive prefix comparison.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
-<li>Not every hook-install path necessarily consults <code>Dll_SkipHook</code>, so <code>SkipHook</code> may not prevent every single hook attempt.</li>
+<li>条目由逗号分隔。每个条目可选择性地以程序/镜像名称加逗号作为前缀（例如：<code>PotPlayer64.exe,cocreate</code>），以便将该条目限定于某个程序。当存在程序前缀时，后续条目仅适用于该程序。</li>
+<li>每个条目（即去除任何可选程序前缀之后的部分）会采用不区分大小写的前缀比较方式，与请求的钩子名称进行对比<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
+<li>并非所有钩子安装路径都会参考 <code>Dll_SkipHook</code>，因此 <code>SkipHook</code> 可能无法阻止每一次钩子的安装尝试</li>
 </ul>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h2>
-<p>Typically used in templates to avoid hooking for particular applications or hook identifiers.</p>
-<p>Examples:</p>
+<h2 id="_3">使用方法<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
+<p>通常用于模板中，以避免对特定应用程序或钩子标识符进行钩挂操作。</p>
+<p>示例：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="na">SkipHook</span><span class="o">=</span><span class="s">DragonSaga.exe,enumwin,findwin</span>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="na">SkipHook</span><span class="o">=</span><span class="s">PotPlayer64.exe,cocreate</span>
 </span></code></pre></div>
-<h2 id="behavior">Behavior<a class="headerlink" href="#behavior" title="Permanent link"></a></h2>
+<h2 id="_4">行为特性<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
 <ul>
-<li>When called, <code>Dll_SkipHook</code> loads the configured <code>SkipHook</code> string for the current image/template and scans comma-separated tokens. If a token matches the start of the requested hook name (case-insensitive), the helper returns true and callers may skip installing that hook.</li>
-<li>Because this check is not universally used at every hook install point, some hooks may still be installed even if listed in <code>SkipHook</code>.</li>
+<li>调用时，<code>Dll_SkipHook</code> 会加载当前镜像或模板配置的 <code>SkipHook</code> 字符串，扫描逗号分隔的条目。如果某一条目与请求的钩子名称的起始部分一致（忽略大小写），辅助函数将返回真，调用者可以跳过该钩子的安装</li>
+<li>由于这种检查并未在每一个钩子安装点全部应用，所以即使已列在 <code>SkipHook</code> 中，部分钩子仍可能被安装</li>
 </ul>
-<h2 id="gui">GUI<a class="headerlink" href="#gui" title="Permanent link"></a></h2>
-<p><code>SkipHook</code> is an advanced setting and is typically edited by hand in the INI. Template files shipped with Sandboxie may include example <code>SkipHook</code> entries.</p>
-<h2 id="related-settings">Related Settings<a class="headerlink" href="#related-settings" title="Permanent link"></a></h2>
+<h2 id="_5">图形界面<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
+<p><code>SkipHook</code> 属于高级设置，通常需手动编辑 INI 文件。沙盘自带的模板文件内可能包含 <code>SkipHook</code> 示例条目。</p>
+<h2 id="_6">相关设置<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
 <ul>
-<li><a href="../FuncSkipHook/">FuncSkipHook</a> — function-level setting to skip hooking specific API functions.</li>
+<li><a href="../FuncSkipHook/">FuncSkipHook</a> —— 用于跳过特定 API 函数钩挂的函数级设置</li>
 </ul>
-<h2 id="footnotes">Footnotes<a class="headerlink" href="#footnotes" title="Permanent link"></a></h2>
+<h2 id="_7">注释<a class="headerlink" href="#_7" title="Permanent link"></a></h2>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p><code>Dll_SkipHook</code> initializes an internal buffer with <code>SbieDll_GetSettingsForName(..., L"SkipHook", ...)</code> and then scans comma-separated tokens. Matching is performed using a case-insensitive prefix comparison (<code>_wcsnicmp</code>).&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p><code>Dll_SkipHook</code> 会通过 <code>SbieDll_GetSettingsForName(..., L"SkipHook", ...)</code> 初始化内部缓冲区，然后扫描逗号分隔条目。匹配逻辑采用不区分大小写的前缀比较（<code>_wcsnicmp</code>）&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="SpecialImage is a sandbox setting in Sandboxie Ini available since v0.5.3a / 5.45.2. This setting allows you to classify specific executable files as belonging to predefined application categories. Sandboxie uses this classification to apply specialized handling, optimizations, and security measures tailored to each application type. The setting maps application executables to internal image types that trigger category-specific behaviors throughout the sandboxing process.">
+        <meta name="description" content="SpecialImage 是一个沙箱设置项，位于 沙盘配置，自 v0.5.3a / 5.45.2 起提供。该设置允许你将特定可执行文件归类为预定义的应用程序类别。沙盘利用这些分类，为每种应用类型应用专门的处理、优化和安全策略。该设置通过将应用程序可执行文件与内部图像类型进行映射，在整个沙箱隔离过程中触发特定类别的行为。">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>Special Image Classification - Sandboxie 文档</title>
+        <title>特殊图像分类 - Sandboxie 文档</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#special-image-classification" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Special Image Classification
+              特殊图像分类
             
           </span>
         </div>
@@ -799,7 +799,7 @@
   <span class="md-ellipsis">
     
   
-    SbieIni Command Line
+    SbieIni 命令行
   
 
     
@@ -5584,149 +5584,141 @@
   
 
 
-<h1 id="special-image-classification">Special Image Classification<a class="headerlink" href="#special-image-classification" title="Permanent link"></a></h1>
-<p><em>SpecialImage</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a> available since v0.5.3a / 5.45.2. This setting allows you to classify specific executable files as belonging to predefined application categories. Sandboxie uses this classification to apply specialized handling, optimizations, and security measures tailored to each application type. The setting maps application executables to internal image types that trigger category-specific behaviors throughout the sandboxing process.</p>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h2>
+<h1 id="_1">特殊图像分类<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<p><em>SpecialImage</em> 是一个沙箱设置项，位于 <a href="../SandboxieIni/">沙盘配置</a>，自 v0.5.3a / 5.45.2 起提供。该设置允许你将特定可执行文件归类为预定义的应用程序类别。沙盘利用这些分类，为每种应用类型应用专门的处理、优化和安全策略。该设置通过将应用程序可执行文件与内部图像类型进行映射，在整个沙箱隔离过程中触发特定类别的行为。</p>
+<h2 id="_2">使用方法<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">SpecialImage</span><span class="o">=</span><span class="s">chrome,chrome.exe</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="na">SpecialImage</span><span class="o">=</span><span class="s">firefox,firefox.exe</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="na">SpecialImage</span><span class="o">=</span><span class="s">mail,outlook.exe</span>
 </span></code></pre></div>
-<h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link"></a></h2>
+<h2 id="_3">语法说明<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">SpecialImage</span><span class="o">=</span><span class="s">&lt;category&gt;,&lt;executable&gt;</span>
 </span></code></pre></div>
-<p>Where:</p>
+<p>其中：</p>
 <ul>
-<li><code>&lt;category&gt;</code> is one of the predefined application types</li>
-<li><code>&lt;executable&gt;</code> is the name of the application executable file (case-insensitive)</li>
+<li><code>&lt;category&gt;</code> 是预定义的应用程序类型之一</li>
+<li><code>&lt;executable&gt;</code> 是应用程序的可执行文件名称（不区分大小写）</li>
 </ul>
-<h2 id="technical-details">Technical Details<a class="headerlink" href="#technical-details" title="Permanent link"></a></h2>
-<p>When <code>SpecialImage</code> is configured, Sandboxie performs application classification during DLL initialization:</p>
+<h2 id="_4">技术细节<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
+<p>在配置了 <code>SpecialImage</code> 后，沙盘会在 DLL 初始化期间执行应用程序分类：</p>
 <ol>
 <li>
-<p><strong>Image Type Detection</strong>: During process startup, the system queries all <code>SpecialImage</code> configurations and matches the current executable against defined mappings<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
+<p><strong>图像类型检测</strong>：进程启动时，系统会查询所有 <code>SpecialImage</code> 配置，并将当前可执行文件与已定义的映射进行比对<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
 </li>
 <li>
-<p><strong>Internal Classification</strong>: Matched applications are assigned internal image types (such as <code>DLL_IMAGE_GOOGLE_CHROME</code> or <code>DLL_IMAGE_MOZILLA_FIREFOX</code>) that determine specialized behavior<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</p>
+<p><strong>内部分类</strong>：匹配到的应用程序会分配内部图像类型（如 <code>DLL_IMAGE_GOOGLE_CHROME</code> 或 <code>DLL_IMAGE_MOZILLA_FIREFOX</code>），以决定专用的行为方式<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
 </li>
 <li>
-<p><strong>Behavior Customization</strong>: The assigned image type influences various aspects including GUI handling, process restrictions, file access patterns, and security token management<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>.</p>
+<p><strong>行为定制</strong>：分配的图像类型将影响 GUI 处理、进程限制、文件访问模式以及安全令牌管理等多方面<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></p>
 </li>
 </ol>
-<h2 id="supported-categories">Supported Categories<a class="headerlink" href="#supported-categories" title="Permanent link"></a></h2>
+<h2 id="_5">支持的类别<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
 <ul>
-<li><strong>chrome</strong>: Chromium-based browsers and Electron applications</li>
-<li><strong>firefox</strong>: Mozilla Firefox and related browsers  </li>
-<li><strong>thunderbird</strong>: Mozilla Thunderbird email client</li>
-<li><strong>browser</strong>: Other web browsers not based on Chrome or Firefox</li>
-<li><strong>mail</strong>: Email clients other than Thunderbird</li>
-<li><strong>plugin</strong>: Browser plugin containers and helper processes</li>
+<li><strong>chrome</strong>：基于 Chromium 的浏览器与 Electron 应用程序</li>
+<li><strong>firefox</strong>：Mozilla Firefox 及相关浏览器</li>
+<li><strong>thunderbird</strong>：Mozilla Thunderbird 邮件客户端</li>
+<li><strong>browser</strong>：除 Chrome 或 Firefox 外的其它网页浏览器  </li>
+<li><strong>mail</strong>：除 Thunderbird 外的邮件客户端</li>
+<li><strong>plugin</strong>：浏览器插件容器与辅助进程</li>
 </ul>
-<h2 id="default-configuration">Default Configuration<a class="headerlink" href="#default-configuration" title="Permanent link"></a></h2>
-<p>Sandboxie includes extensive default mappings in the <code>Template_SpecialImages</code> template:</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Chromium-based browsers</span>
+<h2 id="_6">默认配置<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
+<p>沙盘在 <code>Template_SpecialImages</code> 模板中包含广泛的默认映射：</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># 基于 Chromium 的浏览器</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">SpecialImage</span><span class="o">=</span><span class="s">chrome,chrome.exe</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="na">SpecialImage</span><span class="o">=</span><span class="s">chrome,msedge.exe</span><span class="w">  </span>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="na">SpecialImage</span><span class="o">=</span><span class="s">chrome,brave.exe</span>
 </span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="na">SpecialImage</span><span class="o">=</span><span class="s">chrome,vivaldi.exe</span>
 </span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="na">SpecialImage</span><span class="o">=</span><span class="s">chrome,opera.exe</span>
 </span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="c1"># Firefox family</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="c1"># Firefox 系浏览器</span>
 </span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="na">SpecialImage</span><span class="o">=</span><span class="s">firefox,firefox.exe</span>
 </span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="na">SpecialImage</span><span class="o">=</span><span class="s">firefox,waterfox.exe</span>
 </span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="na">SpecialImage</span><span class="o">=</span><span class="s">firefox,librewolf.exe</span>
 </span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="c1"># Email clients</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="c1"># 邮件客户端</span>
 </span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="na">SpecialImage</span><span class="o">=</span><span class="s">mail,winmail.exe</span>
 </span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="na">SpecialImage</span><span class="o">=</span><span class="s">mail,foxmail.exe</span>
 </span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="na">SpecialImage</span><span class="o">=</span><span class="s">mail,mailbird.exe</span>
 </span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>
-</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="c1"># Electron applications</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="c1"># Electron 应用程序</span>
 </span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="na">SpecialImage</span><span class="o">=</span><span class="s">chrome,slack.exe</span>
 </span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="na">SpecialImage</span><span class="o">=</span><span class="s">chrome,spotify.exe</span>
 </span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="na">SpecialImage</span><span class="o">=</span><span class="s">chrome,steam.exe</span>
 </span></code></pre></div>
-<h2 id="category-specific-behaviors">Category-Specific Behaviors<a class="headerlink" href="#category-specific-behaviors" title="Permanent link"></a></h2>
+<h2 id="_7">各类别专用行为<a class="headerlink" href="#_7" title="Permanent link"></a></h2>
 <ul>
-<li>
-<p><strong>Chrome Applications</strong>: Receive specialized sandbox handling, custom command line flags via <a href="../CustomChromiumFlags/">CustomChromiumFlags</a>, restricted token management for child processes, and optimized GUI window station handling<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>.</p>
-</li>
-<li>
-<p><strong>Firefox Applications</strong>: Get tailored file access permissions, specialized D3D11 handling on specific Windows versions, sandbox process token modifications, and customized GUI enumeration behavior<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>.</p>
-</li>
-<li>
-<p><strong>Email Clients</strong>: Receive appropriate file system access permissions and specialized handling for mail database operations.</p>
-</li>
-<li>
-<p><strong>Plugin Containers</strong>: Have their process tokens dropped to prevent privilege escalation and receive specialized restricted token handling<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup>.</p>
-</li>
+<li><strong>Chrome 应用程序</strong>：获得专门的沙箱处理，通过 <a href="../CustomChromiumFlags/">CustomChromiumFlags</a> 自动注入自定义命令行参数，对子进程的安全令牌进行限制，并优化 GUI 窗口站点处理<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></li>
+<li><strong>Firefox 应用程序</strong>：获得定制的文件访问权限、在特定 Windows 版本上专门的 D3D11 处理、沙箱进程令牌的调整，以及定制的 GUI 枚举行为<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup></li>
+<li><strong>邮件客户端</strong>：具备适当的文件系统访问权限，并专门处理邮件数据库操作</li>
+<li><strong>插件容器</strong>：进程令牌会被丢弃，防止权限提升，并进行专用的令牌限制处理<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup></li>
 </ul>
-<p><strong>Security Implications</strong></p>
+<p><strong>安全影响</strong></p>
 <ul>
-<li><strong>Privilege Management</strong>: Applications classified as plugin containers or certain browser types have their security tokens automatically restricted or dropped entirely</li>
-<li><strong>Child Process Handling</strong>: Browser applications receive specialized handling for their sandbox child processes, preventing token inheritance issues</li>
-<li><strong>File System Access</strong>: Each category receives tailored file system access permissions appropriate to their function</li>
-<li><strong>GUI Isolation</strong>: Browser and mail applications get enhanced GUI isolation through specialized window station handling</li>
+<li><strong>权限管理</strong>：如插件容器或某些浏览器类型的应用程序，会自动限制或丢弃其安全令牌</li>
+<li><strong>子进程处理</strong>：浏览器应用程序对其沙箱内子进程做专门处理，防止令牌继承相关问题</li>
+<li><strong>文件系统访问</strong>：每个类别依据其功能获得定制的文件系统访问权限</li>
+<li><strong>GUI 隔离</strong>：浏览器与邮件类应用程序，通过专用窗口站点处理实现更好的 GUI 隔离</li>
 </ul>
-<h2 id="implementation-notes">Implementation Notes<a class="headerlink" href="#implementation-notes" title="Permanent link"></a></h2>
-<p>The image type classification system:</p>
+<h2 id="_8">实现说明<a class="headerlink" href="#_8" title="Permanent link"></a></h2>
+<p>图像类型分类系统：</p>
 <ul>
-<li>Queries configuration during DLL initialization using <code>SbieApi_QueryConfAsIs</code> with indexed access to handle multiple mappings<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup></li>
-<li>Performs case-insensitive string matching between the current executable name and configured mappings</li>
-<li>Falls back to automatic detection for well-known applications if no explicit mapping exists</li>
-<li>Stores the determined image type globally for use throughout the sandboxing process</li>
-<li>Influences numerous subsystems including process creation, GUI handling, file access, and security token management</li>
+<li>在 DLL 初始化期间通过 <code>SbieApi_QueryConfAsIs</code> 查询配置，支持索引访问以处理多个映射<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup></li>
+<li>对当前可执行文件名称与配置进行不区分大小写的字符串比对</li>
+<li>若无明确映射，则对知名应用程序自动检测</li>
+<li>全球性存储已确定的图像类型，供沙箱全过程使用</li>
+<li>影响诸多子系统，包括进程启动、GUI 处理、文件访问以及安全令牌管理等</li>
 </ul>
-<h2 id="usage-examples">Usage Examples<a class="headerlink" href="#usage-examples" title="Permanent link"></a></h2>
+<h2 id="_9">用法示例<a class="headerlink" href="#_9" title="Permanent link"></a></h2>
 <ul>
 <li>
-<p><strong>Electron Application Support</strong>:
+<p><strong>支持 Electron 应用程序</strong>：
   <div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">SpecialImage</span><span class="o">=</span><span class="s">chrome,discord.exe</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">SpecialImage</span><span class="o">=</span><span class="s">chrome,vscode.exe</span>
 </span></code></pre></div></p>
 </li>
 <li>
-<p><strong>Alternative Browser Classification</strong>:
+<p><strong>浏览器分类补充</strong>：
   <div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="na">SpecialImage</span><span class="o">=</span><span class="s">chrome,thorium.exe</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="na">SpecialImage</span><span class="o">=</span><span class="s">firefox,librewolf.exe</span>
 </span></code></pre></div></p>
 </li>
 <li>
-<p><strong>Custom Mail Client Support</strong>:
+<p><strong>自定义邮件客户端支持</strong>：
   <div class="language-ini highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="na">SpecialImage</span><span class="o">=</span><span class="s">mail,myclient.exe</span>
 </span></code></pre></div></p>
 </li>
 </ul>
-<h2 id="related-settings">Related Settings<a class="headerlink" href="#related-settings" title="Permanent link"></a></h2>
+<h2 id="_10">相关设置<a class="headerlink" href="#_10" title="Permanent link"></a></h2>
 <ul>
-<li><a href="../CustomChromiumFlags/">CustomChromiumFlags</a> - Automatically applies to applications classified as <code>chrome</code></li>
-<li><a href="../DropChildProcessToken/">DropChildProcessToken</a> - Affects behavior of plugin containers and certain browser types</li>
+<li><a href="../CustomChromiumFlags/">CustomChromiumFlags</a> - 自动应用于被归类为 <code>chrome</code> 的应用程序</li>
+<li><a href="../DropChildProcessToken/">DropChildProcessToken</a> - 会影响插件容器与特定浏览器类型的行为</li>
 </ul>
-<p>Related Sandboxie Plus setting: Not directly exposed in UI (uses template-defined defaults automatically)</p>
+<p>相关沙盘 Plus 设置：未直接在 UI 暴露（自动采用模板定义的默认值）</p>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p>Image type detection in <code>dllmain.c</code>: The function <code>Dll_GetImageType</code> iterates through all <code>SpecialImage</code> configurations using indexed queries, parsing the comma-separated category and executable pairs to find matches against the current process executable name.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p><code>dllmain.c</code> 中的图像类型检测：函数 <code>Dll_GetImageType</code> 通过索引方式遍历所有 <code>SpecialImage</code> 配置，解析逗号分隔的类别与可执行文件名，逐一比对当前进程文件名称&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>Internal classification mapping in <code>dllmain.c</code>: String comparisons map category names to internal constants: "chrome" maps to <code>DLL_IMAGE_GOOGLE_CHROME</code>, "firefox" to <code>DLL_IMAGE_MOZILLA_FIREFOX</code>, "thunderbird" to <code>DLL_IMAGE_MOZILLA_THUNDERBIRD</code>, "browser" to <code>DLL_IMAGE_OTHER_WEB_BROWSER</code>, "mail" to <code>DLL_IMAGE_OTHER_MAIL_CLIENT</code>, and "plugin" to <code>DLL_IMAGE_PLUGIN_CONTAINER</code>.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p><code>dllmain.c</code> 中的内部分类映射：字符串比较将类别名称映射为内部常量，如 "chrome" 映射为 <code>DLL_IMAGE_GOOGLE_CHROME</code>，"firefox" 映射为 <code>DLL_IMAGE_MOZILLA_FIREFOX</code>，"thunderbird" 为 <code>DLL_IMAGE_MOZILLA_THUNDERBIRD</code>，"browser" 为 <code>DLL_IMAGE_OTHER_WEB_BROWSER</code>，"mail" 为 <code>DLL_IMAGE_OTHER_MAIL_CLIENT</code>，"plugin" 为 <code>DLL_IMAGE_PLUGIN_CONTAINER</code>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p>Behavior customization throughout codebase: The assigned image type influences multiple subsystems including GUI window enumeration in <code>guienum.c</code>, process creation and token handling in <code>proc.c</code>, file access permissions in <code>file.c</code>, and specialized browser handling in <code>kernel.c</code>.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>行为定制遍布代码库：分配的图像类型影响多个子系统，包括 <code>guienum.c</code> 的 GUI 窗口枚举、<code>proc.c</code> 的进程启动与令牌处理、<code>file.c</code> 的文件访问权限及 <code>kernel.c</code> 的专用浏览器处理&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
-<p>Chrome-specific handling in <code>kernel.c</code>: Applications classified as <code>DLL_IMAGE_GOOGLE_CHROME</code> receive automatic injection of custom command line flags through the <code>CustomChromiumFlags</code> mechanism, with special handling to avoid flag duplication in child processes containing the "--type=" parameter.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p><code>kernel.c</code> 中的 chrome 特定处理：被分类为 <code>DLL_IMAGE_GOOGLE_CHROME</code> 的应用程序，通过 <code>CustomChromiumFlags</code> 机制自动注入定制命令行参数，并针对包含 "--type=" 参数的子进程避免重复注入&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 <li id="fn:5">
-<p>Firefox-specific optimizations in <code>guienum.c</code> and <code>proc.c</code>: Firefox applications receive specialized D3D11 graphics handling on Windows 10+, custom sandbox process token management for contentproc children, and tailored GUI window station behavior for better compatibility.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+<p>Firefox 专用优化在 <code>guienum.c</code> 与 <code>proc.c</code>：Firefox 应用在 Windows 10+ 获得定制 D3D11 图形处理，对 contentproc 子进程执行专用沙箱令牌管理，并获得针对性 GUI 窗口站点兼容性优化&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 <li id="fn:6">
-<p>Plugin container restrictions in <code>proc.c</code>: Applications classified as <code>DLL_IMAGE_PLUGIN_CONTAINER</code> automatically have their security tokens dropped entirely during process creation to prevent privilege escalation, along with Adobe Reader and other sandboxed plugin systems.&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+<p>插件容器限制在 <code>proc.c</code>：被分类为 <code>DLL_IMAGE_PLUGIN_CONTAINER</code> 的应用程序，在进程创建时会自动丢弃安全令牌，防止权限提升，Adobe Reader 与其它沙箱插件系统同样适用&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
 </li>
 <li id="fn:7">
-<p>Configuration query mechanism in <code>dllmain.c</code>: The system uses <code>SbieApi_QueryConfAsIs(NULL, L"SpecialImage", index, buf, 90 * sizeof(WCHAR))</code> with incrementing index values to retrieve all SpecialImage entries, parsing each comma-separated value pair until no more entries exist.&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+<p><code>dllmain.c</code> 中的配置查询机制：系统通过 <code>SbieApi_QueryConfAsIs(NULL, L"SpecialImage", index, buf, 90 * sizeof(WCHAR))</code> 不断递增索引值检索所有 SpecialImage 配置，并解析每个逗号分隔的值，直到不再有条目&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

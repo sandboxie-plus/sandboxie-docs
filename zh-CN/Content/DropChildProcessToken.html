@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="DropChildProcessToken 是一个沙箱设置项，自 v1.15.6 / 5.70.6 起在 沙盘 Ini 中可用。此设置强制指定应用程序的子进程在运行时不使用受修改的安全令牌，从而绕过沙盘通常的受限令牌机制。该功能主要作为调试工具，用于排查“绿框”（应用程序隔离）兼容性问题，即应用程序因令牌限制而无法正常启动或运行。">
+        <meta name="description" content="DropChildProcessToken 是一个沙箱设置，自 v1.15.6 / 5.70.6 起在 沙盘配置 中可用。此设置强制指定应用程序的子进程在运行时不使用受修改的安全令牌，从而绕过沙盘通常的受限令牌机制。该功能主要作为调试工具，用于排查“绿框”（应用程序隔离）兼容性问题，即应用程序因令牌限制而无法正常启动或运行。">
       
       
       
@@ -799,7 +799,7 @@
   <span class="md-ellipsis">
     
   
-    SbieIni Command Line
+    SbieIni 命令行
   
 
     
@@ -5585,7 +5585,7 @@
 
 
 <h1 id="drop-child-process-token">Drop Child Process Token<a class="headerlink" href="#drop-child-process-token" title="Permanent link"></a></h1>
-<p><em>DropChildProcessToken</em> 是一个沙箱设置项，自 v1.15.6 / 5.70.6 起在 <a href="SandboxieIni.html">沙盘 Ini</a> 中可用。此设置强制指定应用程序的子进程在运行时不使用受修改的安全令牌，从而绕过沙盘通常的受限令牌机制。该功能主要作为调试工具，用于排查“绿框”（应用程序隔离）兼容性问题，即应用程序因令牌限制而无法正常启动或运行。</p>
+<p><em>DropChildProcessToken</em> 是一个沙箱设置，自 v1.15.6 / 5.70.6 起在 <a href="SandboxieIni.html">沙盘配置</a> 中可用。此设置强制指定应用程序的子进程在运行时不使用受修改的安全令牌，从而绕过沙盘通常的受限令牌机制。该功能主要作为调试工具，用于排查“绿框”（应用程序隔离）兼容性问题，即应用程序因令牌限制而无法正常启动或运行。</p>
 <h2 id="_1">使用方法<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Message SBIE2225 An attempt was made to access an EFS file: %2">
+        <meta name="description" content="Sandboxie Plus lets you run programs in isolated sandboxes on Windows, enhancing security and privacy by containing changes from the rest of the system.">
       
       
       
@@ -803,7 +803,7 @@
   <span class="md-ellipsis">
     
   
-    SbieIni Command Line
+    SbieIni 命令行
   
 
     
@@ -4156,10 +4156,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#description" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Description
+        描述
       
     </span>
   </a>
@@ -4167,10 +4167,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#typical-causes" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Typical Causes
+        常见原因
       
     </span>
   </a>
@@ -4178,10 +4178,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-sandboxie-does" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What Sandboxie Does
+        沙盘的处理方式
       
     </span>
   </a>
@@ -4189,10 +4189,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#suggested-actions" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Suggested Actions
+        建议的操作
       
     </span>
   </a>
@@ -4200,10 +4200,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#related-messages-and-settings" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Related Messages and Settings
+        相关消息与设置
       
     </span>
   </a>
@@ -4211,10 +4211,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#implementation-notes-and-footnotes" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Implementation Notes and Footnotes
+        实现说明与附注
       
     </span>
   </a>
@@ -5706,53 +5706,53 @@
 
 
 <h1 id="sbie2225">SBIE2225<a class="headerlink" href="#sbie2225" title="Permanent link"></a></h1>
-<p><strong>Message</strong> SBIE2225 An attempt was made to access an EFS file: %2</p>
-<p><strong>Severity</strong>: Warning</p>
-<h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link"></a></h2>
-<p>This message is logged when Sandboxie detects that a sandboxed process attempted to access a file protected by Windows Encrypting File System (EFS), and the attempt was blocked or could not be proxied.</p>
-<p>The message includes the path of the attempted file access. In many cases this indicates a configuration or certificate issue preventing EFS access from being granted to the sandboxed process.</p>
-<h2 id="typical-causes">Typical Causes<a class="headerlink" href="#typical-causes" title="Permanent link"></a></h2>
+<p><strong>消息</strong> SBIE2225 尝试访问 EFS 文件时被阻止：%2</p>
+<p><strong>严重性</strong>：警告</p>
+<h2 id="_1">描述<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
+<p>当沙盘检测到沙箱内的进程尝试访问由 Windows 加密文件系统（EFS）保护的文件且该尝试被阻止或无法代理时，会记录此消息。</p>
+<p>该消息包含被尝试访问的文件路径。多数情况下，这表明存在某些配置或证书问题，导致沙箱进程无法获得 EFS 访问权限。</p>
+<h2 id="_2">常见原因<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <ul>
-<li>The sandbox setting <code>EnableEFS</code> is not enabled for the box.</li>
-<li>An advanced supporter certificate with the encryption feature is not present or not active.</li>
-<li>The attempted path is not eligible for EFS proxying (for example, it does not reside on a supported device path).</li>
-<li>Proxy operation failed due to permission, matching, or handle-duplication errors in the UserServer component.</li>
+<li>沙箱设置 <code>EnableEFS</code> 未在沙箱中启用</li>
+<li>没有安装或激活带有加密功能的高级支持者证书</li>
+<li>被访问的路径不支持 EFS 代理（例如，不在受支持的设备路径下）</li>
+<li>由于权限、匹配或在用户服务组件中句柄复制错误，代理操作失败</li>
 </ul>
-<h2 id="what-sandboxie-does">What Sandboxie Does<a class="headerlink" href="#what-sandboxie-does" title="Permanent link"></a></h2>
+<h2 id="_3">沙盘的处理方式<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
 <ul>
-<li>Detects EFS-protected files during file open/create operations.</li>
-<li>If <code>EnableEFS</code> is configured and the supporter certificate includes the encryption feature, Sandboxie attempts to perform the file operation by proxying the request to the UserServer service and duplicating back a handle to the sandboxed process.</li>
-<li>If proxying fails, or <code>EnableEFS</code> is not permitted, Sandboxie logs SBIE2225 and denies the sandboxed process access to the file.</li>
+<li>在文件打开/创建操作期间检测 EFS 保护文件</li>
+<li>如果已配置 <code>EnableEFS</code>，且支持者证书包含加密功能，沙盘会尝试通过将请求代理到用户服务（UserServer）服务，并将句柄复制回沙箱进程的方式完成文件操作</li>
+<li>如果代理失败，或不允许 <code>EnableEFS</code>，沙盘会记录 SBIE2225 并拒绝沙箱进程访问该文件</li>
 </ul>
-<h2 id="suggested-actions">Suggested Actions<a class="headerlink" href="#suggested-actions" title="Permanent link"></a></h2>
+<h2 id="_4">建议的操作<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
 <ol>
-<li>Verify the sandbox has <code>EnableEFS=y</code> in the box section of <a href="SandboxieIni.html">Sandboxie.Ini</a> or via the Sandboxie settings UI.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
-<li>Ensure an advanced supporter certificate is installed and active, and that it includes the encryption option (<code>opt_enc</code>).<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></li>
-<li>Check that the target path is on a supported device (typically <code>\Device\HarddiskVolume*</code>).<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></li>
-<li>If you expect EFS access to work but it does not, enable driver/file tracing and collect logs to help diagnose proxy failures (see <code>TraceLog</code> and <code>EnableEFS</code> docs).<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></li>
+<li>确认沙箱已在 <a href="SandboxieIni.html">沙盘配置</a> 的沙箱部分或通过沙盘设置界面将 <code>EnableEFS=y</code> 配置启用 <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
+<li>确保已安装并激活高级支持者证书，且该证书包含加密选项（<code>opt_enc</code>） <sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></li>
+<li>检查目标路径是否位于受支持的设备上（通常为 <code>\Device\HarddiskVolume*</code>） <sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></li>
+<li>如果你期望能正常访问 EFS，但实际无法访问，可启用驱动/文件追踪并收集日志，以协助诊断代理失败的原因（参见 <code>TraceLog</code> 及 <code>EnableEFS</code> 文档） <sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></li>
 </ol>
-<h2 id="related-messages-and-settings">Related Messages and Settings<a class="headerlink" href="#related-messages-and-settings" title="Permanent link"></a></h2>
+<h2 id="_5">相关消息与设置<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
 <ul>
-<li><a href="SBIE6004.html">SBIE6004</a> — Supporter certificate missing or insufficient.<sup id="fnref2:2"><a class="footnote-ref" href="#fn:2">2</a></sup></li>
-<li><a href="EnableEFS.html">EnableEFS</a> — contains an extended explanation, examples, and additional footnotes reused above.</li>
-<li><a href="SandboxieTrace.html">TraceLog</a> - displays the names of any system resources that are accessed by programs running under the supervision of Sandboxie.</li>
+<li><a href="SBIE6004.html">SBIE6004</a> — 支持者证书丢失或权限不足 <sup id="fnref2:2"><a class="footnote-ref" href="#fn:2">2</a></sup></li>
+<li><a href="EnableEFS.html">EnableEFS</a> — 包含详细说明、示例及本页多处重复引用的附注</li>
+<li><a href="SandboxieTrace.html">TraceLog</a> — 显示沙盘监管下运行的程序访问的所有系统资源名称</li>
 </ul>
-<h2 id="implementation-notes-and-footnotes">Implementation Notes and Footnotes<a class="headerlink" href="#implementation-notes-and-footnotes" title="Permanent link"></a></h2>
-<p>The following notes reference implementation points in the Sandboxie source. They are intended for maintainers and advanced users who want to trace how SBIE2225 is generated.</p>
+<h2 id="_6">实现说明与附注<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
+<p>下列说明引用了沙盘源代码的实现细节，适用于需要追溯 SBIE2225 消息生成方式的维护者和高级用户。</p>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p><code>EnableEFS</code> is the box-level setting described in <a href="EnableEFS.html">EnableEFS</a>. When enabled, Sandboxie allows EFS proxying for sandboxed processes.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p><code>EnableEFS</code> 是 <a href="EnableEFS.html">EnableEFS</a> 中介绍的沙箱级设置。启用后，沙盘允许为沙箱进程代理 EFS 访问请求&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>Certificate checks are performed in the UserServer path when attempting proxy operations; the code verifies both <code>CertInfo.active</code> and <code>CertInfo.opt_enc</code> before allowing EFS proxying. If the certificate check fails, proxy requests are rejected which can lead to SBIE6004 or SBIE2225 being logged.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>证书检查在 UserServer 路径下执行代理操作时完成，代码会在允许 EFS 代理前同时验证 <code>CertInfo.active</code> 及 <code>CertInfo.opt_enc</code>。如果证书检查失败，代理请求会被拒绝，并可能记录 SBIE6004 或 SBIE2225&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p>The UserServer restricts proxy operations to paths that begin with <code>\Device\HarddiskVolume</code> (hard disk volumes). Requests outside these device paths are not eligible for EFS proxying.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>UserServer 仅允许代理操作路径以 <code>\Device\HarddiskVolume</code>（硬盘卷设备）开头的请求。非此设备路径不支持 EFS 代理&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
-<p>SBIE2225 is logged when <code>File_NtCreateFileProxy()</code> or related proxy code fails while attempting to service an EFS access request. The error is emitted by <code>SbieApi_Log(2225, TruePath)</code> in the proxy path.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p>当 <code>File_NtCreateFileProxy()</code> 或相关代理代码在尝试处理 EFS 访问请求时失败，将记录 SBIE2225 错误。错误由代理路径下的 <code>SbieApi_Log(2225, TruePath)</code> 发出&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
@@ -5762,9 +5762,6 @@
 
 
 
-
-  
-  
 
 
 
