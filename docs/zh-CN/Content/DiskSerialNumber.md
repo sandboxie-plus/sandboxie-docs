@@ -1,6 +1,6 @@
 # 磁盘序列号
 
-_DiskSerialNumber_ 是 [沙盘配置文件](SandboxieIni.md) 中的一项沙箱设置，从 v1.15.2 / 5.70.2 版本开始提供。该设置允许为沙箱内的指定磁盘设备分配自定义序列号，并与 [隐藏磁盘序列号](HideDiskSerialNumber.md) 功能配合使用。
+_DiskSerialNumber_ 是 [沙盘配置](SandboxieIni.md) 中的一项沙箱设置，从 v1.15.2 / 5.70.2 版本开始提供。该设置允许为沙箱内的指定磁盘设备分配自定义序列号，并与 [隐藏磁盘序列号](HideDiskSerialNumber.md) 功能配合使用。
 
 ## 语法
 

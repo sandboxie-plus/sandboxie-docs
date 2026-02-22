@@ -1,6 +1,6 @@
 # 启用 EFS
 
-_EnableEFS_ 是一个沙箱设置，位于 [沙盘 Ini](SandboxieIni.md) 文件，自 v1.15.0 / 5.70.0 起可用。它允许沙箱内的进程访问受 Windows 加密文件系统（EFS）保护的文件。
+_EnableEFS_ 是一个沙箱设置，位于 [沙盘配置](SandboxieIni.md) 文件，自 v1.15.0 / 5.70.0 起可用。它允许沙箱内的进程访问受 Windows 加密文件系统（EFS）保护的文件。
 
 > [!NOTE]
 > 此设置需要一个有效的高级 [支持者证书](https://sandboxie-plus.com/supporter-certificate/)[^1]。

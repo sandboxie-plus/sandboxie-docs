@@ -1,6 +1,6 @@
 # 自定义 Chromium 启动参数
 
-_CustomChromiumFlags_ 是自 v1.14.2 / 5.69.2 起在 [Sandboxie Ini](SandboxieIni.md) 提供的一个沙箱设置。该设置允许在 Chromium 内核的浏览器被沙箱启动时，向其传递额外的命令行参数。Sandboxie 会自动将这些参数注入到浏览器的启动命令行，实现对浏览器行为的精细控制，以增强在沙箱环境下的兼容性和功能性。
+_CustomChromiumFlags_ 是自 v1.14.2 / 5.69.2 起在 [沙盘配置](SandboxieIni.md) 提供的一个沙箱设置。该设置允许在 Chromium 内核的浏览器被沙箱启动时，向其传递额外的命令行参数。Sandboxie 会自动将这些参数注入到浏览器的启动命令行，实现对浏览器行为的精细控制，以增强在沙箱环境下的兼容性和功能性。
 
 ## 用法
 
