@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="ForceChildren is a sandbox setting in Sandboxie Ini (introduced in v1.14.5 / 5.69.5) that forces specific child processes of a parent process to start inside a specified sandbox. This is useful when you want any processes launched by a known parent to be automatically sandboxed.">
+        <meta name="description" content="ForceChildren 是 沙盘配置 中的一个沙箱设置（在 v1.14.5 / 5.69.5 版本中引入），可强制特定父进程启动的子进程在指定沙箱内运行。当你希望由已知父进程启动的所有进程都自动在沙箱中运行时，这项功能十分有用。">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>Force Child Processes - Sandboxie 文档</title>
+        <title>强制子进程 - Sandboxie 文档</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#force-child-processes" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Force Child Processes
+              强制子进程
             
           </span>
         </div>
@@ -5584,146 +5584,146 @@
   
 
 
-<h1 id="force-child-processes">Force Child Processes<a class="headerlink" href="#force-child-processes" title="Permanent link"></a></h1>
-<p><code>ForceChildren</code> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a> (introduced in v1.14.5 / 5.69.5) that forces specific child processes of a parent process to start inside a specified sandbox. This is useful when you want any processes launched by a known parent to be automatically sandboxed.</p>
-<h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link"></a></h2>
-<p>The general form:</p>
+<h1 id="_1">强制子进程<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<p><code>ForceChildren</code> 是 <a href="../SandboxieIni/">沙盘配置</a> 中的一个沙箱设置（在 v1.14.5 / 5.69.5 版本中引入），可强制特定父进程启动的子进程在指定沙箱内运行。当你希望由已知父进程启动的所有进程都自动在沙箱中运行时，这项功能十分有用。</p>
+<h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
+<p>通用格式如下：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">ForceChildren</span><span class="o">=</span><span class="s">&lt;program&gt;</span>
 </span></code></pre></div>
-<p>Where <code>&lt;program&gt;</code> may be one of:</p>
+<p>其中 <code>&lt;program&gt;</code> 可以是：</p>
 <ul>
-<li>An image path with wildcards, e.g. <code>C:\Users\*\App\*.exe</code> — wildcard patterns are matched case-insensitively against canonical paths.</li>
-<li>An image name (without backslashes), e.g. <code>dopus.exe</code> — matches by image name using the driver image matching rules.</li>
+<li>带有通配符的映像路径，例如 <code>C:\Users\*\App\*.exe</code> —— 通配符模式会对规范化路径进行不区分大小写的匹配</li>
+<li>映像名称（不带反斜杠），例如 <code>dopus.exe</code> —— 按照驱动程序的映像名匹配规则进行名称匹配</li>
 </ul>
-<p>Notes:</p>
+<p>注意事项：</p>
 <ul>
-<li>Paths in <code>ForceChildren</code> are canonicalized and normalized (duplicate backslashes removed and reparse points translated) before matching.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
-<li>When a wildcard pattern is used, a pattern matcher is created and matched case-insensitively against the translated path.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></li>
+<li><code>ForceChildren</code> 中的路径会在匹配前进行规范化和标准化（会移除重复的反斜杠并转换重解析点）<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
+<li>当使用通配符模式时，会创建一个模式匹配器，并对转换后的路径进行不区分大小写的匹配<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></li>
 </ul>
-<h2 id="behavior-and-matching-rules">Behavior and matching rules<a class="headerlink" href="#behavior-and-matching-rules" title="Permanent link"></a></h2>
+<h2 id="_3">行为及匹配规则<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
 <ul>
 <li>
-<p><code>ForceChildren</code> entries are evaluated when a new process is created. If a parent process matches a <code>ForceChildren</code> rule for any enabled box, the child process will be forced into that box.<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></p>
+<p><code>ForceChildren</code> 项在新进程创建时进行评估。如果父进程匹配到了任何已启用沙箱的 <code>ForceChildren</code> 规则，则其子进程将强制进入该沙箱<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></p>
 </li>
 <li>
-<p>Matching attempts (in priority order, roughly):</p>
+<p>匹配尝试（大致优先级顺序）：</p>
 <ul>
-<li>The parent's image name is compared to <code>ForceChildren</code> entries that are image names or image patterns.<sup id="fnref3:4"><a class="footnote-ref" href="#fn:4">4</a></sup></li>
-<li>The parent's canonicalized image path and/or working directory may be compared against wildcard path patterns from <code>ForceChildren</code> entries (entries containing <code>*</code>).<sup id="fnref2:5"><a class="footnote-ref" href="#fn:5">5</a></sup></li>
+<li>父进程的映像名称会与所有为名称或名称模式的 <code>ForceChildren</code> 项进行比较<sup id="fnref3:4"><a class="footnote-ref" href="#fn:4">4</a></sup></li>
+<li>父进程规范化后的映像路径和/或工作目录，可能会与 <code>ForceChildren</code> 项中包含 <code>*</code> 的通配符路径模式进行比较<sup id="fnref2:5"><a class="footnote-ref" href="#fn:5">5</a></sup></li>
 </ul>
 </li>
 <li>
-<p>Rules that contain wildcards use a pattern engine; rules without wildcards use NLS-aware string comparison and image matching helper routines for correct language-aware checks.<sup id="fnref2:2"><a class="footnote-ref" href="#fn:2">2</a></sup><sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></p>
+<p>包含通配符的规则使用模式引擎进行匹配；不含通配符的规则使用兼容 NLS 的字符串比较及映像匹配助手函数，以实现正确的语言感知检查<sup id="fnref2:2"><a class="footnote-ref" href="#fn:2">2</a></sup><sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></p>
 </li>
 <li>
-<p>A <code>ForceChildren</code> match for a box is subject to the box being enabled for the current user/session and having force rules enabled. Settings such as <code>DisableForceRules</code> in a box will prevent force rules for that box from being applied.<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup></p>
+<p>沙箱是否启用、是否允许强制规则等设置将影响 <code>ForceChildren</code> 匹配的有效性。如果某个沙箱配置了类似 <code>DisableForceRules</code> 等选项，则该沙箱的强制规则不会生效<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup></p>
 </li>
 <li>
-<p>Certain system processes and Sandboxie internals are exempt from forcing. The home directory of Sandboxie is never forced.<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup></p>
+<p>某些系统进程及沙盘内部流程被排除在强制之外。沙盘的主目录（home 目录）也不会被强制处理<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup></p>
 </li>
 </ul>
-<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link"></a></h2>
+<h2 id="_4">示例<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
 <ol>
 <li>
-<p>Force children of a specific parent binary (image name):</p>
+<p>强制特定父进程名称的子进程在沙箱中运行：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[MyBox]</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="na">ForceChildren</span><span class="o">=</span><span class="s">parentapp.exe</span>
 </span></code></pre></div>
 </li>
 <li>
-<p>Use a wildcard pattern to match parent image paths:</p>
+<p>使用通配符模式匹配父进程映像路径：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[MyBox]</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="na">ForceChildren</span><span class="o">=</span><span class="s">C:\Users\*\Downloads\*\app.exe</span>
 </span></code></pre></div>
 </li>
 </ol>
-<h2 id="command-line-switches">Command-line switches<a class="headerlink" href="#command-line-switches" title="Permanent link"></a></h2>
-<p>See <a href="../StartCommandLine/#force_children-or-fcp">StartCommandLine</a> for details.</p>
-<h3 id="relevant-switches">Relevant switches:<a class="headerlink" href="#relevant-switches" title="Permanent link"></a></h3>
+<h2 id="_5">命令行开关<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
+<p>参见 <a href="../StartCommandLine/#force_children-or-fcp">StartCommandLine</a> 以获取详细信息</p>
+<h3 id="_6">相关开关：<a class="headerlink" href="#_6" title="Permanent link"></a></h3>
 <ul>
-<li><code>/force_children</code> — enable/affect force-children behavior from the command line.</li>
-<li><code>/fcp</code> — shorthand for <code>/force_children</code> (where supported).</li>
+<li><code>/force_children</code> —— 启用或控制命令行下的子进程强制行为</li>
+<li><code>/fcp</code> —— <code>/force_children</code> 的简写版本（如有支持）</li>
 </ul>
-<h2 id="interaction-with-alerts-and-other-force-settings">Interaction with alerts and other force settings<a class="headerlink" href="#interaction-with-alerts-and-other-force-settings" title="Permanent link"></a></h2>
-<ul>
-<li>
-<p><code>ForceChildren</code> entries are evaluated along with <code>ForceFolder</code> and <code>ForceProcess</code> entries when the driver determines which box (if any) a newly-started process should use.</p>
-</li>
-<li>
-<p>If alerting is enabled for a matching rule (e.g., when force rules are restricted by policy), the driver may show an alert instead of forcing the process. The driver tracks an "alert" state that can prevent forcing and optionally log or notify the user.<sup id="fnref:8"><a class="footnote-ref" href="#fn:8">8</a></sup></p>
-</li>
-<li>
-<p>The <code>ForceChildren</code> setting complements <code>ForceProcess</code> (which directly forces named processes regardless of parent) and <code>ForceFolder</code> (which forces processes based on folder paths). Use <code>ForceChildren</code> when you want to force processes that are spawned by particular parents.</p>
-</li>
-</ul>
-<h2 id="implementation-notes-driver-behavior">Implementation notes (driver behavior)<a class="headerlink" href="#implementation-notes-driver-behavior" title="Permanent link"></a></h2>
+<h2 id="_7">与提示和其他强制设置的交互<a class="headerlink" href="#_7" title="Permanent link"></a></h2>
 <ul>
 <li>
-<p>The driver builds an in-memory list of force rules per enabled box at process-creation time. Each <code>ForceChildren</code> entry is translated into an internal <code>FORCE_ENTRY</code> element, which either stores a canonicalized path or a compiled PATTERN when wildcards are present.<sup id="fnref3:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
+<p>当驱动程序决定新启动进程应使用哪个沙箱（如果有）时，<code>ForceChildren</code> 项会与 <code>ForceFolder</code> 和 <code>ForceProcess</code> 条目一同评估</p>
 </li>
 <li>
-<p>When matching by image name the driver uses a helper <code>Process_MatchImage</code> which implements language-aware and image-name-specific matching logic.<sup id="fnref2:4"><a class="footnote-ref" href="#fn:4">4</a></sup></p>
+<p>如果在匹配规则时启用了告警（例如存在策略限制强制规则的情况），驱动程序可能会弹出提示，而不是强制进程进入沙箱。驱动程序会跟踪“告警”状态，此状态可阻止强制，并可选择记录日志或通知用户<sup id="fnref:8"><a class="footnote-ref" href="#fn:8">8</a></sup></p>
 </li>
 <li>
-<p>The code ensures duplicate backslashes are removed and reparse points are resolved before use; translation to NT-style paths is performed where possible. If translation cannot be performed, the original path is used for matching.<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup><sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup></p>
+<p><code>ForceChildren</code> 用于补充 <code>ForceProcess</code>（直接按名称强制进程，不考虑父进程）和 <code>ForceFolder</code>（按文件夹路径强制进程）。若希望强制由特定父进程创建的进程，应选用 <code>ForceChildren</code></p>
 </li>
 </ul>
-<h2 id="see-also">See also<a class="headerlink" href="#see-also" title="Permanent link"></a></h2>
+<h2 id="_8">实现说明（驱动行为）<a class="headerlink" href="#_8" title="Permanent link"></a></h2>
 <ul>
-<li><a href="../ForceProcess/">ForceProcess</a> — force processes by name or path.</li>
-<li><a href="../ForceFolder/">ForceFolder</a> — force processes by folder path or pattern.</li>
-<li><a href="../DisableForceRules/">DisableForceRules</a> — per-box setting to disable all force rules for a box.</li>
+<li>
+<p>驱动程序在进程创建时为每个已启用沙箱构建一份内存中的强制规则列表。每个 <code>ForceChildren</code> 条目会被转换为内部 <code>FORCE_ENTRY</code> 元素，若包含通配符则存储为编译后的 PATTERN，对应规范化路径<sup id="fnref3:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
+</li>
+<li>
+<p>映像名称匹配由辅助函数 <code>Process_MatchImage</code> 实现，支持语言敏感及映像名称专用的匹配逻辑<sup id="fnref2:4"><a class="footnote-ref" href="#fn:4">4</a></sup></p>
+</li>
+<li>
+<p>代码确保移除重复反斜杠并解析重解析点；尽可能转换为 NT 风格路径。如果无法转换，则使用原始路径进行匹配<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup><sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup></p>
+</li>
 </ul>
-<h2 id="gui-sandboxie-manager-sandman">GUI (Sandboxie Manager / SandMan)<a class="headerlink" href="#gui-sandboxie-manager-sandman" title="Permanent link"></a></h2>
-<h3 id="where-to-find-it">Where to find it:<a class="headerlink" href="#where-to-find-it" title="Permanent link"></a></h3>
+<h2 id="_9">参见<a class="headerlink" href="#_9" title="Permanent link"></a></h2>
 <ul>
-<li>Open Sandboxie Manager (SandMan).</li>
-<li>Open the sandbox's options: right-click a sandbox and choose "Sandbox Options".</li>
-<li>In the Options window locate the Program Control / Force Programs area where forced entries are listed.</li>
+<li><a href="../ForceProcess/">ForceProcess</a> —— 按名称或路径强制进程</li>
+<li><a href="../ForceFolder/">ForceFolder</a> —— 按文件夹路径或模式强制进程</li>
+<li><a href="../DisableForceRules/">DisableForceRules</a> —— 禁用某个沙箱的所有强制规则</li>
 </ul>
-<h3 id="how-to-add-a-force-children-entry">How to add a Force Children entry:<a class="headerlink" href="#how-to-add-a-force-children-entry" title="Permanent link"></a></h3>
+<h2 id="sandman">图形界面（沙盘管理器 / SandMan）<a class="headerlink" href="#sandman" title="Permanent link"></a></h2>
+<h3 id="_10">位置：<a class="headerlink" href="#_10" title="Permanent link"></a></h3>
+<ul>
+<li>打开沙盘管理器（SandMan）</li>
+<li>打开沙箱的选项：右键单击某个沙箱并选择“沙箱选项”</li>
+<li>在选项窗口中找到“程序控制 / 强制程序” 区域，可以看到所有已添加的强制项</li>
+</ul>
+<h3 id="_11">如何添加“强制子进程”条目：<a class="headerlink" href="#_11" title="Permanent link"></a></h3>
 <ol>
-<li>In the Options window Program Control / Force Programs area you'll see a list of forced entries and the buttons "Force  Program", "Force Children" and "Force Folder".</li>
-<li>Click "Force Children" to add an entry by selecting an executable (or use the Browse variant which opens a file dialog).</li>
-<li>The item appears in the list with the type label "Children". Checked entries are saved to <code>ForceChildren</code>; unchecked entries  are saved to <code>ForceChildrenDisabled</code>.</li>
-<li>To remove an entry select it and click "Remove".</li>
+<li>在“程序控制 / 强制程序”区域，你会看到已强制的条目列表，以及 “强制程序”、“强制子进程” 和 “强制文件夹” 按钮</li>
+<li>单击 “强制子进程”，可通过选择可执行文件添加一个条目（或者点击“浏览”按钮通过对话框选择文件）</li>
+<li>添加的项目会以类型标签“Children”展现在列表中。已勾选的条目会保存到 <code>ForceChildren</code>；未勾选的保存到 <code>ForceChildrenDisabled</code></li>
+<li>若需移除条目，选中后点击“移除”即可</li>
 </ol>
-<h3 id="notes-and-references">Notes and references:<a class="headerlink" href="#notes-and-references" title="Permanent link"></a></h3>
+<h3 id="_12">说明与参考<a class="headerlink" href="#_12" title="Permanent link"></a></h3>
 <ul>
-<li>The UI tree widget is <code>ui.treeForced</code> in <code>OptionsWindow.ui</code>. The Options window loads/saves these lists in <code>OptionsForce.cpp</code>  (LoadForced/SaveForced/AddForcedEntry).</li>
-<li>The "Disable forced Process and Folder for this sandbox" checkbox shown on the same page is <code>ui.chkDisableForced</code> and maps to the <code>DisableForceRules</code> setting.</li>
+<li>界面中的树形组件是 <code>ui.treeForced</code>，位于 <code>OptionsWindow.ui</code>。选项窗口通过 <code>OptionsForce.cpp</code> （LoadForced/SaveForced/AddForcedEntry）加载和保存这些列表</li>
+<li>“为此沙箱禁用强制进程和强制文件夹”复选框，即 <code>ui.chkDisableForced</code>，映射到 <code>DisableForceRules</code> 设置</li>
 </ul>
-<h2 id="footnotes">Footnotes<a class="headerlink" href="#footnotes" title="Permanent link"></a></h2>
+<h2 id="_13">注释<a class="headerlink" href="#_13" title="Permanent link"></a></h2>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p>The driver removes duplicate backslashes and translates reparse points before storing entries. See how <code>Process_AddForceFolders</code> normalizes <code>expnd</code> into <code>buf</code> and calls <code>File_TranslateReparsePoints</code>.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>驱动程序会在存储条目前移除重复的反斜杠并解析重解析点。参见 <code>Process_AddForceFolders</code> 对 <code>expnd</code> 进行标准化并调用 <code>File_TranslateReparsePoints</code>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>Wildcard entries create a PATTERN object using <code>Pattern_Create</code> and are matched with <code>Pattern_Match</code> against a lowercased canonical path.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>通配符项通过 <code>Pattern_Create</code> 创建 PATTERN 对象，使用 <code>Pattern_Match</code> 对规范化为小写的路径进行匹配&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p><code>Process_FcpInsert</code>, <code>Process_FcpCheck</code>, and related routines implement parent-based forcing maps so newly created child processes can be added to a map keyed by PID and later checked during child creation.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p><code>Process_FcpInsert</code>、<code>Process_FcpCheck</code> 及相关过程实现了基于父进程的强制映射，便于在创建新子进程时将其加入以 PID 为键的映射，并在后续创建时检查&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
-<p>Image-name matching delegates to <code>Process_MatchImage</code> (used by the driver when entries don't contain backslashes).&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:4" title="Jump back to footnote 4 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p>映像名匹配委托给 <code>Process_MatchImage</code>（当条目不含反斜杠时由驱动调用）&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:4" title="Jump back to footnote 4 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 <li id="fn:5">
-<p>The driver translates DOS-style paths to NT-style paths using <code>Process_TranslateDosToNt</code> which wraps <code>File_TranslateDosToNt</code> and falls back to copying the original if translation fails with a syntax error.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+<p>驱动通过 <code>Process_TranslateDosToNt</code>（封装自 <code>File_TranslateDosToNt</code>）将 DOS 风格路径转换为 NT 风格，若语法错误则回退使用原始路径&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 <li id="fn:6">
-<p>Only boxes that are enabled for the current SID/session and that don't have <code>DisableForceRules</code> set are considered when building the force-data lists.&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+<p>只有为当前 SID/会话已启用、且未启用 <code>DisableForceRules</code> 的沙箱才会加载强制数据列表&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
 </li>
 <li id="fn:7">
-<p>Paths under the Sandboxie home directory are excluded from forcing; the code explicitly checks and skips matches under <code>Driver_HomePathNt</code>.&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+<p>沙盘 home 目录下的路径不会被强制处理，代码会显式检测并跳过位于 <code>Driver_HomePathNt</code> 下的匹配项&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
 </li>
 <li id="fn:8">
-<p>When alerting rules match, the driver may set an alert state (<code>IsAlert</code>) and defer forcing. Alerts may produce logged messages and, depending on settings, can prevent the process from starting under a box.&#160;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 8 in the text">&#8617;</a></p>
+<p>匹配到需告警的规则时，驱动可能会设置告警状态（<code>IsAlert</code>），并延迟强制操作。告警可能产生日志记录，并可根据设置阻止进程在沙箱内启动&#160;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 8 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

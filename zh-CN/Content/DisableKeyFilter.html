@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="DisableKeyFilter is a sandbox setting in Sandboxie Ini available since v0.9.0 / 5.51.0. This setting disables the registry filtering mechanism, allowing sandboxed processes to bypass registry access restrictions and directly modify the host system registry.">
+        <meta name="description" content="DisableKeyFilter 是 Sandboxie Ini 文件中的一种沙箱设置，自 v0.9.0 / 5.51.0 起可用。此设置可禁用注册表过滤机制，使沙箱内的进程能够绕过注册表访问限制，直接修改主机系统注册表">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>Disable Key Filter - Sandboxie 文档</title>
+        <title>禁用键过滤 - Sandboxie 文档</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#disable-key-filter" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Disable Key Filter
+              禁用键过滤
             
           </span>
         </div>
@@ -5584,41 +5584,41 @@
   
 
 
-<h1 id="disable-key-filter">Disable Key Filter<a class="headerlink" href="#disable-key-filter" title="Permanent link"></a></h1>
-<p><em>DisableKeyFilter</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a> available since v0.9.0 / 5.51.0. This setting disables the registry filtering mechanism, allowing sandboxed processes to bypass registry access restrictions and directly modify the host system registry.</p>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h2>
+<h1 id="_1">禁用键过滤<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<p><em>DisableKeyFilter</em> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 文件中的一种沙箱设置，自 v0.9.0 / 5.51.0 起可用。此设置可禁用注册表过滤机制，使沙箱内的进程能够绕过注册表访问限制，直接修改主机系统注册表</p>
+<h2 id="_2">使用方法<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">DisableKeyFilter</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link"></a></h2>
+<h2 id="_3">语法<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">DisableKeyFilter</span><span class="o">=</span><span class="s">&lt;y/n&gt;</span>
 </span></code></pre></div>
-<p>Where:</p>
+<p>其中：</p>
 <ul>
-<li><code>y</code> disables registry filtering completely.</li>
-<li><code>n</code> (default) maintains normal registry filtering behavior.</li>
+<li><code>y</code> 表示完全禁用注册表过滤</li>
+<li><code>n</code>（默认值）表示保持正常的注册表过滤行为</li>
 </ul>
-<h2 id="security-implications">Security Implications<a class="headerlink" href="#security-implications" title="Permanent link"></a></h2>
+<h2 id="_4">安全影响<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>This setting disables driver-level enforcement of registry access restrictions. Malicious software can potentially bypass these protections through various techniques including code injection, API hooking, or direct system calls, making this setting unsuitable for untrusted applications.</p>
+<p>此设置会禁用驱动层对注册表访问限制的强制执行。恶意软件有可能通过代码注入、API 钩子或直接系统调用等多种方式绕过此类保护，因此该设置不适用于不可信应用程序</p>
 </div>
-<h2 id="related-settings">Related Settings<a class="headerlink" href="#related-settings" title="Permanent link"></a></h2>
-<h3 id="master-override">Master Override<a class="headerlink" href="#master-override" title="Permanent link"></a></h3>
-<p><code>DisableKeyFilter</code> is automatically enabled when:
-- <strong><a href="NoSecurityFiltering.html">NoSecurityFiltering</a></strong> is set in Application Compartment mode<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
-<h3 id="alternative-granular-controls">Alternative Granular Controls<a class="headerlink" href="#alternative-granular-controls" title="Permanent link"></a></h3>
+<h2 id="_5">相关设置<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
+<h3 id="_6">主控覆盖<a class="headerlink" href="#_6" title="Permanent link"></a></h3>
+<p>当以下情况成立时，<code>DisableKeyFilter</code> 会自动启用：
+- <strong><a href="NoSecurityFiltering.html">NoSecurityFiltering</a></strong> 在应用程序隔离模式下启用</p>
+<h3 id="_7">其他细粒度控制选项<a class="headerlink" href="#_7" title="Permanent link"></a></h3>
 <ul>
-<li><strong><a href="DisableFileFilter.html">DisableFileFilter</a></strong>: Disables only file system filtering.</li>
-<li><strong><a href="DisableObjectFilter.html">DisableObjectFilter</a></strong>: Disables only object filtering.</li>
-<li><strong><a href="NoSecurityFiltering.html">NoSecurityFiltering</a></strong>: Disables all filtering in Application Compartment mode.</li>
+<li><strong><a href="DisableFileFilter.html">DisableFileFilter</a></strong>：仅禁用文件系统过滤</li>
+<li><strong><a href="DisableObjectFilter.html">DisableObjectFilter</a></strong>：仅禁用对象过滤</li>
+<li><strong><a href="NoSecurityFiltering.html">NoSecurityFiltering</a></strong>：在应用程序隔离模式下禁用所有过滤</li>
 </ul>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p>Registry filter control in <code>process.c</code>: The setting <code>proc-&gt;disable_key_flt = no_filtering || Conf_Get_Boolean(proc-&gt;box-&gt;name, L"DisableKeyFilter", 0, FALSE)</code> allows DisableKeyFilter to completely bypass registry filtering either independently or as part of NoSecurityFiltering in Application Compartment mode.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>注册表过滤控制在 <code>process.c</code> 中：<code>proc-&gt;disable_key_flt = no_filtering || Conf_Get_Boolean(proc-&gt;box-&gt;name, L"DisableKeyFilter", 0, FALSE)</code> 设置允许 DisableKeyFilter 独立或作为应用程序隔离模式下 NoSecurityFiltering 的一部分，完全绕过注册表过滤&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

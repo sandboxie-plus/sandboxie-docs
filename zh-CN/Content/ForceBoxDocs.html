@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="ForceBoxDocs is a global setting in Sandboxie Ini (introduced in v1.17.0 / 5.72.0). When enabled, if a program is started outside Sandboxie with a file path argument and that file is located in a sandbox, Sandboxie automatically starts the program in that same sandbox.">
+        <meta name="description" content="ForceBoxDocs 是 沙盘配置文件 中的一个全局设置项（自 v1.17.0 / 5.72.0 版本引入）。启用后，如果某个程序在沙盘外启动，并携带了一个文件路径作为参数，而该文件位于某个沙箱内，沙盘会自动在同一个沙箱中启动该程序。">
       
       
       
@@ -5585,29 +5585,29 @@
 
 
 <h1 id="force-box-docs">Force Box Docs<a class="headerlink" href="#force-box-docs" title="Permanent link"></a></h1>
-<p><em>ForceBoxDocs</em> is a global setting in <a href="SandboxieIni.html">Sandboxie Ini</a> (introduced in v1.17.0 / 5.72.0). When enabled, if a program is started outside Sandboxie with a file path argument and that file is located in a sandbox, Sandboxie automatically starts the program in that same sandbox.</p>
-<p>Usage:</p>
+<p><em>ForceBoxDocs</em> 是 <a href="SandboxieIni.html">沙盘配置文件</a> 中的一个全局设置项（自 v1.17.0 / 5.72.0 版本引入）。启用后，如果某个程序在沙盘外启动，并携带了一个文件路径作为参数，而该文件位于某个沙箱内，沙盘会自动在同一个沙箱中启动该程序。</p>
+<p>用法：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="k">[GlobalSettings]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">ForceBoxDocs</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>How this setting is evaluated:</p>
+<p>该设置的工作机制如下：</p>
 <ul>
-<li>It applies only when a process starts unsandboxed; if the process is already started sandboxed, this setting is not used.</li>
-<li>It checks the parsed file path/document argument from the command line.</li>
-<li>Sandboxie ignores leading command-line switches (options starting with <code>-</code> or <code>/</code>, such as <code>/n</code> or <code>-Embedding</code>) to correctly identify the target file path.</li>
-<li>The file path/document argument check is skipped when the process being evaluated is Sandboxie's own <code>Start.exe</code>.</li>
-<li>Only boxes enabled for the current user/session are considered.</li>
-<li>Boxes with <a href="DisableForceRules.html">DisableForceRules</a> are skipped.</li>
+<li>仅在进程是未在沙箱中启动时生效；如果进程已在沙箱中启动，则该设置不适用</li>
+<li>检查命令行解析出的文件路径或文档参数</li>
+<li>沙盘会忽略命令行中前置的开关（以 <code>-</code> 或 <code>/</code> 开头的选项，如 <code>/n</code> 或 <code>-Embedding</code>），以便正确识别目标文件路径</li>
+<li>当被检查的进程为沙盘自身的 <code>Start.exe</code> 时，将跳过文件路径/文档参数检查</li>
+<li>只会考虑当前用户/会话已启用的沙箱</li>
+<li>含有 <a href="DisableForceRules.html">DisableForceRules</a> 的沙箱会被跳过</li>
 </ul>
-<p>This setting is useful when users open documents directly from boxed paths and you want the associated application to automatically start in the correct sandbox.</p>
-<p>Command-line examples:</p>
+<p>当用户直接从沙箱路径打开文档，并希望相关应用程序能够自动在正确的沙箱中启动时，此设置十分有用</p>
+<p>命令行示例：</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>&quot;C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE&quot; /n /dde &quot;C:\Sandbox\Alice\DefaultBox\drive\C\Docs\Report.docx&quot;
 </span></code></pre></div>
-<p>Result: the file path points to <code>DefaultBox</code>, so the process is forced into <code>DefaultBox</code>.</p>
+<p>结果：该文件路径指向 <code>DefaultBox</code>，因此进程会被强制运行在 <code>DefaultBox</code> 中</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>&quot;C:\Windows\System32\notepad.exe&quot; &quot;C:\Users\Alice\Desktop\Notes.txt&quot;
 </span></code></pre></div>
-<p>Result: the file path is not inside a sandbox path, so <code>ForceBoxDocs</code> does not force the process.</p>
-<p>See also:</p>
+<p>结果：该文件路径不在沙箱路径下，因此 <code>ForceBoxDocs</code> 不会强制进程进入沙箱</p>
+<p>另请参见：</p>
 <ul>
 <li><a href="ForceFolder.html">ForceFolder</a></li>
 <li><a href="ForceProcess.html">ForceProcess</a></li>

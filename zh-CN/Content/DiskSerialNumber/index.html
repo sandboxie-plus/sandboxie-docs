@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="DiskSerialNumber is a sandbox setting in Sandboxie Ini available since v1.15.2 / 5.70.2. This setting allows assigning custom serial numbers to specific disk devices within sandboxes, working in conjunction with Hide Disk Serial Number.">
+        <meta name="description" content="DiskSerialNumber 是 沙盘配置文件 中的一项沙箱设置，从 v1.15.2 / 5.70.2 版本开始提供。该设置允许为沙箱内的指定磁盘设备分配自定义序列号，并与 隐藏磁盘序列号 功能配合使用。">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>Disk Serial Number - Sandboxie 文档</title>
+        <title>磁盘序列号 - Sandboxie 文档</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#disk-serial-number" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Disk Serial Number
+              磁盘序列号
             
           </span>
         </div>
@@ -5584,16 +5584,16 @@
   
 
 
-<h1 id="disk-serial-number">Disk Serial Number<a class="headerlink" href="#disk-serial-number" title="Permanent link"></a></h1>
-<p><em>DiskSerialNumber</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a> available since v1.15.2 / 5.70.2. This setting allows assigning custom serial numbers to specific disk devices within sandboxes, working in conjunction with <a href="../HideDiskSerialNumber/">Hide Disk Serial Number</a>.</p>
-<h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link"></a></h2>
+<h1 id="_1">磁盘序列号<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<p><em>DiskSerialNumber</em> 是 <a href="../SandboxieIni/">沙盘配置文件</a> 中的一项沙箱设置，从 v1.15.2 / 5.70.2 版本开始提供。该设置允许为沙箱内的指定磁盘设备分配自定义序列号，并与 <a href="../HideDiskSerialNumber/">隐藏磁盘序列号</a> 功能配合使用。</p>
+<h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">DiskSerialNumber</span><span class="o">=</span><span class="s">&lt;DeviceName&gt;,&lt;SerialNumber&gt;</span>
 </span></code></pre></div>
 <ul>
-<li><strong>DeviceName</strong>: Windows device name (e.g., HarddiskVolume1, HarddiskVolume2)</li>
-<li><strong>SerialNumber</strong>: Custom serial number in hexadecimal format (with or without hyphens)</li>
+<li><strong>DeviceName</strong>：Windows 设备名称（如 HarddiskVolume1、HarddiskVolume2）</li>
+<li><strong>SerialNumber</strong>：自定义的十六进制格式序列号（可带或不带连字符）</li>
 </ul>
-<h2 id="example-usage">Example Usage<a class="headerlink" href="#example-usage" title="Permanent link"></a></h2>
+<h2 id="_3">示例用法<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="na">HideDiskSerialNumber</span><span class="o">=</span><span class="s">y</span>
@@ -5601,151 +5601,151 @@
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="na">DiskSerialNumber</span><span class="o">=</span><span class="s">HarddiskVolume2,5678-EFGH</span>
 </span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="na">DiskSerialNumber</span><span class="o">=</span><span class="s">HarddiskVolume3,9ABC-DEF0</span>
 </span></code></pre></div>
-<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link"></a></h2>
+<h2 id="_4">前置条件<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
 <ul>
-<li>Requires <code>HideDiskSerialNumber=y</code> to be enabled in the same sandbox<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</li>
-<li>Without this prerequisite, the DiskSerialNumber settings are ignored.</li>
+<li>需要在同一个沙箱中启用 <code>HideDiskSerialNumber=y</code><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
+<li>如果未满足该条件，DiskSerialNumber 设置将被忽略</li>
 </ul>
-<h2 id="serial-number-formats">Serial Number Formats<a class="headerlink" href="#serial-number-formats" title="Permanent link"></a></h2>
-<h3 id="supported-formats">Supported Formats<a class="headerlink" href="#supported-formats" title="Permanent link"></a></h3>
+<h2 id="_5">序列号格式<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
+<h3 id="_6">支持的格式<a class="headerlink" href="#_6" title="Permanent link"></a></h3>
 <ul>
-<li><strong>Hyphenated</strong>: <code>1234-ABCD</code>, <code>AA-BB-CC-DD</code>.</li>
-<li><strong>Plain</strong>: <code>1234ABCD</code>, <code>AABBCCDD</code>.</li>
-<li><strong>Mixed</strong>: Any combination of hex digits with optional hyphens.</li>
+<li><strong>带连字符</strong>：<code>1234-ABCD</code>, <code>AA-BB-CC-DD</code></li>
+<li><strong>不带连字符</strong>：<code>1234ABCD</code>, <code>AABBCCDD</code></li>
+<li><strong>混合</strong>：任意十六进制数字和可选连字符的组合</li>
 </ul>
-<h3 id="valid-examples">Valid Examples<a class="headerlink" href="#valid-examples" title="Permanent link"></a></h3>
+<h3 id="_7">有效示例<a class="headerlink" href="#_7" title="Permanent link"></a></h3>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">DiskSerialNumber</span><span class="o">=</span><span class="s">HarddiskVolume1,1234ABCD</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">DiskSerialNumber</span><span class="o">=</span><span class="s">HarddiskVolume2,12-34-AB-CD</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="na">DiskSerialNumber</span><span class="o">=</span><span class="s">HarddiskVolume3,12345678</span>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="na">DiskSerialNumber</span><span class="o">=</span><span class="s">HarddiskVolume4,DEADBEEF</span>
 </span></code></pre></div>
-<h3 id="invalid-formats">Invalid Formats<a class="headerlink" href="#invalid-formats" title="Permanent link"></a></h3>
+<h3 id="_8">无效格式<a class="headerlink" href="#_8" title="Permanent link"></a></h3>
 <ul>
-<li>Non-hexadecimal characters (G-Z).</li>
-<li>Odd number of hex digits.</li>
-<li>Empty strings.</li>
-<li>Special characters other than hyphens.</li>
+<li>含有非十六进制字符（G-Z）</li>
+<li>十六进制数字为奇数位</li>
+<li>空字符串</li>
+<li>除连字符外的其它特殊字符</li>
 </ul>
-<h2 id="device-name-discovery">Device Name Discovery<a class="headerlink" href="#device-name-discovery" title="Permanent link"></a></h2>
-<h3 id="method-1-using-wmic-command">Method 1: Using WMIC Command<a class="headerlink" href="#method-1-using-wmic-command" title="Permanent link"></a></h3>
-<p>Run in Command Prompt to list available disk volumes:</p>
+<h2 id="_9">设备名称获取方法<a class="headerlink" href="#_9" title="Permanent link"></a></h2>
+<h3 id="wmic">方法一：使用 WMIC 命令<a class="headerlink" href="#wmic" title="Permanent link"></a></h3>
+<p>在命令提示符下运行以下命令以列出可用磁盘卷：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">wmic logicaldisk get caption,volumeserialnumber,deviceid</span>
 </span></code></pre></div>
-<h3 id="method-2-using-disk-management">Method 2: Using Disk Management<a class="headerlink" href="#method-2-using-disk-management" title="Permanent link"></a></h3>
+<h3 id="_10">方法二：使用磁盘管理<a class="headerlink" href="#_10" title="Permanent link"></a></h3>
 <ol>
-<li>Open <strong>Disk Management</strong> (<code>diskmgmt.msc</code>).</li>
-<li>Right-click on volumes to see properties.</li>
-<li>Note the volume labels and drive letters.</li>
+<li>打开 <strong>磁盘管理</strong>（<code>diskmgmt.msc</code>）</li>
+<li>右键点击卷，查看属性</li>
+<li>记录卷标和驱动器号</li>
 </ol>
-<h3 id="method-3-registry-inspection">Method 3: Registry Inspection<a class="headerlink" href="#method-3-registry-inspection" title="Permanent link"></a></h3>
-<p>Check registry key: <code>HKEY_LOCAL_MACHINE\SYSTEM\MountedDevices</code></p>
-<h3 id="method-4-testing-with-random-values">Method 4: Testing with Random Values<a class="headerlink" href="#method-4-testing-with-random-values" title="Permanent link"></a></h3>
+<h3 id="_11">方法三：注册表查看<a class="headerlink" href="#_11" title="Permanent link"></a></h3>
+<p>检查注册表项：<code>HKEY_LOCAL_MACHINE\SYSTEM\MountedDevices</code></p>
+<h3 id="_12">方法四：随机值测试法<a class="headerlink" href="#_12" title="Permanent link"></a></h3>
 <ol>
-<li>Set test configurations:</li>
+<li>设置测试配置：</li>
 </ol>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="na">DiskSerialNumber</span><span class="o">=</span><span class="s">HarddiskVolume1,11111111</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="na">DiskSerialNumber</span><span class="o">=</span><span class="s">HarddiskVolume2,22222222</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="na">DiskSerialNumber</span><span class="o">=</span><span class="s">HarddiskVolume3,33333333</span>
 </span></code></pre></div>
 <ol>
-<li>Run <code>vol C:</code>, <code>vol D:</code>, etc., in the sandbox to identify which device corresponds to which drive.</li>
+<li>在沙箱中运行 <code>vol C:</code>、<code>vol D:</code> 等，确定各磁盘对应的设备名称</li>
 </ol>
-<h2 id="technical-implementation">Technical Implementation<a class="headerlink" href="#technical-implementation" title="Permanent link"></a></h2>
-<h3 id="device-path-resolution">Device Path Resolution<a class="headerlink" href="#device-path-resolution" title="Permanent link"></a></h3>
+<h2 id="_13">技术实现<a class="headerlink" href="#_13" title="Permanent link"></a></h2>
+<h3 id="_14">设备路径解析<a class="headerlink" href="#_14" title="Permanent link"></a></h3>
 <ul>
-<li>Sandboxie extracts device names from Windows NT paths with <code>\Device\</code> prefix<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</li>
-<li>Device name parsing stops at the next backslash or string terminator<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>.</li>
-<li>Failed device extraction results in random serial number generation<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>.</li>
+<li>沙盘从 Windows NT 路径中提取带有 <code>\Device\</code> 前缀的设备名称<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></li>
+<li>设备名称的解析遇到下一个反斜线或字符串结束符即终止<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></li>
+<li>设备提取失败时，会生成随机序列号<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></li>
 </ul>
-<h3 id="hexadecimal-processing">Hexadecimal Processing<a class="headerlink" href="#hexadecimal-processing" title="Permanent link"></a></h3>
+<h3 id="_15">十六进制处理<a class="headerlink" href="#_15" title="Permanent link"></a></h3>
 <ul>
-<li>Custom parser handles both hyphenated and plain hex formats<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>.</li>
-<li>Invalid hex strings trigger fallback to random generation<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup>.</li>
-<li>Byte order is automatically swapped to match Windows DWORD format<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup>.</li>
+<li>自定义解析器支持带连字符和不带连字符的十六进制格式<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup></li>
+<li>非法的十六进制串会触发随机序列号生成<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup></li>
+<li>字节序自动进行调整，以符合 Windows 的 DWORD 小端格式<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup></li>
 </ul>
-<h3 id="caching-mechanism">Caching Mechanism<a class="headerlink" href="#caching-mechanism" title="Permanent link"></a></h3>
+<h3 id="_16">缓存机制<a class="headerlink" href="#_16" title="Permanent link"></a></h3>
 <ul>
-<li>Serial numbers are cached per session for performance<sup id="fnref:8"><a class="footnote-ref" href="#fn:8">8</a></sup></li>
-<li>Thread-safe implementation using critical sections<sup id="fnref:9"><a class="footnote-ref" href="#fn:9">9</a></sup></li>
-<li>Cache keys are based on original hardware serial numbers<sup id="fnref:10"><a class="footnote-ref" href="#fn:10">10</a></sup></li>
+<li>每个会话中序列号会被缓存以提升性能<sup id="fnref:8"><a class="footnote-ref" href="#fn:8">8</a></sup></li>
+<li>通过临界区保证多线程安全<sup id="fnref:9"><a class="footnote-ref" href="#fn:9">9</a></sup></li>
+<li>缓存的键值基于原始硬件序列号<sup id="fnref:10"><a class="footnote-ref" href="#fn:10">10</a></sup></li>
 </ul>
-<h2 id="use-cases">Use Cases<a class="headerlink" href="#use-cases" title="Permanent link"></a></h2>
-<h3 id="application-testing">Application Testing<a class="headerlink" href="#application-testing" title="Permanent link"></a></h3>
+<h2 id="_17">使用场景<a class="headerlink" href="#_17" title="Permanent link"></a></h2>
+<h3 id="_18">应用程序测试<a class="headerlink" href="#_18" title="Permanent link"></a></h3>
 <ul>
-<li>Test software behavior with specific disk serial number patterns.</li>
-<li>Simulate different hardware configurations.</li>
-<li>Debug serial number-dependent functionality.</li>
+<li>测试软件对特定磁盘序列号模式的响应</li>
+<li>模拟不同硬件配置</li>
+<li>调试依赖序列号的功能</li>
 </ul>
-<h3 id="privacy-enhancement">Privacy Enhancement<a class="headerlink" href="#privacy-enhancement" title="Permanent link"></a></h3>
+<h3 id="_19">隐私增强<a class="headerlink" href="#_19" title="Permanent link"></a></h3>
 <ul>
-<li>Replace real hardware identifiers with known values.</li>
-<li>Create consistent sandbox fingerprints.</li>
-<li>Prevent hardware-based tracking.</li>
+<li>用已知值替换真实硬件识别码</li>
+<li>创建一致的沙箱指纹</li>
+<li>防止基于硬件信息的追踪</li>
 </ul>
-<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link"></a></h2>
-<h3 id="common-issues">Common Issues<a class="headerlink" href="#common-issues" title="Permanent link"></a></h3>
-<p><strong>Setting Not Applied</strong></p>
+<h2 id="_20">故障排查<a class="headerlink" href="#_20" title="Permanent link"></a></h2>
+<h3 id="_21">常见问题<a class="headerlink" href="#_21" title="Permanent link"></a></h3>
+<p><strong>设置未生效</strong></p>
 <ul>
-<li>Ensure <code>HideDiskSerialNumber=y</code> is enabled.</li>
-<li>Verify correct device name format.</li>
-<li>Check hexadecimal string validity.</li>
+<li>请确认已启用 <code>HideDiskSerialNumber=y</code></li>
+<li>请核对设备名称格式是否正确</li>
+<li>检查十六进制字符串的合法性</li>
 </ul>
-<p><strong>Wrong Device Targeted</strong></p>
+<p><strong>目标设备有误</strong></p>
 <ul>
-<li>Use device discovery methods to identify correct names.</li>
-<li>Test with unique serial numbers to verify mapping.</li>
+<li>通过设备获取方法确认名称是否正确</li>
+<li>用唯一序列号进行映射测试</li>
 </ul>
-<p><strong>Random Values Still Returned</strong></p>
+<p><strong>返回为随机值</strong></p>
 <ul>
-<li>Invalid hex format triggers random fallback.</li>
-<li>Device name mismatch results in random generation.</li>
-<li>Missing <code>HideDiskSerialNumber</code> prerequisite.</li>
+<li>非法十六进制格式会触发随机生成</li>
+<li>设备名称不匹配会导致生成随机值</li>
+<li>缺少 <code>HideDiskSerialNumber</code> 前置条件</li>
 </ul>
-<h2 id="related-settings">Related Settings<a class="headerlink" href="#related-settings" title="Permanent link"></a></h2>
+<h2 id="_22">相关设置<a class="headerlink" href="#_22" title="Permanent link"></a></h2>
 <ul>
-<li><a href="../HideDiskSerialNumber/">Hide Disk Serial Number</a> - Required prerequisite setting.</li>
-<li><a href="../HideFirmwareInfo/">Hide Firmware Info</a> - Hides additional hardware identifiers.</li>
-<li><a href="../HideNetworkAdapterMAC/">Hide Network Adapter MAC</a> - Customizes network adapter identifiers.</li>
-<li><a href="../RandomRegUID/">Random Registry UID</a> - Randomizes registry-based unique identifiers.</li>
+<li><a href="../HideDiskSerialNumber/">隐藏磁盘序列号</a> —— 必须的前置设置</li>
+<li><a href="../HideFirmwareInfo/">隐藏固件信息</a> —— 隐藏其他硬件识别信息</li>
+<li><a href="../HideNetworkAdapterMAC/">隐藏网卡 MAC</a> —— 自定义网卡识别码</li>
+<li><a href="../RandomRegUID/">随机注册表 UID</a> —— 随机化基于注册表的唯一识别码</li>
 </ul>
-<h2 id="configuration-availability">Configuration Availability<a class="headerlink" href="#configuration-availability" title="Permanent link"></a></h2>
+<h2 id="_23">配置可用性<a class="headerlink" href="#_23" title="Permanent link"></a></h2>
 <ul>
-<li><strong>INI Configuration</strong>: Available</li>
-<li><strong>Plus UI</strong>: Not available (INI-only setting)</li>
-<li><strong>Classic UI</strong>: Not available</li>
+<li><strong>INI 配置</strong>：可用</li>
+<li><strong>Plus 界面</strong>：不可用（仅支持 INI 配置）</li>
+<li><strong>Classic 界面</strong>：不可用</li>
 </ul>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p><strong>Prerequisite Check</strong>: The <code>HideDiskSerialNumber</code> setting must be enabled for device-specific serial number mapping to function (kernel.c).&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p><strong>前置条件</strong>：必须启用 <code>HideDiskSerialNumber</code> 设置，设备序列号映射才会生效（kernel.c）&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p><strong>Device Path Parsing</strong>: Sandboxie searches for <code>\Device\</code> prefix in NT path strings to extract device names (kernel.c).&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p><strong>设备路径解析</strong>：沙盘会在 NT 路径字符串中搜索 <code>\Device\</code> 前缀，以提取设备名称（kernel.c）&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p><strong>Name Extraction Logic</strong>: Device name parsing terminates at the first backslash or null character after the <code>\Device\</code> prefix (kernel.c).&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p><strong>名称截断逻辑</strong>：设备名解析至遇到第一个反斜线或字符串结束符自动终止（kernel.c）&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
-<p><strong>Fallback Behavior</strong>: Empty device names trigger <code>Dll_rand()</code> for random serial number generation (kernel.c).&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p><strong>回退行为</strong>：如果设备名为空，则通过 <code>Dll_rand()</code> 生成随机序列号（kernel.c）&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 <li id="fn:5">
-<p><strong>Hex Parser Implementation</strong>: <code>hex_string_to_uint8_array()</code> function processes hex strings while skipping hyphen characters (custom.c).&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+<p><strong>十六进制解析实现</strong>：<code>hex_string_to_uint8_array()</code> 支持跳过连字符处理十六进制串（custom.c）&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 <li id="fn:6">
-<p><strong>Error Handling</strong>: Invalid hex characters, odd digit counts, or parsing failures return FALSE, triggering random generation (custom.c).&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+<p><strong>错误处理</strong>：非十六进制字符、位数不对或解析失败均返回 FALSE 并触发随机生成（custom.c）&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
 </li>
 <li id="fn:7">
-<p><strong>Endianness Conversion</strong>: Byte swapping is performed when <code>swap_bytes=TRUE</code> to match Windows little-endian DWORD format (custom.c).&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+<p><strong>字节序转换</strong>：当 <code>swap_bytes=TRUE</code> 时，自动切换为 Windows 小端 DWORD 格式（custom.c）&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
 </li>
 <li id="fn:8">
-<p><strong>Session Persistence</strong>: <code>map_insert()</code> stores computed serial numbers using original hardware values as keys (kernel.c).&#160;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 8 in the text">&#8617;</a></p>
+<p><strong>会话持久化</strong>：<code>map_insert()</code> 根据原始硬件值缓存每次计算的序列号（kernel.c）&#160;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 8 in the text">&#8617;</a></p>
 </li>
 <li id="fn:9">
-<p><strong>Thread Safety</strong>: Critical section <code>Kernel_DiskSN_CritSec</code> protects concurrent access to the serial number cache (kernel.c5).&#160;<a class="footnote-backref" href="#fnref:9" title="Jump back to footnote 9 in the text">&#8617;</a></p>
+<p><strong>线程安全</strong>：临界区 <code>Kernel_DiskSN_CritSec</code> 保护对序列号缓存的并发访问（kernel.c5）&#160;<a class="footnote-backref" href="#fnref:9" title="Jump back to footnote 9 in the text">&#8617;</a></p>
 </li>
 <li id="fn:10">
-<p><strong>Cache Key Strategy</strong>: Original disk serial numbers serve as map keys for consistent per-session value retrieval (kernel.c).&#160;<a class="footnote-backref" href="#fnref:10" title="Jump back to footnote 10 in the text">&#8617;</a></p>
+<p><strong>缓存键策略</strong>：以原始磁盘序列号为映射键值，确保每会话一致性（kernel.c）&#160;<a class="footnote-backref" href="#fnref:10" title="Jump back to footnote 10 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="DefaultFolder is a sandbox setting in Sandboxie Ini available since v1.15.12 / 5.70.12 that specifies folders to be pre-created in the sandbox during initialization when Privacy Mode is enabled. This setting ensures that essential system and user directories exist within the sandbox environment before programs attempt to access them, preventing potential failures.">
+        <meta name="description" content="DefaultFolder 是 Sandboxie Ini 中自 v1.15.12 / 5.70.12 起提供的沙箱设置，在启用 隐私模式 时，用于指定初始化期间需要在沙箱内预先创建的文件夹。此设置用于确保关键的系统及用户目录在应用程序尝试访问之前，已经在沙箱环境中存在，以防止可能发生的访问失败现象。">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>Default Folder - Sandboxie 文档</title>
+        <title>默认文件夹 - Sandboxie 文档</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#default-folder" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Default Folder
+              默认文件夹
             
           </span>
         </div>
@@ -5584,9 +5584,9 @@
   
 
 
-<h1 id="default-folder">Default Folder<a class="headerlink" href="#default-folder" title="Permanent link"></a></h1>
-<p><em>DefaultFolder</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a> available since v1.15.12 / 5.70.12 that specifies folders to be pre-created in the sandbox during initialization when <a href="../PlusContent/privacy-mode.html">Privacy Mode</a> is enabled. This setting ensures that essential system and user directories exist within the sandbox environment before programs attempt to access them, preventing potential failures.</p>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h2>
+<h1 id="_1">默认文件夹<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<p><em>DefaultFolder</em> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 中自 v1.15.12 / 5.70.12 起提供的沙箱设置，在启用 <a href="../PlusContent/privacy-mode.html">隐私模式</a> 时，用于指定初始化期间需要在沙箱内预先创建的文件夹。此设置用于确保关键的系统及用户目录在应用程序尝试访问之前，已经在沙箱环境中存在，以防止可能发生的访问失败现象。</p>
+<h2 id="_2">用法<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">DefaultFolder</span><span class="o">=</span><span class="s">%SystemRoot%</span>
@@ -5594,74 +5594,74 @@
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="na">DefaultFolder</span><span class="o">=</span><span class="s">%Desktop%</span>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="na">DefaultFolder</span><span class="o">=</span><span class="s">C:\SomeSpecificPath</span>
 </span></code></pre></div>
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h2>
-<p>When a sandbox operates in privacy mode (<code>UsePrivacyMode=y</code>), most locations on the system are isolated and programs may expect certain standard directories to exist. The <code>DefaultFolder</code> setting ensures these directories are pre-created within the sandbox, maintaining compatibility with applications that rely on their presence.</p>
-<h2 id="how-it-works">How It Works<a class="headerlink" href="#how-it-works" title="Permanent link"></a></h2>
-<p>During sandbox initialization<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>, Sandboxie processes each <code>DefaultFolder</code> entry in the following manner:</p>
+<h2 id="_3">概述<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
+<p>当沙箱以隐私模式（<code>UsePrivacyMode=y</code>）运行时，系统上的大多数位置都会被隔离，而许多程序可能会要求某些标准目录必须存在。<code>DefaultFolder</code> 设置可以确保这些目录在沙箱内部被预先创建，从而保证依赖这些目录的应用程序能够兼容正常运行。</p>
+<h2 id="_4">工作原理<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
+<p>在沙箱初始化阶段<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>，Sandboxie 按如下流程处理每一个 <code>DefaultFolder</code> 项：</p>
 <ol>
-<li><strong>Environment Variable Expansion</strong>: If the path contains environment variables (like <code>%SystemRoot%</code> or <code>%USERPROFILE%</code>), they are expanded to their actual values.</li>
-<li><strong>Path Translation</strong>: The DOS path is converted to its NT equivalent for internal processing.</li>
-<li><strong>Sandbox Creation</strong>: The corresponding directory structure is created within the sandbox hierarchy.</li>
+<li><strong>环境变量展开</strong>：若路径中包含环境变量（如 <code>%SystemRoot%</code> 或 <code>%USERPROFILE%</code>），系统会将其展开为实际的值。</li>
+<li><strong>路径转换</strong>：DOS 路径会被转换为对应的 NT 内部路径，便于内部处理。</li>
+<li><strong>沙箱内创建</strong>：相应的目录结构会在沙箱目录层级中被创建。</li>
 </ol>
-<h2 id="template-integration">Template Integration<a class="headerlink" href="#template-integration" title="Permanent link"></a></h2>
-<p>Sandboxie includes a built-in template called <code>TemplateDefaultFolders</code><sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> that provides a comprehensive set of standard directories commonly needed by applications. This template includes:</p>
-<h3 id="system-directories">System Directories<a class="headerlink" href="#system-directories" title="Permanent link"></a></h3>
+<h2 id="_5">模板集成<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
+<p>Sandboxie 内置了一个名为 <code>TemplateDefaultFolders</code> 的模板<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>，为应用程序提供了一组常用标准目录。该模板包括：</p>
+<h3 id="_6">系统目录<a class="headerlink" href="#_6" title="Permanent link"></a></h3>
 <ul>
-<li><code>%SystemRoot%</code> (Windows directory)</li>
-<li><code>%TEMP%</code> (Temporary files)</li>
-<li><code>%ProgramFiles%</code> and <code>%ProgramFiles(x86)%</code></li>
-<li><code>%CommonProgramFiles%</code> and <code>%CommonProgramFiles(x86)%</code></li>
+<li><code>%SystemRoot%</code>（Windows 目录）</li>
+<li><code>%TEMP%</code>（临时文件夹）</li>
+<li><code>%ProgramFiles%</code> 与 <code>%ProgramFiles(x86)%</code></li>
+<li><code>%CommonProgramFiles%</code> 与 <code>%CommonProgramFiles(x86)%</code></li>
 </ul>
-<h3 id="user-profile-directories">User Profile Directories<a class="headerlink" href="#user-profile-directories" title="Permanent link"></a></h3>
+<h3 id="_7">用户配置文件目录<a class="headerlink" href="#_7" title="Permanent link"></a></h3>
 <ul>
-<li><code>%USERPROFILE%</code> (User profile root)</li>
-<li><code>%Desktop%</code> (User desktop)</li>
-<li><code>%Personal%</code> (Documents folder)</li>
-<li><code>%{374DE290-123F-4565-9164-39C4925E467B}%</code> (Downloads folder)</li>
-<li><code>%Favorites%</code> (Internet favorites)</li>
-<li><code>%{BFB9D5E0-C6A9-404C-B2B2-AE6DB6AF4968}%</code> (Links folder)</li>
-<li><code>%My Music%</code>, <code>%My Pictures%</code>, <code>%My Video%</code> (Media folders)</li>
-<li><code>%{4C5C32FF-BB9D-43B0-B5B4-2D72E54EAAA4}%</code> (Saved Games)</li>
+<li><code>%USERPROFILE%</code>（用户配置文件根目录）</li>
+<li><code>%Desktop%</code>（用户桌面）</li>
+<li><code>%Personal%</code>（文档文件夹）</li>
+<li><code>%{374DE290-123F-4565-9164-39C4925E467B}%</code>（下载文件夹）</li>
+<li><code>%Favorites%</code>（Internet 收藏夹）</li>
+<li><code>%{BFB9D5E0-C6A9-404C-B2B2-AE6DB6AF4968}%</code>（链接文件夹）</li>
+<li><code>%My Music%</code>、<code>%My Pictures%</code>、<code>%My Video%</code>（媒体文件夹）</li>
+<li><code>%{4C5C32FF-BB9D-43B0-B5B4-2D72E54EAAA4}%</code>（保存的游戏）</li>
 </ul>
-<h3 id="public-directories">Public Directories<a class="headerlink" href="#public-directories" title="Permanent link"></a></h3>
+<h3 id="_8">公共目录<a class="headerlink" href="#_8" title="Permanent link"></a></h3>
 <ul>
-<li><code>%PUBLIC%</code> and its subdirectories</li>
-<li><code>%LOCALAPPDATA%</code> (Local application data)</li>
+<li><code>%PUBLIC%</code> 及其子目录</li>
+<li><code>%LOCALAPPDATA%</code>（本地应用数据目录）</li>
 </ul>
-<h2 id="use-cases">Use Cases<a class="headerlink" href="#use-cases" title="Permanent link"></a></h2>
+<h2 id="_9">使用场景<a class="headerlink" href="#_9" title="Permanent link"></a></h2>
 <ul>
-<li><strong>Privacy Mode</strong>: Essential for proper operation when <code>UsePrivacyMode=y</code> is enabled</li>
-<li><strong>Application Compatibility</strong>: Ensures programs that check for standard directory existence don't fail</li>
-<li><strong>Initialization Optimization</strong>: Pre-creates directories that would otherwise be created on first access</li>
+<li><strong>隐私模式</strong>：在启用 <code>UsePrivacyMode=y</code> 时，确保沙箱正确运行</li>
+<li><strong>应用兼容性</strong>：避免那些检测标准目录是否存在的程序因目录缺失而出错</li>
+<li><strong>初始化优化</strong>：提前创建本应首次访问时才生成的目录</li>
 </ul>
-<h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link"></a></h2>
+<h2 id="_10">限制<a class="headerlink" href="#_10" title="Permanent link"></a></h2>
 <ul>
-<li>Only activated when privacy mode is enabled.</li>
-<li>Directory creation follows standard sandbox path rules and restrictions.</li>
-<li>Environment variables must be valid and expandable at initialization time.</li>
+<li>仅在启用隐私模式时生效</li>
+<li>目录创建需遵循沙箱的路径规范及限制</li>
+<li>环境变量需在初始化时为有效且可展开</li>
 </ul>
-<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link"></a></h2>
-<h3 id="custom-application-directory">Custom Application Directory<a class="headerlink" href="#custom-application-directory" title="Permanent link"></a></h3>
+<h2 id="_11">示例<a class="headerlink" href="#_11" title="Permanent link"></a></h2>
+<h3 id="_12">自定义应用程序目录<a class="headerlink" href="#_12" title="Permanent link"></a></h3>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[ApplicationBox]</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="na">UsePrivacyMode</span><span class="o">=</span><span class="s">y</span>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="na">DefaultFolder</span><span class="o">=</span><span class="s">C:\MyApp\Data</span>
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="na">DefaultFolder</span><span class="o">=</span><span class="s">%APPDATA%\MyApplication</span>
 </span></code></pre></div>
-<h2 id="related-settings">Related Settings<a class="headerlink" href="#related-settings" title="Permanent link"></a></h2>
+<h2 id="_13">相关设置<a class="headerlink" href="#_13" title="Permanent link"></a></h2>
 <ul>
-<li><a href="UsePrivacyMode.html">UsePrivacyMode</a> - Enables privacy mode (required for <code>DefaultFolder</code> to function)</li>
-<li><a href="NormalFilePath.html">NormalFilePath</a> - Controls read/write access to specific paths</li>
-<li><a href="FileRootPath.html">FileRootPath</a> - Specifies sandbox container location</li>
+<li><a href="UsePrivacyMode.html">UsePrivacyMode</a> — 启用隐私模式（<code>DefaultFolder</code> 需此项为前提）</li>
+<li><a href="NormalFilePath.html">NormalFilePath</a> — 控制对指定路径的读写访问</li>
+<li><a href="FileRootPath.html">FileRootPath</a> — 指定沙箱数据容器的位置</li>
 </ul>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p>The folder pre-creation occurs in the <code>File_CreateBaseFolders()</code> function during process initialization when privacy mode flags are detected. This function iterates through both the template defaults and user-specified <code>DefaultFolder</code> entries. (Source: <code>/Sandboxie/core/dll/file_dir.c:3550</code>)&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>文件夹的预创建过程发生在检测到隐私模式标志的进程初始化期间的 <code>File_CreateBaseFolders()</code> 函数中。该函数会遍历模板默认项及用户自定义的 <code>DefaultFolder</code> 配置项。（来源：<code>/Sandboxie/core/dll/file_dir.c:3550</code>）&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>The <code>TemplateDefaultFolders</code> template is defined in the <code>Templates.ini</code> file and provides a comprehensive list of standard Windows directories that applications commonly expect to exist. (Source: <code>/Sandboxie/install/Templates.ini</code>)&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p><code>TemplateDefaultFolders</code> 模板定义在 <code>Templates.ini</code> 文件中，涵盖了应用程序通常需要存在的标准 Windows 目录。（来源：<code>/Sandboxie/install/Templates.ini</code>）&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

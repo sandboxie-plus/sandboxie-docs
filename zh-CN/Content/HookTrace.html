@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="HookTrace is a sandbox setting in Sandboxie Ini available since v1.15.5 / 5.70.5. It enables detailed logging of all function hooking activities performed by the  SbieDll component.">
+        <meta name="description" content="HookTrace 是自 v1.15.5 / 5.70.5 版本起在 沙盘配置 中提供的一项沙箱设置。启用后，将对 SbieDll 组件执行的所有函数挂钩活动进行详细日志记录。">
       
       
       
@@ -5585,104 +5585,104 @@
 
 
 <h1 id="hooktrace">HookTrace<a class="headerlink" href="#hooktrace" title="Permanent link"></a></h1>
-<p><em>HookTrace</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a> available since v1.15.5 / 5.70.5. It enables detailed logging of all function hooking activities performed by the  <a href="SBIEDLLAPI.html">SbieDll</a> component.</p>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h2>
+<p><em>HookTrace</em> 是自 v1.15.5 / 5.70.5 版本起在 <a href="SandboxieIni.html">沙盘配置</a> 中提供的一项沙箱设置。启用后，将对 <a href="SBIEDLLAPI.html">SbieDll</a> 组件执行的所有函数挂钩活动进行详细日志记录。</p>
+<h2 id="_1">用法<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">HookTrace</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h2>
-<p>Function hooking is a core mechanism used by Sandboxie to intercept and redirect system calls from sandboxed processes. The <code>HookTrace</code> setting provides detailed visibility into this process, logging every hook attempt, success, failure, and related metadata. This is primarily useful for troubleshooting sandboxing issues and understanding how Sandboxie instruments applications.</p>
-<h2 id="how-it-works">How It Works<a class="headerlink" href="#how-it-works" title="Permanent link"></a></h2>
-<p>When <code>HookTrace</code> is enabled:</p>
+<h2 id="_2">概述<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
+<p>函数挂钩是沙盘用于拦截并重定向来自沙箱内进程系统调用的核心机制。<code>HookTrace</code> 设置为此过程提供了详尽的可见性，记录每一次挂钩尝试、成功、失败及相关元数据。该功能主要用于排查沙箱相关问题，以及理解沙盘如何对应用程序进行插桩。</p>
+<h2 id="_3">工作原理<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
+<p>当启用 <code>HookTrace</code> 时：</p>
 <ol>
-<li><strong>Hook Detection</strong>: SbieDll logs all attempts to hook functions in loaded modules<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</li>
-<li><strong>Status Tracking</strong>: Each hook operation is classified with status flags indicating success, failure reasons, or special conditions<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</li>
-<li><strong>Module Resolution</strong>: The system identifies the source module for each hooked function using address lookup<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>.</li>
-<li><strong>Monitor Output</strong>: Hook information is sent to the monitoring system using the MONITOR_HOOK flag<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>.</li>
+<li><strong>挂钩检测</strong>：SbieDll 记录对已加载模块中函数的所有挂钩尝试<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
+<li><strong>状态跟踪</strong>：每一个挂钩操作都带有状态标识，指示其成功、失败原因或特殊情况<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></li>
+<li><strong>模块解析</strong>：系统将利用地址查找确定每个被挂钩函数的来源模块<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></li>
+<li><strong>监控输出</strong>：挂钩信息通过 MONITOR_HOOK 标识发送到监控系统<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></li>
 </ol>
-<h2 id="output-format">Output Format<a class="headerlink" href="#output-format" title="Permanent link"></a></h2>
-<p>Hook trace entries appear in the format:</p>
+<h2 id="_4">输出格式<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
+<p>挂钩日志条目格式如下：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">Hooking</span><span class="o">:</span><span class="w"> </span><span class="s">module!function</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">FAILED Hooking</span><span class="o">:</span><span class="w"> </span><span class="s">module!function</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="na">Skipped Hooking</span><span class="o">:</span><span class="w"> </span><span class="s">module!function</span><span class="w">  </span>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="na">Hooking (trace)</span><span class="o">:</span><span class="w"> </span><span class="s">module!function</span>
 </span></code></pre></div>
-<p>Additional status information may be appended:</p>
+<p>可能还会附加其他状态信息：</p>
 <ul>
-<li><code>(Chrome Hook Hooked)</code> - Chrome-specific hook was successfully applied<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>.</li>
-<li><code>(Chrome Hook Unresolved)</code> - Chrome-specific hook failed to resolve<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup>.</li>
-<li><code>FFS Target not found, hooked x86 code instead</code> - ARM64 fallback was used<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup>.</li>
+<li><code>(Chrome Hook Hooked)</code> —— 成功应用 Chrome 专用挂钩<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup></li>
+<li><code>(Chrome Hook Unresolved)</code> —— Chrome 专用挂钩解析失败<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup></li>
+<li><code>FFS Target not found, hooked x86 code instead</code> —— 使用 ARM64 回退方案<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup></li>
 </ul>
-<h2 id="hook-status-types">Hook Status Types<a class="headerlink" href="#hook-status-types" title="Permanent link"></a></h2>
-<p>The tracing system categorizes hook operations with several status flags:</p>
+<h2 id="_5">挂钩状态类型<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
+<p>挂钩跟踪系统通过多种状态标识对挂钩操作进行分类：</p>
 <ul>
-<li><strong>HOOK_STAT_CHROME</strong>: Chrome browser-specific hook handling<sup id="fnref:8"><a class="footnote-ref" href="#fn:8">8</a></sup>.</li>
-<li><strong>HOOK_STAT_CHROME_FAIL</strong>: Chrome hook resolution failed<sup id="fnref:9"><a class="footnote-ref" href="#fn:9">9</a></sup>.</li>
-<li><strong>HOOK_STAT_NO_FFS</strong>: ARM64 architecture-specific Fast Forward Sequence not found<sup id="fnref:10"><a class="footnote-ref" href="#fn:10">10</a></sup>.</li>
-<li><strong>HOOK_STAT_SKIPPED</strong>: Hook was intentionally skipped based on configuration<sup id="fnref:11"><a class="footnote-ref" href="#fn:11">11</a></sup>.</li>
-<li><strong>HOOK_STAT_TRACE</strong>: Hook is for API tracing purposes only<sup id="fnref:12"><a class="footnote-ref" href="#fn:12">12</a></sup>.</li>
-<li><strong>HOOK_STAT_SYSCALL</strong>: ARM64 system call hooking (ARM64 EC only)<sup id="fnref:13"><a class="footnote-ref" href="#fn:13">13</a></sup>.</li>
+<li><strong>HOOK_STAT_CHROME</strong>：处理 Chrome 浏览器专用挂钩<sup id="fnref:8"><a class="footnote-ref" href="#fn:8">8</a></sup></li>
+<li><strong>HOOK_STAT_CHROME_FAIL</strong>：Chrome 挂钩解析失败<sup id="fnref:9"><a class="footnote-ref" href="#fn:9">9</a></sup></li>
+<li><strong>HOOK_STAT_NO_FFS</strong>：未找到 ARM64 架构特定的 Fast Forward Sequence<sup id="fnref:10"><a class="footnote-ref" href="#fn:10">10</a></sup></li>
+<li><strong>HOOK_STAT_SKIPPED</strong>：根据配置有意跳过挂钩<sup id="fnref:11"><a class="footnote-ref" href="#fn:11">11</a></sup></li>
+<li><strong>HOOK_STAT_TRACE</strong>：用于 API 跟踪的挂钩<sup id="fnref:12"><a class="footnote-ref" href="#fn:12">12</a></sup></li>
+<li><strong>HOOK_STAT_SYSCALL</strong>：ARM64 架构系统调用挂钩（仅限 ARM64 EC）<sup id="fnref:13"><a class="footnote-ref" href="#fn:13">13</a></sup></li>
 </ul>
-<h2 id="application-hook-detection">Application Hook Detection<a class="headerlink" href="#application-hook-detection" title="Permanent link"></a></h2>
-<p>When <code>HookTrace</code> is enabled, the system also monitors applications that attempt to modify other processes' memory, which may indicate application-level hooking attempts. This provides additional insight into potential conflicts with Sandboxie's own hooking mechanisms<sup id="fnref:14"><a class="footnote-ref" href="#fn:14">14</a></sup>.</p>
-<h2 id="performance-considerations">Performance Considerations<a class="headerlink" href="#performance-considerations" title="Permanent link"></a></h2>
+<h2 id="_6">应用程序挂钩检测<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
+<p>启用 <code>HookTrace</code> 后，系统还会监控尝试修改其他进程内存的应用程序行为，这通常表明存在应用级挂钩尝试。此项特性有助于识别与沙盘自身挂钩机制可能存在的冲突<sup id="fnref:14"><a class="footnote-ref" href="#fn:14">14</a></sup></p>
+<h2 id="_7">性能注意事项<a class="headerlink" href="#_7" title="Permanent link"></a></h2>
 <ul>
-<li><strong>Increased Logging</strong>: Enabling HookTrace generates significant log output, particularly during process startup when many modules are loaded and hooked.</li>
-<li><strong>Debug Purposes Only</strong>: This setting is primarily intended for debugging and troubleshooting, not for production use.</li>
-<li><strong>Storage Impact</strong>: The verbose output can quickly consume log storage space.</li>
+<li><strong>日志量增加</strong>：启用 HookTrace 后，尤其在进程启动期间（加载并挂钩大量模块），将产生大量日志输出</li>
+<li><strong>仅用于调试</strong>：此设置仅推荐用于调试和排查，不适合生产环境</li>
+<li><strong>存储影响</strong>：大量详细日志输出会快速占用日志存储空间</li>
 </ul>
-<h2 id="related-settings">Related Settings<a class="headerlink" href="#related-settings" title="Permanent link"></a></h2>
+<h2 id="_8">相关设置<a class="headerlink" href="#_8" title="Permanent link"></a></h2>
 <ul>
-<li><a href="SandboxieTrace.html">ApiTrace</a> - Traces actual API calls after hooks are established.</li>
-<li><a href="SandboxieTrace.html">DebugTrace</a> - General debug output from Sandboxie components.</li>
-<li><a href="SandboxieTrace.html">FuncSkipHook</a> - Controls which functions should not be hooked.</li>
-<li><a href="SandboxieTrace.html">SkipHook</a> - Module-specific hook skipping configuration.</li>
+<li><a href="SandboxieTrace.html">ApiTrace</a> —— 在挂钩建立后跟踪实际 API 调用</li>
+<li><a href="SandboxieTrace.html">DebugTrace</a> —— 沙盘组件的通用调试输出</li>
+<li><a href="SandboxieTrace.html">FuncSkipHook</a> —— 控制不应被挂钩的函数</li>
+<li><a href="SandboxieTrace.html">SkipHook</a> —— 按模块粒度配置跳过挂钩</li>
 </ul>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p>Hook initialization occurs in <code>SbieDll_HookInit()</code> where <code>Dll_HookTrace = SbieApi_QueryConfBool(NULL, L"HookTrace", FALSE)</code>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>挂钩初始化发生在 <code>SbieDll_HookInit()</code>，此处 <code>Dll_HookTrace = SbieApi_QueryConfBool(NULL, L"HookTrace", FALSE)</code>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>Hook status tracking is implemented using multiple flags defined as <code>HOOK_STAT_*</code> constants, including <code>HOOK_STAT_CHROME</code>, <code>HOOK_STAT_CHROME_FAIL</code>, <code>HOOK_STAT_NO_FFS</code>, <code>HOOK_STAT_SKIPPED</code>, <code>HOOK_STAT_TRACE</code>, and <code>HOOK_STAT_SYSCALL</code>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>挂钩状态跟踪由一系列 <code>HOOK_STAT_*</code> 常量标识，包括 <code>HOOK_STAT_CHROME</code>、<code>HOOK_STAT_CHROME_FAIL</code>、<code>HOOK_STAT_NO_FFS</code>、<code>HOOK_STAT_SKIPPED</code>、<code>HOOK_STAT_TRACE</code> 和 <code>HOOK_STAT_SYSCALL</code>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p>Module resolution is performed by <code>Trace_FindModuleByAddress((void*)module)</code> to identify the source module of each hooked function&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>通过 <code>Trace_FindModuleByAddress((void*)module)</code> 查找每个被挂钩函数的来源模块&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
-<p>Hook trace output is sent to the monitoring system via <code>SbieApi_MonitorPutMsg(MONITOR_HOOK | MONITOR_TRACE | ((HookStats &amp; HOOK_STAT_SKIPPED) ? MONITOR_OPEN : 0), dbg)</code>&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p>挂钩日志通过 <code>SbieApi_MonitorPutMsg(MONITOR_HOOK | MONITOR_TRACE | ((HookStats &amp; HOOK_STAT_SKIPPED) ? MONITOR_OPEN : 0), dbg)</code> 发送到监控系统&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 <li id="fn:5">
-<p>Chrome hook success is indicated by <code>HookStats &amp; HOOK_STAT_CHROME</code> and logged as "Chrome Hook Hooked"&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+<p>Chrome 挂钩成功由 <code>HookStats &amp; HOOK_STAT_CHROME</code> 标识，以 "Chrome Hook Hooked" 记录&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 <li id="fn:6">
-<p>Chrome hook failure is indicated by <code>HookStats &amp; HOOK_STAT_CHROME_FAIL</code> and logged as "Chrome Hook Unresolved"&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+<p>Chrome 挂钩失败由 <code>HookStats &amp; HOOK_STAT_CHROME_FAIL</code> 标识，以 "Chrome Hook Unresolved" 记录&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
 </li>
 <li id="fn:7">
-<p>ARM64 fallback is indicated by <code>HookStats &amp; HOOK_STAT_NO_FFS</code> and logged as "FFS Target not found, hooked x86 code instead"&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+<p>ARM64 回退方案由 <code>HookStats &amp; HOOK_STAT_NO_FFS</code> 标识，以 "FFS Target not found, hooked x86 code instead" 记录&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
 </li>
 <li id="fn:8">
-<p><code>HOOK_STAT_CHROME</code> flag value <code>0x00000001</code> indicates successful Chrome-specific hook handling&#160;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 8 in the text">&#8617;</a></p>
+<p><code>HOOK_STAT_CHROME</code> 标识值 <code>0x00000001</code>，表示成功处理 Chrome 专用挂钩&#160;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 8 in the text">&#8617;</a></p>
 </li>
 <li id="fn:9">
-<p><code>HOOK_STAT_CHROME_FAIL</code> flag value <code>0x00000002</code> indicates failed Chrome hook resolution&#160;<a class="footnote-backref" href="#fnref:9" title="Jump back to footnote 9 in the text">&#8617;</a></p>
+<p><code>HOOK_STAT_CHROME_FAIL</code> 标识值 <code>0x00000002</code>，表示 Chrome 挂钩解析失败&#160;<a class="footnote-backref" href="#fnref:9" title="Jump back to footnote 9 in the text">&#8617;</a></p>
 </li>
 <li id="fn:10">
-<p><code>HOOK_STAT_NO_FFS</code> flag value <code>0x00000004</code> indicates ARM64 Fast Forward Sequence target not found&#160;<a class="footnote-backref" href="#fnref:10" title="Jump back to footnote 10 in the text">&#8617;</a></p>
+<p><code>HOOK_STAT_NO_FFS</code> 标识值 <code>0x00000004</code>，表示未找到 ARM64 Fast Forward Sequence 目标&#160;<a class="footnote-backref" href="#fnref:10" title="Jump back to footnote 10 in the text">&#8617;</a></p>
 </li>
 <li id="fn:11">
-<p><code>HOOK_STAT_SKIPPED</code> flag value <code>0x00000008</code> indicates the hook was intentionally skipped&#160;<a class="footnote-backref" href="#fnref:11" title="Jump back to footnote 11 in the text">&#8617;</a></p>
+<p><code>HOOK_STAT_SKIPPED</code> 标识值 <code>0x00000008</code>，表示有意跳过挂钩&#160;<a class="footnote-backref" href="#fnref:11" title="Jump back to footnote 11 in the text">&#8617;</a></p>
 </li>
 <li id="fn:12">
-<p><code>HOOK_STAT_TRACE</code> flag value <code>0x00000100</code> indicates the hook is for API tracing purposes&#160;<a class="footnote-backref" href="#fnref:12" title="Jump back to footnote 12 in the text">&#8617;</a></p>
+<p><code>HOOK_STAT_TRACE</code> 标识值 <code>0x00000100</code>，表示用于 API 跟踪&#160;<a class="footnote-backref" href="#fnref:12" title="Jump back to footnote 12 in the text">&#8617;</a></p>
 </li>
 <li id="fn:13">
-<p><code>HOOK_STAT_SYSCALL</code> flag value <code>0x00000200</code> is used for ARM64 system call hooking in ARM64 EC mode only&#160;<a class="footnote-backref" href="#fnref:13" title="Jump back to footnote 13 in the text">&#8617;</a></p>
+<p><code>HOOK_STAT_SYSCALL</code> 标识值 <code>0x00000200</code>，仅 ARM64 EC 模式用于 ARM64 系统调用挂钩&#160;<a class="footnote-backref" href="#fnref:13" title="Jump back to footnote 13 in the text">&#8617;</a></p>
 </li>
 <li id="fn:14">
-<p>Application hook detection is implemented in <code>file_misc.c</code> where <code>Dll_HookTrace</code> enables monitoring of <code>WriteProcessMemory</code> calls that may indicate application-level hooking attempts&#160;<a class="footnote-backref" href="#fnref:14" title="Jump back to footnote 14 in the text">&#8617;</a></p>
+<p>应用程序挂钩检测实现于 <code>file_misc.c</code>，当 <code>Dll_HookTrace</code> 启用时，会监控可能标志应用级挂钩尝试的 <code>WriteProcessMemory</code> 调用&#160;<a class="footnote-backref" href="#fnref:14" title="Jump back to footnote 14 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

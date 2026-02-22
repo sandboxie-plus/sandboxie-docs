@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="DisableForceRules is a per-box setting (introduced in v1.9.1 / 5.64.1) that disables all &quot;force&quot; rules for that box. When set, the driver will skip processing ForceFolder, ForceProcess and ForceChildren entries defined in the box, effectively preventing automatic sandbox-forcing based on those rules.">
+        <meta name="description" content="DisableForceRules 是一个针对每个沙箱的设置（在 v1.9.1 / 5.64.1 中引入），用于禁用该沙箱内的所有“强制”规则。启用后，驱动程序将跳过处理该沙箱配置中的 ForceFolder、ForceProcess 和 ForceChildren 项，从而有效阻止基于这些规则的自动沙箱强制操作。">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>DisableForceRules - Sandboxie 文档</title>
+        <title>禁用强制规则 - Sandboxie 文档</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#disableforcerules" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              DisableForceRules
+              禁用强制规则
             
           </span>
         </div>
@@ -5584,89 +5584,89 @@
   
 
 
-<h1 id="disableforcerules">DisableForceRules<a class="headerlink" href="#disableforcerules" title="Permanent link"></a></h1>
-<p><code>DisableForceRules</code> is a per-box setting (introduced in v1.9.1 / 5.64.1) that disables all "force" rules for that box. When set, the driver will skip processing <code>ForceFolder</code>, <code>ForceProcess</code> and <code>ForceChildren</code> entries defined in the box, effectively preventing automatic sandbox-forcing based on those rules.</p>
-<p>This setting is primarily useful when you want a box to exist but not participate in automatic forcing decisions (for example, when using the box only for manual runs or special-case operations).</p>
-<h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link"></a></h2>
-<p>Set this under a box section in the Sandboxie configuration:</p>
+<h1 id="_1">禁用强制规则<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<p><code>DisableForceRules</code> 是一个针对每个沙箱的设置（在 v1.9.1 / 5.64.1 中引入），用于禁用该沙箱内的所有“强制”规则。启用后，驱动程序将跳过处理该沙箱配置中的 <code>ForceFolder</code>、<code>ForceProcess</code> 和 <code>ForceChildren</code> 项，从而有效阻止基于这些规则的自动沙箱强制操作。</p>
+<p>此设置主要适用于希望沙箱存在但不参与自动强制决策的场景（例如，仅用于手动运行或特殊情况操作的沙箱）。</p>
+<h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
+<p>在 Sandboxie 配置文件的某个沙箱段落下设置此项：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">DisableForceRules</span><span class="o">=</span><span class="s">&lt;y|n&gt;</span>
 </span></code></pre></div>
-<p>Valid values:</p>
+<p>有效值：</p>
 <ul>
-<li><code>y</code> — enabled: the box's force rules are ignored.</li>
-<li><code>n</code> — disabled (default): the box's force rules are evaluated when building force lists.</li>
+<li><code>y</code> — 启用：忽略该沙箱的强制规则。</li>
+<li><code>n</code> — 禁用（默认）：在构建强制列表时评估该沙箱的强制规则。</li>
 </ul>
-<h2 id="behavior">Behavior<a class="headerlink" href="#behavior" title="Permanent link"></a></h2>
+<h2 id="_3">行为<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
 <ul>
 <li>
-<p>When the driver enumerates configuration sections to build the in-memory force rules it calls <code>Conf_IsBoxEnabled</code> and then checks <code>DisableForceRules</code>. If <code>DisableForceRules</code> is set for a box, that box is skipped for force-rule processing and none of its <code>ForceFolder</code>, <code>ForceProcess</code> or <code>ForceChildren</code> entries will be used.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
+<p>当驱动程序遍历配置段落以构建内存中的强制规则时，会调用 <code>Conf_IsBoxEnabled</code> 并检查 <code>DisableForceRules</code>。如果某个沙箱设置了 <code>DisableForceRules</code>，则该沙箱在强制规则处理时会被跳过，其 <code>ForceFolder</code>、<code>ForceProcess</code> 和 <code>ForceChildren</code> 项不会被使用<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
 </li>
 <li>
-<p>Other settings that affect whether a box is considered at all include box enablement for the current SID/session — a box not enabled for the current user/session is not considered during force list creation.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
+<p>影响沙箱是否被考虑的其他设置还包括针对当前 SID/会话的沙箱启用情况——如果沙箱未针对当前用户/会话启用，则在创建强制列表时不会被考虑<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
 </li>
 <li>
-<p><code>DisableForceRules</code> does not remove the box or alter other non-force behavior; it only prevents the driver from adding that box's force entries to the runtime force lists.</p>
+<p><code>DisableForceRules</code> 不会移除沙箱或改变其他非强制相关行为；它只阻止驱动程序将该沙箱的强制项添加到运行时强制列表中。</p>
 </li>
 </ul>
-<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link"></a></h2>
-<p>Disable force rules for a box named <code>NoAutoForce</code>:</p>
+<h2 id="_4">示例<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
+<p>为名为 <code>NoAutoForce</code> 的沙箱禁用强制规则：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[NoAutoForce]</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="na">DisableForceRules</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>Leave force rules enabled (default):</p>
+<p>保持强制规则启用（默认）：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[MyBox]</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="na">DisableForceRules</span><span class="o">=</span><span class="s">n</span>
 </span></code></pre></div>
-<h2 id="gui-sandboxie-manager-sandman">GUI (Sandboxie Manager / SandMan)<a class="headerlink" href="#gui-sandboxie-manager-sandman" title="Permanent link"></a></h2>
-<p>Toggle <code>Disable Force Rules</code> from the Sandboxie Manager (SandMan) UI in either place:</p>
+<h2 id="sandboxie-manager-sandman">图形界面（Sandboxie Manager / SandMan）<a class="headerlink" href="#sandboxie-manager-sandman" title="Permanent link"></a></h2>
+<p>通过 Sandboxie Manager（SandMan）界面可以在以下位置切换“禁用强制规则”：</p>
 <ul>
-<li>Context menu -&gt; Sandbox Presets -&gt; Disable Force Rules<ul>
-<li>Right-click a sandbox in the box list, open the "Sandbox Presets" submenu and toggle the "Disable Force Rules" item.</li>
+<li>上下文菜单 -&gt; Sandbox Presets -&gt; Disable Force Rules<ul>
+<li>右键点击沙箱列表中的某个沙箱，打开“Sandbox Presets”子菜单，切换“Disable Force Rules”项</li>
 </ul>
 </li>
-<li>Box options -&gt; Force tab<ul>
-<li>Right-click a sandbox, choose "Sandbox Options", switch to the "Force Programs" under "Program Control" tab and check/uncheck the "Disable forced Process and Folder for this sandbox" checkbox, then save.</li>
+<li>沙箱选项 -&gt; Force 标签页<ul>
+<li>右键点击沙箱，选择“Sandbox Options”，切换至“Program Control”下的“Force Programs”标签，勾选/取消勾选“Disable forced Process and Folder for this sandbox”复选框，然后保存</li>
 </ul>
 </li>
 </ul>
-<p>These UI controls map directly to the <code>DisableForceRules</code> box setting and update it immediately for the selected box.<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup><sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup></p>
-<h2 id="implementation-notes-driver-behavior">Implementation notes (driver behavior)<a class="headerlink" href="#implementation-notes-driver-behavior" title="Permanent link"></a></h2>
+<p>这些界面操作直接对应 <code>DisableForceRules</code> 沙箱设置，并会立即更新所选沙箱的该项配置<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup><sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup></p>
+<h2 id="_5">实现说明（驱动程序行为）<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
 <ul>
 <li>
-<p>The driver calls <code>Process_CreateForceData</code> to build an in-memory list of <code>FORCE_BOX</code> entries for each enabled box. During creation it iterates config sections and skips any box where <code>Conf_Get_Boolean(section, L"DisableForceRules", 0, FALSE)</code> returns true.<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
+<p>驱动程序调用 <code>Process_CreateForceData</code> 为每个启用的沙箱构建内存中的 <code>FORCE_BOX</code> 列表。在创建过程中遍历配置段落，并跳过任何 <code>Conf_Get_Boolean(section, L"DisableForceRules", 0, FALSE)</code> 返回为真（true）的沙箱<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
 </li>
 <li>
-<p>Skipping a box in <code>Process_CreateForceData</code> means none of its <code>ForceFolder</code>, <code>ForceProcess</code> or <code>ForceChildren</code> lists are added to the runtime <code>boxes</code> list used by <code>Process_GetForcedStartBox</code> and related checks.</p>
+<p>在 <code>Process_CreateForceData</code> 中跳过沙箱意味着该沙箱的 <code>ForceFolder</code>、<code>ForceProcess</code> 和 <code>ForceChildren</code> 列表不会被添加到运行时 <code>boxes</code> 列表中，该列表被 <code>Process_GetForcedStartBox</code> 及相关检查使用。</p>
 </li>
 </ul>
-<h2 id="see-also">See also<a class="headerlink" href="#see-also" title="Permanent link"></a></h2>
+<h2 id="_6">相关内容<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
 <ul>
-<li><a href="ForceProcess.html">ForceProcess</a> — force processes by name or path.</li>
-<li><a href="ForceFolder.html">ForceFolder</a> — force processes by folder path or pattern.</li>
-<li><a href="ForceChildren.html">ForceChildren</a> — parent-based forcing rules (children of matching parents are forced).</li>
+<li><a href="ForceProcess.html">ForceProcess</a> — 按名称或路径强制进程进入沙箱</li>
+<li><a href="ForceFolder.html">ForceFolder</a> — 按文件夹路径或模式强制进程进入沙箱</li>
+<li><a href="ForceChildren.html">ForceChildren</a> — 基于父进程的强制规则（匹配父进程的子进程将被强制沙箱化）</li>
 </ul>
-<h2 id="footnotes">Footnotes<a class="headerlink" href="#footnotes" title="Permanent link"></a></h2>
+<h2 id="_7">注释<a class="headerlink" href="#_7" title="Permanent link"></a></h2>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p>See how <code>Process_CreateForceData</code> loops all config sections and <code>if (Conf_Get_Boolean(section, L"DisableForceRules", 0, FALSE)) continue;</code> to skip boxes with the setting enabled.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>可参考 <code>Process_CreateForceData</code> 如何遍历所有配置段落和 <code>if (Conf_Get_Boolean(section, L"DisableForceRules", 0, FALSE)) continue;</code> 跳过已启用此设置的沙箱&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>Conf_IsBoxEnabled is used to decide whether a box is active for the current SID/session before any force lists are built for it.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p><code>Conf_IsBoxEnabled</code> 用于判断目标沙箱在当前 SID/会话是否激活，然后才会为其构建相关强制列表&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p>The driver checks global/session-level flags such as <code>AllowForceSystem</code> and session-based force-disabled flags when deciding whether processes can be forced; <code>DisableForceRules</code> only affects per-box inclusion in force lists.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>驱动程序在决定进程是否可以被强制时会检查全局/会话级标志，如 <code>AllowForceSystem</code> 及会话级强制禁用标志；<code>DisableForceRules</code> 仅影响每个沙箱是否被包含进强制列表&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
-<p>The presets menu toggle is implemented in SandMan's <code>SbieView.cpp</code> (<code>m_pMenuPresetsForce</code>) and calls <code>SetBoolSafe("DisableForceRules", ...)</code> to change the setting.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p>预设菜单切换功能由 SandMan 的 <code>SbieView.cpp</code> (<code>m_pMenuPresetsForce</code>) 实现，并通过 <code>SetBoolSafe("DisableForceRules", ...)</code> 修改设置&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 <li id="fn:5">
-<p>The box options dialog reads/writes the checkbox <code>ui.chkDisableForced</code> in <code>OptionsForce.cpp</code> and persists the <code>DisableForceRules</code> setting when the options are saved.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+<p>沙箱选项对话框读写复选框 <code>ui.chkDisableForced</code>，在保存选项时将 <code>DisableForceRules</code> 设置持久化&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

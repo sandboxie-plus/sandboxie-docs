@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="DropChildProcessToken is a sandbox setting in Sandboxie Ini available since v1.15.6 / 5.70.6. This setting forces child processes of specified applications to run without modified security tokens, bypassing Sandboxie&#x27;s normal restricted token mechanism. It&#x27;s primarily designed as a debugging tool for troubleshooting &quot;green box&quot; (Application Compartment) compatibility issues where applications fail to start or function properly due to token restrictions.">
+        <meta name="description" content="DropChildProcessToken 是一个沙箱设置项，自 v1.15.6 / 5.70.6 起在 沙盘 Ini 中可用。此设置强制指定应用程序的子进程在运行时不使用受修改的安全令牌，从而绕过沙盘通常的受限令牌机制。该功能主要作为调试工具，用于排查“绿框”（应用程序隔离）兼容性问题，即应用程序因令牌限制而无法正常启动或运行。">
       
       
       
@@ -5585,130 +5585,130 @@
 
 
 <h1 id="drop-child-process-token">Drop Child Process Token<a class="headerlink" href="#drop-child-process-token" title="Permanent link"></a></h1>
-<p><em>DropChildProcessToken</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a> available since v1.15.6 / 5.70.6. This setting forces child processes of specified applications to run without modified security tokens, bypassing Sandboxie's normal restricted token mechanism. It's primarily designed as a debugging tool for troubleshooting "green box" (Application Compartment) compatibility issues where applications fail to start or function properly due to token restrictions.</p>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h2>
+<p><em>DropChildProcessToken</em> 是一个沙箱设置项，自 v1.15.6 / 5.70.6 起在 <a href="../SandboxieIni/">沙盘 Ini</a> 中可用。此设置强制指定应用程序的子进程在运行时不使用受修改的安全令牌，从而绕过沙盘通常的受限令牌机制。该功能主要作为调试工具，用于排查“绿框”（应用程序隔离）兼容性问题，即应用程序因令牌限制而无法正常启动或运行。</p>
+<h2 id="_1">使用方法<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">DropChildProcessToken</span><span class="o">=</span><span class="s">chrome.exe,y</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="na">DropChildProcessToken</span><span class="o">=</span><span class="s">firefox.exe,y</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="na">DropChildProcessToken</span><span class="o">=</span><span class="s">acroread.exe,y</span>
 </span></code></pre></div>
-<h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link"></a></h2>
+<h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">DropChildProcessToken</span><span class="o">=</span><span class="s">&lt;executable&gt;,y</span>
 </span></code></pre></div>
-<p>Where:</p>
+<p>说明：</p>
 <ul>
-<li><code>&lt;executable&gt;</code> is the name of the application executable file (case-insensitive).</li>
-<li>The value must be <code>y</code> to enable the setting.</li>
+<li><code>&lt;executable&gt;</code> 指应用程序的可执行文件名称（不区分大小写）</li>
+<li>值必须为 <code>y</code>，表示启用该设置</li>
 </ul>
-<h2 id="technical-details">Technical Details<a class="headerlink" href="#technical-details" title="Permanent link"></a></h2>
-<p>When <code>DropChildProcessToken</code> is enabled, Sandboxie modifies its process creation behavior during child process initialization:</p>
+<h2 id="_3">技术细节<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
+<p>启用 <code>DropChildProcessToken</code> 后，沙盘会在子进程初始化阶段修改进程创建行为：</p>
 <ol>
 <li>
-<p><strong>Token Nullification</strong>: During <code>CreateProcessInternalW</code>, the system checks if the target application matches any configured <code>DropChildProcessToken</code> entries and sets the process token to <code>NULL</code><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
+<p><strong>令牌置空</strong>：在 <code>CreateProcessInternalW</code> 中，系统检查目标应用是否匹配已配置的 <code>DropChildProcessToken</code> 项目，并将进程令牌设置为 <code>NULL</code><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
 </li>
 <li>
-<p><strong>Automatic Application</strong>: The setting automatically applies to specific application types - Adobe Acrobat Reader and plugin containers receive this treatment by default through hardcoded image type detection<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</p>
+<p><strong>自动应用</strong>：该设置会自动应用于特定应用类型——Adobe Acrobat Reader 以及插件容器默认会这样处理，通过硬编码的镜像类型检测实现<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
 </li>
 <li>
-<p><strong>Green Box Compatibility</strong>: This mechanism helps applications that struggle with Sandboxie's restricted security tokens to function in compartment mode, where compatibility is prioritized over strict isolation<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>.</p>
+<p><strong>绿框兼容性</strong>：此机制帮助那些无法与沙盘受限安全令牌兼容的应用程序，在隔离模式下正常运行，即优先保证兼容性，而不是严格隔离<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></p>
 </li>
 </ol>
-<h2 id="default-behavior">Default Behavior<a class="headerlink" href="#default-behavior" title="Permanent link"></a></h2>
-<p>Sandboxie automatically applies token dropping to certain application categories without explicit configuration:</p>
+<h2 id="_4">默认行为<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
+<p>沙盘会自动对某些应用类型应用令牌置空，无需显式配置：</p>
 <ul>
-<li><strong>Adobe Acrobat Reader</strong>: All versions automatically have child process tokens dropped to prevent privilege escalation.</li>
-<li><strong>Plugin Containers</strong>: Applications classified as <code>DLL_IMAGE_PLUGIN_CONTAINER</code> through <a href="../SpecialImage/">SpecialImage</a> automatically receive this treatment.</li>
-<li><strong>Flash Player Sandbox</strong>: Historical support for Adobe Flash Player sandbox architecture (commented out in current versions).</li>
+<li><strong>Adobe Acrobat Reader</strong>：所有版本的子进程会自动置空令牌，防止权限提升</li>
+<li><strong>插件容器</strong>：通过 <a href="../SpecialImage/">SpecialImage</a> 检测为 <code>DLL_IMAGE_PLUGIN_CONTAINER</code> 类型的应用会自动处理</li>
+<li><strong>Flash Player 沙箱</strong>：历史版本支持 Adobe Flash Player 沙箱架构（在当前版本中被注释掉）</li>
 </ul>
-<p><strong>Usage Scenarios</strong></p>
+<p><strong>使用场景</strong></p>
 <ul>
-<li><strong>Green Box Debugging</strong>: Troubleshooting Application Compartment boxes where applications fail to start due to token restrictions.</li>
-<li><strong>Legacy Application Support</strong>: Enabling older applications that don't work well with modern security token restrictions.</li>
-<li><strong>Plugin Compatibility</strong>: Ensuring browser plugins and helper processes can function without token-related conflicts.</li>
-<li><strong>Development Testing</strong>: Testing application behavior without Sandboxie's token-based security isolation.</li>
+<li><strong>绿框调试</strong>：用于排查应用程序隔离沙箱内因令牌限制无法启动的应用</li>
+<li><strong>旧版应用兼容</strong>：让老应用程序能够在现代安全令牌限制下正常运行</li>
+<li><strong>插件兼容性</strong>：确保浏览器插件及辅助进程不受令牌相关限制影响</li>
+<li><strong>开发测试</strong>：测试应用在无沙盘令牌隔离情况下的行为</li>
 </ul>
-<p><strong>Security Implications</strong></p>
+<p><strong>安全影响</strong></p>
 <ul>
-<li><strong>Reduced Security</strong>: Child processes run with the same token as their parent, potentially reducing isolation effectiveness.</li>
-<li><strong>Privilege Management</strong>: Removes Sandboxie's normal privilege restrictions, allowing processes to inherit full parent privileges.</li>
-<li><strong>Compatibility Trade-off</strong>: Improves application compatibility at the cost of some security isolation.</li>
-<li><strong>Debugging Context</strong>: Primarily intended for troubleshooting rather than production use.</li>
+<li><strong>安全性降低</strong>：子进程将以与父进程相同的令牌运行，隔离效果下降</li>
+<li><strong>权限管理</strong>：沙盘的权限限制失效，进程将继承父进程的全部权限</li>
+<li><strong>兼容性权衡</strong>：提升应用兼容性，但牺牲部分安全隔离</li>
+<li><strong>调试用途</strong>：主要用于故障排查，而非生产环境使用</li>
 </ul>
-<p><strong>Green Box Integration</strong></p>
-<p>This setting is particularly relevant for Green Box (Application Compartment) configurations:</p>
+<p><strong>绿框集成</strong></p>
+<p>此设置非常适用于绿框（应用程序隔离）配置：</p>
 <ul>
-<li><strong>Compartment Mode</strong>: Green boxes use <code>NoSecurityIsolation=y</code> to disable token-based security while maintaining file/registry virtualization.</li>
-<li><strong>Token Conflicts</strong>: Some applications still experience issues even in compartment mode, requiring complete token dropping.</li>
-<li><strong>Compatibility Priority</strong>: Green boxes prioritize compatibility over security, making this setting a natural fit for problematic applications.</li>
+<li><strong>隔离模式</strong>：绿框使用 <code>NoSecurityIsolation=y</code> 禁用令牌安全隔离，同时保持文件和注册表虚拟化</li>
+<li><strong>令牌冲突</strong>：部分应用即使在隔离模式下仍因令牌问题出错，需彻底置空令牌</li>
+<li><strong>兼容性优先</strong>：绿框以兼容性为主，令此设置成为问题应用的解决方案</li>
 </ul>
-<h2 id="implementation-notes">Implementation Notes<a class="headerlink" href="#implementation-notes" title="Permanent link"></a></h2>
-<p>The token dropping mechanism:</p>
+<h2 id="_5">实现说明<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
+<p>令牌置空机制：</p>
 <ul>
-<li>Operates during the <code>Proc_CreateProcessInternalW</code> function in the DLL injection layer.</li>
-<li>Uses <code>Config_GetSettingsForImageName_bool</code> to query per-application settings with a default value of <code>FALSE</code><sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>.</li>
-<li>Integrates with the image type classification system to automatically handle known problematic application types.</li>
-<li>Sets <code>hToken = NULL</code> to bypass normal token creation and restriction processes<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>.</li>
-<li>Affects the <code>CreateProcessInternalW</code> call chain where restricted tokens would normally be applied.</li>
+<li>在 DLL 注入层的 <code>Proc_CreateProcessInternalW</code> 函数中执行</li>
+<li>通过 <code>Config_GetSettingsForImageName_bool</code> 查询每应用设置，默认值为 <code>FALSE</code><sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></li>
+<li>与镜像类型识别系统集成，自动处理已知问题应用</li>
+<li>设置 <code>hToken = NULL</code>，跳过标准令牌创建与限制流程<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup></li>
+<li>影响原本会应用受限令牌的 <code>CreateProcessInternalW</code> 调用链</li>
 </ul>
-<h2 id="related-compatibility-settings">Related Compatibility Settings<a class="headerlink" href="#related-compatibility-settings" title="Permanent link"></a></h2>
+<h2 id="_6">相关兼容性设置<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
 <ul>
-<li><strong>OriginalToken</strong>: When enabled, bypasses most token-related modifications including <code>DropChildProcessToken</code>.</li>
-<li><strong>DeprecatedTokenHacks</strong>: Re-enables older token-based workarounds that were disabled in compartment mode.</li>
-<li><strong>NoSecurityIsolation</strong>: The core Green Box setting that disables token-based security isolation.</li>
-<li><strong>FakeAppContainerToken</strong>: Controls AppContainer token simulation for specific applications.</li>
+<li><strong>OriginalToken</strong>：启用后跳过大多数基于令牌的修改，包括 <code>DropChildProcessToken</code></li>
+<li><strong>DeprecatedTokenHacks</strong>：重新启用已在隔离模式下停用的旧令牌兼容逻辑</li>
+<li><strong>NoSecurityIsolation</strong>：应用程序隔离模式中关闭令牌安全隔离的核心设置</li>
+<li><strong>FakeAppContainerToken</strong>：控制特定应用的 AppContainer 令牌模拟</li>
 </ul>
-<h2 id="usage-examples">Usage Examples<a class="headerlink" href="#usage-examples" title="Permanent link"></a></h2>
+<h2 id="_7">实际举例<a class="headerlink" href="#_7" title="Permanent link"></a></h2>
 <ul>
 <li>
-<p><strong>Browser Child Process Issues</strong>:
+<p><strong>浏览器子进程问题</strong>:
   <div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">DropChildProcessToken</span><span class="o">=</span><span class="s">chrome.exe,y</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">DropChildProcessToken</span><span class="o">=</span><span class="s">msedge.exe,y</span>
 </span></code></pre></div></p>
 </li>
 <li>
-<p><strong>Plugin Container Problems</strong>:
+<p><strong>插件容器兼容问题</strong>:
   <div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">DropChildProcessToken</span><span class="o">=</span><span class="s">plugin-container.exe,y</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">DropChildProcessToken</span><span class="o">=</span><span class="s">flashplayer.exe,y</span>
 </span></code></pre></div></p>
 </li>
 <li>
-<p><strong>Custom Application Debugging</strong>:
+<p><strong>自定义应用调试</strong>:
   <div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="na">DropChildProcessToken</span><span class="o">=</span><span class="s">myapp.exe,y</span>
 </span></code></pre></div></p>
 </li>
 </ul>
-<h2 id="troubleshooting-green-boxes">Troubleshooting Green Boxes<a class="headerlink" href="#troubleshooting-green-boxes" title="Permanent link"></a></h2>
-<p>When applications fail in Green Box mode:</p>
+<h2 id="_8">绿框故障排查<a class="headerlink" href="#_8" title="Permanent link"></a></h2>
+<p>当应用在绿框模式下失败时：</p>
 <ol>
-<li>Enable <code>DropChildProcessToken</code> for the problematic executable.</li>
-<li>Test if the application starts and functions correctly.</li>
-<li>If successful, the issue was token-related and the setting can remain enabled.</li>
-<li>If unsuccessful, investigate other compatibility settings or file/registry access issues.</li>
+<li>针对有问题的可执行文件启用 <code>DropChildProcessToken</code></li>
+<li>测试应用能否正常启动和运行</li>
+<li>若成功，则说明问题与令牌限制有关，可保持该设置开启</li>
+<li>若失败，需进一步排查其他兼容性设置或文件/注册表访问问题</li>
 </ol>
-<h2 id="related-settings">Related Settings<a class="headerlink" href="#related-settings" title="Permanent link"></a></h2>
+<h2 id="_9">相关设置<a class="headerlink" href="#_9" title="Permanent link"></a></h2>
 <ul>
-<li><a href="../SpecialImage/">SpecialImage</a> - Automatically applies token dropping to plugin containers and Adobe Reader.</li>
-<li><a href="../NoSecurityIsolation/">NoSecurityIsolation</a> - Core Green Box setting for Application Compartment mode.</li>
+<li><a href="../SpecialImage/">SpecialImage</a> - 自动对插件容器及 Adobe Reader 应用令牌置空</li>
+<li><a href="../NoSecurityIsolation/">NoSecurityIsolation</a> - 应用程序隔离模式的核心绿框设置</li>
 </ul>
-<p>Related Sandboxie Plus setting: Available in advanced debugging options (not exposed in standard UI).</p>
+<p>沙盘 Plus 相关设置：在高级调试选项中可用（标准界面未展示）</p>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p>Token nullification in <code>proc.c</code>: The function <code>Proc_CreateProcessInternalW</code> checks <code>Config_GetSettingsForImageName_bool(L"DropChildProcessToken", FALSE)</code> and sets <code>hToken = NULL</code> when the condition is met, bypassing the normal restricted token creation process.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p><code>proc.c</code> 中的令牌置空：函数 <code>Proc_CreateProcessInternalW</code> 检查 <code>Config_GetSettingsForImageName_bool(L"DropChildProcessToken", FALSE)</code> 若条件成立则设置 <code>hToken = NULL</code>，跳过标准受限令牌创建流程&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>Automatic application in <code>proc.c</code>: The condition <code>Dll_ImageType == DLL_IMAGE_ACROBAT_READER || Dll_ImageType == DLL_IMAGE_PLUGIN_CONTAINER</code> automatically applies token dropping to Adobe Reader and plugin containers regardless of explicit configuration.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p><code>proc.c</code> 的自动应用逻辑：条件 <code>Dll_ImageType == DLL_IMAGE_ACROBAT_READER || Dll_ImageType == DLL_IMAGE_PLUGIN_CONTAINER</code> 会自动对 Adobe Reader 和插件容器应用令牌置空，无需显式配置&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p>Green box compatibility mechanism: This setting addresses the fundamental tension between Sandboxie's security model and application compatibility by allowing selective bypassing of token restrictions while maintaining file system and registry virtualization.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>绿框兼容机制：该设置回应沙盘安全模型与应用兼容之间的基本矛盾，允许有选择地绕过令牌限制，同时保持文件系统和注册表虚拟化&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
-<p>Configuration query in <code>proc.c</code>: The system uses <code>Config_GetSettingsForImageName_bool(L"DropChildProcessToken", FALSE)</code> to retrieve per-application settings, with the <code>FALSE</code> default ensuring the feature is only active when explicitly enabled.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p><code>proc.c</code> 的配置查询：系统使用 <code>Config_GetSettingsForImageName_bool(L"DropChildProcessToken", FALSE)</code> 检索每应用设置，默认 <code>FALSE</code> 保证仅按需启用&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 <li id="fn:5">
-<p>Token bypass implementation in <code>proc.c</code>: Setting <code>hToken = NULL</code> in the <code>CreateProcessInternalW</code> function effectively disables the entire restricted token creation pipeline, allowing child processes to inherit their parent's full security context.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+<p><code>proc.c</code> 的令牌置空实现：在 <code>CreateProcessInternalW</code> 函数内设置 <code>hToken = NULL</code>，彻底关闭受限令牌创建流程，使子进程继承父进程的完整安全上下文&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

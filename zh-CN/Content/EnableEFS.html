@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="EnableEFS is a sandbox setting in Sandboxie Ini available since v1.15.0 / 5.70.0. It allows sandboxed processes to access files protected by the Windows Encrypting File System (EFS).">
+        <meta name="description" content="EnableEFS 是一个沙箱设置，位于 沙盘 Ini 文件，自 v1.15.0 / 5.70.0 起可用。它允许沙箱内的进程访问受 Windows 加密文件系统（EFS）保护的文件。">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>Enable EFS - Sandboxie 文档</title>
+        <title>启用 EFS - Sandboxie 文档</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#enable-efs" class="md-skip">
+        <a href="#efs" class="md-skip">
           跳转至
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Enable EFS
+              启用 EFS
             
           </span>
         </div>
@@ -5584,88 +5584,88 @@
   
 
 
-<h1 id="enable-efs">Enable EFS<a class="headerlink" href="#enable-efs" title="Permanent link"></a></h1>
-<p><em>EnableEFS</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a> available since v1.15.0 / 5.70.0. It allows sandboxed processes to access files protected by the Windows Encrypting File System (EFS).</p>
+<h1 id="efs">启用 EFS<a class="headerlink" href="#efs" title="Permanent link"></a></h1>
+<p><em>EnableEFS</em> 是一个沙箱设置，位于 <a href="SandboxieIni.html">沙盘 Ini</a> 文件，自 v1.15.0 / 5.70.0 起可用。它允许沙箱内的进程访问受 Windows 加密文件系统（EFS）保护的文件。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This setting requires an active advanced <a href="https://sandboxie-plus.com/supporter-certificate/">supporter certificate</a><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
+<p>此设置需要一个有效的高级 <a href="https://sandboxie-plus.com/supporter-certificate/">支持者证书</a><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>。</p>
 </div>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h2>
+<h2 id="_1">用法<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">EnableEFS</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<h2 id="enabling-via-sandboxie-manager-gui">Enabling via Sandboxie Manager GUI<a class="headerlink" href="#enabling-via-sandboxie-manager-gui" title="Permanent link"></a></h2>
-<p>You can enable the setting from the Sandboxie Manager (also known as SandMan) for a specific sandbox (or the DefaultBox) using the following steps:</p>
+<h2 id="_2">通过沙盘管理器界面启用<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
+<p>你可以通过沙盘管理器（也称为 SandMan）为指定的沙箱（或 DefaultBox）启用此设置，步骤如下：</p>
 <ol>
-<li>Open SandMan.</li>
-<li>Right-click the sandbox you want to configure, and choose "Sandbox Options".</li>
-<li>In the settings dialog, select the "File Options" category on the left.</li>
-<li>Switch to the "File Options" tab group (top tabs) and scroll to the "Disk/File access" section.</li>
-<li>Check the option labeled "Allow sandboxed processes to open files protected by EFS".</li>
-<li>Click "Apply" or "OK" to save the setting.</li>
+<li>打开 SandMan</li>
+<li>右键点击需要配置的沙箱，选择“沙箱选项”</li>
+<li>在设置对话框左侧，选择“文件选项”类别</li>
+<li>切换到顶部标签组中的“文件选项”标签页，滚动到“磁盘/文件访问”部分</li>
+<li>勾选“允许沙箱内进程打开受 EFS 保护的文件”选项</li>
+<li>点击“应用”或“确定”以保存设置</li>
 </ol>
-<p>This mirrors the <code>EnableEFS=y</code> setting in the box section of <a href="SandboxieIni.html">Sandboxie.Ini</a> but is more convenient when configuring a single sandbox via the GUI.</p>
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h2>
-<p>The Encrypting File System (EFS) is a Windows feature that provides file system-level encryption. By default, Sandboxie blocks access to EFS-encrypted files and folders from within sandboxed processes to maintain security isolation. The <code>EnableEFS</code> setting allows you to override this restriction when needed.</p>
-<h2 id="how-it-works">How It Works<a class="headerlink" href="#how-it-works" title="Permanent link"></a></h2>
-<p>When <code>EnableEFS</code> is enabled:</p>
+<p>这相当于在 <a href="SandboxieIni.html">沙盘.Ini</a> 文件中的沙箱区块设置 <code>EnableEFS=y</code>，但通过界面配置单个沙箱更加方便。</p>
+<h2 id="_3">概述<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
+<p>加密文件系统（EFS）是 Windows 提供的文件系统级加密功能。默认情况下，沙盘会阻止沙箱内进程访问 EFS 加密的文件和文件夹，以保持安全隔离。当需要时，<code>EnableEFS</code> 设置可以允许你突破这一限制。</p>
+<h2 id="_4">工作原理<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
+<p>当启用 <code>EnableEFS</code> 时：</p>
 <ol>
-<li><strong>EFS Detection</strong>: Sandboxie detects when a sandboxed process attempts to access an EFS-encrypted file or folder<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></li>
-<li><strong>Certificate Verification</strong>: The system verifies that a valid advanced supporter certificate with encryption features is present<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></li>
-<li><strong>Proxy Access</strong>: Instead of blocking the access, Sandboxie uses a proxy mechanism to handle the file operation outside the sandbox<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></li>
-<li><strong>Handle Duplication</strong>: The file handle is created in the UserServer service and then duplicated back into the sandboxed process<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup></li>
+<li><strong>EFS 检测</strong>：沙盘会检测沙箱内的进程是否尝试访问 EFS 加密的文件或文件夹<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></li>
+<li><strong>证书验证</strong>：系统会验证是否存在包含加密功能的有效高级支持者证书<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></li>
+<li><strong>代理访问</strong>：沙盘通过代理机制处理相关文件操作，而不是直接阻止访问<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></li>
+<li><strong>句柄复制</strong>：文件句柄在 UserServer 服务中创建后，会被复制到沙箱内的进程中<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup></li>
 </ol>
-<h2 id="security-considerations">Security Considerations<a class="headerlink" href="#security-considerations" title="Permanent link"></a></h2>
+<h2 id="_5">安全考量<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
 <ul>
-<li><strong>Reduced Isolation</strong>: Enabling EFS access reduces the security isolation of the sandbox, as it allows direct access to encrypted files that would normally be blocked</li>
-<li><strong>Path Validation</strong>: The proxy service validates that the requested file path matches configured access rules before allowing the operation<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup></li>
-<li><strong>Write Access Control</strong>: Write operations to EFS files are subject to additional validation based on the sandbox's file access configuration<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup></li>
+<li><strong>隔离性降低</strong>：启用对 EFS 文件的访问会降低沙箱的安全隔离性，因为允许直接访问本应被阻止的加密文件</li>
+<li><strong>路径校验</strong>：代理服务会校验请求的文件路径是否符合已配置的访问规则后才允许操作<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup></li>
+<li><strong>写入访问控制</strong>：对 EFS 文件的写入操作会依据沙箱的文件访问配置进行额外校验<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup></li>
 </ul>
-<h2 id="certificate-requirements">Certificate Requirements<a class="headerlink" href="#certificate-requirements" title="Permanent link"></a></h2>
-<p>This feature requires an advanced supporter certificate that includes the encryption feature flag (<code>opt_enc</code>)<sup id="fnref:8"><a class="footnote-ref" href="#fn:8">8</a></sup>. Without this certificate, attempts to use EFS will result in error message <code>SBIE6004</code>.</p>
-<h2 id="related-messages">Related Messages<a class="headerlink" href="#related-messages" title="Permanent link"></a></h2>
+<h2 id="_6">证书要求<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
+<p>此功能需要包含加密功能标志（<code>opt_enc</code>）的高级支持者证书<sup id="fnref:8"><a class="footnote-ref" href="#fn:8">8</a></sup>。没有该证书的情况下尝试使用 EFS 会导致出现 <code>SBIE6004</code> 错误信息。</p>
+<h2 id="_7">相关消息<a class="headerlink" href="#_7" title="Permanent link"></a></h2>
 <ul>
-<li><a href="SBIE2225.html">SBIE2225</a> - "An attempt was made to access an EFS file" - Warning logged when EFS access fails<sup id="fnref:9"><a class="footnote-ref" href="#fn:9">9</a></sup></li>
-<li><a href="SBIE6004.html">SBIE6004</a> - Certificate requirement error when advanced supporter certificate is not present</li>
+<li><a href="SBIE2225.html">SBIE2225</a> - “尝试访问 EFS 文件”——当 EFS 访问失败时记录警告日志<sup id="fnref:9"><a class="footnote-ref" href="#fn:9">9</a></sup></li>
+<li><a href="SBIE6004.html">SBIE6004</a> - 在缺少高级支持者证书时出现证书要求错误</li>
 </ul>
-<h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link"></a></h2>
+<h2 id="_8">限制<a class="headerlink" href="#_8" title="Permanent link"></a></h2>
 <ul>
-<li>Only works with files on hard disk volumes (paths starting with <code>\Device\HarddiskVolume</code>)<sup id="fnref:10"><a class="footnote-ref" href="#fn:10">10</a></sup>.</li>
-<li>Subject to the sandbox's file <a href="ResourceAccess.html">resource access rules</a> (<code>OpenFilePath</code>, <code>ClosedFilePath</code>, etc.).</li>
+<li>仅适用于硬盘卷上的文件（路径以 <code>\Device\HarddiskVolume</code> 开头）<sup id="fnref:10"><a class="footnote-ref" href="#fn:10">10</a></sup></li>
+<li>受沙箱的文件 <a href="ResourceAccess.html">资源访问规则</a>（如 <code>OpenFilePath</code>、<code>ClosedFilePath</code> 等）限制</li>
 </ul>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p>Certificate verification is performed in <code>UserServer::OpenFile()</code> method checking for <code>CertInfo.active &amp;&amp; CertInfo.opt_enc</code>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>证书验证在 <code>UserServer::OpenFile()</code> 方法中进行，检查 <code>CertInfo.active &amp;&amp; CertInfo.opt_enc</code>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>EFS file detection occurs in <code>File_NtCreateFile12()</code> by checking if <code>(FileType &amp; TYPE_EFS) != 0</code> where <code>TYPE_EFS</code> is defined as <code>FILE_ATTRIBUTE_ENCRYPTED</code>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>EFS 文件检测发生于 <code>File_NtCreateFile12()</code>，通过判断 <code>(FileType &amp; TYPE_EFS) != 0</code>，其中 <code>TYPE_EFS</code> 定义为 <code>FILE_ATTRIBUTE_ENCRYPTED</code>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p>The certificate check validates both that a certificate is active and has the encryption option flag set: <code>!(CertInfo.active &amp;&amp; CertInfo.opt_enc)</code>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>证书验证会同时检查证书是否有效且带有加密选项标志：<code>!(CertInfo.active &amp;&amp; CertInfo.opt_enc)</code>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
-<p>EFS proxy mechanism is implemented through <code>File_NtCreateFileProxy()</code> which sends requests to the UserServer service via <code>SbieDll_CallProxySvr()</code>&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p>EFS 代理机制通过 <code>File_NtCreateFileProxy()</code> 实现，通过 <code>SbieDll_CallProxySvr()</code> 向 UserServer 服务发送请求&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 <li id="fn:5">
-<p>Handle duplication is performed in the UserServer using <code>DuplicateHandle()</code> to transfer the file handle from the service process to the sandboxed process&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+<p>在 UserServer 中使用 <code>DuplicateHandle()</code> 将文件句柄从服务进程复制到沙箱内进程&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 <li id="fn:6">
-<p>Path validation in UserServer checks that the path starts with <code>\Device\HarddiskVolume</code> and validates against file access rules using <code>SbieDll_MatchPathImpl()</code>&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+<p>UserServer 中的路径校验会检查路径是否以 <code>\Device\HarddiskVolume</code> 开头，并通过 <code>SbieDll_MatchPathImpl()</code> 校验文件访问规则&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
 </li>
 <li id="fn:7">
-<p>Write access validation checks for write-related access flags, creation dispositions other than <code>FILE_OPEN</code>, and the <code>FILE_DELETE_ON_CLOSE</code> option&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+<p>写入访问校验会检查涉及写操作的访问标志，创建动作为非 <code>FILE_OPEN</code>，以及 <code>FILE_DELETE_ON_CLOSE</code> 选项&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
 </li>
 <li id="fn:8">
-<p>The encryption feature flag <code>opt_enc</code> is defined in the certificate verification structure as part of Box Encryption and Box Protection features&#160;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 8 in the text">&#8617;</a></p>
+<p>加密功能标志 <code>opt_enc</code> 被定义在证书验证结构中，属于沙箱加密和沙箱保护功能的一部分&#160;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 8 in the text">&#8617;</a></p>
 </li>
 <li id="fn:9">
-<p>Error logging occurs when <code>File_NtCreateFileProxy()</code> fails with <code>SbieApi_Log(2225, TruePath)</code>&#160;<a class="footnote-backref" href="#fnref:9" title="Jump back to footnote 9 in the text">&#8617;</a></p>
+<p>当 <code>File_NtCreateFileProxy()</code> 失败时，会记录日志 <code>SbieApi_Log(2225, TruePath)</code>&#160;<a class="footnote-backref" href="#fnref:9" title="Jump back to footnote 9 in the text">&#8617;</a></p>
 </li>
 <li id="fn:10">
-<p>Device path restriction implemented by checking <code>_wcsnicmp(path_buff, L"\\Device\\HarddiskVolume", 22) != 0</code> in UserServer&#160;<a class="footnote-backref" href="#fnref:10" title="Jump back to footnote 10 in the text">&#8617;</a></p>
+<p>设备路径限制通过 UserServer 检查 <code>_wcsnicmp(path_buff, L"\\Device\\HarddiskVolume", 22) != 0</code> 实现&#160;<a class="footnote-backref" href="#fnref:10" title="Jump back to footnote 10 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

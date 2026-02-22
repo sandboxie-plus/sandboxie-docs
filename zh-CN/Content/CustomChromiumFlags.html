@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="CustomChromiumFlags is a sandbox setting in Sandboxie Ini available since v1.14.2 / 5.69.2. This setting allows you to pass additional command line flags to Chromium-based browsers when they are launched within the sandbox. Sandboxie automatically injects these flags into the browser&#x27;s startup command line, enabling fine-tuned control over browser behavior for enhanced compatibility and functionality within the sandboxed environment.">
+        <meta name="description" content="CustomChromiumFlags 是自 v1.14.2 / 5.69.2 起在 Sandboxie Ini 提供的一个沙箱设置。该设置允许在 Chromium 内核的浏览器被沙箱启动时，向其传递额外的命令行参数。Sandboxie 会自动将这些参数注入到浏览器的启动命令行，实现对浏览器行为的精细控制，以增强在沙箱环境下的兼容性和功能性。">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>Custom Chromium Flags - Sandboxie 文档</title>
+        <title>自定义 Chromium 启动参数 - Sandboxie 文档</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#custom-chromium-flags" class="md-skip">
+        <a href="#chromium" class="md-skip">
           跳转至
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Custom Chromium Flags
+              自定义 Chromium 启动参数
             
           </span>
         </div>
@@ -5584,102 +5584,102 @@
   
 
 
-<h1 id="custom-chromium-flags">Custom Chromium Flags<a class="headerlink" href="#custom-chromium-flags" title="Permanent link"></a></h1>
-<p><em>CustomChromiumFlags</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a> available since v1.14.2 / 5.69.2. This setting allows you to pass additional command line flags to Chromium-based browsers when they are launched within the sandbox. Sandboxie automatically injects these flags into the browser's startup command line, enabling fine-tuned control over browser behavior for enhanced compatibility and functionality within the sandboxed environment.</p>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h2>
+<h1 id="chromium">自定义 Chromium 启动参数<a class="headerlink" href="#chromium" title="Permanent link"></a></h1>
+<p><em>CustomChromiumFlags</em> 是自 v1.14.2 / 5.69.2 起在 <a href="SandboxieIni.html">Sandboxie Ini</a> 提供的一个沙箱设置。该设置允许在 Chromium 内核的浏览器被沙箱启动时，向其传递额外的命令行参数。Sandboxie 会自动将这些参数注入到浏览器的启动命令行，实现对浏览器行为的精细控制，以增强在沙箱环境下的兼容性和功能性。</p>
+<h2 id="_1">用法<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">CustomChromiumFlags</span><span class="o">=</span><span class="s">--disable-features=PrintCompositorLPAC --disable-gpu</span>
 </span></code></pre></div>
-<h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link"></a></h2>
+<h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">CustomChromiumFlags</span><span class="o">=</span><span class="s">--disable-features=PrintCompositorLPAC [&lt;flag 1&gt; &lt;flag 2&gt; ...]</span>
 </span></code></pre></div>
-<h2 id="technical-details">Technical Details<a class="headerlink" href="#technical-details" title="Permanent link"></a></h2>
-<p>When <code>CustomChromiumFlags</code> is configured, Sandboxie modifies the command line of applications identified as Chromium-based browsers during process initialization:</p>
+<h2 id="_3">技术细节<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
+<p>当配置了 <code>CustomChromiumFlags</code> 后，Sandboxie 会在进程初始化期间，针对检测为 Chromium 内核浏览器的应用程序，对其命令行进行修改：</p>
 <ol>
 <li>
-<p><strong>Browser Detection</strong>: The setting applies only to applications classified as Chrome through the <a href="SpecialImage.html"><code>SpecialImage</code></a> configuration or automatic detection<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
+<p><strong>浏览器识别</strong>：此设置仅适用于通过 <a href="SpecialImage.html"><code>SpecialImage</code></a> 配置或自动检测为 Chrome 分类的应用程序<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
 </li>
 <li>
-<p><strong>Command Line Injection</strong>: During kernel initialization, Sandboxie intercepts the process parameters and reconstructs the command line by inserting the custom flags<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup> between the executable path and existing arguments<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</p>
+<p><strong>命令行注入</strong>：内核初始化期间，Sandboxie 会拦截进程参数，通过在可执行路径和现有参数之间插入自定义参数，对启动命令行进行重构<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup><sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
 </li>
 <li>
-<p><strong>Child Process Filtering</strong>: The flags are only added to main browser processes, not to child processes that contain the <code>--type=</code> parameter, preventing duplication and potential conflicts<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>.</p>
+<p><strong>子进程过滤</strong>：参数仅注入到主浏览器进程中，不会对包含 <code>--type=</code> 参数的子进程生效，从而避免重复注入及潜在冲突<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></p>
 </li>
 </ol>
-<h2 id="default-configuration">Default Configuration<a class="headerlink" href="#default-configuration" title="Permanent link"></a></h2>
-<p>Sandboxie includes a default value to ensure browser compatibility:</p>
+<h2 id="_4">默认配置<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
+<p>Sandboxie 内置默认值以确保浏览器兼容性：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">CustomChromiumFlags</span><span class="o">=</span><span class="s">--disable-features=PrintCompositorLPAC</span>
 </span></code></pre></div>
-<p>This default flag disables the Print Compositor LPAC (Low Privilege App Container) feature which can cause compatibility issues in sandboxed environments<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>.</p>
-<h2 id="usage-examples">Usage Examples<a class="headerlink" href="#usage-examples" title="Permanent link"></a></h2>
+<p>默认参数用于禁用 Print Compositor LPAC（低权限应用容器）功能，以防在沙箱环境中产生兼容性问题<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></p>
+<h2 id="_5">使用示例<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
 <ul>
 <li>
-<p><strong>Basic GPU Acceleration Disable</strong>:
+<p><strong>基础 GPU 加速禁用</strong>：
   <div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">CustomChromiumFlags</span><span class="o">=</span><span class="s">--disable-features=PrintCompositorLPAC --disable-gpu</span>
 </span></code></pre></div></p>
 </li>
 <li>
-<p><strong>Multiple Performance Flags</strong>:
+<p><strong>多性能参数设置</strong>：
   <div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="na">CustomChromiumFlags</span><span class="o">=</span><span class="s">--disable-features=PrintCompositorLPAC --no-sandbox --disable-web-security</span>
 </span></code></pre></div></p>
 </li>
 <li>
-<p><strong>Debugging Options</strong>:
+<p><strong>调试选项</strong>：
   <div class="language-ini highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="na">CustomChromiumFlags</span><span class="o">=</span><span class="s">--disable-features=PrintCompositorLPAC --enable-logging --log-level=0</span>
 </span></code></pre></div></p>
 </li>
 </ul>
-<h2 id="security-implications">Security Implications<a class="headerlink" href="#security-implications" title="Permanent link"></a></h2>
+<h2 id="_6">安全性注意事项<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
 <ul>
-<li><strong>Browser Compatibility</strong>: The default <code>PrintCompositorLPAC</code> flag prevents printing-related crashes and ensures stable browser operation within sandboxes</li>
-<li><strong>Flag Validation</strong>: Users should carefully validate custom flags as some may compromise sandbox security or browser stability</li>
-<li><strong>Automatic Application</strong>: The setting automatically applies to all applications defined as Chrome browsers, whether configured manually or detected automatically</li>
+<li><strong>浏览器兼容性</strong>：默认的 <code>PrintCompositorLPAC</code> 参数可避免与打印相关的崩溃，确保浏览器在沙箱中的稳定运行</li>
+<li><strong>参数校验</strong>：用户应谨慎验证自定义参数，部分参数可能会影响沙箱安全性或浏览器稳定性</li>
+<li><strong>自动应用</strong>：此设置会自动应用于所有被识别为 Chrome 浏览器的应用程序，无论是手动配置还是自动检测</li>
 </ul>
-<h2 id="implementation-notes">Implementation Notes<a class="headerlink" href="#implementation-notes" title="Permanent link"></a></h2>
-<p>The setting is processed during DLL initialization when Sandboxie detects a Chromium-based browser. The system:</p>
+<h2 id="_7">实现说明<a class="headerlink" href="#_7" title="Permanent link"></a></h2>
+<p>在 Sandboxie 检测到 Chromium 内核浏览器时，该设置会在 DLL 初始化阶段被处理。系统会：</p>
 <ul>
-<li>Queries the configuration using <code>SbieApi_QueryConfAsIs</code> with the key <code>CustomChromiumFlags</code><sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup></li>
-<li>Allocates additional memory for the expanded command line to accommodate the custom flags</li>
-<li>Reconstructs the command line by copying the executable path, inserting the custom flags, and appending remaining arguments<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup></li>
-<li>Hooks the <code>GetCommandLineW</code> and <code>GetCommandLineA</code> functions to return the modified command line to the application</li>
+<li>使用 <code>SbieApi_QueryConfAsIs</code> 以 <code>CustomChromiumFlags</code> 键查询配置<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup></li>
+<li>分配额外内存以容纳注入自定义参数的扩展命令行</li>
+<li>拷贝原始可执行路径、插入自定义参数，并附加剩余参数，重构命令行<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup></li>
+<li>钩取 <code>GetCommandLineW</code> 与 <code>GetCommandLineA</code> 函数，将修改后的命令行返回给应用</li>
 </ul>
-<h2 id="browser-support">Browser Support<a class="headerlink" href="#browser-support" title="Permanent link"></a></h2>
-<p>This setting works with all Chromium-based browsers, including:
+<h2 id="_8">浏览器支持<a class="headerlink" href="#_8" title="Permanent link"></a></h2>
+<p>该设置兼容所有基于 Chromium 内核的浏览器，包括：
 - Google Chrome
 - Microsoft Edge (Chromium)
-- Brave Browser
+- Brave 浏览器
 - Opera
 - Vivaldi
-- Any other browser built on the Chromium engine</p>
-<h2 id="related-settings">Related Settings<a class="headerlink" href="#related-settings" title="Permanent link"></a></h2>
+- 任何其他使用 Chromium 引擎构建的浏览器</p>
+<h2 id="_9">相关设置<a class="headerlink" href="#_9" title="Permanent link"></a></h2>
 <ul>
-<li><a href="SpecialImage.html">SpecialImage</a> - Used to classify applications as Chromium browsers</li>
+<li><a href="SpecialImage.html">SpecialImage</a> - 用于将应用程序归类为 Chromium 浏览器</li>
 </ul>
-<p>Related Sandboxie Plus setting: Not directly exposed in UI (uses default value automatically)</p>
+<p>相关 Sandboxie Plus 设置：界面未直接开放（自动使用默认值）</p>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p>Browser detection in <code>dllmain.c</code>: Applications are classified as <code>DLL_IMAGE_GOOGLE_CHROME</code> through the <code>SpecialImage</code> configuration system, which maps browser executables to the Chrome image type for specialized handling.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>浏览器识别于 <code>dllmain.c</code>：应用通过 <code>SpecialImage</code> 配置系统归类为 <code>DLL_IMAGE_GOOGLE_CHROME</code>，以便进行专用处理&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>Command line reconstruction in <code>kernel.c</code>: The system calls <code>SbieDll_FindArgumentEnd</code> to locate the boundary between the executable path and arguments, then allocates expanded memory and reconstructs the command line with injected flags.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>命令行重构于 <code>kernel.c</code>：系统调用 <code>SbieDll_FindArgumentEnd</code> 以识别可执行路径与参数的边界，分配扩展内存并插入自定义参数&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p>Child process filtering in <code>kernel.c</code>: The condition <code>!wcsstr(ProcessParms-&gt;CommandLine.Buffer, L" --type=")</code> ensures that only main browser processes receive the custom flags, excluding renderer and utility processes.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>子进程过滤于 <code>kernel.c</code>：通过 <code>!wcsstr(ProcessParms-&gt;CommandLine.Buffer, L" --type=")</code> 判断，仅主浏览器进程注入自定义参数，排除渲染和工具进程&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
-<p>Default configuration in <code>Templates.ini</code>: The default <code>--disable-features=PrintCompositorLPAC</code> flag prevents Low Privilege App Container printing issues that can cause browser instability in sandboxed environments.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p>默认配置于 <code>Templates.ini</code>：默认参数 <code>--disable-features=PrintCompositorLPAC</code> 避免低权限应用容器打印问题，防止浏览器在沙箱中出现不稳定&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 <li id="fn:5">
-<p>Configuration query in <code>kernel.c</code>: <code>SbieApi_QueryConfAsIs(NULL, L"CustomChromiumFlags", 0, CustomChromiumFlags, ARRAYSIZE(CustomChromiumFlags))</code> retrieves the setting value during kernel initialization.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+<p>配置查询于 <code>kernel.c</code>：<code>SbieApi_QueryConfAsIs(NULL, L"CustomChromiumFlags", 0, CustomChromiumFlags, ARRAYSIZE(CustomChromiumFlags))</code> 在内核初始化时获取设置值&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 <li id="fn:6">
-<p>Command line modification in <code>kernel.c</code>: The system copies the original executable path, appends the custom flags with proper spacing, and concatenates the remaining arguments to create the modified command line.&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+<p>命令行修改于 <code>kernel.c</code>：系统拷贝原始可执行路径，适当加空格插入自定义参数，并拼接剩余参数，生成最终命令行&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
 </li>
 <li id="fn:7">
-<p>List of Chromium Command Line Switches - <code>https://peter.sh/experiments/chromium-command-line-switches/</code>&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+<p>Chromium 命令行参数列表 - <code>https://peter.sh/experiments/chromium-command-line-switches/</code>&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="DisableObjectFilter is a sandbox setting in Sandboxie Ini available since v1.0.0 / 5.55.0. This setting disables the object filtering mechanism, allowing sandboxed processes to bypass object access restrictions and directly interact with processes, threads, and other system objects outside the sandbox.">
+        <meta name="description" content="DisableObjectFilter 是自 v1.0.0 / 5.55.0 版本起，在 Sandboxie Ini 文件中可用的一个沙箱设置。启用此设置后，将关闭对象过滤机制，允许受沙箱保护的进程绕过对象访问限制，并直接与沙箱外的进程、线程及其它系统对象进行交互">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>Disable Object Filter - Sandboxie 文档</title>
+        <title>禁用对象过滤器 - Sandboxie 文档</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#disable-object-filter" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Disable Object Filter
+              禁用对象过滤器
             
           </span>
         </div>
@@ -5584,48 +5584,48 @@
   
 
 
-<h1 id="disable-object-filter">Disable Object Filter<a class="headerlink" href="#disable-object-filter" title="Permanent link"></a></h1>
-<p><em>DisableObjectFilter</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a> available since v1.0.0 / 5.55.0. This setting disables the object filtering mechanism, allowing sandboxed processes to bypass object access restrictions and directly interact with processes, threads, and other system objects outside the sandbox.</p>
-<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link"></a></h2>
+<h1 id="_1">禁用对象过滤器<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<p><em>DisableObjectFilter</em> 是自 v1.0.0 / 5.55.0 版本起，在 <a href="SandboxieIni.html">Sandboxie Ini</a> 文件中可用的一个沙箱设置。启用此设置后，将关闭对象过滤机制，允许受沙箱保护的进程绕过对象访问限制，并直接与沙箱外的进程、线程及其它系统对象进行交互</p>
+<h2 id="_2">前提条件<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Object filtering requires global activation via <code>EnableObjectFiltering=y</code> in the [GlobalSettings] section. When globally enabled, individual sandboxes can disable it using <code>DisableObjectFilter=y</code>.</p>
+<p>对象过滤功能需要通过 [GlobalSettings] 部分的 <code>EnableObjectFiltering=y</code> 全局激活。在全局启用的情况下，单独的沙箱可通过 <code>DisableObjectFilter=y</code> 关闭此功能</p>
 </div>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h2>
+<h2 id="_3">用法<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">DisableObjectFilter</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link"></a></h2>
+<h2 id="_4">语法<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">DisableObjectFilter</span><span class="o">=</span><span class="s">&lt;y/n&gt;</span>
 </span></code></pre></div>
-<p>Where:</p>
+<p>其中：</p>
 <ul>
-<li><code>y</code> disables object filtering for this sandbox</li>
-<li><code>n</code> (default) maintains object filtering when globally enabled</li>
+<li><code>y</code> 表示为该沙箱禁用对象过滤</li>
+<li><code>n</code>（默认值）在全局启用时保持对象过滤</li>
 </ul>
-<h2 id="security-implications">Security Implications<a class="headerlink" href="#security-implications" title="Permanent link"></a></h2>
+<h2 id="_5">安全影响<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>This setting disables driver-level enforcement of object access restrictions. Malicious software can potentially bypass these protections through various techniques including code injection, API hooking, or direct system calls, making this setting unsuitable for untrusted applications.</p>
+<p>此设置将禁用驱动级别的对象访问限制强制措施。恶意软件可能通过代码注入、API 挂钩或直接系统调用等多种技术手段绕过这些保护，因此该设置不适合用于不可信的应用程序</p>
 </div>
-<h2 id="related-settings">Related Settings<a class="headerlink" href="#related-settings" title="Permanent link"></a></h2>
-<h3 id="master-override">Master Override<a class="headerlink" href="#master-override" title="Permanent link"></a></h3>
-<p><code>DisableObjectFilter</code> is automatically enabled when:</p>
+<h2 id="_6">相关设置<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
+<h3 id="_7">主开关<a class="headerlink" href="#_7" title="Permanent link"></a></h3>
+<p>当以下条件满足时，<code>DisableObjectFilter</code> 会自动启用：</p>
 <ul>
-<li><strong><a href="NoSecurityFiltering.html">NoSecurityFiltering</a></strong> is set in Application Compartment mode<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</li>
+<li>在应用程序隔离模式下设置了 <strong><a href="NoSecurityFiltering.html">NoSecurityFiltering</a></strong></li>
 </ul>
-<h3 id="alternative-granular-controls">Alternative Granular Controls<a class="headerlink" href="#alternative-granular-controls" title="Permanent link"></a></h3>
+<h3 id="_8">其他细粒度控制<a class="headerlink" href="#_8" title="Permanent link"></a></h3>
 <ul>
-<li><strong><a href="DisableFileFilter.html">DisableFileFilter</a></strong>: Disables only file system filtering.</li>
-<li><strong><a href="DisableKeyFilter.html">DisableKeyFilter</a></strong>: Disables only registry filtering.</li>
-<li><strong><a href="NoSecurityFiltering.html">NoSecurityFiltering</a></strong>: Disables all filtering in Application Compartment mode.</li>
+<li><strong><a href="DisableFileFilter.html">DisableFileFilter</a></strong>：仅禁用文件系统过滤</li>
+<li><strong><a href="DisableKeyFilter.html">DisableKeyFilter</a></strong>：仅禁用注册表过滤</li>
+<li><strong><a href="NoSecurityFiltering.html">NoSecurityFiltering</a></strong>：在应用程序隔离模式下禁用所有过滤</li>
 </ul>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p>Object filter control in <code>process.c</code>: The setting <code>proc-&gt;disable_object_flt = no_filtering || Conf_Get_Boolean(proc-&gt;box-&gt;name, L"DisableObjectFilter", 0, FALSE)</code> allows DisableObjectFilter to completely bypass object filtering either independently or as part of NoSecurityFiltering in Application Compartment mode.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p><code>process.c</code> 中的对象过滤控制：设置 <code>proc-&gt;disable_object_flt = no_filtering || Conf_Get_Boolean(proc-&gt;box-&gt;name, L"DisableObjectFilter", 0, FALSE)</code>，允许 DisableObjectFilter 独立地或作为应用程序隔离模式下 NoSecurityFiltering 的一部分，完全绕过对象过滤&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
