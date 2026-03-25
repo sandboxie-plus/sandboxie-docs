@@ -38,7 +38,7 @@
   "C:\Program Files\Sandboxie\Start.exe"  /box:TestBox  run_dialog
 ```
 
-/box 参数的一种特殊形式是 _/box:__ask___，它会使 Start.exe 显示沙箱选择对话框。
+/box 参数的一种特殊形式是 _/box:\_\_ask\_\__，它会使 Start.exe 显示沙箱选择对话框。
 
 参数 _/silent_ 可用于消除一些弹出错误消息。例如：
 ```pwsh
