@@ -59,7 +59,7 @@ HKEY_CURRENT_USER\Software\Microsoft\Windows\ShellNoRoam\MUICache
 %Appdata%\Microsoft\Internet Explorer\Quick Launch\User Pinned\ImplicitAppShortcuts
 ```
 
-若在 [Sandbox 设置 > 应用程序 > 杂项](ApplicationsSettings.md#miscellaneous) 中启用了“允许程序更新 Windows 7 任务栏跳转列表”选项，还会在以下文件夹中生成其他记录：
+若在 [Sandbox 设置 > 应用程序 > 杂项](ApplicationsSettings.md#miscellaneous) 中启用了“允许程序更新 Windows 任务栏跳转列表”选项，还会在以下文件夹中生成其他记录：
 ```
 %Appdata%\Microsoft\Windows\Recent\CustomDestinations
 %Appdata%\Microsoft\Windows\Recent\AutomaticDestinations

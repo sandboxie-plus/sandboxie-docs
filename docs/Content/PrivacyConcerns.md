@@ -50,7 +50,7 @@ On Windows 7 and later, Windows Explorer stores information associated with icon
    %Appdata%\Microsoft\Internet Explorer\Quick Launch\User Pinned\ImplicitAppShortcuts
 ```
 
-The [Sandbox Settings > Applications > Miscellaneous](ApplicationsSettings.md#miscellaneous) settings page includes the setting "Permit programs to update jump lists in the Windows 7 taskbar". If this setting is enabled, additional files are created in the following folders, within the user profile folder:
+The [Sandbox Settings > Applications > Miscellaneous](ApplicationsSettings.md#miscellaneous) settings page includes the setting "Permit programs to update jump lists in the Windows taskbar". If this setting is enabled, additional files are created in the following folders, within the user profile folder:
 ```
    %Appdata%\Microsoft\Windows\Recent\CustomDestinations
    %Appdata%\Microsoft\Windows\Recent\AutomaticDestinations
