@@ -1,0 +1,25 @@
+name: Check Simplified Chinese terminology
+
+on: pull_request
+
+permissions:
+  contents: read
+
+jobs:
+  terminology:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.x'
+      - name: Test the terminology checker
+        run: python -m unittest discover -s tools -p 'test_check_zh_terms.py'
+      - name: Check added Simplified Chinese lines
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: python tools/check_zh_terms.py --base "$BASE_SHA" --head "$HEAD_SHA" --github-actions
