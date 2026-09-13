@@ -1,7 +1,7 @@
 # Inject Dll
 
 
-_InjectDll_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It tells Sandboxie to "inject" some DLL into every program in the sandbox. "Inject" means the DLL is
+_InjectDll_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It tells Sandboxie to "inject" a DLL into every program in the sandbox. "Inject" means the DLL is loaded into the process. For example:
 ```
    .
    .

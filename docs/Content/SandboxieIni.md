@@ -13,7 +13,7 @@ Sandboxie looks for the file Sandboxie.ini in the following folders, in this ord
 
 The search for Sandboxie.ini ends when an instance of the file is found, and all other instances are ignored.
 
-When [Sandboxie Control](SandboxieControl.md) updates the configuration, it rewrites the file Sandboxie.ini file in the folder from which the configuration was last read. Thus, if the file is manually moved, Sandboxie configuration must be manually [reloaded](ConfigureMenu.md#reload-configuration). (Restarting the computer would have the same effect.)
+When [Sandboxie Control](SandboxieControl.md) updates the configuration, it rewrites the Sandboxie.ini file in the folder from which the configuration was last read. Thus, if the file is manually moved, Sandboxie configuration must be manually [reloaded](ConfigureMenu.md#reload-configuration). (Restarting the computer would have the same effect.)
 
 **Note:** Sandboxie does not support any other custom location for the Sandboxie.ini file.
 

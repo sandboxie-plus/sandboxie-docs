@@ -21,4 +21,4 @@ For an extensive discussion about the system parameters that can be changed, ple
 
 **Technical Note:** When Sandboxie blocks a request to change a system parameter, this is logged in the [Resource Access Monitor](ResourceAccessMonitor.md) as operation _(SystemParametersInfo:nnnnnnnn)_ where _nnnnnnnn_ is a hexadecimal value corresponding to the _uiAction_ parameter passed to the SystemParametersInfo API.
 
-Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Restrictions > Low-Level Access](RestrictionsSettings.md#low-level-access--removed)
+Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Restrictions > Low-Level Access](RestrictionsSettings.md#low-level-access-removed)

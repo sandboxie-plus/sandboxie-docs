@@ -56,7 +56,7 @@ You would be quite safe using Sandboxie. It should be noted that, from time to t
 
 This is very rare and is quickly resolved by closing the hole that is the attack vector.
 
-Thus it's a good idea to have more traditional anti-malware software. This is is the subject of the following question.
+Thus it's a good idea to have more traditional anti-malware software. This is the subject of the following question.
 
 **Back to [Table of Contents](#overview)**
 

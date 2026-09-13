@@ -25,7 +25,7 @@ Valid values:
 
 - Other settings that affect whether a box is considered at all include box enablement for the current SID/session — a box not enabled for the current user/session is not considered during force list creation.[^2]
 
-- `DisableForceRules` does not remove the box or alter other non-force behavior; it only prevents the driver from adding that box's force entries to the runtime force lists.
+- `DisableForceRules` does not remove the box or alter other non-force behavior; it only prevents the driver from adding that box's force entries to the runtime force lists.[^3]
 
 ## Examples
 

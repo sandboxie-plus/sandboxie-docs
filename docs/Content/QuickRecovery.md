@@ -12,7 +12,7 @@ The rudimentary approach is to use the regular, non-sandboxed Windows Explorer t
 
 The Quick Recovery feature makes it easier to extract files (and even whole folders) that are created and saved by sandboxed programs. It scans a few sandboxed folders, which have to be selected in advance, and lists the files (and folders) it finds within them. These files (and folders) can be recovered into the corresponding location outside the sandbox, or to any location.
 
-To invoke the Quick Recovery window, use the [Sandbox Menu > Sandbox > Quick Recovery](SandboxMenu.md#sandbox-menu) command (or the corresponding command from the [Tray Icon Menu](TrayIconMenu.md)). Quick Recovery also appear as part of the [Delete Sandbox](DeleteSandbox.md) window.
+To invoke the Quick Recovery window, use the [Sandbox Menu > Sandbox > Quick Recovery](SandboxMenu.md#sandbox-menu) command (or the corresponding command from the [Tray Icon Menu](TrayIconMenu.md)). Quick Recovery also appears as part of the [Delete Sandbox](DeleteSandbox.md) window.
 
 **The Quick Recovery Window**
 

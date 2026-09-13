@@ -15,8 +15,8 @@ Example:
 
 This example forces the _Policies_ key, and everything below it, to be readable, but not writable (or deletable) by sandboxed programs.
 
-Note: _ReadKeyPath_ is a restricted form of [OpenKeyPath](OpenKeyPath.md). As with _OpenKeyPath_, any already-existing sandboxed contents for the specified file or folder locations, are ignored.
+Note: _ReadKeyPath_ is a restricted form of [OpenKeyPath](OpenKeyPath.md). As with _OpenKeyPath_, any already-existing sandboxed contents for the specified registry key locations are ignored.
 
-Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Resource Access > Registry Access > Read-Only Access](ResourceAccessSettings.md#registry-access--read-only-access)
+Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Resource Access > Registry Access > Read-Only Access](ResourceAccessSettings.md#registry-access-read-only-access)
 
 Related Sandboxie Plus setting: Sandbox Options > Resource Access > Registry > Add Reg Key > Access column > Read Only

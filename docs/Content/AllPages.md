@@ -196,6 +196,8 @@
 
 [Force Process](ForceProcess.md)
 
+[Force Protection On Mount](ForceProtectionOnMount.md)
+
 [Forget Password](ForgetPassword.md)
 
 [Frequently Asked Questions](FrequentlyAskedQuestions.md)
@@ -544,7 +546,7 @@
 
 [SBIE1308](SBIE1308.md)
 
-~~[SBIE1309](SBIE1309.md)~~ (obsolete)
+[SBIE1309](SBIE1309.md)
 
 ~~[SBIE1310](SBIE1310.md)~~ (obsolete since Sandboxie 5.31.4)
 

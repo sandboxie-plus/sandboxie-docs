@@ -1,6 +1,6 @@
 # Secure Delete Sandbox
 
-Typical file deletion makes data inaccessible to the operating system and programs, but the data is not physically wiped from the hard drive storage medium, and may be recovered by by a data recovery technician. To make this recovery more difficult, third-party software exists that can perform a _secure deletion._ This is typically accomplished by overwriting the data multiple times before deleting it.
+Typical file deletion makes data inaccessible to the operating system and programs, but the data is not physically wiped from the hard drive storage medium, and may be recovered by a data recovery technician. To make this recovery more difficult, third-party software exists that can perform a _secure deletion._ This is typically accomplished by overwriting the data multiple times before deleting it.
 
 For more information, see [Data remanence in Wikipedia](https://en.wikipedia.org/wiki/Data_remanence).
 

@@ -76,7 +76,7 @@ To do that, open [Sandbox Settings > Applications > Folders](ApplicationsSetting
 
 After completing the email configuration, you may want to test it, to make sure that even when running under Sandboxie, new emails are not lost when you delete the sandbox. To do that, follow the steps outlined in [Test Email Configuration](TestEmailConfiguration.md).
 
-If your email program is not known to Sandboxie, you can use [Sandbox Settings > Resource Access > File Access > Direct Access](ResourceAccessSettings.md#file-access--direct-access) to explicitly add direct access to the folder containing your mailbox data files.
+If your email program is not known to Sandboxie, you can use [Sandbox Settings > Resource Access > File Access > Direct Access](ResourceAccessSettings.md#file-access-direct-access) to explicitly add direct access to the folder containing your mailbox data files.
 
 See also message [SBIE2212](SBIE2212.md), [Email Protection](EmailProtection.md), and [FAQ Email](FAQEmail.md).
 

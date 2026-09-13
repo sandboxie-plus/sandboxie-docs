@@ -16,7 +16,7 @@ Windows credentials are used primarily by Windows and Microsoft applications to 
 *   Network shares
 *   Microsoft accounts
 
-To manage Windows credentials, start Control Panel > User Accounts, select an account, and the click on the Related Task labeled _Manage my network passwords._
+To manage Windows credentials, start Control Panel > User Accounts, select an account, and then click on the Related Task labeled _Manage my network passwords._
 
 **Note:** Sandboxie stores credentials in the sandboxed protected storage. Thus, if the setting _Save outside sandbox: History of search strings and invoked commands_ in [Sandbox Settings > Applications > Web Browser](ApplicationsSettings.md#web-browser) is enabled, credentials will not be stored in the sandbox, regardless of the OpenCredentials setting.
 

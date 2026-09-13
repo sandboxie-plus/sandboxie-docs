@@ -32,7 +32,7 @@ FuncSkipHook=PStoreCreateInstance
 
 ## Behavior
 
-- The helper `SbieDll_FuncSkipHook` queries the configuration for `FuncSkipHook` entries. For each configured entry it performs a prefix comparison between the configured wide-character string and the ASCII function name being hooked. If the configured string is exhausted while matching the function name's initial characters, the function is considered matched and the hook is skipped.
+- The helper `SbieDll_FuncSkipHook` queries the configuration for `FuncSkipHook` entries. For each configured entry it performs a prefix comparison between the configured wide-character string and the ASCII function name being hooked. If the configured string is exhausted while matching the function name's initial characters, the function is considered matched and the hook is skipped.[^1]
 - For efficiency, if no `FuncSkipHook` entries were found during the first query, subsequent calls skip this check altogether.
 
 ## Technical Notes

@@ -52,7 +52,7 @@ Some messages display details which include NT status codes, denoted in the help
 [SBIE1306](SBIE1306.md)
 [SBIE1307](SBIE1307.md)
 [SBIE1308](SBIE1308.md)
-~~[SBIE1309](SBIE1309.md)~~
+[SBIE1309](SBIE1309.md)
 ~~[SBIE1310](SBIE1310.md)~~
 ~~[SBIE1311](SBIE1311.md)~~
 [SBIE1312](SBIE1312.md)
@@ -73,6 +73,7 @@ Some messages display details which include NT status codes, denoted in the help
 [SBIE2103](SBIE2103.md)
 [SBIE2104](SBIE2104.md)
 [SBIE2108](SBIE2108.md)
+[SBIE2111](SBIE2111.md)
 [SBIE2191](SBIE2191.md)
 [SBIE2192](SBIE2192.md)
 ~~[SBIE2193](SBIE2193.md)~~
@@ -96,6 +97,7 @@ Some messages display details which include NT status codes, denoted in the help
 [SBIE2221](SBIE2221.md)
 [SBIE2222](SBIE2222.md)
 [SBIE2223](SBIE2223.md)
+[SBIE2225](SBIE2225.md)
 [SBIE2303](SBIE2303.md)
 [SBIE2304](SBIE2304.md)
 [SBIE2305](SBIE2305.md)
@@ -117,12 +119,17 @@ Some messages display details which include NT status codes, denoted in the help
 [SBIE2323](SBIE2323.md)
 [SBIE2326](SBIE2326.md)
 [SBIE2327](SBIE2327.md)
+[SBIE2328](SBIE2328.md)
+[SBIE2329](SBIE2329.md)
 [SBIE2331](SBIE2331.md)
 [SBIE2332](SBIE2332.md)
 [SBIE2334](SBIE2334.md)
 [SBIE3207](SBIE3207.md)
 [SBIE3208](SBIE3208.md)
 [SBIE3209](SBIE3209.md)
+[SBIE6004](SBIE6004.md)
+[SBIE6008](SBIE6008.md)
+[SBIE6009](SBIE6009.md)
 [SBIE9101](SBIE9101.md)
 [SBIE9153](SBIE9153.md)
 [SBIE9154](SBIE9154.md)

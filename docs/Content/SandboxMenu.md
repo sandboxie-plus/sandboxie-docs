@@ -23,7 +23,7 @@ One or more sub-menus appear for each sandbox defined. The default configuration
 *   The _Explore Contents_ command opens an _unsandboxed_ folder view for the contents of the sandbox _outside the supervision of Sandboxie_. If possible, use the [Files And Folders View](FilesAndFoldersView.md) to browse the contents of the sandbox.
 *   The _Sandbox Settings_ command opens the [Sandbox Settings](SandboxSettings.md) window.
 *   The _Rename Sandbox_ command changes the name of the sandbox.
-*   The _Remove Sandbox_ command removes a sandboxed created using the [Create New Sandbox](SandboxMenu.md#create-new-sandbox) command.
+*   The _Remove Sandbox_ command removes a sandbox created using the [Create New Sandbox](SandboxMenu.md#create-new-sandbox) command.
 
 These commands, except for Rename Sandbox and Remove Sandbox, are also available in the [Tray Icon Menu](TrayIconMenu.md).
 

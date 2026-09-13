@@ -42,7 +42,7 @@ The logic is: `!Dll_CompartmentMode`[^5] - meaning it's enabled unless compartme
 
 ## Related Issues
 
-This setting was introduced to address fullscreen compatibility issues, particularly referenced as GitHub issue [#4761](https://github.com/sandboxie-plus/Sandboxie/issues/4761)[^6].
+This setting was introduced to address fullscreen compatibility issues, particularly referenced as GitHub issue [#4761](https://github.com/sandboxie-plus/Sandboxie/issues/4761).
 
 [^1]: **Source**: guiprop.c: `static BOOLEAN Gui_NonRudeHWND_Hack = FALSE;`
 

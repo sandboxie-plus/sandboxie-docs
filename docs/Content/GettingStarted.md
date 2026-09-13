@@ -6,7 +6,7 @@ Sandboxie runs your applications in an isolated abstraction area called a sandbo
 
 This Getting Started tutorial will show you:
 
-  * How to to use Sandboxie to run your applications
+  * How to use Sandboxie to run your applications
   * How the changes are trapped in the sandbox
   * How to recover important files and documents out of the sandbox
   * How to delete the sandbox
