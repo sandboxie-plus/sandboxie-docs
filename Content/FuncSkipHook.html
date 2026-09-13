@@ -5607,7 +5607,7 @@
 </span></code></pre></div>
 <h2 id="behavior">Behavior<a class="headerlink" href="#behavior" title="Permanent link"></a></h2>
 <ul>
-<li>The helper <code>SbieDll_FuncSkipHook</code> queries the configuration for <code>FuncSkipHook</code> entries. For each configured entry it performs a prefix comparison between the configured wide-character string and the ASCII function name being hooked. If the configured string is exhausted while matching the function name's initial characters, the function is considered matched and the hook is skipped.</li>
+<li>The helper <code>SbieDll_FuncSkipHook</code> queries the configuration for <code>FuncSkipHook</code> entries. For each configured entry it performs a prefix comparison between the configured wide-character string and the ASCII function name being hooked. If the configured string is exhausted while matching the function name's initial characters, the function is considered matched and the hook is skipped.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
 <li>For efficiency, if no <code>FuncSkipHook</code> entries were found during the first query, subsequent calls skip this check altogether.</li>
 </ul>
 <h2 id="technical-notes">Technical Notes<a class="headerlink" href="#technical-notes" title="Permanent link"></a></h2>

@@ -5597,8 +5597,8 @@
 <p>Unlike sandboxed files, folders and registry keys, Sandboxie will generally not allow a sandboxed program to access a non-sandboxed resource. The exceptions to this rule are if the resource was specified in an <a href="OpenIpcPath.html">OpenIpcPath</a> setting, or if Sandboxie by default recognizes the resource and exposes it for use inside the sandbox.</p>
 <p>The <em>ClosedIpcPath</em> setting is typically useful to block those resources that Sandboxie recognizes by default. In the example above, the AudioSrv resource is blocked. This resource provides access to audio hardware, in other words, it enables sandboxed programs to generate sound. By blocking it, the sandboxed program is essentially muted.</p>
 <p>This setting accepts wildcards. For more information on the use of wildcards in the <em>OpenXxxPath</em> and <em>ClosedXxxPath</em> settings, see <a href="OpenFilePath.html">OpenFilePath</a>.</p>
-<p><strong>Note:</strong> Unlike the corresponding <a href="OpenIpcPath.html">OpenIpcPath</a> setting, the <em>ClosedKeyPath</em> settings always applies to sandboxed programs, whether the program executable file resides within the sandbox, or out of it.</p>
-<p>Related <a href="SandboxieControl.html">Sandboxie Control</a> setting: <a href="ResourceAccessSettings.html#ipc-access--blocked-access">Sandbox Settings &gt; Resource Access &gt; IPC Access &gt; Blocked Access</a></p>
+<p><strong>Note:</strong> Unlike the corresponding <a href="OpenIpcPath.html">OpenIpcPath</a> setting, the <em>ClosedIpcPath</em> setting always applies to sandboxed programs, whether the program executable file resides within the sandbox or outside it.</p>
+<p>Related <a href="SandboxieControl.html">Sandboxie Control</a> setting: <a href="ResourceAccessSettings.html#ipc-access-blocked-access">Sandbox Settings &gt; Resource Access &gt; IPC Access &gt; Blocked Access</a></p>
 <p>Related Sandboxie Plus setting: Sandbox Options &gt; Resource Access &gt; IPC &gt; Add IPC Path &gt; Access column &gt; Closed</p>
 
 
