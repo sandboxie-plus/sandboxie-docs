@@ -370,6 +370,10 @@
 
 ~~[Process Limit 2](ProcessLimit2.md)~~ (removed since Sandboxie v0.7.1 / 5.48.5)
 
+[Process Memory Limit](ProcessMemoryLimit.md)
+
+[Process Number Limit](ProcessNumberLimit.md)
+
 [Program Name Prefix](ProgramNamePrefix.md)
 
 [Program Settings](ProgramSettings.md)
@@ -771,6 +775,8 @@
 [Technical Aspects](TechnicalAspects.md)
 
 [Test Email Configuration](TestEmailConfiguration.md)
+
+[Total Memory Limit](TotalMemoryLimit.md)
 
 [Trace logging](../PlusContent/TraceLog.md)
 
