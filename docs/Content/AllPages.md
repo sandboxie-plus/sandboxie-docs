@@ -370,6 +370,8 @@
 
 ~~[Process Limit 2](ProcessLimit2.md)~~ (removed since Sandboxie v0.7.1 / 5.48.5)
 
+[Process Speed Settings](ProcessSpeedSettings.md)
+
 [Program Name Prefix](ProgramNamePrefix.md)
 
 [Program Settings](ProgramSettings.md)
