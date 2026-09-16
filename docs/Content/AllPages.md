@@ -786,6 +786,10 @@
 
 [Use Auto Recover Ignore For Quick](UseAutoRecoverIgnoreForQuick.md)
 
+[Use Electron Detection](UseElectronDetection.md)
+
+[Use Fake Shell Dispatch](UseFakeShellDispatch.md)
+
 [Use File Image](UseFileImage.md)
 
 [Use Non Rude Hwnd Hack](UseNonRudeHwndHack.md)
