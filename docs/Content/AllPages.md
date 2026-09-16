@@ -36,6 +36,8 @@
 
 ~~[Block Fake Input](BlockFakeInput.md)~~ (removed since Sandboxie v4.xx)
 
+[Block Local Loop](BlockLocalLoop.md)
+
 [Block Net Param](BlockNetParam.md)
 
 [Block Network Files](BlockNetworkFiles.md)
