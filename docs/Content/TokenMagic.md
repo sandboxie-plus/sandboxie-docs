@@ -6,10 +6,9 @@ This way, a process running under the supervision of Sandboxie cannot issue sysc
 
 For this mechanism to work, Sandboxie utilizes a couple of undocumented operations:
 
-1. To create the restricted token, it uses currently the unexported function SepFilterToken as well as a couple of offsets (RestrictedSidCount, RestrictedSids, UserAndGroups, UserAndGroupCount).
-This mechanism could be replaced by calling CreateToken or CreateTokenEx, however these functions are not exported in the kernel either.
+1. The current default path constructs a new restricted primary token, while the historical alternative uses the unexported internal routine SepFilterToken as well as a couple of offsets (RestrictedSidCount, RestrictedSids, UserAndGroups, UserAndGroupCount). Sandboxie locates this routine through implementation-specific kernel analysis. Both paths still require kernel-specific handling; see [Access Token Isolation](AccessTokenIsolation.md) for their user-facing configuration.
 
-To eliminate the dependencies on unexported symbols, for this part of the process ZwCreateTokenEx should be exported and utilized.
+The current token-construction path reduces the dependency on `SepFilterToken`, but Sandboxie's isolation mechanism still relies on other implementation-specific kernel behavior described below.
 
 2. To be able to invoke any syscall on the behalf of the sandboxed process, the driver must know the function address and argument count for each syscall index.
 Sandboxie currently obtains those by finding the address of the unexported syscall table by analyzing the KeAddSystemServiceTable function.
