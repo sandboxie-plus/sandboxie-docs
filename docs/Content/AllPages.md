@@ -56,6 +56,8 @@
 
 [Box Encryption](../PlusContent/BoxEncryption.md)
 
+[Box Grouping](BoxGrouping.md)
+
 [Box Name Title](BoxNameTitle.md)
 
 [Box Preset Comparison](../PlusContent/box-preset-comparison.md)
