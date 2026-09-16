@@ -4,6 +4,8 @@
 
 [Advanced Topics](AdvancedTopics.md)
 
+[Alert Before Start](AlertBeforeStart.md)
+
 [Alert Folder](AlertFolder.md)
 
 [Alert Process](AlertProcess.md)
