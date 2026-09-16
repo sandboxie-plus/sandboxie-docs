@@ -8,6 +8,8 @@
 
 [Alert Process](AlertProcess.md)
 
+[Allow Cover Taskbar](AllowCoverTaskbar.md)
+
 [Allow Raw Disk Read](AllowRawDiskRead.md)
 
 [Allow Spooler Print To File](AllowSpoolerPrintToFile.md)
@@ -51,6 +53,8 @@
 ~~[Block Win Hooks](BlockWinHooks.md)~~ (removed since Sandboxie v4.xx)
 
 [Border Color](BorderColor.md)
+
+[Border Exclude Taskbar](BorderExcludeTaskbar.md)
 
 [Box Alias](BoxAlias.md)
 
@@ -225,6 +229,8 @@
 [Help Menu](HelpMenu.md)
 
 [Help Topics](HelpTopics.md)
+
+[Hide Borders From Capture](HideBordersFromCapture.md)
 
 [Hide Disk Serial Number](HideDiskSerialNumber.md)
 
