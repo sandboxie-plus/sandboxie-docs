@@ -382,6 +382,8 @@
 
 [Prompt For File Migration](PromptForFileMigration.md)
 
+[Prompt For Internet Access](PromptForInternetAccess.md)
+
 [Prompt On Secure Desktop](PromptOnSecureDesktop.md)
 
 [Protect Admin Only](ProtectAdminOnly.md)
