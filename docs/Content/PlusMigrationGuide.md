@@ -122,7 +122,7 @@ The Delete Options have been moved to the sub tab "File Options" of the tab "Gen
 
 ![](../Media/Migration/19.png)
 
-The "Delete Command" option can now be found on the sub tab "Triggers" of the tab "Advanced Options".
+SandMan provides [`OnBoxDelete`](SandManTriggers.md#onboxdelete) under **Advanced Options > Triggers** for host-side pre-cleanup automation. The legacy `DeleteCommand` setting remains associated with Sandboxie Control Classic/`Start.exe` and is not the same mechanism.
 
 ## Program Groups
 

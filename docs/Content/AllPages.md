@@ -458,6 +458,8 @@
 
 [SandboxieDrv use of undocumented kernel exports](TokenMagic.md)
 
+[SandMan Triggers](SandManTriggers.md)
+
 [SBIE DLL API](SBIEDLLAPI.md)
 
 [SBIE Messages](SBIEMessages.md)
