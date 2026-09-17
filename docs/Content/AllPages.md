@@ -446,6 +446,8 @@
 
 [Sandboxie Live](../PlusContent/Sandboxie-Live.md)
 
+[Sandboxie Logon](SandboxieLogon.md)
+
 [Sandboxie Plus](../PlusContent/sandboxie-plus.md)
 
 [Sandboxie Plus Migration Guide](PlusMigrationGuide.md)
