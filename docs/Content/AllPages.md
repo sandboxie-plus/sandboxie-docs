@@ -456,8 +456,6 @@
 
 [Sandboxie Trace](SandboxieTrace.md)
 
-[SandboxieDrv use of undocumented kernel exports](TokenMagic.md)
-
 [SBIE DLL API](SBIEDLLAPI.md)
 
 [SBIE Messages](SBIEMessages.md)
@@ -771,6 +769,8 @@
 [Technical Aspects](TechnicalAspects.md)
 
 [Test Email Configuration](TestEmailConfiguration.md)
+
+[Token and Syscall Internals](TokenMagic.md)
 
 [Trace logging](../PlusContent/TraceLog.md)
 
