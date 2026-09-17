@@ -4,6 +4,8 @@
 
 [Advanced Topics](AdvancedTopics.md)
 
+[Advanced Token Settings](AdvancedTokenSettings.md)
+
 [Alert Folder](AlertFolder.md)
 
 [Alert Process](AlertProcess.md)
