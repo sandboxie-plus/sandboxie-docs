@@ -1,14 +1,14 @@
 # 文件根路径
 
-_FileRootPath_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置。它用于指定特定沙箱的根文件夹。
+_FileRootPath_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一项沙盒设置。它指定特定沙盒的根文件夹。
 
-与所有沙箱设置一样，该项也可以在全局部分进行指定。在此情况下，对于所有未在沙箱部分单独指定该项的沙箱，该配置将适用。
+与所有沙盒设置一样，它也可以出现在全局节中，此时它适用于所有未在沙盒节中另行指定该设置的沙盒。
 
-更多信息请参见 [沙箱层次结构](SandboxHierarchy.md)。
+更多信息参见 [沙盒层级](SandboxHierarchy.md)。
 
-用法示例：
+用法：
 
-```ini
+```
    .
    .
    .
@@ -16,22 +16,22 @@ _FileRootPath_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置。�
    FileRootPath=C:\Sandbox\MySandbox
 ```
 
-相关的 [沙盘控制](SandboxieControl.md) 设置：[沙盘菜单 > 设置容器文件夹](SandboxMenu.md#set-container-folder)
+相关 [沙盒管理器](SandboxieControl.md) 设置：[沙盒菜单 > 设置容器文件夹](SandboxMenu.md#设置容器文件夹)
 
-相关的 Sandboxie Plus 设置：选项菜单 > 全局设置 > 高级配置 > Sandboxie 配置 > 沙箱文件系统根目录
+相关 Sandboxie Plus 设置：选项菜单 > 全局设置 > 高级配置 > Sandboxie 配置 > 沙盒文件系统根目录
 
 **技术细节**
 
-下列替换变量在此路径中可能会有用：
+以下替换变量在此路径中可能有用。
 
-*   [Shell Folders](ShellFolders.md) 变量，例如 %Personal%，其会展开为用户的文档文件夹
-*   变量 %SBIEHOME%，其会展开为 Sandboxie 安装的根目录
-*   变量 %SANDBOX%，其会展开为沙箱的名称
-*   变量 %USER%，其会展开为用户名
-*   变量 %SID%，其会展开为用户的安全标识（SID）
-*   变量 %SESSION%，其会展开为终端服务会话号
+*   [个人文件夹](ShellFolders.md) 变量，如 %Personal%，展开为用户"文档"文件夹
+*   变量 %SBIEHOME%，展开为 Sandboxie 安装根目录
+*   变量 %SANDBOX%，展开为沙盒名称
+*   变量 %USER%，展开为用户名称
+*   变量 %SID%，展开为用户安全 ID（SID）
+*   变量 %SESSION%，展开为终端服务会话编号
 
-如果未指定 _FileRootPath_，其默认值将通过已弃用的 [BoxRootFolder](BoxRootFolder.md) 设置构造，如下所示：
+如果未指定 _FileRootPath_，则使用_已弃用的_[沙盒根文件夹](BoxRootFolder.md) 设置构造其默认值，即：
 
 *   `BoxRootFolder\Sandbox\%SANDBOX%`
 

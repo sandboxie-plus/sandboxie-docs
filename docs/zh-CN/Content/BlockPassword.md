@@ -1,12 +1,12 @@
 # 阻止密码更改
 
-**该功能已过时。如果你使用的是 Windows 10 或更高版本，建议从 0.7.0 / 5.48.0 版本起使用 _OpenSamEndpoint_：[ #938 ](https://github.com/sandboxie-plus/Sandboxie/issues/938)**
+**此功能已过时。如果你使用 Windows 10 或更高版本，自 0.7.0 / 5.48.0 起我们推荐使用 _OpenSamEndpoint_：[#938](https://github.com/sandboxie-plus/Sandboxie/issues/938)**
 
-_BlockPassword_ 是 [Sandboxie Ini](SandboxieIni.md) 文件中的一个沙箱设置。它用于指定 Sandboxie 是否允许在沙箱中运行的程序修改用户帐户的密码。
+_BlockPassword_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一项沙盒设置。它指定 Sandboxie 是否允许沙盒化程序更改用户帐户的密码。
 
-用法示例：
+用法：
 
-```ini
+```
    .
    .
    .
@@ -14,6 +14,6 @@ _BlockPassword_ 是 [Sandboxie Ini](SandboxieIni.md) 文件中的一个沙箱设
    BlockPassword=n
 ```
 
-将 _n_ 设定为参数，表示允许沙箱中的程序请求更改用户帐户密码
+指定 _n_ 表示应允许沙盒化程序发出更改用户帐户密码的请求。
 
-~~相关的 [沙箱控制](SandboxieControl.md) 设置：[ 沙箱设置 > 限制 > 低级访问 ](RestrictionsSettings.md#low-level-access--removed)~~
+~~相关 [沙盒管理器](SandboxieControl.md) 设置：[沙盒设置 > 限制 > 低级访问](RestrictionsSettings.md#低级访问-已移除)~~

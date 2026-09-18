@@ -1,8 +1,8 @@
-# 强制入沙文件夹
+# 强制文件夹
 
-_ForceFolder_ 是 [Sandboxie.ini](SandboxieIni.md) 中的一个沙箱设置项，用于强制文件夹内的内容在特定沙箱内运行。如果任何这些文件夹*（或其子文件夹）中的文件或程序在未处于沙箱的情况下启动，它们将自动被放入特定沙箱中运行。例如：
+_ForceFolder_ 是 [Sandboxie.ini](SandboxieIni.md) 中的一项沙盒设置，它允许强制把文件夹内容运行在特定沙盒中。如果这些文件夹*（或其某个子文件夹）中的任何文件或程序在沙盒外启动，它们将被自动沙盒化到特定沙盒中。例如：
 
-```ini
+```
    .
    .
    .
@@ -11,14 +11,14 @@ _ForceFolder_ 是 [Sandboxie.ini](SandboxieIni.md) 中的一个沙箱设置项�
    ForceFolder=E:\
 ```
 
-第一个示例指定，从 C:\Download 文件夹（以及该文件夹下的所有子文件夹）启动的文件或程序将被强制在 _DefaultBox_ 沙箱中运行。
+第一个示例指定：从 C:\Download 文件夹（或其下包含的任何文件夹）启动的文件/程序，将被强制在沙盒 _DefaultBox_ 中运行。
 
-第二个示例指定，从 E 盘启动的任何文件或程序都将被强制在 _DefaultBox_ 沙箱中运行。对于 CDROM 和 DVD 驱动器，这也包括被 Windows 自动启动的 _AutoRun_ 程序。
+第二个示例指定：从 E 盘启动的任何文件/程序，将被强制在沙盒 _DefaultBox_ 中运行。对于 CDROM 和 DVD 驱动器，这包括强制由 Windows 自动启动的 _AutoRun_ 程序。
 
-* 请注意，如果位于强制文件夹（ForceFolder）中的快捷方式所指向的路径不是受强制保护的文件夹，则不会启动沙箱化的应用程序。例如：如果你在 C:\ForcedFolder 内放置一个快捷方式，但它指向 C:\SomeOtherPathThatIsNotForced，那么该快捷方式将启动一个非沙箱化的应用程序。
+*   请记住：位于强制文件夹内、却指向非强制文件夹路径的快捷方式，不会启动沙盒化应用程序。例如：如果你把一个快捷方式放在 C:\ForcedFolder 内，而它指向 C:\SomeOtherPathThatIsNotForced，那么该快捷方式会触发非沙盒化应用程序。
 
-另一个需要注意的是，不支持现代应用/商店应用。如果你用于打开特定文件类型的默认应用是 Windows 现代应用（如 Windows 10 下的 Photos 应用），则该应用将无法启动。有关详细信息，请参见 [已知冲突](KnownConflicts.md#uwp--modern--microsoft-store-apps) 页面。
+另一个注意事项：不支持新式 / Store 应用。如果你打开特定文件类型的默认应用程序是 Windows 新式应用（如 Windows 10 中的照片应用），该应用程序根本不会启动。更多信息请参阅 [已知冲突](KnownConflicts.md#microsoft-store-应用) 页面。
 
-另请参阅：[强制进程](ForceProcess.md)。如果在一个程序启动时，_ForceFolder_ 和 _ForceProcess_ 条件同时适用，则优先采用 ForceFolder 设置。
+另请参阅：[强制进程](ForceProcess.md)。如果 _ForceFolder_ 和 _ForceProcess_ 都适用于某个正在启动的程序，则强制文件夹设置优先。
 
-相关 [沙盘控制](SandboxieControl.md) 设置：[沙箱设置 > 程序启动 > 强制文件夹](ProgramStartSettings.md#forced-folders)
+相关 [沙盒管理器](SandboxieControl.md) 设置：[沙盒设置 > 程序启动 > 强制文件夹](ProgramStartSettings.md#强制文件夹)

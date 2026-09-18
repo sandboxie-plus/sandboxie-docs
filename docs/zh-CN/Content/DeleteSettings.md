@@ -1,41 +1,41 @@
 # 删除设置
 
-## “删除”设置分组
+## “删除”设置组
 
-[沙箱控制](SandboxieControl.md) > [沙箱设置](SandboxSettings.md) > 删除：
+[沙盒管理器](SandboxieControl.md) > [沙盒设置](SandboxSettings.md) > 删除：
 
 ![](../Media/DeleteSettings.png)
 
-在此页面，您可以配置 Sandboxie 删除沙箱的时间和方式
+在这里配置 Sandboxie 在何时以及如何删除沙盒。
 
 ## 调用方式
 
-[沙箱控制](SandboxieControl.md) > [沙箱设置](SandboxSettings.md) > 删除 > 调用方式：
+[沙盒管理器](SandboxieControl.md) > [沙盒设置](SandboxSettings.md) > 删除 > 调用方式：
 
 ![](../Media/DeleteInvocationSettings.png)
 
-该设置页面用于指示您希望在何时删除沙箱：
+使用此设置页指定希望何时删除沙盒：
 
-- 仅在明确请求时删除：请保持两个复选框均未选中  
-- 定期自动删除：请选中第一个复选框  
-- 永不删除：请选中第二个复选框
+* 仅在显式请求时删除：保持两个复选框均不勾选
+* 定期自动删除：勾选第一个复选框
+* 从不删除：勾选第二个复选框
 
-请注意，虽然两个复选框都可以被清除，但任何时候都只能选中一个复选框。
+注意：虽然两个复选框都可以不勾选，但同一时间只能勾选其中一个。
 
-只要第二个复选框被选中，Sandboxie 将不会对沙箱执行任何删除操作，即使您明确要求删除也不会执行。重要提示：这无法防止其他程序删除沙箱。
+只要第二个复选框处于勾选状态，即使你显式提出请求，Sandboxie 也不会对沙盒发起任何删除操作。重要提示：这并不能保护沙盒免于被其他程序删除。
 
-相关的 [Sandboxie Ini](SandboxieIni.md) 设置： [自动删除](AutoDelete.md)、[从不删除](NeverDelete.md)、[删除命令](DeleteCommand.md)。
+相关 [Sandboxie Ini](SandboxieIni.md) 设置项：[自动删除](AutoDelete.md)、[从不删除](NeverDelete.md)、[删除命令](DeleteCommand.md)。
 
 ## 命令
 
-[沙箱控制](SandboxieControl.md) > [沙箱设置](SandboxSettings.md) > 删除 > 命令：
+[沙盒管理器](SandboxieControl.md) > [沙盒设置](SandboxSettings.md) > 删除 > 命令：
 
 ![](../Media/DeleteCommandSettings.png)
 
-本设置页用于指定用于删除沙箱的系统命令。默认情况下为 RMDIR（删除目录）命令。关心隐私问题的用户可以选择使用更安全的删除方式，详细说明参见 [安全删除沙箱](SecureDeleteSandbox.md)。
+使用此设置页指定用于删除沙盒的系统命令。默认是一个简单的 RMDIR（删除目录）命令。注重隐私问题的用户可以选择改用安全删除，详见 [安全删除沙盒](SecureDeleteSandbox.md)。
 
-您可以使用页面上的按钮来选择预定义命令。RMDIR 按钮会选择上述的简单 RMDIR 命令。
+你可以使用按钮选择一个预设命令。RMDIR 按钮会选择上面提到的简单 RMDIR 命令。
 
-SDelete 按钮会调用由 [SysInternals/Microsoft 提供的 SDelete](https://docs.microsoft.com/en-us/sysinternals/downloads/sdelete) 以删除沙箱内容。请注意，您需要自行调整命令路径。
+SDelete 按钮使用 [SysInternals/Microsoft 的 SDelete](https://docs.microsoft.com/en-us/sysinternals/downloads/sdelete) 删除沙盒内容。注意，你需要调整命令的路径。
 
-Eraserl 按钮会调用由 [Heidi Computers 提供的 Eraser](https://eraser.heidi.ie/) 以删除沙箱内容。
+Eraser 按钮使用 [Heidi Computers 的 Eraser](https://eraser.heidi.ie/) 删除沙盒内容。
