@@ -79,6 +79,8 @@ With `AllowBoxedJobs=y` on a supported Windows version:
 - the root Job's configured resource limits remain active;
 - Sandboxie's object-namespace isolation continues to apply.
 
+While Sandboxie's root Job is in use, `AllowBoxedJobs=y` does not allow application-owned nested Jobs to add or replace Job Object UI restrictions. Requests by sandboxed applications to set `JobObjectBasicUIRestrictions` are ignored for compatibility and report success, while any UI restrictions already applied by Sandboxie's root Job remain unchanged.
+
 Sandboxie enforces these decisions through both its user-mode API handling and driver-level Job Object access checks.
 
 `AllowBoxedJobs` has been available since Sandboxie Plus 0.8.5 and Sandboxie Classic 5.50.5.
