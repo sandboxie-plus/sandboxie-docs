@@ -154,6 +154,8 @@
 
 [Detecting Key Loggers](DetectingKeyLoggers.md)
 
+[Disable Custom Title Optimization](DisableCustomTitleOpt.md)
+
 [Disable File Filter](DisableFileFilter.md)
 
 [Disable Force Rules](DisableForceRules.md)
@@ -839,6 +841,8 @@
 
 [Use Auto Recover Ignore For Quick](UseAutoRecoverIgnoreForQuick.md)
 
+[Use Chrome Secure Preferences Hack](UseChromeSecurePreferencesHack.md)
+
 [Use Electron Detection](UseElectronDetection.md)
 
 [Use Fake Shell Dispatch](UseFakeShellDispatch.md)
@@ -858,6 +862,8 @@
 [Use Sandboxie UAC](UseSandboxieUAC.md)
 
 [Use Security Mode](UseSecurityMode.md)
+
+[Use Shell Notify Icon Proxy](UseShellNotifyIconProxy.md)
 
 [User Accounts Settings](UserAccountsSettings.md)
 

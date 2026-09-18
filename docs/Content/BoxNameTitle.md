@@ -21,5 +21,7 @@ Specifying _BoxNameTitle=y_ places the sandbox name in the title bar:
 
 [#] [DefaultBox] Sandboxie - Front Page - Windows Internet Explorer [#]
 
+Sandboxie may skip title modification for windows detected as using custom or client-drawn title bars to avoid excessive DWM repaint activity and high CPU usage. See [Disable Custom Title Optimization](DisableCustomTitleOpt.md) for the per-program opt-out.
+
 
 Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Appearance](AppearanceSettings.md)

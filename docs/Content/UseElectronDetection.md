@@ -29,7 +29,7 @@ A match to any one candidate is currently sufficient. These filenames explain th
 
 Explicit [SpecialImage](SpecialImage.md) configuration and built-in image classifications are evaluated before this heuristic. Automatic detection is used only when the process has not already received another classification; it does not overwrite an explicit classification.
 
-When a process matches, Sandboxie uses its existing Chrome-oriented process classification for that process. This classification can influence Chromium-related compatibility handling, such as hook selection, command-line handling, desktop or window-station compatibility, and token or secure-preference compatibility paths. It does not disable sandbox isolation or grant broad host access.
+When a process matches, Sandboxie uses its existing Chrome-oriented process classification for that process. This classification can influence Chromium-related compatibility handling, such as hook selection, command-line handling, desktop or window-station compatibility, token handling, and the [Use Chrome Secure Preferences Hack](UseChromeSecurePreferencesHack.md). It does not disable sandbox isolation or grant broad host access.
 
 ## Detection limitations
 
