@@ -24,6 +24,8 @@
 
 [Auto Delete](AutoDelete.md)
 
+[Auto Delete Snapshot Target](AutoDeleteSnapshotTarget.md)
+
 [Auto Exec](AutoExec.md)
 
 [Auto Recover](AutoRecover.md)
