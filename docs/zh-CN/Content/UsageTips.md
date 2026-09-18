@@ -1,23 +1,23 @@
 # 使用技巧
 
-* 了解更多关于[快速恢复](QuickRecovery.md)和[即时恢复](ImmediateRecovery.md)的信息。
+* 详细了解 [快速恢复](QuickRecovery.md) 与 [即时恢复](ImmediateRecovery.md)。
 
-* 特定浏览器的提示：[Internet Explorer提示](InternetExplorerTips.md)和[Firefox提示](FirefoxTips.md)。
+* 特定浏览器的提示：[Internet Explorer 使用技巧](InternetExplorerTips.md) 和 [Firefox 技巧](FirefoxTips.md)。
 
-* 在沙箱环境中运行你的电子邮件程序，以获得更好的[电子邮件保护](EmailProtection.md)。另见[电子邮件常见问题解答](FAQEmail.md)。
+* 在沙盒中运行电子邮件程序，以获得更好的 [邮件防护](EmailProtection.md)。另请参阅 [常见问题-电子邮件](FAQEmail.md)。
 
-* 学习如何使用Sandboxie[防御键盘记录器](DetectingKeyLoggers.md#defending-against-key-logger)。
+* 了解如何使用 Sandboxie [防御键盘记录器](DetectingKeyLoggers.md#防御键盘记录器)。
 
-* 使用[添加快捷图标](ConfigureMenu.md#windows-shell-integration)按钮创建快捷方式，以便在沙箱环境中运行你的程序。
+* 使用 [添加快捷方式图标](ConfigureMenu.md#windows-shell-集成) 按钮创建快捷方式，以便在沙盒中运行程序。
 
-* 使用[文件菜单 -> 窗口是否在沙箱中运行？](FileMenu.md#is-window-sandboxed)命令来识别沙箱中的窗口和程序。
+* 使用 [文件菜单 > 窗口是否在沙盒中？](FileMenu.md#窗口是否在沙盒中) 命令识别沙盒中的窗口和程序。
 
-* [强制程序](ProgramStartSettings.md#forced-programs)，如你的网络浏览器，始终在沙箱环境中运行。
+* 让 [强制程序](ProgramStartSettings.md#强制程序)（如网页浏览器）始终在沙盒中运行。
 
-  * 当你需要在Sandboxie的监管之外运行一个“强制”程序时，[禁用强制程序](FileMenu.md#disable-forced-programs)。
+  * 当需要在 Sandboxie 的监管之外运行“强制”程序时，请 [禁用强制程序](FileMenu.md#禁用强制程序)。
 
-* 使用[沙箱设置 > 强制文件夹](ProgramStartSettings.md#forced-folders)来保护CDROM和DVD驱动器。
+* 使用 [沙盒设置 > 强制文件夹](ProgramStartSettings.md#强制文件夹) 保护 CDROM 和 DVD 驱动器。
 
-* 创建[更多沙箱](SandboxMenu.md#create-new-sandbox)，以更好地隔离不同的程序。
+* 创建 [更多沙盒](SandboxMenu.md#创建新沙盒)，以更好地隔离不同程序。
 
-> 注意：在沙箱环境中运行程序意味着在Sandboxie的监管下调用它。
+> 注意：在沙盒中运行程序，即是在 Sandboxie 的监管下调用该程序。

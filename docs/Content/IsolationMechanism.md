@@ -2,7 +2,7 @@
 
 Processes started under Sandboxie's supervision are created with a very restricted user token, such that they basically don't have the right to access almost anything. In this state, they would be pretty much useless and would crash right away.
 
-This token handling uses a combination of documented APIs and [implementation-specific kernel mechanisms](TokenMagic.md). Modern token reconstruction avoids some of the internal `TOKEN`-layout dependencies retained by the legacy path.
+Sandboxie supports multiple token-construction and filtering paths. The normal current path constructs a new, heavily restricted primary token, while a historical filtering path remains available and uses implementation-specific Windows kernel handling. See [Access Token Isolation](AccessTokenIsolation.md) and the [token internals](TokenMagic.md) for details.
 
 In a next step, Sandboxie tries to repair that by redirecting selected native syscall stubs through its SbieDrv driver. The driver then evaluates the calls and enforces the sandboxing rules, for example, no write access outside the sandbox and no read access to closed resources.
 

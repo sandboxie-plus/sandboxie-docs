@@ -1,9 +1,9 @@
 # 开放窗口类
 
-_OpenWinClass_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置。它用于指定应允许沙盘程序访问的非沙箱窗口的类名。
+_OpenWinClass_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一项沙盒设置。它指定非沙盒化窗口的类名，这些窗口应可供沙盒化程序访问。
 
 示例：
-```ini
+```
    .
    .
    .
@@ -14,43 +14,43 @@ _OpenWinClass_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置。�
    OpenWinClass=*
 ```
 
-第一个示例允许 _cmd.exe_ 进程创建的控制台窗口可被沙盘中的程序访问。
+第一个示例让由 _cmd.exe_ 进程创建的控制台窗口可供沙盒化程序访问。
 
-通常情况下，沙盘不会允许沙箱内的程序访问、通信、关闭或销毁沙箱外的窗口。_OpenWinClass_ 设置为这一规则提供了例外，允许访问特定的非沙箱窗口。
+通常，Sandboxie 不允许沙盒化程序访问、通信、关闭或销毁沙盒外的窗口。_OpenWinClass_ 设置对此规则做出例外，允许特定的非沙盒化窗口可被访问。
 
 **特殊形式**
-```ini
+```
    OpenWinClass=$:program.exe/IgnoreUIPI
 ```
 
-此设置允许在沙箱中运行的程序使用 `PostThreadMessage API`，直接向运行在沙箱之外目标进程中的线程发送消息。此种 _OpenWinClass_ 设置形式不支持通配符，因此，目标进程的进程名必须与设置中指定的名称相匹配。
+这允许沙盒内运行的程序使用 PostThreadMessage API，把消息直接发送到沙盒外运行的某个目标进程中的线程。此形式的 _OpenWinClass_ 设置不支持通配符，因此目标进程的进程名必须匹配设置中指定的名称。
 ```
    OpenWinClass=#
 ```
 
-此设置指示沙盘不要更改由沙箱程序创建的窗口类名。通常，沙盘会将 _IEFrame_ 这样的类名转换为 _Sandbox:DefaultBox::IEFrame_，以便更好地区分沙箱程序的窗口和系统中其他窗口。
+此设置告诉 Sandboxie 不更改由沙盒化程序创建的窗口类名。通常，Sandboxie 会把 _IEFrame_ 之类的类名转换为 _Sandbox:DefaultBox::IEFrame_，以便更好地把属于沙盒化程序的窗口与系统中的其他窗口分开。
 
-然而，在某些情况下，沙箱外的程序可能期望窗口类名为特定名称，因此可能无法识别由沙箱程序创建的窗口。指定 `OpenWinClass=#` 可解决此问题，但会降低隔离度。
+然而，在某些情况下，沙盒外的程序可能期望窗口类名是特定名称，因此可能无法识别沙盒化程序创建的窗口。指定 OpenWinClass=# 可以解决此问题，代价是分离程度较低。
 
-请注意，`OpenWinClass=#` 不允许与任何沙箱外的窗口通信，并且可能会干扰某些拖放操作。
+注意：OpenWinClass=# 不允许与沙盒外的任何窗口通信，并可能干扰某些拖放操作。
 ```
    OpenWinClass=*
 ```
 
-此设置指示沙盘不要像上述方式转换窗口类名，同时使沙箱程序能够访问系统中的所有窗口，并进一步禁用与窗口相关的其他部分沙盘功能。此时，窗口标题可能不再显示沙盘标志 [#]。
+此设置告诉 Sandboxie 不按上述方式转换窗口类名，同时让沙盒化程序可以访问系统中的所有窗口，并且更进一步，禁用其他几个与窗口相关的 Sandboxie 功能。这也可能导致 Sandboxie 指示符 [#] 不显示在窗口标题中。
 
-请注意，OpenWinClass=* 允许与所有沙箱外窗口的完全通信，但同样可能干扰一些拖放操作。
+注意：OpenWinClass=* 允许与沙盒外的所有窗口完全通信，但可能干扰某些拖放操作。
 
 **识别窗口类名**
 
-非沙箱窗口通过其 _窗口类名_ 进行识别，该类名是创建该窗口的应用程序分配的内部名称。你可以使用 [WinSpy](https://www.catch22.net/software/winspy) 这类工具来识别窗口类名。[Sandboxie Classic](ResourceAccessMonitor.md) 中的 [资源访问监视器] 工具以及 Sandboxie Plus 中的 [跟踪日志](../PlusContent/TraceLog.md) 工具也能显示窗口类名。
+非沙盒化窗口通过其_窗口类名_来识别，窗口类名是创建窗口的应用程序赋予窗口的内部名称。你可以使用 [WinSpy](https://www.catch22.net/software/winspy) 之类的工具识别窗口类名。Sandboxie 经典版中的 [资源访问监视器](ResourceAccessMonitor.md) 工具和 Sandboxie Plus 中的 [跟踪日志](../PlusContent/TraceLog.md) 工具也会显示窗口类名。
 
 相关 Sandboxie Plus 设置：
 
-沙箱选项 > 资源访问 > 窗口 > 添加窗口类 > 访问列 > 开放
+沙盒选项 > 资源访问 > 窗口 > 添加窗口类 > 访问列 > 开放
 
-沙箱选项 > 资源访问 > 窗口 > 添加窗口类 > 访问列 > 忽略 UIPI
+沙盒选项 > 资源访问 > 窗口 > 添加窗口类 > 访问列 > 忽略 UIPI
 
-沙箱选项 > 资源访问 > 窗口 > 不更改沙盘程序创建的窗口类名
+沙盒选项 > 资源访问 > 窗口 > 不更改由沙盒化程序创建的窗口类名
 
-另请参阅：[不要重命名窗口类](NoRenameWinClass.md)。
+另请参阅：[不重命名窗口类](NoRenameWinClass.md)。

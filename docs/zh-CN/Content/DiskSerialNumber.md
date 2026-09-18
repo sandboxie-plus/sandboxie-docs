@@ -1,6 +1,6 @@
 # 磁盘序列号
 
-_DiskSerialNumber_ 是 [沙盘配置](SandboxieIni.md) 中的一项沙箱设置，从 v1.15.2 / 5.70.2 版本开始提供。该设置允许为沙箱内的指定磁盘设备分配自定义序列号，并与 [隐藏磁盘序列号](HideDiskSerialNumber.md) 功能配合使用。
+_DiskSerialNumber_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一项沙盒设置，从 v1.15.2 / 5.70.2 版本开始提供。该设置允许为沙盒内的指定磁盘设备分配自定义序列号，并与 [隐藏磁盘序列号](HideDiskSerialNumber.md) 功能配合使用。
 
 ## 语法
 
@@ -24,8 +24,8 @@ DiskSerialNumber=HarddiskVolume3,9ABC-DEF0
 
 ## 前置条件
 
-- 需要在同一个沙箱中启用 `HideDiskSerialNumber=y`[^1]
-- 如果未满足该条件，DiskSerialNumber 设置将被忽略
+- 需要在同一个沙盒中启用 `HideDiskSerialNumber=y`[^1]
+- 如果未满足该条件，磁盘序列号设置将被忽略
 
 ## 序列号格式
 
@@ -81,13 +81,13 @@ DiskSerialNumber=HarddiskVolume2,22222222
 DiskSerialNumber=HarddiskVolume3,33333333
 ```
 
-2. 在沙箱中运行 `vol C:`、`vol D:` 等，确定各磁盘对应的设备名称
+2. 在沙盒中运行 `vol C:`、`vol D:` 等，确定各磁盘对应的设备名称
 
 ## 技术实现
 
 ### 设备路径解析
 
-- 沙盘从 Windows NT 路径中提取带有 `\Device\` 前缀的设备名称[^2]
+- Sandboxie 从 Windows NT 路径中提取带有 `\Device\` 前缀的设备名称[^2]
 - 设备名称的解析遇到下一个反斜线或字符串结束符即终止[^3]
 - 设备提取失败时，会生成随机序列号[^4]
 
@@ -114,7 +114,7 @@ DiskSerialNumber=HarddiskVolume3,33333333
 ### 隐私增强
 
 - 用已知值替换真实硬件识别码
-- 创建一致的沙箱指纹
+- 创建一致的沙盒指纹
 - 防止基于硬件信息的追踪
 
 ## 故障排查
@@ -149,12 +149,12 @@ DiskSerialNumber=HarddiskVolume3,33333333
 
 - **INI 配置**：可用
 - **Plus 界面**：不可用（仅支持 INI 配置）
-- **Classic 界面**：不可用
+- **经典版界面**：不可用
 
 
 [^1]: **前置条件**：必须启用 `HideDiskSerialNumber` 设置，设备序列号映射才会生效（kernel.c）
 
-[^2]: **设备路径解析**：沙盘会在 NT 路径字符串中搜索 `\Device\` 前缀，以提取设备名称（kernel.c）
+[^2]: **设备路径解析**：Sandboxie 会在 NT 路径字符串中搜索 `\Device\` 前缀，以提取设备名称（kernel.c）
 
 [^3]: **名称截断逻辑**：设备名解析至遇到第一个反斜线或字符串结束符自动终止（kernel.c）
 

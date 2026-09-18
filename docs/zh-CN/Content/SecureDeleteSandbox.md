@@ -1,39 +1,39 @@
-# 安全删除沙箱
+# 安全删除沙盒
 
-典型的文件删除操作会使操作系统和程序无法访问数据，但数据实际上并未从硬盘存储介质中物理擦除，数据恢复技术人员仍有可能恢复这些数据。为了增加数据恢复的难度，存在一些第三方软件可以执行“安全删除”操作。这通常是通过在删除数据之前多次覆盖数据来实现的。
+普通的文件删除会让操作系统和程序无法访问数据，但数据并未从硬盘存储介质上物理抹除，数据恢复技术人员仍可能将其找回。为了使这种恢复更加困难，市面上存在能够执行_安全删除_的第三方软件。其典型做法是在删除前多次覆写数据。
 
-更多信息，请参阅[维基百科上的数据残留](https://en.wikipedia.org/wiki/Data_remanence)。
+更多信息参见 [维基百科：数据残留](https://en.wikipedia.org/wiki/Data_remanence)。
 
-默认情况下，Sandboxie 使用标准的 Windows 命令（_RMDIR_）来删除沙箱。这确保了沙箱的内容（包括恶意软件）能从操作系统中正确移除。但如上所述，这会使数据容易被取证专家检查和恢复。
+默认情况下，Sandboxie 使用标准的 Windows 删除文件夹命令——_RMDIR_——来删除沙盒。这能确保沙盒的内容（包括恶意软件）被正确地从操作系统中移除。但如上所述，它仍会让数据暴露在取证专家的检查和恢复之下。
 
-担心敏感数据隐私的用户可以将第三方安全删除工具集成到 Sandboxie 中，以替代标准的删除命令。
+关注敏感数据隐私的用户，可以把第三方安全删除工具接入 Sandboxie，以替代标准命令。
 
-您可以通过 Sandboxie 控制界面或手动编辑 [Sandboxie 配置文件](SandboxieIni.md) 来配置自定义删除命令。
+你可以通过沙盒管理器配置自定义删除命令，也可以手动编辑 [Sandboxie Ini](SandboxieIni.md) 配置文件。
 
-**在 Sandboxie 控制界面中**
+**在沙盒管理器中**
 
-使用 [沙箱设置 > 删除 > 命令](DeleteSettings.md#command)。以下是一些删除命令的示例：
+使用 [沙盒设置 > 删除 > 命令](DeleteSettings.md#命令)。下面是删除命令的两个示例：
 
-* 调用 [Heidi Computers 公司的 Eraser](https://eraser.heidi.ie/) 来安全删除内容：
-```pwsh
-%SystemRoot%\System32\eraserl.exe -folder "%SANDBOX%" -subfolders -method DoD_E -resultsonerror -queue
+* 调用 [Heidi Computers 的 Eraser](https://eraser.heidi.ie/) 安全删除内容：
+```
+    %SystemRoot%\System32\eraserl.exe -folder "%SANDBOX%" -subfolders -method DoD_E -resultsonerror -queue
 ```
 
-* 调用 [SysInternals/Microsoft 公司的 SDelete](https://technet.microsoft.com/en-us/sysinternals/bb897443.aspx) 来安全删除内容。
-```pwsh
-"C:\Program Files\Sysinternals\SDelete\sdelete.exe" -p 3 -s -q "%SANDBOX%"
+* 调用 [SysInternals/Microsoft 的 SDelete](https://technet.microsoft.com/en-us/sysinternals/bb897443.aspx) 安全删除内容：
+```
+    "C:\Program Files\Sysinternals\SDelete\sdelete.exe" -p 3 -s -q "%SANDBOX%"
 ```
 
 **在 Sandboxie.ini 配置文件中**
 
-要为特定沙箱配置自定义删除命令，请在 [Sandboxie 配置文件](SandboxieIni.md) 的沙箱部分编辑或插入 [DeleteCommand](DeleteCommand.md) 设置。
+要为特定沙盒配置自定义删除命令，请在 [Sandboxie Ini](SandboxieIni.md) 的沙盒小节中编辑或插入 [删除命令](DeleteCommand.md) 设置。
 
-要配置全局自定义删除命令，请在 [Sandboxie 配置文件](SandboxieIni.md) 的 [GlobalSettings] 部分编辑或插入 [DeleteCommand](DeleteCommand.md) 设置。
+要配置全局自定义删除命令，请在 [Sandboxie Ini](SandboxieIni.md) 的 [GlobalSettings] 小节中编辑或插入 [删除命令](DeleteCommand.md) 设置。
 
-指定此设置时，请确保在命令中包含 **"%SANDBOX%"**（带引号）。
+指定此设置时，务必在命令中包含 **"%SANDBOX%"**（带引号）。
 
-在启动删除命令之前，Sandboxie 会扫描沙箱，以确保所有文件都能被正确删除，具体请参阅 [删除沙箱内容](StartCommandLine.md#delete-contents-of-sandbox)。
+在启动删除命令前，Sandboxie 会扫描沙盒，确保所有文件都能被正确删除，如 [删除沙盒内容](StartCommandLine.md#删除沙盒内容) 中所述。
 
 * * *
 
-前往 [帮助主题](HelpTopics.md)。
+跳转到 [帮助主题](HelpTopics.md)。

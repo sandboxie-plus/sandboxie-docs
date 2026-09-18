@@ -57,7 +57,7 @@ Some more features (**) are available to participants of the [Sandboxie-Insider]
 
 #### [Snapshots](../PlusContent/BoxSnapshots.md)
  - Sandboxie-Plus can create box snapshots, with them it is possible to easily revert a box to a defined previous state.
- - Box set to auto delete will auto-revert when available to the last snapshot allowing to benefit from a fresh clean box each time but with some preset configuration
+ - With automatic deletion, SandMan can restore either the active snapshot state or the selected default snapshot.
 
 
 #### [Enhanced debug/trace monitor](../PlusContent/TraceLog.md)

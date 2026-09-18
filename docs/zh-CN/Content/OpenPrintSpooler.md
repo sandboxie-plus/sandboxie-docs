@@ -1,8 +1,8 @@
 # 开放打印后台处理程序
 
-_OpenPrintSpooler_ 是一个沙箱设置，用于细致地控制沙箱内的应用程序与打印后台处理程序服务的交互方式。
+_OpenPrintSpooler_ 是一项沙盒设置，提供对沙盒化应用程序如何与打印后台处理程序服务交互的精细控制。
 
-```ini
+```
    .
    .
    .
@@ -10,10 +10,10 @@ _OpenPrintSpooler_ 是一个沙箱设置，用于细致地控制沙箱内的应�
    OpenPrintSpooler=n
 ```
 
-该设置会阻止沙箱内的应用程序在沙箱外部配置打印机。
+此设置阻止沙盒化应用程序在沙盒外设置打印机。
 
-通过将 `OpenPrintSpooler=y`，可以禁用此限制。
+可以通过设置 `OpenPrintSpooler=y` 禁用此过滤器。
 
-此设置自 0.5.4 / 5.46.0 版本起添加。
+作为 0.5.4 / 5.46.0 版本的一部分添加。
 
-_另见 [ClosePrintSpooler](ClosePrintSpooler.md)_。
+_另请参阅 [封禁打印后台处理服务](ClosePrintSpooler.md)_。

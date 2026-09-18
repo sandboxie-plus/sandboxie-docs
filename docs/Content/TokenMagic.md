@@ -4,6 +4,8 @@
 
 Processes in normal security-isolation boxes run with a restricted or reconstructed Windows primary token. Sandboxie also patches selected native-system-call stubs and routes those calls through SbieDrv so that the driver can inspect and mediate compatible operations.
 
+For user-facing configuration of the current token-construction paths, see [Access Token Isolation](AccessTokenIsolation.md).
+
 This token and syscall architecture is only part of Sandboxie's isolation model. File, registry, IPC, network, GUI, and other controls are implemented separately; see [Isolation Mechanism](IsolationMechanism.md). Application Compartment mode, configured through [No Security Isolation](NoSecurityIsolation.md), normally bypasses the primary-token replacement model described here.
 
 ## Components involved
@@ -143,6 +145,7 @@ Sandboxie Plus 1.13.0 / Classic 5.68.0 introduced the signed, updateable DynData
 
 ## Related pages
 
+- [Access Token Isolation](AccessTokenIsolation.md)
 - [Isolation Mechanism](IsolationMechanism.md)
 - [No Security Isolation](NoSecurityIsolation.md)
 - [Drop Admin Rights](DropAdminRights.md)
