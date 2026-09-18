@@ -468,6 +468,8 @@
 
 ### S
 
+[Sandbox Desktop and Window Station](SandboxDesktop.md)
+
 [Sandbox Hierarchy](SandboxHierarchy.md)
 
 [Sandbox Menu](SandboxMenu.md)
@@ -851,8 +853,6 @@
 [Use Rule Specificity](UseRuleSpecificity.md)
 
 [Use Sandboxie UAC](UseSandboxieUAC.md)
-
-[Use SbieDesk Hack](UseSbieDeskHack.md)
 
 [Use Security Mode](UseSecurityMode.md)
 
