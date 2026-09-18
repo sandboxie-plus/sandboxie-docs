@@ -1,5 +1,5 @@
 # 弹出消息日志
 
-沙盘弹出消息由[沙盘控制](SandboxieControl.md)在[沙盘消息](MessagesFromSandboxie.md)弹出窗口中显示。
+Sandboxie 弹出消息由 [沙盒管理器](SandboxieControl.md) 显示在 [来自 Sandboxie 的消息](MessagesFromSandboxie.md) 弹出窗口中。
 
-有关更多信息，请参阅[沙盘消息](MessagesFromSandboxie.md)弹出窗口的文档。
+更多信息请参阅 [来自 Sandboxie 的消息](MessagesFromSandboxie.md) 弹出窗口的文档。

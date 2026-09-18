@@ -1,8 +1,8 @@
-# 随机注册表UID
+# 随机注册表 UID
 
-RandomRegUID 是 [沙盘配置文件（Sandboxie Ini）](SandboxieIni.md) 中的一项设置。
+随机注册表 UID 是 [Sandboxie Ini](SandboxieIni.md) 中的一项沙盒设置。
 
-```ini
+```
    .
    .
    .
@@ -10,6 +10,6 @@ RandomRegUID 是 [沙盘配置文件（Sandboxie Ini）](SandboxieIni.md) 中的
    RandomRegUID=y
 ```
 
-使用 'RandomRegUID=y' 选项来混淆 Windows 注册表中已知的唯一标识符。
+使用“RandomRegUID=y”选项可混淆 Windows 注册表中已知的唯一标识符。
 
-相关的沙盘增强版（Sandboxie Plus）设置：沙箱选项 > 高级选项 > 隐私 > 混淆注册表中已知的唯一标识符
+相关 Sandboxie Plus 设置：沙盒选项 > 高级选项 > 隐私 > 混淆注册表中的已知唯一标识符

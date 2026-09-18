@@ -1,8 +1,8 @@
-# 永不删除
+# 从不删除
 
-_NeverDelete_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置。通常指定为 _NeverDelete=y_，表示沙箱的内容永远不会被沙盘删除。例如：
+_NeverDelete_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一项沙盒设置。通常指定为 _NeverDelete=y_，表示 Sandboxie 永远不应删除沙盒内容。例如：
 
-```ini
+```
    .
    .
    .
@@ -10,4 +10,4 @@ _NeverDelete_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置。�
    NeverDelete=y
 ```
 
-相关的 [沙盘控制](SandboxieControl.md) 设置：[沙箱设置 > 删除 > 调用](DeleteSettings.md#invocation)
+相关 [沙盒管理器](SandboxieControl.md) 设置：[沙盒设置 > 删除 > 调用方式](DeleteSettings.md#调用方式)

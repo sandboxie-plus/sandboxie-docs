@@ -84,9 +84,9 @@ In Application Compartment mode, three key path behaviors are automatically disa
 
 These settings become ineffective due to Job Object exclusion:
 
-- `ProcessNumberLimit`
-- `ProcessMemoryLimit`
-- `TotalMemoryLimit`
+- [`ProcessNumberLimit`](ProcessNumberLimit.md)
+- [`ProcessMemoryLimit`](ProcessMemoryLimit.md)
+- [`TotalMemoryLimit`](TotalMemoryLimit.md)
 
 ## Use Cases & Troubleshooting
 

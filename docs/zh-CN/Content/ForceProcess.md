@@ -1,8 +1,8 @@
-# 强制入沙进程
+# 强制进程
 
-_ForceProcess_ 是 [Sandboxie Ini](SandboxieIni.md) 文件中的一个沙箱设置。它用于指定程序的名称。如果这些程序从任何非沙箱环境启动，则会自动在指定的沙箱中运行。例如：
+_ForceProcess_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一项沙盒设置。它指定程序名称。如果这些程序中的任何一个在沙盒外启动，它们将被自动沙盒化到特定沙盒中。例如：
 
-```ini
+```
    .
    .
    .
@@ -16,15 +16,15 @@ _ForceProcess_ 是 [Sandboxie Ini](SandboxieIni.md) 文件中的一个沙箱设�
    ForceProcess=cl?cke?.exe
 ```
 
-- `*` 代表任意多个字符
-- `?` 代表一个字符
+- `*` 表示任意字符序列。
+- `?` 表示单个字符。
 
-这个示例指定了 Internet Explorer（iexplore.exe）、Firefox（firefox.exe）、App* （如 Appga、App03 等），以及 App?（如 App1、Appg、Appa 等）将被强制在 _DefaultBox_ 沙箱中运行。Outlook.exe 和 cl?cke?（如 clicker、clicked 等）将被强制在 _MailBox_ 沙箱中运行。
+此示例指定 Internet Explorer（iexplore.exe）、Firefox（firefox.exe）、App*（Appga、App03 等）和 App?（App1、Appg、Appa 等）将被强制在沙盒 _DefaultBox_ 中运行。Outlook.exe 和 cl?cke?（clicker、clicked 等）将被强制在沙盒 _MailBox_ 中运行。
 
-请注意，_ForceProcess_ 设置仅对那些从未沙箱环境启动的程序生效。如果某个程序是专门在沙箱中启动，或者由已经在沙箱中运行的程序启动，那么 _ForceProcess_ 设置将不会应用。
+注意：_ForceProcess_ 设置只适用于以非沙盒化方式启动的程序。如果程序被专门启动到某个沙盒中，或由已在沙盒中的程序启动，则不会应用 _ForceProcess_ 设置。
 
-另见：[ForceFolder](ForceFolder.md)。如果某个正在启动的程序同时匹配 _ForceFolder_ 和 _ForceProcess_ 设定，则优先应用 ForceFolder 设置。
+另请参阅：[强制文件夹](ForceFolder.md)。如果 _ForceFolder_ 和 _ForceProcess_ 都适用于某个正在启动的程序，则强制文件夹设置优先。
 
-相关 [沙盘控制](SandboxieControl.md) 设置：[沙箱设置 > 程序启动 > 强制程序](ProgramStartSettings.md#forced-programs)。
+相关 [沙盒管理器](SandboxieControl.md) 设置：[沙盒设置 > 程序启动 > 强制程序](ProgramStartSettings.md#强制程序)
 
-另见：[程序设置](ProgramSettings.md#page-1)
+另请参阅：[程序设置](ProgramSettings.md#页面-1)。

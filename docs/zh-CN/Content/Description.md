@@ -1,20 +1,20 @@
 # 描述
 
-_Description_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置。它可以输入任意文本内容，例如，用于说明该沙箱的用途。
+_Description_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一项沙盒设置。它指定自由文本，可以解释例如沙盒的用途。
 
-```ini
+```
    .
    .
    .
    [DefaultBox]
-   Description=示例<BR>文本
+   Description=Example<BR>text.
    .
    .
    .
    [PrivateBox]
-   Description=拒绝访问敏感文件位置
+   Description=Access denied to sensitive file locations
    ClosedFilePath=%Personal%
    ClosedFilePath=D:\MyDocs
 ```
 
-文本中的 `<BR>` 代表换行符。该区域设置的文本内容会在 _Run Sandboxed_ 沙箱选择对话框中以气泡弹窗中显示。
+文本中的 `<BR>` 序列用于指示换行。自由文本显示在 _以沙盒方式运行_ 沙盒选择对话框中的气球弹出提示中。

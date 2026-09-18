@@ -1,6 +1,6 @@
-# HookTrace
+# Hook 跟踪
 
-_HookTrace_ 是自 v1.15.5 / 5.70.5 版本起在 [沙盘配置](SandboxieIni.md) 中提供的一项沙箱设置。启用后，将对 [SbieDll](SBIEDLLAPI.md) 组件执行的所有函数挂钩活动进行详细日志记录。
+_HookTrace_ 是自 v1.15.5 / 5.70.5 版本起在 [Sandboxie Ini](SandboxieIni.md) 中提供的一项沙盒设置。启用后，将对 [SbieDll](SBIEDLLAPI.md) 组件执行的所有函数挂钩活动进行详细日志记录。
 
 ## 用法
 
@@ -12,7 +12,7 @@ HookTrace=y
 
 ## 概述
 
-函数挂钩是沙盘用于拦截并重定向来自沙箱内进程系统调用的核心机制。`HookTrace` 设置为此过程提供了详尽的可见性，记录每一次挂钩尝试、成功、失败及相关元数据。该功能主要用于排查沙箱相关问题，以及理解沙盘如何对应用程序进行插桩。
+函数挂钩是 Sandboxie 用于拦截并重定向来自沙盒内进程系统调用的核心机制。`HookTrace` 设置为此过程提供了详尽的可见性，记录每一次挂钩尝试、成功、失败及相关元数据。该功能主要用于排查沙盒相关问题，以及理解 Sandboxie 如何对应用程序进行插桩。
 
 ## 工作原理
 
@@ -53,20 +53,20 @@ Hooking (trace): module!function
 
 ## 应用程序挂钩检测
 
-启用 `HookTrace` 后，系统还会监控尝试修改其他进程内存的应用程序行为，这通常表明存在应用级挂钩尝试。此项特性有助于识别与沙盘自身挂钩机制可能存在的冲突[^14]
+启用 `HookTrace` 后，系统还会监控尝试修改其他进程内存的应用程序行为，这通常表明存在应用级挂钩尝试。此项特性有助于识别与 Sandboxie 自身挂钩机制可能存在的冲突[^14]
 
 ## 性能注意事项
 
-- **日志量增加**：启用 HookTrace 后，尤其在进程启动期间（加载并挂钩大量模块），将产生大量日志输出
+- **日志量增加**：启用 Hook 跟踪后，尤其在进程启动期间（加载并挂钩大量模块），将产生大量日志输出
 - **仅用于调试**：此设置仅推荐用于调试和排查，不适合生产环境
 - **存储影响**：大量详细日志输出会快速占用日志存储空间
 
 ## 相关设置
 
 - [ApiTrace](SandboxieTrace.md) —— 在挂钩建立后跟踪实际 API 调用
-- [DebugTrace](SandboxieTrace.md) —— 沙盘组件的通用调试输出
-- [FuncSkipHook](SandboxieTrace.md) —— 控制不应被挂钩的函数
-- [SkipHook](SandboxieTrace.md) —— 按模块粒度配置跳过挂钩
+- [DebugTrace](SandboxieTrace.md) —— Sandboxie 组件的通用调试输出
+- [跳过函数钩子](SandboxieTrace.md) —— 控制不应被挂钩的函数
+- [跳过钩子](SandboxieTrace.md) —— 按模块粒度配置跳过挂钩
 
 [^1]: 挂钩初始化发生在 `SbieDll_HookInit()`，此处 `Dll_HookTrace = SbieApi_QueryConfBool(NULL, L"HookTrace", FALSE)`
 [^2]: 挂钩状态跟踪由一系列 `HOOK_STAT_*` 常量标识，包括 `HOOK_STAT_CHROME`、`HOOK_STAT_CHROME_FAIL`、`HOOK_STAT_NO_FFS`、`HOOK_STAT_SKIPPED`、`HOOK_STAT_TRACE` 和 `HOOK_STAT_SYSCALL`

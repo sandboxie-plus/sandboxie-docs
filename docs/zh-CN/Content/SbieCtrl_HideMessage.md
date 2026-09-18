@@ -1,6 +1,6 @@
 # 隐藏 SBIE 消息
 
-SbieCtrl_HideMessage 是 [Sandboxie 配置文件](SandboxieIni.md) 中的一项用户设置。它指定了哪些 [SBIE 消息](SBIEMessages.md) 不应弹出显示。
+隐藏 SBIE 消息是 [Sandboxie Ini](SandboxieIni.md) 中的一项用户设置。它指定了哪些 [SBIE 消息](SBIEMessages.md) 不应弹出显示。
 ```ini
    .
    .
@@ -16,4 +16,4 @@ SbieCtrl_HideMessage 是 [Sandboxie 配置文件](SandboxieIni.md) 中的一项�
 
 相关的 Sandboxie Plus 设置：全局设置 > 常规配置 > 通知 > SBIE 消息
 
-相关的 [Sandboxie 控制](SandboxieControl.md) 设置：[来自 Sandboxie 的消息](MessagesFromSandboxie.md) 弹出窗口
+相关的 [沙盒管理器](SandboxieControl.md) 设置：[来自 Sandboxie 的消息](MessagesFromSandboxie.md) 弹出窗口

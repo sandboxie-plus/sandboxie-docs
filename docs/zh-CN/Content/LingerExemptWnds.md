@@ -1,8 +1,8 @@
 # 窗口驻留豁免
 
-_LingerExemptWnds_ 是自 v1.13.4 / 5.68.4 起在 [Sandboxie Ini](SandboxieIni.md) 中提供的一个沙箱设置。该设置用于让挂起进程监控机制，不再因为进程拥有窗口句柄而将其从终止列表豁免。例如：
+_LingerExemptWnds_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一项沙盒设置，自 v1.13.4 / 5.68.4 起可用。用于让残留进程监视机制不再豁免带窗口的残留进程被终止。例如：
 
-```ini
+```
    .
    .
    .
@@ -10,6 +10,6 @@ _LingerExemptWnds_ 是自 v1.13.4 / 5.68.4 起在 [Sandboxie Ini](SandboxieIni.m
    LingerExemptWnds=n
 ```
 
-相关的 [沙盘控制](SandboxieControl.md) 设置：[沙盘设置 -> 程序控制 -> 停止行为 -> 驻留进程](ProgramStopSettings.md#lingering-programs)
+相关 [沙盒管理器](SandboxieControl.md) 设置：[沙盒设置 > 程序停止 > 残留程序](ProgramStopSettings.md#残留程序)
 
 另请参阅：[程序设置](ProgramSettings.md#linger)。
