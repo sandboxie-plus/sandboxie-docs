@@ -50,6 +50,8 @@
 
 [Block Interference Control](BlockInterferenceControl.md)
 
+[Block Local Loop](BlockLocalLoop.md)
+
 [Block Net Param](BlockNetParam.md)
 
 [Block Network Files](BlockNetworkFiles.md)
