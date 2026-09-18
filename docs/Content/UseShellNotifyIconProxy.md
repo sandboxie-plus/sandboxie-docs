@@ -11,8 +11,8 @@ The setting may also be disabled or limited to a program:
 
 ```ini
 UseShellNotifyIconProxy=n
-UseShellNotifyIconProxy=program.exe,y
-UseShellNotifyIconProxy=program.exe,n
+UseShellNotifyIconProxy=program1.exe,y
+UseShellNotifyIconProxy=program2.exe,n
 ```
 
 Negated image selectors can be used to apply a rule to every program except one:
