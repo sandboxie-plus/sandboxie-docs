@@ -114,6 +114,12 @@
 
 [Configure Menu](ConfigureMenu.md)
 
+[Copy Always](CopyAlways.md)
+
+[Copy Block Deny Write](CopyBlockDenyWrite.md)
+
+[Copy Empty](CopyEmpty.md)
+
 [Copy Limit Kb](CopyLimitKb.md)
 
 [Copy Limit Silent](CopyLimitSilent.md)
@@ -161,6 +167,8 @@
 [Disk Serial Number](DiskSerialNumber.md)
 
 [DNS Filter](../PlusContent/DNSFilter.md)
+
+[Don't Copy](DontCopy.md)
 
 [Drop Admin Rights](DropAdminRights.md)
 
@@ -341,6 +349,8 @@
 [Notify Direct Disk Access](NotifyDirectDiskAccess.md)
 
 [Notify Internet Access Denied](NotifyInternetAccessDenied.md)
+
+[Notify No Copy](NotifyNoCopy.md)
 
 [Notify Process Access Denied](NotifyProcessAccessDenied.md)
 
