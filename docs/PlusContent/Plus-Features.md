@@ -84,8 +84,8 @@ Some more features (**) are available to participants of the [Sandboxie-Insider]
  - [Document Breakout](../Content/BreakoutDocument.md) is an extension to the already well-known Breakout mechanism to allow to open selected file types saved to an open file path from within the sandbox in an unsandboxed instance of the associated application.  **
 
 
-#### [USB drive sandboxing](../PlusContent/USBSandboxing.md) **
-- This feature allows you to automatically sandbox any USB drive that you plug into your computer, which adds an extra layer of protection to your system.
+#### [USB drive sandboxing](../PlusContent/USBSandboxing.md) *
+- Automatically maintains forced-folder rules for qualifying USB-backed volumes so programs launched from those locations can be forced into a designated sandbox.
 
 
 #### EFS Support **
