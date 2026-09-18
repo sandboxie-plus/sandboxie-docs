@@ -6,6 +6,8 @@
 
 [Advanced Topics](AdvancedTopics.md)
 
+[Advanced Token Settings](AdvancedTokenSettings.md)
+
 [Alert Before Start](AlertBeforeStart.md)
 
 [Alert Folder](AlertFolder.md)
