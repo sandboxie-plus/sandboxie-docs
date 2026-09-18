@@ -1,10 +1,20 @@
 # File Migration Settings
 
+## Sandboxie Plus
+
 SandMan > Sandbox Options > General Options > File Migration
 
 Sandboxie normally lets a sandboxed program read a host file without first copying it. When the program requests an operation that needs to change an existing file, Sandboxie migrates the file into the sandbox and applies the change to that sandbox copy. The host file remains unchanged.
 
-The File Migration page controls the normal size decision and the path rules that can override it.
+In SandMan, the File Migration page controls the normal size decision and the path rules that can override it.
+
+## Sandboxie Control Classic
+
+[Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > File Migration:
+
+![](../Media/FileMigrationSettings.png)
+
+Sandboxie Control Classic remains supported. Its File Migration page handles existing migration-size controls such as [CopyLimitKb](CopyLimitKb.md) and [CopyLimitSilent](CopyLimitSilent.md). The newer migration-rule actions documented below describe the current SandMan interface and do not imply equivalent controls in Sandboxie Control Classic.
 
 ## Migration rules
 
