@@ -6,19 +6,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="BoxNameTitle is a sandbox setting in Sandboxie Ini. It controls whether Sandboxie displays the name of the sandbox in the title bar of a window that belongs to a sandboxed application.">
+        <meta name="description" content="The settings on this page alter how Sandboxie filters or reconstructs Windows access tokens. Most are advanced compatibility or debugging options that preserve properties Sandboxie would normally remove or restrict. They should generally be used only when required for compatibility or specialized testing.">
       
       
       
-        <link rel="canonical" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/BoxNameTitle.html">
+        <link rel="canonical" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/AdvancedTokenSettings.html">
       
       
       
       
         
-          <link rel="alternate" href="BoxNameTitle.html" hreflang="en">
+          <link rel="alternate" href="AdvancedTokenSettings.html" hreflang="en">
         
-          <link rel="alternate" href="../zh-CN/Content/BoxNameTitle.html" hreflang="zh">
+          <link rel="alternate" href="../zh-CN/Content/AdvancedTokenSettings.html" hreflang="zh">
         
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>Box Name Title - Sandboxie Documentation</title>
+        <title>Advanced Token Settings - Sandboxie Documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#box-name-title" class="md-skip">
+        <a href="#advanced-token-settings" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Box Name Title
+              Advanced Token Settings
             
           </span>
         </div>
@@ -166,13 +166,13 @@
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="BoxNameTitle.html" hreflang="en" class="md-select__link">
+            <a href="AdvancedTokenSettings.html" hreflang="en" class="md-select__link">
               English
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="../zh-CN/Content/BoxNameTitle.html" hreflang="zh" class="md-select__link">
+            <a href="../zh-CN/Content/AdvancedTokenSettings.html" hreflang="zh" class="md-select__link">
               简体中文
             </a>
           </li>
@@ -5568,7 +5568,7 @@
 
 
   
-    <a href="https://github.com/sandboxie-plus/sandboxie-docs/edit/main/docs/Content/BoxNameTitle.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/sandboxie-plus/sandboxie-docs/edit/main/docs/Content/AdvancedTokenSettings.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -5577,28 +5577,198 @@
     
       
     
-    <a href="https://github.com/sandboxie-plus/sandboxie-docs/raw/main/docs/Content/BoxNameTitle.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/sandboxie-plus/sandboxie-docs/raw/main/docs/Content/AdvancedTokenSettings.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<h1 id="box-name-title">Box Name Title<a class="headerlink" href="#box-name-title" title="Permanent link"></a></h1>
-<p><em>BoxNameTitle</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It controls whether Sandboxie displays the name of the sandbox in the title bar of a window that belongs to a sandboxed application.</p>
-<p>Usage:</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">BoxNameTitle</span><span class="o">=</span><span class="s">y</span>
+<h1 id="advanced-token-settings">Advanced Token Settings<a class="headerlink" href="#advanced-token-settings" title="Permanent link"></a></h1>
+<p>The settings on this page alter how Sandboxie filters or reconstructs Windows access tokens. Most are advanced compatibility or debugging options that preserve properties Sandboxie would normally remove or restrict. They should generally be used only when required for compatibility or specialized testing.</p>
+<p>These settings affect token-based isolation only. File-system and registry virtualization, IPC controls, network restrictions, GUI isolation, and other independent Sandboxie mechanisms remain separate.</p>
+<h2 id="token-processing-stages">Token processing stages<a class="headerlink" href="#token-processing-stages" title="Permanent link"></a></h2>
+<p>The relevant part of token processing can be simplified as follows:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>original primary token
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    |
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    v
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>preliminary filtering
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    |
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    |-- UnfilteredToken can skip this stage
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    |
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    v
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>restriction / reconstruction
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    |
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    |-- UnrestrictedToken can skip this stage
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    |
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    |-- the normal modern path reconstructs the token
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    |
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    v
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>sandbox primary token
 </span></code></pre></div>
-<p>By default, Sandboxie only displays the sandboxed [#] indicator in the title bar of a window that belongs to a sandboxed application. For example:</p>
-<p>[#] Sandboxie - Front Page - Windows Internet Explorer [#]</p>
-<p>Specifying <em>BoxNameTitle=y</em> places the sandbox name in the title bar:</p>
-<p>[#] [DefaultBox] Sandboxie - Front Page - Windows Internet Explorer [#]</p>
-<p>Sandboxie may skip title modification for windows detected as using custom or client-drawn title bars to avoid excessive DWM repaint activity and high CPU usage. See <a href="DisableCustomTitleOpt.html">Disable Custom Title Optimization</a> for the per-program opt-out.</p>
-<p>Related <a href="SandboxieControl.html">Sandboxie Control</a> setting: <a href="AppearanceSettings.html">Sandbox Settings &gt; Appearance</a></p>
+<p>The preliminary filter and the later restriction or reconstruction stage are separate. Consequently, <em>UnfilteredToken</em> does not mean that the token is unrestricted, and <em>UnrestrictedToken</em> does not restore properties removed by preliminary filtering. Enabling both preserves substantially more characteristics of the source token than enabling either one alone.</p>
+<p>Sandboxie has a modern token-construction path and a legacy filtering path. Current normal configurations commonly use the modern <code>Token_CreateToken</code> path because <em>SandboxieAllGroup</em> has a runtime default of enabled; <em>UseCreateToken</em> can also select that path. This distinction is particularly important for <em>UnstrippedToken</em>, whose behavior differs between the two paths.</p>
+<p>This is a conceptual outline of token processing, not the complete Sandboxie isolation model.</p>
+<h2 id="common-syntax-and-scope">Common syntax and scope<a class="headerlink" href="#common-syntax-and-scope" title="Permanent link"></a></h2>
+<p>All settings on this page are box-wide Boolean settings:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">SettingName</span><span class="o">=</span><span class="s">y</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">SettingName</span><span class="o">=</span><span class="s">n</span>
+</span></code></pre></div>
+<p>Current runtime lookups are not executable-qualified, so syntax such as <code>SettingName=program.exe,y</code> is not supported for these settings. Normal Sandboxie configuration and template inheritance can still affect the effective configuration of a box.</p>
+<h2 id="nountrustedtoken">NoUntrustedToken<a class="headerlink" href="#nountrustedtoken" title="Permanent link"></a></h2>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">NoUntrustedToken</span><span class="o">=</span><span class="s">y</span>
+</span></code></pre></div>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">NoUntrustedToken</span><span class="o">=</span><span class="s">n</span>
+</span></code></pre></div>
+<p><em>NoUntrustedToken</em> defaults to <code>n</code> in both the setting metadata and the current runtime. The normal restricted sandbox token uses the Windows <strong>Untrusted</strong> integrity level. When <em>NoUntrustedToken</em> is enabled, Sandboxie uses <strong>Low</strong> integrity instead.</p>
+<p>This setting does not disable token replacement or restriction, preserve the source integrity level, or disable security isolation. It changes the sandbox token's lowered integrity level from Untrusted to Low while leaving the remaining token-isolation steps active.</p>
+<p>If <em>KeepTokenIntegrity</em> is enabled, the normal integrity reduction is skipped, making the Untrusted-versus-Low choice irrelevant. The setting is also redundant when <a href="NoSecurityIsolation.html"><code>NoSecurityIsolation=y</code></a> bypasses normal primary-token replacement.</p>
+<p>SandMan exposes this setting at:</p>
+<p><strong>Sandbox Options &gt; Security Options &gt; Advanced Security</strong></p>
+<p>The checkbox is labeled <strong>Use LOW integrity token instead of UNTRUSTED (reduces isolation)</strong>.</p>
+<h2 id="unfilteredtoken">UnfilteredToken<a class="headerlink" href="#unfilteredtoken" title="Permanent link"></a></h2>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="na">UnfilteredToken</span><span class="o">=</span><span class="s">y</span>
+</span></code></pre></div>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="na">UnfilteredToken</span><span class="o">=</span><span class="s">n</span>
+</span></code></pre></div>
+<p><em>UnfilteredToken</em> defaults to <code>n</code>. It skips Sandboxie's preliminary token-filtering stage. That stage normally removes a fixed set of sensitive privileges and also applies <a href="DropAdminRights.html"><code>DropAdminRights</code></a> filtering when configured.</p>
+<p>Later restriction or reconstruction still occurs. The resulting token can therefore still receive a substituted token user or lower integrity level, have groups converted to deny-only, lose privileges during reconstruction, and receive Sandboxie-specific token groups.</p>
+<p>In short, <em>UnfilteredToken</em> skips the preliminary filtering stage; later token-restriction or reconstruction steps may still modify the token. Current code also consults this behavior during relevant impersonation-token validation and WTS token handling.</p>
+<p>Because <em>DropAdminRights</em> participates in the preliminary filter, <em>UnfilteredToken</em> can bypass that preliminary removal of administrator-related groups and selected privileges. It does not remove the later Sandboxie restrictions.</p>
+<h2 id="unrestrictedtoken">UnrestrictedToken<a class="headerlink" href="#unrestrictedtoken" title="Permanent link"></a></h2>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="na">UnrestrictedToken</span><span class="o">=</span><span class="s">y</span>
+</span></code></pre></div>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="na">UnrestrictedToken</span><span class="o">=</span><span class="s">n</span>
+</span></code></pre></div>
+<p><em>UnrestrictedToken</em> defaults to <code>n</code>. It skips the heavy token-restriction or reconstruction stage, causing Sandboxie to duplicate the token received from the earlier stage.</p>
+<p>That token may already have been modified by preliminary filtering. Enabling <em>UnrestrictedToken</em> alone does not restore groups, privileges, or other properties removed earlier.</p>
+<p><em>UnrestrictedToken</em> skips the normal heavy token-restriction stage, but other Sandboxie isolation mechanisms remain active and earlier token filtering may already have modified the token. It does not disable file-system or registry virtualization and isolation, IPC controls, network restrictions, or other independent sandbox mechanisms.</p>
+<h2 id="unfilteredtoken-versus-unrestrictedtoken">UnfilteredToken versus UnrestrictedToken<a class="headerlink" href="#unfilteredtoken-versus-unrestrictedtoken" title="Permanent link"></a></h2>
+<table>
+<thead>
+<tr>
+<th>Configuration</th>
+<th>Preliminary filter</th>
+<th>Restriction/reconstruction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Normal</td>
+<td>Applied</td>
+<td>Applied</td>
+</tr>
+<tr>
+<td><code>UnfilteredToken=y</code></td>
+<td>Skipped</td>
+<td>Still applied</td>
+</tr>
+<tr>
+<td><code>UnrestrictedToken=y</code></td>
+<td>Still applied</td>
+<td>Skipped</td>
+</tr>
+<tr>
+<td>Both enabled</td>
+<td>Skipped</td>
+<td>Skipped</td>
+</tr>
+</tbody>
+</table>
+<p>Using both options preserves substantially more characteristics of the source token than either option alone. It does not completely disable Sandboxie because the other isolation layers remain independent.</p>
+<h2 id="replicatetoken">ReplicateToken<a class="headerlink" href="#replicatetoken" title="Permanent link"></a></h2>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="na">ReplicateToken</span><span class="o">=</span><span class="s">y</span>
+</span></code></pre></div>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="na">ReplicateToken</span><span class="o">=</span><span class="s">n</span>
+</span></code></pre></div>
+<p><em>ReplicateToken</em> defaults to <code>n</code> and applies specifically to the modern <code>Token_CreateToken</code> reconstruction path. It creates a new token while preserving substantially more properties from the source token; it does not simply duplicate the original token object.</p>
+<p>The reconstructed token preserves or reuses the source token user, groups, privileges, token type, impersonation level, authentication ID, expiration, owner, primary group, default DACL, token source, device groups, and token security attributes. It also avoids several normal transformations, including Sandboxie or Anonymous token-user substitution, conversion of groups to deny-only, normal privilege reduction, and normal addition of the <em>SandboxieAll</em> group.</p>
+<p>The source token passed to this stage may already have undergone preliminary filtering unless <em>UnfilteredToken</em> is also enabled. <em>ReplicateToken</em> therefore does not necessarily restore groups or privileges removed earlier.</p>
+<p>The implementation does not explicitly copy every token information class. Research did not establish explicit copying of <code>TokenRestrictedSids</code>, <code>TokenOrigin</code>, <code>TokenSessionId</code>, or AppContainer capabilities. <em>ReplicateToken</em> reconstructs the sandbox token while preserving substantially more properties of its source token; it should not be treated as an exact clone of every token field.</p>
+<h2 id="copytokenattributes">CopyTokenAttributes<a class="headerlink" href="#copytokenattributes" title="Permanent link"></a></h2>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="na">CopyTokenAttributes</span><span class="o">=</span><span class="s">y</span>
+</span></code></pre></div>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="na">CopyTokenAttributes</span><span class="o">=</span><span class="s">n</span>
+</span></code></pre></div>
+<p><em>CopyTokenAttributes</em> applies to the modern <code>Token_CreateToken</code> path and refers specifically to <code>TokenSecurityAttributes</code>. Sandboxie reads these security attributes from the source token and adds them to the newly created token. The setting does not copy every token information class and does not mean that AppContainer capabilities are copied.</p>
+<p>There is an important difference between the metadata and current runtime defaults:</p>
+<ul>
+<li>the setting metadata lists a default of <code>n</code>;</li>
+<li>the current <code>Token_CreateToken</code> implementation uses <code>true</code> as the runtime default when the setting is absent.</li>
+</ul>
+<p>As a result, token security attributes are copied by default on that path in the current implementation. Setting <code>CopyTokenAttributes=n</code> explicitly disables this optional copy. Enabling <em>ReplicateToken</em> forces the copy behavior regardless of the explicit <em>CopyTokenAttributes</em> value.</p>
+<p>Attribute copying occurs after the new token is created and is best effort. Failure while querying, allocating, or applying <code>TokenSecurityAttributes</code> does not invalidate an otherwise successfully created token.</p>
+<h2 id="keeptokenintegrity">KeepTokenIntegrity<a class="headerlink" href="#keeptokenintegrity" title="Permanent link"></a></h2>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="na">KeepTokenIntegrity</span><span class="o">=</span><span class="s">y</span>
+</span></code></pre></div>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="na">KeepTokenIntegrity</span><span class="o">=</span><span class="s">n</span>
+</span></code></pre></div>
+<p><em>KeepTokenIntegrity</em> defaults to <code>n</code>. Sandboxie normally replaces the source integrity SID with a lowered sandbox integrity level. Enabling this setting preserves the source token's integrity level instead, so a token that begins at High integrity can remain at High integrity.</p>
+<p>Integrity level, group membership, and privileges are separate token properties. <em>KeepTokenIntegrity</em> preserves the source integrity level; token groups and privileges are filtered independently. It does not undo <em>DropAdminRights</em> and does not change the compatibility behavior of <a href="FakeAdminRights.html"><code>FakeAdminRights</code></a>.</p>
+<p>Enabling this setting makes <em>NoUntrustedToken</em> irrelevant. It is also redundant when normal primary-token replacement is bypassed by <em>NoSecurityIsolation</em>.</p>
+<h2 id="keepusergroup">KeepUserGroup<a class="headerlink" href="#keepusergroup" title="Permanent link"></a></h2>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="na">KeepUserGroup</span><span class="o">=</span><span class="s">y</span>
+</span></code></pre></div>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="na">KeepUserGroup</span><span class="o">=</span><span class="s">n</span>
+</span></code></pre></div>
+<p><em>KeepUserGroup</em> defaults to <code>n</code>. Here, "user group" means the token group entry whose SID matches the token's <code>TokenUser</code>. It does not specifically mean <code>BUILTIN\Users</code>, the <em>SandboxieAll</em> group, or the logon SID.</p>
+<p>During normal group restriction, Sandboxie can disable groups or convert them to deny-only. With <em>KeepUserGroup</em> enabled, the group matching the token user SID is preserved instead of receiving that normal treatment. The <code>TokenUser</code> identity itself can still be substituted later by the normal Anonymous Logon or Sandboxie SID path.</p>
+<h2 id="unstrippedtoken">UnstrippedToken<a class="headerlink" href="#unstrippedtoken" title="Permanent link"></a></h2>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="na">UnstrippedToken</span><span class="o">=</span><span class="s">y</span>
+</span></code></pre></div>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="na">UnstrippedToken</span><span class="o">=</span><span class="s">n</span>
+</span></code></pre></div>
+<p><em>UnstrippedToken</em> defaults to <code>n</code>. It skips selected stripping operations, but the exact preserved properties depend on the token-construction path.</p>
+<h3 id="modern-token-construction-path">Modern token-construction path<a class="headerlink" href="#modern-token-construction-path" title="Permanent link"></a></h3>
+<p>On the modern <code>Token_CreateToken</code> path, enabling <em>UnstrippedToken</em> skips the normal group-restriction transformations and integrity-level replacement. Normal token-user substitution still occurs, and privileges are still reduced to the modern path's restricted privilege set, which normally retains <code>SeChangeNotifyPrivilege</code>.</p>
+<p>It therefore does not preserve every token component.</p>
+<h3 id="legacy-filtering-path">Legacy filtering path<a class="headerlink" href="#legacy-filtering-path" title="Permanent link"></a></h3>
+<p>On the legacy path, integrity handling occurs before the <em>UnstrippedToken</em> early return. Later group stripping and restriction steps are skipped. Consequently, the setting does not imply <em>KeepTokenIntegrity</em> uniformly across both implementations.</p>
+<p><em>UnstrippedToken</em> acts later and more narrowly than <em>UnfilteredToken</em>, is less comprehensive than <em>UnrestrictedToken</em>, and is not an alias for either one. The modern behavior is the most relevant to current normal configurations, but the legacy distinction still exists under other configurations or platform conditions.</p>
+<h2 id="interaction-with-nosecurityisolation">Interaction with NoSecurityIsolation<a class="headerlink" href="#interaction-with-nosecurityisolation" title="Permanent link"></a></h2>
+<p>When <a href="NoSecurityIsolation.html"><code>NoSecurityIsolation=y</code></a>, Sandboxie normally bypasses primary-token replacement. The settings described on this page are therefore generally redundant or not reached for the normal primary token:</p>
+<ul>
+<li><em>NoUntrustedToken</em></li>
+<li><em>ReplicateToken</em></li>
+<li><em>CopyTokenAttributes</em></li>
+<li><em>UnfilteredToken</em></li>
+<li><em>UnrestrictedToken</em></li>
+<li><em>KeepTokenIntegrity</em></li>
+<li><em>KeepUserGroup</em></li>
+<li><em>UnstrippedToken</em></li>
+</ul>
+<p>See <a href="NoSecurityIsolation.html">No Security Isolation</a> for the wider effects of that mode.</p>
+<h2 id="interaction-with-administrative-rights-settings">Interaction with administrative-rights settings<a class="headerlink" href="#interaction-with-administrative-rights-settings" title="Permanent link"></a></h2>
+<p><a href="DropAdminRights.html"><code>DropAdminRights</code></a> performs real token filtering, including disabling administrator-related groups and removing selected privileges. <em>UnfilteredToken</em> can bypass its preliminary filtering stage, while <em>UnrestrictedToken</em> alone does not restore properties already removed there. <em>KeepTokenIntegrity</em> can preserve a High integrity level without restoring administrative groups or privileges.</p>
+<p><a href="FakeAdminRights.html"><code>FakeAdminRights</code></a> is different: its current implementation primarily uses compatibility hooks to make selected administrator checks appear successful. It does not restore real administrator groups or privileges removed by token filtering.</p>
+<h2 id="sandman-configuration">SandMan configuration<a class="headerlink" href="#sandman-configuration" title="Permanent link"></a></h2>
+<p>Among the settings on this page, only <em>NoUntrustedToken</em> has a dedicated current SandMan control:</p>
+<p><strong>Sandbox Options &gt; Security Options &gt; Advanced Security &gt; Use LOW integrity token instead of UNTRUSTED (reduces isolation)</strong></p>
+<p>The remaining settings are advanced manual <a href="SandboxieIni.html"><code>Sandboxie.ini</code></a> options.</p>
+<h2 id="sandboxie-plus-and-classic">Sandboxie Plus and Classic<a class="headerlink" href="#sandboxie-plus-and-classic" title="Permanent link"></a></h2>
+<p>Token processing is implemented in shared Sandboxie components. SandMan exposes the <em>NoUntrustedToken</em> control, while the other settings on this page use manual configuration. Current source does not contain equivalent dedicated Sandboxie Control Classic controls, but compatible manual INI settings can be consumed by the shared runtime where applicable.</p>
+<h2 id="applying-configuration-changes">Applying configuration changes<a class="headerlink" href="#applying-configuration-changes" title="Permanent link"></a></h2>
+<p>These settings are primarily consulted while Sandboxie prepares, filters, or creates a process token. Changing them does not retroactively rebuild an already assigned primary token. Restart affected sandboxed processes after changing the settings; recreating the sandboxed process tree provides consistent behavior. A SandMan, service, or driver restart is not normally required.</p>
+<p><em>UnfilteredToken</em> is also consulted during relevant later impersonation-token handling, but this does not remove the need to restart processes when changing primary-token policy.</p>
+<h2 id="failure-behavior">Failure behavior<a class="headerlink" href="#failure-behavior" title="Permanent link"></a></h2>
+<p>Essential token-filtering, construction, or assignment failures cause process initialization to fail rather than deliberately falling back to a less-restricted host token. Exact errors depend on the failed operation.</p>
+<p>The optional <em>CopyTokenAttributes</em> step is different: failure to copy <code>TokenSecurityAttributes</code> does not invalidate an otherwise successfully created token.</p>
+<h2 id="version-history">Version history<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
+<ul>
+<li><em>UnfilteredToken</em> and <em>UnrestrictedToken</em> date to Sandboxie Plus 0.2.1 / Classic 5.41.1.</li>
+<li><em>KeepTokenIntegrity</em> dates to Sandboxie Plus 0.3.0 / Classic 5.42.</li>
+<li><em>KeepUserGroup</em> and <em>UnstrippedToken</em> date to Sandboxie Plus 1.0.6 / Classic 5.55.6.</li>
+<li>The setting metadata records <em>NoUntrustedToken</em>, <em>ReplicateToken</em>, and <em>CopyTokenAttributes</em> as added in Sandboxie Plus 1.14.1.</li>
+<li>The dedicated <em>NoUntrustedToken</em> SandMan control was documented in the Sandboxie Plus 1.17.0 / Classic 5.72.0-era changes.</li>
+</ul>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
+<ul>
+<li><a href="IsolationMechanism.html">Isolation Mechanism</a></li>
+<li><a href="NoSecurityIsolation.html">No Security Isolation</a></li>
+<li><a href="DropAdminRights.html">Drop Admin Rights</a></li>
+<li><a href="FakeAdminRights.html">Fake Admin Rights</a></li>
+<li><a href="SandboxieIni.html">Sandboxie Ini</a></li>
+</ul>
 
 
 

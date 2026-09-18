@@ -6,19 +6,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="BoxNameTitle is a sandbox setting in Sandboxie Ini. It controls whether Sandboxie displays the name of the sandbox in the title bar of a window that belongs to a sandboxed application.">
+        <meta name="description" content="Process speed settings are sandbox settings in Sandboxie Ini, available since Sandboxie Plus 1.14.0. They adjust selected Windows timing, sleep, and timer APIs inside sandboxed processes. They do not change the Windows system clock or provide complete time virtualization for a sandbox.">
       
       
       
-        <link rel="canonical" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/BoxNameTitle.html">
+        <link rel="canonical" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/ProcessSpeedSettings.html">
       
       
       
       
         
-          <link rel="alternate" href="BoxNameTitle.html" hreflang="en">
+          <link rel="alternate" href="ProcessSpeedSettings.html" hreflang="en">
         
-          <link rel="alternate" href="../zh-CN/Content/BoxNameTitle.html" hreflang="zh">
+          <link rel="alternate" href="../zh-CN/Content/ProcessSpeedSettings.html" hreflang="zh">
         
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>Box Name Title - Sandboxie Documentation</title>
+        <title>Process Speed Settings - Sandboxie Documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#box-name-title" class="md-skip">
+        <a href="#process-speed-settings" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Box Name Title
+              Process Speed Settings
             
           </span>
         </div>
@@ -166,13 +166,13 @@
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="BoxNameTitle.html" hreflang="en" class="md-select__link">
+            <a href="ProcessSpeedSettings.html" hreflang="en" class="md-select__link">
               English
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="../zh-CN/Content/BoxNameTitle.html" hreflang="zh" class="md-select__link">
+            <a href="../zh-CN/Content/ProcessSpeedSettings.html" hreflang="zh" class="md-select__link">
               简体中文
             </a>
           </li>
@@ -5568,7 +5568,7 @@
 
 
   
-    <a href="https://github.com/sandboxie-plus/sandboxie-docs/edit/main/docs/Content/BoxNameTitle.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/sandboxie-plus/sandboxie-docs/edit/main/docs/Content/ProcessSpeedSettings.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -5577,28 +5577,135 @@
     
       
     
-    <a href="https://github.com/sandboxie-plus/sandboxie-docs/raw/main/docs/Content/BoxNameTitle.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/sandboxie-plus/sandboxie-docs/raw/main/docs/Content/ProcessSpeedSettings.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<h1 id="box-name-title">Box Name Title<a class="headerlink" href="#box-name-title" title="Permanent link"></a></h1>
-<p><em>BoxNameTitle</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It controls whether Sandboxie displays the name of the sandbox in the title bar of a window that belongs to a sandboxed application.</p>
-<p>Usage:</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">BoxNameTitle</span><span class="o">=</span><span class="s">y</span>
+<h1 id="process-speed-settings">Process Speed Settings<a class="headerlink" href="#process-speed-settings" title="Permanent link"></a></h1>
+<p>Process speed settings are sandbox settings in <a href="SandboxieIni.html">Sandboxie Ini</a>, available since Sandboxie Plus 1.14.0. They adjust selected Windows timing, sleep, and timer APIs inside sandboxed processes. They do not change the Windows system clock or provide complete time virtualization for a sandbox.</p>
+<h2 id="enabling-process-speed-changes">Enabling Process Speed Changes<a class="headerlink" href="#enabling-process-speed-changes" title="Permanent link"></a></h2>
+<p>Enable the feature for a sandbox with:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">UseChangeSpeed</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>By default, Sandboxie only displays the sandboxed [#] indicator in the title bar of a window that belongs to a sandboxed application. For example:</p>
-<p>[#] Sandboxie - Front Page - Windows Internet Explorer [#]</p>
-<p>Specifying <em>BoxNameTitle=y</em> places the sandbox name in the title bar:</p>
-<p>[#] [DefaultBox] Sandboxie - Front Page - Windows Internet Explorer [#]</p>
-<p>Sandboxie may skip title modification for windows detected as using custom or client-drawn title bars to avoid excessive DWM repaint activity and high CPU usage. See <a href="DisableCustomTitleOpt.html">Disable Custom Title Optimization</a> for the per-program opt-out.</p>
-<p>Related <a href="SandboxieControl.html">Sandboxie Control</a> setting: <a href="AppearanceSettings.html">Sandbox Settings &gt; Appearance</a></p>
+<p><code>UseChangeSpeed=y</code> is required for the six speed factors to have an effect. If <code>UseChangeSpeed</code> is absent or disabled, Sandboxie does not install the process-speed hooks when a sandboxed process initializes.</p>
+<p>Use positive decimal integer factors. A value of <code>1</code> is neutral and leaves that factor unchanged.</p>
+<h2 id="affected-apis">Affected APIs<a class="headerlink" href="#affected-apis" title="Permanent link"></a></h2>
+<p>The settings apply only to the API groups listed below.</p>
+<h3 id="tick-and-clock-functions">Tick and Clock Functions<a class="headerlink" href="#tick-and-clock-functions" title="Permanent link"></a></h3>
+<p><code>AddTickSpeed</code> and <code>LowTickSpeed</code> control:</p>
+<ul>
+<li><code>GetTickCount</code></li>
+<li><code>GetTickCount64</code></li>
+<li><code>QueryUnbiasedInterruptTime</code></li>
+<li><code>QueryPerformanceCounter</code></li>
+</ul>
+<p>For normal positive values, the effective clock-speed relationship is approximately <code>AddTickSpeed / LowTickSpeed</code>. <code>AddTickSpeed</code> makes the affected clocks progress faster, while <code>LowTickSpeed</code> makes them progress slower.</p>
+<p>These functions represent elapsed or performance-counter time, not the system date and time. The affected timing sources are adjusted independently and should not be treated as a single precise virtual clock. Applications that compare different Windows timing sources may observe differences.</p>
+<h3 id="sleep-functions">Sleep Functions<a class="headerlink" href="#sleep-functions" title="Permanent link"></a></h3>
+<p><code>AddSleepSpeed</code> and <code>LowSleepSpeed</code> control the requested duration passed through Sandboxie's <code>SleepEx</code> hook. Sandboxie's implementation relies on normal <code>Sleep</code> calls reaching this <code>SleepEx</code> path on Windows; it does not install a separate <code>Sleep</code> hook.</p>
+<p>For normal positive values, the effective duration relationship is approximately <code>LowSleepSpeed / AddSleepSpeed</code>. Shorter delays allow execution to progress faster. For example:</p>
+<ul>
+<li><code>AddSleepSpeed=2</code> changes a requested 1000 ms sleep to approximately 500 ms.</li>
+<li><code>LowSleepSpeed=2</code> changes a requested 1000 ms sleep to approximately 2000 ms.</li>
+</ul>
+<p>This does not modify synchronization waits such as <code>WaitForSingleObject</code>. Very small transformed durations remain subject to normal Windows scheduling and timer-resolution behavior.</p>
+<h3 id="timer-functions">Timer Functions<a class="headerlink" href="#timer-functions" title="Permanent link"></a></h3>
+<p><code>AddTimerSpeed</code> and <code>LowTimerSpeed</code> control:</p>
+<ul>
+<li><code>SetTimer</code></li>
+<li><code>timeGetTime</code></li>
+<li><code>timeSetEvent</code></li>
+</ul>
+<p>In the current implementation, <code>timeGetTime</code> belongs to the Timer factor group, not the Tick factor group.</p>
+<p>For supported timer intervals, the effective duration relationship is approximately <code>LowTimerSpeed / AddTimerSpeed</code>. The <code>timeGetTime</code> clock uses the corresponding <code>AddTimerSpeed / LowTimerSpeed</code> relationship. Therefore:</p>
+<ul>
+<li><code>AddTimerSpeed=2</code> approximately halves supported timer intervals and makes <code>timeGetTime</code> progress approximately twice as fast.</li>
+<li><code>LowTimerSpeed=2</code> approximately doubles supported timer intervals and makes <code>timeGetTime</code> progress approximately half as fast.</li>
+</ul>
+<p>Windows timer minimums, resolution, message processing, and scheduling still apply, so actual callback or message delivery times may differ from the calculated interval.</p>
+<h2 id="factor-comparison">Factor Comparison<a class="headerlink" href="#factor-comparison" title="Permanent link"></a></h2>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Controls</th>
+<th>Value <code>2</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>AddTickSpeed</code></td>
+<td>Supported tick/clock sources</td>
+<td>About 2x faster</td>
+</tr>
+<tr>
+<td><code>LowTickSpeed</code></td>
+<td>Supported tick/clock sources</td>
+<td>About 2x slower</td>
+</tr>
+<tr>
+<td><code>AddSleepSpeed</code></td>
+<td><code>SleepEx</code> duration</td>
+<td>1000 ms becomes about 500 ms</td>
+</tr>
+<tr>
+<td><code>LowSleepSpeed</code></td>
+<td><code>SleepEx</code> duration</td>
+<td>1000 ms becomes about 2000 ms</td>
+</tr>
+<tr>
+<td><code>AddTimerSpeed</code></td>
+<td>Supported timer APIs</td>
+<td>Intervals about halved; <code>timeGetTime</code> faster</td>
+</tr>
+<tr>
+<td><code>LowTimerSpeed</code></td>
+<td>Supported timer APIs</td>
+<td>Intervals about doubled; <code>timeGetTime</code> slower</td>
+</tr>
+</tbody>
+</table>
+<h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link"></a></h2>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">UseChangeSpeed</span><span class="o">=</span><span class="s">y</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="na">AddTickSpeed</span><span class="o">=</span><span class="s">2</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="na">AddSleepSpeed</span><span class="o">=</span><span class="s">2</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="na">AddTimerSpeed</span><span class="o">=</span><span class="s">2</span>
+</span></code></pre></div>
+<p>This configuration generally causes:</p>
+<ul>
+<li>the supported tick and clock sources to progress approximately twice as fast;</li>
+<li>a requested 1000 ms sleep to become approximately 500 ms;</li>
+<li>supported timer intervals to be reduced approximately by half;</li>
+<li><code>timeGetTime</code> to progress approximately twice as fast.</li>
+</ul>
+<h2 id="combining-add-and-low-factors">Combining Add and Low Factors<a class="headerlink" href="#combining-add-and-low-factors" title="Permanent link"></a></h2>
+<p>The Add and Low variants for the same group may be configured together. Neither setting overrides the other. For example:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">UseChangeSpeed</span><span class="o">=</span><span class="s">y</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="na">AddTickSpeed</span><span class="o">=</span><span class="s">2</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="na">LowTickSpeed</span><span class="o">=</span><span class="s">3</span>
+</span></code></pre></div>
+<p>For normal clock transformations, this produces an effective ratio of approximately <code>2/3</code>. Tick, Sleep, and Timer factors are independent, so changing one group does not automatically configure the others.</p>
+<h2 id="runtime-scope">Runtime Scope<a class="headerlink" href="#runtime-scope" title="Permanent link"></a></h2>
+<p>The hooks run inside each sandboxed process through Sandboxie's injected DLL. Each sandboxed process receives the hooks when it initializes; this is not a system-wide change to the Windows clock. SandMan and the Sandboxie services are not normally affected.</p>
+<p><code>UseChangeSpeed</code> determines whether the hooks are installed during process initialization. Changing it after a process has started does not retroactively install or remove hooks in that process. The individual numeric factors are read by the hooked paths, so a configuration change may affect a process that already has the hooks installed.</p>
+<h2 id="intended-use">Intended Use<a class="headerlink" href="#intended-use" title="Permanent link"></a></h2>
+<p>The feature is intended for scenarios such as reducing fixed application delays during analysis or testing and modifying logical speed for compatible single-player applications or games. Compatibility depends on which Windows timing mechanisms an application uses.</p>
+<h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link"></a></h2>
+<ul>
+<li>The feature does not intercept every Windows time source or wait mechanism. System wall-clock APIs, <code>NtQuerySystemTime</code>, <code>NtDelayExecution</code>, synchronization waits, waitable timers, timer queues, and threadpool timers are not covered.</li>
+<li>Because only selected APIs are adjusted, applications that compare multiple timing sources may observe inconsistent elapsed times.</li>
+<li>Synchronization waits are not generally shortened or extended by the Sleep factors.</li>
+<li>Changing timing behavior can affect application logic, responsiveness, media handling, or timeout assumptions.</li>
+<li>Large factors and very small resulting intervals can produce unusual behavior because Windows timer resolution and application assumptions still apply.</li>
+</ul>
+<p>There is currently no dedicated graphical control for these settings. Configure them through the sandbox INI editor.</p>
+<p>Related: <a href="SandboxieIni.html">Sandboxie Ini</a>.</p>
 
 
 

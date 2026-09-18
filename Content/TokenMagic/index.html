@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Sandboxie implements isolation by running sandboxed processes with a heavily restricted primary token. As most applications cannot function this way, it hooks all NTDLL.dll calls redirecting them through an interface in the SbieDrv. The driver then can inspect the call arguments, makes the calling thread impersonate the original unrestricted token, execute the system call, and de-impersonate the thread before returning control to user mode.">
+        <meta name="description" content="Sandboxie Plus lets you run programs in isolated sandboxes on Windows, enhancing security and privacy by containing changes from the rest of the system.">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>SandboxieDrv use of undocumented kernel exports to do its token magic - Sandboxie Documentation</title>
+        <title>Token and Syscall Internals - Sandboxie Documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sandboxiedrv-use-of-undocumented-kernel-exports-to-do-its-token-magic" class="md-skip">
+        <a href="#token-and-syscall-internals" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              SandboxieDrv use of undocumented kernel exports to do its token magic
+              Token and Syscall Internals
             
           </span>
         </div>
@@ -5584,37 +5584,137 @@
   
 
 
-<h1 id="sandboxiedrv-use-of-undocumented-kernel-exports-to-do-its-token-magic">SandboxieDrv use of undocumented kernel exports to do its token magic<a class="headerlink" href="#sandboxiedrv-use-of-undocumented-kernel-exports-to-do-its-token-magic" title="Permanent link"></a></h1>
-<p>Sandboxie implements isolation by running sandboxed processes with a heavily restricted primary token. As most applications cannot function this way, it hooks all NTDLL.dll calls redirecting them through an interface in the SbieDrv. The driver then can inspect the call arguments, makes the calling thread impersonate the original unrestricted token, execute the system call, and de-impersonate the thread before returning control to user mode.</p>
-<p>This way, a process running under the supervision of Sandboxie cannot issue syscalls with the original token, even if it would undo the ntdll.dll hooks.</p>
-<p>For this mechanism to work, Sandboxie utilizes a couple of undocumented operations:</p>
-<ol>
-<li>The current default path constructs a new restricted primary token, while the historical alternative uses the unexported internal routine SepFilterToken as well as a couple of offsets (RestrictedSidCount, RestrictedSids, UserAndGroups, UserAndGroupCount). Sandboxie locates this routine through implementation-specific kernel analysis. Both paths still require kernel-specific handling; see <a href="../AccessTokenIsolation/">Access Token Isolation</a> for their user-facing configuration.</li>
-</ol>
-<p>The current token-construction path reduces the dependency on <code>SepFilterToken</code>, but Sandboxie's isolation mechanism still relies on other implementation-specific kernel behavior described below.</p>
-<ol>
-<li>To be able to invoke any syscall on the behalf of the sandboxed process, the driver must know the function address and argument count for each syscall index.
-Sandboxie currently obtains those by finding the address of the unexported syscall table by analyzing the KeAddSystemServiceTable function.</li>
-</ol>
-<p>To eliminate the dependencies on unexported symbols, it is required to export KeServiceDescriptorTableShadow.</p>
-<ol>
-<li>Due to limitations in PsImpersonateClient (starting with Windows XP SP2), it is required to call it with impersonation level SecurityIdentification and then change that in the opaque thread object to SecurityImpersonation.</li>
-</ol>
-<p>To eliminate the dependencies on unexported symbols, it would be required to provide a documented mechanism for a driver to achieve any desired impersonation level.</p>
-<ol>
-<li>To replace a sandboxed processes primary token, it is required to clear the PrimaryTokenFrozen bit in the EPROCESS structure, this operation is triggered from a callback registered with PsSetLoadImageNotifyRoutine.</li>
-</ol>
-<p>I have not investigated if it would be feasible to do the token replacement before it gets officially frozen.</p>
-<p>Other than the above essential dependencies, Sandboxie gets the Clipboard object from the window station object in order to adjust the integrity level for the stored items such that they can be accessed by the sandboxed applications.</p>
+<h1 id="token-and-syscall-internals">Token and Syscall Internals<a class="headerlink" href="#token-and-syscall-internals" title="Permanent link"></a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h2>
+<p>Processes in normal security-isolation boxes run with a restricted or reconstructed Windows primary token. Sandboxie also patches selected native-system-call stubs and routes those calls through SbieDrv so that the driver can inspect and mediate compatible operations.</p>
+<p>For user-facing configuration of the current token-construction paths, see <a href="../AccessTokenIsolation/">Access Token Isolation</a>.</p>
+<p>This token and syscall architecture is only part of Sandboxie's isolation model. File, registry, IPC, network, GUI, and other controls are implemented separately; see <a href="../IsolationMechanism/">Isolation Mechanism</a>. Application Compartment mode, configured through <a href="../NoSecurityIsolation/">No Security Isolation</a>, normally bypasses the primary-token replacement model described here.</p>
+<h2 id="components-involved">Components involved<a class="headerlink" href="#components-involved" title="Permanent link"></a></h2>
+<ul>
+<li><strong>SbieDrv</strong> tracks sandboxed processes, replaces their primary tokens, mediates native system calls, and applies relevant kernel-side policy and filtering.</li>
+<li><strong>SbieSvc</strong> coordinates early process injection and provides privileged helper functionality.</li>
+<li><strong>LowLevel / SbieLow</strong> performs early injected setup and patches selected native-system-call stubs.</li>
+<li><strong>SbieDll</strong> provides user-mode virtualization, compatibility hooks, and related initialization.</li>
+</ul>
+<h2 id="process-startup">Process startup<a class="headerlink" href="#process-startup" title="Permanent link"></a></h2>
+<p>The current high-level startup flow is:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Windows process creation
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    |
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    v
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>process callback identifies sandboxed process
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    |
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    v
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>early LowLevel / SbieDll injection is coordinated
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    |
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    v
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>first relevant image-load initialization
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    |
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    v
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>Sandboxie initializes sandbox subsystems
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    |
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    v
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>primary token is filtered/reconstructed
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    |
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    v
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>restricted/reconstructed token is assigned
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>    |
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>    v
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>earlier source token is retained for mediated operations
+</span></code></pre></div>
+<p>The driver process callbacks identify and record the sandboxed process, while SbieSvc coordinates low-level injection. The first relevant image-load notification then triggers initialization of the sandbox subsystems and the primary-token replacement path.</p>
+<h2 id="primary-token-processing">Primary-token processing<a class="headerlink" href="#primary-token-processing" title="Permanent link"></a></h2>
+<p>Token processing has separate stages:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>original primary token
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    |
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    v
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>preliminary filtering
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    |
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    v
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>restriction / reconstruction
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    |
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    v
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>sandbox primary token
+</span></code></pre></div>
+<p>Preliminary filtering can remove or disable token properties before the later restriction or reconstruction stage. Consequently, the token supplied to that later stage—and the earlier source token retained after replacement—may already be preliminarily filtered. Advanced configuration can alter which stages are used, but the retained token should not be described universally as the original unrestricted token.</p>
+<p><code>SeFilterToken</code> is used by the current preliminary filtering stage. It is distinct from the internal <code>SepFilterToken</code> routine used by the legacy restriction path and is not legacy-only.</p>
+<h2 id="modern-token-reconstruction">Modern token reconstruction<a class="headerlink" href="#modern-token-reconstruction" title="Permanent link"></a></h2>
+<p>Current normal configurations commonly use <code>Token_CreateToken</code>. This path is selected when <code>SepFilterToken</code> is unavailable, when <code>UseCreateToken</code> selects it, or when <code>SandboxieAllGroup</code> selects it. The current runtime default for <code>SandboxieAllGroup</code> makes modern reconstruction the common normal path.</p>
+<p>Rather than modifying the source token object in place, the modern path constructs a new token from source-token information. It handles the token user, groups, privileges, integrity, owner, primary group, default DACL, token source, authentication and token statistics, and, where applicable, device groups and token security attributes. Normal reconstruction can substitute the token user, lower integrity, restrict groups, reduce privileges, and add Sandboxie-specific token groups.</p>
+<p>The modern reconstruction path already creates the new token through dynamically resolved token-creation services, preferring <code>ZwCreateTokenEx</code> and falling back to <code>ZwCreateToken</code> where required. These are internal kernel services rather than ordinary user-facing configuration APIs.</p>
+<h2 id="legacy-token-filtering">Legacy token filtering<a class="headerlink" href="#legacy-token-filtering" title="Permanent link"></a></h2>
+<p>The older restricted-token path remains in the implementation. It can be selected when <code>SepFilterToken</code> was resolved, the modern path was not selected, and advanced configuration did not bypass the restriction stage.</p>
+<p>The legacy path uses internally resolved <code>SepFilterToken</code>, documented <code>SeFilterToken</code>, and internal <code>TOKEN</code>-structure information such as <code>RestrictedSidCount</code>, <code>RestrictedSids</code>, <code>UserAndGroups</code>, and <code>UserAndGroupCount</code>. The legacy token path still uses <code>SepFilterToken</code> and internal <code>TOKEN</code>-layout data, but it is not the normal path in current configurations.</p>
+<h2 id="retained-source-tokens">Retained source tokens<a class="headerlink" href="#retained-source-tokens" title="Permanent link"></a></h2>
+<p>After successful primary-token replacement, Sandboxie retains a reference to the earlier source token in per-process state. Depending on preliminary filtering, this may be the original primary token or a preliminarily filtered source token.</p>
+<p>For a mediated call, Sandboxie may temporarily impersonate a recorded thread impersonation token or the retained process source token. Temporary impersonation is normally cleared after the operation.</p>
+<p>Sandboxie's current impersonation helper calls <code>PsImpersonateClient</code> at <code>SecurityIdentification</code>. When a higher effective impersonation level is required, it uses version-specific <code>ETHREAD</code> information supplied through DynData to adjust that level. This remains a current implementation-specific dependency on supported Windows versions; it is not merely a historical Windows XP workaround.</p>
+<h2 id="native-syscall-mediation">Native syscall mediation<a class="headerlink" href="#native-syscall-mediation" title="Permanent link"></a></h2>
+<p>Sandboxie enumerates relevant native syscall exports and stubs. The injected low-level code patches selected stubs and routes calls through SbieDrv. The driver identifies the syscall entry, applies a Sandboxie-specific handler where one exists, or invokes the underlying kernel service as appropriate. During normal mediation, it may apply the temporary source-token or thread-token impersonation described above and clears that impersonation afterward.</p>
+<p>Driver syscall metadata includes the syscall or service index, kernel service address, argument count, and handler or approval state. Address and argument-count information are still derived from service-table metadata. Native NT syscalls and Win32k syscalls use related but separate mechanisms; Win32k support is conditional and has separate dispatch structures.</p>
+<p>Service-table information can come from several routes, including DynData, the exported <code>KeServiceDescriptorTable</code> where available, and architecture- or build-specific analysis involving <code>KeAddSystemServiceTable</code>. The historical description of Sandboxie always locating one unexported table solely by analyzing <code>KeAddSystemServiceTable</code> is therefore incomplete.</p>
+<h2 id="direct-syscalls">Direct syscalls<a class="headerlink" href="#direct-syscalls" title="Permanent link"></a></h2>
+<p>A direct syscall that bypasses a patched NTDLL stub also bypasses that particular user-mode-to-driver mediation route. It does not, however, recover Sandboxie's retained source-token context. The call normally executes under the restricted or reconstructed sandbox primary token and remains subject to applicable Windows access checks and independent Sandboxie kernel enforcement.</p>
+<p>The exact outcome depends on the syscall, token permissions, the active Sandboxie subsystem, and configuration. Direct syscalls therefore neither bypass all Sandboxie controls nor have one universal failure result.</p>
+<p>In Application Compartment mode, primary-token replacement is normally bypassed, the retained process token used by this mechanism is not established through the normal path, and the low-level syscall hooks are disabled for that mode. SbieDll can still provide other virtualization and compatibility functions.</p>
+<h2 id="primary-token-replacement">Primary-token replacement<a class="headerlink" href="#primary-token-replacement" title="Permanent link"></a></h2>
+<p>The image-load callback triggers the relevant process initialization; it does not itself overwrite a token pointer. Sandboxie first prepares the replacement token. During assignment, it temporarily clears the process's <code>PrimaryTokenFrozen</code> flag, calls <code>ZwSetInformationProcess</code> with <code>ProcessAccessToken</code>, and then restores the flag.</p>
+<p>Access to <code>PrimaryTokenFrozen</code> uses version- and build-specific <code>EPROCESS</code> knowledge supplied through DynData on applicable systems. Sandboxie does not directly replace the primary-token pointer.</p>
+<h2 id="implementation-specific-kernel-dependencies">Implementation-specific kernel dependencies<a class="headerlink" href="#implementation-specific-kernel-dependencies" title="Permanent link"></a></h2>
+<p>Sandboxie uses a mix of documented APIs, dynamically resolved routines, and build-sensitive implementation-specific kernel mechanisms.</p>
+<table>
+<thead>
+<tr>
+<th>Dependency</th>
+<th>Role and current scope</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ZwCreateTokenEx</code> / <code>ZwCreateToken</code></td>
+<td>Dynamically resolved token-creation services used by the current modern reconstruction path.</td>
+</tr>
+<tr>
+<td><code>SepFilterToken</code> and internal <code>TOKEN</code> layout</td>
+<td>Used by the legacy token path; the modern path avoids these legacy layout dependencies.</td>
+</tr>
+<tr>
+<td>Service descriptor-table information</td>
+<td>Used to identify native services, addresses, and argument metadata for syscall mediation.</td>
+</tr>
+<tr>
+<td><code>ETHREAD</code> impersonation information</td>
+<td>Used by the current impersonation helper when adjusting effective impersonation level.</td>
+</tr>
+<tr>
+<td><code>EPROCESS</code> process information</td>
+<td>Includes <code>PrimaryTokenFrozen</code> and other build-sensitive fields involved in process initialization.</td>
+</tr>
+</tbody>
+</table>
+<p>Sandboxie also contains build-sensitive kernel compatibility code outside this token and syscall path, including clipboard and window-station handling.</p>
+<h2 id="dynamic-data">Dynamic data<a class="headerlink" href="#dynamic-data" title="Permanent link"></a></h2>
+<p>DynData supplies build-specific knowledge about implementation-sensitive kernel structures and service tables. The driver can use built-in data or accepted, signed external data for newer builds.</p>
+<p>If compatible DynData is unavailable, the driver can remain loaded, but affected boxes may be forced into Application Compartment behavior instead of receiving normal token isolation. Missing DynData therefore does not have one universal fail-closed or startup-failure outcome.</p>
+<h2 id="failure-behavior">Failure behavior<a class="headerlink" href="#failure-behavior" title="Permanent link"></a></h2>
+<p>Failure to obtain a required source token, construct an essential sandbox token, or assign the replacement token can abort process initialization. Failure to resolve <code>SepFilterToken</code> selects the modern construction path, while an unavailable <code>ZwCreateTokenEx</code> can fall back to <code>ZwCreateToken</code>.</p>
+<p>Failures during native or Win32k syscall initialization can prevent driver initialization. A failure to establish required temporary impersonation can terminate the affected sandboxed process. As described above, unavailable compatible DynData can instead cause compartment-mode fallback. These paths should not be summarized as one universal failure policy.</p>
+<h2 id="historical-evolution">Historical evolution<a class="headerlink" href="#historical-evolution" title="Permanent link"></a></h2>
+<p>The original architecture used the legacy <code>SepFilterToken</code> / <code>SeFilterToken</code> path together with internal <code>TOKEN</code> offsets. Sandboxie Plus 1.0.7 / Classic 5.55.7-era development introduced experimental <code>CreateToken</code>-based reconstruction. By January 2, 2022, the source already contained <code>SbieCreateToken</code> using <code>ZwCreateTokenEx</code> with a <code>ZwCreateToken</code> fallback, although the original version of this page, created later in 2022, still discussed that change as a future direction.</p>
+<p>Sandboxie Plus 1.13.0 / Classic 5.68.0 introduced the signed, updateable DynData architecture. Version 1.14.1 / 5.69.1 integrated the modern <code>UseCreateToken</code> / <code>SandboxieAllGroup</code> path, and version 1.17.0 / 5.72.0 made <code>SandboxieAllGroup</code> enabled by runtime default. That change made modern token reconstruction the common normal path while retaining the older path for configurations and systems that select it.</p>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
+<ul>
+<li><a href="../AccessTokenIsolation/">Access Token Isolation</a></li>
+<li><a href="../IsolationMechanism/">Isolation Mechanism</a></li>
+<li><a href="../NoSecurityIsolation/">No Security Isolation</a></li>
+<li><a href="../DropAdminRights/">Drop Admin Rights</a></li>
+<li><a href="../SandboxieIni/">Sandboxie Ini</a></li>
+</ul>
 
 
 
 
 
 
-
-  
-  
 
 
 

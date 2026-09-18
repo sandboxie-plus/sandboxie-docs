@@ -5611,6 +5611,7 @@
 </span></code></pre></div></p>
 <p>This setting tells Sandboxie to not translate window class names as described above, and also makes all windows in the system accessible to sandboxed programs, and goes a step further to disable a few other windowing-related Sandboxie functions. This may also cause the Sandboxie indicator [#] to not appear in window titles.</p>
 <p>Note that OpenWinClass=* allows full communication with all windows outside the sandbox, but may interfere with some drag-and-drop operations.</p>
+<p>When <code>OpenWinClass=*</code> is active, Sandboxie's notification-area compatibility proxy is enabled by default. This behavior can be overridden with <a href="UseShellNotifyIconProxy.html">Use Shell Notify Icon Proxy</a>.</p>
 <p><strong>Identifying Window Class Names</strong></p>
 <p>The unsandboxed windows are identified by their <em>window class name</em>, which is an internal name given to the window by the application that created it. You can use a tool like <a href="https://www.catch22.net/software/winspy">WinSpy</a> to identify window class names. The <a href="ResourceAccessMonitor.html">Resource Access Monitor</a> tool in Sandboxie Classic and the <a href="../PlusContent/TraceLog.html">Trace Logging</a> tool in Sandboxie Plus also display window class names.</p>
 <p>Related Sandboxie Plus settings:</p>

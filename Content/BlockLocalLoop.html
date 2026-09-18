@@ -6,19 +6,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="BoxNameTitle is a sandbox setting in Sandboxie Ini. It controls whether Sandboxie displays the name of the sandbox in the title bar of a window that belongs to a sandboxed application.">
+        <meta name="description" content="BlockLocalLoop is a sandbox setting in Sandboxie Ini available since Sandboxie Plus 1.17.4. It restricts matched IP-loopback traffic through Sandboxie&#x27;s covered networking paths and is disabled by default.">
       
       
       
-        <link rel="canonical" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/BoxNameTitle.html">
+        <link rel="canonical" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/BlockLocalLoop.html">
       
       
       
       
         
-          <link rel="alternate" href="BoxNameTitle.html" hreflang="en">
+          <link rel="alternate" href="BlockLocalLoop.html" hreflang="en">
         
-          <link rel="alternate" href="../zh-CN/Content/BoxNameTitle.html" hreflang="zh">
+          <link rel="alternate" href="../zh-CN/Content/BlockLocalLoop.html" hreflang="zh">
         
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>Box Name Title - Sandboxie Documentation</title>
+        <title>BlockLocalLoop - Sandboxie Documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#box-name-title" class="md-skip">
+        <a href="#blocklocalloop" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Box Name Title
+              BlockLocalLoop
             
           </span>
         </div>
@@ -166,13 +166,13 @@
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="BoxNameTitle.html" hreflang="en" class="md-select__link">
+            <a href="BlockLocalLoop.html" hreflang="en" class="md-select__link">
               English
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="../zh-CN/Content/BoxNameTitle.html" hreflang="zh" class="md-select__link">
+            <a href="../zh-CN/Content/BlockLocalLoop.html" hreflang="zh" class="md-select__link">
               简体中文
             </a>
           </li>
@@ -5568,7 +5568,7 @@
 
 
   
-    <a href="https://github.com/sandboxie-plus/sandboxie-docs/edit/main/docs/Content/BoxNameTitle.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/sandboxie-plus/sandboxie-docs/edit/main/docs/Content/BlockLocalLoop.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -5577,28 +5577,79 @@
     
       
     
-    <a href="https://github.com/sandboxie-plus/sandboxie-docs/raw/main/docs/Content/BoxNameTitle.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/sandboxie-plus/sandboxie-docs/raw/main/docs/Content/BlockLocalLoop.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<h1 id="box-name-title">Box Name Title<a class="headerlink" href="#box-name-title" title="Permanent link"></a></h1>
-<p><em>BoxNameTitle</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It controls whether Sandboxie displays the name of the sandbox in the title bar of a window that belongs to a sandboxed application.</p>
-<p>Usage:</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">BoxNameTitle</span><span class="o">=</span><span class="s">y</span>
+<h1 id="blocklocalloop">BlockLocalLoop<a class="headerlink" href="#blocklocalloop" title="Permanent link"></a></h1>
+<p><strong>BlockLocalLoop</strong> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a> available since Sandboxie Plus 1.17.4. It restricts matched IP-loopback traffic through Sandboxie's covered networking paths and is disabled by default.</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">BlockLocalLoop</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>By default, Sandboxie only displays the sandboxed [#] indicator in the title bar of a window that belongs to a sandboxed application. For example:</p>
-<p>[#] Sandboxie - Front Page - Windows Internet Explorer [#]</p>
-<p>Specifying <em>BoxNameTitle=y</em> places the sandbox name in the title bar:</p>
-<p>[#] [DefaultBox] Sandboxie - Front Page - Windows Internet Explorer [#]</p>
-<p>Sandboxie may skip title modification for windows detected as using custom or client-drawn title bars to avoid excessive DWM repaint activity and high CPU usage. See <a href="DisableCustomTitleOpt.html">Disable Custom Title Optimization</a> for the per-program opt-out.</p>
-<p>Related <a href="SandboxieControl.html">Sandboxie Control</a> setting: <a href="AppearanceSettings.html">Sandbox Settings &gt; Appearance</a></p>
+<p>This is a narrow loopback restriction, not complete local-network or host isolation. It does not block every way a sandboxed process could communicate with a service running on the same computer.</p>
+<h2 id="address-scope">Address scope<a class="headerlink" href="#address-scope" title="Permanent link"></a></h2>
+<p>The user-mode Winsock enforcement recognizes:</p>
+<ul>
+<li>the complete IPv4 <code>127.0.0.0/8</code> loopback range;</li>
+<li>the IPv6 loopback address <code>::1</code>;</li>
+<li>IPv4-mapped IPv6 loopback addresses containing an address from <code>127.0.0.0/8</code>.</li>
+</ul>
+<p><code>BlockLocalLoop</code> does not determine whether a non-loopback address belongs to the same computer. The host's LAN or Wi-Fi address, private addresses such as <code>10.x.x.x</code> and <code>192.168.x.x</code>, link-local addresses, assigned non-loopback IPv6 addresses, and virtual-adapter addresses are outside its normal address scope. Broader access should be controlled with normal <code>NetworkAccess</code> rules.</p>
+<p>The setting acts on resolved IP addresses rather than DNS names. For example, <code>localhost</code> or a custom hostname resolving to <code>127.0.0.0/8</code> or <code>::1</code> is subject to the restriction. A name resolving to a non-loopback address is not blocked merely because it identifies the local computer, and DNS resolution itself is not prevented.</p>
+<p>The restriction is address-based rather than port-specific. It has no documented per-port exceptions or built-in exemptions for particular browsers, RPC endpoints, or system services.</p>
+<h2 id="communication-behavior">Communication behavior<a class="headerlink" href="#communication-behavior" title="Permanent link"></a></h2>
+<p>When enabled, Sandboxie's user-mode Winsock path rejects standard outbound communication to matched loopback addresses. Covered paths include normal TCP connection attempts, connected UDP, UDP sends, and selected UDP receive paths. For example, calls through <code>connect</code>, <code>WSAConnect</code>, <code>sendto</code>, or <code>WSASendTo</code> are subject to the restriction.</p>
+<p>Standard Winsock operations blocked by the user-mode path normally fail immediately with a connection-refused error. Other networking paths, including operations blocked by Windows Filtering Platform (WFP), should not be assumed to return the same exact error.</p>
+<p><code>BlockLocalLoop</code> does not itself prevent a sandboxed application from binding a local socket or listening on a loopback address. It restricts communication through covered loopback paths rather than preventing creation of local listeners.</p>
+<p>There is no same-sandbox exemption. For outbound loopback traffic initiated by a sandboxed process with the setting enabled, the restriction does not distinguish whether the peer is:</p>
+<ul>
+<li>an unsandboxed host process;</li>
+<li>another process in the same sandbox;</li>
+<li>a process in another sandbox.</li>
+</ul>
+<p>Consequently, client/server pairs within the same sandbox may also be affected.</p>
+<p>The documented scope is IP networking over IPv4 and IPv6, including TCP and UDP through the covered Winsock paths. It does not apply to AF_UNIX sockets, named pipes, or other non-IP IPC mechanisms. Comprehensive raw-socket or ICMP filtering should not be assumed from the user-mode path alone.</p>
+<h2 id="network-rules-and-wfp-support">Network rules and WFP support<a class="headerlink" href="#network-rules-and-wfp-support" title="Permanent link"></a></h2>
+<p><code>BlockLocalLoop</code> is evaluated independently from normal <code>NetworkAccess</code> rules. An allow rule does not override a successful <code>BlockLocalLoop</code> match. Broader deny rules may make the setting redundant for traffic they already block.</p>
+<p>The default enforcement layer is the user-mode Winsock path inside sandboxed processes. If WFP support is enabled globally:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[GlobalSettings]</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">NetworkEnableWFP</span><span class="o">=</span><span class="s">y</span>
+</span></code></pre></div>
+<p>Sandboxie's driver also participates through Windows Filtering Platform. WFP can extend enforcement beyond the intercepted Winsock exports and can apply kernel authorization to additional IP traffic classes. The user-mode fallback primarily restricts traffic initiated by the sandboxed process; with WFP enabled, authorization can also apply to inbound connection and receive paths.</p>
+<h3 id="implementation-notes-and-limitations">Implementation notes and limitations<a class="headerlink" href="#implementation-notes-and-limitations" title="Permanent link"></a></h3>
+<p>The reliable documented behavior is based primarily on the standard Winsock enforcement path. Kernel WFP support provides additional coverage when enabled, but current implementation details differ between address families and networking paths. Applications that bypass normal Winsock paths should not be assumed to receive identical behavior, and complete bidirectional IPv4 loopback blocking through WFP is not guaranteed.</p>
+<p>Binding or listening itself is not prevented. Changing the global <code>NetworkEnableWFP</code> option is separate from changing <code>BlockLocalLoop</code>; see <a href="../PlusContent/WFPSupport.html">WFP Support</a> for its activation requirements.</p>
+<h2 id="compatibility-and-purpose">Compatibility and purpose<a class="headerlink" href="#compatibility-and-purpose" title="Permanent link"></a></h2>
+<p>The setting can reduce access by sandboxed code to host-local services that listen only on loopback, including unauthenticated localhost services, development or administration endpoints, and local helper or control services.</p>
+<p>Software may be affected if it actually uses loopback communication, including:</p>
+<ul>
+<li>browsers connecting to a local development server;</li>
+<li>Electron or WebView applications using a local helper;</li>
+<li>OAuth or login callbacks using <code>127.0.0.1</code> or <code>::1</code>;</li>
+<li>IDEs, test tools, and development servers;</li>
+<li>local databases, HTTP or SOCKS proxies, and DNS resolvers;</li>
+<li>game launchers or helper processes communicating over TCP or UDP loopback.</li>
+</ul>
+<p>Not every application in these categories uses loopback. Non-loopback addresses assigned to the host remain outside this setting's scope, and named pipes or other local IPC mechanisms are unrelated. Use network-access rules when broader restrictions are required.</p>
+<h2 id="scope-and-applying-changes">Scope and applying changes<a class="headerlink" href="#scope-and-applying-changes" title="Permanent link"></a></h2>
+<p><code>BlockLocalLoop</code> is a normal box setting and can be inherited through normal template or global configuration resolution. There is no documented per-program syntax.</p>
+<p>The user-mode value is read when networking initializes in the sandboxed process. Changing the option does not reliably update every process that is already running, so restarting affected sandboxed applications is the reliable way to apply the change. A service or driver restart is not required merely for newly started processes.</p>
+<h2 id="user-interface-and-notifications">User interface and notifications<a class="headerlink" href="#user-interface-and-notifications" title="Permanent link"></a></h2>
+<p>There is currently no dedicated <strong>BlockLocalLoop</strong> checkbox in normal Sandbox Options. Configure it through:</p>
+<p><strong>Sandbox Options</strong> &gt; <strong>Edit ini Section</strong> &gt; <strong>Edit ini</strong></p>
+<p>There is also no dedicated <code>BlockLocalLoop</code> notification or user-facing SBIE message for each blocked connection. Applications normally report their own networking failure.</p>
+<h2 id="version-history">Version history<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
+<p><em>BlockLocalLoop</em> was introduced in Sandboxie Plus 1.17.4. It remains disabled by default, and the current Sandbox Options interface does not provide a dedicated checkbox for it.</p>
+<h2 id="related-configuration">Related configuration<a class="headerlink" href="#related-configuration" title="Permanent link"></a></h2>
+<ul>
+<li><a href="SandboxieIni.html">Sandboxie Ini</a></li>
+<li><a href="../PlusContent/WFPSupport.html">WFP Support</a></li>
+<li><code>NetworkAccess</code> for broader address, port, protocol, or program-based network rules</li>
+<li><code>NetworkEnableWFP</code> for optional kernel-level network enforcement</li>
+</ul>
 
 
 
