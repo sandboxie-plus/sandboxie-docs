@@ -4,11 +4,13 @@ Typical file deletion makes data inaccessible to the operating system and progra
 
 For more information, see [Data remanence in Wikipedia](https://en.wikipedia.org/wiki/Data_remanence).
 
-By default, Sandboxie deletes the sandbox using a standard Windows command to delete folders -- _RMDIR_. This makes sure the contents of the sandbox (including malicious software) are properly removed from the operating system. But as mentioned above, it leaves the data vulnerable to inspection and recovery by forensics experts.
+By default, the Sandboxie Control Classic/`Start.exe` deletion path uses the standard Windows _RMDIR_ command to delete folders. This makes sure the contents of the sandbox (including malicious software) are properly removed from the operating system. But as mentioned above, it leaves the data vulnerable to inspection and recovery by forensics experts.
 
-People who are concerned about the privacy of their sensitive data can plug a third-party secure deletion utility into Sandboxie, to be used instead of the standard command.
+People who are concerned about the privacy of their sensitive data can plug a third-party secure deletion utility into the Classic/`Start.exe` deletion path, to be used instead of the standard command.
 
-You can configure a custom delete command through Sandboxie Control or by manually editing the [Sandboxie Ini](SandboxieIni.md) configuration file.
+For the Classic/`Start.exe` deletion path, you can configure a custom delete command through Sandboxie Control or by manually editing the [Sandboxie Ini](SandboxieIni.md) configuration file.
+
+SandMan instead provides [`OnBoxDelete`](SandManTriggers.md#onboxdelete), a host-side trigger that runs configured automation before SandMan performs its own cleanup. It is not the same mechanism as `DeleteCommand`, and enabling the trigger does not by itself change SandMan's deletion method or guarantee secure erasure.
 
 **In Sandboxie Control**
 
