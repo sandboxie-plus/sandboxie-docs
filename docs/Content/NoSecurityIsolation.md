@@ -87,6 +87,9 @@ These settings become ineffective due to Job Object exclusion:
 - [`ProcessNumberLimit`](ProcessNumberLimit.md)
 - [`ProcessMemoryLimit`](ProcessMemoryLimit.md)
 - [`TotalMemoryLimit`](TotalMemoryLimit.md)
+- [`CpuRateLimit`](CpuRateLimit.md)
+
+For details about Job Object assignment, UI restrictions, nested Jobs, and related settings, see [Job Objects](JobObjects.md).
 
 ## Use Cases & Troubleshooting
 
