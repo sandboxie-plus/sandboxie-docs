@@ -1,149 +1,220 @@
 # Sandboxie Trace
 
-### Please see [Resource Access Monitor](ResourceAccessMonitor.md) for Sandboxie Classic.
+Sandboxie provides several independent tracing mechanisms for troubleshooting compatibility and isolation rules. Their output is collected in a shared per-session monitor buffer and can be viewed through:
 
-### Please see [Trace Logging](../PlusContent/TraceLog.md) for Sandboxie Plus.
+* [Trace logging](../PlusContent/TraceLog.md) in Sandboxie Plus;
+* [Resource Access Monitor](ResourceAccessMonitor.md) in Sandboxie Control Classic.
 
----
+Opening either viewer activates the monitor consumer. It does not automatically enable every detailed trace option described below. Some baseline resource activity is available without additional settings, while options such as `ApiTrace`, `HookTrace`, `DebugTrace`, and `ErrorTrace` add specialized or higher-volume diagnostics.
 
-### Overview
+When no monitor consumer is active, the shared monitor buffer is not maintained and its messages are not retained for later display. Explicitly enabled trace options can still install hooks or perform process-side diagnostic work while the viewer is closed.
 
-In some cases, a program may not function correctly within the sandbox, because it needs access to a system resource which is, by default, protected by Sandboxie, and access to that resource is denied.
+The monitor is separate from [Log Message Events](LogMessageEvents.md), which sends selected Sandboxie messages to the Windows Event Log. Crash dumps and process startup pauses are covered under [Crash and Debugger Diagnostics](CrashAndDebuggerDiagnostics.md).
 
-Note that in this case, the sandboxed program is not creating the resource itself; rather, it expects the resource to already be available for access and use.
+## Resource-access tracing
 
-The trace displays access attempts and makes it possible to somewhat easily identify which resources that are needed for correct operation, have been blocked.
+Resource trace settings help identify file, registry, IPC, and related operations that may explain why a sandboxed application fails. Driver resource filters use these practical values where the particular setting supports them:
 
-### Enable the Trace
+| Value | Meaning |
+| ----- | ------- |
+| `A` | Successful or allowed operations |
+| `D` | Failed or denied operations |
+| `I` | Ignored-device operations, where supported |
+| `*` | Broad tracing |
 
-The trace can be activated through different [Sandboxie Ini](SandboxieIni.md) settings:
+Combinations such as `AD` are supported, and lowercase combinations such as `ad` are accepted by settings that use this filter. The letters are not implemented uniformly by every trace option.
 
-*   **FileTrace** logs access to files, folders, and filesystem volumes;
-*   **KeyTrace** logs access to registry keys (but not values within keys);
-*   **PipeTrace** logs access to named pipes and mail slot objects which are used for inter-process communication;
-*   **IpcTrace** logs access to other objects used for inter-process communication, and also logs access attempts by one process to another process;
-*   **GuiTrace** logs window-to-window communications;
-*   **ClsidTrace** logs COM communications;
-*   **NetFwTrace** traces the actions of the firewall components (since version 0.9.0 / 5.51.0);
-*   **LogAPI** library to get additional trace output (see [this thread](https://forum.xanasoft.com/threads/how-to-get-malawre-trace-in-sandboxie.143/) for more information).
+### FileTrace
 
-Each setting accepts a sequence of characters which specifies what to log. The character _a_ logs requests which were allowed; the character _d_ logs requests which were denied. For the **FileTrace** and **PipeTrace** settings, the character _i_ logs requests which were allowed because they access a device which is ignored by Sandboxie, such as a CD-ROM.
+In resource mode, `FileTrace` records file, directory, volume, and device activity:
 
-The settings **PipeTrace**, **IpcTrace** and **GuiTrace** are more relevant to the discussion in this page. **FileTrace** and **KeyTrace** will usually not be able to provide insight as to why a sandboxed program is malfunctioning.
-
-Thus, typically you enable the trace by making this change in [Sandboxie Ini](SandboxieIni.md):
-```
-   [GlobalSettings]
-   IpcTrace=ad
-   PipeTrace=ad
-   GuiTrace=ad
+```ini
+FileTrace=A
+FileTrace=D
+FileTrace=AD
+FileTrace=I
+FileTrace=*
 ```
 
-Then use Sandboxie to reload the configuration:
-* **Configure** menu -> **Reload Configuration** on Sandboxie Classic
-* **Options** menu -> **Reload ini file** on Sandboxie Plus
+`A` selects successful or allowed activity, `D` selects failed or denied activity, and `I` selects the ignored-device class. `*` requests broad file-resource tracing.
 
-Trace options can be set on a per box basis such that only the boxes you need will generate trace logs.
+The same legacy setting name also has a separate advanced SbieDll file-API tracing use:
 
-You can also adjust the buffer size by adding ```TraceBufferPages=2560``` that will increase it tenfold.
-
-### Review the Trace for **NetFwTrace**, **IpcTrace** and **PipeTrace**
-
-Since version 0.9.0 / 5.51.0, a new option `NetFwTrace=*` was added to trace the actions of the firewall components. Please note that the driver only logs to the kernel debug output, which you can view with [DbgView.exe](https://docs.microsoft.com/en-us/sysinternals/downloads/debugview).
-
-
-On Windows Vista and later, output from the system debugger log is disabled by default. [This blog post](https://web.archive.org/web/20080731211018/http://blogs.msdn.com:80/doronh/archive/2006/11/14/where-did-my-debug-output-go-in-vista.aspx) and [this thread](https://web.archive.org/web/20230324011501/https://stackoverflow.com/questions/65015739/outputdebugstring-not-showing-message-in-debugview-windows-10-x64) explain how to enable it.
-
-The following trace will display output in the following format. (Assuming **IpcTrace**, and **PipeTrace** enabled.)
+```ini
+FileTrace=y
+FileTrace=program.exe,y
 ```
-...
-(001404) SBIE (FA) 00120116.01.00000000 \Device\NamedPipe\ShimViewer
-...
-(001404) SBIE (IA) 001F0001 \ThemeApiPort
-...
-(001404) SBIE (PD) 00000040 001136
-(001404) SBIE (PA) 00020400 001136
-...
-(001404) SBIE (FA) 00000001.0F.FFFFFFFF \Device\Afd\Endpoint
-(001404) SBIE (FA) 00000001.0F.FFFFFFFF \Device\Afd
-...
-(001404) SBIE (ID) 001F0001 \RPC Control\protected_storage
-...
+
+This form adds detailed file API-call records and can be limited to an executable. Treat the resource-filter and image-qualified Boolean forms as distinct diagnostic uses of the same legacy name rather than as one combined syntax.
+
+### KeyTrace, PipeTrace, and IpcTrace
+
+These settings support allowed/successful and denied/failed resource filters:
+
+```ini
+KeyTrace=AD
+PipeTrace=AD
+IpcTrace=AD
 ```
-The format is this:
 
-```(pid) SBIE (ca) (access) (resource)```
+* `KeyTrace` records registry-key operations.
+* `PipeTrace` records named-pipe and mailslot operations.
+* `IpcTrace` records access to other IPC objects and process-to-process operations.
 
-- `pid` identifies the process attempting the access;
-- `c` indicates the Sandboxie class for the resource -- more on this later;
-- `a` indicates if the access was allowed (A) or denied (D);
-- `access` indicates the access requested to the object, and is typically not interesting or important;
-- `resource` identifies the resource to which access is desired; in the case of process-to-process access, where _ca_ is (PA) or (PD), the resource name is the process id of the process being accessed.
+`I` does not currently have a meaningful role for these settings.
 
-Some examples:
+### GuiTrace
 
-```(001404) SBIE (IA) 001F0001 \ThemeApiPort```
+`GuiTrace` is a legacy setting. Its direct GUI tracing implementation belongs to the old Windows XP-era Win32k hook path; modern supported Windows versions do not provide an equivalent implementation through this option. GUI- and window-class-related events can still appear through other monitor mechanisms, but enabling `GuiTrace` on Windows 10 or Windows 11 should not be expected to reproduce the historical GUI trace.
 
-Here the process making the request is process id 1404, and was allowed to access the resource named _ThemeApiPort_. The resource class is I, so this is an inter-process object. The access was allowed because by default, Sandboxie allows this specific access.
+### ClsidTrace
 
-```(001404) SBIE (ID) 001F0001 \RPC Control\protected_storage```
+`ClsidTrace` adds detailed COM operation records. The current runtime treats an explicit non-empty legacy value as enabled, rather than interpreting `A`, `D`, and `I` as resource filters. Use the SandMan checkbox where available, or remove the explicit entry to disable manually configured tracing.
 
-Here the access to the resource _protected_storage_ was denied. By default Sandboxie does not allow this access; however the OpenProtectedStorage setting changes this behavior.
+### NetFwTrace
 
-```(001404) SBIE (FA) 00000001.0F.FFFFFFFF \Device\Afd\Endpoint```
+`NetFwTrace` is marked disabled in the current settings metadata. Limited user-mode network diagnostic remnants remain, but the old WFP/firewall logging path is not a functional, complete firewall trace. A **Network Firewall** trace checkbox may still be visible in SandMan; it should not be treated as a general WFP packet or firewall-decision logger. Remove an explicit entry rather than relying on `NetFwTrace=n` as a manual disable form.
 
-Here the access is allowed to the resource _Endpoint_. The resource class is F, so this is a named pipe or a mail slot resource. The access is allowed by default, because the _\Device\Afd_ prefix names resources needed for Internet access.
+## API-call tracing
 
-### Review **GuiTrace** Entries
+### ApiTrace
 
-When **GuiTrace** is enabled, the trace also produces entries like the following:
+`ApiTrace` records calls that pass through Sandboxie's common SbieDll hook mechanism:
+
+```ini
+ApiTrace=y
+ApiTrace=program.exe,y
 ```
-...
-(001404) SBIE (GA) WinHook 0002 on tid=001484 pid=001960
-(001404) SBIE (GA) AccHook on tid=000000 pid=000000
-...
-(001404) SBIE (GD) PostMessage 01224 (04C8) to hwnd=00050060 pid=001324 DDEMLMom
-(001404) SBIE (GD) SendMessage 49376 (C0E0) to hwnd=00010014 pid=000804 #32769
-...
-(001404) SBIE (GD) SendInput
-(001404) SBIE (GA) SendInput
+
+It is image-aware, but it does not trace every Windows API used by an application. The output appears as API-call records in the monitor. Because this option can be high-volume and intrusive, enable it only while troubleshooting and restart affected processes after changing it.
+
+### ApiTraceDll
+
+`ApiTraceDll` extends `ApiTrace` by adding trace-only hooks for named exports in selected modules. Multiple entries are supported:
+
+```ini
+ApiTraceDll=kernel32.dll
+ApiTraceDll=user32.dll
 ```
-These entries have a few formats. The first word after (GA) or (GD) identifies the type of the entry.
 
-When the first word is _WinHook_ or _AccHook_, the entry indicates installation of a hook. Its installation is permitted for (GA) entries, and denied for (GD) entries. _WinHook_ is a standard Windows hook, followed by the type of the hook (see [SetWindowsHookEx in MSDN](https://www.google.com/search?hl=en&q=setwindowshookex+msdn)). _AccHook_ is an accessibility hook (see [SetWinEventHook in MSDN](https://www.google.com/search?hl=en&q=setwineventhook+msdn)).
+Use module base names rather than full paths. Module matching is case-insensitive. Not every export is guaranteed to be traceable.
 
-Both entries identify the thread number (tid) process number (pid) into which the hook was to be installed.
+### ApiSkipTrace
 
-When the first word is _PostMessage_, _SendMessage_ or _ThrdMessage_, the entry shows denied window communication. The following two numbers indicate the window message number, in decimal and hexadecimal. The entry also indicates the window handle (hwnd) of the target window, the process number (pid) which owns this window, and finally, the internal window class name for the window.
+`ApiSkipTrace` excludes matching function-name prefixes, primarily from the additional export coverage requested with `ApiTraceDll`:
 
-### Analyze the Trace
+```ini
+ApiSkipTrace=Nt
+```
 
-The point of using the trace is usually to identify the resource that is keeping the sandboxed program from functioning correctly.
+Multiple entries are supported. Prefix matching is case-sensitive. This is not a universal suppression rule for Sandboxie's normal hooks.
 
-Consider for example the following trace record:
+For installation diagnostics rather than call records, see [Hook Trace](HookTrace.md).
 
-```(001404) SBIE (ID) 001F0001 \BaseNamedObjects\Xyzzy```
+## Syscall and internal tracing
 
-This shows that access to some _Xyzzy_ resource was denied. Sandboxie does not know this resource, and by default, it denies access to unknown resources.
+### CallTrace
 
-If a sandboxed program begins to malfunction (it may lock up, or it may end abruptly, or just complain about something) soon after this record appears in the trace, it stands to reason that the program was expecting the resource to be accessible.
+`CallTrace` is driver syscall tracing, not generic Windows API tracing:
 
-The next step is to add an [OpenIpcPath](OpenIpcPath.md) setting for this resource:
+```ini
+CallTrace=A
+CallTrace=D
+CallTrace=AD
+CallTrace=*
+```
 
-```OpenIpcPath=\BaseNamedObjects\Xyzzy```
+`A` broadly records intercepted calls that reach the trace path. `D` adds calls that return a non-success NTSTATUS. These letters should not be interpreted as a universal allowed-versus-denied classification. SandMan's **Syscall Trace** checkbox writes `CallTrace=*`.
 
-This setting tells Sandboxie that access to the _Xyzzy_ resource should not be blocked.
+### CallTraceEx
 
-Then reload the Sandboxie configuration, clear the old contents of the trace display, and restart the sandboxed program. If the program now performs better, _Xyzzy_ was indeed the problematic resource.
+`CallTraceEx` requests a separate advanced syscall-tracing mechanism based on Windows process instrumentation callbacks. Any configured non-empty value currently requests it. It is intended for modern Windows, is not supported across every architecture or configuration, and has no dedicated SandMan checkbox.
 
-But if the program still fails, the trace log can be inspected again for later (or possibly earlier) failed access attempts.
+### SbieTrace
 
-### Resource Class
+`SbieTrace` enables selected diagnostics for interaction between SbieDll and other Sandboxie core components. Its output appears as Debug-type records. It is not a complete internal execution trace.
 
-The trace record shows the Sandboxie resource class of the object. This indicates which OpenXxxPath setting is needed to allow access to the object.
+### DebugTrace
 
-*   When resource class is F, as in (FA) or (FD), the relevant settings are [OpenFilePath](OpenFilePath.md) and [ClosedFilePath](ClosedFilePath.md).
-*   When resource class is K, as in (KA) or (KD), the relevant settings are [OpenKeyPath](OpenKeyPath.md) and [ClosedKeyPath](ClosedKeyPath.md).
-*   When resource class is I, as in (IA) or (ID), the relevant settings are [OpenIpcPath](OpenIpcPath.md) and [ClosedIpcPath](ClosedIpcPath.md).
-*   When resource class is G, as in (GA) or (GD), the relevant setting is [OpenWinClass](OpenWinClass.md).
-*   For COM objects displayed by ClsidTrace, the relevant setting is [OpenClsid](OpenClsid.md).
+`DebugTrace` captures application `OutputDebugString` output into the monitor while preserving the application's normal debug-output call. It should not be treated as lossless capture of arbitrarily long strings.
+
+### ErrorTrace
+
+`ErrorTrace` records nonzero Win32 last-error assignments observed through the currently hooked path. It can be extremely noisy and does not cover every Windows error or every NTSTATUS.
+
+## DNS tracing
+
+`DnsTrace` records the intercepted Winsock service-lookup path used by Sandboxie's DNS compatibility and filtering layer. It can show request names, IPv4 and IPv6 results, lookup errors or completion, and responses affected by `NetworkDnsFilter` when that feature is configured.
+
+It does not trace every DNS API, capture DNS packets, or cover applications that use their own direct resolver. Queried hostnames and returned addresses may appear in the Trace Log, so review trace output before sharing it. `DnsTrace` does not enable `NetworkDnsFilter`.
+
+The current runtime treats an explicit non-empty legacy value as enabled. Use SandMan's control where available, or remove the entry to disable it manually rather than relying on `DnsTrace=n`.
+
+`DnsTrace` was introduced in Sandboxie Plus 1.14.0 and Sandboxie Classic 5.69.0.
+
+## Stack traces
+
+`MonitorStackTrace` is an effectively global monitor option and is disabled by default. When enabled before the monitor buffer is created, stack addresses are attached to records that pass through the common monitor path:
+
+```ini
+MonitorStackTrace=y
+```
+
+Not every diagnostic source is guaranteed to include a stack, and stacks may be incomplete or contain frames that cannot be symbolized. SandMan resolves symbols asynchronously and may use or install DbgHelp and symbol support. Stack capture and symbol resolution add diagnostic cost, and symbol downloads can involve network access.
+
+SandMan exposes this setting through **Show Stack Trace** in the Trace Log. Changing it does not rebuild an active monitor buffer. For reliable activation or deactivation:
+
+1. Change **Show Stack Trace**.
+2. Stop Trace Logging.
+3. Start Trace Logging again.
+
+A service or driver restart is not normally required. `MonitorStackTrace` was introduced in Sandboxie Plus 1.9.6 and Sandboxie Classic 5.64.6.
+
+## Monitor buffer size
+
+`TraceBufferPages` controls the allocation size of the shared trace/monitor buffer. The current configured default is `256`, and the value is read when monitoring starts:
+
+```ini
+TraceBufferPages=2560
+```
+
+The example requests a larger buffer; it does not represent a documented byte or MiB conversion. A larger value can reduce overflow at the cost of additional memory. If the buffer cannot accept more records, events can be dropped and Sandboxie can report a monitor-buffer overflow.
+
+Changing the setting while monitoring is active does not resize the current buffer. Stop and restart Trace Logging or the Resource Access Monitor after changing it.
+
+## Related monitor controls
+
+`DisableResourceMonitor=y` suppresses many normal user-mode and resource-monitor submissions for the affected sandbox or process. It does not guarantee that every explicitly enabled driver trace is suppressed.
+
+`MonitorAdminOnly` restricts activation of the shared monitor to administrators and is effectively global for the monitor-control check. See [Monitor Admin Only](MonitorAdminOnly.md).
+
+## SandMan configuration
+
+Open the live viewer through **View > Trace Logging**. Per-box trace controls are under **Sandbox Options > Advanced Options > Tracing** and currently include:
+
+* Disable Resource Monitor;
+* Syscall, File, Pipe, Registry Key, IPC, GUI, COM Class, Network Firewall, and DNS tracing;
+* Hook, API, Debug Output, and Error tracing.
+
+Advanced settings without dedicated controls include `ApiTraceDll`, `ApiSkipTrace`, `CallTraceEx`, `SbieTrace`, and `TraceBufferPages`. `MonitorStackTrace` is controlled by **Show Stack Trace** in the Trace Log rather than by the per-box tracing checkbox group.
+
+## Applying changes
+
+Many trace settings are initialized or cached by each sandboxed process. Restart affected processes after changing them. Options that affect the shared monitor buffer, including `MonitorStackTrace` and `TraceBufferPages`, require stopping and restarting monitoring so that a new buffer is created.
+
+Explicitly enabled trace settings may install hooks or perform process-side work even while no viewer is open. Active monitoring overhead depends on the enabled diagnostics and event volume.
+
+## Version history
+
+* `ApiTrace`, `ApiTraceDll`, and `ApiSkipTrace` were added to settings metadata in version 1.13.0.
+* `DnsTrace` was introduced in Sandboxie Plus 1.14.0 and Sandboxie Classic 5.69.0.
+* `CallTraceEx` was added in version 1.14.3.
+* `HookTrace` was introduced in Sandboxie Plus 1.15.5 and Sandboxie Classic 5.70.5.
+
+## Related pages
+
+* [Trace logging](../PlusContent/TraceLog.md)
+* [Resource Access Monitor](ResourceAccessMonitor.md)
+* [Hook Trace](HookTrace.md)
+* [Crash and Debugger Diagnostics](CrashAndDebuggerDiagnostics.md)
+* [Sandboxie Ini](SandboxieIni.md)

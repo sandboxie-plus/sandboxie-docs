@@ -130,6 +130,8 @@
 
 [Cover Boxed Windows](CoverBoxedWindows.md)
 
+[Crash and Debugger Diagnostics](CrashAndDebuggerDiagnostics.md)
+
 [CPU Affinity Mask](CpuAffinityMask.md)
 
 [CPU Rate Limit](CpuRateLimit.md)
