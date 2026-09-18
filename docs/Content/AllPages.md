@@ -474,6 +474,8 @@
 
 [Sandbox Settings](SandboxSettings.md)
 
+[Sandboxed Services](SandboxedServices.md)
+
 [Sandboxie](Sandboxie.md)
 
 [Sandboxie Control](SandboxieControl.md)
@@ -805,6 +807,8 @@
 [Start Service](StartService.md)
 
 [Supporter Certificate](../PlusContent/supporter-certificate.md)
+
+[System Endpoints](SystemEndpoints.md)
 
 [System Event Log](SystemEventLog.md)
 
