@@ -408,6 +408,8 @@
 
 [Process Number Limit](ProcessNumberLimit.md)
 
+[Process Speed Settings](ProcessSpeedSettings.md)
+
 [Program Name Prefix](ProgramNamePrefix.md)
 
 [Program Settings](ProgramSettings.md)
