@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="DeleteCommand is a sandbox setting in Sandboxie Ini. It specifies the command to issue to physically delete the contents of the sandbox. Its primary purpose is to make it possible to plug a third-party secure deletion utility into Sandboxie. See Secure Delete Sandbox.">
+        <meta name="description" content="DeleteCommand is a legacy sandbox setting in Sandboxie Ini that remains functional in Sandboxie Control Classic and Start.exe. It specifies the command used by that deletion path to physically remove the contents of the sandbox. Its primary purpose is to make it possible to plug a third-party secure deletion utility into Sandboxie. See Secure Delete Sandbox.">
       
       
       
@@ -5585,7 +5585,8 @@
 
 
 <h1 id="delete-command">Delete Command<a class="headerlink" href="#delete-command" title="Permanent link"></a></h1>
-<p>DeleteCommand is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. It specifies the command to issue to physically delete the contents of the sandbox. Its primary purpose is to make it possible to plug a third-party secure deletion utility into Sandboxie. See <a href="../SecureDeleteSandbox/">Secure Delete Sandbox</a>.</p>
+<p>DeleteCommand is a legacy sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a> that remains functional in Sandboxie Control Classic and <code>Start.exe</code>. It specifies the command used by that deletion path to physically remove the contents of the sandbox. Its primary purpose is to make it possible to plug a third-party secure deletion utility into Sandboxie. See <a href="../SecureDeleteSandbox/">Secure Delete Sandbox</a>.</p>
+<p>SandMan uses the separate <a href="../SandManTriggers/#onboxdelete"><code>OnBoxDelete</code></a> trigger for configured host-side automation before it cleans sandbox contents. <code>OnBoxDelete</code> is not a renamed <code>DeleteCommand</code>: the trigger runs before SandMan cleanup, while <code>DeleteCommand</code> selects the command that performs directory deletion in the legacy Classic/<code>Start.exe</code> path.</p>
 <p>Usage:
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
@@ -5600,6 +5601,7 @@
 <hr />
 <p>Note: Secure deletion is a privacy measure, not a security measure. Both regular deletion and secure deletion effectively remove undesired software that was collected into the sandbox. See <a href="../SecureDeleteSandbox/">Secure Delete Sandbox</a>.</p>
 <p>Related <a href="../SandboxieControl/">Sandboxie Control</a> setting: <a href="../DeleteSettings/#command">Sandbox Settings &gt; Delete &gt; Command</a></p>
+<p>Related SandMan documentation: <a href="../SandManTriggers/">SandMan Triggers</a></p>
 
 
 

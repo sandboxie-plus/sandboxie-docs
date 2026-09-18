@@ -6062,10 +6062,10 @@
 <p>The Delete Options have been moved to the sub tab "File Options" of the tab "General Options".</p>
 <h2 id="delete-command">Delete Command<a class="headerlink" href="#delete-command" title="Permanent link"></a></h2>
 <p><img alt="" src="../../Media/Migration/19.png" /></p>
-<p>The "Delete Command" option can now be found on the sub tab "Triggers" of the tab "Advanced Options".</p>
+<p>SandMan provides <a href="../SandManTriggers/#onboxdelete"><code>OnBoxDelete</code></a> under <strong>Advanced Options &gt; Triggers</strong> for host-side pre-cleanup automation. The legacy <code>DeleteCommand</code> setting remains associated with Sandboxie Control Classic/<code>Start.exe</code> and is not the same mechanism.</p>
 <h2 id="program-groups">Program Groups<a class="headerlink" href="#program-groups" title="Permanent link"></a></h2>
 <p><img alt="" src="../../Media/Migration/20.png" /></p>
-<p>The new UI supports groups just like the old one.</p>
+<p>SandMan supports hierarchical box groups and manages them directly in its main sandbox tree. Current SandMan stores the layout using <a href="../BoxGrouping/"><code>BoxGrouping</code></a>, while Sandboxie Control Classic uses the legacy <code>BoxDisplayOrder</code> format. When no <code>BoxGrouping</code> mapping is available, SandMan can use the legacy hierarchy as a fallback, but the two formats are not continuously synchronized.</p>
 <h2 id="forced-programs-and-folders">Forced Programs and Folders<a class="headerlink" href="#forced-programs-and-folders" title="Permanent link"></a></h2>
 <p><img alt="" src="../../Media/Migration/21.png" /></p>
 <p>Forced programs and folders are also merged into one tab ("Program Control", sub tab "Force* Programs").</p>

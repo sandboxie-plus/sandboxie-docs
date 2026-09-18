@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="UseSbieDeskHack is a sandbox setting in Sandboxie Ini.">
+        <meta name="description" content="UseSbieDeskHack remains a supported Sandboxie compatibility setting, but its current behavior is documented together with Sandboxie&#x27;s Desktop and Window Station architecture.">
       
       
       
@@ -5585,19 +5585,12 @@
 
 
 <h1 id="use-sbiedesk-hack">Use SbieDesk Hack<a class="headerlink" href="#use-sbiedesk-hack" title="Permanent link"></a></h1>
-<p><em>UseSbieDeskHack</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>.</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">UseSbieDeskHack</span><span class="o">=</span><span class="s">y</span>
+<p><code>UseSbieDeskHack</code> remains a supported Sandboxie compatibility setting, but its current behavior is documented together with Sandboxie's Desktop and Window Station architecture.</p>
+<p><a href="SandboxDesktop.html">See Sandbox Desktop and Window Station</a>.</p>
+<p>The setting is enabled by default and can also be configured for individual executable images:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">UseSbieDeskHack</span><span class="o">=</span><span class="s">n</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">UseSbieDeskHack</span><span class="o">=</span><span class="s">program.exe,n</span>
 </span></code></pre></div>
-<p>A desktop object solution that is now enabled by default for all processes.</p>
-<p><strong>Technical Details</strong></p>
-<p>This is a desktop object solution that is used for all processes.</p>
-<p>It was initially implemented to address the issue of infinite callback problems caused by delayed loading (the infinite recursion problem has been resolved in version 0.4.0 / 5.43).</p>
-<p>It is now enabled by default. This allows Electron applications to run without the need to set the 'SpecialImage=chrome,program.exe' option.</p>
-<p>Related Sandboxie Plus setting: Sandbox Options &gt; Various Options &gt; Compatibility &gt; Use desktop object workaround for all processes</p>
 
 
 

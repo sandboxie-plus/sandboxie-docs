@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Sandboxie Plus lets you run programs in isolated sandboxes on Windows, enhancing security and privacy by containing changes from the rest of the system.">
+        <meta name="description" content="Sandboxie normally substitutes the identity represented by a sandboxed process&#x27;s access token as part of its token isolation. The default path uses the Windows Anonymous Logon identity. The optional SandboxieLogon setting uses a virtual SID associated with the sandbox instead.">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>Sandbox SID - Sandboxie Documentation</title>
+        <title>Sandboxie Logon - Sandboxie Documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sandbox-sid" class="md-skip">
+        <a href="#sandboxie-logon" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Sandbox SID
+              Sandboxie Logon
             
           </span>
         </div>
@@ -5584,13 +5584,83 @@
   
 
 
-<h1 id="sandbox-sid">Sandbox SID<a class="headerlink" href="#sandbox-sid" title="Permanent link"></a></h1>
+<h1 id="sandboxie-logon">Sandboxie Logon<a class="headerlink" href="#sandboxie-logon" title="Permanent link"></a></h1>
+<p>Sandboxie normally substitutes the identity represented by a sandboxed process's access token as part of its <a href="../IsolationMechanism/">token isolation</a>. The default path uses the Windows Anonymous Logon identity. The optional <em>SandboxieLogon</em> setting uses a virtual SID associated with the sandbox instead.</p>
+<p>This behavior is part of access-token isolation, not Windows user-account management. It does not create a local or domain account, sign a user in to Windows, create a separate interactive login, or give the sandbox its own user profile or password.</p>
+<h2 id="sandboxielogon">SandboxieLogon<a class="headerlink" href="#sandboxielogon" title="Permanent link"></a></h2>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">SandboxieLogon</span><span class="o">=</span><span class="s">y</span>
+</span></code></pre></div>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">SandboxieLogon</span><span class="o">=</span><span class="s">n</span>
+</span></code></pre></div>
+<p><em>SandboxieLogon</em> is a box-wide Boolean setting and defaults to <code>n</code>. It does not support executable-qualified matching at runtime. Like other box settings, it can be inherited through normal Sandboxie configuration and templates.</p>
+<p>When the setting is enabled, the Sandboxie service creates or resolves a virtual SID mapping associated with the sandbox. Sandboxie supplies that SID to the token-construction machinery and uses it as the sandbox token's <code>TokenUser</code>. In practical terms, <em>SandboxieLogon</em> replaces the normal anonymous sandbox token identity with a virtual SID associated with the sandbox.</p>
+<p>The virtual SID can give a sandbox a distinguishable identity for Windows access checks. It remains a token identity used for isolation, however; it is not a normal Windows account or a separate logon session, and it does not by itself create a user profile.</p>
+<h2 id="anonymouslogon">AnonymousLogon<a class="headerlink" href="#anonymouslogon" title="Permanent link"></a></h2>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">AnonymousLogon</span><span class="o">=</span><span class="s">y</span>
+</span></code></pre></div>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">AnonymousLogon</span><span class="o">=</span><span class="s">n</span>
+</span></code></pre></div>
+<p><em>AnonymousLogon</em> is a box-wide Boolean setting and defaults to <code>y</code>. There is no dedicated SandMan control for it, so it is an advanced manual configuration setting. It does not support executable-qualified matching at runtime.</p>
+<p>When the anonymous identity path is active and no sandbox-specific SID is used, Sandboxie substitutes the Windows <strong>ANONYMOUS LOGON</strong> SID (<code>S-1-5-7</code>) as the token user. On relevant current Windows paths, Sandboxie may also use the anonymous authentication LUID as part of token construction.</p>
+<p>The normal configuration is:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="na">SandboxieLogon</span><span class="o">=</span><span class="s">n</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="na">AnonymousLogon</span><span class="o">=</span><span class="s">y</span>
+</span></code></pre></div>
+<p>Enabling <em>SandboxieLogon</em> causes the box-specific Sandboxie SID to be used in place of the normal anonymous user identity. These are therefore alternative roles in the normal token-construction path, rather than two independent user-identity substitutions applied one after the other.</p>
+<p><em>AnonymousLogon</em> changes the identity represented in the sandbox token. It does not by itself guarantee anonymous network authentication. SSPI, stored or explicitly supplied credentials, SMB, browsers, Windows Credential Manager, and other application or Windows authentication mechanisms can have behavior beyond this token-user substitution.</p>
+<h2 id="keeplogonsession">KeepLogonSession<a class="headerlink" href="#keeplogonsession" title="Permanent link"></a></h2>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="na">KeepLogonSession</span><span class="o">=</span><span class="s">y</span>
+</span></code></pre></div>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="na">KeepLogonSession</span><span class="o">=</span><span class="s">n</span>
+</span></code></pre></div>
+<p><em>KeepLogonSession</em> is a box-wide Boolean setting, defaults to <code>n</code>, and has no dedicated SandMan control. It does not support executable-qualified matching at runtime.</p>
+<p>Despite its name, this setting does not preserve every property of the original Windows logon session. Sandboxie normally restricts token groups during token construction. With <em>KeepLogonSession</em> enabled, Sandboxie preserves the token group marked with <code>SE_GROUP_LOGON_ID</code> instead of applying the normal disabling or deny-only treatment to that logon SID group.</p>
+<p>The implementation has not been shown to preserve or restore the token's <code>AuthenticationId</code>, <code>TokenOrigin</code>, <code>TokenSessionId</code>, LSA credentials, DPAPI state, SSPI context, or network credentials.</p>
+<h2 id="token-user-and-logon-sid">Token user and logon SID<a class="headerlink" href="#token-user-and-logon-sid" title="Permanent link"></a></h2>
+<p>The token user and logon SID are separate Windows token concepts:</p>
+<ul>
+<li><em>SandboxieLogon</em> and <em>AnonymousLogon</em> select the identity represented by <code>TokenUser</code> in the normal sandbox token path.</li>
+<li><em>KeepLogonSession</em> preserves a token group marked as the logon SID during Sandboxie's group-restriction step.</li>
+</ul>
+<p>Preserving the logon SID group does not undo the Sandboxie or Anonymous Logon <code>TokenUser</code> substitution. Conversely, changing <code>TokenUser</code> is not the same as creating, preserving, or removing an LSA logon session.</p>
+<h2 id="security-isolation-and-advanced-modes">Security isolation and advanced modes<a class="headerlink" href="#security-isolation-and-advanced-modes" title="Permanent link"></a></h2>
+<p>The default anonymous identity and the optional sandbox-specific SID are parts of Sandboxie's token identity isolation. <em>SandboxieLogon</em> changes which sandbox identity is represented in access checks, while <em>KeepLogonSession</em> preserves one group that Sandboxie would normally restrict. Other Sandboxie isolation mechanisms continue to apply separately.</p>
+<p>When <a href="../NoSecurityIsolation/"><code>NoSecurityIsolation=y</code></a>, Sandboxie normally bypasses replacement of the process's primary token. The identity transformations described on this page are therefore generally not part of that primary-token path. SandMan also disables and clears the <em>SandboxieLogon</em> control when security isolation is disabled.</p>
+<p>The advanced <em>ReplicateToken</em> token-construction mode preserves the source token user rather than performing the normal Sandboxie or Anonymous Logon user substitution. Other advanced token-filtering settings are outside the scope of this page.</p>
+<h2 id="sandman-configuration">SandMan configuration<a class="headerlink" href="#sandman-configuration" title="Permanent link"></a></h2>
+<p>SandMan exposes <em>SandboxieLogon</em> at:</p>
+<p><strong>Sandbox Options &gt; Security Options &gt; Advanced Security</strong></p>
+<p>The checkbox is labeled <strong>Use a Sandboxie login instead of an anonymous token</strong>. The New Box Wizard also exposes the Sandboxie-logon choice where applicable.</p>
+<p>There are no dedicated SandMan controls for <em>AnonymousLogon</em> or <em>KeepLogonSession</em>; configure them manually in <a href="../SandboxieIni/"><code>Sandboxie.ini</code></a> when needed.</p>
+<h2 id="sandboxie-plus-and-classic">Sandboxie Plus and Classic<a class="headerlink" href="#sandboxie-plus-and-classic" title="Permanent link"></a></h2>
+<p>Runtime support is implemented in shared Sandboxie components. SandMan provides the current <em>SandboxieLogon</em> interface. Current source does not contain equivalent dedicated Sandboxie Control Classic controls, but compatible manual INI settings can be consumed by the shared runtime where applicable.</p>
+<h2 id="applying-changes-and-failure-behavior">Applying changes and failure behavior<a class="headerlink" href="#applying-changes-and-failure-behavior" title="Permanent link"></a></h2>
+<p>The settings on this page are used while Sandboxie prepares or constructs a process token. They do not retroactively rebuild a primary token that has already been assigned. Restart affected sandboxed processes after changing them; recreating the sandboxed process tree gives predictable results. A SandMan, service, or driver restart is not normally required.</p>
+<p>Essential token-construction or assignment failures cause process startup to fail rather than deliberately falling back to a less-restricted host token. If the service cannot create or resolve the sandbox-specific SID, it can continue without that SID, leaving the normal anonymous identity path available. This should not be treated as a guarantee for every possible token-creation failure.</p>
+<h2 id="version-history">Version history<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
+<ul>
+<li>The original <em>SandboxieLogon</em> mechanism dates to the Sandboxie Plus 0.2.2 / Classic 5.41.2 era.</li>
+<li>Sandboxie Plus 1.2.0 / Classic 5.57 introduced the modern per-box SID behavior and temporarily enabled it by default.</li>
+<li>Sandboxie Plus 1.2.7 / Classic 5.57.7 changed the default back to disabled.</li>
+<li>Sandboxie Plus 1.4.0 / Classic 5.59 added the SandMan interface.</li>
+<li><em>KeepLogonSession</em> was added to the setting metadata in Sandboxie Plus 1.14.1.</li>
+</ul>
+<p>The current metadata does not identify a reliable introduction version for <em>AnonymousLogon</em>.</p>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
+<ul>
+<li><a href="../IsolationMechanism/">Isolation Mechanism</a></li>
+<li><a href="../NoSecurityIsolation/">No Security Isolation</a></li>
+<li><a href="../SandboxieIni/">Sandboxie Ini</a></li>
+</ul>
 
 
 
 
 
 
+
+  
+  
 
 
 

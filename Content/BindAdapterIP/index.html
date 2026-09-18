@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="BindAdapterIP is a sandbox settings in Sandboxie Ini available since v1.15.10 / 5.70.10. This setting control which IP address sandboxed programs use for network communications.">
+        <meta name="description" content="BindAdapterIP selects a literal local IPv4 or IPv6 address for supported Winsock operations in matching sandboxed processes. It was introduced in Sandboxie Plus 1.15.10 / Classic 5.70.10.">
       
       
       
@@ -5585,8 +5585,33 @@
 
 
 <h1 id="bind-adapter-ip">Bind Adapter IP<a class="headerlink" href="#bind-adapter-ip" title="Permanent link"></a></h1>
-<p><strong>BindAdapterIP</strong> is a sandbox settings in <a href="../SandboxieIni/">Sandboxie Ini</a> available since <strong>v1.15.10 / 5.70.10</strong>. This setting control which IP address sandboxed programs use for network communications.</p>
-<p><strong>For complete instructions and usage, please see:</strong> <a href="../BindAdapter/">Bind Adapter</a></p>
+<p><em>BindAdapterIP</em> selects a literal local IPv4 or IPv6 address for supported Winsock operations in matching sandboxed processes. It was introduced in Sandboxie Plus 1.15.10 / Classic 5.70.10.</p>
+<p>The address must be assigned to an operational host network interface. If that address disappears, the rule does not automatically migrate to a new DHCP, VPN, or adapter address. Use <a href="../BindAdapter/"><em>BindAdapter</em></a> instead when Sandboxie should follow the current usable addresses of a named adapter.</p>
+<h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link"></a></h2>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">BindAdapterIP</span><span class="o">=</span><span class="s">[process,]ip_address</span>
+</span></code></pre></div>
+<p>Omit <code>process</code> to apply the rule to every process in the sandbox, or specify an executable name for a program-specific rule. One IPv4 and one IPv6 address can be selected for a process; each address family is evaluated independently.</p>
+<p>Examples:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">BindAdapterIP</span><span class="o">=</span><span class="s">192.0.2.25</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">BindAdapterIP</span><span class="o">=</span><span class="s">browser.exe,2001:db8::25</span>
+</span></code></pre></div>
+<p>The addresses above are reserved for documentation and will not be usable as local bindings. Replace them with addresses actually assigned to active interfaces on the host.</p>
+<p>Rules are read from the sandbox's effective configuration, including inherited template settings. The Sandboxie Plus interface manages box-wide IPv4 and IPv6 values; executable-specific rules require manual <a href="../SandboxieIni/">Sandboxie Ini</a> configuration.</p>
+<h2 id="behavior-and-precedence">Behavior and precedence<a class="headerlink" href="#behavior-and-precedence" title="Permanent link"></a></h2>
+<p>For matching processes, SbieDll applies the configured address through its user-mode Winsock interception layer. This covers supported connection and datagram paths, but it is not a firewall and does not guarantee coverage for networking code that bypasses those paths.</p>
+<p>An applicable <em>BindAdapter</em> rule has configuration precedence over <em>BindAdapterIP</em>. A literal IP rule is not used as a fallback when the configured named adapter is unavailable.</p>
+<p><em>StrictBindIP</em> is enabled by default. On normal intercepted paths it prevents an unavailable address or an unconfigured address family from falling back to an unbound connection. With <code>StrictBindIP=n</code>, Windows may select another local address or interface when binding cannot be applied. See <a href="../BindAdapter/#strictbindip">Bind Adapter</a> for syntax, affected operation classes, and limitations.</p>
+<p>Because <em>BindAdapterIP</em> identifies a literal address, DHCP renewal, VPN reconnection, or another host network change can make it unavailable. Sandboxie revalidates whether the address remains assigned to an operational interface, but it does not rewrite the rule to use a replacement address. Restart affected sandboxed processes after changing the configured rule. A SandMan or Sandboxie service restart is not normally required.</p>
+<h2 id="sandboxie-plus-interface">Sandboxie Plus interface<a class="headerlink" href="#sandboxie-plus-interface" title="Permanent link"></a></h2>
+<p>Open <strong>Sandbox Options</strong> &gt; <strong>Network Options</strong> &gt; <strong>Other Options</strong>. In the <strong>Bind to Adapter IP</strong> group, select <strong>None (Don't bind to adapter)</strong> and enter an address in the <strong>IPv4:</strong> or <strong>IPv6:</strong> field.</p>
+<p>The shared SbieDll runtime is also used by Sandboxie Classic, which can consume compatible manual configuration where the feature is available but does not provide the equivalent modern interface.</p>
+<h2 id="security-limitation">Security limitation<a class="headerlink" href="#security-limitation" title="Permanent link"></a></h2>
+<p><em>BindAdapterIP</em> controls the source address on supported user-mode socket paths. It does not create WFP rules or provide absolute interface confinement. Use separate network policy when direct traffic through another interface must be prevented; see <a href="../../PlusContent/WFPSupport/">Windows Filtering Platform</a>.</p>
+<h2 id="related-settings">Related settings<a class="headerlink" href="#related-settings" title="Permanent link"></a></h2>
+<ul>
+<li><a href="../BindAdapter/">Bind Adapter</a> — named-adapter binding, <em>StrictBindIP</em>, proxy interaction, and detailed limitations</li>
+<li><a href="../../PlusContent/ProxySupport/">Proxy Support</a> — SOCKS5 proxy behavior and binding interaction</li>
+</ul>
 
 
 

@@ -5587,9 +5587,10 @@
 <h1 id="secure-delete-sandbox">Secure Delete Sandbox<a class="headerlink" href="#secure-delete-sandbox" title="Permanent link"></a></h1>
 <p>Typical file deletion makes data inaccessible to the operating system and programs, but the data is not physically wiped from the hard drive storage medium, and may be recovered by a data recovery technician. To make this recovery more difficult, third-party software exists that can perform a <em>secure deletion.</em> This is typically accomplished by overwriting the data multiple times before deleting it.</p>
 <p>For more information, see <a href="https://en.wikipedia.org/wiki/Data_remanence">Data remanence in Wikipedia</a>.</p>
-<p>By default, Sandboxie deletes the sandbox using a standard Windows command to delete folders -- <em>RMDIR</em>. This makes sure the contents of the sandbox (including malicious software) are properly removed from the operating system. But as mentioned above, it leaves the data vulnerable to inspection and recovery by forensics experts.</p>
-<p>People who are concerned about the privacy of their sensitive data can plug a third-party secure deletion utility into Sandboxie, to be used instead of the standard command.</p>
-<p>You can configure a custom delete command through Sandboxie Control or by manually editing the <a href="SandboxieIni.html">Sandboxie Ini</a> configuration file.</p>
+<p>By default, the Sandboxie Control Classic/<code>Start.exe</code> deletion path uses the standard Windows <em>RMDIR</em> command to delete folders. This makes sure the contents of the sandbox (including malicious software) are properly removed from the operating system. But as mentioned above, it leaves the data vulnerable to inspection and recovery by forensics experts.</p>
+<p>People who are concerned about the privacy of their sensitive data can plug a third-party secure deletion utility into the Classic/<code>Start.exe</code> deletion path, to be used instead of the standard command.</p>
+<p>For the Classic/<code>Start.exe</code> deletion path, you can configure a custom delete command through Sandboxie Control or by manually editing the <a href="SandboxieIni.html">Sandboxie Ini</a> configuration file.</p>
+<p>SandMan instead provides <a href="SandManTriggers.html#onboxdelete"><code>OnBoxDelete</code></a>, a host-side trigger that runs configured automation before SandMan performs its own cleanup. It is not the same mechanism as <code>DeleteCommand</code>, and enabling the trigger does not by itself change SandMan's deletion method or guarantee secure erasure.</p>
 <p><strong>In Sandboxie Control</strong></p>
 <p>Use <a href="DeleteSettings.html#command">Sandbox Settings &gt; Delete &gt; Command</a>. A couple of examples for the Delete Command:</p>
 <ul>

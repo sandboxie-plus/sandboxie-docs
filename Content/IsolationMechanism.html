@@ -5586,7 +5586,7 @@
 
 <h1 id="isolation-mechanism">Isolation Mechanism<a class="headerlink" href="#isolation-mechanism" title="Permanent link"></a></h1>
 <p>Processes started under Sandboxie's supervision are created with a very restricted user token, such that they basically don't have the right to access almost anything. In this state, they would be pretty much useless and would crash right away.</p>
-<p>This token manipulation is done using half a dozen <a href="TokenMagic.html">undocumented symbols</a> in the Windows kernel.</p>
+<p>Sandboxie supports multiple token-construction and filtering paths. The normal current path constructs a new, heavily restricted primary token, while a historical filtering path remains available and uses implementation-specific Windows kernel handling. See <a href="AccessTokenIsolation.html">Access Token Isolation</a> and the <a href="TokenMagic.html">token internals</a> for details.</p>
 <p>In a next step, Sandboxie tries to repair that by hooking most ntdll.dll syscalls and replacing them with a redirection to the own SbieDrv driver. The driver then evaluates the calls and enforces the sandboxing rules, for example, no write access outside the sandbox and no read access to closed resources.</p>
 <p>When a malicious application would unhook ntdll.dll, for example, by trying to use direct syscalls to the Windows kernel, the kernel would see the restricted user token and operations would fail with an access denied.</p>
 <p>Not all functionality can be restored this way, so Sandboxie also hooks a myriad of other functions in standard Windows DLLs, providing workarounds and redirects through the helper service SbieSvc, although sometimes it opts for disabling some functionality outright.</p>

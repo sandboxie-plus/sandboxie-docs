@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Sandboxie Control &gt; Sandbox Settings &gt; File Migration:">
+        <meta name="description" content="Sandboxie Plus lets you run programs in isolated sandboxes on Windows, enhancing security and privacy by containing changes from the rest of the system.">
       
       
       
@@ -5585,20 +5585,33 @@
 
 
 <h1 id="file-migration-settings">File Migration Settings<a class="headerlink" href="#file-migration-settings" title="Permanent link"></a></h1>
+<h2 id="sandboxie-plus">Sandboxie Plus<a class="headerlink" href="#sandboxie-plus" title="Permanent link"></a></h2>
+<p>SandMan &gt; Sandbox Options &gt; General Options &gt; File Migration</p>
+<p>Sandboxie normally lets a sandboxed program read a host file without first copying it. When the program requests an operation that needs to change an existing file, Sandboxie migrates the file into the sandbox and applies the change to that sandbox copy. The host file remains unchanged.</p>
+<p>In SandMan, the File Migration page controls the normal size decision and the path rules that can override it.</p>
+<h2 id="sandboxie-control-classic">Sandboxie Control Classic<a class="headerlink" href="#sandboxie-control-classic" title="Permanent link"></a></h2>
 <p><a href="../SandboxieControl/">Sandboxie Control</a> &gt; <a href="../SandboxSettings/">Sandbox Settings</a> &gt; File Migration:</p>
 <p><img alt="" src="../../Media/FileMigrationSettings.png" /></p>
-<p>Before a sandboxed program can make changes to a file that already exists in your computer, Sandboxie first must make a copy of this file in the sandbox. However, making copies of very large files would be a long operation. For this reason, Sandboxie will only make copies of files that are below a certain maximum size. Files larger than this size will be considered read-only inside the sandbox, and any attempt to modify them will result in message <a href="../SBIE2102/">SBIE2102</a>.</p>
-<p>Use this settings page to set the maximum size threshold, and whether or not you wish to see message <a href="../SBIE2102/">SBIE2102</a> issued when an attempt is made to modify files larger than that maximum size.</p>
-<p>Related <a href="../SandboxieIni/">Sandboxie Ini</a> settings: <a href="../CopyLimitKb/">CopyLimitKb</a>, <a href="../CopyLimitSilent/">CopyLimitSilent</a>.</p>
+<p>Sandboxie Control Classic remains supported. Its File Migration page handles existing migration-size controls such as <a href="../CopyLimitKb/">CopyLimitKb</a> and <a href="../CopyLimitSilent/">CopyLimitSilent</a>. The newer migration-rule actions documented below describe the current SandMan interface and do not imply equivalent controls in Sandboxie Control Classic.</p>
+<h2 id="migration-rules">Migration rules<a class="headerlink" href="#migration-rules" title="Permanent link"></a></h2>
+<p>The rule list supports four actions:</p>
+<ul>
+<li><strong>Always copy</strong> (<a href="../CopyAlways/">CopyAlways</a>) migrates the matching host file with its contents, without applying the normal size threshold.</li>
+<li><strong>Don't copy</strong> (<a href="../DontCopy/">DontCopy</a>) prevents content migration. The open is retried without write and delete access, or denied when <a href="../CopyBlockDenyWrite/">CopyBlockDenyWrite</a> is enabled.</li>
+<li><strong>Copy empty</strong> (<a href="../CopyEmpty/">CopyEmpty</a>) creates a zero-length sandbox copy instead of migrating the host contents.</li>
+<li><strong>Copy newer</strong> (<a href="../CopyNewer/">CopyNewer</a>) refreshes an existing sandbox copy when the matching host file has a later last-write time.</li>
+</ul>
+<p>The first three actions select how an existing regular host file is initially migrated. If their patterns overlap, <em>DontCopy</em> takes priority over <em>CopyAlways</em>, which takes priority over <em>CopyEmpty</em>. <em>CopyNewer</em> is a separate check for a sandbox copy that already exists.</p>
+<p>Rules may be repeated and may be limited to a program. See the dedicated setting pages for syntax, pattern behavior, and open-mode limitations.</p>
+<h2 id="normal-size-decision">Normal size decision<a class="headerlink" href="#normal-size-decision" title="Permanent link"></a></h2>
+<p>When no initial-migration rule matches, Sandboxie compares the host file size with <a href="../CopyLimitKb/">CopyLimitKb</a>. A file strictly smaller than the configured threshold is copied with its contents; setting the limit to <code>-1</code> disables the size limit. For a file that reaches or exceeds the threshold, SandMan can prompt the user according to <a href="../PromptForFileMigration/">PromptForFileMigration</a>. If migration is not approved, the open falls back to read-only access or is denied according to <a href="../CopyBlockDenyWrite/">CopyBlockDenyWrite</a>.</p>
+<p><a href="../CopyLimitSilent/">CopyLimitSilent</a> controls message <a href="../SBIE2102/">SBIE2102</a> when the size decision prevents migration and no prompt result is returned. <a href="../NotifyNoCopy/">NotifyNoCopy</a> separately controls messages SBIE2113, SBIE2114, and SBIE2115 for explicit <em>CopyEmpty</em> and <em>DontCopy</em> rules.</p>
 
 
 
 
 
 
-
-  
-  
 
 
 

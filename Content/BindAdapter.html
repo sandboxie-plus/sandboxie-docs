@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="BindAdapter and BindAdapterIP are sandbox settings in Sandboxie Ini available since v1.15.12 / 5.70.12 and v1.15.10 / 5.70.10 respectively. These settings control which network adapter or IP address sandboxed programs use for network communications.">
+        <meta name="description" content="BindAdapter and BindAdapterIP select the local network interface used by supported socket operations in sandboxed processes. The binding is implemented in SbieDll by intercepting Winsock operations; it is not a firewall or a universal network-enforcement boundary.">
       
       
       
@@ -5585,86 +5585,84 @@
 
 
 <h1 id="bind-adapter">Bind Adapter<a class="headerlink" href="#bind-adapter" title="Permanent link"></a></h1>
-<p><strong>BindAdapter</strong> and <strong>BindAdapterIP</strong> are sandbox settings in <a href="SandboxieIni.html">Sandboxie Ini</a> available since <strong>v1.15.12 / 5.70.12</strong> and <strong>v1.15.10 / 5.70.10</strong> respectively. These settings control which network adapter or IP address sandboxed programs use for network communications.</p>
-<h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link"></a></h2>
-<h3 id="bindadapter">BindAdapter<a class="headerlink" href="#bindadapter" title="Permanent link"></a></h3>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">BindAdapter</span><span class="o">=</span><span class="s">[&lt;Program&gt;,]&lt;AdapterName&gt;</span>
+<p><em>BindAdapter</em> and <em>BindAdapterIP</em> select the local network interface used by supported socket operations in sandboxed processes. The binding is implemented in SbieDll by intercepting Winsock operations; it is not a firewall or a universal network-enforcement boundary.</p>
+<p>For matching processes, Sandboxie can bind supported IPv4 and IPv6 socket paths to an address associated with a named adapter or to a configured local IP address. Standard intercepted paths include connection, datagram send/receive, and related Winsock extension paths, but software that bypasses those paths is outside this feature's scope.</p>
+<h2 id="choosing-a-binding-method">Choosing a binding method<a class="headerlink" href="#choosing-a-binding-method" title="Permanent link"></a></h2>
+<p>Use <em>BindAdapter</em> when the address may change, as with DHCP or a VPN. Sandboxie matches the configured value to a Windows adapter <strong>FriendlyName</strong>, without regard to letter case, and follows the usable addresses currently assigned to that adapter.</p>
+<p>Use <a href="BindAdapterIP.html"><em>BindAdapterIP</em></a> when a specific local address must be selected. The address must remain assigned to an active host interface; Sandboxie does not migrate the rule to another address if the host configuration changes.</p>
+<p>If both settings are applicable to the same process, <em>BindAdapter</em> has configuration precedence. <em>BindAdapterIP</em> is used when adapter-based binding is not the applicable configured mechanism; it is not a fallback for an unavailable named adapter.</p>
+<h2 id="bindadapter-syntax">BindAdapter syntax<a class="headerlink" href="#bindadapter-syntax" title="Permanent link"></a></h2>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">BindAdapter</span><span class="o">=</span><span class="s">[process,]adapter_name</span>
 </span></code></pre></div>
-<h3 id="bindadapterip">BindAdapterIP<a class="headerlink" href="#bindadapterip" title="Permanent link"></a></h3>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">BindAdapterIP</span><span class="o">=</span><span class="s">[&lt;Program&gt;,]&lt;IP Address&gt;</span>
+<p>Omit <code>process</code> to apply the rule to every process in the sandbox, or specify an executable name for a program-specific rule. Adapter friendly names that contain spaces can be written directly.</p>
+<p>Examples:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">BindAdapter</span><span class="o">=</span><span class="s">Ethernet</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">BindAdapter</span><span class="o">=</span><span class="s">browser.exe,My VPN</span>
 </span></code></pre></div>
+<p>The first rule applies to all processes that do not have a more specific applicable rule. The second applies to <code>browser.exe</code> and selects the adapter named <code>My VPN</code>.</p>
+<p>Rules are read from the sandbox's effective configuration, including inherited template settings. The current Sandboxie Plus interface manages box-wide rules; executable-specific rules require manual <a href="SandboxieIni.html">Sandboxie Ini</a> configuration.</p>
+<h2 id="adapter-selection-and-address-families">Adapter selection and address families<a class="headerlink" href="#adapter-selection-and-address-families" title="Permanent link"></a></h2>
+<p>The named adapter must be present and operational. Sandboxie uses at most one usable IPv4 address and one usable IPv6 address from it. During adapter selection it excludes IPv4 link-local addresses in <code>169.254.0.0/16</code> and IPv6 link-local addresses in <code>fe80::/10</code>.</p>
+<p>An adapter may therefore provide:</p>
 <ul>
-<li><strong>Program</strong>: (Optional) Specific program executable name to apply binding to. If omitted, applies to all programs in the sandbox.</li>
-<li><strong>AdapterName</strong>: The friendly name of a network adapter (e.g., "Ethernet", "Wi-Fi", "VPN Connection")</li>
-<li><strong>IP Address</strong>: A specific IPv4 or IPv6 address that must be bound to one of the host's network adapters</li>
+<li>only IPv4;</li>
+<li>only IPv6; or</li>
+<li>both address families.</li>
 </ul>
-<h2 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link"></a></h2>
-<p>These settings restrict sandboxed network communications to specific network resources:</p>
+<p>The available family must match the socket operation. <em>StrictBindIP</em> controls whether an unconfigured or currently unavailable family may continue without the requested binding.</p>
+<p>Sandboxie periodically refreshes the state and addresses of a selected named adapter. This allows an adapter missing when the process initialized to be detected if it later appears, and allows address changes such as DHCP renewal or VPN reconnection to be followed. It does not use localhost as a fallback when the adapter is unavailable.</p>
+<h2 id="strictbindip">StrictBindIP<a class="headerlink" href="#strictbindip" title="Permanent link"></a></h2>
+<p><em>StrictBindIP</em> was added in Sandboxie Plus 1.16.7 and is enabled by default. It is relevant only when <em>BindAdapter</em> or <em>BindAdapterIP</em> has initialized the binding subsystem.</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">StrictBindIP</span><span class="o">=</span><span class="s">[process,]y|n</span>
+</span></code></pre></div>
+<p>Examples:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">StrictBindIP</span><span class="o">=</span><span class="s">y</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">StrictBindIP</span><span class="o">=</span><span class="s">browser.exe,n</span>
+</span></code></pre></div>
+<p>With the default <code>y</code> value, supported intercepted Winsock operations normally fail when the selected binding is unavailable or when the operation uses an address family for which no binding is configured. A common observable error is <code>WSAEADDRNOTAVAIL</code>, although applications should not rely on one error value for every socket path.</p>
+<p>With <code>StrictBindIP=n</code>, a normal intercepted path that cannot use the configured address may continue unbound, allowing Windows to choose another local address and route. This may send traffic through a different interface, so the compatibility fallback should be enabled only when that behavior is acceptable.</p>
+<p>Connection and datagram paths such as <code>connect</code>, <code>WSAConnect</code>, <code>ConnectEx</code>, <code>sendto</code>, <code>WSASendTo</code>, <code>recvfrom</code>, and <code>WSARecvFrom</code> are among the operations handled by the binding code. Explicit application calls to <code>bind</code> and other socket paths are not all handled identically. Treat <em>StrictBindIP</em> as compatibility behavior within the user-mode interception layer, not as an absolute network policy.</p>
+<p>Sandboxie Plus does not currently provide a dedicated <em>StrictBindIP</em> checkbox. Configure it in <code>Sandboxie.ini</code> when a non-default value is required.</p>
+<h2 id="security-and-privacy-limitations">Security and privacy limitations<a class="headerlink" href="#security-and-privacy-limitations" title="Permanent link"></a></h2>
+<p>Adapter binding controls the local source address used by supported intercepted Winsock operations. It does not:</p>
 <ul>
-<li><strong>BindAdapter</strong> forces programs to use a particular network adapter by name</li>
-<li><strong>BindAdapterIP</strong> forces programs to use a specific IP address for all network operations</li>
+<li>create Windows Filtering Platform (WFP) rules;</li>
+<li>block every possible networking mechanism;</li>
+<li>cover code that bypasses the intercepted Winsock paths, including kernel-mode networking; or</li>
+<li>guarantee that traffic can never use another interface.</li>
 </ul>
-<h2 id="example-usage">Example Usage<a class="headerlink" href="#example-usage" title="Permanent link"></a></h2>
-<h3 id="basic-adapter-binding">Basic Adapter Binding<a class="headerlink" href="#basic-adapter-binding" title="Permanent link"></a></h3>
-<p>Bind all sandboxed programs to the Wi-Fi adapter:</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[DefaultBox]</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">BindAdapter</span><span class="o">=</span><span class="s">Wi-Fi</span>
-</span></code></pre></div>
-<h3 id="ip-address-binding">IP Address Binding<a class="headerlink" href="#ip-address-binding" title="Permanent link"></a></h3>
-<p>Force programs to use a specific IPv4 address:</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">[DefaultBox]</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">BindAdapterIP</span><span class="o">=</span><span class="s">192.168.100.123</span>
-</span></code></pre></div>
-<p>Force programs to use a specific IPv6 address:</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">[DefaultBox]</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="na">BindAdapterIP</span><span class="o">=</span><span class="s">fe80::8570:c50:a571:bf22</span>
-</span></code></pre></div>
-<h3 id="per-process-configuration">Per-Process Configuration<a class="headerlink" href="#per-process-configuration" title="Permanent link"></a></h3>
-<p>Apply binding to specific programs only:</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">[DefaultBox]</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="na">BindAdapterIP</span><span class="o">=</span><span class="s">firefox.exe,192.168.1.100</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="na">BindAdapterIP</span><span class="o">=</span><span class="s">chrome.exe,10.0.0.50</span>
-</span></code></pre></div>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">[DefaultBox]</span><span class="w">  </span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="na">BindAdapter</span><span class="o">=</span><span class="s">torrent.exe,VPN Connection</span>
-</span></code></pre></div>
-<h3 id="multiple-configurations">Multiple Configurations<a class="headerlink" href="#multiple-configurations" title="Permanent link"></a></h3>
-<p>You can configure multiple per-process bindings:</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">[DefaultBox]</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="na">BindAdapterIP</span><span class="o">=</span><span class="s">program1.exe,192.168.1.10</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="na">BindAdapterIP</span><span class="o">=</span><span class="s">program2.exe,192.168.1.20</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="na">BindAdapter</span><span class="o">=</span><span class="s">program3.exe,Ethernet 2</span>
-</span></code></pre></div>
-<h2 id="important-notes">Important Notes<a class="headerlink" href="#important-notes" title="Permanent link"></a></h2>
-<blockquote>
-<p><strong>Configuration Precedence:</strong> BindAdapter takes absolute precedence over BindAdapterIP. If both are configured for the same process, BindAdapter is used and BindAdapterIP entries are completely ignored.</p>
-<p><strong>Priority System:</strong> Multiple entries follow a "most specific wins" policy:</p>
-<ul>
-<li>Exact program name match (e.g., <code>BindAdapter=chrome.exe,Ethernet</code>) has highest priority</li>
-<li>Negation match (e.g., <code>BindAdapter=!firefox.exe,Wi-Fi</code>) has medium priority  </li>
-<li>Global match (e.g., <code>BindAdapter=Ethernet</code>) has lowest priority</li>
-<li>Only the most specific matching entry is used; others are ignored</li>
-</ul>
-<p><strong>Single IP Limitation:</strong> Only one IP address per family is active. IPv4 and IPv6 entries are processed independently, each following the "most specific wins" policy. Multiple entries of the same address family compete with each other (first-found wins when specificity is equal). You cannot bind to multiple IPv4 or multiple IPv6 addresses simultaneously, but you can have one IPv4 and one IPv6 address active at the same time.</p>
-<p><strong>Failure Behavior:</strong> BindAdapter and BindAdapterIP handle unavailable resources differently:</p>
-<ul>
-<li><strong>BindAdapter</strong>: If the adapter name is not found, falls back to localhost (127.0.0.1 and ::1) with no error reported</li>
-<li><strong>BindAdapterIP</strong>: If the IP address is not bound to any host NIC, all network connections will fail silently</li>
-</ul>
-<p><strong>UI Limitation:</strong> Per-process binding configurations can only be set by manually editing the Sandboxie.ini file. The user interface only supports global (all programs) binding configurations.</p>
-</blockquote>
-<h2 id="user-interface">User Interface<a class="headerlink" href="#user-interface" title="Permanent link"></a></h2>
-<p>In <strong>Sandboxie Plus</strong>, you can configure these settings through:</p>
+<p>When interface confinement is security-sensitive, combine binding with an independently enforced network policy. See <a href="../PlusContent/WFPSupport.html">Windows Filtering Platform</a> for Sandboxie's separate filtering support.</p>
+<h2 id="interaction-with-socks-proxying">Interaction with SOCKS proxying<a class="headerlink" href="#interaction-with-socks-proxying" title="Permanent link"></a></h2>
+<p>On the normal proxy path, source-address or adapter binding is evaluated before Sandboxie makes the SOCKS proxy connection. An unavailable strict binding can therefore prevent connection to the proxy endpoint.</p>
+<p>The experimental <code>UseProxyThreads</code> compatibility mode creates the external proxy connection from a separate relay worker and should not be treated as providing the same source-address binding guarantees as the normal path. See <a href="../PlusContent/ProxySupport.html">Proxy Support</a> for the proxy feature's scope and limitations.</p>
+<h2 id="applying-configuration-changes">Applying configuration changes<a class="headerlink" href="#applying-configuration-changes" title="Permanent link"></a></h2>
+<p><em>BindAdapter</em> and <em>BindAdapterIP</em> rules are initialized when a sandboxed process initializes Winsock. Restart affected sandboxed processes after changing those rules.</p>
+<p>The physical state and current addresses of an already selected <em>BindAdapter</em> are refreshed while the process runs. By contrast, <em>BindAdapterIP</em> revalidates whether its configured literal address remains assigned to an operational interface but does not rewrite the rule to use another address. <em>StrictBindIP</em> is queried during intercepted operations, so a saved change may affect subsequent operations in a process whose binding subsystem is already initialized. Restarting affected processes after changing network configuration remains the reliable practice. A SandMan or Sandboxie service restart is not normally required.</p>
+<h2 id="sandboxie-plus-interface">Sandboxie Plus interface<a class="headerlink" href="#sandboxie-plus-interface" title="Permanent link"></a></h2>
+<p>In Sandboxie Plus, open:</p>
 <p><strong>Sandbox Options</strong> &gt; <strong>Network Options</strong> &gt; <strong>Other Options</strong></p>
-<p>The interface provides:</p>
+<p>The group is labeled <strong>Bind to Adapter IP</strong> and contains:</p>
 <ul>
-<li>A dropdown menu to select from available network adapters for <strong>BindAdapter</strong></li>
-<li>Text fields for IPv4 and IPv6 addresses for <strong>BindAdapterIP</strong></li>
+<li>an adapter drop-down list;</li>
+<li>an <strong>IPv4:</strong> field; and</li>
+<li>an <strong>IPv6:</strong> field.</li>
 </ul>
+<p>Selecting an adapter configures <em>BindAdapter</em>. Selecting <strong>None (Don't bind to adapter)</strong> allows literal addresses to be entered for <em>BindAdapterIP</em>. The single UI group therefore represents two distinct configuration keys.</p>
 <p><img alt="Bind Adapter Configuration" src="../Media/BindAdapter.png" /></p>
-<h2 id="related-settings">Related Settings<a class="headerlink" href="#related-settings" title="Permanent link"></a></h2>
+<p>SandMan provides this current configuration interface. The runtime is shared by Sandboxie Plus and Classic, so Classic can consume compatible manually configured settings where the feature is available, but it does not provide the equivalent modern interface. <em>StrictBindIP</em> is an INI setting rather than a dedicated SandMan or Classic checkbox.</p>
+<h2 id="version-history">Version history<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
 <ul>
-<li><a href="NetworkDnsFilter.html">Network Dns Filter</a> - Filter DNS requests from sandboxed programs</li>
+<li>Sandboxie Plus 1.15.10 / Classic 5.70.10 introduced <em>BindAdapterIP</em>, including executable-qualified configuration.</li>
+<li>Sandboxie Plus 1.15.12 / Classic 5.70.12 introduced <em>BindAdapter</em> for selecting a named adapter.</li>
+<li>The 1.16.x series added fixes for adapter and VPN disconnection handling.</li>
+<li>Sandboxie Plus 1.16.7 / Classic 5.71.7 added <em>StrictBindIP</em>.</li>
+</ul>
+<h2 id="related-settings">Related settings<a class="headerlink" href="#related-settings" title="Permanent link"></a></h2>
+<ul>
+<li><a href="BindAdapterIP.html">Bind Adapter IP</a> — details for binding to a literal local address</li>
+<li><a href="../PlusContent/ProxySupport.html">Proxy Support</a> — SOCKS5 proxy behavior and binding interaction</li>
+<li><a href="../PlusContent/WFPSupport.html">Windows Filtering Platform</a> — separate network-layer enforcement</li>
+<li><a href="NetworkDnsFilter.html">Network DNS Filter</a> — filters DNS requests from sandboxed programs</li>
 </ul>
 
 

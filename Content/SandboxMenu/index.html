@@ -5728,9 +5728,10 @@
 <p>Related <a href="../SandboxieIni/">Sandboxie Ini</a> setting: <a href="../FileRootPath/">FileRootPath</a>.</p>
 <hr />
 <h3 id="set-layout-and-groups">Set Layout and Groups<a class="headerlink" href="#set-layout-and-groups" title="Permanent link"></a></h3>
-<p>The <em>Set Layout and Groups</em> command permits ordering sandboxes within a hierarchy of groups, when displayed in menus and lists. This does not have any effect on how programs behave within a sandbox. This feature is useful when more than a few sandboxes are defined, as it permits easier menu access to a specific sandbox.</p>
+<p>In Sandboxie Control Classic, the <em>Set Layout and Groups</em> command permits ordering sandboxes within a hierarchy of groups when displayed in menus and lists. Classic stores this layout using the legacy <code>BoxDisplayOrder</code> setting. This organization does not affect how programs behave within a sandbox.</p>
+<p>Current SandMan manages groups directly in its main sandbox tree and stores the per-user hierarchy using <a href="../BoxGrouping/"><code>BoxGrouping</code></a>. Each sandbox remains independently configured; grouping does not provide setting inheritance or additional isolation.</p>
 <p>Once any groups have been defined, the main <a href="../ProgramsView/">Programs View</a> in <a href="../SandboxieControl/">Sandboxie Control</a> will include a combo box button which can be used to restrict the list of sandboxes that are displayed.</p>
-<p>Related <a href="../SandboxieIni/">Sandboxie Ini</a> setting: BoxDisplayOrder.</p>
+<p>Related <a href="../SandboxieIni/">Sandboxie Ini</a> settings: legacy <code>BoxDisplayOrder</code> for Sandboxie Control Classic and <a href="../BoxGrouping/"><code>BoxGrouping</code></a> for current SandMan.</p>
 <hr />
 <h3 id="reveal-hidden-sandbox">Reveal Hidden Sandbox<a class="headerlink" href="#reveal-hidden-sandbox" title="Permanent link"></a></h3>
 <p>The <em>Reveal Hidden Sandbox</em> command appears in the menu only if some sandboxes are not visible to or usable by the current user account. A sandbox can be restricted to specific user accounts using the <a href="../UserAccountsSettings/">User Accounts Settings</a> settings page in the <a href="../SandboxSettings/">Sandbox Settings</a> window. The <em>Reveal Hidden Sandbox</em> command can restore visibility of a sandbox that has been made unavailable the current user account.</p>
