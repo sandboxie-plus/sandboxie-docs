@@ -1,154 +1,120 @@
 # 隐私问题
 
-* * *
-这是一个高级主题，说明即使你在 Sandboxie 中运行了程序，你的计算机仍可能记录**运行了哪些程序**以及它们的行为。这并不代表出现了安全漏洞，因为这些记录**不会**让沙盘程序感染或滥用你的计算机。但如果你关心使用 Sandboxie 时的隐私问题，这篇文章值得一读。
-
----
+这是一个高级主题，说明即使在 Sandboxie 下运行程序之后，你的计算机仍可能记录_哪些_程序被执行过或它们做了什么。必须强调，这不是安全漏洞，因为它绝不允许沙盒化程序感染或以其他方式滥用你的计算机。不过，对于关心使用 Sandboxie 的隐私方面的人来说，这可能是值得一读的内容。
 
 **概述**
 
-Sandboxie 的核心原则是：隔离并控制其监督下程序的行为，目的是保持计算机和操作系统的干净与健康。
+Sandboxie 的指导原则是隔离并遏制其所监管程序采取的任何行动，目的是让计算机和操作系统保持干净健康的状态。
 
-大多数在 Sandboxie 中运行程序的“副作用”，其实来自程序本身，并且会在沙盘被删除后一起消失。例如，在沙盘中运行的浏览器会将浏览记录保存在沙盘内，而这些记录在删除沙盘时会被完全清除。
+在 Sandboxie 下运行程序产生的大多数副作用，实际上正是由该程序本身造成的，并且会在沙盒被删除时消失。例如，在 Sandboxie 下运行的网页浏览器会把你的浏览历史记录在沙盒中，删除沙盒时这段历史会被完全擦除。
 
-因此，用户很容易从上述原则中得出推论：Sandboxie 的目标是保护你的隐私，并清除所有由其监管程序直接或间接产生的痕迹。但这种假设是不准确的。
+因此，人们很容易从上面的指导原则做一个小的逻辑跳跃，假设 Sandboxie 的原则之一是保护你的隐私，并清除任何受其监管程序直接或间接造成的痕迹。然而，这种假设并不正确。
 
-Sandboxie 虽然非常注重控制程序行为，但它**不会试图阻止 Windows 操作系统本身**记录你在计算机上的活动。
+Sandboxie 在遏制其监管程序采取的行动上投入了大量努力，但 Sandboxie 完全没有做任何事来阻止你自己的 Windows 操作系统保留你在计算机上所做事情的记录。
 
-如果有人错误地认为 Sandboxie 会极度保护隐私，他们可能会惊讶地发现 Windows 系统中仍然可以找到一些记录程序运行痕迹（哪怕是在沙盘中运行）。
+如果一个人错误地假设 Sandboxie 极度关心隐私，他可能会惊讶地发现 Windows 中有多种痕迹和日志会记录哪些程序一直在运行，即使是在沙盒内。
 
-本文将解释在 Windows 中用于记录程序活动的各种机制——无论程序是否在 Sandboxie 的监督下运行。
+本页将解释记录你所运行程序信息的各种已知机制——无论在 Sandboxie 的监管之内还是之外。
 
----
+**预读取和超级预读取**
 
-**Prefetch 与 SuperFetch**
+预读取（Prefetch）在 Windows XP 中引入，超级预读取（SuperFetch）在 Windows Vista 中引入，它们共同构成 Windows 中的 [预读取器](https://en.wikipedia.org/wiki/Prefetcher) 组件。
 
-Prefetch（预取）最早出现在 Windows XP，SuperFetch 出现在 Windows Vista，它们共同构成了 Windows 的 [预取器](https://en.wikipedia.org/wiki/Prefetcher) 组件。
+该组件旨在通过把程序文件的副本保存在可快速访问的位置来改善应用程序的启动时间。副本保存在主 Windows 文件夹内的名为 _Prefetch_ 的文件夹中；通常为 _C:\Windows\Prefetch_。
 
-这个组件用于加快程序启动速度，它会将程序文件的副本保存在一个可快速访问的位置。副本通常被存储在 Windows 主目录下的 `Prefetch` 文件夹中，通常路径是 `C:\Windows\Prefetch`
+即使程序是在 Sandboxie 下执行的，Windows 也可能在此 Prefetch 文件夹中存储程序文件的副本。
 
-即使是在 Sandboxie 中运行的程序，Windows 也可能会将其文件副本写入 Prefetch 文件夹。
-
-你可以通过修改设置，限制预取器只缓存启动时使用的程序，甚至完全禁用预取功能。更多信息请见：
+预读取行为可以减少为仅缓存启动序列期间使用的程序，或完全不缓存任何内容。更多信息请访问以下链接：
 
 * [https://www.ghacks.net/2008/01/13/enableprefetcher-in-prefetchparameters](https://www.ghacks.net/2008/01/13/enableprefetcher-in-prefetchparameters)
 * [https://www.howtogeek.com/998/change-superfetch-to-only-cache-system-boot-files-in-vista](https://www.howtogeek.com/998/change-superfetch-to-only-cache-system-boot-files-in-vista)
 * [https://www.howtogeek.com/989/how-to-disable-superfetch-on-windows-vista](https://www.howtogeek.com/989/how-to-disable-superfetch-on-windows-vista)
 
----
-
 **MUI 缓存**
 
-Windows 资源管理器会在注册表中记录通过它启动的程序名称。这包括从开始菜单、桌面、快速启动栏或文件夹中启动程序的情况。即使使用右键“沙盘运行”功能，也会被记录。
+Windows 资源管理器会在注册表中记录直接通过它启动的程序的名称。这包括通过开始菜单、桌面、快速启动区域或任何文件夹视图启动的程序。即使使用右键"以沙盒方式运行"操作在 Sandboxie 下启动程序，情况也是如此。
 
-记录信息存储在以下注册表项中：
+记录的信息保存在此注册表项中：
 ```
-HKEY_CURRENT_USER\Software\Microsoft\Windows\ShellNoRoam\MUICache
+   HKEY_CURRENT_USER\Software\Microsoft\Windows\ShellNoRoam\MUICache
 ```
 
-如果你是通过 Sandboxie 的界面（如 Sandboxie 内的启动菜单）或通过一个已在沙盘中运行的程序来启动其他程序，那么这些记录就会被保存在沙盘的注册表中。
+如果你通过 Sandboxie 的设施（如 Sandboxie 开始菜单）启动程序，或通过已在 Sandboxie 下运行的程序启动，则此信息保存在沙盒内的注册表中。
 
-你可以使用第三方注册表清理工具来清除这些信息。
-
----
+有多种第三方注册表清理工具可以擦除此信息。
 
 **Windows 任务栏**
 
-在 Windows 7 及更高版本中，资源管理器会记录任务栏图标相关信息，包括图标及其启动命令。这些信息存储在用户配置文件夹的以下路径中：
+在 Windows 7 及更高版本中，Windows 资源管理器存储与任务栏图标关联的信息。此信息包括程序图标和用于启动它的命令。信息存储在用户配置文件文件夹内以下文件夹的文件中：
 ```
-%Appdata%\Microsoft\Internet Explorer\Quick Launch\User Pinned\ImplicitAppShortcuts
-```
-
-若在 [Sandbox 设置 > 应用程序 > 杂项](ApplicationsSettings.md#miscellaneous) 中启用了“允许程序更新 Windows 任务栏跳转列表”选项，还会在以下文件夹中生成其他记录：
-```
-%Appdata%\Microsoft\Windows\Recent\CustomDestinations
-%Appdata%\Microsoft\Windows\Recent\AutomaticDestinations
+   %Appdata%\Microsoft\Internet Explorer\Quick Launch\User Pinned\ImplicitAppShortcuts
 ```
 
----
+[沙盒设置 > 应用程序 > 其他](ApplicationsSettings.md#其他) 设置页包含设置"允许程序更新 Windows 任务栏中的跳转列表"。如果启用此设置，会在用户配置文件文件夹内的以下文件夹中创建额外文件：
+```
+   %Appdata%\Microsoft\Windows\Recent\CustomDestinations
+   %Appdata%\Microsoft\Windows\Recent\AutomaticDestinations
+```
 
 **Windows 页面文件**
 
-在正常操作中，Windows 会将部分程序使用的内存内容写入 [页面文件](https://www.howtogeek.com/126430/what-is-the-windows-page-file)，以便为其他程序腾出内存。
+在正常运行过程中，Windows 有时需要把一个程序使用的内存内容暂存起来，以便为另一个程序腾出空间。内存内容存储在 Windows [页面文件](https://www.howtogeek.com/126430/what-is-the-windows-page-file) 中。
 
-由于沙盘程序仍运行于操作系统之中，因此其内存内容可能与普通程序一起被写入同一个页面文件。
+在 Sandboxie 下运行的程序与计算机中的任何其他程序一样，仍运行在同一个 Windows 操作系统中，因此沙盒化程序和普通程序的部分内容可能并排出现在同一个页面文件中。
 
-你可以设置 Windows 在关机时清除页面文件的内容。参考：
-* [关机时清理页面文件（Win 10）](https://winaero.com/clear-pagefile-shutdown-windows-10)
-* [关机时清理页面文件（Vista）](https://www.vistax64.com/threads/virtual-memory-paging-file-clear-at-shutdown.157323)
+可以配置 Windows 在关闭时清除页面文件的内容。更多信息见 [此处](https://winaero.com/clear-pagefile-shutdown-windows-10) 和 [此处](https://www.vistax64.com/threads/virtual-memory-paging-file-clear-at-shutdown.157323)。
 
-你也可以加密页面文件内容：
+可以配置 Windows 加密页面文件的内容：
 
-1. 运行 `secpol.msc` 打开“本地安全策略”
-2. 展开“`公钥策略`”组
-3. 右键“`加密文件系统`”，选择“`属性`”
-4. 选择“`允许`”
-5. 点击“`应用`”和“`确定`”
-6. 重启电脑生效
-
----
+*   运行 _secpol.msc_ 打开_本地安全策略_编辑器
+*   展开标记为_公钥策略_的组
+*   右键点击标记为_加密文件系统_的项目上的_属性_
+*   选择_允许_以启用加密文件系统（EFS）
+*   点击_应用_，然后点击_确定_
+*   重启使新设置生效
 
 **Windows 休眠文件**
 
-与页面文件类似，休眠文件会在电脑休眠前保存系统状态及内存内容。因此，它也可能包含沙盘程序使用过的内存数据。
-
----
+与 Windows 页面文件类似，休眠文件在计算机休眠关机前存储系统内存和状态的副本。因此，休眠文件可能包含沙盒化程序使用过的内存片段。
 
 **系统还原**
 
-还原点是操作系统在某一时间点的状态快照。从 Windows XP 起的系统还原功能会记录并可恢复这些快照。
+还原点是操作系统在某些时间点状态的快照。Windows XP 及更高版本中的系统还原组件会记录并还原这些快照。
 
-这些快照会被保存到一个名为 _System Volume Information_ 的（通常无法访问的）文件夹中，其中可能包含系统各处的[多种类型文件](https://docs.microsoft.com/en-us/windows/win32/sr/monitored-file-extensions)，包括沙盘中的内容。
+快照记录在（通常无法访问的）名为 _System Volume Information_ 的文件夹中，可能包含系统各处的 [多种文件](https://docs.microsoft.com/en-us/windows/win32/sr/monitored-file-extensions)，包括沙盒文件夹内。
 
-因此，系统还原有可能会为**只存在于沙盘中的文件或程序**创建备份副本。
+因此，系统还原可能会在其文件夹中为仅存在于沙盒中的文件或程序创建备份副本。
 
-你可以设置系统还原组件忽略临时文件夹中的文件和目录。只需将沙盘位置[移动](FileRootPath.md)到 `%TEMP%\SANDBOX`（而非默认的 `C:\SANDBOX`），并在注册表键 [FilesNotToSnapshot](https://learn.microsoft.com/en-us/windows/win32/vss/excluding-files-from-shadow-copies#using-the-filesnottosnapshot-registry-key) 中添加该路径，系统还原在创建影子副本快照时就会跳过沙盘内容。更多信息请见 [此处](https://learn.microsoft.com/en-us/windows/win32/backup/registry-keys-for-backup-and-restore)。
+系统还原组件可以设置为忽略临时文件夹中的文件和文件夹，因此 [把沙盒移动](FileRootPath.md) 到 _%TEMP%\SANDBOX_（而不是默认的 _C:\SANDBOX_），并在注册表项 [FilesNotToSnapshot](https://learn.microsoft.com/en-us/windows/win32/vss/excluding-files-from-shadow-copies#using-the-filesnottosnapshot-registry-key) 中添加路径后，系统还原在创建卷影副本快照时应忽略沙盒。更多信息见 [此处](https://learn.microsoft.com/en-us/windows/win32/backup/registry-keys-for-backup-and-restore)。
 
----
+**系统日志、审核日志和其他事件日志**
 
-**系统、审计与事件日志**
+Windows 有时会在其各种 [事件日志](https://en.wikipedia.org/wiki/Event_Viewer) 中记录关于运行程序的信息片段。通常，关于程序记录的信息即使有也极少。然而，如果系统的某些方面启用了安全审核，Windows 将毫无困难地记录在 Sandboxie 下运行的程序所采取任何操作的详细信息。
 
-Windows 会在其 [事件日志](https://en.wikipedia.org/wiki/Event_Viewer) 中记录某些程序行为。通常记录不多，但如果开启了安全审计功能，Windows 将详细记录沙盘内程序的行为。
+Windows 有一个事件查看器程序，可用于查看和删除事件日志。更多信息见 [此处](https://www.howtogeek.com/123646/htg-explains-what-the-windows-event-viewer-is-and-how-you-can-use-it)。
 
-你可以使用“事件查看器”来查看和删除日志，详见：
-* [如何使用事件查看器](https://www.howtogeek.com/123646/htg-explains-what-the-windows-event-viewer-is-and-how-you-can-use-it)
+**Windows 系统托盘图标**
 
----
+当在 Sandboxie 下运行的程序请求在 [系统托盘区域](https://www.computerhope.com/issues/chsys.htm) 放置图标时，Sandboxie 会允许该程序把图标放在真实的系统托盘中，后者通常位于显示器右下角。
 
-**系统托盘图标**
+这样做的好处是，与沙盒化程序托盘图标的交互就像与任何其他托盘图标交互一样容易。但这也意味着 Windows 会在它曾显示过的所有托盘图标历史中记录该图标及其描述。
 
-当沙盘程序尝试在[系统托盘](https://www.computerhope.com/issues/chsys.htm)放置图标时，Sandboxie 会允许其真实显示在右下角的托盘区。
-
-这样做的好处是用户可以方便地与图标交互。但这也意味着 Windows 会将图标及其说明记录到历史中。
-
-你可以通过以下方法清除这些历史：
-* [手动清除通知图标历史](https://www.howtogeek.com/739/clean-up-past-notification-icons-in-windows-vista)
-* 也可以使用第三方注册表清理工具来删除这些记录。
-
----
+可以手动清除 Windows 中的这段历史。也可能有第三方注册表清理工具可以擦除此信息。
 
 **磁盘碎片整理**
 
-磁盘碎片整理工具可以在磁盘底层对数据块重新排序，以提升读写性能。
+磁盘碎片整理软件可用于在数据块层面组织硬盘内容，以便操作系统更快地访问文件。
 
-虽然这并不是隐私问题，但确实有人关心沙盘程序是否能影响磁盘数据。
+虽然这不是隐私问题，但沙盒化程序能否对磁盘进行碎片整理的问题已被提出，应当加以说明。
 
-Sandboxie 的隔离是在文件系统层完成的，而非底层数据块。因此磁盘碎片整理**不会**影响沙盘隔离，也不会被恶意程序用来“转移”数据到沙盘外。
-
----
+Sandboxie 的隔离发生在较高的文件层面，而非较低的数据块层面。在磁盘上移动数据块对沙盒的隔离没有影响，恶意程序也无法借此以某种方式把自己的数据"移出"沙盒。
 
 **IP 隐私**
 
-Sandboxie 的隔离只在本地计算机上起作用，远程服务器无法感知你是否使用了沙盘。无论是否沙盘运行，访问互联网的行为在远端看来是一样的，远程主机会通过你的 IP 地址识别你。
+Sandboxie 的隔离和保护完全发生在本地计算机内，任何远程计算机都看不到。因此，用沙盒化程序访问互联网，看起来与用不在 Sandboxie 下运行的程序访问互联网是一样的。两种情况下，远程计算机都是通过 IP 地址来识别访问的计算机。
 
-如果你希望匿名访问网络，可以使用第三方匿名解决方案。参考：
-* [匿名上网](https://en.wikipedia.org/wiki/Anonymous_web_browsing)
-
----
+有多种第三方匿名网页访问解决方案。更多信息见 [此处](https://en.wikipedia.org/wiki/Anonymous_web_browsing)。
 
 **Windows DNS 主机缓存**
 
-Sandboxie 并不会阻止 Windows 保存或使用 DNS 缓存（hosts 文件），该文件位于：
-```
-C:\Windows\System32\drivers\etc
-```
+Sandboxie 不会阻止 Windows 机器上 _hosts_ 文件（DNS 缓存）的记录和存储。该文件写入 _C:\Windows\System32\drivers\etc_。

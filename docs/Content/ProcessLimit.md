@@ -4,6 +4,8 @@ _ProcessLimit_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md) availabl
 
 **Note:** The start of new processes is delayed for 3 seconds when 80% of the set limit is reached. Once the limit is reached, no new process will be allowed to start (until another process is killed).
 
+_ProcessLimit_ is separate from [ProcessNumberLimit](ProcessNumberLimit.md). _ProcessLimit_ is enforced by Sandboxie's process initialization logic, while _ProcessNumberLimit_ uses the Windows Job Object active-process limit.
+
 ```
    .
    .

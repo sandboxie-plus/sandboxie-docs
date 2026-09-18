@@ -49,11 +49,13 @@ Related [Sandboxie Ini](SandboxieIni.md) setting: [FileRootPath](FileRootPath.md
 
 ### Set Layout and Groups
 
-The _Set Layout and Groups_ command permits ordering sandboxes within a hierarchy of groups, when displayed in menus and lists. This does not have any effect on how programs behave within a sandbox. This feature is useful when more than a few sandboxes are defined, as it permits easier menu access to a specific sandbox.
+In Sandboxie Control Classic, the _Set Layout and Groups_ command permits ordering sandboxes within a hierarchy of groups when displayed in menus and lists. Classic stores this layout using the legacy `BoxDisplayOrder` setting. This organization does not affect how programs behave within a sandbox.
+
+Current SandMan manages groups directly in its main sandbox tree and stores the per-user hierarchy using [`BoxGrouping`](BoxGrouping.md). Each sandbox remains independently configured; grouping does not provide setting inheritance or additional isolation.
 
 Once any groups have been defined, the main [Programs View](ProgramsView.md) in [Sandboxie Control](SandboxieControl.md) will include a combo box button which can be used to restrict the list of sandboxes that are displayed.
 
-Related [Sandboxie Ini](SandboxieIni.md) setting: BoxDisplayOrder.
+Related [Sandboxie Ini](SandboxieIni.md) settings: legacy `BoxDisplayOrder` for Sandboxie Control Classic and [`BoxGrouping`](BoxGrouping.md) for current SandMan.
 
 * * *
 

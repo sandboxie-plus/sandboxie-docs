@@ -1,6 +1,6 @@
 # 如何使用 WinDbg
 
-在某些极少数情况下，在沙盘中运行的程序可能会无法正常工作，而且没有任何错误提示或线索。这时，微软免费的 [Windows 调试工具](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/debugger-download-tools) 可以帮助你进一步分析问题，甚至找出根本原因。
+在某些极少数情况下，在 Sandboxie 中运行的程序可能会无法正常工作，而且没有任何错误提示或线索。这时，微软免费的 [Windows 调试工具](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/debugger-download-tools) 可以帮助你进一步分析问题，甚至找出根本原因。
 
 * * *
 
@@ -21,13 +21,13 @@ C:\Program Files (x86)\Windows Kits\10\Debuggers
 
 **场景一：从调试器中启动程序**
 
-使用沙盘启动调试器：
+使用 Sandboxie 启动调试器：
 
-* 打开 [沙盘控制面板](SandboxieControl.md) > [沙箱菜单](SandboxMenu.md) > 从开始菜单运行
+* 打开 [沙盒管理器](SandboxieControl.md) > [Sandbox Menu](SandboxMenu.md) > 从开始菜单运行
 
-* 或在 Sandboxie Plus 窗口中右键你的沙箱 > 运行 > 从开始菜单运行
+* 或在 Sandboxie Plus 窗口中右键你的沙盒 > 运行 > 从开始菜单运行
 
-然后，在沙箱开始菜单中找到 _Windows Kits_ 组并运行 _WinDbg_。
+然后，在沙盒开始菜单中找到 _Windows Kits_ 组并运行 _WinDbg_。
 
 WinDbg 启动后会显示主窗口。
 
@@ -40,15 +40,15 @@ C:\Windows\System32\notepad.exe
 
 调试器会打开一个命令窗口用于控制（或调试）你启动的程序。
 
-使用“调试”菜单 > 运行 命令（或按下 F5）开始执行程序。此时调试器的状态行将变为 *BUSY（忙）*。接下来请阅读下方的 **最后一步**。
+使用“调试”菜单 > 运行命令（或按下 F5）开始执行程序。此时调试器的状态行将变为 *BUSY（忙）*。接下来请阅读下方的 **最后一步**。
 
 * * *
 
 **场景二：附加到已运行的程序**
 
-在这种情况下，你已经通过沙盘启动了目标程序，并且它正在运行中。
+在这种情况下，你已经通过 Sandboxie 启动了目标程序，并且它正在运行中。
 
-正常启动 WinDbg（无需通过沙盘）——在开始菜单中找到 _Windows Kits_ 组下的 _WinDbg_ 并运行它。
+正常启动 WinDbg（无需通过 Sandboxie）——在开始菜单中找到 _Windows Kits_ 组下的 _WinDbg_ 并运行它。
 
 WinDbg 启动后会显示主窗口。
 
@@ -82,6 +82,6 @@ WinDbg 启动后会显示主窗口。
 ```
 
 第三条命令将输出一段调试信息。命令完成后，请复制全部日志：点击“编辑”菜单 > 复制窗口文本到剪贴板。
-然后回到沙盘支持页面，在评论中粘贴这段日志。
+然后回到 Sandboxie 支持页面，在评论中粘贴这段日志。
 
 非常感谢你的配合！

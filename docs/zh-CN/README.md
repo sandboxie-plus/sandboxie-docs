@@ -4,7 +4,7 @@
 
 ## 简介
 
-Sandboxie 是一款基于沙箱的 Windows 隔离软件，可以让你在无需担心文件或注册表被未授权更改的情况下，运行不受信任的应用程序。
+Sandboxie 是一款基于沙盒的 Windows 隔离软件，可以让你在无需担心文件或注册表被未授权更改的情况下，运行不受信任的应用程序。
 
 自 Sandboxie 转为 [开源](https://news.sophos.com/en-us/2020/04/09/sandboxie-is-now-an-open-source-tool/) 后，我们决定将文档开放，以便社区能够轻松地进行更新，这也区别于 [sandboxie-plus.com](https://sandboxie-plus.com) 及其他来源的文档
 
@@ -18,4 +18,6 @@ Sandboxie 是一款基于沙箱的 Windows 隔离软件，可以让你在无需�
 
 ## 参与贡献
 
-如果你具备开发、测试或翻译相关技能，欢迎查阅我们的 [贡献指南](https://github.com/sandboxie-plus/Sandboxie/blob/master/CONTRIBUTING.md)
+如果你具备开发、测试或翻译相关技能，欢迎查阅我们的 [贡献指南](https://github.com/sandboxie-plus/Sandboxie/blob/master/CONTRIBUTING.md)。
+
+所有文档翻译者在提交翻译前，建议先查看 [多语言翻译贡献指南](https://github.com/sandboxie-plus/sandboxie-docs/issues/175#issuecomment-2840258519)。

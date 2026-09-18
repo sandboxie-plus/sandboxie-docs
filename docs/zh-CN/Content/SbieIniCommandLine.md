@@ -1,6 +1,6 @@
 # SbieIni 命令行
 
-SbieIni.exe 是一个小巧的命令行工具，用于查询和更新沙盘配置文件 [沙盘配置 (Sandboxie.ini)](SandboxieIni.md)。本页记录了常见的调用形式、自动化示例以及给维护者的实现参考。
+SbieIni.exe 是一个小巧的命令行工具，用于查询和更新 Sandboxie Ini [Sandboxie Ini](SandboxieIni.md)。本页记录了常见的调用形式、自动化示例以及给维护者的实现参考。
 
 ## 快速入门
 
@@ -30,7 +30,7 @@ SbieIni.exe set|append|insert|delete [/passwd:********] [/drv] <section> <settin
 说明：
 
 - `queryex` 是 `query /expand` 的简写形式
-- `/boxes` 仅列出已启用的沙箱
+- `/boxes` 仅列出已启用的沙盒
 - `/passwd:` 提供配置密码；如果留空，程序将以交互方式提示输入
 - `/drv` 通过驱动/服务 API 路由更新；未使用 `/drv` 时，将走 DLL 辅助路径
 
@@ -94,7 +94,7 @@ SbieIni.exe delete <section> <setting> <value>
 
 ## 高级与自动化说明
 
-- 删除整个沙箱：`SbieIni.exe set BoxName * ""`（会移除该 section 的所有行）。请谨慎使用
+- 删除整个沙盒：`SbieIni.exe set BoxName * ""`（会移除该 section 的所有行）。请谨慎使用
 - 批处理文件中需将百分号变量转义为 `%%VAR%%`
 - 若值中包含空格，需用英文双引号括起来
 - 避免在其他进程已打开/锁定 Sandboxie.ini 时进行更新操作

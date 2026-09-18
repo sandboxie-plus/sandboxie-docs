@@ -1,10 +1,10 @@
 # 阻止网络参数
 
-_BlockNetParam_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置。它指定 Sandboxie 是否允许在沙箱中的程序更改网络和防火墙参数。
+_BlockNetParam_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一项沙盒设置。它指定 Sandboxie 是否允许沙盒化程序更改网络和防火墙参数。
 
 用法：
 
-```ini
+```
    .
    .
    .
@@ -12,4 +12,4 @@ _BlockNetParam_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置。
    BlockNetParam=n
 ```
 
-指定 _n_ 表示应允许沙箱中的程序请求更改网络和防火墙参数
+指定 _n_ 表示应允许沙盒化程序发出更改网络和防火墙参数的请求。
