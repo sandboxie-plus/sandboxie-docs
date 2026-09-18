@@ -244,6 +244,8 @@
 
 [Hook Trace](HookTrace.md)
 
+[Host Injection](HostInjection.md)
+
 [How It Works](HowitWorks.md)
 
 [How To Use Win Dbg](HowToUseWinDbg.md)
