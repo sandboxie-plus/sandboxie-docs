@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="BorderColor 是 Sandboxie Ini 中的一个沙箱设置。它用于控制 Sandboxie 是否在活动前台窗口（如果该窗口属于沙箱化应用程序）周围显示彩色边框。">
+        <meta name="description" content="BorderColor 是 Sandboxie Ini 中的一项沙盒设置。它控制 Sandboxie 是否在活动的前台窗口周围显示彩色边框（如果该窗口属于沙盒化应用程序）。">
       
       
       
@@ -486,7 +486,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -570,7 +570,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -654,7 +654,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -835,7 +835,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -950,7 +950,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1106,7 +1106,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1190,7 +1190,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -5585,8 +5585,8 @@
 
 
 <h1 id="_1">边框颜色<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
-<p><em>BorderColor</em> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 中的一个沙箱设置。它用于控制 Sandboxie 是否在活动前台窗口（如果该窗口属于沙箱化应用程序）周围显示彩色边框。</p>
-<p>用法示例：</p>
+<p><em>BorderColor</em> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 中的一项沙盒设置。它控制 Sandboxie 是否在活动的前台窗口周围显示彩色边框（如果该窗口属于沙盒化应用程序）。</p>
+<p>用法：</p>
 <p><div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
@@ -5595,19 +5595,17 @@
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">   </span><span class="na">BorderColor</span><span class="o">=</span><span class="c1">#00FFFF,off,6</span>
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">   </span><span class="na">BorderColor</span><span class="o">=</span><span class="c1">#00FFFF,on,6</span>
 </span></code></pre></div>
-其默认值为 <em>"#00FFFF,ttl,6"</em>。数字代表绘制边框的默认像素宽度，可省略。</p>
-<p>如果 <em>BorderColor</em> 以 <em>",off,6"</em> 结尾，则 Sandboxie 不会绘制边框，而早期版本中是 <em>",n"</em>。</p>
-<p>颜色采用类似 HTML 的 RGB 颜色表示法：</p>
+其默认值为 <em>"#00FFFF,ttl,6"</em>。该数字表示所绘制边框的默认像素宽度，可以省略。</p>
+<p>如果 <em>BorderColor</em> 以 <em>",off,6"</em> 结尾，Sandboxie 不绘制边框，而在旧版本中它是 <em>",n"</em>。</p>
+<p>颜色以类似 HTML 的 RGB 颜色表示法指定：</p>
 <ul>
-<li>
-<h1 id="6-16">号后跟一个长度为 6 的十六进制（基数为 16）数字；<a class="headerlink" href="#6-16" title="Permanent link"></a></h1>
-</li>
-<li>前两位十六进制数字表示颜色的红色分量；</li>
-<li>中间两位十六进制数字表示颜色的绿色分量；</li>
+<li>井号前缀后跟一个恰好 6 位长的十六进制（基数为 16）数字。</li>
+<li>前两位十六进制数字表示颜色的红色分量。</li>
+<li>接下来的两位十六进制数字表示颜色的绿色分量。</li>
 <li>最后两位十六进制数字表示颜色的蓝色分量。</li>
 </ul>
-<p>当 <a href="SandboxieControl.html">沙箱控制</a> 未运行时，边框不会被绘制。</p>
-<p>相关的 <a href="SandboxieControl.html">沙箱控制</a> 设置：<a href="AppearanceSettings.html">沙箱设置 &gt; 外观</a></p>
+<p>当 <a href="SandboxieControl.html">沙盒管理器</a> 未运行时，不会绘制边框。</p>
+<p>相关 <a href="SandboxieControl.html">沙盒管理器</a> 设置：<a href="AppearanceSettings.html">沙盒设置 &gt; 外观</a></p>
 
 
 

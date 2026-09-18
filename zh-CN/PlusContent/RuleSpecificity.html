@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="在5.55.0版本之前，Sandboxie以非常简单的方式处理规则，某个路径可以是封闭的、只读的、只写的或开放的，并且规则应用的优先级是相同的。当一个封闭规则匹配到特定路径时，它会覆盖所有其他规则。">
+        <meta name="description" content="在 5.55.0 版本之前，Sandboxie 以非常简单的方式处理规则，某个路径可以是 封闭的、只读的、只写的 或 开放的，并且规则应用的优先级是相同的。当一个封闭规则匹配到特定路径时，它会覆盖所有其他规则。">
       
       
       
@@ -486,7 +486,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -570,7 +570,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -654,7 +654,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -835,7 +835,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -950,7 +950,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1106,7 +1106,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1190,7 +1190,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -5585,11 +5585,11 @@
 
 
 <h1 id="_1">规则特异性<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
-<p>在5.55.0版本之前，Sandboxie以非常简单的方式处理规则，某个路径可以是<a href="../Content/ClosedFilePath.html">封闭的</a>、<a href="../Content/ReadFilePath.html">只读的</a>、<a href="../Content/WriteFilePath.html">只写的</a>或<a href="../Content/OpenFilePath.html">开放的</a>，并且规则应用的优先级是相同的。当一个封闭规则匹配到特定路径时，它会覆盖所有其他规则。</p>
-<p>从1.0.0版本开始，Sandboxie-Plus引入了一种新的机制来评估和应用规则，该机制基于规则的特异性和匹配级别。</p>
+<p>在 5.55.0 版本之前，Sandboxie 以非常简单的方式处理规则，某个路径可以是 <a href="../Content/ClosedFilePath.html">封闭的</a>、<a href="../Content/ReadFilePath.html">只读的</a>、<a href="../Content/WriteFilePath.html">只写的</a> 或 <a href="../Content/OpenFilePath.html">开放的</a>，并且规则应用的优先级是相同的。当一个封闭规则匹配到特定路径时，它会覆盖所有其他规则。</p>
+<p>从 1.0.0 版本开始，Sandboxie-Plus 引入了一种新的机制来评估和应用规则，该机制基于规则的特异性和匹配级别。</p>
 <p>规则特异性是衡量给定规则与特定路径匹配程度的指标。简单来说，特异性是从路径开头到最后一个匹配的非通配符子字符串（包括该子字符串）的字符长度。像“*.tmp”这样仅匹配文件类型的规则将具有最高的特异性，因为它总是能匹配整个文件路径。</p>
 <p>进程匹配级别比特异性具有更高的优先级，它描述了规则如何应用于给定进程。按进程名称或组应用的规则具有最强的匹配级别，其次是按否定方式匹配的规则（即应用于除给定进程之外的所有进程的规则），而全局匹配（即适用于任何进程的规则）具有最低的匹配级别。</p>
-<p>为此功能，引入了一种新的路径指令类型<a href="../Content/NormalFilePath.html">正常的</a>，它允许为其父路径已设置为上述四种类型之一的路径恢复默认的沙箱行为。</p>
+<p>为此功能，引入了一种新的路径指令类型 <a href="../Content/NormalFilePath.html">正常的</a>，它允许为其父路径已设置为上述四种类型之一的路径恢复默认的沙盒行为。</p>
 
 
 

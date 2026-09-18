@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="DropChildProcessToken 是一个沙箱设置，自 v1.15.6 / 5.70.6 起在 沙盘配置 中可用。此设置强制指定应用程序的子进程在运行时不使用受修改的安全令牌，从而绕过沙盘通常的受限令牌机制。该功能主要作为调试工具，用于排查“绿框”（应用程序隔离）兼容性问题，即应用程序因令牌限制而无法正常启动或运行。">
+        <meta name="description" content="DropChildProcessToken 是 Sandboxie Ini 中的一项沙盒设置，自 v1.15.6 / 5.70.6 起可用。此设置强制指定应用程序的子进程在无修改安全令牌的情况下运行，绕过 Sandboxie 正常的受限令牌机制。它主要设计为调试工具，用于排查“绿盒”（应用程序隔离）兼容性问题——即应用程序因令牌限制而无法启动或正常运行时。">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>Drop Child Process Token - Sandboxie 文档</title>
+        <title>丢弃子进程令牌 - Sandboxie 文档</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#drop-child-process-token" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Drop Child Process Token
+              丢弃子进程令牌
             
           </span>
         </div>
@@ -486,7 +486,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -570,7 +570,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -654,7 +654,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -835,7 +835,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -950,7 +950,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1106,7 +1106,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1190,7 +1190,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -5584,131 +5584,131 @@
   
 
 
-<h1 id="drop-child-process-token">Drop Child Process Token<a class="headerlink" href="#drop-child-process-token" title="Permanent link"></a></h1>
-<p><em>DropChildProcessToken</em> 是一个沙箱设置，自 v1.15.6 / 5.70.6 起在 <a href="SandboxieIni.html">沙盘配置</a> 中可用。此设置强制指定应用程序的子进程在运行时不使用受修改的安全令牌，从而绕过沙盘通常的受限令牌机制。该功能主要作为调试工具，用于排查“绿框”（应用程序隔离）兼容性问题，即应用程序因令牌限制而无法正常启动或运行。</p>
-<h2 id="_1">使用方法<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
+<h1 id="_1">丢弃子进程令牌<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<p><em>DropChildProcessToken</em> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 中的一项沙盒设置，自 v1.15.6 / 5.70.6 起可用。此设置强制指定应用程序的子进程在无修改安全令牌的情况下运行，绕过 Sandboxie 正常的受限令牌机制。它主要设计为调试工具，用于排查“绿盒”（应用程序隔离）兼容性问题——即应用程序因令牌限制而无法启动或正常运行时。</p>
+<h2 id="_2">用法<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">DropChildProcessToken</span><span class="o">=</span><span class="s">chrome.exe,y</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="na">DropChildProcessToken</span><span class="o">=</span><span class="s">firefox.exe,y</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="na">DropChildProcessToken</span><span class="o">=</span><span class="s">acroread.exe,y</span>
 </span></code></pre></div>
-<h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">DropChildProcessToken</span><span class="o">=</span><span class="s">&lt;executable&gt;,y</span>
+<h2 id="_3">语法<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">DropChildProcessToken</span><span class="o">=</span><span class="s">&lt;可执行文件&gt;,y</span>
 </span></code></pre></div>
-<p>说明：</p>
+<p>其中：</p>
 <ul>
-<li><code>&lt;executable&gt;</code> 指应用程序的可执行文件名称（不区分大小写）</li>
-<li>值必须为 <code>y</code>，表示启用该设置</li>
+<li><code>&lt;可执行文件&gt;</code> 是应用程序可执行文件的名称（不区分大小写）。</li>
+<li>值必须为 <code>y</code> 才能启用此设置。</li>
 </ul>
-<h2 id="_3">技术细节<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
-<p>启用 <code>DropChildProcessToken</code> 后，沙盘会在子进程初始化阶段修改进程创建行为：</p>
+<h2 id="_4">技术细节<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
+<p>启用 <code>DropChildProcessToken</code> 时，Sandboxie 会在子进程初始化期间修改其进程创建行为：</p>
 <ol>
 <li>
-<p><strong>令牌置空</strong>：在 <code>CreateProcessInternalW</code> 中，系统检查目标应用是否匹配已配置的 <code>DropChildProcessToken</code> 项目，并将进程令牌设置为 <code>NULL</code><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
+<p><strong>令牌置空</strong>：在 <code>CreateProcessInternalW</code> 期间，系统检查目标应用程序是否匹配任何配置的 <code>DropChildProcessToken</code> 条目，并把进程令牌设为 <code>NULL</code><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>。</p>
 </li>
 <li>
-<p><strong>自动应用</strong>：该设置会自动应用于特定应用类型——Adobe Acrobat Reader 以及插件容器默认会这样处理，通过硬编码的镜像类型检测实现<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
+<p><strong>自动应用</strong>：此设置自动适用于特定应用程序类型——Adobe Acrobat Reader 和插件容器通过硬编码的映像类型检测默认获得此处理<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>。</p>
 </li>
 <li>
-<p><strong>绿框兼容性</strong>：此机制帮助那些无法与沙盘受限安全令牌兼容的应用程序，在隔离模式下正常运行，即优先保证兼容性，而不是严格隔离<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></p>
+<p><strong>绿盒兼容性</strong>：此机制帮助那些难以适配 Sandboxie 受限安全令牌的应用程序在隔离模式中运行，该模式优先考虑兼容性而非严格隔离<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>。</p>
 </li>
 </ol>
-<h2 id="_4">默认行为<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
-<p>沙盘会自动对某些应用类型应用令牌置空，无需显式配置：</p>
+<h2 id="_5">默认行为<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
+<p>无需显式配置，Sandboxie 会自动对某些应用程序类别应用令牌丢弃：</p>
 <ul>
-<li><strong>Adobe Acrobat Reader</strong>：所有版本的子进程会自动置空令牌，防止权限提升</li>
-<li><strong>插件容器</strong>：通过 <a href="SpecialImage.html">SpecialImage</a> 检测为 <code>DLL_IMAGE_PLUGIN_CONTAINER</code> 类型的应用会自动处理</li>
-<li><strong>Flash Player 沙箱</strong>：历史版本支持 Adobe Flash Player 沙箱架构（在当前版本中被注释掉）</li>
+<li><strong>Adobe Acrobat Reader</strong>：所有版本都自动丢弃子进程令牌，以防权限提升。</li>
+<li><strong>插件容器</strong>：通过 <a href="SpecialImage.html">特殊图像分类</a> 分类为 <code>DLL_IMAGE_PLUGIN_CONTAINER</code> 的应用程序自动获得此处理。</li>
+<li><strong>Flash Player 沙盒</strong>：对 Adobe Flash Player 沙盒架构的历史支持（当前版本中已注释掉）。</li>
 </ul>
 <p><strong>使用场景</strong></p>
 <ul>
-<li><strong>绿框调试</strong>：用于排查应用程序隔离沙箱内因令牌限制无法启动的应用</li>
-<li><strong>旧版应用兼容</strong>：让老应用程序能够在现代安全令牌限制下正常运行</li>
-<li><strong>插件兼容性</strong>：确保浏览器插件及辅助进程不受令牌相关限制影响</li>
-<li><strong>开发测试</strong>：测试应用在无沙盘令牌隔离情况下的行为</li>
+<li><strong>绿盒调试</strong>：排查因令牌限制而无法启动的应用程序隔离沙盒。</li>
+<li><strong>旧应用程序支持</strong>：启用与较新的安全令牌限制配合不佳的旧应用程序。</li>
+<li><strong>插件兼容性</strong>：确保浏览器插件和辅助进程能在无令牌相关冲突的情况下运行。</li>
+<li><strong>开发测试</strong>：在无 Sandboxie 基于令牌的安全隔离的情况下测试应用程序行为。</li>
 </ul>
 <p><strong>安全影响</strong></p>
 <ul>
-<li><strong>安全性降低</strong>：子进程将以与父进程相同的令牌运行，隔离效果下降</li>
-<li><strong>权限管理</strong>：沙盘的权限限制失效，进程将继承父进程的全部权限</li>
-<li><strong>兼容性权衡</strong>：提升应用兼容性，但牺牲部分安全隔离</li>
-<li><strong>调试用途</strong>：主要用于故障排查，而非生产环境使用</li>
+<li><strong>安全性降低</strong>：子进程与父进程使用相同令牌运行，可能降低隔离效果。</li>
+<li><strong>权限管理</strong>：移除 Sandboxie 正常的权限限制，允许进程继承父进程的完整权限。</li>
+<li><strong>兼容性权衡</strong>：以牺牲部分安全隔离为代价提高应用程序兼容性。</li>
+<li><strong>调试场景</strong>：主要用于故障排除，而非生产环境。</li>
 </ul>
-<p><strong>绿框集成</strong></p>
-<p>此设置非常适用于绿框（应用程序隔离）配置：</p>
+<p><strong>绿盒集成</strong></p>
+<p>此设置与绿盒（应用程序隔离）配置尤其相关：</p>
 <ul>
-<li><strong>隔离模式</strong>：绿框使用 <code>NoSecurityIsolation=y</code> 禁用令牌安全隔离，同时保持文件和注册表虚拟化</li>
-<li><strong>令牌冲突</strong>：部分应用即使在隔离模式下仍因令牌问题出错，需彻底置空令牌</li>
-<li><strong>兼容性优先</strong>：绿框以兼容性为主，令此设置成为问题应用的解决方案</li>
+<li><strong>隔离模式</strong>：绿盒使用 <code>NoSecurityIsolation=y</code> 禁用基于令牌的安全，同时保持文件/注册表虚拟化。</li>
+<li><strong>令牌冲突</strong>：某些应用程序即使在隔离模式下仍会遇到问题，需要完全丢弃令牌。</li>
+<li><strong>兼容性优先</strong>：绿盒把兼容性置于安全之上，使此设置成为问题应用程序的自然选择。</li>
 </ul>
-<h2 id="_5">实现说明<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
-<p>令牌置空机制：</p>
+<h2 id="_6">实现说明<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
+<p>令牌丢弃机制：</p>
 <ul>
-<li>在 DLL 注入层的 <code>Proc_CreateProcessInternalW</code> 函数中执行</li>
-<li>通过 <code>Config_GetSettingsForImageName_bool</code> 查询每应用设置，默认值为 <code>FALSE</code><sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></li>
-<li>与镜像类型识别系统集成，自动处理已知问题应用</li>
-<li>设置 <code>hToken = NULL</code>，跳过标准令牌创建与限制流程<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup></li>
-<li>影响原本会应用受限令牌的 <code>CreateProcessInternalW</code> 调用链</li>
+<li>在 DLL 注入层的 <code>Proc_CreateProcessInternalW</code> 函数期间运行。</li>
+<li>使用 <code>Config_GetSettingsForImageName_bool</code> 查询各应用程序设置，默认值为 <code>FALSE</code><sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>。</li>
+<li>与映像类型分类系统集成，自动处理已知的问题应用程序类型。</li>
+<li>设置 <code>hToken = NULL</code> 以绕过正常的令牌创建和限制过程<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>。</li>
+<li>影响本应应用受限令牌的 <code>CreateProcessInternalW</code> 调用链。</li>
 </ul>
-<h2 id="_6">相关兼容性设置<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
+<h2 id="_7">相关兼容性设置<a class="headerlink" href="#_7" title="Permanent link"></a></h2>
 <ul>
-<li><strong>OriginalToken</strong>：启用后跳过大多数基于令牌的修改，包括 <code>DropChildProcessToken</code></li>
-<li><strong>DeprecatedTokenHacks</strong>：重新启用已在隔离模式下停用的旧令牌兼容逻辑</li>
-<li><strong>NoSecurityIsolation</strong>：应用程序隔离模式中关闭令牌安全隔离的核心设置</li>
-<li><strong>FakeAppContainerToken</strong>：控制特定应用的 AppContainer 令牌模拟</li>
+<li><strong>OriginalToken</strong>：启用时，绕过大多数与令牌相关的修改，包括 <code>DropChildProcessToken</code>。</li>
+<li><strong>DeprecatedTokenHacks</strong>：重新启用隔离模式中已禁用的旧式基于令牌的变通方案。</li>
+<li><strong>无安全隔离</strong>：禁用基于令牌安全隔离的核心绿盒设置。</li>
+<li><strong>FakeAppContainerToken</strong>：控制特定应用程序的 AppContainer 令牌模拟。</li>
 </ul>
-<h2 id="_7">实际举例<a class="headerlink" href="#_7" title="Permanent link"></a></h2>
+<h2 id="_8">用法示例<a class="headerlink" href="#_8" title="Permanent link"></a></h2>
 <ul>
 <li>
-<p><strong>浏览器子进程问题</strong>:
+<p><strong>浏览器子进程问题</strong>：
   <div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">DropChildProcessToken</span><span class="o">=</span><span class="s">chrome.exe,y</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">DropChildProcessToken</span><span class="o">=</span><span class="s">msedge.exe,y</span>
 </span></code></pre></div></p>
 </li>
 <li>
-<p><strong>插件容器兼容问题</strong>:
+<p><strong>插件容器问题</strong>：
   <div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">DropChildProcessToken</span><span class="o">=</span><span class="s">plugin-container.exe,y</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">DropChildProcessToken</span><span class="o">=</span><span class="s">flashplayer.exe,y</span>
 </span></code></pre></div></p>
 </li>
 <li>
-<p><strong>自定义应用调试</strong>:
+<p><strong>自定义应用程序调试</strong>：
   <div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="na">DropChildProcessToken</span><span class="o">=</span><span class="s">myapp.exe,y</span>
 </span></code></pre></div></p>
 </li>
 </ul>
-<h2 id="_8">绿框故障排查<a class="headerlink" href="#_8" title="Permanent link"></a></h2>
-<p>当应用在绿框模式下失败时：</p>
+<h2 id="_9">绿盒故障排除<a class="headerlink" href="#_9" title="Permanent link"></a></h2>
+<p>当应用程序在绿盒模式下失败时：</p>
 <ol>
-<li>针对有问题的可执行文件启用 <code>DropChildProcessToken</code></li>
-<li>测试应用能否正常启动和运行</li>
-<li>若成功，则说明问题与令牌限制有关，可保持该设置开启</li>
-<li>若失败，需进一步排查其他兼容性设置或文件/注册表访问问题</li>
+<li>为出问题的可执行文件启用 <code>DropChildProcessToken</code>。</li>
+<li>测试应用程序能否正常启动和运行。</li>
+<li>如果成功，说明问题与令牌相关，可保持此设置启用。</li>
+<li>如果仍失败，请排查其他兼容性设置或文件/注册表访问问题。</li>
 </ol>
-<h2 id="_9">相关设置<a class="headerlink" href="#_9" title="Permanent link"></a></h2>
+<h2 id="_10">相关设置<a class="headerlink" href="#_10" title="Permanent link"></a></h2>
 <ul>
-<li><a href="SpecialImage.html">SpecialImage</a> - 自动对插件容器及 Adobe Reader 应用令牌置空</li>
-<li><a href="NoSecurityIsolation.html">NoSecurityIsolation</a> - 应用程序隔离模式的核心绿框设置</li>
+<li><a href="SpecialImage.html">特殊图像分类</a> - 自动对插件容器和 Adobe Reader 应用令牌丢弃。</li>
+<li><a href="NoSecurityIsolation.html">无安全隔离</a> - 应用程序隔离模式的核心绿盒设置。</li>
 </ul>
-<p>沙盘 Plus 相关设置：在高级调试选项中可用（标准界面未展示）</p>
+<p>相关 Sandboxie Plus 设置：可在高级调试选项中使用（标准界面中不暴露）。</p>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p><code>proc.c</code> 中的令牌置空：函数 <code>Proc_CreateProcessInternalW</code> 检查 <code>Config_GetSettingsForImageName_bool(L"DropChildProcessToken", FALSE)</code> 若条件成立则设置 <code>hToken = NULL</code>，跳过标准受限令牌创建流程&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p><code>proc.c</code> 中的令牌置空：函数 <code>Proc_CreateProcessInternalW</code> 检查 <code>Config_GetSettingsForImageName_bool(L"DropChildProcessToken", FALSE)</code>，条件满足时设置 <code>hToken = NULL</code>，绕过正常的受限令牌创建过程。&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p><code>proc.c</code> 的自动应用逻辑：条件 <code>Dll_ImageType == DLL_IMAGE_ACROBAT_READER || Dll_ImageType == DLL_IMAGE_PLUGIN_CONTAINER</code> 会自动对 Adobe Reader 和插件容器应用令牌置空，无需显式配置&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p><code>proc.c</code> 中的自动应用：条件 <code>Dll_ImageType == DLL_IMAGE_ACROBAT_READER || Dll_ImageType == DLL_IMAGE_PLUGIN_CONTAINER</code> 会自动对 Adobe Reader 和插件容器应用令牌丢弃，无论是否有显式配置。&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p>绿框兼容机制：该设置回应沙盘安全模型与应用兼容之间的基本矛盾，允许有选择地绕过令牌限制，同时保持文件系统和注册表虚拟化&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>绿盒兼容性机制：此设置解决了 Sandboxie 安全模型与应用程序兼容性之间的根本矛盾，允许选择性地绕过令牌限制，同时保持文件系统和注册表虚拟化。&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
-<p><code>proc.c</code> 的配置查询：系统使用 <code>Config_GetSettingsForImageName_bool(L"DropChildProcessToken", FALSE)</code> 检索每应用设置，默认 <code>FALSE</code> 保证仅按需启用&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p><code>proc.c</code> 中的配置查询：系统使用 <code>Config_GetSettingsForImageName_bool(L"DropChildProcessToken", FALSE)</code> 检索各应用程序设置，<code>FALSE</code> 默认值确保该功能仅在显式启用时生效。&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 <li id="fn:5">
-<p><code>proc.c</code> 的令牌置空实现：在 <code>CreateProcessInternalW</code> 函数内设置 <code>hToken = NULL</code>，彻底关闭受限令牌创建流程，使子进程继承父进程的完整安全上下文&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+<p><code>proc.c</code> 中的令牌绕过实现：在 <code>CreateProcessInternalW</code> 函数中设置 <code>hToken = NULL</code> 有效禁用整个受限令牌创建管道，允许子进程继承父进程的完整安全上下文。&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

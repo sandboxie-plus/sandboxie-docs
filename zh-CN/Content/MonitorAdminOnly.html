@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="MonitorAdminOnly 是 Sandboxie Ini 中的一个全局设置项。如果启用该设置，则在非管理员组成员的用户帐户下运行的 沙盘控制 将无法调用 资源访问监视器 功能。">
+        <meta name="description" content="MonitorAdminOnly 是 Sandboxie Ini 中的一项全局设置。如果指定，在非管理员组成员用户帐户下运行的 沙盒管理器 将无法调用 资源访问监视器 功能。">
       
       
       
@@ -486,7 +486,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -570,7 +570,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -654,7 +654,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -835,7 +835,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -950,7 +950,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1106,7 +1106,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1190,7 +1190,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -5585,16 +5585,16 @@
 
 
 <h1 id="_1">仅限管理员监视<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
-<p><em>MonitorAdminOnly</em> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 中的一个全局设置项。如果启用该设置，则在非管理员组成员的用户帐户下运行的 <a href="SandboxieControl.html">沙盘控制</a> 将无法调用 <a href="ResourceAccessMonitor.html">资源访问监视器</a> 功能。</p>
-<p>这样设计的主要原因是，资源访问监视器每次被调用时，会为每个用户会话消耗 64K 字节的系统内存，因此网络管理员可能希望防止普通用户调用该功能。</p>
-<p>用法示例：</p>
+<p><em>MonitorAdminOnly</em> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 中的一项全局设置。如果指定，在非管理员组成员用户帐户下运行的 <a href="SandboxieControl.html">沙盒管理器</a> 将无法调用 <a href="ResourceAccessMonitor.html">资源访问监视器</a> 功能。</p>
+<p>理由：资源访问监视器在调用它的每个用户会话中消耗 64K 字节系统内存，因此网络管理员可能希望阻止其用户调用该功能。</p>
+<p>用法：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[GlobalSettings]</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">MonitorAdminOnly</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>此设置项专为网络管理员使用而设计。</p>
+<p>此设置专为网络管理员使用而设计。</p>
 
 
 

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="跟踪日志工具会显示在 Sandboxie Plus 监管下运行的程序所访问的任何系统资源的名称。该工具旨在方便识别那些应排除在沙箱化之外的系统资源，可与 Sandboxie 跟踪 选项配合使用。">
+        <meta name="description" content="跟踪日志工具会显示在 Sandboxie Plus 监管下运行的程序所访问的任何系统资源的名称。该工具旨在方便识别那些应排除在沙盒化之外的系统资源，可与 Sandboxie 跟踪 选项配合使用。">
       
       
       
@@ -490,7 +490,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -574,7 +574,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -658,7 +658,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -839,7 +839,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -954,7 +954,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1112,7 +1112,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1196,7 +1196,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -5671,24 +5671,24 @@
 
 
 <h1 id="sandboxie-plus">跟踪日志（适用于 Sandboxie Plus）<a class="headerlink" href="#sandboxie-plus" title="Permanent link"></a></h1>
-<p>跟踪日志工具会显示在 Sandboxie Plus 监管下运行的程序所访问的任何系统资源的名称。该工具旨在方便识别那些应排除在沙箱化之外的系统资源，可与 <a href="../Content/SandboxieTrace.html">Sandboxie 跟踪</a> 选项配合使用。</p>
+<p>跟踪日志工具会显示在 Sandboxie Plus 监管下运行的程序所访问的任何系统资源的名称。该工具旨在方便识别那些应排除在沙盒化之外的系统资源，可与 <a href="../Content/SandboxieTrace.html">Sandboxie 跟踪</a> 选项配合使用。</p>
 <p><strong>重要提示：</strong> 在开启新问题之前，请考虑使用跟踪日志。</p>
 <p><img alt="" src="../Media/TraceLog.png" /></p>
 <h3 id="_1">使用跟踪日志<a class="headerlink" href="#_1" title="Permanent link"></a></h3>
 <ol>
 <li>打开 <strong>视图</strong> 菜单 -&gt; <strong>跟踪日志记录</strong>，启用 <strong>跟踪日志</strong> 选项卡。</li>
-<li>当跟踪日志选项卡激活后，它会立即开始收集并显示所有正在运行的沙箱程序的资源访问信息。</li>
+<li>当跟踪日志选项卡激活后，它会立即开始收集并显示所有正在运行的沙盒程序的资源访问信息。</li>
 <li>此时，执行在 Sandboxie Plus 监管下会失败的任何特定任务。</li>
 <li>最后，右键单击收集到的数据，选择名为 <strong>复制面板</strong> 的条目。这会将收集到的数据复制到剪贴板。</li>
 <li>现在你可以将收集到的数据粘贴（Ctrl+V）到某个地方，以便进行分析。</li>
 <li>可选操作：可以使用键盘快捷键 CTRL+F 在跟踪日志选项卡中搜索特定条目。</li>
 </ol>
 <h3 id="_2">性能影响<a class="headerlink" href="#_2" title="Permanent link"></a></h3>
-<p>当跟踪日志处于非活动状态时，它不会使用任何系统资源，也不会对任何正在运行的程序产生性能影响。当处于活动状态时，跟踪日志会对沙箱程序产生轻微的性能损耗。</p>
+<p>当跟踪日志处于非活动状态时，它不会使用任何系统资源，也不会对任何正在运行的程序产生性能影响。当处于活动状态时，跟踪日志会对沙盒程序产生轻微的性能损耗。</p>
 <h3 id="_3">其他改进<a class="headerlink" href="#_3" title="Permanent link"></a></h3>
 <blockquote>
 <p><strong>Sandboxie Plus v0.7.0</strong> 增加了使用 <code>TraceBufferPages=2560</code> 调整缓冲区大小的功能。</p>
-<p><strong>Sandboxie Plus v0.8.0</strong> 增加了使用 <code>DisableResourceMonitor=y</code> 为选定沙箱禁用资源访问监控的功能。</p>
+<p><strong>Sandboxie Plus v0.8.0</strong> 增加了使用 <code>DisableResourceMonitor=y</code> 为选定沙盒禁用资源访问监控的功能。</p>
 <p><strong>Sandboxie Plus v0.9.8b</strong> 增加了将跟踪日志输出保存到新的 .log 文件的功能（通过软盘图标）。</p>
 <p><strong>Sandboxie Plus v0.9.8d</strong> 增加了一次选择多种访问类型的功能。</p>
 <p><strong>Sandboxie Plus v1.0.16</strong> 为资源访问跟踪添加了监控模式。</p>
@@ -5733,7 +5733,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../Content/ResourceAccessMonitor.html" class="md-footer__link md-footer__link--prev" aria-label="上一页: 资源访问监视器（适用于沙盘经典版）">
+          <a href="../Content/ResourceAccessMonitor.html" class="md-footer__link md-footer__link--prev" aria-label="上一页: 资源访问监视器（适用于 Sandboxie 经典版）">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -5743,7 +5743,7 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                资源访问监视器（适用于沙盘经典版）
+                资源访问监视器（适用于 Sandboxie 经典版）
               </div>
             </div>
           </a>

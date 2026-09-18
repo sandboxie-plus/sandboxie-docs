@@ -486,7 +486,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -570,7 +570,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -654,7 +654,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -835,7 +835,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -950,7 +950,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1106,7 +1106,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1190,7 +1190,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -5585,29 +5585,29 @@
 
 
 <h1 id="_1">快速恢复<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
-<p><a href="SandboxieControl.html">沙盘控制</a> &gt; <a href="SandboxMenu.html">沙箱菜单</a> &gt; 快速恢复</p>
-<p><a href="SandboxieControl.html">沙盘控制</a> &gt; <a href="TrayIconMenu.html">托盘图标菜单</a> &gt; 快速恢复</p>
+<p><a href="SandboxieControl.html">沙盒管理器</a> &gt; <a href="SandboxMenu.html">沙盒菜单</a> &gt; 快速恢复</p>
+<p><a href="SandboxieControl.html">沙盒管理器</a> &gt; <a href="TrayIconMenu.html">托盘图标菜单</a> &gt; 快速恢复</p>
 <p><img alt="" src="../Media/QuickRecoverSandbox.png" /></p>
-<p>沙盘程序会在沙箱内创建文件和文件夹。您可能希望将其中的一些文件移出沙箱。例如，通过沙箱浏览器下载的文档会保存在沙箱内，但应当将该文件提取出来，放置到沙箱外部的 <em>文档</em> 文件夹中。</p>
-<p>基本的方法是使用常规的、非沙箱的 Windows 资源管理器，直接浏览构成沙箱的文件夹。通过 <a href="SandboxMenu.html#sandbox-menu">沙箱菜单 &gt; 沙箱 &gt; 浏览内容</a> 命令，您可以打开一个非沙箱的文件夹窗口，从而查看沙箱内的内容。然后，您可以深入沙箱文件夹结构，并通过 <em>剪切</em> 沙箱中的文件来将其 <em>粘贴</em> 到其他位置。</p>
-<p>快速恢复功能则能够更轻松地提取由沙盘程序创建和保存的文件（甚至整个文件夹）。它会扫描几个需要预先选定的沙箱内文件夹，然后列出其中发现的文件（和文件夹）。这些文件（和文件夹）可以恢复到沙箱外相应的位置，或恢复到任意位置。</p>
-<p>要打开“快速恢复”窗口，请使用 <a href="SandboxMenu.html#sandbox-menu">沙箱菜单 &gt; 沙箱 &gt; 快速恢复</a> 命令（或通过<a href="TrayIconMenu.html">托盘图标菜单</a>中的相应命令）。快速恢复也会出现在<a href="DeleteSandbox.html">删除沙箱</a>窗口中。</p>
+<p>沙盒化程序会在沙盒内创建文件和文件夹。把其中一些已创建的文件移出沙盒往往是可取的。例如，沙盒化浏览器下载的文档文件会保存到沙盒中，但该文件应被取出并放到沙盒外的_文档_文件夹。</p>
+<p>最原始的方法是使用常规（非沙盒化）的 Windows 资源管理器，在组成沙盒的各个文件夹中浏览。使用 <a href="SandboxMenu.html#沙盒菜单">沙盒菜单 &gt; 沙盒 &gt; 浏览内容</a> 命令，可以打开一个（非沙盒化的）文件夹窗口查看沙盒内部。然后你可以在沙盒文件夹中层层深入，_剪切_沙盒中的文件以便_粘贴_到其他位置。</p>
+<p>快速恢复功能让提取沙盒化程序创建并保存的文件（甚至整个文件夹）变得更容易。它会扫描预先选定的一些沙盒文件夹，列出在其中找到的文件（和文件夹）。这些文件（和文件夹）可以被恢复到沙盒外的对应位置，或任意位置。</p>
+<p>要打开快速恢复窗口，使用 <a href="SandboxMenu.html#沙盒菜单">沙盒菜单 &gt; 沙盒 &gt; 快速恢复</a> 命令（或 <a href="TrayIconMenu.html">托盘图标菜单</a> 中的相应命令）。快速恢复也会作为 <a href="DeleteSandbox.html">删除沙盒</a> 窗口的一部分出现。</p>
 <p><strong>快速恢复窗口</strong></p>
-<p>窗口中央区域延伸至右下角，显示当前沙箱内可快速恢复的文件和文件夹。选择某个文件或文件夹，然后点击左侧的两个“恢复到”按钮之一：</p>
+<p>窗口中央延伸至右下角的区域，显示某个特定沙盒中可快速恢复的文件和文件夹。选择文件或文件夹，然后点击左侧两个 <em>恢复到</em> 按钮之一：</p>
 <ul>
-<li><em>恢复到相同文件夹</em>：将文件（或文件夹）从沙箱中移动到沙箱外部的对应位置。例如，上图中显示了沙箱 <em>桌面</em> 文件夹中的文件 <em>favicon.ico</em>。对该文件点击此命令，将其移动到真实的桌面文件夹中</li>
-<li><em>恢复到任意文件夹</em>：会首先弹出一个 <em>浏览文件夹</em> 对话框，然后将该文件（或文件夹）移动到对话框中选定的文件夹</li>
+<li><em>恢复到相同文件夹</em> 把文件（或文件夹）从沙盒移动到沙盒外的对应位置。例如，上图显示文件 <em>favicon.ico</em> 位于沙盒化的_桌面_文件夹中。对该文件点击此命令会把它移动到真实的桌面文件夹。</li>
+<li><em>恢复到任意文件夹</em> 先显示一个 <em>浏览文件夹</em> 对话框，然后把文件（或文件夹）移动到对话框中选定的文件夹。</li>
 </ul>
-<p>在文件或文件夹上调用右键菜单（通常是用鼠标右键点击）时，也可以使用这些命令。</p>
+<p>你也可以对文件或文件夹调用上下文菜单（通常通过右键点击）来使用这些命令。</p>
 <p><strong>向快速恢复添加文件夹</strong></p>
-<p>如前所述，快速恢复仅会扫描明确选定的文件夹。默认情况下，它会扫描 <em>桌面</em>、<em>收藏夹</em> 和 <em>文档</em> 文件夹。在适用的情况下，您的 <em>下载</em> 文件夹也会被视为可恢复文件夹。</p>
+<p>如前所述，快速恢复只扫描显式选定的文件夹。默认扫描_桌面_、_收藏夹_和_文档_文件夹。在适用情况下，_下载_文件夹也被视为可恢复文件夹。</p>
 <ul>
-<li>您可以通过 <em>添加文件夹</em> 按钮添加更多文件夹</li>
-<li>可通过 <a href="RecoverySettings.html#quick-recovery">沙箱设置 &gt; 恢复 &gt; 快速恢复</a> 来添加和移除文件夹</li>
-<li>当 <a href="SandboxieControl.html">沙盘控制</a> 处于<a href="FilesAndFoldersView.html">文件和文件夹视图</a>时，可以右键点击某个文件夹，选择 <em>添加文件夹到快速恢复</em></li>
+<li>你可以用 <em>添加文件夹</em> 按钮添加更多文件夹。</li>
+<li>你可以用 <a href="RecoverySettings.html#快速恢复">沙盒设置 &gt; 恢复 &gt; 快速恢复</a> 添加和移除文件夹。</li>
+<li>当 <a href="SandboxieControl.html">沙盒管理器</a> 处于 <a href="FilesAndFoldersView.html">文件和文件夹视图</a> 时，你可以右键点击文件夹并选择 <em>将文件夹添加到快速恢复</em>。</li>
 </ul>
 <hr />
-<p>前往 <a href="DeleteSandbox.html">删除沙箱</a>、<a href="ImmediateRecovery.html">即时恢复</a>、<a href="SandboxieControl.html">沙盘控制</a>、<a href="HelpTopics.html">帮助主题</a>。</p>
+<p>前往 <a href="DeleteSandbox.html">删除沙盒</a>、<a href="ImmediateRecovery.html">即时恢复</a>、<a href="SandboxieControl.html">沙盒管理器</a>、<a href="HelpTopics.html">帮助主题</a>。</p>
 
 
 

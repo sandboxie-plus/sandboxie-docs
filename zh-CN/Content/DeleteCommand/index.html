@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="DeleteCommand 是 Sandboxie Ini 文件中的一个沙箱设置项。它用于指定物理删除沙箱内容的命令。其主要目的是使用户能够将第三方安全删除工具集成到 Sandboxie 中。详见 安全删除沙箱。">
+        <meta name="description" content="删除命令是 Sandboxie Ini 中的一项沙盒设置。它指定用于物理删除沙盒内容的命令。其主要目的是让第三方安全删除工具能够接入 Sandboxie。参见 安全删除沙盒。">
       
       
       
@@ -486,7 +486,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -570,7 +570,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -654,7 +654,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -835,7 +835,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -950,7 +950,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1106,7 +1106,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1190,7 +1190,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -5585,7 +5585,7 @@
 
 
 <h1 id="_1">删除命令<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
-<p>DeleteCommand 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 文件中的一个沙箱设置项。它用于指定物理删除沙箱内容的命令。其主要目的是使用户能够将第三方安全删除工具集成到 Sandboxie 中。详见 <a href="../SecureDeleteSandbox/">安全删除沙箱</a>。</p>
+<p>删除命令是 <a href="../SandboxieIni/">Sandboxie Ini</a> 中的一项沙盒设置。它指定用于物理删除沙盒内容的命令。其主要目的是让第三方安全删除工具能够接入 Sandboxie。参见 <a href="../SecureDeleteSandbox/">安全删除沙盒</a>。</p>
 <p>用法：
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
@@ -5593,13 +5593,13 @@
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">DeleteCommand</span><span class="o">=</span><span class="s">%SystemRoot%\System32\cmd.exe /c RMDIR /s /q "%SANDBOX%"</span>
 </span></code></pre></div></p>
-<p>上述示例是 DeleteCommand 未被明确指定时的默认设置，调用了 Windows 的 RMDIR 命令来移除沙箱文件夹。</p>
-<p>更多示例，请参见 <a href="../SecureDeleteSandbox/">安全删除沙箱</a>。</p>
+<p>此示例是未显式指定删除命令时使用的默认设置，它调用 Windows RMDIR 命令删除沙盒文件夹。</p>
+<p>更多示例参见 <a href="../SecureDeleteSandbox/">安全删除沙盒</a>。</p>
 <hr />
-<p>在指定此设置时，请确保在命令中包含 <strong>"%SANDBOX%"</strong>（包括引号）。</p>
+<p>指定此设置时，务必在命令中包含 <strong>"%SANDBOX%"</strong>（带引号）。</p>
 <hr />
-<p>注意：安全删除是一项隐私措施，而非安全措施。无论是常规删除还是安全删除，实际上都可以有效移除收集到沙箱中的不需要的软件。详见 <a href="../SecureDeleteSandbox/">安全删除沙箱</a>。</p>
-<p>相关的 <a href="../SandboxieControl/">沙箱控制</a> 设置项：<a href="../DeleteSettings/#command">沙箱设置 &gt; 删除 &gt; 命令</a></p>
+<p>注意：安全删除是隐私措施，而非安全措施。常规删除和安全删除都能有效移除收集到沙盒中的不需要的软件。参见 <a href="../SecureDeleteSandbox/">安全删除沙盒</a>。</p>
+<p>相关 <a href="../SandboxieControl/">沙盒管理器</a> 设置：<a href="../DeleteSettings/#命令">沙盒设置 &gt; 删除 &gt; 命令</a></p>
 
 
 

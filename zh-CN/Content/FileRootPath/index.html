@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="FileRootPath 是 Sandboxie Ini 中的一个沙箱设置。它用于指定特定沙箱的根文件夹。">
+        <meta name="description" content="FileRootPath 是 Sandboxie Ini 中的一项沙盒设置。它指定特定沙盒的根文件夹。">
       
       
       
@@ -486,7 +486,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -570,7 +570,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -654,7 +654,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -835,7 +835,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -950,7 +950,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1106,7 +1106,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1190,7 +1190,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -5585,29 +5585,29 @@
 
 
 <h1 id="_1">文件根路径<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
-<p><em>FileRootPath</em> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 中的一个沙箱设置。它用于指定特定沙箱的根文件夹。</p>
-<p>与所有沙箱设置一样，该项也可以在全局部分进行指定。在此情况下，对于所有未在沙箱部分单独指定该项的沙箱，该配置将适用。</p>
-<p>更多信息请参见 <a href="../SandboxHierarchy/">沙箱层次结构</a>。</p>
-<p>用法示例：</p>
+<p><em>FileRootPath</em> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 中的一项沙盒设置。它指定特定沙盒的根文件夹。</p>
+<p>与所有沙盒设置一样，它也可以出现在全局节中，此时它适用于所有未在沙盒节中另行指定该设置的沙盒。</p>
+<p>更多信息参见 <a href="../SandboxHierarchy/">沙盒层级</a>。</p>
+<p>用法：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">FileRootPath</span><span class="o">=</span><span class="s">C:\Sandbox\MySandbox</span>
 </span></code></pre></div>
-<p>相关的 <a href="../SandboxieControl/">沙盘控制</a> 设置：<a href="../SandboxMenu/#set-container-folder">沙盘菜单 &gt; 设置容器文件夹</a></p>
-<p>相关的 Sandboxie Plus 设置：选项菜单 &gt; 全局设置 &gt; 高级配置 &gt; Sandboxie 配置 &gt; 沙箱文件系统根目录</p>
+<p>相关 <a href="../SandboxieControl/">沙盒管理器</a> 设置：<a href="../SandboxMenu/#设置容器文件夹">沙盒菜单 &gt; 设置容器文件夹</a></p>
+<p>相关 Sandboxie Plus 设置：选项菜单 &gt; 全局设置 &gt; 高级配置 &gt; Sandboxie 配置 &gt; 沙盒文件系统根目录</p>
 <p><strong>技术细节</strong></p>
-<p>下列替换变量在此路径中可能会有用：</p>
+<p>以下替换变量在此路径中可能有用。</p>
 <ul>
-<li><a href="../ShellFolders/">Shell Folders</a> 变量，例如 %Personal%，其会展开为用户的文档文件夹</li>
-<li>变量 %SBIEHOME%，其会展开为 Sandboxie 安装的根目录</li>
-<li>变量 %SANDBOX%，其会展开为沙箱的名称</li>
-<li>变量 %USER%，其会展开为用户名</li>
-<li>变量 %SID%，其会展开为用户的安全标识（SID）</li>
-<li>变量 %SESSION%，其会展开为终端服务会话号</li>
+<li><a href="../ShellFolders/">个人文件夹</a> 变量，如 %Personal%，展开为用户"文档"文件夹</li>
+<li>变量 %SBIEHOME%，展开为 Sandboxie 安装根目录</li>
+<li>变量 %SANDBOX%，展开为沙盒名称</li>
+<li>变量 %USER%，展开为用户名称</li>
+<li>变量 %SID%，展开为用户安全 ID（SID）</li>
+<li>变量 %SESSION%，展开为终端服务会话编号</li>
 </ul>
-<p>如果未指定 <em>FileRootPath</em>，其默认值将通过已弃用的 <a href="../BoxRootFolder/">BoxRootFolder</a> 设置构造，如下所示：</p>
+<p>如果未指定 <em>FileRootPath</em>，则使用_已弃用的_<a href="../BoxRootFolder/">沙盒根文件夹</a> 设置构造其默认值，即：</p>
 <ul>
 <li><code>BoxRootFolder\Sandbox\%SANDBOX%</code></li>
 </ul>

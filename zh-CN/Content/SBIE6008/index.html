@@ -490,7 +490,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -574,7 +574,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -658,7 +658,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -839,7 +839,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -954,7 +954,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1112,7 +1112,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1196,7 +1196,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -5684,13 +5684,13 @@
 
 
 <h1 id="sbie6008">SBIE6008<a class="headerlink" href="#sbie6008" title="Permanent link"></a></h1>
-<p><strong>信息</strong> SBIE6008 沙箱 %2 的配置 %3 需要支持者证书，否则无法使用</p>
+<p><strong>信息</strong> SBIE6008 沙盒 %2 的配置 %3 需要支持者证书，否则无法使用</p>
 <p><strong>严重性</strong>: 错误（弹窗）</p>
 <h2 id="_1">说明<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
-<p>当沙箱配置使用了需要支持者证书的功能，而系统中没有有效证书允许该配置使用时，会显示此错误。与 SBIE6004 不同，SBIE6004 只是提示证书需求并给予宽限期，而 SBIE6008 表示没有证书完全无法使用该配置</p>
+<p>当沙盒配置使用了需要支持者证书的功能，而系统中没有有效证书允许该配置使用时，会显示此错误。与 SBIE6004 不同，SBIE6004 只是提示证书需求并给予宽限期，而 SBIE6008 表示没有证书完全无法使用该配置</p>
 <h2 id="_2">常见原因<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <ul>
-<li>沙箱配置启用了一个或多个受支持者证书控制的功能（如特定加密或安全模式设置）</li>
+<li>沙盒配置启用了一个或多个受支持者证书控制的功能（如特定加密或安全模式设置）</li>
 <li>未安装支持者证书，或者已安装的证书无效或未激活</li>
 <li>证书缺少该配置所需的选项标志</li>
 </ul>
@@ -5698,7 +5698,7 @@
 <ol>
 <li>检查消息中引用的配置（<code>%3</code> 为配置标识符），如果不打算提供支持者证书，请禁用需要证书的功能</li>
 <li>安装并激活包含该配置所需选项标志的支持者证书</li>
-<li>安装证书后，请重启沙盘服务和驱动，以便检测到新证书</li>
+<li>安装证书后，请重启 Sandboxie 服务和驱动，以便检测到新证书</li>
 <li>如果该配置应当无需证书即可使用，请检查功能标志，并查看驱动/服务日志，查找证书检查失败的原因</li>
 </ol>
 <h2 id="_4">相关信息<a class="headerlink" href="#_4" title="Permanent link"></a></h2>

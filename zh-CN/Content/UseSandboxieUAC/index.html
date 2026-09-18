@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="UseSandboxieUAC 是一个全局沙盒设置，在 Sandboxie Ini 中可用，自 v1.16.0/5.71.0 版本起提供。启用后，Sandboxie 会拦截并管理来自沙盒应用程序的 UAC 提升请求。">
+        <meta name="description" content="使用 Sandboxie UAC 是 Sandboxie Ini 中的一项全局沙盒设置，自 v1.16.0/5.71.0 起可用。启用时，Sandboxie 会拦截并管理沙盒化应用程序发出的 UAC 提升请求。">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>使用沙盒 UAC - Sandboxie 文档</title>
+        <title>使用 Sandboxie UAC - Sandboxie 文档</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#uac" class="md-skip">
+        <a href="#sandboxie-uac" class="md-skip">
           跳转至
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              使用沙盒 UAC
+              使用 Sandboxie UAC
             
           </span>
         </div>
@@ -486,7 +486,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -570,7 +570,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -654,7 +654,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -835,7 +835,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -950,7 +950,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1106,7 +1106,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1190,7 +1190,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -5584,33 +5584,36 @@
   
 
 
-<h1 id="uac">使用沙盒 UAC<a class="headerlink" href="#uac" title="Permanent link"></a></h1>
-<p><strong>UseSandboxieUAC</strong> 是一个全局沙盒设置，在 <a href="../SandboxieIni/">Sandboxie Ini</a> 中可用，自 v1.16.0/5.71.0 版本起提供。启用后，Sandboxie 会拦截并管理来自沙盒应用程序的 UAC 提升请求。</p>
+<h1 id="sandboxie-uac">使用 Sandboxie UAC<a class="headerlink" href="#sandboxie-uac" title="Permanent link"></a></h1>
+<p><strong>使用 Sandboxie UAC</strong> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 中的一项全局沙盒设置，自 v1.16.0/5.71.0 起可用。启用时，Sandboxie 会拦截并管理沙盒化应用程序发出的 UAC 提升请求。</p>
 <p>用法：</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="k">[GlobalSettings]</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">UseSandboxieUAC</span><span class="o">=</span><span class="s">y</span>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[GlobalSettings]</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">UseSandboxieUAC</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<h2 id="uac_1">沙盒 UAC 提示<a class="headerlink" href="#uac_1" title="Permanent link"></a></h2>
-<p><img alt="" src="../../Media/SandboxieUAC.png" /></p>
+<h2 id="sandboxie-uac_1">Sandboxie UAC 提示<a class="headerlink" href="#sandboxie-uac_1" title="Permanent link"></a></h2>
+<p><img alt="Sandboxie UAC 提示" src="../../Media/SandboxieUAC.png" /></p>
 <table>
 <thead>
 <tr>
 <th>字段/按钮</th>
-<th>描述</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><strong>沙盒</strong></td>
-<td>请求来源的沙盒名称（例如："DefaultBox"）。</td>
+<td>请求来源的沙盒名称（例如"DefaultBox"）。</td>
 </tr>
 <tr>
 <td><strong>程序</strong></td>
-<td>请求权限的可执行文件（例如："C:\WINDOWS\System32\cmd.exe"）。</td>
+<td>请求权限的可执行文件（例如"C:\WINDOWS\System32\cmd.exe"）。</td>
 </tr>
 <tr>
-<td><strong>提示</strong></td>
-<td>解释授予真实管理员权限的风险，并建议使用虚假权限以确保安全，但某些安装程序可能会失败。</td>
+<td><strong>注意</strong></td>
+<td>解释授予真实管理员权限的风险，并出于安全推荐模拟权限，不过某些安装程序可能失败。</td>
 </tr>
 <tr>
 <td><strong>是</strong></td>
@@ -5618,7 +5621,7 @@
 </tr>
 <tr>
 <td><strong>否</strong></td>
-<td>授予虚假<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>管理员权限（应用程序认为它具有这些权限）。</td>
+<td>授予模拟<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>管理员权限（应用程序认为自己拥有这些权限）。</td>
 </tr>
 <tr>
 <td><strong>取消</strong></td>
@@ -5627,15 +5630,17 @@
 </tbody>
 </table>
 <h2 id="_1">行为和配置<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
-<p>默认情况下，Sandboxie 遵循系统的 UAC 配置 - 当用户账户控制设置为在安全桌面上提示时，Sandboxie 的 UAC 提示也会显示在那里。可以使用 <a href="../PromptOnSecureDesktop/">安全桌面上的提示</a> 设置来修改此行为，以防止沙盒应用程序在安全桌面上显示提升提示。</p>
-<h2 id="_2">相关配置<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
-<p>此设置对应于 <strong>Sandboxie Plus</strong> 中以下路径的 GUI 选项：</p>
+<p>默认情况下，Sandboxie 遵循系统的 UAC 配置——当用户帐户控制设置为在安全桌面上提示时，Sandboxie 的 UAC 提示也会出现在那里。可以使用 <a href="../PromptOnSecureDesktop/">安全桌面上的提示</a> 设置修改此行为，防止沙盒化应用程序在安全桌面上显示提升提示。</p>
+<h2 id="_2">自定义提示<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
+<p>你可以通过在 Sandboxie Plus 安装目录中放置个性化的 <code>SbieWallpaper.png</code> 文件来自定义安全桌面壁纸。此图像将显示为安全桌面上的背景。</p>
+<h2 id="_3">相关配置<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
+<p>此设置对应 <strong>Sandboxie Plus</strong> 中以下路径的图形界面选项：</p>
 <p><strong>选项</strong> &gt; <strong>全局设置</strong> &gt; <strong>高级配置</strong>：<em>使用 Sandboxie 自己的增强 UAC 提示（实验性）</em>。</p>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p>有关更多信息，请参阅 <a href="../FakeAdminRights/">模拟管理员权限</a>。&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>更多信息参见 <a href="../FakeAdminRights/">FakeAdminRights</a>。&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

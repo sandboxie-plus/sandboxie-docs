@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="ForceFolder 是 Sandboxie.ini 中的一个沙箱设置项，用于强制文件夹内的内容在特定沙箱内运行。如果任何这些文件夹*（或其子文件夹）中的文件或程序在未处于沙箱的情况下启动，它们将自动被放入特定沙箱中运行。例如：">
+        <meta name="description" content="ForceFolder 是 Sandboxie.ini 中的一项沙盒设置，它允许强制把文件夹内容运行在特定沙盒中。如果这些文件夹*（或其某个子文件夹）中的任何文件或程序在沙盒外启动，它们将被自动沙盒化到特定沙盒中。例如：">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>强制入沙文件夹 - Sandboxie 文档</title>
+        <title>强制文件夹 - Sandboxie 文档</title>
       
     
     
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              强制入沙文件夹
+              强制文件夹
             
           </span>
         </div>
@@ -486,7 +486,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -570,7 +570,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -654,7 +654,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -835,7 +835,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -950,7 +950,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1106,7 +1106,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1190,7 +1190,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -5584,8 +5584,8 @@
   
 
 
-<h1 id="_1">强制入沙文件夹<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
-<p><em>ForceFolder</em> 是 <a href="../SandboxieIni/">Sandboxie.ini</a> 中的一个沙箱设置项，用于强制文件夹内的内容在特定沙箱内运行。如果任何这些文件夹*（或其子文件夹）中的文件或程序在未处于沙箱的情况下启动，它们将自动被放入特定沙箱中运行。例如：</p>
+<h1 id="_1">强制文件夹<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<p><em>ForceFolder</em> 是 <a href="../SandboxieIni/">Sandboxie.ini</a> 中的一项沙盒设置，它允许强制把文件夹内容运行在特定沙盒中。如果这些文件夹*（或其某个子文件夹）中的任何文件或程序在沙盒外启动，它们将被自动沙盒化到特定沙盒中。例如：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
@@ -5593,14 +5593,14 @@
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">ForceFolder</span><span class="o">=</span><span class="s">C:\Download</span>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">   </span><span class="na">ForceFolder</span><span class="o">=</span><span class="s">E:</span>\
 </span></code></pre></div>
-<p>第一个示例指定，从 C:\Download 文件夹（以及该文件夹下的所有子文件夹）启动的文件或程序将被强制在 <em>DefaultBox</em> 沙箱中运行。</p>
-<p>第二个示例指定，从 E 盘启动的任何文件或程序都将被强制在 <em>DefaultBox</em> 沙箱中运行。对于 CDROM 和 DVD 驱动器，这也包括被 Windows 自动启动的 <em>AutoRun</em> 程序。</p>
+<p>第一个示例指定：从 C:\Download 文件夹（或其下包含的任何文件夹）启动的文件/程序，将被强制在沙盒 <em>DefaultBox</em> 中运行。</p>
+<p>第二个示例指定：从 E 盘启动的任何文件/程序，将被强制在沙盒 <em>DefaultBox</em> 中运行。对于 CDROM 和 DVD 驱动器，这包括强制由 Windows 自动启动的 <em>AutoRun</em> 程序。</p>
 <ul>
-<li>请注意，如果位于强制文件夹（ForceFolder）中的快捷方式所指向的路径不是受强制保护的文件夹，则不会启动沙箱化的应用程序。例如：如果你在 C:\ForcedFolder 内放置一个快捷方式，但它指向 C:\SomeOtherPathThatIsNotForced，那么该快捷方式将启动一个非沙箱化的应用程序。</li>
+<li>请记住：位于强制文件夹内、却指向非强制文件夹路径的快捷方式，不会启动沙盒化应用程序。例如：如果你把一个快捷方式放在 C:\ForcedFolder 内，而它指向 C:\SomeOtherPathThatIsNotForced，那么该快捷方式会触发非沙盒化应用程序。</li>
 </ul>
-<p>另一个需要注意的是，不支持现代应用/商店应用。如果你用于打开特定文件类型的默认应用是 Windows 现代应用（如 Windows 10 下的 Photos 应用），则该应用将无法启动。有关详细信息，请参见 <a href="../KnownConflicts/#uwp--modern--microsoft-store-apps">已知冲突</a> 页面。</p>
-<p>另请参阅：<a href="../ForceProcess/">强制进程</a>。如果在一个程序启动时，<em>ForceFolder</em> 和 <em>ForceProcess</em> 条件同时适用，则优先采用 ForceFolder 设置。</p>
-<p>相关 <a href="../SandboxieControl/">沙盘控制</a> 设置：<a href="../ProgramStartSettings/#forced-folders">沙箱设置 &gt; 程序启动 &gt; 强制文件夹</a></p>
+<p>另一个注意事项：不支持新式 / Store 应用。如果你打开特定文件类型的默认应用程序是 Windows 新式应用（如 Windows 10 中的照片应用），该应用程序根本不会启动。更多信息请参阅 <a href="../KnownConflicts/#microsoft-store-应用">已知冲突</a> 页面。</p>
+<p>另请参阅：<a href="../ForceProcess/">强制进程</a>。如果 <em>ForceFolder</em> 和 <em>ForceProcess</em> 都适用于某个正在启动的程序，则强制文件夹设置优先。</p>
+<p>相关 <a href="../SandboxieControl/">沙盒管理器</a> 设置：<a href="../ProgramStartSettings/#强制文件夹">沙盒设置 &gt; 程序启动 &gt; 强制文件夹</a></p>
 
 
 

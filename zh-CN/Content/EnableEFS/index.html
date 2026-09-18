@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="EnableEFS 是一个沙箱设置，位于 沙盘配置 文件，自 v1.15.0 / 5.70.0 起可用。它允许沙箱内的进程访问受 Windows 加密文件系统（EFS）保护的文件。">
+        <meta name="description" content="EnableEFS 是 Sandboxie Ini 中的一项沙盒设置，自 v1.15.0 / 5.70.0 起可用。它允许沙盒化进程访问受 Windows 加密文件系统（EFS）保护的文件。">
       
       
       
@@ -486,7 +486,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -570,7 +570,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -654,7 +654,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -835,7 +835,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -950,7 +950,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1106,7 +1106,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1190,7 +1190,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -5585,87 +5585,87 @@
 
 
 <h1 id="efs">启用 EFS<a class="headerlink" href="#efs" title="Permanent link"></a></h1>
-<p><em>EnableEFS</em> 是一个沙箱设置，位于 <a href="../SandboxieIni/">沙盘配置</a> 文件，自 v1.15.0 / 5.70.0 起可用。它允许沙箱内的进程访问受 Windows 加密文件系统（EFS）保护的文件。</p>
+<p><em>EnableEFS</em> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 中的一项沙盒设置，自 v1.15.0 / 5.70.0 起可用。它允许沙盒化进程访问受 Windows 加密文件系统（EFS）保护的文件。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>此设置需要一个有效的高级 <a href="https://sandboxie-plus.com/supporter-certificate/">支持者证书</a><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>。</p>
+<p>此设置需要有效的进阶 <a href="https://sandboxie-plus.com/supporter-certificate/">支持者证书</a><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>。</p>
 </div>
 <h2 id="_1">用法<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">EnableEFS</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<h2 id="_2">通过沙盘管理器界面启用<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
-<p>你可以通过沙盘管理器（也称为 SandMan）为指定的沙箱（或 DefaultBox）启用此设置，步骤如下：</p>
+<h2 id="sandboxie-manager">通过 Sandboxie Manager 图形界面启用<a class="headerlink" href="#sandboxie-manager" title="Permanent link"></a></h2>
+<p>你可以通过以下步骤，在 Sandboxie Manager（又称沙盒管理器）中为特定沙盒（或 DefaultBox）启用此设置：</p>
 <ol>
-<li>打开 SandMan</li>
-<li>右键点击需要配置的沙箱，选择“沙箱选项”</li>
-<li>在设置对话框左侧，选择“文件选项”类别</li>
-<li>切换到顶部标签组中的“文件选项”标签页，滚动到“磁盘/文件访问”部分</li>
-<li>勾选“允许沙箱内进程打开受 EFS 保护的文件”选项</li>
-<li>点击“应用”或“确定”以保存设置</li>
+<li>打开沙盒管理器。</li>
+<li>右键点击要配置的沙盒，选择"沙盒选项"。</li>
+<li>在设置对话框中，选择左侧的"文件选项"类别。</li>
+<li>切换到"文件选项"选项卡组（顶部选项卡），滚动到"磁盘/文件访问"部分。</li>
+<li>勾选标记为"允许沙盒化进程打开受 EFS 保护的文件"的选项。</li>
+<li>点击"应用"或"确定"保存设置。</li>
 </ol>
-<p>这相当于在 <a href="../SandboxieIni/">沙盘.Ini</a> 文件中的沙箱区块设置 <code>EnableEFS=y</code>，但通过界面配置单个沙箱更加方便。</p>
-<h2 id="_3">概述<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
-<p>加密文件系统（EFS）是 Windows 提供的文件系统级加密功能。默认情况下，沙盘会阻止沙箱内进程访问 EFS 加密的文件和文件夹，以保持安全隔离。当需要时，<code>EnableEFS</code> 设置可以允许你突破这一限制。</p>
-<h2 id="_4">工作原理<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
+<p>这对应 <a href="../SandboxieIni/">Sandboxie.Ini</a> 沙盒节中的 <code>EnableEFS=y</code> 设置，但在通过图形界面配置单个沙盒时更方便。</p>
+<h2 id="_2">概述<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
+<p>加密文件系统（EFS）是 Windows 的一项功能，提供文件系统级加密。默认情况下，Sandboxie 会阻止沙盒化进程访问 EFS 加密的文件和文件夹，以保持安全隔离。<code>EnableEFS</code> 设置允许你在需要时覆盖此限制。</p>
+<h2 id="_3">工作原理<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
 <p>当启用 <code>EnableEFS</code> 时：</p>
 <ol>
-<li><strong>EFS 检测</strong>：沙盘会检测沙箱内的进程是否尝试访问 EFS 加密的文件或文件夹<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></li>
-<li><strong>证书验证</strong>：系统会验证是否存在包含加密功能的有效高级支持者证书<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></li>
-<li><strong>代理访问</strong>：沙盘通过代理机制处理相关文件操作，而不是直接阻止访问<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></li>
-<li><strong>句柄复制</strong>：文件句柄在 UserServer 服务中创建后，会被复制到沙箱内的进程中<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup></li>
+<li><strong>EFS 检测</strong>：Sandboxie 检测沙盒化进程何时尝试访问 EFS 加密的文件或文件夹<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></li>
+<li><strong>证书验证</strong>：系统验证是否存在带加密功能的有效进阶支持者证书<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></li>
+<li><strong>代理访问</strong>：Sandboxie 不是阻止访问，而是使用代理机制在沙盒外处理文件操作<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></li>
+<li><strong>句柄复制</strong>：文件句柄在 UserServer 服务中创建，然后复制回沙盒化进程<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup></li>
 </ol>
-<h2 id="_5">安全考量<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
+<h2 id="_4">安全注意事项<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
 <ul>
-<li><strong>隔离性降低</strong>：启用对 EFS 文件的访问会降低沙箱的安全隔离性，因为允许直接访问本应被阻止的加密文件</li>
-<li><strong>路径校验</strong>：代理服务会校验请求的文件路径是否符合已配置的访问规则后才允许操作<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup></li>
-<li><strong>写入访问控制</strong>：对 EFS 文件的写入操作会依据沙箱的文件访问配置进行额外校验<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup></li>
+<li><strong>隔离减弱</strong>：启用 EFS 访问会降低沙盒的安全隔离，因为它允许直接访问通常会被阻止的加密文件</li>
+<li><strong>路径验证</strong>：代理服务在允许操作之前，会验证请求的文件路径是否匹配配置的访问规则<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup></li>
+<li><strong>写访问控制</strong>：对 EFS 文件的写操作会根据沙盒的文件访问配置接受额外验证<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup></li>
 </ul>
-<h2 id="_6">证书要求<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
-<p>此功能需要包含加密功能标志（<code>opt_enc</code>）的高级支持者证书<sup id="fnref:8"><a class="footnote-ref" href="#fn:8">8</a></sup>。没有该证书的情况下尝试使用 EFS 会导致出现 <code>SBIE6004</code> 错误信息。</p>
-<h2 id="_7">相关消息<a class="headerlink" href="#_7" title="Permanent link"></a></h2>
+<h2 id="_5">证书要求<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
+<p>此功能需要包含加密功能标志（<code>opt_enc</code>）的进阶支持者证书<sup id="fnref:8"><a class="footnote-ref" href="#fn:8">8</a></sup>。没有此证书，尝试使用 EFS 将导致错误消息 <code>SBIE6004</code>。</p>
+<h2 id="_6">相关消息<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
 <ul>
-<li><a href="../SBIE2225/">SBIE2225</a> - “尝试访问 EFS 文件”——当 EFS 访问失败时记录警告日志<sup id="fnref:9"><a class="footnote-ref" href="#fn:9">9</a></sup></li>
-<li><a href="../SBIE6004/">SBIE6004</a> - 在缺少高级支持者证书时出现证书要求错误</li>
+<li><a href="../SBIE2225/">SBIE2225</a> - "尝试访问 EFS 文件" - EFS 访问失败时记录的警告<sup id="fnref:9"><a class="footnote-ref" href="#fn:9">9</a></sup></li>
+<li><a href="../SBIE6004/">SBIE6004</a> - 缺少进阶支持者证书时的证书要求错误</li>
 </ul>
-<h2 id="_8">限制<a class="headerlink" href="#_8" title="Permanent link"></a></h2>
+<h2 id="_7">限制<a class="headerlink" href="#_7" title="Permanent link"></a></h2>
 <ul>
-<li>仅适用于硬盘卷上的文件（路径以 <code>\Device\HarddiskVolume</code> 开头）<sup id="fnref:10"><a class="footnote-ref" href="#fn:10">10</a></sup></li>
-<li>受沙箱的文件 <a href="../ResourceAccess/">资源访问规则</a>（如 <code>OpenFilePath</code>、<code>ClosedFilePath</code> 等）限制</li>
+<li>仅适用于硬盘卷上的文件（路径以 <code>\Device\HarddiskVolume</code> 开头）<sup id="fnref:10"><a class="footnote-ref" href="#fn:10">10</a></sup>。</li>
+<li>受沙盒的文件 <a href="../ResourceAccess/">资源访问规则</a> 约束（<code>OpenFilePath</code>、<code>ClosedFilePath</code> 等）。</li>
 </ul>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p>证书验证在 <code>UserServer::OpenFile()</code> 方法中进行，检查 <code>CertInfo.active &amp;&amp; CertInfo.opt_enc</code>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>证书验证在 <code>UserServer::OpenFile()</code> 方法中执行，检查 <code>CertInfo.active &amp;&amp; CertInfo.opt_enc</code>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>EFS 文件检测发生于 <code>File_NtCreateFile12()</code>，通过判断 <code>(FileType &amp; TYPE_EFS) != 0</code>，其中 <code>TYPE_EFS</code> 定义为 <code>FILE_ATTRIBUTE_ENCRYPTED</code>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>EFS 文件检测发生在 <code>File_NtCreateFile12()</code> 中，通过检查 <code>(FileType &amp; TYPE_EFS) != 0</code>，其中 <code>TYPE_EFS</code> 定义为 <code>FILE_ATTRIBUTE_ENCRYPTED</code>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p>证书验证会同时检查证书是否有效且带有加密选项标志：<code>!(CertInfo.active &amp;&amp; CertInfo.opt_enc)</code>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>证书检查验证证书既处于活动状态又设置了加密选项标志：<code>!(CertInfo.active &amp;&amp; CertInfo.opt_enc)</code>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
-<p>EFS 代理机制通过 <code>File_NtCreateFileProxy()</code> 实现，通过 <code>SbieDll_CallProxySvr()</code> 向 UserServer 服务发送请求&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p>EFS 代理机制通过 <code>File_NtCreateFileProxy()</code> 实现，它通过 <code>SbieDll_CallProxySvr()</code> 向 UserServer 服务发送请求&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 <li id="fn:5">
-<p>在 UserServer 中使用 <code>DuplicateHandle()</code> 将文件句柄从服务进程复制到沙箱内进程&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+<p>句柄复制在 UserServer 中使用 <code>DuplicateHandle()</code> 执行，把文件句柄从服务进程转移到沙盒化进程&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 <li id="fn:6">
-<p>UserServer 中的路径校验会检查路径是否以 <code>\Device\HarddiskVolume</code> 开头，并通过 <code>SbieDll_MatchPathImpl()</code> 校验文件访问规则&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+<p>UserServer 中的路径验证检查路径以 <code>\Device\HarddiskVolume</code> 开头，并使用 <code>SbieDll_MatchPathImpl()</code> 对照文件访问规则验证&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
 </li>
 <li id="fn:7">
-<p>写入访问校验会检查涉及写操作的访问标志，创建动作为非 <code>FILE_OPEN</code>，以及 <code>FILE_DELETE_ON_CLOSE</code> 选项&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+<p>写访问验证检查与写相关的访问标志、<code>FILE_OPEN</code> 以外的创建处置，以及 <code>FILE_DELETE_ON_CLOSE</code> 选项&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
 </li>
 <li id="fn:8">
-<p>加密功能标志 <code>opt_enc</code> 被定义在证书验证结构中，属于沙箱加密和沙箱保护功能的一部分&#160;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 8 in the text">&#8617;</a></p>
+<p>加密功能标志 <code>opt_enc</code> 在证书验证结构中定义为 Box 加密和 Box 保护功能的一部分&#160;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 8 in the text">&#8617;</a></p>
 </li>
 <li id="fn:9">
-<p>当 <code>File_NtCreateFileProxy()</code> 失败时，会记录日志 <code>SbieApi_Log(2225, TruePath)</code>&#160;<a class="footnote-backref" href="#fnref:9" title="Jump back to footnote 9 in the text">&#8617;</a></p>
+<p>当 <code>File_NtCreateFileProxy()</code> 以 <code>SbieApi_Log(2225, TruePath)</code> 失败时记录错误&#160;<a class="footnote-backref" href="#fnref:9" title="Jump back to footnote 9 in the text">&#8617;</a></p>
 </li>
 <li id="fn:10">
-<p>设备路径限制通过 UserServer 检查 <code>_wcsnicmp(path_buff, L"\\Device\\HarddiskVolume", 22) != 0</code> 实现&#160;<a class="footnote-backref" href="#fnref:10" title="Jump back to footnote 10 in the text">&#8617;</a></p>
+<p>设备路径限制通过在 UserServer 中检查 <code>_wcsnicmp(path_buff, L"\\Device\\HarddiskVolume", 22) != 0</code> 实现&#160;<a class="footnote-backref" href="#fnref:10" title="Jump back to footnote 10 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

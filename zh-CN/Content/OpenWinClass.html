@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="OpenWinClass 是 Sandboxie Ini 中的一个沙箱设置。它用于指定应允许沙盘程序访问的非沙箱窗口的类名。">
+        <meta name="description" content="OpenWinClass 是 Sandboxie Ini 中的一项沙盒设置。它指定非沙盒化窗口的类名，这些窗口应可供沙盒化程序访问。">
       
       
       
@@ -486,7 +486,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -570,7 +570,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -654,7 +654,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -835,7 +835,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -950,7 +950,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1106,7 +1106,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1190,7 +1190,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -5585,7 +5585,7 @@
 
 
 <h1 id="_1">开放窗口类<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
-<p><em>OpenWinClass</em> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 中的一个沙箱设置。它用于指定应允许沙盘程序访问的非沙箱窗口的类名。</p>
+<p><em>OpenWinClass</em> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 中的一项沙盒设置。它指定非沙盒化窗口的类名，这些窗口应可供沙盒化程序访问。</p>
 <p>示例：
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
@@ -5596,28 +5596,28 @@
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">   </span><span class="na">OpenWinClass</span><span class="o">=</span><span class="c1">#</span>
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">   </span><span class="na">OpenWinClass</span><span class="o">=</span><span class="s">*</span>
 </span></code></pre></div></p>
-<p>第一个示例允许 <em>cmd.exe</em> 进程创建的控制台窗口可被沙盘中的程序访问。</p>
-<p>通常情况下，沙盘不会允许沙箱内的程序访问、通信、关闭或销毁沙箱外的窗口。<em>OpenWinClass</em> 设置为这一规则提供了例外，允许访问特定的非沙箱窗口。</p>
+<p>第一个示例让由 <em>cmd.exe</em> 进程创建的控制台窗口可供沙盒化程序访问。</p>
+<p>通常，Sandboxie 不允许沙盒化程序访问、通信、关闭或销毁沙盒外的窗口。<em>OpenWinClass</em> 设置对此规则做出例外，允许特定的非沙盒化窗口可被访问。</p>
 <p><strong>特殊形式</strong>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">   </span><span class="na">OpenWinClass</span><span class="o">=</span><span class="s">$:program.exe/IgnoreUIPI</span>
 </span></code></pre></div></p>
-<p>此设置允许在沙箱中运行的程序使用 <code>PostThreadMessage API</code>，直接向运行在沙箱之外目标进程中的线程发送消息。此种 <em>OpenWinClass</em> 设置形式不支持通配符，因此，目标进程的进程名必须与设置中指定的名称相匹配。
+<p>这允许沙盒内运行的程序使用 PostThreadMessage API，把消息直接发送到沙盒外运行的某个目标进程中的线程。此形式的 <em>OpenWinClass</em> 设置不支持通配符，因此目标进程的进程名必须匹配设置中指定的名称。
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">   </span><span class="na">OpenWinClass</span><span class="o">=</span><span class="c1">#</span>
 </span></code></pre></div></p>
-<p>此设置指示沙盘不要更改由沙箱程序创建的窗口类名。通常，沙盘会将 <em>IEFrame</em> 这样的类名转换为 <em>Sandbox:DefaultBox::IEFrame</em>，以便更好地区分沙箱程序的窗口和系统中其他窗口。</p>
-<p>然而，在某些情况下，沙箱外的程序可能期望窗口类名为特定名称，因此可能无法识别由沙箱程序创建的窗口。指定 <code>OpenWinClass=#</code> 可解决此问题，但会降低隔离度。</p>
-<p>请注意，<code>OpenWinClass=#</code> 不允许与任何沙箱外的窗口通信，并且可能会干扰某些拖放操作。
+<p>此设置告诉 Sandboxie 不更改由沙盒化程序创建的窗口类名。通常，Sandboxie 会把 <em>IEFrame</em> 之类的类名转换为 <em>Sandbox:DefaultBox::IEFrame</em>，以便更好地把属于沙盒化程序的窗口与系统中的其他窗口分开。</p>
+<p>然而，在某些情况下，沙盒外的程序可能期望窗口类名是特定名称，因此可能无法识别沙盒化程序创建的窗口。指定 OpenWinClass=# 可以解决此问题，代价是分离程度较低。</p>
+<p>注意：OpenWinClass=# 不允许与沙盒外的任何窗口通信，并可能干扰某些拖放操作。
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="w">   </span><span class="na">OpenWinClass</span><span class="o">=</span><span class="s">*</span>
 </span></code></pre></div></p>
-<p>此设置指示沙盘不要像上述方式转换窗口类名，同时使沙箱程序能够访问系统中的所有窗口，并进一步禁用与窗口相关的其他部分沙盘功能。此时，窗口标题可能不再显示沙盘标志 [#]。</p>
-<p>请注意，OpenWinClass=* 允许与所有沙箱外窗口的完全通信，但同样可能干扰一些拖放操作。</p>
+<p>此设置告诉 Sandboxie 不按上述方式转换窗口类名，同时让沙盒化程序可以访问系统中的所有窗口，并且更进一步，禁用其他几个与窗口相关的 Sandboxie 功能。这也可能导致 Sandboxie 指示符 [#] 不显示在窗口标题中。</p>
+<p>注意：OpenWinClass=* 允许与沙盒外的所有窗口完全通信，但可能干扰某些拖放操作。</p>
 <p><strong>识别窗口类名</strong></p>
-<p>非沙箱窗口通过其 <em>窗口类名</em> 进行识别，该类名是创建该窗口的应用程序分配的内部名称。你可以使用 <a href="https://www.catch22.net/software/winspy">WinSpy</a> 这类工具来识别窗口类名。<a href="ResourceAccessMonitor.html">Sandboxie Classic</a> 中的 [资源访问监视器] 工具以及 Sandboxie Plus 中的 <a href="../PlusContent/TraceLog.html">跟踪日志</a> 工具也能显示窗口类名。</p>
+<p>非沙盒化窗口通过其_窗口类名_来识别，窗口类名是创建窗口的应用程序赋予窗口的内部名称。你可以使用 <a href="https://www.catch22.net/software/winspy">WinSpy</a> 之类的工具识别窗口类名。Sandboxie 经典版中的 <a href="ResourceAccessMonitor.html">资源访问监视器</a> 工具和 Sandboxie Plus 中的 <a href="../PlusContent/TraceLog.html">跟踪日志</a> 工具也会显示窗口类名。</p>
 <p>相关 Sandboxie Plus 设置：</p>
-<p>沙箱选项 &gt; 资源访问 &gt; 窗口 &gt; 添加窗口类 &gt; 访问列 &gt; 开放</p>
-<p>沙箱选项 &gt; 资源访问 &gt; 窗口 &gt; 添加窗口类 &gt; 访问列 &gt; 忽略 UIPI</p>
-<p>沙箱选项 &gt; 资源访问 &gt; 窗口 &gt; 不更改沙盘程序创建的窗口类名</p>
-<p>另请参阅：<a href="NoRenameWinClass.html">不要重命名窗口类</a>。</p>
+<p>沙盒选项 &gt; 资源访问 &gt; 窗口 &gt; 添加窗口类 &gt; 访问列 &gt; 开放</p>
+<p>沙盒选项 &gt; 资源访问 &gt; 窗口 &gt; 添加窗口类 &gt; 访问列 &gt; 忽略 UIPI</p>
+<p>沙盒选项 &gt; 资源访问 &gt; 窗口 &gt; 不更改由沙盒化程序创建的窗口类名</p>
+<p>另请参阅：<a href="NoRenameWinClass.html">不重命名窗口类</a>。</p>
 
 
 

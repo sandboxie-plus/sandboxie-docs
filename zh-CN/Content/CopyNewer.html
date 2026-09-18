@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="CopyNewer 是 Sandboxie Ini 中的一个沙箱设置项，自 Sandboxie Plus 1.18.1 起可用。它用于指定一组文件路径匹配模式：当主机上的对应文件比沙箱内的副本更新时，沙箱内的现有副本将被刷新。">
+        <meta name="description" content="CopyNewer 是 Sandboxie Ini 中的一项沙盒设置，自 Sandboxie Plus 1.18.1 起可用。它指定一系列文件路径模式，当宿主机上匹配的文件修改时间更新时，刷新文件的现有沙盒副本。">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>Copy Newer（复制较新文件） - Sandboxie 文档</title>
+        <title>复制较新文件 - Sandboxie 文档</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#copy-newer" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Copy Newer（复制较新文件）
+              复制较新文件
             
           </span>
         </div>
@@ -486,7 +486,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -570,7 +570,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -654,7 +654,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -835,7 +835,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -950,7 +950,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1106,7 +1106,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1190,7 +1190,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -5584,25 +5584,25 @@
   
 
 
-<h1 id="copy-newer">Copy Newer（复制较新文件）<a class="headerlink" href="#copy-newer" title="Permanent link"></a></h1>
-<p><em>CopyNewer</em> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 中的一个沙箱设置项，自 Sandboxie Plus 1.18.1 起可用。它用于指定一组文件路径匹配模式：当主机上的对应文件比沙箱内的副本更新时，沙箱内的现有副本将被刷新。</p>
-<p>用法示例：</p>
+<h1 id="_1">复制较新文件<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<p><em>CopyNewer</em> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 中的一项沙盒设置，自 Sandboxie Plus 1.18.1 起可用。它指定一系列文件路径模式，当宿主机上匹配的文件修改时间更新时，刷新文件的现有沙盒副本。</p>
+<p>用法：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">CopyNewer</span><span class="o">=</span><span class="s">C:\Data\*.txt</span>
 </span></code></pre></div>
-<p>通常情况下，文件一旦被复制进沙箱（参见 <a href="FileMigrationSettings.html">文件迁移设置</a>），沙箱程序会一直使用该副本，即使主机上的原始文件随后被修改。当文件路径匹配某个 <em>CopyNewer</em> 模式时，Sandboxie 会在每次打开该文件时比较主机文件与沙箱副本的最后修改时间；如果主机文件更新，则会在打开完成前将新副本迁移进沙箱。</p>
+<p>通常，一旦文件被复制到沙盒中（参见 <a href="FileMigrationSettings.html">文件迁移设置</a>），沙盒化程序会继续使用该副本，即使宿主上的原始文件后来被更改。当文件路径匹配 <em>CopyNewer</em> 模式时，Sandboxie 会在每次打开文件时比较宿主文件的最后写入时间与沙盒副本；如果宿主文件较新，在打开完成前会把新副本迁移到沙盒中。</p>
 <p>请注意以下限制：</p>
 <ul>
-<li>仅适用于沙箱内已存在副本的普通文件，且以常规方式打开时。</li>
-<li>不适用于文件的初始迁移、目录、仅写方式打开、已删除的文件，以及创建/覆盖操作。</li>
-<li>模式匹配不区分大小写，匹配的是主机（真实）文件路径。</li>
-<li>如果刷新正在进行中或刷新失败，沙箱程序将继续使用现有副本。</li>
+<li>只适用于已在沙盒内有副本的常规文件正常打开时。</li>
+<li>不适用于文件的初始迁移、目录、只写打开、已删除文件或创建/覆盖操作。</li>
+<li>模式匹配不区分大小写，应用于宿主（真实）文件路径。</li>
+<li>如果刷新已在进行中或失败，现有沙盒副本仍可供程序使用。</li>
 </ul>
-<p>可以在 SandMan 的“沙箱选项 &gt; 常规选项 &gt; 文件迁移”中管理复制规则，包括“复制较新”类型的规则。</p>
-<p>相关的 <a href="SandboxieIni.html">Sandboxie Ini</a> 设置项：<a href="CopyLimitKb.html">CopyLimitKb</a>、<a href="CopyLimitSilent.html">CopyLimitSilent</a>。另请参阅 <a href="FileMigrationSettings.html">文件迁移设置</a>。</p>
+<p>复制规则（包括"复制较新文件"类型规则）可以在沙盒管理器的沙盒选项 &gt; 常规选项 &gt; 文件迁移下管理。</p>
+<p>相关 <a href="SandboxieIni.html">Sandboxie Ini</a> 设置项：<a href="CopyLimitKb.html">复制限制 Kb</a>、<a href="CopyLimitSilent.html">复制限制静默</a>。另请参阅 <a href="FileMigrationSettings.html">文件迁移设置</a>。</p>
 
 
 

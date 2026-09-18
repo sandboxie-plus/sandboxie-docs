@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="AutoExec 是 Sandboxie Ini 中的一个沙箱设置。它指定了一组命令，这些命令会在沙箱每次被初始填充时执行。">
+        <meta name="description" content="AutoExec 是 Sandboxie Ini 中的一项沙盒设置。它指定每次沙盒最初被填充时执行的一系列命令。">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>Auto Exec - Sandboxie 文档</title>
+        <title>自动执行 - Sandboxie 文档</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#auto-exec" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Auto Exec
+              自动执行
             
           </span>
         </div>
@@ -486,7 +486,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -570,7 +570,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -654,7 +654,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -835,7 +835,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -950,7 +950,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1106,7 +1106,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1190,7 +1190,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -5584,8 +5584,8 @@
   
 
 
-<h1 id="auto-exec">Auto Exec<a class="headerlink" href="#auto-exec" title="Permanent link"></a></h1>
-<p><em>AutoExec</em> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 中的一个沙箱设置。它指定了一组命令，这些命令会在沙箱每次被初始填充时执行。</p>
+<h1 id="_1">自动执行<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<p><em>AutoExec</em> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 中的一项沙盒设置。它指定每次沙盒最初被填充时执行的一系列命令。</p>
 <p>示例：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
@@ -5594,13 +5594,13 @@
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">AutoExec</span><span class="o">=</span><span class="s">regedit /s c:\defaultbox.reg</span>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">   </span><span class="na">AutoExec</span><span class="o">=</span><span class="s">cmd /c del /f "%windir%\system32\someExploitableDLL.dll"</span>
 </span></code></pre></div>
-<p>第一个示例展示了如何使用 <em>AutoExec</em> 以某种方式填充沙箱注册表。第二个示例则展示了如何使用 <em>AutoExec</em> 删除不需要的 DLL 文件。在这两种情况下，所有定制操作都只发生在沙箱内部。</p>
-<p>对于同一个沙箱，可以指定多个 <em>AutoExec</em> 设置。列出的命令会依次执行。这些命令（无论是一条还是多条）在某个特定沙箱的生命周期内只会执行 <em>一次</em>。如果希望 Sandboxie 再次执行这些命令，必须删除该沙箱。</p>
-<p>即使命令执行失败，也不会再次执行，除非删除该沙箱。</p>
-<p>目前，对于该设置，没有对应的 <a href="SandboxieControl.html">Sandboxie Control</a> 配置选项</p>
+<p>第一个示例展示用 <em>AutoExec</em> 以某种方式填充沙盒化的注册表。第二个示例展示用 <em>AutoExec</em> 删除不需要的 DLL 文件。两种情况下，定制都只发生在沙盒内。</p>
+<p>可以为单个沙盒指定多个 <em>AutoExec</em> 设置。列出的命令逐条执行。这些命令（无论是一条还是任意多条）在特定沙盒的整个生命周期中只执行_一次_。要让 Sandboxie 再次执行这些命令，必须删除沙盒。</p>
+<p>即使命令执行失败也是如此——除非沙盒被删除，否则它不会再次执行。</p>
+<p>目前，没有对应的 <a href="SandboxieControl.html">沙盒管理器</a> 配置用于此设置。</p>
 <p><strong>技术细节</strong></p>
-<p>每个 <em>AutoExec</em> 命令在被 Sandboxie 执行时，都会被记录到该沙箱的注册表中，具体路径为 <em>HKEY_CURRENT_USER\Software\SandboxieAutoExec</em>。</p>
-<p>如果某个命令已经被记录在沙箱注册表中，则不会再次执行。因此，清除沙箱会删除所有已记录的 <em>AutoExec</em> 命令，这样在下次有任何程序以沙箱模式启动时，这些命令会再次被执行。同时，也可以通过手动从该沙箱注册表键中删除相应命令，使其再次执行。</p>
+<p>每条 <em>AutoExec</em> 命令被 Sandboxie 执行时，都会记录在该沙盒的注册表中，位于项 <em>HKEY_CURRENT_USER\Software\SandboxieAutoExec</em>。</p>
+<p>如果命令已记录在沙盒化注册表中，则不会执行。因此，删除沙盒会清除所有已记录的 <em>AutoExec</em> 命令，使它们在下次任何沙盒化程序在该沙盒中启动时再次执行。但也可以手动从该沙盒化注册表项中删除命令，让它们再次执行。</p>
 
 
 

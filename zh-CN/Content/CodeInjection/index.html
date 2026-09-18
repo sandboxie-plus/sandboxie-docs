@@ -486,7 +486,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -570,7 +570,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -654,7 +654,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -835,7 +835,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -950,7 +950,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1106,7 +1106,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1190,7 +1190,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -5587,7 +5587,7 @@
 <h1 id="_1">代码注入<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
 <p>Sandboxie 采用了一种特别底层的方式，在进程创建期间将其代码注入目标进程。</p>
 <h5 id="_2">触发机制<a class="headerlink" href="#_2" title="Permanent link"></a></h5>
-<p>驱动程序注册了一个 PsSetCreateProcessNotifyRoutine 回调，当该回调被触发时，会检查该进程是否应被放入沙箱。如果决定需要沙箱化，则会阻塞并请求 SbieSvc 服务向进程映像注入加载器。另一种方式是先创建一个挂起状态的进程，通过 API_START_PROCESS 通知驱动将其放入沙箱，待驱动完成后再恢复进程运行。</p>
+<p>驱动程序注册了一个 PsSetCreateProcessNotifyRoutine 回调，当该回调被触发时，会检查该进程是否应被放入沙盒。如果决定需要沙盒化，则会阻塞并请求 SbieSvc 服务向进程映像注入加载器。另一种方式是先创建一个挂起状态的进程，通过 API_START_PROCESS 通知驱动将其放入沙盒，待驱动完成后再恢复进程运行。</p>
 <p>注入机制本身可以调整为无需驱动即可使用。自 5.44 版本起，加载器代码已从 SbieSvc.exe 移至 SbieDll.dll。</p>
 <h5 id="_3">概述<a class="headerlink" href="#_3" title="Permanent link"></a></h5>
 <p>代码注入机制由三个组件组成：注入器本身、底层壳代码（LowLevel.dll）以及待注入的有效负载（SbieDll.dll）。需要注意的是，LowLevel.dll 作为资源嵌入在加载器中。</p>
@@ -5641,7 +5641,7 @@
 此后，函数判断 <code>bHostInject</code> 是否为 0。如果为 0，则调用 <code>SbieDll!Dll_InitInjected</code>，该函数 hook 几乎所有内容，最后调用 <code>SbieDll!Ldr_Init</code>，该函数设置 dll 加载的回调并调用 <code>SbieDll!Ldr_Inject_Init</code>。如果 <code>bHostInject != 0</code>，则 <code>SbieDll!Ldr_Inject_Init</code> 由 <code>Dll_Ordinal1</code> 直接调用。初始化完成后，<code>Dll_Ordinal1</code> 使用原始参数调用并返回真实的 <code>RtlFindActivationContextSectionString</code>。</p>
 <p>此外，为实现进一步的 hook，<code>SbieDll!Ldr_Inject_Init</code> 还会 hook 启动进程的实际入口点。此函数会保存入口点的初始字节，并覆盖为跳转至 <code>SbieDll!Ldr_Inject_Entry64</code> 或 <code>SbieDll!Ldr_Inject_Entry32</code>（分别用于 64 位和 32 位）。这两个函数由汇编实现，将返回地址指针传递给 <code>SbieDll!Ldr_Inject_Entry</code> 作为参数并清理堆栈，随后回到入口点起始处。</p>
 <h5 id="ldr_inject_entry">Ldr_Inject_Entry<a class="headerlink" href="#ldr_inject_entry" title="Permanent link"></a></h5>
-<p>该函数首先通过 <code>SbieDll!Ldr_Inject_SaveBytes</code> 恢复原入口点函数的初始内容，并将调用者返回地址改为指向入口点起始处，这样一旦返回即可正式执行真实入口点。然后函数判断 <code>bHostInject</code> 是否为 0，若为 0，则先调用 <code>SbieDll!Ldr_LoadInjectDlls</code>，然后调用 <code>SbieDll!Dll_InitExeEntry</code> 完成最后的初始化步骤。若 <code>bHostInject != 0</code>，则仅调用 <code>SbieDll!Ldr_LoadInjectDlls</code>，该函数会检查 <a href="../SandboxieIni/">Sandboxie.ini</a> 的 <a href="../InjectDll/">InjectDll</a> 或 <a href="../InjectDll64/">InjectDll64</a> 配置项，如配置有其他需要加载的 dll，则一并加载。</p>
+<p>该函数首先通过 <code>SbieDll!Ldr_Inject_SaveBytes</code> 恢复原入口点函数的初始内容，并将调用者返回地址改为指向入口点起始处，这样一旦返回即可正式执行真实入口点。然后函数判断 <code>bHostInject</code> 是否为 0，若为 0，则先调用 <code>SbieDll!Ldr_LoadInjectDlls</code>，然后调用 <code>SbieDll!Dll_InitExeEntry</code> 完成最后的初始化步骤。若 <code>bHostInject != 0</code>，则仅调用 <code>SbieDll!Ldr_LoadInjectDlls</code>，该函数会检查 <a href="../SandboxieIni/">Sandboxie.ini</a> 的 <a href="../InjectDll/">注入 Dll</a> 或 <a href="../InjectDll64/">注入 Dll64</a> 配置项，如配置有其他需要加载的 dll，则一并加载。</p>
 
 
 

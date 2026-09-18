@@ -492,7 +492,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -576,7 +576,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -660,7 +660,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -857,7 +857,7 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        卸载沙箱镜像
+        卸载沙盒镜像
       
     </span>
   </a>
@@ -868,7 +868,7 @@
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        挂载沙箱镜像
+        挂载沙盒镜像
       
     </span>
   </a>
@@ -890,7 +890,7 @@
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        删除沙箱内容
+        删除沙盒内容
       
     </span>
   </a>
@@ -921,6 +921,100 @@
       
         <li class="md-nav__item">
   <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        高级 / 内部开关
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="高级 / 内部开关">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#keep_alive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        /keep_alive
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fake_admin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        /fake_admin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#force_children-or-fcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        /force_children (or /fcp)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#envrefresh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        /env:=Refresh
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uac_prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        /uac_prompt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mount_hive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mount_hive
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run_sbie_ctrl-and-open_agentparam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        run_sbie_ctrl and open_agent[:param]
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       
         相关阅读材料
@@ -989,7 +1083,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -1104,7 +1198,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1260,7 +1354,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1344,7 +1438,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -5741,15 +5835,15 @@
 <h1 id="_1">启动命令行<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
 <p>根据为 Sandboxie Start 程序指定的命令行参数，它可以执行以下任何操作：</p>
 <ul>
-<li><a href="#启动程序">启动</a>受 Sandboxie 监管的程序</li>
-<li><a href="#停止程序">停止</a>沙箱内的程序</li>
-<li><a href="#卸载沙箱镜像">卸载</a>加密沙箱镜像</li>
-<li><a href="#挂载沙箱镜像">挂载</a>加密沙箱镜像</li>
-<li><a href="#列出程序">列出</a>沙箱内的程序</li>
-<li><a href="#删除沙箱内容">删除</a>沙箱的内容</li>
+<li><a href="#启动程序">启动</a> 受 Sandboxie 监管的程序</li>
+<li><a href="#停止程序">停止</a> 沙盒内的程序</li>
+<li><a href="#卸载沙盒镜像">卸载</a> 加密沙盒镜像</li>
+<li><a href="#挂载沙盒镜像">挂载</a> 加密沙盒镜像</li>
+<li><a href="#列出程序">列出</a> 沙盒内的程序</li>
+<li><a href="#删除沙盒内容">删除</a> 沙盒的内容</li>
 <li><a href="#重新加载配置">重新加载</a> Sandboxie 配置</li>
-<li>启动<a href="#禁用强制程序">禁用强制程序</a>模式</li>
-<li><a href="#相关阅读材料">相关</a>阅读材料</li>
+<li>启动 <a href="#禁用强制程序">禁用强制程序</a> 模式</li>
+<li><a href="#相关阅读材料">相关</a> 阅读材料</li>
 </ul>
 <hr />
 <h3 id="_2">启动程序<a class="headerlink" href="#_2" title="Permanent link"></a></h3>
@@ -5765,10 +5859,10 @@
 <div class="language-pwsh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>  <span class="s2">"C:\Program Files\Sandboxie\Start.exe"</span>  <span class="n">run_dialog</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  <span class="s2">"C:\Program Files\Sandboxie\Start.exe"</span>  <span class="n">start_menu</span>
 </span></code></pre></div></p>
-<p>在所有形式中，参数 <em>/box:沙箱名称</em> 都适用，并且可以在 Start.exe 和参数之间指定，以指示除默认的 <em>DefaultBox</em> 之外的沙箱名称。例如：
+<p>在所有形式中，参数 <em>/box:沙盒名称</em> 都适用，并且可以在 Start.exe 和参数之间指定，以指示除默认的 <em>DefaultBox</em> 之外的沙盒名称。例如：
 <div class="language-pwsh highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>  <span class="s2">"C:\Program Files\Sandboxie\Start.exe"</span>  <span class="p">/</span><span class="n">box</span><span class="p">:</span><span class="n">TestBox</span>  <span class="n">run_dialog</span>
 </span></code></pre></div></p>
-<p>/box 参数的一种特殊形式是 <em>/box:__ask__</em>，它会使 Start.exe 显示沙箱选择对话框。</p>
+<p>/box 参数的一种特殊形式是 <em>/box:__ask__</em>，它会使 Start.exe 显示沙盒选择对话框。</p>
 <p>参数 <em>/silent</em> 可用于消除一些弹出错误消息。例如：
 <div class="language-pwsh highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>  <span class="s2">"C:\Program Files\Sandboxie\Start.exe"</span>  <span class="p">/</span><span class="n">silent</span>  <span class="n">no_such_program</span><span class="p">.</span><span class="n">exe</span>
 </span></code></pre></div></p>
@@ -5796,38 +5890,42 @@
 <div class="language-pwsh highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>   <span class="s2">"C:\Program Files\Sandboxie\Start.exe"</span>  <span class="p">/</span><span class="n">box</span><span class="p">:</span><span class="n">CustomBox</span> <span class="p">/</span><span class="n">silent</span> <span class="n">MyProgram</span><span class="p">.</span><span class="n">exe</span>
 </span></code></pre></div></p>
 <h3 id="_3">停止程序<a class="headerlink" href="#_3" title="Permanent link"></a></h3>
-<p>终止在特定沙箱中运行的所有程序。请注意，该请求会传输到 Sandboxie 服务 SbieSvc，该服务实际执行终止操作。
+<p>终止在特定沙盒中运行的所有程序。请注意，该请求会传输到 Sandboxie 服务 SbieSvc，该服务实际执行终止操作。
 <div class="language-pwsh highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>  <span class="s2">"C:\Program Files\Sandboxie\Start.exe"</span>  <span class="p">/</span><span class="n">terminate</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>  <span class="s2">"C:\Program Files\Sandboxie\Start.exe"</span>  <span class="p">/</span><span class="n">box</span><span class="p">:</span><span class="n">TestBox</span>  <span class="p">/</span><span class="n">terminate</span>
 </span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>  <span class="s2">"C:\Program Files\Sandboxie\Start.exe"</span>  <span class="p">/</span><span class="n">terminate_all</span>
 </span></code></pre></div></p>
-<p>如果省略参数 <em>/box:沙箱名称</em>，则将停止在默认沙箱 <em>DefaultBox</em> 中运行的程序。</p>
-<p>形式 <em>/terminate_all</em> 会终止所有沙箱中的所有程序。</p>
+<p>如果省略参数 <em>/box:沙盒名称</em>，则将停止在默认沙盒 <em>DefaultBox</em> 中运行的程序。</p>
+<p>形式 <em>/terminate_all</em> 会终止所有沙盒中的所有程序。</p>
 <hr />
-<h3 id="_4">卸载沙箱镜像<a class="headerlink" href="#_4" title="Permanent link"></a></h3>
-<p>这些命令用于卸载由 Sandboxie Plus 创建的加密沙箱镜像或 RAM 磁盘。这些参数从 v1.11.0 / 5.66.0 版本开始可用。
+<h3 id="_4">卸载沙盒镜像<a class="headerlink" href="#_4" title="Permanent link"></a></h3>
+<p>这些命令用于卸载由 Sandboxie Plus 创建的加密沙盒镜像或 RAM 磁盘。这些参数从 v1.11.0 / 5.66.0 版本开始可用。
 <div class="language-pwsh highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>  <span class="s2">"C:\Program Files\Sandboxie-Plus\Start.exe"</span>  <span class="p">/</span><span class="n">unmount</span>
 </span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>  <span class="s2">"C:\Program Files\Sandboxie-Plus\Start.exe"</span>  <span class="p">/</span><span class="n">box</span><span class="p">:</span><span class="n">EncryptedBox</span>  <span class="p">/</span><span class="n">unmount</span>
 </span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>  <span class="s2">"C:\Program Files\Sandboxie-Plus\Start.exe"</span>  <span class="p">/</span><span class="n">unmount_all</span>
 </span></code></pre></div></p>
-<p>如果省略参数 <em>/box:沙箱名称</em>，则将卸载默认沙箱 <em>DefaultBox</em> 的镜像。</p>
-<p>形式 <em>/unmount_all</em> 会终止所有加密沙箱中的所有程序，并卸载所有加密沙箱镜像，包括由 Sandboxie Plus 创建的 RAM 磁盘。</p>
-<h3 id="_5">挂载沙箱镜像<a class="headerlink" href="#_5" title="Permanent link"></a></h3>
-<p>这些命令用于挂载由 Sandboxie Plus 创建的加密沙箱镜像。这些参数从 v1.11.0 / 5.66.0 版本开始可用。
+<p>如果省略参数 <em>/box:沙盒名称</em>，则将卸载默认沙盒 <em>DefaultBox</em> 的镜像。</p>
+<p>形式 <em>/unmount_all</em> 会终止所有加密沙盒中的所有程序，并卸载所有加密沙盒镜像，包括由 Sandboxie Plus 创建的 RAM 磁盘。</p>
+<h3 id="_5">挂载沙盒镜像<a class="headerlink" href="#_5" title="Permanent link"></a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>在 <code>Start.exe</code> 上使用 <code>/key:password</code> 参数时，密码会显示在命令行历史、进程列表以及可能的事件日志中。请仅在安全环境中使用此参数，或考虑改用交互式密码提示。</p>
+</div>
+<p>这些命令用于挂载由 Sandboxie Plus 创建的加密沙盒镜像。这些参数从 v1.11.0 / 5.66.0 版本开始可用。
 <div class="language-pwsh highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>  <span class="s2">"C:\Program Files\Sandboxie-Plus\Start.exe"</span>  <span class="p">/</span><span class="n">key</span><span class="p">:</span><span class="no">[box image password]</span> <span class="p">/</span><span class="n">mount_protected</span>
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>  <span class="s2">"C:\Program Files\Sandboxie-Plus\Start.exe"</span>  <span class="p">/</span><span class="n">key</span><span class="p">:</span><span class="no">[box image password]</span> <span class="p">/</span><span class="nb">mount</span>
 </span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>  <span class="s2">"C:\Program Files\Sandboxie-Plus\Start.exe"</span>  <span class="p">/</span><span class="n">box</span><span class="p">:</span><span class="n">EncryptedBox</span>  <span class="p">/</span><span class="n">key</span><span class="p">:</span><span class="no">[box image password]</span> <span class="p">/</span><span class="n">mount_protected</span>
 </span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>  <span class="s2">"C:\Program Files\Sandboxie-Plus\Start.exe"</span>  <span class="p">/</span><span class="n">box</span><span class="p">:</span><span class="n">EncryptedBox</span>  <span class="p">/</span><span class="n">key</span><span class="p">:</span><span class="no">[box image password]</span> <span class="p">/</span><span class="nb">mount</span>
 </span></code></pre></div></p>
-<p>如果省略参数 <em>/box:沙箱名称</em>，则将挂载默认沙箱 <em>DefaultBox</em> 的镜像。</p>
-<p>形式 <em>/mount_protected</em> 会以“沙箱根保护”模式挂载加密沙箱镜像。“沙箱根保护”可防止在沙箱外部运行的进程访问加密沙箱的根文件夹。</p>
+<p>如果省略参数 <em>/box:沙盒名称</em>，则将挂载默认沙盒 <em>DefaultBox</em> 的镜像。</p>
+<p>形式 <em>/mount_protected</em> 会以“沙盒根保护”模式挂载加密沙盒镜像。“沙盒根保护”可防止在沙盒外部运行的进程访问加密沙盒的根文件夹。</p>
 <hr />
 <h3 id="_6">列出程序<a class="headerlink" href="#_6" title="Permanent link"></a></h3>
-<p>列出在特定沙箱中运行的所有程序的系统进程 ID 号。
+<p>列出在特定沙盒中运行的所有程序的系统进程 ID 号。
 <div class="language-pwsh highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>  <span class="s2">"C:\Program Files\Sandboxie\Start.exe"</span>  <span class="p">/</span><span class="n">listpids</span>
 </span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>  <span class="s2">"C:\Program Files\Sandboxie\Start.exe"</span>  <span class="p">/</span><span class="n">box</span><span class="p">:</span><span class="n">TestBox</span>  <span class="p">/</span><span class="n">listpids</span>
 </span></code></pre></div></p>
-<p>如果省略参数 <em>/box:沙箱名称</em>，则将列出在默认沙箱 <em>DefaultBox</em> 中运行的程序。</p>
+<p>如果省略参数 <em>/box:沙盒名称</em>，则将列出在默认沙盒 <em>DefaultBox</em> 中运行的程序。</p>
 <p>输出格式为每行一个数字。第一行包含程序的数量，随后每行一个进程 ID。示例输出：
 <div class="language-pwsh highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>    <span class="s2">"C:\Program Files\Sandboxie\Start.exe"</span>  <span class="p">/</span><span class="n">listpids</span> <span class="p">|</span> <span class="n">more</span>
 </span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>    <span class="n">3</span>
@@ -5837,30 +5935,30 @@
 </span></code></pre></div></p>
 <p>请注意，Start.exe 不是控制台应用程序，因此除非使用 <code>| more</code> 之类的结构对输出进行管道处理，否则输出不会显示在命令提示符窗口中。</p>
 <hr />
-<h3 id="_7">删除沙箱内容<a class="headerlink" href="#_7" title="Permanent link"></a></h3>
+<h3 id="_7">删除沙盒内容<a class="headerlink" href="#_7" title="Permanent link"></a></h3>
 <div class="language-pwsh highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>  <span class="s2">"C:\Program Files\Sandboxie\Start.exe"</span>  <span class="n">delete_sandbox</span>
 </span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>  <span class="s2">"C:\Program Files\Sandboxie\Start.exe"</span>  <span class="n">delete_sandbox_silent</span>
 </span></code></pre></div>
-<p>可以在 Start.exe 和删除命令之间指定 <em>/box:沙箱名称</em> 参数。</p>
+<p>可以在 Start.exe 和删除命令之间指定 <em>/box:沙盒名称</em> 参数。</p>
 <p>删除命令中的 __silent_ 后缀表示 Sandboxie Start 应静默忽略任何错误，并且不显示任何错误消息。</p>
 <p>删除操作分两个阶段进行：</p>
 <ul>
 <li>
-<p>阶段 1：扫描沙箱的内容，并处理在第二阶段可能会造成问题的文件：</p>
+<p>阶段 1：扫描沙盒的内容，并处理在第二阶段可能会造成问题的文件：</p>
 <ul>
 <li>删除符号链接（也称为重解析点）。</li>
 <li>使只读文件和目录具有完全访问权限。</li>
 <li>将名称非常长的文件和目录重命名为较短的名称。</li>
-<li>将沙箱重命名为 <code>__Delete_(沙箱名称)_(某个随机数)</code> 格式。例如，如果沙箱是 DefaultBox，则可能会重命名为 <code>__Delete_DefaultBox_01C4012345678912</code>。</li>
+<li>将沙盒重命名为 <code>__Delete_(沙盒名称)_(某个随机数)</code> 格式。例如，如果沙盒是 DefaultBox，则可能会重命名为 <code>__Delete_DefaultBox_01C4012345678912</code>。</li>
 </ul>
 </li>
 <li>
-<p>阶段 2：删除在阶段 1 中处理过的任何沙箱。</p>
+<p>阶段 2：删除在阶段 1 中处理过的任何沙盒。</p>
 <ul>
-<li>在阶段 1 中处理过的沙箱是那些已按上述方式重命名的沙箱。</li>
-<li>在阶段 2 中可能会删除多个沙箱。</li>
-<li>默认情况下，使用标准系统命令 RMDIR 来删除重命名后的沙箱文件夹。</li>
-<li>或者，可以使用第三方删除实用程序。请参阅<a href="../SecureDeleteSandbox/">安全删除沙箱</a>。</li>
+<li>在阶段 1 中处理过的沙盒是那些已按上述方式重命名的沙盒。</li>
+<li>在阶段 2 中可能会删除多个沙盒。</li>
+<li>默认情况下，使用标准系统命令 RMDIR 来删除重命名后的沙盒文件夹。</li>
+<li>或者，可以使用第三方删除实用程序。请参阅 <a href="../SecureDeleteSandbox/">安全删除沙盒</a>。</li>
 </ul>
 </li>
 </ul>
@@ -5875,22 +5973,93 @@
 <p>此命令将 SandboxieIni 中的 Sandboxie 配置重新加载到活动的 Sandboxie 驱动程序中。通常在手动编辑 Sandboxie.ini 文件后很有用。
 <div class="language-pwsh highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>  <span class="s2">"C:\Program Files\Sandboxie\Start.exe"</span>  <span class="p">/</span><span class="n">reload</span>
 </span></code></pre></div></p>
-<p>请注意，重新加载配置对在发出此命令时已经在运行的沙箱程序不会生效。</p>
+<p>请注意，重新加载配置对在发出此命令时已经在运行的沙盒程序不会生效。</p>
 <hr />
 <h3 id="_9">禁用强制程序<a class="headerlink" href="#_9" title="Permanent link"></a></h3>
-<p>以下命令可使程序在沙箱外部运行，即使该程序是被强制在沙箱内运行的。这类似于在“运行沙箱程序”命令的沙箱选择窗口中使用“在沙箱外部运行”选项。
+<p>以下命令可使程序在沙盒外部运行，即使该程序是被强制在沙盒内运行的。这类似于在“运行沙盒程序”命令的沙盒选择窗口中使用“在沙盒外部运行”选项。
 <div class="language-pwsh highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>  <span class="s2">"C:\Program Files\Sandboxie\Start.exe"</span>  <span class="p">/</span><span class="n">dfp</span>            <span class="n">c</span><span class="p">:\</span><span class="n">path</span><span class="p">\</span><span class="n">to</span><span class="p">\</span><span class="n">program</span><span class="p">.</span><span class="n">exe</span>
 </span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>  <span class="s2">"C:\Program Files\Sandboxie\Start.exe"</span>  <span class="p">/</span><span class="n">disable_force</span>  <span class="n">c</span><span class="p">:\</span><span class="n">path</span><span class="p">\</span><span class="n">to</span><span class="p">\</span><span class="n">program</span><span class="p">.</span><span class="n">exe</span>
 </span></code></pre></div></p>
-<p>请注意，/dfp 和 /disable_force 是相同的。您还可以在单击“运行沙箱程序”命令时按住 Ctrl 和 Shift 键来选择此选项。</p>
-<p>此命令的旧形式可以临时为所有程序禁用强制程序模式。其功能类似于在 Sandboxie Control 的<a href="../TrayIconMenu/#禁用强制程序">托盘图标菜单</a>（而不是<a href="../FileMenu/#禁用强制程序">文件菜单</a>）中使用“禁用强制程序”命令。
+<p>请注意，/dfp 和 /disable_force 是相同的。您还可以在单击“运行沙盒程序”命令时按住 Ctrl 和 Shift 键来选择此选项。</p>
+<p>此命令的旧形式可以临时为所有程序禁用强制程序模式。其功能类似于在沙盒管理器的 <a href="../TrayIconMenu/#禁用强制沙盒化程序">托盘图标菜单</a>（而不是 <a href="../FileMenu/#禁用强制程序">文件菜单</a>）中使用“禁用强制程序”命令。
 <div class="language-pwsh highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>  <span class="s2">"C:\Program Files\Sandboxie\Start.exe"</span>  <span class="n">disable_force</span>
 </span></code></pre></div></p>
 <p>请注意，此命令语法中缺少斜杠。还要注意，此命令不是一个切换开关。它总是会启用“禁用强制程序”模式，并始终重新启动倒计时计时器。目前，Start.exe 不提供取消此模式的方法。</p>
 <hr />
-<h3 id="_10">相关阅读材料<a class="headerlink" href="#_10" title="Permanent link"></a></h3>
+<h3 id="_10">高级 / 内部开关<a class="headerlink" href="#_10" title="Permanent link"></a></h3>
+<p>以下开关主要面向高级用法、自动化或内部/调试场景。它们实现在 Start.exe 的源码（<code>start.cpp</code>）中。这些选项可能随版本变化，通常终端用户不需要用到。</p>
+<h4 id="keep_alive">/keep_alive<a class="headerlink" href="#keep_alive" title="Permanent link"></a></h4>
+<p>让 Start.exe 保持运行并监督已启动的程序。该开关实现的是重启循环（监督器），而非简单的一次性等待。<code>start.cpp</code> 中实现的行为如下：</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>/keep_alive</code> 仅在监督用的 Start.exe 实例运行于沙盒内（沙盒化实例）时有效。当在沙盒外运行时，它没有任何效果。</p>
+</div>
+<ul>
+<li>Start.exe 捕获已启动进程的句柄（等待时使用带 <code>SEE_MASK_NOCLOSEPROCESS</code> 的 <code>ShellExecuteEx</code>/<code>CreateProcess</code>）。</li>
+<li>Start.exe 等待子进程退出，并通过 <code>GetExitCodeProcess</code> 读取其退出码。</li>
+<li>若子进程以 <code>EXIT_SUCCESS</code>（零）退出，Start.exe 结束并返回该零退出码。</li>
+<li>
+<p>若子进程以非零码退出，且 <code>/keep_alive</code> 仍生效，Start.exe 将尝试重启该程序并再次监督。该循环会重试有限的次数：</p>
+<ul>
+<li>实现会递增一个重试计数器，当计数小于 5 时持续重试（即最多重试 5 次）。</li>
+<li>极短运行（代码将短于约 5 秒的运行视为初始化失败）会计入重试次数；较长的运行会重置失败计数器。</li>
+</ul>
+</li>
+<li>
+<p>若程序完全无法启动，Start 会为该次调用禁用 keep-alive（不重试）。</p>
+</li>
+</ul>
+<p>简而言之：</p>
+<ul>
+<li>当你希望 Start.exe 作为监督父进程、并在程序非正常退出时自动重启它（带小型重试/退避策略）时，请使用 <code>/keep_alive</code>。这与 <code>/wait</code> 不同：<code>/wait</code> 让 Start.exe 等待并在子进程退出后随之退出；<code>/keep_alive</code> 让 Start.exe 持续监督，并在子进程崩溃或以非零码退出时将其重启，直至达到重试上限。</li>
+</ul>
+<p>最终结果：</p>
+<ul>
+<li>成功（0）退出时，最终返回的退出码为 0。</li>
+<li>若重试耗尽且程序持续以非零码退出，Start.exe 将停止重试并返回最后一次的非零退出码。</li>
+</ul>
+<p>示例：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="na">"Start.exe" /keep_alive notepad.exe</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="na">"Start.exe" Start.exe /keep_alive notepad.exe</span>
+</span></code></pre></div>
+当你希望已启动的程序在沙盒内保持可用（崩溃后自动重启），并让 Start.exe 在整个会话期间保持监督父进程身份时，此功能很有用。</p>
+<h4 id="fake_admin">/fake_admin<a class="headerlink" href="#fake_admin" title="Permanent link"></a></h4>
+<p>将已启动的程序标记为在沙盒内拥有伪造的管理员上下文。这可以帮助某些会检测管理员状态并据此改变行为的安装程序或旧程序。这是一种沙盒侧的兼容性措施，与真正的 UAC 提升并不相同。</p>
+<p>示例：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="na">"Start.exe" /fake_admin setup.exe</span>
+</span></code></pre></div></p>
+<h4 id="force_children-or-fcp">/force_children (or /fcp)<a class="headerlink" href="#force_children-or-fcp" title="Permanent link"></a></h4>
+<p>将已启动的进程标记为：它创建的任何子进程都会被强制进入指定的沙盒。它本身并不会将最初启动的程序（例如安装程序）放入沙盒。当存在此选项时，Start.exe 会发出 API 调用来强制子进程。</p>
+<p>示例：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="na">"Start.exe" /fcp myinstaller.exe</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="na">"Start.exe" /force_children myinstaller.exe</span>
+</span></code></pre></div></p>
+<h4 id="envrefresh">/env:=Refresh<a class="headerlink" href="#envrefresh" title="Permanent link"></a></h4>
+<p>触发当前沙盒化进程的环境刷新。当从沙盒化实例调用时，Start.exe 会调用内部的 <code>Env_Refresh</code> 辅助函数；在沙盒外运行时没有任何效果。如需设置单个环境变量，请改用 <code>/env:Name=Value</code>。</p>
+<p>示例：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="na">"Start.exe" /env</span><span class="o">:</span><span class="s">=Refresh</span>
+</span></code></pre></div></p>
+<h4 id="uac_prompt">/uac_prompt<a class="headerlink" href="#uac_prompt" title="Permanent link"></a></h4>
+<p>带参数调用 Sandboxie 的安全 UAC 提示 UI（沙盒化 UAC 对话框）。这主要是供其他 Sandboxie 组件用来显示安全 UAC 提示的内部辅助工具。该命令接受用于填充对话框的内部参数（通常由服务或代理代码生成）。</p>
+<p>示例：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="na">"Start.exe" uac_prompt &lt;internal-pkt-params&gt;</span>
+</span></code></pre></div></p>
+<h4 id="mount_hive">mount_hive<a class="headerlink" href="#mount_hive" title="Permanent link"></a></h4>
+<p>请求沙盒化实例挂载一份注册表配置单元副本，供沙盒内程序访问。当在沙盒外调用时，Start.exe 会将命令转发给沙盒化实例，由其执行挂载；当在沙盒内调用时，则直接执行挂载。</p>
+<p>示例：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="na">"Start.exe" mount_hive</span>
+</span></code></pre></div></p>
+<h4 id="run_sbie_ctrl-and-open_agentparam">run_sbie_ctrl and open_agent[:param]<a class="headerlink" href="#run_sbie_ctrl-and-open_agentparam" title="Permanent link"></a></h4>
+<p><code>run_sbie_ctrl</code> 与 <code>open_agent[:param]</code> 是用于请求 Sandboxie 服务/代理运行 Sandboxie Agent 或执行代理任务的内部服务控制命令。<code>run_sbie_ctrl</code> 向服务发送请求以启动 Agent UI。<code>open_agent:</code> 可以向代理/服务传递参数。这些主要用于辅助工具和自动化。</p>
+<p>示例：
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="na">"Start.exe" run_sbie_ctrl</span>
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="na">"Start.exe" open_agent</span><span class="o">:</span><span class="s">SandMan.exe</span>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="na">"Start.exe" open_agent</span><span class="o">:</span><span class="s">"SandMan.exe -autorun"</span>
+</span></code></pre></div></p>
+<hr />
+<h3 id="_11">相关阅读材料<a class="headerlink" href="#_11" title="Permanent link"></a></h3>
 <p>另请参阅：<a href="../InjectDll/">注入 DLL</a> 和 <a href="../SBIEDLLAPI/">SBIE DLL API</a></p>
-<p>转到<a href="../HelpTopics/">帮助主题</a>。</p>
+<p>转到 <a href="../HelpTopics/">帮助主题</a>。</p>
 
 
 

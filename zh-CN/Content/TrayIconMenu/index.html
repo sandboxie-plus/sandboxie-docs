@@ -31,7 +31,7 @@
     
     
       
-        <title>系统托盘图标菜单 - Sandboxie 文档</title>
+        <title>托盘图标菜单 - Sandboxie 文档</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              系统托盘图标菜单
+              托盘图标菜单
             
           </span>
         </div>
@@ -494,7 +494,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -578,7 +578,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -671,7 +671,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -689,7 +689,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -729,7 +729,7 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        沙箱子菜单
+        沙盒子菜单
       
     </span>
   </a>
@@ -751,7 +751,7 @@
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        禁用强制沙箱化程序
+        禁用强制沙盒化程序
       
     </span>
   </a>
@@ -956,7 +956,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -1071,7 +1071,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1227,7 +1227,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1311,7 +1311,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -5705,57 +5705,57 @@
   
 
 
-<h1 id="_1">系统托盘图标菜单<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<h1 id="_1">托盘图标菜单<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
 <p><img alt="" src="../../Media/TrayPopupMenu.png" /></p>
-<p>要从系统托盘图标菜单调用命令，请右键单击系统通知区域（通常位于屏幕右下角）中显示的 Sandboxie 系统托盘图标。</p>
+<p>要从托盘图标菜单调用命令，请右键点击系统通知区域（通常在屏幕右下角）中的 Sandboxie 托盘图标。</p>
 <hr />
 <h3 id="_2">隐藏窗口 / 显示窗口<a class="headerlink" href="#_2" title="Permanent link"></a></h3>
-<p>当 <a href="../SandboxieControl/">Sandboxie 控制</a> 的主窗口可见时，第一个命令是“隐藏窗口”。当主窗口隐藏时，该命令变为“显示窗口”。此命令用于显示或隐藏 Sandboxie 控制的主窗口。</p>
+<p>当 <a href="../SandboxieControl/">沙盒管理器</a> 主窗口可见时，第一个命令是 <em>隐藏窗口</em>；当主窗口隐藏时，它会变为 <em>显示窗口</em>。此命令显示或隐藏沙盒管理器的主窗口。</p>
 <hr />
-<h3 id="_3">沙箱子菜单<a class="headerlink" href="#_3" title="Permanent link"></a></h3>
-<p>为每个定义的沙箱显示一个或多个子菜单。默认配置仅包含一个名为“DefaultBox”的沙箱，但可以使用 <a href="../SandboxMenu/">沙箱菜单</a> 添加更多沙箱。每个子菜单包含以下命令：</p>
+<h3 id="_3">沙盒子菜单<a class="headerlink" href="#_3" title="Permanent link"></a></h3>
+<p>每个已定义的沙盒都会出现一个或多个子菜单。默认配置只包含一个名为 <em>DefaultBox</em> 的沙盒，但可以使用 <a href="../SandboxMenu/">沙盒菜单</a> 添加更多沙盒。每个子菜单包含以下命令：</p>
 <ul>
-<li>“运行 Web 浏览器”命令将启动系统（默认）Web 浏览器。<br>
-    与 <a href="../SandboxMenu/">沙箱菜单</a> -&gt; <em>(沙箱)</em> -&gt; 以沙箱模式运行 -&gt; Web 浏览器 相同。<br>
-    （注意：如果启动的程序不正确，请参阅 <a href="../FrequentlyAskedQuestions/#why-does-the-wrong-program-start-when-i-run-my-default-web-browser-sandboxed">常见问题解答</a> 来解决此问题。）</li>
-<li>“运行电子邮件阅读器”命令将启动系统（默认）电子邮件阅读器。<br>
-    与 <a href="../SandboxMenu/">沙箱菜单</a> -&gt; <em>(沙箱)</em> -&gt; 以沙箱模式运行 -&gt; 电子邮件阅读器 相同。</li>
-<li>“运行任意程序”命令将显示“运行任意程序”对话框，该对话框类似于标准的 Windows“运行...”对话框。它可用于启动程序、打开文档和浏览文件夹，所有操作都在 Sandboxie 的监控下进行。<br>
-    与 <a href="../SandboxMenu/">沙箱菜单</a> -&gt; <em>(沙箱)</em> -&gt; 以沙箱模式运行 -&gt; 任意程序 相同。</li>
-<li>“从开始菜单运行”命令将显示 Sandboxie 开始菜单，类似于标准的 Windows 开始菜单。它可用于启动开始菜单和桌面上显示的程序和其他快捷方式。请注意，如果有任何程序安装到了沙箱中，Sandboxie 开始菜单将包含安装过程中创建的快捷方式。<br>
-    与 <a href="../SandboxMenu/">沙箱菜单</a> -&gt; <em>(沙箱)</em> -&gt; 以沙箱模式运行 -&gt; 从开始菜单 相同。</li>
-<li>“运行 Windows 资源管理器”命令将启动一个沙箱化的 Windows 资源管理器实例。它可用于浏览文件夹和启动程序，所有操作都在 Sandboxie 的监控下进行。<br>
-    与 <a href="../SandboxMenu/">沙箱菜单</a> -&gt; <em>(沙箱)</em> -&gt; 以沙箱模式运行 -&gt; Windows 资源管理器 相同。</li>
-<li>“终止程序”命令将停止在沙箱中运行的所有程序。<br>
-    与 <a href="../SandboxMenu/">沙箱菜单</a> -&gt; <em>(沙箱)</em> -&gt; 终止正在运行的程序 相同。</li>
-<li>“快速恢复”命令将显示 <a href="../QuickRecovery/">快速恢复</a> 窗口。<br>
-    与 <a href="../SandboxMenu/">沙箱菜单</a> -&gt; <em>(沙箱)</em> -&gt; 快速恢复 相同。</li>
-<li>“删除内容”命令将显示 <a href="../DeleteSandbox/">删除沙箱</a> 窗口。<br>
-    与 <a href="../SandboxMenu/">沙箱菜单</a> -&gt; <em>(沙箱)</em> -&gt; 删除内容 相同。</li>
-<li>“浏览内容”命令将打开一个 <em>非沙箱化</em> 的文件夹视图，用于查看沙箱的内容，<em>不在 Sandboxie 的监控之下</em>。如果可能，请使用 <a href="../FilesAndFoldersView/">文件和文件夹视图</a> 来浏览沙箱的内容。<br>
-    与 <a href="../SandboxMenu/">沙箱菜单</a> -&gt; <em>(沙箱)</em> -&gt; 浏览内容 相同。</li>
+<li><em>运行网页浏览器</em> 命令启动系统（默认）网页浏览器。<br>
+    与<a href="../SandboxMenu/">沙盒菜单</a> &gt; <em>（沙盒）</em> &gt; 以沙盒方式运行 &gt; 网页浏览器相同。<br>
+    （注意：如果启动了错误的程序，请参阅<a href="../FrequentlyAskedQuestions/#为什么沙盒运行默认-web-浏览器时启动了错误的程序">常见问题解答</a>解决。）</li>
+<li><em>运行邮件阅读器</em> 命令启动系统（默认）邮件阅读器。<br>
+    与<a href="../SandboxMenu/">沙盒菜单</a> &gt; <em>（沙盒）</em> &gt; 以沙盒方式运行 &gt; 邮件阅读器相同。</li>
+<li><em>运行任意程序</em> 命令显示“运行任意程序”对话框，它与标准 Windows 的 <em>运行...</em> 对话框类似。可用于启动程序、打开文档和浏览文件夹，全部在 Sandboxie 的监管下进行。<br>
+    与<a href="../SandboxMenu/">沙盒菜单</a> &gt; <em>（沙盒）</em> &gt; 以沙盒方式运行 &gt; 任意程序相同。</li>
+<li><em>从开始菜单运行</em> 命令显示 Sandboxie 开始菜单，与标准 Windows 开始菜单类似。可用于启动开始菜单和桌面上出现的程序及其他快捷方式。注意：如果曾向沙盒中安装过程序，Sandboxie 开始菜单将包含安装期间创建的快捷方式。<br>
+    与<a href="../SandboxMenu/">沙盒菜单</a> &gt; <em>（沙盒）</em> &gt; 以沙盒方式运行 &gt; 从开始菜单相同。</li>
+<li><em>运行 Windows 资源管理器</em> 命令启动 Windows 资源管理器的沙盒化实例。可用于浏览文件夹和启动程序，全部在 Sandboxie 的监管下进行。<br>
+    与<a href="../SandboxMenu/">沙盒菜单</a> &gt; <em>（沙盒）</em> &gt; 以沙盒方式运行 &gt; Windows 资源管理器相同。</li>
+<li><em>终止程序</em> 命令停止沙盒中运行的所有程序。<br>
+    与<a href="../SandboxMenu/">沙盒菜单</a> &gt; <em>（沙盒）</em> &gt; 终止正在运行的程序相同。</li>
+<li><em>快速恢复</em> 命令显示 <a href="../QuickRecovery/">快速恢复</a> 窗口。<br>
+    与<a href="../SandboxMenu/">沙盒菜单</a> &gt; <em>（沙盒）</em> &gt; 快速恢复相同。</li>
+<li><em>删除内容</em> 命令显示 <a href="../DeleteSandbox/">删除沙盒</a> 窗口。<br>
+    与<a href="../SandboxMenu/">沙盒菜单</a> &gt; <em>（沙盒）</em> &gt; 删除内容相同。</li>
+<li><em>浏览内容</em> 命令为沙盒内容打开一个_非沙盒化的_文件夹视图，即_在 Sandboxie 的监管之外_。如有可能，请使用 <a href="../FilesAndFoldersView/">文件和文件夹视图</a> 浏览沙盒内容。<br>
+    与<a href="../SandboxMenu/">沙盒菜单</a> &gt; <em>（沙盒）</em> &gt; 浏览内容相同。</li>
 </ul>
 <hr />
 <h3 id="_4">终止所有程序<a class="headerlink" href="#_4" title="Permanent link"></a></h3>
-<p>“终止所有程序”命令将停止所有沙箱中运行的所有程序。<br>
-与 <a href="../FileMenu/">文件菜单</a> -&gt; 终止所有程序 相同。</p>
-<p>另请参阅：<a href="../FileMenu/">文件菜单</a> 中的 <a href="../FileMenu/#terminate-all-programs">终止所有程序</a>。</p>
+<p><em>终止所有程序</em> 命令停止所有沙盒中运行的全部程序。<br>
+与 <a href="../FileMenu/">文件菜单</a> &gt; 终止所有程序相同。</p>
+<p>另请参阅：<a href="../FileMenu/">文件菜单</a> 中的 <a href="../FileMenu/#终止所有程序">终止所有程序</a>。</p>
 <hr />
-<h3 id="_5">禁用强制沙箱化程序<a class="headerlink" href="#_5" title="Permanent link"></a></h3>
-<p>“禁用强制沙箱化程序”切换命令可临时禁用和重新启用强制沙箱化。请参阅 <a href="../FileMenu/">文件菜单</a> 中的相关命令。请注意，与文件菜单命令不同，系统托盘图标命令不会显示对话框来更改命令的持续时间。相反，强制沙箱化将暂停上次指定的持续时间，或者默认的 10 秒。<br>
-与 <a href="../FileMenu/">文件菜单</a> -&gt; 禁用强制沙箱化程序 相同。</p>
-<p>另请参阅：<a href="../FileMenu/">文件菜单</a> 中的 <a href="../FileMenu/#disable-forced-programs">禁用强制沙箱化程序</a>。</p>
+<h3 id="_5">禁用强制沙盒化程序<a class="headerlink" href="#_5" title="Permanent link"></a></h3>
+<p><em>禁用强制沙盒化程序</em> 切换命令临时禁用并重新启用强制沙盒化。参见 <a href="../FileMenu/">文件菜单</a> 中的相应命令。注意：与文件菜单命令不同，托盘图标命令不显示用于更改命令持续时间的对话框。相反，强制沙盒化将按上次指定的持续时间暂停，或默认暂停 10 秒。<br>
+与 <a href="../FileMenu/">文件菜单</a> &gt; 禁用强制程序相同。</p>
+<p>另请参阅：<a href="../FileMenu/">文件菜单</a> 中的 <a href="../FileMenu/#禁用强制程序">禁用强制程序</a>。</p>
 <hr />
 <h3 id="uac">以 UAC 管理员身份运行<a class="headerlink" href="#uac" title="Permanent link"></a></h3>
-<p>“以 UAC 管理员身份运行”（图片中未显示；请参阅 <a href="../FileMenu/">文件菜单</a>）切换命令告诉 Sandboxie 在启动任何程序之前请求提升到管理员权限。此命令仅在启用了用户账户控制 (UAC) 且用户账户尚未提升权限的 Windows 系统上可用。如果此命令在菜单中可用，则通常在将程序安装到沙箱之前需要启用它，并建议在安装完成后禁用它。<br>
-与 <a href="../FileMenu/">文件菜单</a> -&gt; 以 UAC 管理员身份运行 相同。</p>
-<p>另请参阅：<a href="../FileMenu/">文件菜单</a> 中的 <a href="../FileMenu/#run-as-uac-administrator">以 UAC 管理员身份运行</a>。</p>
+<p><em>以 UAC 管理员身份运行</em>（图中未显示；参见 <a href="../FileMenu/">文件菜单</a>）切换命令指示 Sandboxie 在启动任何程序前请求提升到管理员权限。此命令仅在 Windows 的用户帐户控制（UAC）生效且用户帐户尚未提升时可用。如果此命令在菜单中可用，那么在向沙盒中安装程序之前通常需要启用它，并建议在安装完成后禁用它。<br>
+与 <a href="../FileMenu/">文件菜单</a> &gt; 以 UAC 管理员身份运行相同。</p>
+<p>另请参阅：<a href="../FileMenu/">文件菜单</a> 中的 <a href="../FileMenu/#以-uac-管理员身份运行">以 UAC 管理员身份运行</a>。</p>
 <hr />
 <h3 id="_6">退出<a class="headerlink" href="#_6" title="Permanent link"></a></h3>
-<p>“退出”命令将退出 <a href="../SandboxieControl/">Sandboxie 控制</a>。请注意，仅关闭窗口（或选择“隐藏窗口”命令）<em>不会</em> 退出 Sandboxie 控制。<br>
-与 <a href="../FileMenu/">文件菜单</a> -&gt; 退出 相同。</p>
+<p><em>退出</em> 命令退出 <a href="../SandboxieControl/">沙盒管理器</a>。注意：仅仅关闭窗口（或选择 <em>隐藏窗口</em> 命令）_并不会_退出沙盒管理器。<br>
+与 <a href="../FileMenu/">文件菜单</a> &gt; 退出相同。</p>
 <hr />
-<p>转到 <a href="../SandboxieControl/#menus">Sandboxie 控制</a>、<a href="../HelpTopics/">帮助主题</a>。</p>
+<p>前往 <a href="../SandboxieControl/#菜单">沙盒管理器</a>、<a href="../HelpTopics/">帮助主题</a>。</p>
 
 
 

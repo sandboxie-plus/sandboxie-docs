@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="KeyRootPath 是 Sandboxie Ini 中的一个沙箱设置。它用于指定某个沙箱的注册表配置单元挂载的位置。">
+        <meta name="description" content="KeyRootPath 是 Sandboxie Ini 中的一项沙盒设置。它指定特定沙盒的注册表配置单元被挂载的注册表位置。">
       
       
       
@@ -486,7 +486,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -570,7 +570,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -654,7 +654,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -835,7 +835,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -950,7 +950,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1106,7 +1106,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1190,7 +1190,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -5585,30 +5585,30 @@
 
 
 <h1 id="_1">注册表根路径<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
-<p><em>KeyRootPath</em> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 中的一个沙箱设置。它用于指定某个沙箱的注册表配置单元挂载的位置。</p>
-<p>和所有沙箱设置一样，它也可以在全局部分指定，此时对于所有未在沙箱部分单独指定该设置的沙箱均适用。</p>
-<p>更多信息请参见 <a href="SandboxHierarchy.html">沙箱层级结构</a>。</p>
-<p>用法示例：
+<p><em>KeyRootPath</em> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 中的一项沙盒设置。它指定特定沙盒的注册表配置单元被挂载的注册表位置。</p>
+<p>与所有沙盒设置一样，它也可以出现在全局节中，此时它适用于所有未在沙盒节中另行指定该设置的沙盒。</p>
+<p>更多信息参见 <a href="SandboxHierarchy.html">沙盒层级</a>。</p>
+<p>用法：
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">KeyRootPath</span><span class="o">=</span><span class="s">\REGISTRY\USER\%BOXNAME%</span>
 </span></code></pre></div></p>
-<p>在此路径中，以下替换变量可能会用到：</p>
+<p>以下替换变量在此路径中可能有用。</p>
 <ul>
-<li>变量 %SANDBOX%，其值为沙箱名称</li>
-<li>变量 %USER%，其值为用户名</li>
-<li>变量 %SID%，其值为用户安全标识（SID）</li>
-<li>变量 %SESSION%，其值为终端服务的会话编号</li>
+<li>变量 %SANDBOX%，展开为沙盒名称</li>
+<li>变量 %USER%，展开为用户名称</li>
+<li>变量 %SID%，展开为用户安全 ID（SID）</li>
+<li>变量 %SESSION%，展开为终端服务会话编号</li>
 </ul>
-<p>如果未指定 注册表根路径，则其默认值为：</p>
+<p>如果未指定注册表根路径，其默认值为：</p>
 <ul>
 <li><em>\REGISTRY\USER\Sandbox</em>%USER%<em>%SANDBOX%</em></li>
 </ul>
-<p>该值必须以 *<em>\REGISTRY\USER*</em> 为前缀，否则沙盘将无法挂载注册表配置单元。</p>
-<p>通常没有理由修改该设置的默认值，并且不建议这样做。</p>
-<p>如果沙盘无法成功挂载或卸载沙箱注册表配置单元，分别会发出消息 <a href="SBIE1241.html">SBIE1241</a> 和 <a href="SBIE2208.html">SBIE2208</a>。</p>
+<p>该值必须以前缀 *<em>\REGISTRY\USER*</em> 开头，否则 Sandboxie 将无法挂载注册表配置单元。</p>
+<p>可能没有理由更改此设置的默认值，也不建议这样做。</p>
+<p>如果 Sandboxie 无法成功挂载或卸载沙盒化注册表配置单元，它将分别发出消息 <a href="SBIE1241.html">SBIE1241</a> 和 <a href="SBIE2208.html">SBIE2208</a>。</p>
 
 
 

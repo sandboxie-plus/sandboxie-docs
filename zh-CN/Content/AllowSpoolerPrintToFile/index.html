@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="AllowSpoolerPrintToFile 是一个沙箱设置，用于细致地控制沙箱应用程序与打印后台处理程序的交互方式。">
+        <meta name="description" content="AllowSpoolerPrintToFile 是一项沙盒设置，提供对沙盒化应用程序如何与打印后台处理程序服务交互的精细控制。">
       
       
       
@@ -486,7 +486,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -570,7 +570,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -654,7 +654,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -835,7 +835,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -950,7 +950,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1106,7 +1106,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1190,7 +1190,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -5585,14 +5585,14 @@
 
 
 <h1 id="_1">允许后台打印程序打印到文件<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
-<p><code>AllowSpoolerPrintToFile</code> 是一个沙箱设置，用于细致地控制沙箱应用程序与打印后台处理程序的交互方式。</p>
+<p><code>AllowSpoolerPrintToFile</code> 是一项沙盒设置，提供对沙盒化应用程序如何与打印后台处理程序服务交互的精细控制。</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">AllowSpoolerPrintToFile</span><span class="o">=</span><span class="s">n</span>
 </span></code></pre></div>
-<p>此设置可用于防止沙箱应用程序进行文件打印。默认情况下，Sandboxie 会阻止沙箱中的 <code>spoolsv.exe</code> 发起的所有请求写入权限的 <code>CreateFile</code> 调用。</p>
+<p>此设置可用于阻止沙盒化应用程序打印到文件。默认情况下，Sandboxie 阻止沙盒化的 <code>spoolsv.exe</code> 发出所有请求写访问的 <code>CreateFile</code> 调用。</p>
 
 
 

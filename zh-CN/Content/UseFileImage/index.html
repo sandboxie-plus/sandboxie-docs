@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="UseFileImage 是 Sandboxie.ini 中的一个沙盒设置项（在 v1.11.0 / 5.66.0 版本中引入），它用一个基于文件的虚拟磁盘映像替换标准的文件系统存储，作为沙盒的根目录。">
+        <meta name="description" content="UseFileImage 是 Sandboxie Ini 中的一项沙盒设置（v1.11.0 / 5.66.0 引入），它把标准文件系统存储替换为基于文件的虚拟磁盘映像，作为沙盒根目录。">
       
       
       
@@ -486,7 +486,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -570,7 +570,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -654,7 +654,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -835,7 +835,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -950,7 +950,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1106,7 +1106,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1190,7 +1190,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -5585,20 +5585,20 @@
 
 
 <h1 id="_1">使用文件映像<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
-<p><em>UseFileImage</em> 是 <a href="../SandboxieIni/">Sandboxie.ini</a> 中的一个沙盒设置项（在 v1.11.0 / 5.66.0 版本中引入），它用一个基于文件的虚拟磁盘映像替换标准的文件系统存储，作为沙盒的根目录。</p>
+<p><em>UseFileImage</em> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 中的一项沙盒设置（v1.11.0 / 5.66.0 引入），它把标准文件系统存储替换为基于文件的虚拟磁盘映像，作为沙盒根目录。</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>请为每个沙盒单独配置此设置。全局应用此设置将强制所有沙盒使用文件映像，这可能会破坏依赖标准文件系统存储的现有沙盒，或导致与非加密沙盒配置的兼容性问题。</p>
+<p>请按沙盒逐一配置此设置。全局应用将强制所有沙盒使用文件映像，这可能会破坏依赖标准文件系统存储的现有沙盒，或与非加密沙盒配置产生兼容性问题。</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>此设置需要有效的高级<a href="https://sandboxie-plus.com/supporter-certificate/">赞助者证书</a>。</p>
+<p>此设置需要有效的进阶 <a href="https://sandboxie-plus.com/supporter-certificate/">支持者证书</a>。</p>
 </div>
-<h2 id="_2">前提<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
+<h2 id="_2">前提条件<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <ul>
 <li>
-<p>通过 <strong>全局设置</strong> 中的 <strong>附加组件管理器 &gt; 可选附加组件</strong> 选项卡安装 <strong>ImDisk Toolkit</strong>。</p>
-<p><img alt="ImDisk Install" src="../../Media/UseRamDisk1.png" /></p>
+<p>通过<strong>全局设置</strong>中的<strong>附加组件管理器 &gt; 可选附加组件</strong>选项卡安装 <strong>ImDisk Toolkit</strong>。</p>
+<p><img alt="ImDisk 安装" src="../../Media/UseRamDisk1.png" /></p>
 </li>
 </ul>
 <h2 id="_3">用法<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
@@ -5606,149 +5606,149 @@
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">UseFileImage</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>启用此设置后，Sandboxie 服务会创建一个扩展名为 <code>.box</code> 的虚拟磁盘映像文件。该映像文件的路径由服务确定<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>，它会将 <code>.box</code> 附加到沙盒的文件根<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>路径后。然后，沙盒文件系统通过挂载管理器<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>使用 ImDisk 虚拟磁盘驱动程序从该映像挂载。沙盒内的所有文件 I/O 操作都将重定向到已挂载的映像，而不是直接在主机文件系统上创建文件。</p>
-<p>密码保护和映像头备份/恢复操作可通过 SandMan 界面或 ImBox 命令行实用程序进行。</p>
-<h2 id="sandman">SandMan 界面<a class="headerlink" href="#sandman" title="Permanent link"></a></h2>
-<h3 id="_4">设置密码<a class="headerlink" href="#_4" title="Permanent link"></a></h3>
+<p>启用此设置时，Sandboxie 服务会创建一个扩展名为 <code>.box</code> 的虚拟磁盘映像文件。映像文件路径由服务<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>确定，它把 <code>.box</code> 追加到沙盒文件根<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>路径。然后通过挂载管理器<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>使用 ImDisk 虚拟磁盘驱动从该映像挂载沙盒文件系统。沙盒内的所有文件 I/O 操作都会被重定向到已挂载的映像，而不是直接在宿主文件系统上创建文件。</p>
+<p>密码保护和头部备份/恢复操作可通过沙盒管理器图形界面或 ImBox 命令行实用程序使用。</p>
+<h2 id="_4">沙盒管理器图形界面<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
+<h3 id="_5">设置密码<a class="headerlink" href="#_5" title="Permanent link"></a></h3>
 <ol>
-<li>在 SandMan 中 <strong>右键单击</strong> 沙盒 &gt; <code>沙盒选项</code>。</li>
-<li>导航到 <code>文件选项</code> 选项卡。</li>
-<li>启用 <code>加密沙盒内容</code>。</li>
-<li>(可选) 启用 <a href="../ForceProtectionOnMount/"><code>挂载时强制保护</code></a>。</li>
+<li>在沙盒管理器中<strong>右键点击</strong>沙盒 &gt; <code>沙盒选项</code>。</li>
+<li>导航到<code>文件选项</code>选项卡。</li>
+<li>启用<code>加密沙盒内容</code>。</li>
+<li>（可选）启用 <a href="../ForceProtectionOnMount/"><code>挂载时强制保护</code></a></li>
 <li>
-<p>点击 <code>设置密码</code> 按钮。</p>
-<p><img alt="Setting Password 1" src="../../Media/UseFileImage1.png" /></p>
+<p>点击<code>设置密码</code>按钮。</p>
+<p><img alt="设置密码 1" src="../../Media/UseFileImage1.png" /></p>
 </li>
 <li>
 <p>在对话框中输入并确认密码。</p>
-<p><img alt="Setting Password 2" src="../../Media/UseFileImage2.png" /></p>
+<p><img alt="设置密码 2" src="../../Media/UseFileImage2.png" /></p>
 </li>
 </ol>
-<h3 id="_5">更改密码<a class="headerlink" href="#_5" title="Permanent link"></a></h3>
+<h3 id="_6">更改密码<a class="headerlink" href="#_6" title="Permanent link"></a></h3>
 <ol>
-<li>在 SandMan 中 <strong>右键单击</strong> 沙盒 &gt; <code>沙盒选项</code>。</li>
-<li>导航到 <code>文件选项</code> 选项卡。</li>
+<li>在沙盒管理器中<strong>右键点击</strong>沙盒 &gt; <code>沙盒选项</code>。</li>
+<li>导航到<code>文件选项</code>选项卡。</li>
 <li>
-<p>点击 <code>更改密码</code> 按钮。</p>
-<p><img alt="Changing Password 1" src="../../Media/UseFileImage3.png" /></p>
+<p>点击<code>更改密码</code>按钮。</p>
+<p><img alt="更改密码 1" src="../../Media/UseFileImage3.png" /></p>
 </li>
 <li>
 <p>在对话框中输入当前密码。</p>
-<p><img alt="Changing Password 2" src="../../Media/UseFileImage4.png" /></p>
+<p><img alt="更改密码 2" src="../../Media/UseFileImage4.png" /></p>
 </li>
 <li>
-<p>在对话框中输入新密码并确认。</p>
+<p>在对话框中输入新密码并确认密码。</p>
 </li>
 </ol>
-<h3 id="_6">映像头备份<a class="headerlink" href="#_6" title="Permanent link"></a></h3>
+<h3 id="_7">头部备份<a class="headerlink" href="#_7" title="Permanent link"></a></h3>
 <ol>
-<li>在沙盒选项的 <code>文件选项</code> 选项卡中。</li>
-<li>点击 <code>更改密码</code> 按钮旁的下拉箭头。</li>
+<li>在沙盒选项的<code>文件选项</code>选项卡中。</li>
+<li>点击<code>更改密码</code>按钮旁边的向下箭头。</li>
 <li>
-<p>从下拉菜单中选择 <code>备份映像头</code>。</p>
-<p><img alt="Header Backup" src="../../Media/UseFileImage3.png" /></p>
+<p>从下拉菜单中选择<code>备份头部</code>。</p>
+<p><img alt="头部备份" src="../../Media/UseFileImage3.png" /></p>
 </li>
 <li>
 <p>选择保存 <code>.hdr</code> 文件的位置。</p>
 </li>
-<li>映像头将使用 ImBox 实用程序导出<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>。</li>
+<li>使用 ImBox 实用程序导出头部<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>。</li>
 </ol>
-<h3 id="_7">映像头恢复<a class="headerlink" href="#_7" title="Permanent link"></a></h3>
+<h3 id="_8">头部恢复<a class="headerlink" href="#_8" title="Permanent link"></a></h3>
 <ol>
-<li>在沙盒选项的 <code>文件选项</code> 选项卡中。</li>
-<li>点击 <code>更改密码</code> 按钮旁的下拉箭头。</li>
+<li>在沙盒选项的<code>文件选项</code>选项卡中。</li>
+<li>点击<code>更改密码</code>按钮旁边的向下箭头。</li>
 <li>
-<p>从下拉菜单中选择 <code>恢复映像头</code>。</p>
-<p><img alt="Header Restore" src="../../Media/UseFileImage3.png" /></p>
+<p>从下拉菜单中选择<code>恢复头部</code>。</p>
+<p><img alt="头部恢复" src="../../Media/UseFileImage3.png" /></p>
 </li>
 <li>
 <p>选择之前保存的 <code>.hdr</code> 文件。</p>
 </li>
-<li>映像头将使用 ImBox 实用程序导入<sup id="fnref2:4"><a class="footnote-ref" href="#fn:4">4</a></sup>。</li>
+<li>使用 ImBox 实用程序导入头部<sup id="fnref2:4"><a class="footnote-ref" href="#fn:4">4</a></sup>。</li>
 </ol>
-<h3 id="_8">挂载沙盒映像<a class="headerlink" href="#_8" title="Permanent link"></a></h3>
+<h3 id="_9">挂载沙盒映像<a class="headerlink" href="#_9" title="Permanent link"></a></h3>
 <ol>
-<li>在 SandMan 中 <strong>右键单击</strong> 沙盒。</li>
+<li>在沙盒管理器中<strong>右键点击</strong>沙盒。</li>
 <li>
-<p>从上下文菜单中选择 <code>挂载沙盒映像</code>。</p>
-<p><img alt="Mount Box Image 1" src="../../Media/UseFileImage5.png" /></p>
+<p>从上下文菜单中选择<code>挂载沙盒映像</code>。</p>
+<p><img alt="挂载沙盒映像 1" src="../../Media/UseFileImage5.png" /></p>
 </li>
 <li>
-<p>出现提示时输入 <strong>密码</strong>。</p>
-<p><img alt="Mount Box Image 2" src="../../Media/UseFileImage6.png" /></p>
+<p>出现提示时输入<strong>密码</strong>。</p>
+<p><img alt="挂载沙盒映像 2" src="../../Media/UseFileImage6.png" /></p>
 <ul>
 <li>
-<p>(可选) 启用 <code>保护沙盒根目录，防止非沙盒进程访问</code>，以阻止非沙盒程序访问加密的沙盒内容。</p>
+<p>（可选）启用<code>保护沙盒根目录免被非沙盒化进程访问</code>，以防止非沙盒化程序访问加密的沙盒内容。</p>
 </li>
 <li>
-<p>(可选) 启用 <code>当所有进程停止时锁定沙盒</code>，以便在最后一个沙盒程序终止时自动卸载映像。</p>
+<p>（可选）启用<code>所有进程停止时锁定沙盒</code>，使最后一个沙盒化程序终止时自动卸载映像。</p>
 </li>
 </ul>
 </li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>通过 UI 从沙盒启动任何程序时，映像会自动挂载。</p>
+<p>通过界面从沙盒启动任何程序时，映像会自动挂载。</p>
 </div>
-<h3 id="_9">卸载沙盒映像<a class="headerlink" href="#_9" title="Permanent link"></a></h3>
+<h3 id="_10">卸载沙盒映像<a class="headerlink" href="#_10" title="Permanent link"></a></h3>
 <ol>
 <li>
-<p>在 SandMan 中 <strong>右键单击</strong> 沙盒。</p>
-<p><img alt="Mount Box Image 2" src="../../Media/UseFileImage7.png" /></p>
+<p>在沙盒管理器中<strong>右键点击</strong>沙盒。</p>
+<p><img alt="卸载沙盒映像" src="../../Media/UseFileImage7.png" /></p>
 </li>
 <li>
-<p>从上下文菜单中选择 <code>卸载沙盒映像</code>。</p>
+<p>从上下文菜单中选择<code>卸载沙盒映像</code>。</p>
 </li>
 </ol>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>卸载映像将 <strong>终止</strong> 沙盒内所有正在运行的程序。</p>
+<p>卸载映像将<strong>终止沙盒内所有正在运行的程序</strong>。</p>
 </div>
-<h2 id="_10">最佳实践<a class="headerlink" href="#_10" title="Permanent link"></a></h2>
+<h2 id="_11">最佳实践<a class="headerlink" href="#_11" title="Permanent link"></a></h2>
 <ul>
-<li>尽可能在卸载前手动关闭程序。</li>
+<li>如有可能，卸载前手动关闭程序。</li>
 <li>确保沙盒中没有关键进程在运行。</li>
 </ul>
-<h2 id="_11">命令行操作<a class="headerlink" href="#_11" title="Permanent link"></a></h2>
+<h2 id="_12">命令行操作<a class="headerlink" href="#_12" title="Permanent link"></a></h2>
 <ul>
 <li>使用 <code>ImBox.exe</code> 进行高级映像管理：</li>
 </ul>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># 备份映像头</span>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># 备份头部</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">ImBox.exe type=image image</span><span class="o">=</span><span class="s">"C:\Sandbox\DefaultBox.box"</span><span class="w"> </span><span class="na">backup</span><span class="o">=</span><span class="s">"C:\Sandbox\backup.hdr"</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># 恢复映像头 </span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># 恢复头部  </span>
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="na">ImBox.exe type=image image</span><span class="o">=</span><span class="s">"C:\Sandbox\DefaultBox.box"</span><span class="w"> </span><span class="na">restore</span><span class="o">=</span><span class="s">"C:\Sandbox\backup.hdr"</span>
 </span></code></pre></div>
 <ul>
-<li>使用 <a href="../StartCommandLine/"><code>Start.exe</code></a> 进行映像<a href="../StartCommandLine/#mount-box-images">挂载</a>/<a href="../StartCommandLine/#unmount-box-images">卸载</a> 操作。</li>
+<li>使用 <a href="../StartCommandLine/"><code>Start.exe</code></a> 进行映像 <a href="../StartCommandLine/#挂载沙盒镜像">挂载</a>/<a href="../StartCommandLine/#卸载沙盒镜像">卸载</a> 操作。</li>
 </ul>
-<p>映像挂载由服务处理，该服务在尝试挂载虚拟磁盘之前会验证驱动程序的功能。如果驱动程序不支持加密容器或挂载失败，沙盒将无法启动并会记录错误。</p>
-<h2 id="_12">技术说明<a class="headerlink" href="#_12" title="Permanent link"></a></h2>
+<p>映像挂载由服务处理，它在尝试挂载虚拟磁盘之前验证驱动能力。如果驱动不支持加密容器或挂载失败，沙盒将不会启动并记录错误。</p>
+<h2 id="_13">技术说明<a class="headerlink" href="#_13" title="Permanent link"></a></h2>
 <ul>
-<li>需要 ImDisk 驱动程序支持加密映像容器。</li>
-<li>与 <a href="../UseRamDisk/">UseRamDisk</a> 互斥。</li>
-<li>映像头损坏可能导致加密映像无法恢复——请务必保留映像头备份。</li>
-<li>最大映像大小受可用磁盘空间和驱动程序限制。</li>
-<li>命令行挂载操作由 <code>Start.exe</code> 使用 <code>mount</code> 和 <code>mount_protected</code> 开关处理<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>。</li>
+<li>需要 ImDisk 驱动支持加密映像容器。</li>
+<li>与 <a href="../UseRamDisk/">使用内存虚拟磁盘</a> 互斥。</li>
+<li>头部损坏可能使加密映像无法恢复——始终保留头部备份。</li>
+<li>最大映像大小受可用磁盘空间和驱动限制约束。</li>
+<li>命令行挂载操作由 <code>Start.exe</code> 以 <code>mount</code> 和 <code>mount_protected</code> 开关处理<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>。</li>
 </ul>
-<p>相关 <a href="../SandboxieIni/">Sandboxie Ini</a>, <a href="../ForceProtectionOnMount/">ForceProtectionOnMount</a>, <a href="../UseRamDisk/">UseRamDisk</a>, <a href="../FileRootPath/">FileRootPath</a>, <a href="../StartCommandLine/">StartCommandLine</a></p>
+<p>相关 <a href="../SandboxieIni/">Sandboxie Ini</a>、<a href="../ForceProtectionOnMount/">挂载时强制保护</a>、<a href="../UseRamDisk/">使用内存虚拟磁盘</a>、<a href="../FileRootPath/">文件根路径</a>、<a href="../StartCommandLine/">启动命令行</a></p>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p><code>MountManager::GetImageFileName</code> - 决定映像文件路径。&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p><code>MountManager::GetImageFileName</code> - 确定映像文件路径。&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>文件根目录是存储沙盒文件的基础目录，通过 <code>FileRootPath</code> 设置进行配置。&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>文件根是存储沙盒文件的基础目录，通过 <code>FileRootPath</code> 设置配置。&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
 <p><code>MountManager::AcquireBoxRoot</code> - 处理映像挂载过程。&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
-<p>GUI 操作在 <code>COptionsWindow::OnSetPassword</code>、<code>COptionsWindow::OnBackupHeader</code> 和 <code>COptionsWindow::OnRestoreHeader</code> 中实现。&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p>图形界面操作在 <code>COptionsWindow::OnSetPassword</code>、<code>COptionsWindow::OnBackupHeader</code> 和 <code>COptionsWindow::OnRestoreHeader</code> 中实现。&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 <li id="fn:5">
-<p>命令行挂载开关在 <code>Sandboxie\apps\start\Start.cpp</code> 中实现 - 用于程序化映像挂载操作的 <code>mount</code> 和 <code>mount_protected</code> 参数。&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+<p><code>Sandboxie\apps\start\Start.cpp</code> 中实现的命令行挂载开关 - <code>mount</code> 和 <code>mount_protected</code> 参数用于编程式映像挂载操作。&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

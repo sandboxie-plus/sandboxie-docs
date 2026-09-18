@@ -490,7 +490,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -574,7 +574,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -658,7 +658,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -839,7 +839,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -954,7 +954,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1112,7 +1112,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1196,7 +1196,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -5698,7 +5698,7 @@
 <p><strong>消息</strong> SBIE2329 无法找到 FFS 序列 %2</p>
 <p><strong>严重性</strong>：错误（弹窗）</p>
 <h2 id="_1">描述<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
-<p>当沙盘的 DLL 钩子安装程序尝试为某个函数寻找 <code>快速前进序列（FFS）</code> 的目标，但未能识别期望的指令模式时，会触发此条消息。沙盘通过检测 <code>FFS</code>，来跟踪小型跳板存根（常见于浏览器或其他应用程序），定位到真实/本机目标并在其上安装钩子。如果无法找到或解析该序列，则记录 <code>SBIE2329</code>，钩子安装程序可能会采用其他策略或报告失败。</p>
+<p>当 Sandboxie 的 DLL 钩子安装程序尝试为某个函数寻找 <code>快速前进序列（FFS）</code> 的目标，但未能识别期望的指令模式时，会触发此条消息。Sandboxie 通过检测 <code>FFS</code>，来跟踪小型跳板存根（常见于浏览器或其他应用程序），定位到真实/本机目标并在其上安装钩子。如果无法找到或解析该序列，则记录 <code>SBIE2329</code>，钩子安装程序可能会采用其他策略或报告失败。</p>
 <p>该消息会包含未能找到 <code>FFS</code> 序列的函数名称。</p>
 <h2 id="_2">常见原因<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <ul>
@@ -5709,7 +5709,7 @@
 </ul>
 <h2 id="_3">建议操作<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
 <ol>
-<li>更新至最新的沙盘版本 —— 钩子启发式会定期更新，以适配新的浏览器或应用程序布局<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
+<li>更新至最新的 Sandboxie 版本 —— 钩子启发式会定期更新，以适配新的浏览器或应用程序布局<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
 <li>使用同一程序的不同构建或厂商版本进行测试（例如不同的 Chromium 构建、不同的 Firefox 构建），以确认问题是否只影响某特定版本<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></li>
 <li>如果该函数的钩子并非必须，可通过跳过该函数或模块的钩子（使用函数级或模块级跳过设定，或 DLL 提供的跟踪/钩子跳过配置）禁用相应启发式。这样可避免对命名函数进行 <code>FFS</code> 解析尝试<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></li>
 <li>收集诊断信息反馈给维护者：进程镜像名称、模块名称及基址、弹窗显示的函数名称、操作系统版本、以及函数前序的小型内存转储或反汇编，以便维护者更新启发式<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></li>
@@ -5717,7 +5717,7 @@
 <h2 id="_4">相关消息<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
 <ul>
 <li><a href="../SBIE2303/">SBIE2303</a> —— 用于各种钩子失败的泛用钩子错误</li>
-<li><a href="../SBIE2328/">SBIE2328</a> —— 无法解析 Chrome 沙箱钩子（用于 Chrome/Firefox 跳板启发式）</li>
+<li><a href="../SBIE2328/">SBIE2328</a> —— 无法解析 Chrome 沙盒钩子（用于 Chrome/Firefox 跳板启发式）</li>
 </ul>
 <h2 id="_5">实现说明及脚注<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
 <p>以下说明供维护者和高级用户追踪 SBIE2329 的产生过程。无行号。</p>

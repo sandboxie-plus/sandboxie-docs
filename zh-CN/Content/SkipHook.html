@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="SkipHook 是沙盘配置（Sandboxie Ini）中的一个沙箱设置，用于阻止沙盘为特定模块或钩子标识符安装指定钩子。调用者在使用 Dll_SkipHook 辅助函数时会参考该设置。">
+        <meta name="description" content="SkipHook 是 Sandboxie Ini 中的一项沙盒设置，用于阻止 Sandboxie 为特定模块或钩子标识符安装特定钩子。使用 Dll_SkipHook 辅助函数的调用方会查询它。">
       
       
       
@@ -486,7 +486,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -570,7 +570,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -654,7 +654,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -835,7 +835,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -950,7 +950,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1106,7 +1106,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1190,7 +1190,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -5585,45 +5585,45 @@
 
 
 <h1 id="_1">跳过钩子<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
-<p><code>SkipHook</code> 是沙盘配置（<a href="SandboxieIni.html">Sandboxie Ini</a>）中的一个沙箱设置，用于阻止沙盘为特定模块或钩子标识符安装指定钩子。调用者在使用 <code>Dll_SkipHook</code> 辅助函数时会参考该设置。</p>
-<p>请将此设置用于基于模块或钩子名称的排除场景——当逗号分隔的标识符列表比按函数逐一列出更便捷时。</p>
+<p><code>SkipHook</code> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 中的一项沙盒设置，用于阻止 Sandboxie 为特定模块或钩子标识符安装特定钩子。使用 <code>Dll_SkipHook</code> 辅助函数的调用方会查询它。</p>
+<p>当以逗号分隔的标识符列表比逐函数列表更方便时，可使用此设置进行模块级或钩子名级排除。</p>
 <h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1">; 针对特定模块/钩子标识符跳过钩子（逗号分隔列表）</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1">; 跳过特定模块/钩子标识符的钩子（逗号分隔列表）</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="na">SkipHook</span><span class="o">=</span><span class="s">[&lt;program&gt;,]&lt;entry1&gt;,&lt;entry2&gt;,...</span>
 </span></code></pre></div>
-<p>注意事项：</p>
+<p>注意：</p>
 <ul>
-<li>条目由逗号分隔。每个条目可选择性地以程序/镜像名称加逗号作为前缀（例如：<code>PotPlayer64.exe,cocreate</code>），以便将该条目限定于某个程序。当存在程序前缀时，后续条目仅适用于该程序。</li>
-<li>每个条目（即去除任何可选程序前缀之后的部分）会采用不区分大小写的前缀比较方式，与请求的钩子名称进行对比<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
-<li>并非所有钩子安装路径都会参考 <code>Dll_SkipHook</code>，因此 <code>SkipHook</code> 可能无法阻止每一次钩子的安装尝试</li>
+<li>条目是以逗号分隔的标记。每个标记可以选择以程序/映像名称加逗号作为前缀（例如：<code>PotPlayer64.exe,cocreate</code>），把该标记限定到特定程序。存在程序前缀时，其余标记仅适用于该程序。</li>
+<li>每个标记（任何可选程序前缀之后的部分）会与请求的钩子名进行不区分大小写的前缀比较。<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
+<li>并非每条钩子安装路径都会查询 <code>Dll_SkipHook</code>，因此 <code>SkipHook</code> 可能无法阻止每一次钩子尝试。</li>
 </ul>
-<h2 id="_3">使用方法<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
-<p>通常用于模板中，以避免对特定应用程序或钩子标识符进行钩挂操作。</p>
+<h2 id="_3">用法<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
+<p>通常用于模板中，以避免为特定应用程序或钩子标识符安装钩子。</p>
 <p>示例：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="na">SkipHook</span><span class="o">=</span><span class="s">DragonSaga.exe,enumwin,findwin</span>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="na">SkipHook</span><span class="o">=</span><span class="s">PotPlayer64.exe,cocreate</span>
 </span></code></pre></div>
-<h2 id="_4">行为特性<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
+<h2 id="_4">行为<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
 <ul>
-<li>调用时，<code>Dll_SkipHook</code> 会加载当前镜像或模板配置的 <code>SkipHook</code> 字符串，扫描逗号分隔的条目。如果某一条目与请求的钩子名称的起始部分一致（忽略大小写），辅助函数将返回真，调用者可以跳过该钩子的安装</li>
-<li>由于这种检查并未在每一个钩子安装点全部应用，所以即使已列在 <code>SkipHook</code> 中，部分钩子仍可能被安装</li>
+<li>调用时，<code>Dll_SkipHook</code> 会为当前映像/模板加载配置的 <code>SkipHook</code> 字符串，并扫描以逗号分隔的标记。如果某个标记匹配请求钩子名的开头（不区分大小写），辅助函数返回真，调用方可以跳过安装该钩子。</li>
+<li>由于此检查并未在每一个钩子安装点普遍使用，即使列在 <code>SkipHook</code> 中，某些钩子仍可能被安装。</li>
 </ul>
 <h2 id="_5">图形界面<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
-<p><code>SkipHook</code> 属于高级设置，通常需手动编辑 INI 文件。沙盘自带的模板文件内可能包含 <code>SkipHook</code> 示例条目。</p>
+<p><code>SkipHook</code> 是高级设置，通常手工编辑 INI。Sandboxie 附带的模板文件可能包含示例 <code>SkipHook</code> 条目。</p>
 <h2 id="_6">相关设置<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
 <ul>
-<li><a href="FuncSkipHook.html">FuncSkipHook</a> —— 用于跳过特定 API 函数钩挂的函数级设置</li>
+<li><a href="FuncSkipHook.html">跳过函数钩子</a> — 用于跳过特定 API 函数钩子的函数级设置。</li>
 </ul>
-<h2 id="_7">注释<a class="headerlink" href="#_7" title="Permanent link"></a></h2>
+<h2 id="_7">脚注<a class="headerlink" href="#_7" title="Permanent link"></a></h2>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p><code>Dll_SkipHook</code> 会通过 <code>SbieDll_GetSettingsForName(..., L"SkipHook", ...)</code> 初始化内部缓冲区，然后扫描逗号分隔条目。匹配逻辑采用不区分大小写的前缀比较（<code>_wcsnicmp</code>）&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p><code>Dll_SkipHook</code> 用 <code>SbieDll_GetSettingsForName(..., L"SkipHook", ...)</code> 初始化内部缓冲区，然后扫描以逗号分隔的标记。匹配使用不区分大小写的前缀比较（<code>_wcsnicmp</code>）。&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

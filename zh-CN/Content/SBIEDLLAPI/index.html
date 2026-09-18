@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="本页面描述了 SbieDll.dll 动态链接库（DLL）中可调用的入口点。这些入口点暴露了沙箱工具（Sandboxie）的一些功能，这些功能可以通过编程方式访问，即通过其他程序而非用户与沙箱工具进行交互来访问。">
+        <meta name="description" content="本页面描述了 SbieDll.dll 动态链接库（DLL）中可调用的入口点。这些入口点暴露了沙盒工具（Sandboxie）的一些功能，这些功能可以通过编程方式访问，即通过其他程序而非用户与沙盒工具进行交互来访问。">
       
       
       
@@ -490,7 +490,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -574,7 +574,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -658,7 +658,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -839,7 +839,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -954,7 +954,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1112,7 +1112,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1196,7 +1196,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -1695,7 +1695,7 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        枚举沙箱名称
+        枚举沙盒名称
       
     </span>
   </a>
@@ -1706,7 +1706,7 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        按沙箱名称查询沙箱路径
+        按沙盒名称查询沙盒路径
       
     </span>
   </a>
@@ -1717,7 +1717,7 @@
   <a href="#id" class="md-nav__link">
     <span class="md-ellipsis">
       
-        按进程 ID 查询沙箱路径
+        按进程 ID 查询沙盒路径
       
     </span>
   </a>
@@ -1750,7 +1750,7 @@
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        终止单个沙箱进程
+        终止单个沙盒进程
       
     </span>
   </a>
@@ -1761,7 +1761,7 @@
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        终止所有沙箱进程
+        终止所有沙盒进程
       
     </span>
   </a>
@@ -5783,12 +5783,12 @@
 
 
 <h1 id="sbie-dll-api">SBIE DLL API<a class="headerlink" href="#sbie-dll-api" title="Permanent link"></a></h1>
-<p>本页面描述了 <em>SbieDll.dll</em> 动态链接库（DLL）中可调用的入口点。这些入口点暴露了沙箱工具（Sandboxie）的一些功能，这些功能可以通过编程方式访问，即通过其他程序而非用户与沙箱工具进行交互来访问。</p>
-<p>以编程方式使用沙箱工具涉及三个方面：</p>
+<p>本页面描述了 <em>SbieDll.dll</em> 动态链接库（DLL）中可调用的入口点。这些入口点暴露了沙盒工具（Sandboxie）的一些功能，这些功能可以通过编程方式访问，即通过其他程序而非用户与沙盒工具进行交互来访问。</p>
+<p>以编程方式使用沙盒工具涉及三个方面：</p>
 <ul>
 <li>使用 Start.exe 程序驱动某些功能。请参阅 <a href="../StartCommandLine/">Start 命令行</a>。</li>
-<li>将自定义 DLL 注入到沙箱程序中。请参阅 <a href="../InjectDll/">InjectDll</a>。</li>
-<li>从正在运行的程序（无论是否在沙箱中）调用沙箱工具的入口点。本文将对此进行描述。</li>
+<li>将自定义 DLL 注入到沙盒程序中。请参阅 <a href="../InjectDll/">注入 Dll</a>。</li>
+<li>从正在运行的程序（无论是否在沙盒中）调用沙盒工具的入口点。本文将对此进行描述。</li>
 </ul>
 <p>本文描述的入口点均由 <em>SbieDll.dll</em> 导出。要访问某个入口点，你应该将此 DLL 动态加载到你的程序中，并获取所需入口点的地址。例如：
 <div class="language-C highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">        </span><span class="kr">__declspec</span><span class="p">(</span><span class="n">dllexport</span><span class="p">)</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="kr">__stdcall</span><span class="w"> </span><span class="n">InjectDllMain</span><span class="p">(</span><span class="n">HINSTANCE</span><span class="w"> </span><span class="n">hSbieDll</span><span class="p">,</span><span class="w"> </span><span class="n">ULONG_PTR</span><span class="w"> </span><span class="n">UnusedParameter</span><span class="p">)</span>
@@ -5811,7 +5811,7 @@
 </span></code></pre></div></p>
 <p>请注意使用 <em>InjectDllMain</em>（请参阅 <a href="../InjectDll/">注入 DLL</a>）来获取已加载的 SbieDll 实例的句柄。这是推荐的方法。不过，使用 LoadLibrary 或 GetModuleHandle 按名称查找 SbieDll 也是可行的。</p>
 <hr />
-<h3 id="_1">枚举沙箱名称<a class="headerlink" href="#_1" title="Permanent link"></a></h3>
+<h3 id="_1">枚举沙盒名称<a class="headerlink" href="#_1" title="Permanent link"></a></h3>
 <ul>
 <li>
 <p>原型：
@@ -5827,12 +5827,12 @@
 </li>
 <li>
 <p>参数：
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="w">        </span><span class="na">index [in] 指定要返回的沙箱。初始化为 -1。</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">        </span><span class="na">沙箱按照它们在 Sandboxie.ini 中出现的顺序进行枚举。</span>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="w">        </span><span class="na">index [in] 指定要返回的沙盒。初始化为 -1。</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">        </span><span class="na">沙盒按照它们在 Sandboxie.ini 中出现的顺序进行枚举。</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">        </span><span class="na">box_name [out] 接收沙箱名称。</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">        </span><span class="na">box_name [out] 接收沙盒名称。</span>
 </span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="na">注意：此函数不能由沙箱程序使用。</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="na">注意：此函数不能由沙盒程序使用。</span>
 </span></code></pre></div></p>
 </li>
 <li>
@@ -5855,7 +5855,7 @@
 </span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">        </span><span class="p">}</span>
 </span></code></pre></div>
 <hr />
-<h3 id="_2">按沙箱名称查询沙箱路径<a class="headerlink" href="#_2" title="Permanent link"></a></h3>
+<h3 id="_2">按沙盒名称查询沙盒路径<a class="headerlink" href="#_2" title="Permanent link"></a></h3>
 <ul>
 <li>
 <p>原型：
@@ -5876,15 +5876,15 @@
 </li>
 <li>
 <p>参数：
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="w">        </span><span class="na">box_name [in] 指定要返回路径信息的沙箱名称。</span>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="w">        </span><span class="na">box_name [in] 指定要返回路径信息的沙盒名称。</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">        </span><span class="na">file_path [out] 接收沙箱根目录的路径，该路径由 FileRootPath 设置指定。</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">        </span><span class="na">file_path [out] 接收沙盒根目录的路径，该路径由 FileRootPath 设置指定。</span>
 </span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">        </span><span class="na">该缓冲区最多接收 file_path_len 参数指定的字节数。传入 NULL 以忽略此参数。</span>
 </span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">        </span><span class="na">key_path [out] 接收沙箱注册表根键的路径，该路径由 KeyRootPath 设置指定。</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">        </span><span class="na">key_path [out] 接收沙盒注册表根键的路径，该路径由 KeyRootPath 设置指定。</span>
 </span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">        </span><span class="na">该缓冲区最多接收 key_path_len 参数指定的字节数。传入 NULL 以忽略此参数。</span>
 </span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
-</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">        </span><span class="na">ipc_path [out] 接收沙箱根对象目录的路径，该路径由 IpcRootPath 设置指定。</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">        </span><span class="na">ipc_path [out] 接收沙盒根对象目录的路径，该路径由 IpcRootPath 设置指定。</span>
 </span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">        </span><span class="na">该缓冲区最多接收 ipc_path_len 参数指定的字节数。传入 NULL 以忽略此参数。</span>
 </span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>
 </span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">        </span><span class="na">file_path_len [in/out] 指定 file_path 缓冲区的字节长度。返回时，接收完整缓冲区所需的字节长度。</span>
@@ -5926,7 +5926,7 @@
 </li>
 </ul>
 <hr />
-<h3 id="id">按进程 ID 查询沙箱路径<a class="headerlink" href="#id" title="Permanent link"></a></h3>
+<h3 id="id">按进程 ID 查询沙盒路径<a class="headerlink" href="#id" title="Permanent link"></a></h3>
 <ul>
 <li>
 <p>原型：
@@ -5947,7 +5947,7 @@
 </li>
 <li>
 <p>参数：
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="w">        </span><span class="na">process_id [in] 指定要查询的沙箱进程的 ID。</span>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="w">        </span><span class="na">process_id [in] 指定要查询的沙盒进程的 ID。</span>
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
 </span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">        </span><span class="na">file_path [out]</span>
 </span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
@@ -5962,9 +5962,9 @@
 </span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="w">        </span><span class="na">ipc_path_len [in/out]</span>
 </span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>
 </span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="w">        </span><span class="na">最后六个参数与上面讨论的 QueryBoxPath 函数的最后六个参数类似。</span>
-</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="w">        </span><span class="na">然而，QueryProcessPath（此函数）返回正在运行的程序所使用的沙箱路径，而 QueryBoxPath 返回沙箱配置中记录的路径。</span>
+</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="w">        </span><span class="na">然而，QueryProcessPath（此函数）返回正在运行的程序所使用的沙盒路径，而 QueryBoxPath 返回沙盒配置中记录的路径。</span>
 </span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a>
-</span><span id="__span-13-18"><a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a><span class="w">        </span><span class="na">换句话说：假设一个沙箱程序以 PID 124 启动，然后某个沙箱路径（例如 FileRootPath）被设置为新值。</span>
+</span><span id="__span-13-18"><a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a><span class="w">        </span><span class="na">换句话说：假设一个沙盒程序以 PID 124 启动，然后某个沙盒路径（例如 FileRootPath）被设置为新值。</span>
 </span><span id="__span-13-19"><a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a><span class="w">        </span><span class="na">此时，QueryBoxPath 将返回新值，但 PID 124 的 QueryProcessPath 将返回旧值。</span>
 </span></code></pre></div></p>
 </li>
@@ -5994,7 +5994,7 @@
 </li>
 <li>
 <p>参数：
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="w">        </span><span class="na">box_name [in] 指定要枚举其中进程的沙箱名称。</span>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="w">        </span><span class="na">box_name [in] 指定要枚举其中进程的沙盒名称。</span>
 </span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
 </span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">        </span><span class="na">all_sessions [in] 指定为 TRUE 以枚举所有登录会话中的进程，或仅枚举特定登录会话中的进程。</span>
 </span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>
@@ -6031,9 +6031,9 @@
 </li>
 <li>
 <p>参数：
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="w">        </span><span class="na">process_id [in] 指定要查询的沙箱进程的 ID。</span>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="w">        </span><span class="na">process_id [in] 指定要查询的沙盒进程的 ID。</span>
 </span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>
-</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">        </span><span class="na">box_name [out] 接收进程正在其中运行的沙箱名称。传入 NULL 以忽略此参数。</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">        </span><span class="na">box_name [out] 接收进程正在其中运行的沙盒名称。传入 NULL 以忽略此参数。</span>
 </span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>
 </span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="w">        </span><span class="na">image_name [out] 接收进程名称。传入 NULL 以忽略此参数。</span>
 </span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>
@@ -6049,7 +6049,7 @@
 </li>
 </ul>
 <hr />
-<h3 id="_5">终止单个沙箱进程<a class="headerlink" href="#_5" title="Permanent link"></a></h3>
+<h3 id="_5">终止单个沙盒进程<a class="headerlink" href="#_5" title="Permanent link"></a></h3>
 <ul>
 <li>
 <p>原型：
@@ -6064,19 +6064,19 @@
 </li>
 <li>
 <p>参数：
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="w">        </span><span class="na">process_id [in] 指定应终止的沙箱进程的进程 ID。</span>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="w">        </span><span class="na">process_id [in] 指定应终止的沙盒进程的进程 ID。</span>
 </span></code></pre></div></p>
 </li>
 <li>
 <p>返回值：
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="w">        </span><span class="na">成功时返回 TRUE，失败时返回 FALSE。</span>
 </span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>
-</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="w">        </span><span class="na">目标进程由沙箱服务 (SbieSvc) 通过调用 Windows API TerminateProcess (ProcessId, 1) 以退出代码 1 终止。</span>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="w">        </span><span class="na">目标进程由沙盒服务 (SbieSvc) 通过调用 Windows API TerminateProcess (ProcessId, 1) 以退出代码 1 终止。</span>
 </span></code></pre></div></p>
 </li>
 </ul>
 <hr />
-<h3 id="_6">终止所有沙箱进程<a class="headerlink" href="#_6" title="Permanent link"></a></h3>
+<h3 id="_6">终止所有沙盒进程<a class="headerlink" href="#_6" title="Permanent link"></a></h3>
 <ul>
 <li>
 <p>原型：
@@ -6092,9 +6092,9 @@
 </li>
 <li>
 <p>参数：
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="w">        </span><span class="na">session_id [in] 指定应终止沙箱程序的登录会话编号。</span>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="w">        </span><span class="na">session_id [in] 指定应终止沙盒程序的登录会话编号。</span>
 </span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>
-</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="w">        </span><span class="na">box_name [in] 指定应终止沙箱程序的沙箱名称。指定 -1 表示当前登录会话。</span>
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="w">        </span><span class="na">box_name [in] 指定应终止沙盒程序的沙盒名称。指定 -1 表示当前登录会话。</span>
 </span></code></pre></div></p>
 </li>
 <li>
@@ -6236,7 +6236,7 @@
 </li>
 <li>
 <p>参数：
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="w">        </span><span class="na">name [in] 指定要挂钩的入口点的 ASCII 字符串名称。如果出错，SbieDll_Hook 会记录包含此描述性名称的沙箱错误消息。</span>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="w">        </span><span class="na">name [in] 指定要挂钩的入口点的 ASCII 字符串名称。如果出错，SbieDll_Hook 会记录包含此描述性名称的沙盒错误消息。</span>
 </span><span id="__span-45-2"><a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a>
 </span><span id="__span-45-3"><a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a><span class="w">        </span><span class="na">source_func [in] 指向要挂钩的函数的指针。</span>
 </span><span id="__span-45-4"><a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a>

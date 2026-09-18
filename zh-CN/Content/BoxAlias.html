@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="BoxAlias 是 Sandboxie Ini 自 v1.14.6 版本以来可用的沙箱设置。它允许为沙箱设置额外的显示名称。">
+        <meta name="description" content="沙盒别名 是 Sandboxie Ini 中的一项沙盒设置，自 v1.14.6 起可用。它允许为沙盒设置备选显示名称。">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>沙箱别名 - Sandboxie 文档</title>
+        <title>沙盒别名 - Sandboxie 文档</title>
       
     
     
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              沙箱别名
+              沙盒别名
             
           </span>
         </div>
@@ -486,7 +486,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -570,7 +570,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -654,7 +654,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -835,7 +835,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -950,7 +950,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1106,7 +1106,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1190,7 +1190,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -5584,13 +5584,13 @@
   
 
 
-<h1 id="_1">沙箱别名<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
-<p><strong>BoxAlias</strong> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 自 <strong>v1.14.6</strong> 版本以来可用的沙箱设置。它允许为沙箱设置额外的显示名称。</p>
+<h1 id="_1">沙盒别名<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<p><strong>沙盒别名</strong> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 中的一项沙盒设置，自 <strong>v1.14.6</strong> 起可用。它允许为沙盒设置备选显示名称。</p>
 <h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">BoxAlias</span><span class="o">=</span><span class="s">显示名称</span>
 </span></code></pre></div>
 <h2 id="_3">用法<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
-<p>特殊字符在沙箱名称中是无效的，而 BoxAlias 提供了一种为包含特殊字符的沙箱设置自定义显示名称的方法。当设置 BoxAlias 时，它会覆盖默认的显示行为：</p>
+<p>沙盒别名提供了一种方法，为包含特殊字符的沙盒设置自定义显示名称，这些字符对沙盒名称而言本来是无效的。设置沙盒别名时，它覆盖默认的显示行为：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[MyTestBox]</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">BoxAlias</span><span class="o">=</span><span class="s">Development &amp; Testing</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
@@ -5602,11 +5602,11 @@
 </span></code></pre></div>
 <h2 id="_4">重要说明<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
 <ul>
-<li>BoxAlias 仅影响显示名称 - INI 文件中的实际沙箱名称保持不变</li>
-<li>如果未设置 BoxAlias，沙箱名称显示时将用下划线替代空格</li>
+<li>沙盒别名只影响显示名称——INI 文件中的实际沙盒名称保持不变</li>
+<li>如果未设置沙盒别名，沙盒名称显示时下划线会被替换为空格</li>
 </ul>
 <h2 id="_5">用户界面<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
-<p>BoxAlias 可以通过 <strong>Sandboxie Plus</strong> 中的 <strong>重命名</strong> 功能进行配置。当将沙箱重命名为包含特殊字符的名称时，Sandboxie Plus 会自动提示将其设置为别名，而不是重命名沙箱。</p>
+<p>沙盒别名可以通过 <strong>Sandboxie Plus</strong> 中的<strong>重命名</strong>功能配置。把沙盒重命名为包含特殊字符的名称时，Sandboxie Plus 会自动提示将其设置为别名，而不是重命名沙盒。</p>
 
 
 

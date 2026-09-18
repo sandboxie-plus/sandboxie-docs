@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="SbieIni.exe 是一个小巧的命令行工具，用于查询和更新沙盘配置文件 沙盘配置 (Sandboxie.ini)。本页记录了常见的调用形式、自动化示例以及给维护者的实现参考。">
+        <meta name="description" content="SbieIni.exe 是一个小巧的命令行工具，用于查询和更新 Sandboxie Ini Sandboxie Ini。本页记录了常见的调用形式、自动化示例以及给维护者的实现参考。">
       
       
       
@@ -492,7 +492,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -576,7 +576,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -660,7 +660,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -1039,7 +1039,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -1154,7 +1154,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1310,7 +1310,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1394,7 +1394,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -5789,7 +5789,7 @@
 
 
 <h1 id="sbieini">SbieIni 命令行<a class="headerlink" href="#sbieini" title="Permanent link"></a></h1>
-<p>SbieIni.exe 是一个小巧的命令行工具，用于查询和更新沙盘配置文件 <a href="../SandboxieIni/">沙盘配置 (Sandboxie.ini)</a>。本页记录了常见的调用形式、自动化示例以及给维护者的实现参考。</p>
+<p>SbieIni.exe 是一个小巧的命令行工具，用于查询和更新 Sandboxie Ini <a href="../SandboxieIni/">Sandboxie Ini</a>。本页记录了常见的调用形式、自动化示例以及给维护者的实现参考。</p>
 <h2 id="_1">快速入门<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
 <div class="language-batch highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>SbieIni.exe queryex DefaultBox RecoverFolder
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>SbieIni.exe set DefaultBox RecoverFolder <span class="nv">%Desktop%</span>
@@ -5810,7 +5810,7 @@
 <p>说明：</p>
 <ul>
 <li><code>queryex</code> 是 <code>query /expand</code> 的简写形式</li>
-<li><code>/boxes</code> 仅列出已启用的沙箱</li>
+<li><code>/boxes</code> 仅列出已启用的沙盒</li>
 <li><code>/passwd:</code> 提供配置密码；如果留空，程序将以交互方式提示输入</li>
 <li><code>/drv</code> 通过驱动/服务 API 路由更新；未使用 <code>/drv</code> 时，将走 DLL 辅助路径</li>
 </ul>
@@ -5845,7 +5845,7 @@
 </span></code></pre></div>
 <h2 id="_5">高级与自动化说明<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
 <ul>
-<li>删除整个沙箱：<code>SbieIni.exe set BoxName * ""</code>（会移除该 section 的所有行）。请谨慎使用</li>
+<li>删除整个沙盒：<code>SbieIni.exe set BoxName * ""</code>（会移除该 section 的所有行）。请谨慎使用</li>
 <li>批处理文件中需将百分号变量转义为 <code>%%VAR%%</code></li>
 <li>若值中包含空格，需用英文双引号括起来</li>
 <li>避免在其他进程已打开/锁定 Sandboxie.ini 时进行更新操作</li>
@@ -5924,13 +5924,13 @@
         
         
           
-          <a href="../SandboxieIni/" class="md-footer__link md-footer__link--next" aria-label="下一页: 沙盘配置文件（Sandboxie.ini）">
+          <a href="../SandboxieIni/" class="md-footer__link md-footer__link--next" aria-label="下一页: Sandboxie Ini">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                沙盘配置文件（Sandboxie.ini）
+                Sandboxie Ini
               </div>
             </div>
             <div class="md-footer__button md-icon">

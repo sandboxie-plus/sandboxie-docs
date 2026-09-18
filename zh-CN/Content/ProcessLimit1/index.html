@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="自沙盘（Sandboxie）v0.7.1 / 5.48.5 版本起，ProcessLimit1 和 ProcessLimit2 已被移除，转而使用 进程限制。">
+        <meta name="description" content="进程数量限制 1 和进程数量限制 2 已自 Sandboxie v0.7.1 / 5.48.5 起移除，由 进程数量限制 取代。">
       
       
       
@@ -486,7 +486,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -570,7 +570,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -654,7 +654,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -835,7 +835,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -950,7 +950,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1106,7 +1106,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1190,7 +1190,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -5585,8 +5585,8 @@
 
 
 <h1 id="1">进程数量限制 1<a class="headerlink" href="#1" title="Permanent link"></a></h1>
-<p><strong>自沙盘（Sandboxie）v0.7.1 / 5.48.5 版本起，<em>ProcessLimit1</em> 和 <em>ProcessLimit2</em> 已被移除，转而使用 <a href="../ProcessLimit/">进程限制</a>。</strong></p>
-<p><em>ProcessLimit1</em> 和 <em>ProcessLimit2</em> 是 <a href="../SandboxieIni/">沙盘配置文件（Sandboxie Ini）</a> 中的沙箱设置。它们限制了沙盘在同一时间允许沙箱中运行的最大进程数。
+<p><strong>进程数量限制 1 和进程数量限制 2 已自 Sandboxie v0.7.1 / 5.48.5 起移除，由 <a href="../ProcessLimit/">进程数量限制</a> 取代。</strong></p>
+<p><em>ProcessLimit1</em> 和 <em>ProcessLimit2</em> 曾是 <a href="../SandboxieIni/">Sandboxie Ini</a> 中的沙盒设置。它们限制 Sandboxie 在同一时间允许沙盒中存在的最大进程数。
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
@@ -5594,17 +5594,17 @@
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">ProcessLimit1</span><span class="o">=</span><span class="s">100</span>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">   </span><span class="na">ProcessLimit2</span><span class="o">=</span><span class="s">200</span>
 </span></code></pre></div></p>
-<p>进程限制 1（ProcessLimit1）：一旦沙箱中同时运行的程序数量超过 X 个，每个新程序将在启动前延迟十秒。X 是 <em>ProcessLimit1</em> 中指定的数字。延迟时间为十秒，不可配置。</p>
-<p>进程限制 2（ProcessLimit2）：一旦沙箱中同时运行的程序数量超过 Y 个，每个新程序将立即终止。Y 是 <em>ProcessLimit2</em> 中指定的数字。</p>
-<p>如上所述，默认值分别为 100 和 200。<em>ProcessLimit2</em> 不能小于 <em>ProcessLimit1</em>。</p>
-<p>通过设置特定的值可以关闭其中一种或两种模式。例如，
+<p>进程数量限制 1：一旦沙盒同时有超过 X 个程序，每个新程序在开始运行前将被延迟十秒。X 是进程数量限制 1 中指定的数字。延迟时长（十秒）不可配置。</p>
+<p>进程数量限制 2：一旦沙盒同时有超过 Y 个程序，每个新程序将被立即终止。Y 是进程数量限制 2 中指定的数字。</p>
+<p>默认数字如上所述为 100 和 200。进程数量限制 2 不能小于进程数量限制 1。</p>
+<p>创造性的值可以关闭一种或两种模式。例如，
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">    </span><span class="na">ProcessLimit2</span><span class="o">=</span><span class="s">999999</span>
 </span></code></pre></div></p>
-<p>这将有效禁用终止功能。另一方面，
+<p>将有效禁用终止功能。另一方面，
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">    </span><span class="na">ProcessLimit1</span><span class="o">=</span><span class="s">50</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="na">ProcessLimit2</span><span class="o">=</span><span class="s">50</span>
 </span></code></pre></div></p>
-<p>这将有效禁用延迟功能。</p>
+<p>将有效禁用延迟功能。</p>
 
 
 

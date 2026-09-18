@@ -27,7 +27,7 @@
     
     
       
-        <title>入门指南 第四部分 - Sandboxie 文档</title>
+        <title>入门指南第四部分 - Sandboxie 文档</title>
       
     
     
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              入门指南 第四部分
+              入门指南第四部分
             
           </span>
         </div>
@@ -486,7 +486,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -570,7 +570,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -654,7 +654,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -835,7 +835,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -950,7 +950,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1106,7 +1106,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1190,7 +1190,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -5584,41 +5584,51 @@
   
 
 
-<h1 id="_1">入门指南 第四部分<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<h1 id="_1">入门指南第四部分<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
 <h3 id="_2">第四部分：快速恢复<a class="headerlink" href="#_2" title="Permanent link"></a></h3>
-<p>您可能已经注意到，在之前将 <em>favicon.ico</em> 文件保存到桌面文件夹时，沙盘提供了<a href="../ImmediateRecovery/">即时恢复</a>功能。然而，当您将 <em>test1.txt</em> 文件保存到 C 盘根目录时，并未出现此提示。</p>
-<p>这是因为桌面文件夹（默认情况下）被配置为 <em>可恢复</em> 文件夹位置，通常您希望从这些位置恢复文件。而 C 盘根目录则不被视为可恢复位置。</p>
-<p><a href="../QuickRecovery/">快速恢复</a>命令会扫描所有可恢复文件夹，并显示所有可恢复文件的摘要：</p>
+<p>你可能已经注意到，之前把 <em>favicon.ico</em> 保存到桌面文件夹时，Sandboxie 为该文件提供了 <a href="../ImmediateRecovery/">即时恢复</a>。但当把 <em>test1.txt</em> 保存到 C 盘根目录时，却没有这样的提示。</p>
+<p>这是因为桌面文件夹（默认）被配置为_可恢复_的文件夹位置，你通常希望从中恢复文件。而 C 盘根目录不被视为可恢复位置。</p>
+<p><a href="../QuickRecovery/">快速恢复</a> 命令会扫描可恢复文件夹，并显示所有可恢复文件的摘要：</p>
 <p><img alt="" src="../../Media/QuickRecoverSandbox.png" /></p>
-<p>您可以通过以下方式调用 <strong>快速恢复</strong> 命令：</p>
+<p>你可以调用<strong>快速恢复</strong>命令：</p>
 <ul>
-<li>在沙盘控制主窗口的<a href="../SandboxMenu/">沙盘菜单</a>中</li>
-<li>通过右键点击屏幕角落的<a href="../TrayIconMenu/">托盘图标菜单</a></li>
+<li>
+<p>通过沙盒管理器主窗口中的 <a href="../SandboxMenu/">沙盒菜单</a>。</p>
+</li>
+<li>
+<p>右键点击屏幕角落的 <a href="../TrayIconMenu/">托盘图标菜单</a>。</p>
+</li>
 </ul>
 <hr />
-<p>上图中只显示了 <em>favicon.ico</em> 为唯一可恢复文件，因为它是唯一被保存到可恢复位置（此处为桌面文件夹）的文件。</p>
-<p>其他被默认设置为可恢复文件夹的位置还包括 <em>Documents</em> 文件夹、Windows 的 <em>Favorites</em> 文件夹。如果适用，您的 <em>Downloads</em> 文件夹也会被视为可恢复文件夹。由于这些文件夹当前没有可恢复的文件，因此没有在上图中列出。</p>
-<p>您可以使用 <em>添加文件夹</em> 按钮，将更多文件夹添加到“快速恢复”中。</p>
+<p>上图把 <em>favicon.ico</em> 显示为唯一可恢复文件，因为它是唯一保存到可恢复位置（本例中的桌面文件夹）的文件。</p>
+<p>默认设为可恢复文件夹的还有其他位置：<em>文档</em> 文件夹、Windows 的 <em>收藏夹</em> 文件夹。在适用情况下，<em>下载</em> 文件夹也被视为可恢复文件夹。由于这些文件夹中没有任何符合恢复条件的文件，上图完全没有列出它们。</p>
+<p>你可以用 <em>添加文件夹</em> 按钮向快速恢复添加更多文件夹。</p>
 <ul>
-<li>您还可以将<a href="../SandboxieControl/">沙盘控制</a>切换至<a href="../FilesAndFoldersView/">文件与文件夹视图</a>，以查看并恢复沙箱中任意位置的文件。</li>
+<li>你可以把 <a href="../SandboxieControl/">沙盒管理器</a> 切换到 <a href="../FilesAndFoldersView/">文件和文件夹视图</a>，查看并恢复沙盒中任意位置的文件。</li>
 </ul>
 <hr />
-<p>恢复文件（或文件夹）时，您可以选择将文件恢复到沙箱外的对应位置——例如，从沙箱中的桌面文件夹恢复到真实桌面。上图中的 <em>恢复到同一文件夹</em> 命令（以按钮形式展示）就是执行此操作。</p>
-<p>另外，您还可以使用 <em>恢复到任意文件夹</em> 命令，将沙箱内的文件移动到计算机系统中的任何文件夹位置。</p>
+<p>恢复文件（或文件夹）时，你可以选择把文件恢复到沙盒外的对应位置——例如，从沙盒化的桌面文件夹恢复到真实桌面。<em>恢复到相同文件夹</em> 命令（上图中以按钮形式显示）即执行此操作。</p>
+<p>另外，你也可以使用 <em>恢复到任意文件夹</em> 命令，把沙盒中的文件移动到计算机系统中的任意文件夹位置。</p>
 <hr />
 <h3 id="_3">即时恢复<a class="headerlink" href="#_3" title="Permanent link"></a></h3>
-<p>在本指南的上一部分中简要提及的<a href="../ImmediateRecovery/">即时恢复</a>功能，是<a href="../QuickRecovery/">快速恢复</a>的扩展。即时恢复会持续扫描同一组可恢复文件夹，使您能够在文件被创建后立即进行恢复：</p>
+<p>本指南上一部分简要提到过的 <a href="../ImmediateRecovery/">即时恢复</a> 功能是 <a href="../QuickRecovery/">快速恢复</a> 的扩展。即时恢复会持续扫描同一组可恢复文件夹，让你在文件一创建就能恢复：</p>
 <p><img alt="" src="../../Media/ImmediateRecoverFavIcon.png" /></p>
-<p>与快速恢复类似，您可以选择 <em>恢复到同一文件夹</em> 或 <em>恢复到任意文件夹</em>。</p>
+<p>与快速恢复一样，你可以 <em>恢复到相同文件夹</em> 或 <em>恢复到任意文件夹</em>。</p>
 <hr />
-<p>总结：</p>
+<p>小结：</p>
 <ul>
-<li>只有在可恢复文件夹中创建的文件，才会被<a href="../QuickRecovery/">快速恢复</a>和<a href="../ImmediateRecovery/">即时恢复</a>功能检测到</li>
-<li>您可以自定义可恢复文件夹的范围</li>
-<li>可以通过<a href="../FilesAndFoldersView/">文件与文件夹视图</a>恢复不在任何可恢复文件夹中的文件</li>
+<li>
+<p>文件必须创建在可恢复文件夹中，才能被 <a href="../QuickRecovery/">快速恢复</a> 和 <a href="../ImmediateRecovery/">即时恢复</a> 注意到。</p>
+</li>
+<li>
+<p>你可以自定义可恢复文件夹的集合。</p>
+</li>
+<li>
+<p>你可以用 <a href="../FilesAndFoldersView/">文件和文件夹视图</a> 恢复不在任何可恢复文件夹中的文件。</p>
+</li>
 </ul>
 <hr />
-<p>教程将在<a href="../GettingStartedPartFive/">入门指南第五部分</a>继续</p>
+<p>教程在 <a href="../GettingStartedPartFive/">入门指南第五部分</a> 继续。</p>
 
 
 

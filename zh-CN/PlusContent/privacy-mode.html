@@ -486,7 +486,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -570,7 +570,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -654,7 +654,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -835,7 +835,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -950,7 +950,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1106,7 +1106,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1190,7 +1190,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -5586,13 +5586,13 @@
 
 <h1 id="_1">隐私模式<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
 <p><strong>注意：此功能需要 <a href="https://sandboxie-plus.com/supporter-certificate/">支持者证书</a>。</strong></p>
-<p>隐私模式和隐私增强（或数据保护）沙箱的概念在 <strong>Sandboxie Plus v1.0.0</strong> 版本中引入。
-在此模式下，计算机上的大多数位置被设置为像 Write[File/Key]Path 那样处理，这意味着沙箱内的位置可写，但沙箱外的位置不可读。
-此外，注册表不允许读取用户根键。换句话说，即使沙箱内的进程可以继续运行，它们也无法访问用户的私人数据。</p>
-<p>要启用隐私增强沙箱的设置，可以在 <strong><a href="../Content/SandboxieIni.html">Sandboxie 配置文件</a></strong> 的沙箱设置部分添加 <code>UsePrivacyMode=y</code>。也可以在 Sandman 用户界面中启用该设置。右键单击一个沙箱，从下拉菜单中选择“沙箱选项”（或者直接双击一个沙箱），以打开沙箱选项界面。选择沙箱类型预设为“带有数据保护的沙箱”（带有 <strong>蓝色</strong> 沙箱图标），然后点击“确定”应用更改。Sandman 用户界面的状态列会将此沙箱标记为 <strong>隐私增强</strong>。</p>
+<p>隐私模式和隐私增强（或数据保护）沙盒的概念在 <strong>Sandboxie Plus v1.0.0</strong> 版本中引入。
+在此模式下，计算机上的大多数位置被设置为像 Write[File/Key]Path 那样处理，这意味着沙盒内的位置可写，但沙盒外的位置不可读。
+此外，注册表不允许读取用户根键。换句话说，即使沙盒内的进程可以继续运行，它们也无法访问用户的私人数据。</p>
+<p>要启用隐私增强沙盒的设置，可以在 <strong><a href="../Content/SandboxieIni.html">Sandboxie Ini</a></strong> 的沙盒设置部分添加 <code>UsePrivacyMode=y</code>。也可以在沙盒管理器界面中启用该设置。右键单击一个沙盒，从下拉菜单中选择“沙盒选项”（或者直接双击一个沙盒），以打开沙盒选项界面。选择沙盒类型预设为“带有数据保护的沙盒”（带有 <strong>蓝色</strong> 沙盒图标），然后点击“确定”应用更改。沙盒管理器界面的状态列会将此沙盒标记为 <strong>隐私增强</strong>。</p>
 <p><img alt="" src="../Media/Box_PrivacyMode.png" /></p>
 <p><strong>什么是用户空间？</strong> AppGuard 将 <a href="https://malwaretips.com/threads/run-by-smartscreen-utility.65145/post-561364">用户空间</a> 定义为“通常可供非管理员 Windows 用户访问的计算机存储空间。它包含用户的配置文件目录（包括我的文档文件夹和桌面）、可移动存储设备、网络共享以及所有非系统硬盘，如额外的外部和内部磁盘驱动器”。可以将“用户空间”视为 <strong>系统</strong> 之外的所有内容（即核心操作系统和程序所在的位置之外），换句话说，就是 <code>C:\Windows</code>、<code>C:\Program Files</code> 和 <code>C:\Program Files (x86)</code> 文件夹之外的所有内容！</p>
-<p>从内部实现来看，隐私增强沙箱基于三个默认设置：</p>
+<p>从内部实现来看，隐私增强沙盒基于三个默认设置：</p>
 <ol>
 <li>
 <p><strong>允许对系统资源进行读取访问：</strong></p>
@@ -5601,20 +5601,20 @@
 <li><code>C:\Program Files</code></li>
 <li><code>C:\Program Files (x86)</code></li>
 <li><code>C:\ProgramData\Microsoft</code>（从 <strong>Sandboxie Plus v1.12.7</strong> 版本开始）</li>
-<li>HKLM（但不包括 HKCU）下的注册表资源是可读的，并且可以进行沙箱化处理。</li>
+<li>HKLM（但不包括 HKCU）下的注册表资源是可读的，并且可以进行沙盒化处理。</li>
 <li><strong>注意：</strong> 这种读取访问在隐私和便利性之间取得了良好的平衡。当然，如果需要，用户可以进一步细化，识别出可能泄露私人数据的特定系统资源，并使用 <code>Write[File/Key]Path</code> 进一步限制访问。</li>
 </ul>
 </li>
 <li>
 <p><strong>隐藏（并阻止访问）用户空间：</strong></p>
 <ul>
-<li>在用户空间中，隐私沙箱以 <strong>默认阻止</strong> 模式工作：所有驱动器路径都被设置为 WriteFilePath。这会隐藏沙箱外的所有文件和文件夹，但允许在沙箱内创建新的文件和文件夹（除非有覆盖规则特别允许访问）。可以通过调用 <a href="RuleSpecificity.html">规则特异性</a> 来启用对特定路径的访问。</li>
+<li>在用户空间中，隐私沙盒以 <strong>默认阻止</strong> 模式工作：所有驱动器路径都被设置为只写文件路径。这会隐藏沙盒外的所有文件和文件夹，但允许在沙盒内创建新的文件和文件夹（除非有覆盖规则特别允许访问）。可以通过调用 <a href="RuleSpecificity.html">规则特异性</a> 来启用对特定路径的访问。</li>
 </ul>
 </li>
 <li>
 <p><strong>启用 <a href="RuleSpecificity.html">规则特异性：</a></strong></p>
 <ul>
-<li>在内部，隐私模式下 <strong>始终启用</strong> 规则特异性。它使用 <strong><a href="../Content/NormalFilePath.html">普通</a></strong> 路径指令 (<code>Normal[File/Ipc/Key]Path</code>) 来打开特定位置，使其 <strong>可读并可进行沙箱化处理</strong>。请注意，只有当父路径首先被设置为其他值时，将路径设置为普通才有意义，就像在隐私模式中所做的那样。因此，这不仅适用于基于隐私模式的 <strong>蓝色</strong> 沙箱，也适用于同时启用了隐私模式和 <a href="security-mode.html">安全模式</a> 的 <strong>红色</strong> 沙箱。</li>
+<li>在内部，隐私模式下 <strong>始终启用</strong> 规则特异性。它使用 <strong><a href="../Content/NormalFilePath.html">普通</a></strong> 路径指令 (<code>Normal[File/Ipc/Key]Path</code>) 来打开特定位置，使其 <strong>可读并可进行沙盒化处理</strong>。请注意，只有当父路径首先被设置为其他值时，将路径设置为普通才有意义，就像在隐私模式中所做的那样。因此，这不仅适用于基于隐私模式的 <strong>蓝色</strong> 沙盒，也适用于同时启用了隐私模式和 <a href="security-mode.html">安全模式</a> 的 <strong>红色</strong> 沙盒。</li>
 </ul>
 </li>
 </ol>

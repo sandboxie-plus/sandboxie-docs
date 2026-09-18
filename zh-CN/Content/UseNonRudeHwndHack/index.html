@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="UseNonRudeHwndHack 是沙盘配置（沙盘配置）中的一个沙箱设置，从 v1.16.0 / 5.71.0 开始可用。启用该设置后，可以针对 NonRudeHWND 属性进行兼容性修补，从而提升沙箱内应用程序的全屏支持能力。">
+        <meta name="description" content="UseNonRudeHwndHack 是 Sandboxie Ini 中的一项沙盒设置，自 v1.16.0 / 5.71.0 起可用。此设置为 NonRudeHWND 属性启用兼容性修补，以改善沙盒化应用程序的全屏支持。">
       
       
       
@@ -486,7 +486,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -570,7 +570,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -654,7 +654,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -835,7 +835,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -950,7 +950,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1106,7 +1106,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1190,7 +1190,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -5585,56 +5585,55 @@
 
 
 <h1 id="hwnd">使用非恶意 HWND 修补方案<a class="headerlink" href="#hwnd" title="Permanent link"></a></h1>
-<p><em>UseNonRudeHwndHack</em> 是沙盘配置（<a href="../SandboxieIni/">沙盘配置</a>）中的一个沙箱设置，从 v1.16.0 / 5.71.0 开始可用。启用该设置后，可以针对 NonRudeHWND 属性进行兼容性修补，从而提升沙箱内应用程序的全屏支持能力。</p>
-<p>用法如下：</p>
+<p><em>UseNonRudeHwndHack</em> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 中的一项沙盒设置，自 v1.16.0 / 5.71.0 起可用。此设置为 NonRudeHWND 属性启用兼容性修补，以改善沙盒化应用程序的全屏支持。</p>
+<p>用法：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">UseNonRudeHwndHack</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
 <h2 id="_1">目的<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
-<p>NonRudeHWND 属性是 Windows 的一个窗口属性，应用程序可设置此属性以通知系统其全屏行为及与任务栏的交互方式。一些应用程序，尤其是游戏和媒体播放器，会设置该属性以保证全屏显示时不被任务栏干扰。</p>
-<p>当沙箱内的应用程序尝试通过 <code>SetProp()</code> 设置 NonRudeHWND 属性时，沙盘的安全模型通常会阻止或过滤这些属性修改，以维护隔离性。但对于依赖这一属性的应用程序，这样做可能会导致全屏功能失效。</p>
+<p>NonRudeHWND 属性是一个 Windows 窗口属性，应用程序可以设置它来告知系统其全屏行为以及与任务栏的交互。某些应用程序（尤其是游戏和媒体播放器）设置此属性，以确保正确的全屏显示而不受不必要的任务栏干扰。</p>
+<p>当沙盒化应用程序尝试通过 <code>SetProp()</code> 设置 NonRudeHWND 属性时，Sandboxie 的安全模型通常会阻止或过滤这些属性修改以保持隔离。然而，这会破坏依赖此属性的应用程序的全屏功能。</p>
 <h2 id="_2">技术细节<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
-<p>该设置控制了沙盘 GUI 属性处理代码中的 <code>Gui_NonRudeHWND_Hack</code> 变量<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>。启用后，沙盘会拦截对 <code>SetPropW()</code> 和 <code>SetPropA()</code> 函数的调用，并专门允许 NonRudeHWND 属性被成功设置，返回 <code>TRUE</code>，但实际上并不会真正执行该操作<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>。</p>
-<p>修补方案的工作原理如下：</p>
+<p>此设置控制 Sandboxie 图形界面属性处理代码中的 <code>Gui_NonRudeHWND_Hack</code> 变量<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>。启用时，Sandboxie 会拦截对 <code>SetPropW()</code> 和 <code>SetPropA()</code> 函数的调用，专门允许 NonRudeHWND 属性成功设置，在不实际执行操作的情况下返回 <code>TRUE</code><sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>。</p>
+<p>此修补的工作原理：</p>
 <ol>
-<li>拦截以 "NonRudeHWND" 为属性名的 <code>SetProp</code> 调用<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></li>
-<li>检测到此属性时，立即返回成功<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></li>
-<li>让应用程序认为属性已经正确设置</li>
-<li>在不影响沙箱安全性的前提下，允许正常的全屏行为</li>
+<li>拦截属性名称为"NonRudeHWND"的 <code>SetProp</code> 调用<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></li>
+<li>检测到此特定属性时，立即返回成功<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></li>
+<li>让应用程序相信属性已正确设置</li>
+<li>这在不损害沙盒安全的情况下启用正确的全屏行为</li>
 </ol>
 <h2 id="_3">默认行为<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
-<p>默认情况下，该设置：
-- <strong>在未启用应用程序隔离模式时</strong>，为 <strong>启用</strong>（<code>y</code>）
-- <strong>在启用应用程序隔离模式时</strong>，为 <strong>禁用</strong>（<code>n</code>）</p>
-<p>其逻辑为：<code>!Dll_CompartmentMode</code><sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup> ——即，除非启用隔离模式，否则此功能处于启用状态。</p>
+<p>默认情况下，此设置：</p>
+<ul>
+<li>未运行在应用程序隔离模式时为<strong>启用</strong>（<code>y</code>）</li>
+<li>运行在应用程序隔离模式时为<strong>禁用</strong>（<code>n</code>）</li>
+</ul>
+<p>其逻辑是：<code>!Dll_CompartmentMode</code><sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>——即除非隔离模式处于活动状态，否则启用。</p>
 <h2 id="_4">重要说明<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
 <ul>
-<li>此设置仅影响沙盘如何处理 NonRudeHWND 属性，并不会修改 Windows 的实际任务栏行为</li>
-<li>修补方案能够在保持沙箱安全性的同时，让应用程序在全屏模式下正常运行</li>
+<li>此设置只影响 Sandboxie 如何处理 NonRudeHWND 属性——它不修改 Windows 实际的任务栏行为</li>
+<li>此修补在保持沙盒安全的同时允许应用程序在全屏模式下正常运行</li>
 </ul>
 <h2 id="_5">相关问题<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
-<p>该设置是为解决全屏兼容性问题而引入的，详见 GitHub 问题 <a href="https://github.com/sandboxie-plus/Sandboxie/issues/4761">#4761</a><sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup></p>
+<p>引入此设置是为了解决全屏兼容性问题，特别是 GitHub 问题 <a href="https://github.com/sandboxie-plus/Sandboxie/issues/4761">#4761</a>[^6]。</p>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p><strong>源码</strong>：guiprop.c: <code>static BOOLEAN Gui_NonRudeHWND_Hack = FALSE;</code>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p><strong>来源</strong>：guiprop.c：<code>static BOOLEAN Gui_NonRudeHWND_Hack = FALSE;</code>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p><strong>源码</strong>：guiprop.c: <code>Gui_SetPropW()</code> 和 <code>Gui_SetPropA()</code> 函数会检查 NonRudeHWND 属性，且在修补方案启用时立即返回 <code>TRUE</code>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p><strong>来源</strong>：guiprop.c：<code>Gui_SetPropW()</code> 和 <code>Gui_SetPropA()</code> 函数检查 NonRudeHWND 属性，启用修补时立即返回 <code>TRUE</code>。&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p><strong>源码</strong>：guiprop.c: <code>if (_wcsicmp(lpString, L"NonRudeHWND") == 0)</code> 以及第 537 行：<code>if (strcmp(lpString, "NonRudeHWND") == 0)</code>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p><strong>来源</strong>：guiprop.c：<code>if (_wcsicmp(lpString, L"NonRudeHWND") == 0)</code> 以及第 537 行：<code>if (strcmp(lpString, "NonRudeHWND") == 0)</code>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
-<p><strong>源码</strong>：guiprop.c: <code>return TRUE;</code> ——函数会返回成功，但并不会真正设置属性&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p><strong>来源</strong>：guiprop.c：<code>return TRUE;</code> - 函数在不实际设置属性的情况下返回成功。&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 <li id="fn:5">
-<p><strong>源码</strong>：guiprop.c: <code>Gui_NonRudeHWND_Hack = SbieApi_QueryConfBool(NULL, L"UseNonRudeHwndHack", !Dll_CompartmentMode);</code>&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
-</li>
-<li id="fn:6">
-<p>GitHub issue <a href="https://github.com/sandboxie-plus/Sandboxie/issues/4761">#4761</a>&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+<p><strong>来源</strong>：guiprop.c：<code>Gui_NonRudeHWND_Hack = SbieApi_QueryConfBool(NULL, L"UseNonRudeHwndHack", !Dll_CompartmentMode);</code>&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

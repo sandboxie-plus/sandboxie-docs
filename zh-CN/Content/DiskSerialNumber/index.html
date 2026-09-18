@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="DiskSerialNumber 是 沙盘配置 中的一项沙箱设置，从 v1.15.2 / 5.70.2 版本开始提供。该设置允许为沙箱内的指定磁盘设备分配自定义序列号，并与 隐藏磁盘序列号 功能配合使用。">
+        <meta name="description" content="DiskSerialNumber 是 Sandboxie Ini 中的一项沙盒设置，从 v1.15.2 / 5.70.2 版本开始提供。该设置允许为沙盒内的指定磁盘设备分配自定义序列号，并与 隐藏磁盘序列号 功能配合使用。">
       
       
       
@@ -486,7 +486,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -570,7 +570,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -654,7 +654,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -835,7 +835,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -950,7 +950,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1106,7 +1106,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1190,7 +1190,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -5585,7 +5585,7 @@
 
 
 <h1 id="_1">磁盘序列号<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
-<p><em>DiskSerialNumber</em> 是 <a href="../SandboxieIni/">沙盘配置</a> 中的一项沙箱设置，从 v1.15.2 / 5.70.2 版本开始提供。该设置允许为沙箱内的指定磁盘设备分配自定义序列号，并与 <a href="../HideDiskSerialNumber/">隐藏磁盘序列号</a> 功能配合使用。</p>
+<p><em>DiskSerialNumber</em> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 中的一项沙盒设置，从 v1.15.2 / 5.70.2 版本开始提供。该设置允许为沙盒内的指定磁盘设备分配自定义序列号，并与 <a href="../HideDiskSerialNumber/">隐藏磁盘序列号</a> 功能配合使用。</p>
 <h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">DiskSerialNumber</span><span class="o">=</span><span class="s">&lt;DeviceName&gt;,&lt;SerialNumber&gt;</span>
 </span></code></pre></div>
@@ -5603,8 +5603,8 @@
 </span></code></pre></div>
 <h2 id="_4">前置条件<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
 <ul>
-<li>需要在同一个沙箱中启用 <code>HideDiskSerialNumber=y</code><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
-<li>如果未满足该条件，DiskSerialNumber 设置将被忽略</li>
+<li>需要在同一个沙盒中启用 <code>HideDiskSerialNumber=y</code><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
+<li>如果未满足该条件，磁盘序列号设置将被忽略</li>
 </ul>
 <h2 id="_5">序列号格式<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
 <h3 id="_6">支持的格式<a class="headerlink" href="#_6" title="Permanent link"></a></h3>
@@ -5648,12 +5648,12 @@
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="na">DiskSerialNumber</span><span class="o">=</span><span class="s">HarddiskVolume3,33333333</span>
 </span></code></pre></div>
 <ol>
-<li>在沙箱中运行 <code>vol C:</code>、<code>vol D:</code> 等，确定各磁盘对应的设备名称</li>
+<li>在沙盒中运行 <code>vol C:</code>、<code>vol D:</code> 等，确定各磁盘对应的设备名称</li>
 </ol>
 <h2 id="_13">技术实现<a class="headerlink" href="#_13" title="Permanent link"></a></h2>
 <h3 id="_14">设备路径解析<a class="headerlink" href="#_14" title="Permanent link"></a></h3>
 <ul>
-<li>沙盘从 Windows NT 路径中提取带有 <code>\Device\</code> 前缀的设备名称<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></li>
+<li>Sandboxie 从 Windows NT 路径中提取带有 <code>\Device\</code> 前缀的设备名称<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></li>
 <li>设备名称的解析遇到下一个反斜线或字符串结束符即终止<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></li>
 <li>设备提取失败时，会生成随机序列号<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></li>
 </ul>
@@ -5679,7 +5679,7 @@
 <h3 id="_19">隐私增强<a class="headerlink" href="#_19" title="Permanent link"></a></h3>
 <ul>
 <li>用已知值替换真实硬件识别码</li>
-<li>创建一致的沙箱指纹</li>
+<li>创建一致的沙盒指纹</li>
 <li>防止基于硬件信息的追踪</li>
 </ul>
 <h2 id="_20">故障排查<a class="headerlink" href="#_20" title="Permanent link"></a></h2>
@@ -5712,7 +5712,7 @@
 <ul>
 <li><strong>INI 配置</strong>：可用</li>
 <li><strong>Plus 界面</strong>：不可用（仅支持 INI 配置）</li>
-<li><strong>Classic 界面</strong>：不可用</li>
+<li><strong>经典版界面</strong>：不可用</li>
 </ul>
 <div class="footnote">
 <hr />
@@ -5721,7 +5721,7 @@
 <p><strong>前置条件</strong>：必须启用 <code>HideDiskSerialNumber</code> 设置，设备序列号映射才会生效（kernel.c）&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p><strong>设备路径解析</strong>：沙盘会在 NT 路径字符串中搜索 <code>\Device\</code> 前缀，以提取设备名称（kernel.c）&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p><strong>设备路径解析</strong>：Sandboxie 会在 NT 路径字符串中搜索 <code>\Device\</code> 前缀，以提取设备名称（kernel.c）&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
 <p><strong>名称截断逻辑</strong>：设备名解析至遇到第一个反斜线或字符串结束符自动终止（kernel.c）&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>

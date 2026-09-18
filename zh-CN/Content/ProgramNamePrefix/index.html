@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="在 沙盘配置文件（Sandboxie Ini） 的多个设置中，可以指定程序名称。这表示该设置仅对符合程序名称条件的沙箱化进程生效。">
+        <meta name="description" content="在 Sandboxie Ini 配置文件的若干设置中，可以指定程序名称。这表示该设置只对匹配程序名称条件的沙盒化进程生效。">
       
       
       
@@ -486,7 +486,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -570,7 +570,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -654,7 +654,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -835,7 +835,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -950,7 +950,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1106,7 +1106,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1190,7 +1190,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -5585,14 +5585,14 @@
 
 
 <h1 id="_1">程序名称前缀<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
-<p>在 <a href="../SandboxieIni/">沙盘配置文件（Sandboxie Ini）</a> 的多个设置中，可以指定程序名称。这表示该设置仅对符合程序名称条件的沙箱化进程生效。</p>
-<p>前缀指定为可执行文件的名称，需包含扩展名，但<strong>不包含</strong>文件夹路径：</p>
+<p>在 <a href="../SandboxieIni/">Sandboxie Ini</a> 配置文件的若干设置中，可以指定程序名称。这表示该设置只对匹配程序名称条件的沙盒化进程生效。</p>
+<p>前缀指定为带扩展名的可执行文件名称，但_不_含文件夹路径：</p>
 <ul>
 <li><em>iexplore.exe</em> - 正确</li>
 <li><em>C:\Program Files\Internet Explorer\iexplore.exe</em> - 错误</li>
 </ul>
-<p>前缀可以以感叹号 (!) 开头，表示否定条件。</p>
-<p>逗号 (,) 用于将前缀与设置规范的其余部分分隔开。</p>
+<p>前缀可以感叹号（!）开头，表示否定条件。</p>
+<p>逗号（,）把前缀与设置的其余部分分隔开。</p>
 <p>例如：
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="na">.</span>
@@ -5601,8 +5601,8 @@
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="na">OpenFilePath</span><span class="o">=</span><span class="s">iexplore.exe,%Favorites%</span>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="na">ClosedFilePath</span><span class="o">=</span><span class="s">!iexplore.exe,%Favorites%</span>
 </span></code></pre></div></p>
-<p>这种组合意味着 Internet Explorer（<em>iexplore.exe</em>）可以直接访问收藏夹文件夹及其内的快捷方式。</p>
-<p>另一方面，任何<strong>其他</strong>程序（非 <em>iexplore.exe</em>，注意感叹号）都被拒绝访问该文件夹的<strong>任何</strong>权限。</p>
+<p>这种组合表示 Internet Explorer（<em>iexplore.exe</em>）可以直接访问收藏夹文件夹及其中的快捷方式。</p>
+<p>另一方面，任何_其他_程序（<em>不是</em> <em>iexplore.exe</em>，注意感叹号）都被拒绝访问同一文件夹的_任何_类型访问。</p>
 
 
 

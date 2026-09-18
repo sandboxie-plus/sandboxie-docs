@@ -27,7 +27,7 @@
     
     
       
-        <title>测试电子邮件配置 - Sandboxie 文档</title>
+        <title>测试邮件配置 - Sandboxie 文档</title>
       
     
     
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              测试电子邮件配置
+              测试邮件配置
             
           </span>
         </div>
@@ -486,7 +486,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -570,7 +570,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -654,7 +654,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -835,7 +835,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -950,7 +950,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1106,7 +1106,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1190,7 +1190,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -5584,26 +5584,26 @@
   
 
 
-<h1 id="_1">测试电子邮件配置<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<h1 id="_1">测试邮件配置<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
 <h3 id="_2">测试并确认配置<a class="headerlink" href="#_2" title="Permanent link"></a></h3>
-<p>Sandboxie 为大多数电子邮件程序提供了快速配置。更多信息请参阅 <a href="../ApplicationsSettings/#email-reader">沙箱设置 &gt; 应用程序 &gt; 电子邮件阅读器</a>。</p>
-<p>完成电子邮件配置后，你可能需要对其进行测试，以确保在删除沙箱时不会丢失新邮件。请按照以下步骤操作：</p>
+<p>Sandboxie 为大多数邮件程序提供快捷配置。更多信息请参阅 <a href="../ApplicationsSettings/#邮件阅读器">沙盒设置 &gt; 应用程序 &gt; 邮件阅读器</a>。</p>
+<p>完成邮件配置后，建议测试一下，确保删除沙盒时新邮件不会丢失。请按以下步骤操作：</p>
 <ul>
-<li>禁用沙箱中的互联网访问。这是一项预防措施，以确保在确认配置正确之前，沙箱中的电子邮件程序无法检索新邮件：
-  打开 <a href="../RestrictionsSettings/#internet-access">沙箱设置 &gt; 限制 &gt; 互联网访问</a>，然后点击 <em>阻止所有程序</em>，最后点击 <em>确定</em>。</li>
-<li>在 Sandboxie 沙箱环境中运行你的电子邮件程序。（你可以使用 <a href="../SandboxieControl/">Sandboxie 控制</a> 的 <a href="../TrayIconMenu/">托盘图标菜单</a> 中的 <em>运行电子邮件阅读器</em> 命令。）</li>
-<li>撰写一封给自己的测试草稿邮件。不要发送它。</li>
-<li>退出你的电子邮件程序。如果你的电子邮件程序建议发送测试邮件，请忽略该建议。</li>
-<li>删除沙箱。（请参阅 <a href="../DeleteSandbox/">删除沙箱</a>。）</li>
-<li>正常运行你的电子邮件程序，即 <em>不在 Sandboxie 的监管下</em> 运行。</li>
-<li>确认你可以使用正常（未在沙箱中）的邮件程序实例查看和编辑你创建的测试邮件。</li>
+<li>在沙盒中禁用互联网访问。这是预防措施，确保在确认配置正确之前，沙盒化的邮件程序无法收取新邮件：<br>
+    打开<a href="../RestrictionsSettings/#互联网访问">沙盒设置 &gt; 限制 &gt; 互联网访问</a>，点击 <em>阻止所有程序</em>，最后点击 <em>确定</em>。</li>
+<li>在 Sandboxie 下以_沙盒化_方式运行你的邮件程序。（可以使用 <a href="../SandboxieControl/">沙盒管理器</a> <a href="../TrayIconMenu/">托盘图标菜单</a> 中的 <em>运行邮件阅读器</em> 命令。）</li>
+<li>给自己撰写一封测试草稿。不要发送。</li>
+<li>退出邮件程序。如果邮件程序建议发送测试邮件，忽略该建议。</li>
+<li>删除沙盒。（参见 <a href="../DeleteSandbox/">删除沙盒</a>。）</li>
+<li>正常运行邮件程序，即在 Sandboxie 的_监管之外_运行。</li>
+<li>确认你能用正常（非沙盒化）的邮件程序实例查看和编辑创建的测试邮件。</li>
 </ul>
-<p>如果在沙箱环境中创建的电子邮件消息在沙箱删除后仍可在正常（未在沙箱中）的实例中访问，则配置正确。</p>
+<p>如果你在沙盒化的邮件程序实例中创建的邮件，即使在沙盒被删除后，也能在正常（非沙盒化）实例中访问，那么配置就是正确的。</p>
 <ul>
-<li>完成后，重新启用沙箱中的互联网访问：
-  打开 <a href="../RestrictionsSettings/#internet-access">沙箱设置 &gt; 限制 &gt; 互联网访问</a>，然后点击 <em>移除</em>（以移除限制），最后点击 <em>确定</em>。</li>
+<li>完成后，重新启用沙盒中的互联网访问：<br>
+    打开<a href="../RestrictionsSettings/#互联网访问">沙盒设置 &gt; 限制 &gt; 互联网访问</a>，点击 <em>移除</em>（移除限制），最后点击 <em>确定</em>。</li>
 </ul>
-<p>更多信息，请参阅 <a href="../EmailProtection/">电子邮件保护</a> 和 <a href="../FAQEmail/">常见问题 - 电子邮件</a>。</p>
+<p>更多信息，请参阅 <a href="../EmailProtection/">邮件防护</a> 和 <a href="../FAQEmail/">常见问题-电子邮件</a>。</p>
 
 
 

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="ForceProtectionOnMount 是 Sandboxie.ini 中的一个沙盒设置项（在 v1.13.4 / 5.68.4 版本中引入），它会强制一个基于文件的沙盒映像在挂载时启用根目录保护。设置后，挂载流程以及挂载/创建对话框会强制启用映像根目录保护选项，用户将无法在无保护的情况下挂载该映像。">
+        <meta name="description" content="ForceProtectionOnMount 是 Sandboxie Ini 中的一项沙盒设置（v1.13.4 / 5.68.4 引入），它强制以启用根保护的方式挂载基于文件的沙盒映像。设置后，挂载流程和挂载/创建对话框都会强制启用映像根保护选项，使用户无法在无保护的情况下挂载映像。">
       
       
       
@@ -486,7 +486,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -570,7 +570,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -654,7 +654,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -835,7 +835,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -950,7 +950,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1106,7 +1106,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1190,7 +1190,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -5585,111 +5585,111 @@
 
 
 <h1 id="_1">挂载时强制保护<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
-<p><em>ForceProtectionOnMount</em> 是 <a href="SandboxieIni.html">Sandboxie.ini</a> 中的一个沙盒设置项（在 v1.13.4 / 5.68.4 版本中引入），它会强制一个基于文件的沙盒映像在挂载时启用根目录保护。设置后，挂载流程以及挂载/创建对话框会强制启用映像根目录保护选项，用户将无法在无保护的情况下挂载该映像。</p>
+<p><em>ForceProtectionOnMount</em> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 中的一项沙盒设置（v1.13.4 / 5.68.4 引入），它强制以启用根保护的方式挂载基于文件的沙盒映像。设置后，挂载流程和挂载/创建对话框都会强制启用映像根保护选项，使用户无法在无保护的情况下挂载映像。</p>
 <h2 id="_2">用法<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">ForceProtectionOnMount</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<h2 id="_3">适用场景<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
+<h2 id="_3">何时使用<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
 <ul>
 <li>
-<p>当你希望沙盒映像始终以保护模式挂载时（防止沙盒外的进程访问已挂载的映像）。</p>
+<p>你希望沙盒映像始终以受保护模式挂载（防止非沙盒化进程访问已挂载的映像）。</p>
 </li>
 <li>
-<p>对于加密映像非常有用，可以确保在挂载时就提供保护。</p>
+<p>对加密映像很有用，你希望在挂载时保证保护。</p>
 </li>
 </ul>
-<h2 id="_4">行为与界面<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
+<h2 id="_4">行为和界面<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
 <ul>
 <li>
-<p>在 通用 / 文件选项 的用户界面中，有一个与 <code>ForceProtectionOnMount</code> 绑定的复选框 (代码中为 <code>ui.chkForceProtection</code>)。</p>
+<p>常规/文件选项界面暴露一个绑定到 <code>ForceProtectionOnMount</code>（代码中的 <code>ui.chkForceProtection</code>）的复选框。</p>
 <ul>
-<li>该复选框仅在沙盒被配置为<a href="UseFileImage.html">加密沙盒</a> 时才可用 (不适用于内存盘模式).</li>
+<li>只有当沙盒被配置为<a href="UseFileImage.html">加密沙盒</a>时（而非内存虚拟磁盘），该复选框才可用。</li>
 </ul>
-<p><img alt="Force Protection On Mount 1" src="../Media/UseFileImage1.png" /></p>
+<p><img alt="挂载时强制保护 1" src="../Media/UseFileImage1.png" /></p>
 </li>
 <li>
-<p>当通过程序强制显示沙盒映像挂载对话框时调用 <code>CBoxImageWindow::SetForce(true)</code>:</p>
+<p>当沙盒映像挂载对话框以编程方式显示并应用强制时，<code>CBoxImageWindow::SetForce(true)</code>：</p>
 <ul>
-<li>强制勾选 <code>ui.chkProtect</code>，</li>
-<li>并禁用该保护复选框，用户无法取消勾选，</li>
+<li>强制 <code>ui.chkProtect</code> 被勾选，</li>
+<li>禁用保护复选框，使用户无法取消勾选，</li>
 </ul>
-<p><img alt="Force Protection On Mount 2" src="../Media/UseFileImage8.png" /></p>
+<p><img alt="挂载时强制保护 2" src="../Media/UseFileImage8.png" /></p>
 <ul>
-<li>同时在对话框中强制勾选并禁用 <code>ui.chkAutoLock</code> （当最后一个进程停止时自动卸载）。  </li>
-<li>挂载时，服务会收到一个设置了 <code>protect_root</code> 标志的挂载请求；挂载管理器和驱动程序会强制执行保护。</li>
-</ul>
-</li>
-</ul>
-<h2 id="_5">技术说明与代码参考<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
-<ul>
-<li>
-<p>UI 读取/写入:</p>
-<ul>
-<li>读取: <code>m_pBox-&gt;GetBool("ForceProtectionOnMount", false)</code> (详见 <code>COptionsWindow::LoadGeneral</code>)。<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
-<li>写入: <code>WriteAdvancedCheck(ui.chkForceProtection, "ForceProtectionOnMount", "y", "")</code>。 (详见 <code>COptionsWindow::SaveGeneral</code>)<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
+<li>强制对话框中的 <code>ui.chkAutoLock</code>（最后一个进程停止时自动卸载）被勾选/禁用。  </li>
+<li>挂载时，服务会收到带 <code>protect_root</code> 标志设置的挂载请求；挂载管理器和驱动程序强制实施保护。</li>
 </ul>
 </li>
-<li>
-<p>挂载通信协议:</p>
+</ul>
+<h2 id="_5">技术说明 / 代码参考<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
 <ul>
-<li><code>IMBOX_MOUNT_REQ</code> 包含  <code>BOOL protect_root;</code> (挂载通信协议头文件 <code>MountManagerWire.h</code>)。<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></li>
+<li>
+<p>界面读/写：</p>
+<ul>
+<li>读取：<code>m_pBox-&gt;GetBool("ForceProtectionOnMount", false)</code>（参见 <code>COptionsWindow::LoadGeneral</code>）。<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
+<li>保存：<code>WriteAdvancedCheck(ui.chkForceProtection, "ForceProtectionOnMount", "y", "")</code>（参见 <code>COptionsWindow::SaveGeneral</code>）。<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
 </ul>
 </li>
 <li>
-<p>挂载对话框强制执行:</p>
+<p>挂载通信协议：</p>
+<ul>
+<li><code>IMBOX_MOUNT_REQ</code> 包含 <code>BOOL protect_root;</code>（<code>MountManagerWire.h</code> 中的挂载连线协议头）。<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></li>
+</ul>
+</li>
+<li>
+<p>挂载对话框强制：</p>
 <ul>
 <li><code>CBoxImageWindow::SetForce(bool force)</code> 设置保护复选框的启用/勾选状态。<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></li>
 </ul>
 </li>
 <li>
-<p>挂载流程:</p>
+<p>挂载流程：</p>
 <ul>
-<li><code>MountManager::AcquireBoxRoot</code> (挂载管理器) 会在适当时机将 <code>protect_root</code> 标志包含在挂载请求中。<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></li>
+<li>适当时，<code>MountManager::AcquireBoxRoot</code>（挂载管理器）会在挂载请求中包含 <code>protect_root</code> 标志。<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></li>
 </ul>
 </li>
 <li>
-<p>启动进程集成:</p>
+<p>启动进程集成：</p>
 <ul>
 <li><code>Start.cpp</code> 在沙盒启动和进程创建期间处理 <code>mount_protected</code> 参数。<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup></li>
 </ul>
 </li>
 </ul>
-<h2 id="_6">兼容性与限制<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
+<h2 id="_6">兼容性与约束<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
 <ul>
 <li>仅对使用 <code>UseFileImage</code>（基于文件的 <code>.box</code> 映像）的沙盒有意义。</li>
-<li>如果文件系统驱动或挂载管理器不支持保护性挂载（或加密容器），挂载可能会失败，沙盒也无法启动——请检查日志和挂载管理器的错误信息。</li>
-<li>根目录保护在挂载时强制执行；如果在有进程运行时卸载映像，这些进程将被终止。</li>
+<li>如果文件系统驱动或挂载管理器无法实现受保护挂载（或加密容器），挂载可能失败且沙盒不会启动——请检查日志和挂载管理器错误。</li>
+<li>根保护在挂载时强制实施；进程运行时卸载将终止这些进程。</li>
 </ul>
 <h2 id="_7">最佳实践<a class="headerlink" href="#_7" title="Permanent link"></a></h2>
 <ul>
-<li>按需为单个沙盒设置（除非你打算为所有沙盒强制启用保护，否则不要全局设置）。</li>
+<li>按沙盒应用（除非你打算为每个沙盒强制保护，否则不要全局设置）。</li>
 </ul>
-<h2 id="_8">相关内容<a class="headerlink" href="#_8" title="Permanent link"></a></h2>
+<h2 id="_8">相关<a class="headerlink" href="#_8" title="Permanent link"></a></h2>
 <ul>
-<li><a href="UseFileImage.html"><code>UseFileImage</code></a> - 启用基于文件的沙盒映像。</li>
-<li><code>CBoxImageWindow::SetForce</code> - 在挂载/创建对话框中强制执行 UI 选项。</li>
+<li><a href="UseFileImage.html"><code>使用文件映像</code></a> - 启用基于文件的沙盒映像。</li>
+<li><code>CBoxImageWindow::SetForce</code> - 挂载/创建对话框上的界面强制。</li>
 <li><code>IMBOX_MOUNT_REQ.protect_root</code> - 挂载管理器使用的挂载请求标志。</li>
-<li><a href="StartCommandLine.html#mount-box-images"><code>StartCommandLine</code></a> - 命令行操作，包含用于保护性挂载的 <code>mount_protected</code> 开关。</li>
+<li><a href="StartCommandLine.html#挂载沙盒镜像"><code>启动命令行</code></a> - 命令行操作，包括用于受保护挂载的 <code>mount_protected</code> 开关。</li>
 </ul>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p>见 UI 代码 <code>SandMan\Windows\OptionsGeneral.cpp</code> - <code>COptionsWindow::LoadGeneral</code> 和 <code>COptionsWindow::SaveGeneral</code> 通过 <code>m_pBox</code> 处理 <code>ForceProtectionOnMount</code> 键的读写。&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>参见 <code>SandMan\Windows\OptionsGeneral.cpp</code> 中的界面代码 - <code>COptionsWindow::LoadGeneral</code> 和 <code>COptionsWindow::SaveGeneral</code> 通过 <code>m_pBox</code> 处理 <code>ForceProtectionOnMount</code> 键的读写。&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>挂载协议定义于 <code>..\Sandboxie\core\svc\MountManagerWire.h</code> - <code>tagIMBOX_MOUNT_REQ</code> 包含挂载管理器使用的 <code>protect_root</code> 字段。&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p><code>..\Sandboxie\core\svc\MountManagerWire.h</code> 中的挂载协议定义 - <code>tagIMBOX_MOUNT_REQ</code> 包含挂载管理器使用的 <code>protect_root</code> 字段。&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p>实现代码位于 <code>SandMan\Windows\BoxImageWindow.cpp</code> - <code>CBoxImageWindow::SetForce(bool force)</code> 强制对话框复选框以反映强制保护挂载。&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p><code>SandMan\Windows\BoxImageWindow.cpp</code> 中的实现 - <code>CBoxImageWindow::SetForce(bool force)</code> 强制对话框复选框反映强制的受保护挂载。&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
-<p>挂载管理器代码（挂载请求组装）会将 <code>protect_root</code> 标志传递给服务/驱动；见服务代码库中的挂载管理器实现（例如 <code>MountManager::AcquireBoxRoot</code>）。&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p>挂载管理器代码（挂载请求组装）会把 <code>protect_root</code> 标志传播到服务/驱动；参见服务代码库中的挂载管理器实现（例如 <code>MountManager::AcquireBoxRoot</code>）。&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 <li id="fn:5">
-<p>启动进程实现位于 <code>Sandboxie\apps\start\Start.cpp</code> - 在沙盒启动和进程初始化期间处理 <code>mount_protected</code> 参数。&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+<p><code>Sandboxie\apps\start\Start.cpp</code> 中的启动进程实现 - 在沙盒启动和进程初始化期间处理 <code>mount_protected</code> 参数。&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

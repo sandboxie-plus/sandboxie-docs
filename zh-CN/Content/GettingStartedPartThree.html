@@ -27,7 +27,7 @@
     
     
       
-        <title>入门指南 第三部分 - Sandboxie 文档</title>
+        <title>入门指南第三部分 - Sandboxie 文档</title>
       
     
     
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              入门指南 第三部分
+              入门指南第三部分
             
           </span>
         </div>
@@ -486,7 +486,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -570,7 +570,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -654,7 +654,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -835,7 +835,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -950,7 +950,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1106,7 +1106,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1190,7 +1190,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -5584,38 +5584,42 @@
   
 
 
-<h1 id="_1">入门指南 第三部分<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
-<h3 id="_2">第三部分：沙箱<a class="headerlink" href="#_2" title="Permanent link"></a></h3>
-<p>现在，您的网页浏览器应该已经在沙箱中运行了。这可以是 Internet Explorer，也可以是其他任意浏览器。</p>
-<p>浏览器程序可能会对您的计算机做出更改，但所有这些更改都会被限制在沙箱中。</p>
-<p>现在请尝试操作。右击下面的链接，然后将文件保存到您的桌面。如果您使用的是 Internet Explorer，请在右键菜单中选择 <em>目标另存为</em> 命令；如果使用的是 Firefox，请选择 <em>链接另存为</em> 命令：</p>
+<h1 id="_1">入门指南第三部分<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<h3 id="_2">第三部分：沙盒<a class="headerlink" href="#_2" title="Permanent link"></a></h3>
+<p>现在你的网页浏览器应该已经以_沙盒化_方式运行，可以是 Internet Explorer 或任何其他浏览器。</p>
+<p>浏览器程序可能会对计算机做出更改，这些更改将全部被拦截在沙盒中。</p>
+<p>现在就试试。右键点击下面的链接，将文件保存到桌面。如果使用 Internet Explorer，这是右键菜单中的 <em>目标另存为</em> 命令；如果使用 Firefox，则是右键菜单中的 <em>链接另存为</em> 命令：</p>
 <p><a href="https://github.com/sandboxie-plus/sandboxie-docs/raw/main/Media/favicon.ico">favicon.ico</a></p>
-<p>在默认及推荐的配置下，沙盘会检测到有文件被保存到了重要位置——在本例中为您的桌面——并会为该文件提供<a href="ImmediateRecovery.html">即时恢复</a>功能：</p>
+<p>在默认且推荐的配置下，Sandboxie 会识别出文件被保存到了感兴趣的位置（本例中是你的桌面），并为该文件提供 <a href="ImmediateRecovery.html">即时恢复</a>：</p>
 <p><img alt="" src="../Media/ImmediateRecoverFavIcon.png" /></p>
-<p>本练习的重点是演示，在未恢复的情况下，文件会一直保留在沙箱中。因此请点击上述窗口中的 <em>关闭</em> 按钮，告知沙盘将文件保留在沙箱中。</p>
-<p>您保存下来的文件 <em>favicon.ico</em> 应以如下图标出现在您的桌面上：<img alt="" src="../Media/TrayIconEmpty.png" /></p>
-<p>如果您最小化所有窗口并检查桌面，应该<strong>看不到</strong>这个新图标，因为此文件实际上是被保存<strong>在沙箱中</strong>，尚未恢复。</p>
-<p>沙盘控制最初以<a href="ProgramsView.html">程序视图</a>运行，列出了在沙箱中运行的程序，但您可以通过<a href="ViewMenu.html">视图菜单</a>将视图模式切换为<a href="FilesAndFoldersView.html">文件和文件夹视图</a>，以显示沙箱的内容。在 <em>视图</em> 菜单中点击 <em>文件和文件夹</em>。</p>
+<p>本次练习的重点是展示文件在恢复前会一直留在沙盒中，因此请点击上方窗口的 <em>关闭</em> 按钮，让 Sandboxie 把文件留在沙盒内。</p>
+<p>你保存的文件 <em>favicon.ico</em> 会以这样的图标出现在桌面上：<img alt="" src="../Media/TrayIconEmpty.png" /></p>
+<p>如果最小化所有窗口并查看桌面，你_应该_看不到新图标，因为该文件实际上保存_在沙盒中_，尚未恢复。</p>
+<p><a href="SandboxieControl.html">沙盒管理器</a> 最初以 <a href="ProgramsView.html">程序视图</a> 运行，列出沙盒中运行的程序；但你可以用 <a href="ViewMenu.html">视图菜单</a> 把视图模式切换为 <a href="FilesAndFoldersView.html">文件和文件夹视图</a>，后者显示沙盒的内容。在 <em>视图</em> 菜单中点击 <em>文件和文件夹</em>。</p>
 <p><img alt="" src="../Media/FileViewFavIcon.png" /></p>
-<p>展开分支（点击 <strong><em>+</em></strong> 号）即可显示沙箱内容，这些内容以文件夹的形式进行组织。正如上图所示，您之前保存的 <em>favicon.ico</em> 文件已被放入沙箱中的桌面文件夹。</p>
+<p>展开分支（点击 <strong><em>+</em></strong> 符号），即可看到按文件夹组织的沙盒内容。如上图所示，你之前保存的 <em>favicon.ico</em> 文件被放进了_沙盒化的_桌面文件夹。</p>
 <hr />
-<p>同理，任何被沙箱程序创建的文件都会被放置在与实际对应文件夹的沙箱内文件夹中。</p>
-<p>让我们再试一次，这次用记事本运行沙箱测试。请使用 <em>运行任意程序</em> 命令：</p>
+<p>同样，任何沙盒化程序创建的文件都会被放进沙盒中与实际文件夹对应的沙盒文件夹里——即该文件“本应”被放置的真实文件夹。</p>
+<p>我们再试一次，这次用沙盒化的记事本。为此，使用 <em>运行任意程序</em> 命令：</p>
 <p><img alt="" src="../Media/TrayPopupRunAny.png" /></p>
-<p>沙盘会显示其 <em>运行...</em> 对话框。请输入 <strong>notepad</strong>：</p>
+<p>Sandboxie 会显示它的 <em>运行...</em> 对话框。输入 <strong>notepad</strong>：</p>
 <p><img alt="" src="../Media/RunAnyNotepad.png" /></p>
-<p>此时，记事本应该在沙箱中启动：</p>
+<p>记事本应以沙盒化方式启动：</p>
 <p><img alt="" src="../Media/NotepadSandboxed.png" /></p>
-<p>在新的记事本文档中输入任意几个字母，将其保存为 C 盘根目录下的文件 <em>test1.txt</em>。然后，前往 C 盘根目录查找该文件，您会发现找不到它。这是因为该文件实际上被保存到了沙箱中：</p>
+<p>在新建的记事本文档中输入几个字符，并将其以文件名 <em>test1.txt</em> 保存到 C 盘根目录。然后在 C 盘根目录中寻找这个文件——你应该找不到它，因为文件被保存在沙盒中：</p>
 <p><img alt="" src="../Media/FileViewNotepad.png" /></p>
 <hr />
-<p>总结：</p>
+<p>小结：</p>
 <ul>
-<li>被沙箱程序创建或修改的文件，最初都会被存放在沙箱中</li>
-<li>沙箱中的文件对于沙箱外的程序是不可见的</li>
+<li>
+<p>沙盒化程序创建或修改的文件最初会放在沙盒中。</p>
+</li>
+<li>
+<p>沙盒内的文件对沙盒外的程序不可见。</p>
+</li>
 </ul>
 <hr />
-<p>教程将在<a href="GettingStartedPartFour.html">入门指南 第四部分</a>继续。</p>
+<p>教程在 <a href="GettingStartedPartFour.html">入门指南第四部分</a> 继续。</p>
 
 
 

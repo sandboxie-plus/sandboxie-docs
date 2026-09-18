@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="RecoverFolder 是 沙盘配置文件 中的一个沙箱设置。它指定了 快速恢复 应该检查的沙箱化文件夹。可以指定 系统文件夹。例如：
+        <meta name="description" content="RecoverFolder 是 Sandboxie Ini 中的一项沙盒设置。它指定 快速恢复 应检查的沙盒化文件夹。可以指定 个人文件夹。例如：
    .
    .
    .
@@ -494,7 +494,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -578,7 +578,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -662,7 +662,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -843,7 +843,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -958,7 +958,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1114,7 +1114,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1198,7 +1198,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -5593,7 +5593,7 @@
 
 
 <h1 id="_1">恢复文件夹<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
-<p><em>RecoverFolder</em> 是 <a href="SandboxieIni.html">沙盘配置文件</a> 中的一个沙箱设置。它指定了 <a href="QuickRecovery.html">快速恢复</a> 应该检查的沙箱化文件夹。可以指定 <a href="ShellFolders.html">系统文件夹</a>。例如：
+<p><em>RecoverFolder</em> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 中的一项沙盒设置。它指定 <a href="QuickRecovery.html">快速恢复</a> 应检查的沙盒化文件夹。可以指定 <a href="ShellFolders.html">个人文件夹</a>。例如：
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
@@ -5603,11 +5603,11 @@
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">   </span><span class="k">[InstallBox]</span>
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">   </span><span class="na">RecoverFolder</span><span class="o">=</span><span class="s">D:\Program Files</span>
 </span></code></pre></div></p>
-<p>前两个示例设置指定，从 DefaultBox 沙箱进行 <a href="QuickRecovery.html">快速恢复</a> 时，应检查 C 盘的“文档”和“下载”文件夹。</p>
-<p>第三个示例设置指定，从 InstallBox 沙箱进行快速恢复时，应检查 D 盘的“程序文件”文件夹。</p>
-<p>请注意，当 <a href="QuickRecovery.html">快速恢复</a> 检查指定文件夹时，它还会检查该文件夹内的任何子文件夹，以及这些子文件夹内的任何子文件夹，检查的深度层级按需而定。</p>
-<p>自 Sandboxie Plus 1.18.0 起，文件夹路径可以包含通配符 <code>*</code>（匹配任意数量的字符）、<code>?</code>（匹配单个字符）和 <code>**</code>（匹配任意数量的字符，包括路径分隔符）。匹配时会同时涵盖路径的 NT、DOS 和网络别名形式。</p>
-<p>相关的 <a href="SandboxieControl.html">沙盘控制面板</a> 设置：<a href="RecoverySettings.html#quick-recovery">沙箱设置 &gt; 恢复 &gt; 快速恢复</a></p>
+<p>前两个示例设置指定：从 DefaultBox 沙盒执行 <a href="QuickRecovery.html">快速恢复</a> 时，应在 C 盘的_文档_和_下载_文件夹中查找。</p>
+<p>第三个示例设置指定：从 InstallBox 沙盒执行快速恢复时，应在 D 盘的 <em>Program Files</em> 文件夹中查找。</p>
+<p>注意：<a href="QuickRecovery.html">快速恢复</a> 在指定文件夹中查找时，也会在该文件夹内的任何文件夹、以及那些文件夹内的任何文件夹中查找，深度不限。</p>
+<p>自 Sandboxie Plus 1.18.0 起，文件夹路径可以包含通配符 <code>*</code>（匹配任意数量字符）、<code>?</code>（匹配单个字符）和 <code>**</code>（匹配任意数量字符，包括路径分隔符）。路径会以其 NT、DOS 和网络别名形式进行匹配。</p>
+<p>相关 <a href="SandboxieControl.html">沙盒管理器</a> 设置：<a href="RecoverySettings.html#快速恢复">沙盒设置 &gt; 恢复 &gt; 快速恢复</a></p>
 
 
 

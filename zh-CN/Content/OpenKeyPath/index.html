@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="OpenKeyPath 是 Sandboxie Ini 中的一个沙箱设置。它用于指定一个路径模式，沙盘不会对该路径下的注册表键应用沙箱隔离，从而允许受沙箱保护的程序直接访问并更新 沙箱外部 的系统设置。此设置本质上是在特定的注册表键位置为沙箱“打了一个洞”。">
+        <meta name="description" content="OpenKeyPath 是 Sandboxie Ini 中的一项沙盒设置。它指定路径模式，Sandboxie 对这些路径的注册表项不应用沙盒化。这让沙盒化程序可以直接访问并更新_沙盒外_的系统设置。本质上，此设置是在沙盒的某个特定注册表项位置_凿了一个洞_。">
       
       
       
@@ -486,7 +486,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -570,7 +570,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -654,7 +654,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -835,7 +835,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -950,7 +950,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1106,7 +1106,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1190,7 +1190,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -5585,7 +5585,7 @@
 
 
 <h1 id="_1">开放注册表路径<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
-<p><em>OpenKeyPath</em> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 中的一个沙箱设置。它用于指定一个路径模式，沙盘不会对该路径下的注册表键应用沙箱隔离，从而允许受沙箱保护的程序直接访问并更新 <em>沙箱外部</em> 的系统设置。此设置本质上是在特定的注册表键位置为沙箱“打了一个洞”。</p>
+<p><em>OpenKeyPath</em> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 中的一项沙盒设置。它指定路径模式，Sandboxie 对这些路径的注册表项不应用沙盒化。这让沙盒化程序可以直接访问并更新_沙盒外_的系统设置。本质上，此设置是在沙盒的某个特定注册表项位置_凿了一个洞_。</p>
 <p>可以指定 <a href="../ProgramNamePrefix/">程序名称前缀</a>。</p>
 <p>示例：
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
@@ -5595,11 +5595,11 @@
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">OpenKeyPath</span><span class="o">=</span><span class="s">firefox.exe,HKEY_LOCAL_MACHINE\Software\Mozilla</span>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">   </span><span class="na">OpenKeyPath</span><span class="o">=</span><span class="s">firefox.exe,HKEY_CURRENT_USER\Software\Mozilla</span>
 </span></code></pre></div></p>
-<p>上述示例允许 Firefox 程序（firefox.exe）可以直接访问 Mozilla 的注册表键树（包括系统范围和当前用户范围的注册表树）。</p>
-<p><em>OpenKeyPath</em> 的取值支持通配符，虽然对于注册表键，通常很少需要使用通配符。关于更多信息，包括使用通配符的示例，请参考 <a href="../OpenFilePath/">OpenFilePath</a>。(<em>OpenFilePath</em> 针对的是文件，而不是注册表键，但通配符的使用原理是相同的。)</p>
-<p><strong>注意：</strong>出于安全原因，当程序可执行文件位于沙箱内部时，此设置不会生效。这意味着在你的计算机上下载并运行的（潜在恶意的）软件无法利用该设置。</p>
-<p>相关的 <a href="../SandboxieControl/">沙盘控制</a> 设置： <a href="../ResourceAccessSettings/#registry-access--direct-access">沙箱设置 &gt; 资源访问 &gt; 注册表访问 &gt; 直接访问</a></p>
-<p>相关的 Sandboxie Plus 设置： 沙箱选项 &gt; 资源访问 &gt; 注册表 &gt; 添加注册表键 &gt; 访问列 &gt; 开放</p>
+<p>这些示例让 Firefox 程序 <em>firefox.exe</em> 可以直接访问 Mozilla 注册表项树（系统级和用户级注册表树都包括）。</p>
+<p><em>OpenKeyPath</em> 指定的值可以包含通配符，不过对注册表项而言，很少需要使用通配符。更多信息（包括展示通配符用法的示例）参见 <a href="../OpenFilePath/">开放文件路径</a>。（<em>OpenFilePath</em> 处理的是文件而非注册表项，但使用通配符的原理相同。）</p>
+<p><strong>注意：</strong> 出于安全原因，当程序可执行文件位于沙盒内时，此设置不适用。这意味着下载到计算机中并执行的（可能恶意的）软件，无法利用此设置。</p>
+<p>相关 <a href="../SandboxieControl/">沙盒管理器</a> 设置：<a href="../ResourceAccessSettings/#注册表访问-直接访问">沙盒设置 &gt; 资源访问 &gt; 注册表访问 &gt; 直接访问</a></p>
+<p>相关 Sandboxie Plus 设置：沙盒选项 &gt; 资源访问 &gt; 注册表 &gt; 添加注册表项 &gt; 访问列 &gt; 开放</p>
 
 
 

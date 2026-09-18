@@ -6,8 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="NetworkDnsFilter 是 沙盘配置文件（Sandboxie.ini） 中的一个沙盘配置项，自 v1.14.0 / 5.69.0 版本起提供，且需要支持者证书才能启用。
-它允许用户按进程粒度对特定域名的 DNS 查询进行阻止或重定向，从而控制沙盘内的网络流量。">
+        <meta name="description" content="网络 DNS 过滤 是 Sandboxie Ini 中的一项沙盒设置，自 v1.14.0 / 5.69.0 起可用，需要 支持者证书。它允许用户按进程阻止或重定向特定域名的 DNS 查询，从而控制沙盒内的网络流量。">
       
       
       
@@ -487,7 +486,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -571,7 +570,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -655,7 +654,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -836,7 +835,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -951,7 +950,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1107,7 +1106,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1191,7 +1190,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -5586,70 +5585,69 @@
 
 
 <h1 id="dns">网络 DNS 过滤<a class="headerlink" href="#dns" title="Permanent link"></a></h1>
-<p><strong>NetworkDnsFilter</strong> 是 <a href="../SandboxieIni/">沙盘配置文件（Sandboxie.ini）</a> 中的一个沙盘配置项，自 <strong>v1.14.0 / 5.69.0</strong> 版本起提供，且需要<a href="https://sandboxie-plus.com/supporter-certificate/">支持者证书</a>才能启用。
-它允许用户按进程粒度对特定域名的 DNS 查询进行阻止或重定向，从而控制沙盘内的网络流量。</p>
+<p><strong>网络 DNS 过滤</strong> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 中的一项沙盒设置，自 <strong>v1.14.0 / 5.69.0</strong> 起可用，需要 <a href="https://sandboxie-plus.com/supporter-certificate/">支持者证书</a>。它允许用户按进程阻止或重定向特定域名的 DNS 查询，从而控制沙盒内的网络流量。</p>
 <h2 id="_1">语法<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">NetworkDnsFilter</span><span class="o">=</span><span class="s">[进程,]域名[:IP地址]</span>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">NetworkDnsFilter</span><span class="o">=</span><span class="s">[进程,]域名[:IP 地址]</span>
 </span></code></pre></div>
 <ul>
-<li><strong>进程</strong>（可选）：要应用规则的可执行程序名。如果省略，则该规则对所有沙盘应用生效。</li>
-<li><strong>域名</strong>：要过滤的完整域名（FQDN），不支持通配符。</li>
-<li><strong>IP地址</strong>（可选）：将该域名重定向到的 IP 地址。如果留空，则表示阻止该域名的访问。</li>
+<li><strong>进程</strong>（可选）：规则适用的可执行文件名称。省略时，规则适用于所有沙盒化应用程序。</li>
+<li><strong>域名</strong>：要过滤的完全限定域名（FQDN）。不支持通配符。</li>
+<li><strong>IP 地址</strong>（可选）：要把域名重定向到的 IP 地址。留空则阻止该域名。</li>
 </ul>
 <h3 id="_2">示例：<a class="headerlink" href="#_2" title="Permanent link"></a></h3>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">NetworkDnsFilter</span><span class="o">=</span><span class="s">program.exe,example.com:1.1.1.1</span>
 </span></code></pre></div>
-<p>此示例中：</p>
+<p>在此示例中：</p>
 <ul>
-<li><code>program.exe</code> 是要应用该规则的进程。</li>
+<li><code>program.exe</code> 是规则适用的进程。</li>
 <li><code>example.com</code> 是要过滤的域名。</li>
-<li><code>1.1.1.1</code> 是将 <code>example.com</code> 请求重定向到的 IP 地址。</li>
+<li><code>1.1.1.1</code> 是 <code>example.com</code> 的请求将被重定向到的 IP 地址。</li>
 </ul>
-<h2 id="_3">使用示例<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
-<h3 id="1">1. 重定向所有对某域名的请求<a class="headerlink" href="#1" title="Permanent link"></a></h3>
-<p>此规则会将所有沙盘应用对 <code>example.com</code> 的 DNS 请求重定向到 <code>1.1.1.1</code>：</p>
+<h2 id="_3">用法示例<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
+<h3 id="1">1. 重定向对某个域名的所有请求<a class="headerlink" href="#1" title="Permanent link"></a></h3>
+<p>此规则把任何沙盒化应用程序对 <code>example.com</code> 发出的所有 DNS 请求重定向到 <code>1.1.1.1</code>：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">NetworkDnsFilter</span><span class="o">=</span><span class="s">example.com:1.1.1.1</span>
 </span></code></pre></div>
-<h3 id="2">2. 仅对特定应用重定向域名请求<a class="headerlink" href="#2" title="Permanent link"></a></h3>
-<p>此规则仅对沙盘中的 program.exe 应用，将对 <code>example.com</code> 的请求重定向到 <code>1.1.1.1</code>：</p>
+<h3 id="2">2. 只重定向特定应用程序对域名的请求<a class="headerlink" href="#2" title="Permanent link"></a></h3>
+<p>此规则把对 <code>example.com</code> 的 DNS 请求重定向到 <code>1.1.1.1</code>，但只针对沙盒化应用程序 <code>program.exe</code>：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">NetworkDnsFilter</span><span class="o">=</span><span class="s">program.exe,example.com:1.1.1.1</span>
 </span></code></pre></div>
-<h3 id="3">3. 阻止所有对某域名的请求<a class="headerlink" href="#3" title="Permanent link"></a></h3>
-<p>此规则会阻止所有沙盘应用对 <code>example.com</code> 的 DNS 请求（即不进行域名解析）：</p>
+<h3 id="3">3. 阻止对域名的所有请求<a class="headerlink" href="#3" title="Permanent link"></a></h3>
+<p>此规则阻止任何沙盒化应用程序对 <code>example.com</code> 的所有 DNS 请求：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="na">NetworkDnsFilter</span><span class="o">=</span><span class="s">example.com</span>
 </span></code></pre></div>
-<h3 id="4">4. 仅对特定应用阻止域名请求<a class="headerlink" href="#4" title="Permanent link"></a></h3>
-<p>此规则仅阻止沙盘中的 <code>program.exe</code> 对 <code>example.com</code> 进行 DNS 请求：</p>
+<h3 id="4">4. 只阻止特定应用程序对域名的请求<a class="headerlink" href="#4" title="Permanent link"></a></h3>
+<p>此规则只阻止沙盒化 <code>program.exe</code> 对 <code>example.com</code> 的 DNS 请求：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="na">NetworkDnsFilter</span><span class="o">=</span><span class="s">program.exe,example.com</span>
 </span></code></pre></div>
-<h2 id="_4">注意事项<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
+<h2 id="_4">重要说明<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
 <ul>
-<li><strong>不支持通配符</strong>：必须指定完整域名，不支持诸如 <code>*.example.com</code> 的通配符写法。</li>
-<li><strong>依赖系统 DNS</strong>：为确保 DNS 过滤有效，建议同时使用 <code>Template=BlockDNS</code> 模板。这样可以确保应用程序通过系统发起 DNS 查询。</li>
+<li><strong>不支持通配符</strong>：你必须指定完整的域名；不支持通配符（例如 <code>*.example.com</code>）。</li>
+<li><strong>系统 DNS 要求</strong>：为进行正确的 DNS 过滤，你可能需要使用 <code>Template=BlockDNS</code> 模板。这确保应用程序通过系统发出 DNS 查询。</li>
 <li>
-<p><strong>第三方软件干扰</strong>：某些第三方应用可能会干扰或绕过 DNS 过滤机制。</p>
+<p><strong>第三方干扰</strong>：某些第三方应用程序可能干扰或覆盖 DNS 过滤。</p>
 </li>
 <li>
-<p><strong>已知限制</strong>：</p>
+<p><strong>限制</strong>：在以下情况 DNS 过滤不起作用：</p>
 <ul>
-<li>当应用程序内部配置了安全 DNS（如 DNS-over-HTTPS）时，DNS 过滤将无效。</li>
-<li>当应用程序启用了 “通过 SOCKS 4/5 代理 DNS 查询” 等类似设置时，DNS 过滤也将无效。</li>
+<li>应用程序内配置了安全 DNS（例如 DNS-over-HTTPS）。</li>
+<li>应用程序内配置了"使用 SOCKS 4/5 代理 DNS"或类似设置。</li>
 </ul>
 </li>
 <li>
-<p><strong>已知 Bug</strong>：</p>
+<p><strong>缺陷</strong>：</p>
 <ul>
-<li>当主机名未找到时，重定向会失败。详细信息请参阅 <a href="https://github.com/sandboxie-plus/Sandboxie/issues/4359">此问题</a>。</li>
+<li>主机找不到时重定向失败。<a href="https://github.com/sandboxie-plus/Sandboxie/issues/4359">详情参见此问题</a>。</li>
 </ul>
 </li>
 </ul>
-<h2 id="_5">相关配置界面<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
-<p>此配置项对应于 <strong>Sandboxie Plus</strong> 图形界面中的以下路径：</p>
-<p><strong>沙盘选项</strong> &gt; <strong>网络选项</strong> &gt; <strong>DNS 过滤器</strong>。</p>
+<h2 id="_5">相关配置<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
+<p>此设置对应 <strong>Sandboxie Plus</strong> 中以下路径的图形界面选项：</p>
+<p><strong>沙盒选项</strong> &gt; <strong>网络选项</strong> &gt; <strong>DNS 过滤器</strong>。</p>
 
 
 

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="CopyLimitKb 是 Sandboxie Ini 文件中的一个沙箱设置项。要在沙箱中修改现有文件，必须首先将文件复制到沙箱中。本设置用于指定此复制操作的文件大小上限。大于此限制的文件将不会被复制进沙箱，沙箱程序也无法对其进行修改。该限制的单位为千字节（1 千字节 = 1024 字节）。">
+        <meta name="description" content="CopyLimitKb 是 Sandboxie Ini 中的一项沙盒设置。沙盒化程序修改的现有文件必须首先被复制到沙盒中。此设置指定此复制操作的文件大小限制。大于限制的文件不会被复制到沙盒中，沙盒化程序也无法修改它们。限制以千字节为单位指定（1 千字节 = 1024 字节）。">
       
       
       
@@ -486,7 +486,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -570,7 +570,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -654,7 +654,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -835,7 +835,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -950,7 +950,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1106,7 +1106,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1190,7 +1190,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -5585,19 +5585,19 @@
 
 
 <h1 id="kb">复制限制 Kb<a class="headerlink" href="#kb" title="Permanent link"></a></h1>
-<p><em>CopyLimitKb</em> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 文件中的一个沙箱设置项。要在沙箱中修改现有文件，必须首先将文件复制到沙箱中。本设置用于指定此复制操作的文件大小上限。大于此限制的文件将不会被复制进沙箱，沙箱程序也无法对其进行修改。该限制的单位为千字节（1 千字节 = 1024 字节）。</p>
-<p>欲了解更多信息，请参阅 <a href="../SBIE2102/">SBIE2102</a>。</p>
-<p>用法示例：</p>
+<p><em>CopyLimitKb</em> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 中的一项沙盒设置。沙盒化程序修改的现有文件必须首先被复制到沙盒中。此设置指定此复制操作的文件大小限制。大于限制的文件不会被复制到沙盒中，沙盒化程序也无法修改它们。限制以千字节为单位指定（1 千字节 = 1024 字节）。</p>
+<p>更多信息参见 <a href="../SBIE2102/">SBIE2102</a>。</p>
+<p>用法：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">CopyLimitKb</span><span class="o">=</span><span class="s">128000</span>
 </span></code></pre></div>
-<p>此示例表示，仅当所需文件小于（约）128 MB 时，才会被复制进 <em>DefaultBox</em> 沙箱。超过此限制的文件，沙箱程序只能读取，无法更新。</p>
-<p>默认设置为 49152 千字节，即 48 兆字节。为某个沙箱单独设置 <em>CopyLimitKb</em> 并不会影响其他沙箱的默认值。</p>
-<p>可在 <a href="../FileMigrationSettings/">沙箱设置 &gt; 文件迁移</a> 中配置大小限制及警告消息。</p>
-<p>相关的 <a href="../SandboxieIni/">Sandboxie Ini</a> 设置项：<a href="../CopyLimitSilent/">复制限制静默</a></p>
+<p>此示例指定：需要时，只有小于（约）128MB 的文件才会被复制到沙盒 <em>DefaultBox</em> 中。大于此限制的文件只能被沙盒化程序读取，不能被更新。</p>
+<p>默认设置为 49152 千字节，即 48 兆字节。为一个沙盒把 <em>CopyLimitKb</em> 设为某个值，不会改变其他沙盒的默认值。</p>
+<p>大小限制和警报消息可以在 <a href="../FileMigrationSettings/">沙盒设置 &gt; 文件迁移</a> 中配置。</p>
+<p>相关 <a href="../SandboxieIni/">Sandboxie Ini</a> 设置项：<a href="../CopyLimitSilent/">复制限制静默</a></p>
 
 
 

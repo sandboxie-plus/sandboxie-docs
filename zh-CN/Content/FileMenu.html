@@ -494,7 +494,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -611,7 +611,7 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        窗口处于沙箱中吗？
+        窗口是否在沙盒中？
       
     </span>
   </a>
@@ -680,7 +680,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -764,7 +764,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -945,7 +945,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -1060,7 +1060,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1216,7 +1216,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1300,7 +1300,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -5695,57 +5695,57 @@
 
 
 <h1 id="_1">文件菜单<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
-<p><a href="SandboxieControl.html">沙盘控制</a> &gt; 文件菜单</p>
+<p><a href="SandboxieControl.html">沙盒管理器</a> &gt; 文件菜单</p>
 <p><img alt="" src="../Media/FileMenu.png" /></p>
 <hr />
 <h3 id="_2">终止所有程序<a class="headerlink" href="#_2" title="Permanent link"></a></h3>
-<p><a href="SandboxieControl.html">沙盘控制</a> &gt; <a href="FileMenu.html">文件菜单</a> &gt; 终止所有程序</p>
-<p>“终止所有程序”命令可立即停止所有沙箱中正在运行的全部程序。此命令没有关联的窗口。但在执行前，你可能会收到提示，警告即将终止的程序可能导致相关数据丢失：</p>
+<p><a href="SandboxieControl.html">沙盒管理器</a> &gt; <a href="FileMenu.html">文件菜单</a> &gt; 终止所有程序</p>
+<p><em>终止所有程序</em> 命令立即停止所有沙盒中运行的全部程序。此命令没有关联窗口。不过，你可能会收到关于即将被终止的程序所处理数据可能丢失的警告：</p>
 <p><img alt="" src="../Media/TerminateWarning.png" /></p>
-<p>该警告例如指的是任何未保存的打开文档。你可以通过勾选底部的“下次无需确认，直接终止进程”来禁用此警告。</p>
-<p>另请参阅：<a href="TrayIconMenu.html">托盘图标菜单</a>中的 <a href="TrayIconMenu.html#terminate-all-programs">终止所有程序</a></p>
+<p>此警告涉及例如任何不会保存的已打开文档。可以通过勾选底部的复选框 <em>以后终止进程时不再询问</em> 来禁用此警告。</p>
+<p>另请参阅：<a href="TrayIconMenu.html">托盘图标菜单</a> 中的 <a href="TrayIconMenu.html#终止所有程序">终止所有程序</a>。</p>
 <hr />
 <h3 id="_3">禁用强制程序<a class="headerlink" href="#_3" title="Permanent link"></a></h3>
-<p><a href="SandboxieControl.html">沙盘控制</a> &gt; <a href="FileMenu.html">文件菜单</a> &gt; 禁用强制程序</p>
-<p>“禁用强制程序”切换命令可临时禁用或重新启用强制沙箱化。通常，所有<a href="ProgramStartSettings.html#forced-programs">强制程序</a>（或位于任意<a href="ProgramStartSettings.html#forced-folders">强制文件夹</a>中的程序）都会自动在沙盘的监管下启动。执行“禁用强制程序”命令时，强制沙箱化会被临时暂停。</p>
-<p>默认情况下，强制沙箱化会暂停 10 秒。你可以在弹出的对话框中修改暂停秒数，该对话框会在你选择此命令时出现。</p>
+<p><a href="SandboxieControl.html">沙盒管理器</a> &gt; <a href="FileMenu.html">文件菜单</a> &gt; 禁用强制程序</p>
+<p><em>禁用强制程序</em> 切换命令会临时禁用或重新启用强制沙盒化。通常，任何 <a href="ProgramStartSettings.html#强制程序">强制程序</a>（或 <a href="ProgramStartSettings.html#强制文件夹">强制文件夹</a> 中的程序）都会在 Sandboxie 的监管下自动启动。调用禁用强制程序命令时，强制沙盒化会被临时暂停。</p>
+<p>默认情况下，强制沙盒化暂停 10 秒。秒数可以在选择此命令时出现的以下对话框中更改。</p>
 <p><img alt="" src="../Media/DisableForcedPrograms.png" /></p>
-<p>请注意，<a href="TrayIconMenu.html">托盘图标菜单</a>中的相关命令不会显示此对话框，并会使用上一次设定的持续时间，或默认的 10 秒。</p>
-<p>在“禁用强制程序”模式有效期间：</p>
+<p>注意：<a href="TrayIconMenu.html">托盘图标菜单</a> 中的相应命令不显示此对话框，而是使用上次指定的持续时间，或默认的 10 秒。</p>
+<p>在禁用强制程序模式生效期间：</p>
 <ul>
-<li>系统托盘区域的沙盘图标将带有一个小红 X</li>
-<li><a href="FileMenu.html">文件菜单</a> 和 <a href="TrayIconMenu.html">托盘图标菜单</a>中的“禁用强制程序”命令旁会有一个勾选标记</li>
-<li>如果有强制程序启动，则会发出消息 <a href="SBIE1301.html">SBIE1301</a></li>
-<li>再次选择此命令，将取消该模式，恢复图标原状，并恢复强制沙箱化的正常操作</li>
+<li>系统托盘区域的 Sandboxie 图标会带有一个红色 X。</li>
+<li><a href="FileMenu.html">文件菜单</a> 和 <a href="TrayIconMenu.html">托盘图标菜单</a> 中的“禁用强制程序”命令旁边会出现一个对勾标记。</li>
+<li>如果有强制程序被启动，会发出 <a href="SBIE1301.html">SBIE1301</a> 消息。</li>
+<li>再次选择此命令将取消该模式，使图标恢复原样，并恢复正常执行强制沙盒化。</li>
 </ul>
-<p>另请参阅：<a href="TrayIconMenu.html">托盘图标菜单</a>中的 <a href="TrayIconMenu.html#disable-forced-programs">禁用强制程序</a></p>
+<p>另请参阅：<a href="TrayIconMenu.html">托盘图标菜单</a> 中的 <a href="TrayIconMenu.html#禁用强制沙盒化程序">禁用强制程序</a>。</p>
 <hr />
 <h3 id="uac">以 UAC 管理员身份运行<a class="headerlink" href="#uac" title="Permanent link"></a></h3>
-<p><a href="SandboxieControl.html">沙盘控制</a> &gt; <a href="FileMenu.html">文件菜单</a> &gt; 以 UAC 管理员身份运行</p>
-<p>“以 UAC 管理员身份运行”切换命令可使沙盘在启动任何程序前请求提升到管理员权限。该命令仅适用于启用了用户帐户控制（UAC）且当前用户账号尚未提升的 Windows。如果菜单中出现该命令，通常需要在将程序安装到沙箱前启用，安装完成后建议禁用。</p>
-<p>此命令没有关联的窗口。然而，在启用“以 UAC 管理员身份运行”后， <a href="FileMenu.html">文件菜单</a> 及 <a href="TrayIconMenu.html">托盘图标菜单</a>中的该命令旁将显示勾选标记。</p>
-<p>另请参阅：<a href="TrayIconMenu.html">托盘图标菜单</a>中的 <a href="TrayIconMenu.html#run-as-uac-administrator">以 UAC 管理员身份运行</a></p>
+<p><a href="SandboxieControl.html">沙盒管理器</a> &gt; <a href="FileMenu.html">文件菜单</a> &gt; 以 UAC 管理员身份运行</p>
+<p><em>以 UAC 管理员身份运行</em> 切换命令指示 Sandboxie 在启动任何程序前请求提升到管理员权限。此命令仅在 Windows 的用户帐户控制（UAC）生效且用户帐户尚未提升时可用。如果此命令在菜单中可用，那么在向沙盒中安装程序之前通常需要启用它，并建议在安装完成后禁用它。</p>
+<p>此命令没有关联窗口。不过，在 <em>以 UAC 管理员身份运行</em> 生效期间，该命令会在 <a href="FileMenu.html">文件菜单</a> 和 <a href="TrayIconMenu.html">托盘图标菜单</a> 中显示并带有一个对勾标记。</p>
+<p>另请参阅：<a href="TrayIconMenu.html">托盘图标菜单</a> 中的 <a href="TrayIconMenu.html#以-uac-管理员身份运行">以 UAC 管理员身份运行</a>。</p>
 <hr />
-<h3 id="_4">窗口处于沙箱中吗？<a class="headerlink" href="#_4" title="Permanent link"></a></h3>
-<p><a href="SandboxieControl.html">沙盘控制</a> &gt; <a href="FileMenu.html">文件菜单</a> &gt; 窗口处于沙箱中吗？</p>
-<p>“窗口处于沙箱中吗？”命令用于选择屏幕上已显示的窗口，如果该窗口由沙箱中的程序所有，命令会显示该程序及其所在沙箱的名称。</p>
+<h3 id="_4">窗口是否在沙盒中？<a class="headerlink" href="#_4" title="Permanent link"></a></h3>
+<p><a href="SandboxieControl.html">沙盒管理器</a> &gt; <a href="FileMenu.html">文件菜单</a> &gt; 窗口是否在沙盒中？</p>
+<p><em>窗口是否在沙盒中？</em> 命令用于选择屏幕上显示的窗口，如果该窗口属于沙盒化程序，命令会显示程序名称及其所在的沙盒。</p>
 <p><img alt="" src="../Media/IsWindowSandboxed.png" /></p>
-<p>使用方法：按住左键点击“查找工具”（窗口内的目标图标），在不松开的情况下，将目标拖到需要确认的窗口上。当目标移入所选窗口边界后，松开左键。</p>
-<p>如果该窗口由沙箱中的程序所有，沙盘会显示其程序名称和沙箱名称，同时切换到<a href="ProgramsView.html">程序视图</a>，并高亮显示该程序。</p>
-<p>部分程序使用自定义图形方式显示窗口，导致沙盘无法在标题栏显示 [#] 指示标记。这种情况下，你可以通过“窗口处于沙箱中吗？”命令确认窗口及其相关程序是否正在沙箱中运行。</p>
+<p>要使用此命令，请在_查找工具_（即窗口中带靶标的图标）上按住鼠标左键。不要松开左键，将靶标拖到目标窗口上，当靶标进入目标窗口边界内时，松开左键。</p>
+<p>如果该窗口属于沙盒化程序，Sandboxie 会显示程序名称和沙盒名称，将视图切换到 <a href="ProgramsView.html">程序视图</a>，并高亮该程序。</p>
+<p>有些程序使用自定义图形显示窗口，这使 Sandboxie 无法在标题栏显示 [#] 标记。在这些情况下，你可以使用 <em>窗口是否在沙盒中？</em> 命令来确认窗口及其相关程序确实以沙盒化方式运行。</p>
 <hr />
 <h3 id="_5">退出<a class="headerlink" href="#_5" title="Permanent link"></a></h3>
-<p><a href="SandboxieControl.html">沙盘控制</a> &gt; <a href="FileMenu.html">文件菜单</a> &gt; 退出</p>
-<p>“退出”命令可关闭 <a href="SandboxieControl.html">沙盘控制</a>。注意，仅关闭窗口（或在 <a href="TrayIconMenu.html">托盘图标菜单</a> 中选择 “隐藏窗口”）<strong>并不会</strong>退出沙盘控制。</p>
-<p>即使前端应用程序沙盘控制处于非活动状态，沙盘仍然有效并能正确监管各程序。但下列功能由沙盘控制前端提供，若其未运行则不可用：</p>
+<p><a href="SandboxieControl.html">沙盒管理器</a> &gt; <a href="FileMenu.html">文件菜单</a> &gt; 退出</p>
+<p><em>退出</em> 命令退出 <a href="SandboxieControl.html">沙盒管理器</a>。注意：仅仅关闭窗口（或从 <a href="TrayIconMenu.html">托盘图标菜单</a> 选择 <em>隐藏窗口</em> 命令）_并不会_退出沙盒管理器。</p>
+<p>即使前端程序沙盒管理器未运行，Sandboxie 仍然处于活动状态并正确监管程序。不过，以下功能由沙盒管理器提供，当前端程序未运行时将不可用：</p>
 <ul>
-<li>自动删除沙箱</li>
-<li>快速和即时恢复</li>
-<li>禁用强制程序模式（通过 <a href="StartCommandLine.html">Sandboxie Start</a> 程序发起时）</li>
+<li>自动删除沙盒</li>
+<li>快速恢复和即时恢复</li>
+<li>禁用强制程序模式（当从 <a href="StartCommandLine.html">Sandboxie Start</a> 程序启动时）</li>
 </ul>
-<p>如你不希望在系统托盘区域看到沙盘控制，请考虑配置 Windows 任务栏始终隐藏该图标，而非完全退出沙盘控制。</p>
+<p>如果你不希望系统托盘区域显示沙盒管理器，可以考虑把 Windows 任务栏配置为始终隐藏该图标，而不是退出沙盒管理器。</p>
 <hr />
-<p>前往 <a href="SandboxieControl.html#menus">沙盘控制</a>、<a href="TrayIconMenu.html">托盘图标菜单</a>、<a href="HelpTopics.html">帮助主题</a></p>
+<p>前往 <a href="SandboxieControl.html#菜单">沙盒管理器</a>、<a href="TrayIconMenu.html">托盘图标菜单</a>、<a href="HelpTopics.html">帮助主题</a>。</p>
 
 
 
@@ -5781,7 +5781,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="SandboxieControl.html" class="md-footer__link md-footer__link--prev" aria-label="上一页: 沙盘控制面板">
+          <a href="SandboxieControl.html" class="md-footer__link md-footer__link--prev" aria-label="上一页: 沙盒管理器">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -5791,7 +5791,7 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                沙盘控制面板
+                沙盒管理器
               </div>
             </div>
           </a>

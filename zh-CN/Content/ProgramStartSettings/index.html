@@ -486,7 +486,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -570,7 +570,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -654,7 +654,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -835,7 +835,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -950,7 +950,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1106,7 +1106,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1190,7 +1190,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -5586,52 +5586,52 @@
 
 <h1 id="_1">程序启动设置<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
 <h3 id="_2">“程序启动”设置组<a class="headerlink" href="#_2" title="Permanent link"></a></h3>
-<p><a href="../SandboxieControl/">沙盘控制面板</a> &gt; <a href="../SandboxSettings/">沙箱设置</a> &gt; 程序启动：</p>
+<p><a href="../SandboxieControl/">沙盒管理器</a> &gt; <a href="../SandboxSettings/">沙盒设置</a> &gt; 程序启动：</p>
 <p><img alt="" src="../../Media/ProgramStartSettings.png" /></p>
-<p>本节中的设置控制哪些程序在未在任何沙箱中启动时将自动在沙箱中运行。换句话说，在这里你可以选择沙盘（Sandboxie）将“强制”在沙箱中运行的程序。</p>
+<p>本节中的设置控制哪些程序在沙盒外启动时会被自动沙盒化。换句话说，在这里选择 Sandboxie 将“强制”以沙盒化方式运行的程序。</p>
 <hr />
 <h3 id="_3">强制文件夹<a class="headerlink" href="#_3" title="Permanent link"></a></h3>
-<p><a href="../SandboxieControl/">沙盘控制面板</a> &gt; <a href="../SandboxSettings/">沙箱设置</a> &gt; 程序启动 &gt; 强制文件夹</p>
+<p><a href="../SandboxieControl/">沙盒管理器</a> &gt; <a href="../SandboxSettings/">沙盒设置</a> &gt; 程序启动 &gt; 强制文件夹</p>
 <p><img alt="" src="../../Media/ForcedFoldersSettings.png" /></p>
-<p>你可以指定某些文件夹进行自动或强制沙箱化。这意味着如果该文件夹中的任何程序在未在沙箱中启动，那么沙盘（Sandboxie）将自动强制该程序在沙箱中运行。以下是一些适用场景示例：</p>
+<p>你可以指定某些文件夹进行自动（或强制）沙盒化。这意味着如果该文件夹中的任何程序以非沙盒化方式启动，Sandboxie 将自动强制该程序在沙盒中运行。以下是一些有用的示例：</p>
 <ul>
-<li>在你的“下载”文件夹中，通常你会从互联网下载软件。</li>
-<li>在你的 CD-ROM 或 DVD 驱动器上，这样 CD 和 DVD 上的“自动运行”程序将在沙箱中启动。</li>
-<li>如果你在不同的文件夹中安装了同一程序的多个版本，并希望将每个版本隔离到不同的沙箱中。</li>
+<li>你的“下载”文件夹，你通常从互联网下载软件的地方。</li>
+<li>你的 CDROM 或 DVD 驱动器，使 CD 和 DVD 上的“自动运行”程序以沙盒化方式启动。</li>
+<li>如果你在单独文件夹中安装了同一程序的多个版本，并希望把每个版本隔离到单独的沙盒中。</li>
 </ul>
-<p>使用此设置页面选择强制文件夹应应用的文件夹（或驱动器）。</p>
-<p>注意事项：</p>
+<p>使用此设置页选择强制文件夹应适用的文件夹（或驱动器）。</p>
+<p>注意：</p>
 <ul>
 <li>
-<p>可以使用<a href="../FileMenu/#disable-forced-programs">禁用强制程序</a>命令暂时暂停强制文件夹设置。</p>
+<p>强制文件夹可以使用 <a href="../FileMenu/#禁用强制程序">禁用强制程序</a> 命令临时暂停。</p>
 </li>
 <li>
-<p>强制文件夹设置优先于<a href="./#forced-programs">强制程序</a>设置。换句话说，当一个程序同时匹配强制文件夹和强制程序设置时，将应用强制文件夹设置，而忽略强制程序设置。</p>
+<p>强制文件夹优先于 <a href="./#强制程序">强制程序</a>。换句话说，当程序同时匹配强制文件夹和强制程序设置时，将应用强制文件夹设置，而忽略强制程序设置。</p>
 </li>
 </ul>
-<p>相关<a href="../SandboxieIni/">沙盘配置文件</a>设置：<a href="../ForceFolder/">强制文件夹</a>。</p>
+<p>相关 <a href="../SandboxieIni/">Sandboxie Ini</a> 设置项：<a href="../ForceFolder/">强制文件夹</a>。</p>
 <hr />
 <h3 id="_4">强制程序<a class="headerlink" href="#_4" title="Permanent link"></a></h3>
-<p><a href="../SandboxieControl/">沙盘控制面板</a> &gt; <a href="../SandboxSettings/">沙箱设置</a> &gt; 程序启动 &gt; 强制程序</p>
+<p><a href="../SandboxieControl/">沙盒管理器</a> &gt; <a href="../SandboxSettings/">沙盒设置</a> &gt; 程序启动 &gt; 强制程序</p>
 <p><img alt="" src="../../Media/ForcedProgramsSettings.png" /></p>
-<p>你可以指定某些程序名称进行自动或强制沙箱化。这意味着如果该程序在未在沙箱中启动，那么沙盘（Sandboxie）将自动强制该程序在沙箱中运行。强制程序设置最常见的用途是将 Web 浏览器设置为自动在沙箱中运行。</p>
-<p>使用此设置页面选择将被强制在沙箱中运行的程序。使用“按名称添加”按钮输入程序名称，或使用“按文件添加”按钮通过文件夹导航选择程序文件。</p>
-<p>你也可以在<a href="../ProgramSettings/">程序设置</a>窗口中配置此设置。</p>
+<p>你可以指定某些程序名称进行自动（或强制）沙盒化。这意味着如果该程序以非沙盒化方式启动，Sandboxie 将自动强制该程序在沙盒中运行。强制程序设置最常见的用途是把网页浏览器设置为自动沙盒化运行。</p>
+<p>使用此设置页选择将被强制在沙盒中运行的程序。使用 <em>按名称添加</em> 按钮输入程序名称，或用 <em>按文件添加</em> 按钮通过文件夹导航选择程序文件。</p>
+<p>你也可以在 <a href="../ProgramSettings/">程序设置</a> 窗口中配置此设置。</p>
 <ul>
-<li>在你的“下载”文件夹中，通常你会从互联网下载软件。</li>
-<li>在你的 CD-ROM 或 DVD 驱动器上，这样 CD 或 DVD 上的“自动运行”程序将在沙箱中启动。</li>
-<li>如果你在不同的文件夹中安装了同一程序的多个版本，并希望将每个版本隔离到不同的沙箱中。</li>
+<li>你的“下载”文件夹，你通常从互联网下载软件的地方。</li>
+<li>你的 CDROM 或 DVD 驱动器，使 CD 或 DVD 上的“自动运行”程序以沙盒化方式启动。</li>
+<li>如果你在单独文件夹中安装了同一程序的多个版本，并希望把每个版本隔离到单独的沙盒中。</li>
 </ul>
-<p>注意事项：</p>
+<p>注意：</p>
 <ul>
 <li>
-<p>可以使用<a href="../FileMenu/#disable-forced-programs">禁用强制程序</a>命令暂时暂停强制程序设置。</p>
+<p>强制程序可以使用 <a href="../FileMenu/#禁用强制程序">禁用强制程序</a> 命令临时暂停。</p>
 </li>
 <li>
-<p><a href="./#forced-folders">强制文件夹</a>设置优先于强制程序设置。换句话说，当一个程序同时匹配强制文件夹和强制程序设置时，将应用强制文件夹设置，而忽略强制程序设置。</p>
+<p><a href="./#强制文件夹">强制文件夹</a> 优先于强制程序。换句话说，当程序同时匹配强制文件夹和强制程序设置时，将应用强制文件夹设置，而忽略强制程序设置。</p>
 </li>
 </ul>
-<p>相关<a href="../SandboxieIni/">沙盘配置文件</a>设置：<a href="../ForceProcess/">强制进程</a>。</p>
+<p>相关 <a href="../SandboxieIni/">Sandboxie Ini</a> 设置项：<a href="../ForceProcess/">强制进程</a>。</p>
 
 
 

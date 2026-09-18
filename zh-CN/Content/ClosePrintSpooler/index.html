@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="ClosePrintSpooler 是一个沙箱设置项，用于对沙箱应用程序与打印后台处理服务的交互方式提供细致的控制。">
+        <meta name="description" content="ClosePrintSpooler 是一项沙盒设置，提供对沙盒化应用程序如何与打印后台处理程序服务交互的精细控制。">
       
       
       
@@ -486,7 +486,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -570,7 +570,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -654,7 +654,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -835,7 +835,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -950,7 +950,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1106,7 +1106,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1190,7 +1190,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -5585,15 +5585,15 @@
 
 
 <h1 id="_1">封禁打印后台处理服务<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
-<p><em>ClosePrintSpooler</em> 是一个沙箱设置项，用于对沙箱应用程序与打印后台处理服务的交互方式提供细致的控制。</p>
+<p><em>ClosePrintSpooler</em> 是一项沙盒设置，提供对沙盒化应用程序如何与打印后台处理程序服务交互的精细控制。</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">ClosePrintSpooler</span><span class="o">=</span><span class="s">n</span>
 </span></code></pre></div>
-<p>该设置可用于阻止沙箱应用程序与打印后台处理服务的交互。当设置为 <code>y</code> 时，沙箱应用程序将无法与打印后台处理服务交互，例如，无法进行打印。</p>
-<p>此选项自 0.5.4 / 5.46.0 版本起添加。</p>
+<p>此设置可用于阻止沙盒化应用程序与打印后台处理程序服务交互。设为 <code>y</code> 时，沙盒化应用程序将无法与打印后台处理程序服务交互——例如无法打印。</p>
+<p>作为 0.5.4 / 5.46.0 版本的一部分添加。</p>
 <h2 id="openprintspooler">与 <a href="../OpenPrintSpooler/">OpenPrintSpooler</a> 的交互<a class="headerlink" href="#openprintspooler" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">   </span><span class="na">.</span>
@@ -5602,7 +5602,7 @@
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">   </span><span class="na">ClosePrintSpooler</span><span class="o">=</span><span class="s">n</span>
 </span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">   </span><span class="na">OpenPrintSpooler</span><span class="o">=</span><span class="s">n</span>
 </span></code></pre></div>
-<p>如上所示同时配置这两个设置时，来自沙箱应用程序对打印后台处理服务的请求将会被有选择地过滤。这意味着与打印后台处理服务相关的某些操作被允许（“开放”），而其他操作则受到限制（“关闭”）。具体来说，该配置允许进行打印操作，但会限制修改打印机配置或在系统中安装/移除打印机等活动。</p>
+<p>当两个设置都如上配置时，沙盒化应用程序对打印后台处理程序的请求会被选择性过滤。这意味着与打印后台处理程序相关的某些操作被允许（"开放"），而其他操作被限制（"封禁"）。具体来说，此配置允许打印操作，但限制会修改打印机配置或在系统上安装/移除打印机的活动。</p>
 
 
 

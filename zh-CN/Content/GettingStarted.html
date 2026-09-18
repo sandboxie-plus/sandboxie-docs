@@ -468,7 +468,7 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        沙盘控制界面
+        沙盒管理器界面
       
     </span>
   </a>
@@ -561,7 +561,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -645,7 +645,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -729,7 +729,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -910,7 +910,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -1025,7 +1025,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1181,7 +1181,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1265,7 +1265,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -5661,28 +5661,28 @@
 
 <h1 id="_1">入门指南<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
 <h3 id="_2">第一部分：简介<a class="headerlink" href="#_2" title="Permanent link"></a></h3>
-<p>沙盘会在一个称为沙箱的隔离抽象区域中运行你的应用程序。在沙盘的监管下，应用程序会以正常且全速的方式运行，但无法对你的计算机产生永久性的更改。相反，更改仅作用于沙箱之中。</p>
-<p>本入门教程将向你介绍：</p>
+<p>Sandboxie 在一个称为沙盒的隔离抽象区域中运行你的应用程序。在 Sandboxie 的监管下，应用程序正常运行且保持全速，但无法对你的计算机造成永久更改。这些更改只会在沙盒内发生。</p>
+<p>本入门教程将向你展示：</p>
 <ul>
-<li>如何使用沙盘来运行你的应用程序</li>
-<li>如何将更改限制在沙箱中</li>
-<li>如何从沙箱中恢复重要的文件和文档</li>
-<li>如何删除沙箱</li>
+<li>如何用 Sandboxie 运行你的应用程序</li>
+<li>更改如何被拦截在沙盒中</li>
+<li>如何从沙盒中恢复重要的文件和文档</li>
+<li>如何删除沙盒</li>
 </ul>
-<p>你也可以跳转到 <a href="GettingStartedPartSix.html">入门指南第六部分</a>，该部分讨论了一些最后的重要事项。</p>
-<p>你还可以查看 <a href="ExternalTutorials.html">外部教程</a> 页面，这里有更多关于沙盘的教程链接，其中包括其他语言的教程，或视频形式的教程。</p>
+<p>或者直接跳到 <a href="GettingStartedPartSix.html">入门指南第六部分</a>，那里讨论了一些收尾要点。</p>
+<p>你也可以查看 <a href="ExternalTutorials.html">外部教程</a> 页面，获取更多关于 Sandboxie 的教程链接，有些是非英语语言，有些是视频形式而非文字。</p>
 <hr />
-<h3 id="_3">沙盘控制界面<a class="headerlink" href="#_3" title="Permanent link"></a></h3>
-<p>Sandboxie Classic 通过 <a href="SandboxieControl.html">沙盘控制</a> 程序进行管理。此程序会在你的任务栏系统通知区（“托盘”）添加黄色的沙盘图标：
-<img alt="" src="../Media/TrayIconEmpty.png" /></p>
-<p>如果 <a href="SandboxieControl.html">沙盘控制</a> 尚未启动，你可以在 Windows 开始菜单的 Sandboxie 程序组中找到并启动它：</p>
+<h3 id="_3">沙盒管理器界面<a class="headerlink" href="#_3" title="Permanent link"></a></h3>
+<p>Sandboxie 经典版通过 <a href="SandboxieControl.html">沙盒管理器</a> 程序进行操作。该程序会在任务栏的系统通知（“托盘”）区域添加黄色 Sandboxie 图标：</p>
+<p><img alt="" src="../Media/TrayIconEmpty.png" /></p>
+<p>如果 <a href="SandboxieControl.html">沙盒管理器</a> 尚未运行，你可以从 Windows 开始菜单的 Sandboxie 程序组中找到并启动它：</p>
 <p><img alt="" src="../Media/StartMenuStartControlVista.png" /></p>
-<p>激活后，你可以通过双击沙盘托盘图标来隐藏或显示 <a href="SandboxieControl.html">沙盘控制</a> 的主窗口。你也可以右击该图标，并选择第一个命令，该命令会在“隐藏窗口”和“显示窗口”之间切换。</p>
-<p>在本教程中，请确保 <a href="SandboxieControl.html">沙盘控制</a> 的主窗口处于可见状态。</p>
+<p>运行时，你可以双击 Sandboxie 托盘图标来隐藏和显示 <a href="SandboxieControl.html">沙盒管理器</a> 的主窗口。或者右键点击图标并选择第一个命令，该命令会在 <em>隐藏窗口</em> 与 <em>显示窗口</em> 之间切换。</p>
+<p>本教程要求 <a href="SandboxieControl.html">沙盒管理器</a> 的主窗口保持可见。</p>
 <hr />
-<p>建议你在沙箱中的 Web 浏览器中查看本教程。为此，请在 <a href="SandboxieControl.html">沙盘控制</a> 的 <a href="HelpMenu.html">帮助菜单</a> 中使用 <em>入门指南（网页）</em> 命令，并确保你已指示 <a href="SandboxieControl.html">沙盘控制</a> 以<strong>沙箱</strong>方式运行你的浏览器：</p>
+<p>你应该在沙盒化的网页浏览器中阅读本教程。为此，请使用 <a href="SandboxieControl.html">沙盒管理器</a> <a href="HelpMenu.html">帮助菜单</a> 中的 <em>入门教程（网页版）</em> 命令，并确保让 <a href="SandboxieControl.html">沙盒管理器</a> 以<strong>沙盒化</strong>方式运行你的浏览器：</p>
 <p><img alt="" src="../Media/OpenGettingStarted.png" /></p>
-<p>教程将在 <a href="GettingStartedPartTwo.html">入门指南第二部分</a> 中继续。</p>
+<p>教程在 <a href="GettingStartedPartTwo.html">入门指南第二部分</a> 继续。</p>
 
 
 
@@ -5735,13 +5735,13 @@
         
         
           
-          <a href="SandboxieControl.html" class="md-footer__link md-footer__link--next" aria-label="下一页: 沙盘控制面板">
+          <a href="SandboxieControl.html" class="md-footer__link md-footer__link--next" aria-label="下一页: 沙盒管理器">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                沙盘控制面板
+                沙盒管理器
               </div>
             </div>
             <div class="md-footer__button md-icon">

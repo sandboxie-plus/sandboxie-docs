@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="ImportBox 是 Sandboxie Ini 中的沙箱设置。它允许用户从外部 INI 文件加载沙箱配置。">
+        <meta name="description" content="导入沙盒 是 Sandboxie Ini 中的沙盒设置。它允许用户从外部 INI 文件加载沙盒配置。">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>导入沙箱 - Sandboxie 文档</title>
+        <title>导入沙盒 - Sandboxie 文档</title>
       
     
     
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              导入沙箱
+              导入沙盒
             
           </span>
         </div>
@@ -486,7 +486,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -570,7 +570,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -654,7 +654,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -835,7 +835,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -950,7 +950,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1106,7 +1106,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1190,7 +1190,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -5584,24 +5584,24 @@
   
 
 
-<h1 id="_1">导入沙箱<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
-<p><strong>ImportBox</strong> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 中的沙箱设置。它允许用户从外部 INI 文件加载沙箱配置。</p>
+<h1 id="_1">导入沙盒<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<p><strong>导入沙盒</strong> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 中的沙盒设置。它允许用户从外部 INI 文件加载沙盒配置。</p>
 <h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">ImportBox</span><span class="o">=</span><span class="s">&lt;INI 文件的路径&gt;</span>
 </span></code></pre></div>
 <ul>
-<li><strong>INI 文件的路径</strong>: 包含沙箱配置设置的外部 INI 文件的完整路径。</li>
+<li><strong>INI 文件的路径</strong>: 包含沙盒配置设置的外部 INI 文件的完整路径。</li>
 </ul>
 <h2 id="_3">目的<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
-<p>ImportBox 可以从外部 INI 文件加载沙箱，而不是将所有内容存储在主 Sandboxie.ini 文件中。这可以用来创建可移植的沙箱配置。</p>
+<p>导入沙盒可以从外部 INI 文件加载沙盒，而不是将所有内容存储在主 Sandboxie.ini 文件中。这可以用来创建可移植的沙盒配置。</p>
 <h2 id="_4">示例用法<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
 <h3 id="_5">基本导入<a class="headerlink" href="#_5" title="Permanent link"></a></h3>
-<p>从外部文件导入沙箱设置：</p>
+<p>从外部文件导入沙盒设置：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[GlobalSettings]</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">ImportBox</span><span class="o">=</span><span class="s">C:\Sandboxes\PortableSandbox.ini</span>
 </span></code></pre></div>
 <h3 id="_6">多重导入<a class="headerlink" href="#_6" title="Permanent link"></a></h3>
-<p>您可以导入任意数量的沙箱：</p>
+<p>您可以导入任意数量的沙盒：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[GlobalSettings]</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">ImportBox</span><span class="o">=</span><span class="s">C:\Sandboxes\SecureSandbox.ini</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="na">ImportBox</span><span class="o">=</span><span class="s">C:\Sandboxes\NoNetworkSandbox.ini</span>
@@ -5614,23 +5614,23 @@
 </span></code></pre></div>
 <blockquote>
 <p><strong>重要:</strong><br />
-从外部 INI 文件导入沙箱时，该文件必须包含恰好一个 section，并且该部分的名称必须与文件名（不带 <code>.ini</code> 扩展名）匹配。<br />
+从外部 INI 文件导入沙盒时，该文件必须包含恰好一个 section，并且该部分的名称必须与文件名（不带 <code>.ini</code> 扩展名）匹配。<br />
 如果有额外的 sections，或者 section 的名称与文件名不匹配，导入将失败。</p>
 </blockquote>
 <p>然后将其导入到 Sandboxie 中：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">[GlobalSettings]</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="na">ImportBox</span><span class="o">=</span><span class="s">C:\Sandboxes\BrowserBox.ini</span>
 </span></code></pre></div>
-<h3 id="_8">导入整个沙箱根目录<a class="headerlink" href="#_8" title="Permanent link"></a></h3>
-<p>您可以使用通配符导入目录中所有沙箱配置，而无需手动导入每个特定沙箱：</p>
+<h3 id="_8">导入整个沙盒根目录<a class="headerlink" href="#_8" title="Permanent link"></a></h3>
+<p>您可以使用通配符导入目录中所有沙盒配置，而无需手动导入每个特定沙盒：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">[GlobalSettings]</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="na">ImportBox</span><span class="o">=</span><span class="s">C:\Sandboxes\*</span>
 </span></code></pre></div>
-<p>这将导入指定目录中的所有 <code>.ini</code> 文件，使该文件夹中的任何沙箱可供使用。</p>
+<p>这将导入指定目录中的所有 <code>.ini</code> 文件，使该文件夹中的任何沙盒可供使用。</p>
 <h2 id="_9">用户界面<a class="headerlink" href="#_9" title="Permanent link"></a></h2>
-<p>在 <strong>Sandboxie Plus</strong> 中，您可以通过以下路径管理 ImportBox 设置：</p>
+<p>在 <strong>Sandboxie Plus</strong> 中，您可以通过以下路径管理导入沙盒设置：</p>
 <p><strong>全局设置</strong> &gt; <strong>高级配置</strong> &gt; <strong>Sandboxie.ini</strong></p>
-<p>该界面允许您创建新的可移植沙箱，导入现有沙箱文件，或将目录添加为沙箱根目录以便自动导入目录中的沙箱。</p>
+<p>该界面允许您创建新的可移植沙盒，导入现有沙盒文件，或将目录添加为沙盒根目录以便自动导入目录中的沙盒。</p>
 <p><img alt="ImportBox 配置" src="../../Media/ImportBox.png" /></p>
 
 

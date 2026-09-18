@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="HookTrace 是自 v1.15.5 / 5.70.5 版本起在 沙盘配置 中提供的一项沙箱设置。启用后，将对 SbieDll 组件执行的所有函数挂钩活动进行详细日志记录。">
+        <meta name="description" content="HookTrace 是自 v1.15.5 / 5.70.5 版本起在 Sandboxie Ini 中提供的一项沙盒设置。启用后，将对 SbieDll 组件执行的所有函数挂钩活动进行详细日志记录。">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>HookTrace - Sandboxie 文档</title>
+        <title>Hook 跟踪 - Sandboxie 文档</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#hooktrace" class="md-skip">
+        <a href="#hook" class="md-skip">
           跳转至
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              HookTrace
+              Hook 跟踪
             
           </span>
         </div>
@@ -486,7 +486,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘控制面板
+    沙盒管理器
   
 
     
@@ -570,7 +570,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘菜单
+    沙盒菜单
   
 
     
@@ -654,7 +654,7 @@
   <span class="md-ellipsis">
     
   
-    系统托盘图标菜单
+    托盘图标菜单
   
 
     
@@ -835,7 +835,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘配置文件（Sandboxie.ini）
+    Sandboxie Ini
   
 
     
@@ -950,7 +950,7 @@
   <span class="md-ellipsis">
     
   
-    沙盘增强版（Sandboxie Plus）迁移指南
+    Sandboxie Plus 迁移指南
   
 
     
@@ -1106,7 +1106,7 @@
   <span class="md-ellipsis">
     
   
-    沙箱层级
+    沙盒层级
   
 
     
@@ -1190,7 +1190,7 @@
   <span class="md-ellipsis">
     
   
-    资源访问监视器（适用于沙盘经典版）
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -5584,15 +5584,15 @@
   
 
 
-<h1 id="hooktrace">HookTrace<a class="headerlink" href="#hooktrace" title="Permanent link"></a></h1>
-<p><em>HookTrace</em> 是自 v1.15.5 / 5.70.5 版本起在 <a href="SandboxieIni.html">沙盘配置</a> 中提供的一项沙箱设置。启用后，将对 <a href="SBIEDLLAPI.html">SbieDll</a> 组件执行的所有函数挂钩活动进行详细日志记录。</p>
+<h1 id="hook">Hook 跟踪<a class="headerlink" href="#hook" title="Permanent link"></a></h1>
+<p><em>HookTrace</em> 是自 v1.15.5 / 5.70.5 版本起在 <a href="SandboxieIni.html">Sandboxie Ini</a> 中提供的一项沙盒设置。启用后，将对 <a href="SBIEDLLAPI.html">SbieDll</a> 组件执行的所有函数挂钩活动进行详细日志记录。</p>
 <h2 id="_1">用法<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">HookTrace</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
 <h2 id="_2">概述<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
-<p>函数挂钩是沙盘用于拦截并重定向来自沙箱内进程系统调用的核心机制。<code>HookTrace</code> 设置为此过程提供了详尽的可见性，记录每一次挂钩尝试、成功、失败及相关元数据。该功能主要用于排查沙箱相关问题，以及理解沙盘如何对应用程序进行插桩。</p>
+<p>函数挂钩是 Sandboxie 用于拦截并重定向来自沙盒内进程系统调用的核心机制。<code>HookTrace</code> 设置为此过程提供了详尽的可见性，记录每一次挂钩尝试、成功、失败及相关元数据。该功能主要用于排查沙盒相关问题，以及理解 Sandboxie 如何对应用程序进行插桩。</p>
 <h2 id="_3">工作原理<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
 <p>当启用 <code>HookTrace</code> 时：</p>
 <ol>
@@ -5625,19 +5625,19 @@
 <li><strong>HOOK_STAT_SYSCALL</strong>：ARM64 架构系统调用挂钩（仅限 ARM64 EC）<sup id="fnref:13"><a class="footnote-ref" href="#fn:13">13</a></sup></li>
 </ul>
 <h2 id="_6">应用程序挂钩检测<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
-<p>启用 <code>HookTrace</code> 后，系统还会监控尝试修改其他进程内存的应用程序行为，这通常表明存在应用级挂钩尝试。此项特性有助于识别与沙盘自身挂钩机制可能存在的冲突<sup id="fnref:14"><a class="footnote-ref" href="#fn:14">14</a></sup></p>
+<p>启用 <code>HookTrace</code> 后，系统还会监控尝试修改其他进程内存的应用程序行为，这通常表明存在应用级挂钩尝试。此项特性有助于识别与 Sandboxie 自身挂钩机制可能存在的冲突<sup id="fnref:14"><a class="footnote-ref" href="#fn:14">14</a></sup></p>
 <h2 id="_7">性能注意事项<a class="headerlink" href="#_7" title="Permanent link"></a></h2>
 <ul>
-<li><strong>日志量增加</strong>：启用 HookTrace 后，尤其在进程启动期间（加载并挂钩大量模块），将产生大量日志输出</li>
+<li><strong>日志量增加</strong>：启用 Hook 跟踪后，尤其在进程启动期间（加载并挂钩大量模块），将产生大量日志输出</li>
 <li><strong>仅用于调试</strong>：此设置仅推荐用于调试和排查，不适合生产环境</li>
 <li><strong>存储影响</strong>：大量详细日志输出会快速占用日志存储空间</li>
 </ul>
 <h2 id="_8">相关设置<a class="headerlink" href="#_8" title="Permanent link"></a></h2>
 <ul>
 <li><a href="SandboxieTrace.html">ApiTrace</a> —— 在挂钩建立后跟踪实际 API 调用</li>
-<li><a href="SandboxieTrace.html">DebugTrace</a> —— 沙盘组件的通用调试输出</li>
-<li><a href="SandboxieTrace.html">FuncSkipHook</a> —— 控制不应被挂钩的函数</li>
-<li><a href="SandboxieTrace.html">SkipHook</a> —— 按模块粒度配置跳过挂钩</li>
+<li><a href="SandboxieTrace.html">DebugTrace</a> —— Sandboxie 组件的通用调试输出</li>
+<li><a href="SandboxieTrace.html">跳过函数钩子</a> —— 控制不应被挂钩的函数</li>
+<li><a href="SandboxieTrace.html">跳过钩子</a> —— 按模块粒度配置跳过挂钩</li>
 </ul>
 <div class="footnote">
 <hr />
