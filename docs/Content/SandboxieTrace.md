@@ -75,6 +75,39 @@ IpcTrace=AD
 
 `NetFwTrace` is marked disabled in the current settings metadata. Limited user-mode network diagnostic remnants remain, but the old WFP/firewall logging path is not a functional, complete firewall trace. A **Network Firewall** trace checkbox may still be visible in SandMan; it should not be treated as a general WFP packet or firewall-decision logger. Remove an explicit entry rather than relying on `NetFwTrace=n` as a manual disable form.
 
+## Troubleshooting a denied resource
+
+A denied trace record does not by itself mean that access should be allowed. Many denied operations are expected and harmless. Test a configuration change only when the event plausibly correlates with the application failure, and prefer the narrowest resource-specific rule. Opening host resources can reduce sandbox isolation.
+
+Use the resource type to identify the relevant configuration family:
+
+| Trace resource | Related access settings |
+| -------------- | ----------------------- |
+| Files, directories, volumes, and devices | [Open File Path](OpenFilePath.md), [Closed File Path](ClosedFilePath.md), [Read File Path](ReadFilePath.md) |
+| Registry keys | [Open Key Path](OpenKeyPath.md), [Closed Key Path](ClosedKeyPath.md), [Read Key Path](ReadKeyPath.md) |
+| Named pipes and mailslots | [Open Pipe Path](OpenPipePath.md) |
+| IPC and process-to-process objects | [Open Ipc Path](OpenIpcPath.md), [Closed Ipc Path](ClosedIpcPath.md) |
+| GUI and window access | [Open Win Class](OpenWinClass.md) |
+| COM classes | [Open Clsid](OpenClsid.md), [Closed Clsid Path](ClosedClsid.md) |
+
+For example, if a denied IPC event for `\BaseNamedObjects\Xyzzy` repeatedly appears at the time of a reproducible failure and there is a clear reason to test access to that object:
+
+```ini
+[DefaultBox]
+OpenIpcPath=\BaseNamedObjects\Xyzzy
+```
+
+A practical test is:
+
+1. Reproduce the problem while Trace Logging is active.
+2. Locate a denied event near the failure and identify its resource type.
+3. Decide whether that specific event plausibly explains the failure.
+4. If so, add the narrowest appropriate rule temporarily.
+5. Reload or apply the configuration as needed, restart the affected application, and reproduce the test.
+6. Compare the behavior and remove the rule if it does not solve the problem.
+
+Do not use broad `Open*` wildcards as a generic troubleshooting method. A trace category does not mechanically determine that one particular access rule is required.
+
 ## API-call tracing
 
 ### ApiTrace
@@ -157,6 +190,7 @@ The current runtime treats an explicit non-empty legacy value as enabled. Use Sa
 `MonitorStackTrace` is an effectively global monitor option and is disabled by default. When enabled before the monitor buffer is created, stack addresses are attached to records that pass through the common monitor path:
 
 ```ini
+[GlobalSettings]
 MonitorStackTrace=y
 ```
 
@@ -175,6 +209,7 @@ A service or driver restart is not normally required. `MonitorStackTrace` was in
 `TraceBufferPages` controls the allocation size of the shared trace/monitor buffer. The current configured default is `256`, and the value is read when monitoring starts:
 
 ```ini
+[GlobalSettings]
 TraceBufferPages=2560
 ```
 

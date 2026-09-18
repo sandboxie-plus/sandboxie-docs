@@ -35,6 +35,7 @@ While integrated Trace Logging is active, SandMan temporarily enables **Keep ter
 `TraceBufferPages` can request a larger shared monitor buffer. For example:
 
 ```ini
+[GlobalSettings]
 TraceBufferPages=2560
 ```
 
