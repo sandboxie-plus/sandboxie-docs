@@ -10,13 +10,13 @@
 
 [允许原始磁盘读取](AllowRawDiskRead.md)
 
-[允许打印后台处理服务打印到文件](AllowSpoolerPrintToFile.md)
+[允许后台打印程序打印到文件](AllowSpoolerPrintToFile.md)
 
 [外观设置](AppearanceSettings.md)
 
 [应用程序设置](ApplicationsSettings.md)
 
-[应用支持者证书](../PlusContent/applying-supporter-certificate.md)
+[使用现代沙盒管理器界面申请支持者证书](../PlusContent/applying-supporter-certificate.md)
 
 [自动删除](AutoDelete.md)
 
@@ -24,19 +24,23 @@
 
 [自动恢复](AutoRecover.md)
 
-[自动恢复忽略项](AutoRecoverIgnore.md)
+[自动恢复忽略](AutoRecoverIgnore.md)
 
 ### B
 
+[绑定适配器](BindAdapter.md)
+
+[绑定适配器 IP](BindAdapterIP.md)
+
 ~~[阻止驱动程序](BlockDrivers.md)~~（自 Sandboxie v4.xx 起移除）
 
-~~[阻止伪输入](BlockFakeInput.md)~~（自 Sandboxie v4.xx 起移除）
+~~[阻止伪造输入](BlockFakeInput.md)~~（自 Sandboxie v4.xx 起移除）
 
 [阻止网络参数](BlockNetParam.md)
 
 [阻止网络文件访问](BlockNetworkFiles.md)
 
-~~[阻止密码更改](BlockPassword.md)~~（已废弃）
+~~[阻止密码更改](BlockPassword.md)~~（已过时）
 
 ~~[阻止端口](BlockPort.md)~~（自 Sandboxie v0.9.0 / 5.51.0 起移除）
 
@@ -48,21 +52,23 @@
 
 [边框颜色](BorderColor.md)
 
-[沙箱加密](../PlusContent/BoxEncryption.md)
+[沙盒别名](BoxAlias.md)
 
-[标题栏中的沙箱名称](BoxNameTitle.md)
+[加密沙盒](../PlusContent/BoxEncryption.md)
 
-[沙箱预设对比](../PlusContent/box-preset-comparison.md)
+[标题栏中的沙盒名称](BoxNameTitle.md)
 
-~~[沙箱根文件夹](BoxRootFolder.md)~~（自 Sandboxie v3.xx 起弃用）
+[沙盒预设对比](../PlusContent/box-preset-comparison.md)
 
-[沙箱快照](../PlusContent/BoxSnapshots.md)
+~~[沙盒根文件夹](BoxRootFolder.md)~~（自 Sandboxie v3.xx 起弃用）
+
+[沙盒快照（适用于 Sandboxie Plus）](../PlusContent/BoxSnapshots.md)
 
 [分离文档](BreakoutDocument.md)
 
 [分离文件夹](BreakoutFolder.md)
 
-[分离沙箱进程](BreakoutProcess.md)
+[分离沙盒进程](BreakoutProcess.md)
 
 ~~[字节顺序标记](ByteOrderMark.md)~~（自 Sandboxie v0.6.5 / 5.47.0 起移除）
 
@@ -70,9 +76,9 @@
 
 [封禁打印后台处理服务](ClosePrintSpooler.md)
 
-[封禁 CLSID](ClosedClsid.md)
+[关闭 Clsid](ClosedClsid.md)
 
-[封禁文件路径](ClosedFilePath.md)
+[封闭文件路径](ClosedFilePath.md)
 
 [封禁 IPC 路径](ClosedIpcPath.md)
 
@@ -84,9 +90,9 @@
 
 [隔离模式](../PlusContent/compartment-mode.md)
 
-[加密沙箱](ConfidentialBox.md)
+[加密沙盒](ConfidentialBox.md)
 
-[配置级别](ConfigLevel.md)
+[配置等级](ConfigLevel.md)
 
 [配置保护](ConfigurationProtection.md)
 
@@ -94,35 +100,51 @@
 
 [复制限制 Kb](CopyLimitKb.md)
 
-[复制限制静默模式](CopyLimitSilent.md)
+[复制限制静默](CopyLimitSilent.md)
 
-[Copy Newer（复制较新文件）](CopyNewer.md)
+[复制较新文件](CopyNewer.md)
 
-[覆盖沙箱窗口](CoverBoxedWindows.md)
+[覆盖沙盒窗口](CoverBoxedWindows.md)
 
-[自定义区域设置/语言ID](CustomLCID.md)
+[自定义 Chromium 启动参数](CustomChromiumFlags.md)
+
+[自定义区域设置/语言 ID](CustomLCID.md)
 
 ### D
 
+[默认文件夹](DefaultFolder.md)
+
 [删除命令](DeleteCommand.md)
 
-[删除沙箱](DeleteSandbox.md)
+[删除沙盒](DeleteSandbox.md)
 
 [删除设置](DeleteSettings.md)
 
-[删除-V2](Delete-V2.md)
+[删除 V2](Delete-V2.md)
 
-[已弃用/废弃/移除的 Sandboxie Ini 设置](DeprecatedSandboxieIniSettings.md)
+[已弃用/过时/已移除的 Sandboxie INI 设置](DeprecatedSandboxieIniSettings.md)
 
 [描述](Description.md)
 
 [检测键盘记录器](DetectingKeyLoggers.md)
 
+[禁用文件过滤器](DisableFileFilter.md)
+
+[禁用强制规则](DisableForceRules.md)
+
+[禁用键过滤](DisableKeyFilter.md)
+
+[禁用对象过滤器](DisableObjectFilter.md)
+
 [禁用 RT 黑名单](DisableRTBlacklist.md)
 
-[DNS 过滤](../PlusContent/DNSFilter.md)
+[磁盘序列号](DiskSerialNumber.md)
+
+[DNS 过滤器](../PlusContent/DNSFilter.md)
 
 [撤销管理员权限](DropAdminRights.md)
+
+[丢弃子进程令牌](DropChildProcessToken.md)
 
 ### E
 
@@ -130,11 +152,13 @@
 
 [编辑密码](EditPassword.md)
 
-[电子邮件保护](EmailProtection.md)
+[邮件防护](EmailProtection.md)
 
 [启用](Enabled.md)
 
-[可扩展变量](ExpandableVariables.md)
+[启用 EFS](EnableEFS.md)
+
+[可展开变量](ExpandableVariables.md)
 
 [外部教程](ExternalTutorials.md)
 
@@ -158,17 +182,25 @@
 
 [Firefox 技巧](FirefoxTips.md)
 
+[强制沙盒文档](ForceBoxDocs.md)
+
+[强制子进程](ForceChildren.md)
+
 [仅限管理员强制禁用](ForceDisableAdminOnly.md)
 
 [强制禁用等待秒数](ForceDisableSeconds.md)
 
-[强制入沙文件夹](ForceFolder.md)
+[强制文件夹](ForceFolder.md)
 
-[强制入沙进程](ForceProcess.md)
+[强制网络标记](ForceMarkOfTheWeb.md)
+
+[强制进程](ForceProcess.md)
 
 [忘记密码](ForgetPassword.md)
 
 [常见问题解答](FrequentlyAskedQuestions.md)
+
+[跳过函数钩子](FuncSkipHook.md)
 
 ### G
 
@@ -204,9 +236,11 @@
 
 [隐藏非系统进程](HideNonSystemProcesses.md)
 
-[隐藏其他沙箱](HideOtherBoxes.md)
+[隐藏其他沙盒](HideOtherBoxes.md)
 
-[隐藏沙盘进程](HideSbieProcesses.md)
+[隐藏 Sandboxie 进程](HideSbieProcesses.md)
+
+[Hook 跟踪](HookTrace.md)
 
 [工作原理](HowitWorks.md)
 
@@ -214,9 +248,11 @@
 
 ### I
 
-[ImDisk 集成](../PlusContent/imdisk.md)
+[ImDisk](../PlusContent/imdisk.md)
 
 [即时恢复](ImmediateRecovery.md)
+
+[导入沙盒](ImportBox.md)
 
 [注入 Dll](InjectDll.md)
 
@@ -224,7 +260,7 @@
 
 [Internet Explorer 使用技巧](InternetExplorerTips.md)
 
-[IPC 根路径](IpcRootPath.md)
+[IPC 根目录](IpcRootPath.md)
 
 [隔离机制](IsolationMechanism.md)
 
@@ -232,21 +268,27 @@
 
 ### K
 
-[注册表项根路径](KeyRootPath.md)
+[注册表根路径](KeyRootPath.md)
 
 [已知冲突](KnownConflicts.md)
 
 ### L
 
-[主导进程](LeaderProcess.md)
+[引导进程](LeaderProcess.md)
 
 [窗口驻留豁免](LingerExemptWnds.md)
 
 [驻留进程](LingerProcess.md)
 
+[将沙盒锁定到用户](LockBoxToUser.md)
+
+[日志消息事件](LogMessageEvents.md)
+
 ### M
 
-[来自沙盘的消息](MessagesFromSandboxie.md)
+[网络标记沙盒](MarkOfTheWebBox.md)
+
+[来自 Sandboxie 的消息](MessagesFromSandboxie.md)
 
 [仅限管理员监视](MonitorAdminOnly.md)
 
@@ -254,11 +296,17 @@
 
 ### N
 
+[网络适配器 MAC](NetworkAdapterMAC.md)
+
 [网络 DNS 过滤](NetworkDnsFilter.md)
 
-[永不删除](NeverDelete.md)
+[从不删除](NeverDelete.md)
 
 [不重命名窗口类](NoRenameWinClass.md)
+
+[无安全过滤](NoSecurityFiltering.md)
+
+[无安全隔离](NoSecurityIsolation.md)
 
 [标准文件路径](NormalFilePath.md)
 
@@ -268,13 +316,13 @@
 
 [直接磁盘访问时通知](NotifyDirectDiskAccess.md)
 
-[互联网访问被拒时通知](NotifyInternetAccessDenied.md)
+[互联网访问被拒绝时通知](NotifyInternetAccessDenied.md)
 
-[进程访问被拒时通知](NotifyProcessAccessDenied.md)
+[进程访问被拒绝时通知](NotifyProcessAccessDenied.md)
 
 [启动/运行访问被拒绝时通知](NotifyStartRunAccessDenied.md)
 
-[NT 命名空间隔离](NtNamespaceIsolation.md)
+[Nt 命名空间隔离](NtNamespaceIsolation.md)
 
 [NT 状态码](NtStatusCodes.md)
 
@@ -282,7 +330,7 @@
 
 [开放剪贴板](OpenClipboard.md)
 
-[开放 CLSID](OpenClsid.md)
+[开放 Clsid](OpenClsid.md)
 
 [开放配置路径](OpenConfPath.md)
 
@@ -292,13 +340,13 @@
 
 [开放 IPC 路径](OpenIpcPath.md)
 
-[开放注册表项路径](OpenKeyPath.md)
+[开放注册表路径](OpenKeyPath.md)
 
 [开放管道路径](OpenPipePath.md)
 
-[开放打印后台处理服务](OpenPrintSpooler.md)
+[开放打印后台处理程序](OpenPrintSpooler.md)
 
-[开放受保护存储](OpenProtectedStorage.md)
+[开放受保护的存储](OpenProtectedStorage.md)
 
 [开放窗口类](OpenWinClass.md)
 
@@ -308,7 +356,7 @@
 
 [弹出消息日志](PopupMessageLog.md)
 
-[便携式沙箱](PortableSandbox.md)
+[便携式沙盒](PortableSandbox.md)
 
 [隐私问题](PrivacyConcerns.md)
 
@@ -330,9 +378,11 @@
 
 [程序视图](ProgramsView.md)
 
-[文件迁移提示](PromptForFileMigration.md)
+[提示文件迁移](PromptForFileMigration.md)
 
-[仅限管理员访问加密沙盘数据](ProtectAdminOnly.md)
+[安全桌面上的提示](PromptOnSecureDesktop.md)
+
+[仅限管理员访问加密沙盒数据](ProtectAdminOnly.md)
 
 [保护主机镜像](ProtectHostImages.md)
 
@@ -350,13 +400,13 @@
 
 [内存虚拟磁盘大小 (KB)](RamDiskSizeKb.md)
 
-[内存虚拟磁盘沙箱](../PlusContent/RamDiskSupport.md)
+[内存盘沙盒](../PlusContent/RamDiskSupport.md)
 
-[随机注册表UID](RandomRegUID.md)
+[随机注册表 UID](RandomRegUID.md)
 
 [勒索软件](Ransomware.md)
 
-[读取文件路径](ReadFilePath.md)
+[只读文件路径](ReadFilePath.md)
 
 [读取 IPC 路径](ReadIpcPath.md)
 
@@ -368,7 +418,7 @@
 
 [资源访问](ResourceAccess.md)
 
-[Sandboxie Classic 的资源访问监视器](ResourceAccessMonitor.md)
+[资源访问监视器（适用于 Sandboxie 经典版）](ResourceAccessMonitor.md)
 
 [资源访问设置](ResourceAccessSettings.md)
 
@@ -378,15 +428,15 @@
 
 ### S
 
-[沙箱层级](SandboxHierarchy.md)
+[沙盒层级](SandboxHierarchy.md)
 
-[沙箱菜单](SandboxMenu.md)
+[沙盒菜单](SandboxMenu.md)
 
-[沙箱设置](SandboxSettings.md)
+[沙盒设置](SandboxSettings.md)
 
 [Sandboxie](Sandboxie.md)
 
-[沙箱控制面板](SandboxieControl.md)
+[沙盒管理器](SandboxieControl.md)
 
 [Sandboxie Ini](SandboxieIni.md)
 
@@ -398,13 +448,13 @@
 
 [Sandboxie Plus 迁移指南](PlusMigrationGuide.md)
 
-[Sandboxie Plus 界面特性](../PlusContent/Plus-Features.md)
+[Sandboxie Plus 用户界面功能](../PlusContent/Plus-Features.md)
 
 [Sandboxie 便携版](../PlusContent/sandboxie-portable.md)
 
 [Sandboxie 跟踪](SandboxieTrace.md)
 
-[SandboxieDrv 对未公开内核导出的使用](TokenMagic.md)
+[SandboxieDrv 使用未公开的内核导出函数实现其令牌魔法](TokenMagic.md)
 
 [SBIE DLL API](SBIEDLLAPI.md)
 
@@ -466,11 +516,11 @@
 
 [SBIE1213](SBIE1213.md)
 
-~~[SBIE1214](SBIE1214.md)~~（已废弃）
+~~[SBIE1214](SBIE1214.md)~~（已过时）
 
-~~[SBIE1215](SBIE1215.md)~~（已废弃）
+~~[SBIE1215](SBIE1215.md)~~（已过时）
 
-~~[SBIE1216](SBIE1216.md)~~（已废弃）
+~~[SBIE1216](SBIE1216.md)~~（已过时）
 
 [SBIE1222](SBIE1222.md)
 
@@ -480,13 +530,13 @@
 
 [SBIE1241](SBIE1241.md)
 
-~~[SBIE1242](SBIE1242.md)~~（自 Sandboxie 0.9.0 / 5.51.0 起废弃）
+~~[SBIE1242](SBIE1242.md)~~（自 0.9.0 / 5.51.0 版本起已弃用）
 
 [SBIE1301](SBIE1301.md)
 
-~~[SBIE1303](SBIE1303.md)~~（自 Sandboxie 5.31.4 起废弃）
+~~[SBIE1303](SBIE1303.md)~~（自 5.31.4 版本起已弃用）
 
-~~[SBIE1304](SBIE1304.md)~~（已废弃）
+~~[SBIE1304](SBIE1304.md)~~（已过时）
 
 [SBIE1306](SBIE1306.md)
 
@@ -494,11 +544,11 @@
 
 [SBIE1308](SBIE1308.md)
 
-~~[SBIE1309](SBIE1309.md)~~（已废弃）
+~~[SBIE1309](SBIE1309.md)~~（已过时）
 
-~~[SBIE1310](SBIE1310.md)~~（自 Sandboxie 5.31.4 起废弃）
+~~[SBIE1310](SBIE1310.md)~~（自 5.31.4 版本起已弃用）
 
-~~[SBIE1311](SBIE1311.md)~~（已废弃）
+~~[SBIE1311](SBIE1311.md)~~（已过时）
 
 [SBIE1312](SBIE1312.md)
 
@@ -542,7 +592,7 @@
 
 [SBIE2192](SBIE2192.md)
 
-~~[SBIE2193](SBIE2193.md)~~（自 Sandboxie 1.0.14 / 5.55.14 起废弃）
+~~[SBIE2193](SBIE2193.md)~~（自 1.0.14 / 5.55.14 版本起已弃用）
 
 [SBIE2202](SBIE2202.md)
 
@@ -583,6 +633,8 @@
 [SBIE2222](SBIE2222.md)
 
 [SBIE2223](SBIE2223.md)
+
+[SBIE2225](SBIE2225.md)
 
 [SBIE2303](SBIE2303.md)
 
@@ -626,6 +678,10 @@
 
 [SBIE2327](SBIE2327.md)
 
+[SBIE2328](SBIE2328.md)
+
+[SBIE2329](SBIE2329.md)
+
 [SBIE2331](SBIE2331.md)
 
 [SBIE2332](SBIE2332.md)
@@ -637,6 +693,12 @@
 [SBIE3208](SBIE3208.md)
 
 [SBIE3209](SBIE3209.md)
+
+[SBIE6004](SBIE6004.md)
+
+[SBIE6008](SBIE6008.md)
+
+[SBIE6009](SBIE6009.md)
 
 [SBIE9101](SBIE9101.md)
 
@@ -674,7 +736,9 @@
 
 [SBIE9305](SBIE9305.md)
 
-[安全删除沙箱](SecureDeleteSandbox.md)
+[SbieIni 命令行](SbieIniCommandLine.md)
+
+[安全删除沙盒](SecureDeleteSandbox.md)
 
 [安全强化模式](../PlusContent/security-mode.md)
 
@@ -684,7 +748,11 @@
 
 [个人文件夹](ShellFolders.md)
 
-[运行时显示在候选沙箱列表中](ShowForRunIn.md)
+[运行时显示在候选沙盒列表中](ShowForRunIn.md)
+
+[跳过钩子](SkipHook.md)
+
+[特殊图像分类](SpecialImage.md)
 
 [启动命令行](StartCommandLine.md)
 
@@ -700,23 +768,27 @@
 
 [技术细节](TechnicalAspects.md)
 
-[测试电子邮件配置](TestEmailConfiguration.md)
+[测试邮件配置](TestEmailConfiguration.md)
 
-[跟踪日志](../PlusContent/TraceLog.md)
+[跟踪日志（适用于 Sandboxie Plus）](../PlusContent/TraceLog.md)
 
 [翻译](../PlusContent/translations.md)
 
-[系统托盘图标菜单](TrayIconMenu.md)
+[托盘图标菜单](TrayIconMenu.md)
 
 ### U
 
 [使用技巧](UsageTips.md)
 
-[USB 沙箱化](../PlusContent/USBSandboxing.md)
+[USB 沙盒化](../PlusContent/USBSandboxing.md)
 
-[在快速恢复中应用自动恢复忽略](UseAutoRecoverIgnoreForQuick.md)
+[对快速恢复使用自动恢复忽略](UseAutoRecoverIgnoreForQuick.md)
 
 [使用文件映像](UseFileImage.md)
+
+[使用非恶意 HWND 修补方案](UseNonRudeHwndHack.md)
+
+[使用原始 ACL](UseOriginalACLs.md)
 
 [使用隐私模式](UsePrivacyMode.md)
 
@@ -724,7 +796,7 @@
 
 [使用规则特异性](UseRuleSpecificity.md)
 
-[使用沙盒 UAC](UseSandboxieUAC.md)
+[使用 Sandboxie UAC](UseSandboxieUAC.md)
 
 [使用 SbieDesk Hack](UseSbieDeskHack.md)
 
@@ -744,7 +816,7 @@
 
 [Windows XP 模式](WindowsXPMode.md)
 
-[写入文件路径](WriteFilePath.md)
+[只写文件路径](WriteFilePath.md)
 
 [写入注册表项路径](WriteKeyPath.md)
 
@@ -752,6 +824,6 @@
 
 ### Y
 
-[是或否设置](YesOrNoSettings.md)
+[是/否设置](YesOrNoSettings.md)
 
 ### Z

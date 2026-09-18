@@ -1,11 +1,11 @@
 # 开放注册表路径
 
-_OpenKeyPath_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置。它用于指定一个路径模式，沙盘不会对该路径下的注册表键应用沙箱隔离，从而允许受沙箱保护的程序直接访问并更新 _沙箱外部_ 的系统设置。此设置本质上是在特定的注册表键位置为沙箱“打了一个洞”。
+_OpenKeyPath_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一项沙盒设置。它指定路径模式，Sandboxie 对这些路径的注册表项不应用沙盒化。这让沙盒化程序可以直接访问并更新_沙盒外_的系统设置。本质上，此设置是在沙盒的某个特定注册表项位置_凿了一个洞_。
 
 可以指定 [程序名称前缀](ProgramNamePrefix.md)。
 
 示例：
-```ini
+```
    .
    .
    .
@@ -14,12 +14,12 @@ _OpenKeyPath_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置。�
    OpenKeyPath=firefox.exe,HKEY_CURRENT_USER\Software\Mozilla
 ```
 
-上述示例允许 Firefox 程序（firefox.exe）可以直接访问 Mozilla 的注册表键树（包括系统范围和当前用户范围的注册表树）。
+这些示例让 Firefox 程序 _firefox.exe_ 可以直接访问 Mozilla 注册表项树（系统级和用户级注册表树都包括）。
 
-_OpenKeyPath_ 的取值支持通配符，虽然对于注册表键，通常很少需要使用通配符。关于更多信息，包括使用通配符的示例，请参考 [OpenFilePath](OpenFilePath.md)。(_OpenFilePath_ 针对的是文件，而不是注册表键，但通配符的使用原理是相同的。)
+_OpenKeyPath_ 指定的值可以包含通配符，不过对注册表项而言，很少需要使用通配符。更多信息（包括展示通配符用法的示例）参见 [开放文件路径](OpenFilePath.md)。（_OpenFilePath_ 处理的是文件而非注册表项，但使用通配符的原理相同。）
 
-**注意：**出于安全原因，当程序可执行文件位于沙箱内部时，此设置不会生效。这意味着在你的计算机上下载并运行的（潜在恶意的）软件无法利用该设置。
+**注意：** 出于安全原因，当程序可执行文件位于沙盒内时，此设置不适用。这意味着下载到计算机中并执行的（可能恶意的）软件，无法利用此设置。
 
-相关的 [沙盘控制](SandboxieControl.md) 设置： [沙箱设置 > 资源访问 > 注册表访问 > 直接访问](ResourceAccessSettings.md#registry-access--direct-access)
+相关 [沙盒管理器](SandboxieControl.md) 设置：[沙盒设置 > 资源访问 > 注册表访问 > 直接访问](ResourceAccessSettings.md#注册表访问-直接访问)
 
-相关的 Sandboxie Plus 设置： 沙箱选项 > 资源访问 > 注册表 > 添加注册表键 > 访问列 > 开放
+相关 Sandboxie Plus 设置：沙盒选项 > 资源访问 > 注册表 > 添加注册表项 > 访问列 > 开放

@@ -122,13 +122,13 @@ The Delete Options have been moved to the sub tab "File Options" of the tab "Gen
 
 ![](../Media/Migration/19.png)
 
-The "Delete Command" option can now be found on the sub tab "Triggers" of the tab "Advanced Options".
+SandMan provides [`OnBoxDelete`](SandManTriggers.md#onboxdelete) under **Advanced Options > Triggers** for host-side pre-cleanup automation. The legacy `DeleteCommand` setting remains associated with Sandboxie Control Classic/`Start.exe` and is not the same mechanism.
 
 ## Program Groups
 
 ![](../Media/Migration/20.png)
 
-The new UI supports groups just like the old one.
+SandMan supports hierarchical box groups and manages them directly in its main sandbox tree. Current SandMan stores the layout using [`BoxGrouping`](BoxGrouping.md), while Sandboxie Control Classic uses the legacy `BoxDisplayOrder` format. When no `BoxGrouping` mapping is available, SandMan can use the legacy hierarchy as a fallback, but the two formats are not continuously synchronized.
 
 ## Forced Programs and Folders
 

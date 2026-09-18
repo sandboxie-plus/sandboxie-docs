@@ -1,10 +1,10 @@
-# Auto Exec
+# 自动执行
 
-_AutoExec_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置。它指定了一组命令，这些命令会在沙箱每次被初始填充时执行。
+_AutoExec_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一项沙盒设置。它指定每次沙盒最初被填充时执行的一系列命令。
 
 示例：
 
-```ini
+```
    .
    .
    .
@@ -13,16 +13,16 @@ _AutoExec_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置。它�
    AutoExec=cmd /c del /f "%windir%\system32\someExploitableDLL.dll"
 ```
 
-第一个示例展示了如何使用 _AutoExec_ 以某种方式填充沙箱注册表。第二个示例则展示了如何使用 _AutoExec_ 删除不需要的 DLL 文件。在这两种情况下，所有定制操作都只发生在沙箱内部。
+第一个示例展示用 _AutoExec_ 以某种方式填充沙盒化的注册表。第二个示例展示用 _AutoExec_ 删除不需要的 DLL 文件。两种情况下，定制都只发生在沙盒内。
 
-对于同一个沙箱，可以指定多个 _AutoExec_ 设置。列出的命令会依次执行。这些命令（无论是一条还是多条）在某个特定沙箱的生命周期内只会执行 _一次_。如果希望 Sandboxie 再次执行这些命令，必须删除该沙箱。
+可以为单个沙盒指定多个 _AutoExec_ 设置。列出的命令逐条执行。这些命令（无论是一条还是任意多条）在特定沙盒的整个生命周期中只执行_一次_。要让 Sandboxie 再次执行这些命令，必须删除沙盒。
 
-即使命令执行失败，也不会再次执行，除非删除该沙箱。
+即使命令执行失败也是如此——除非沙盒被删除，否则它不会再次执行。
 
-目前，对于该设置，没有对应的 [Sandboxie Control](SandboxieControl.md) 配置选项
+目前，没有对应的 [沙盒管理器](SandboxieControl.md) 配置用于此设置。
 
 **技术细节**
 
-每个 _AutoExec_ 命令在被 Sandboxie 执行时，都会被记录到该沙箱的注册表中，具体路径为 _HKEY_CURRENT_USER\Software\SandboxieAutoExec_。
+每条 _AutoExec_ 命令被 Sandboxie 执行时，都会记录在该沙盒的注册表中，位于项 _HKEY_CURRENT_USER\Software\SandboxieAutoExec_。
 
-如果某个命令已经被记录在沙箱注册表中，则不会再次执行。因此，清除沙箱会删除所有已记录的 _AutoExec_ 命令，这样在下次有任何程序以沙箱模式启动时，这些命令会再次被执行。同时，也可以通过手动从该沙箱注册表键中删除相应命令，使其再次执行。
+如果命令已记录在沙盒化注册表中，则不会执行。因此，删除沙盒会清除所有已记录的 _AutoExec_ 命令，使它们在下次任何沙盒化程序在该沙盒中启动时再次执行。但也可以手动从该沙盒化注册表项中删除命令，让它们再次执行。

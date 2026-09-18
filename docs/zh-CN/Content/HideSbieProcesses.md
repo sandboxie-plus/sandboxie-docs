@@ -1,8 +1,8 @@
-# 隐藏沙盘进程
+# 隐藏 Sandboxie 进程
 
-HideSbieProcesses 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置。
+隐藏 Sandboxie 进程是 [Sandboxie Ini](SandboxieIni.md) 中的一项沙盒设置。
 
-```ini
+```
    .
    .
    .
@@ -10,6 +10,6 @@ HideSbieProcesses 是 [Sandboxie Ini](SandboxieIni.md) 中的一个沙箱设置�
    HideSbieProcesses=y
 ```
 
-使用 `HideSbieProcesses=y` 选项可以隐藏沙盘工作进程（例如 SbieSvc、SandboxieRpcSs 等）
+使用“HideSbieProcesses=y”选项可隐藏 Sandboxie 工作进程（SbieSvc、SandboxieRpcSs 等）。
 
-相关的 [Sandboxie Ini](SandboxieIni.md) 设置项：[隐藏主机进程](HideHostProcess.md)、[隐藏非系统进程](HideNonSystemProcesses.md)
+相关 [Sandboxie Ini](SandboxieIni.md) 设置项：[隐藏宿主进程](HideHostProcess.md)、[隐藏非系统进程](HideNonSystemProcesses.md)

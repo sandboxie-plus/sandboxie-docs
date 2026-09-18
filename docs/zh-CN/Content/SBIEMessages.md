@@ -1,6 +1,6 @@
 # SBIE 消息
 
-Sandboxie 消息可能会发布到[系统事件日志](SystemEventLog.md)或[弹出消息日志](PopupMessageLog.md)中。这并非完整列表。如需更多信息，请查看我们的 [GitHub 仓库](https://github.com/sandboxie-plus/Sandboxie)。
+Sandboxie 消息可能会发布到 [系统事件日志](SystemEventLog.md) 或 [弹出消息日志](PopupMessageLog.md) 中。这并非完整列表。如需更多信息，请查看我们的 [GitHub 仓库](https://github.com/sandboxie-plus/Sandboxie)。
 
 一些消息属于信息类，用于通知已发生的常见事件，或在某些情况下的特殊事件。其他消息则表示错误情况。
 

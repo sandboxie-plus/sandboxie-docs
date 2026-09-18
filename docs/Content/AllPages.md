@@ -2,11 +2,17 @@
 
 ### A
 
+[Access Token Isolation](AccessTokenIsolation.md)
+
 [Advanced Topics](AdvancedTopics.md)
+
+[Alert Before Start](AlertBeforeStart.md)
 
 [Alert Folder](AlertFolder.md)
 
 [Alert Process](AlertProcess.md)
+
+[Allow Cover Taskbar](AllowCoverTaskbar.md)
 
 [Allow Raw Disk Read](AllowRawDiskRead.md)
 
@@ -19,6 +25,8 @@
 [Applying a Supporter Certificate](../PlusContent/applying-supporter-certificate.md)
 
 [Auto Delete](AutoDelete.md)
+
+[Auto Delete Snapshot Target](AutoDeleteSnapshotTarget.md)
 
 [Auto Exec](AutoExec.md)
 
@@ -35,6 +43,10 @@
 ~~[Block Drivers](BlockDrivers.md)~~ (removed since Sandboxie v4.xx)
 
 ~~[Block Fake Input](BlockFakeInput.md)~~ (removed since Sandboxie v4.xx)
+
+[Block Interfere Power](BlockInterferePower.md)
+
+[Block Interference Control](BlockInterferenceControl.md)
 
 [Block Local Loop](BlockLocalLoop.md)
 
@@ -54,9 +66,13 @@
 
 [Border Color](BorderColor.md)
 
+[Border Exclude Taskbar](BorderExcludeTaskbar.md)
+
 [Box Alias](BoxAlias.md)
 
 [Box Encryption](../PlusContent/BoxEncryption.md)
+
+[Box Grouping](BoxGrouping.md)
 
 [Box Name Title](BoxNameTitle.md)
 
@@ -100,6 +116,12 @@
 
 [Configure Menu](ConfigureMenu.md)
 
+[Copy Always](CopyAlways.md)
+
+[Copy Block Deny Write](CopyBlockDenyWrite.md)
+
+[Copy Empty](CopyEmpty.md)
+
 [Copy Limit Kb](CopyLimitKb.md)
 
 [Copy Limit Silent](CopyLimitSilent.md)
@@ -107,6 +129,10 @@
 [Copy Newer](CopyNewer.md)
 
 [Cover Boxed Windows](CoverBoxedWindows.md)
+
+[CPU Affinity Mask](CpuAffinityMask.md)
+
+[CPU Rate Limit](CpuRateLimit.md)
 
 [Custom Chromium Flags](CustomChromiumFlags.md)
 
@@ -143,6 +169,8 @@
 [Disk Serial Number](DiskSerialNumber.md)
 
 [DNS Filter](../PlusContent/DNSFilter.md)
+
+[Don't Copy](DontCopy.md)
 
 [Drop Admin Rights](DropAdminRights.md)
 
@@ -228,6 +256,8 @@
 
 [Help Topics](HelpTopics.md)
 
+[Hide Borders From Capture](HideBordersFromCapture.md)
+
 [Hide Disk Serial Number](HideDiskSerialNumber.md)
 
 [Hide Firmware Info](HideFirmwareInfo.md)
@@ -245,6 +275,8 @@
 [Hide Sandboxie Processes](HideSbieProcesses.md)
 
 [Hook Trace](HookTrace.md)
+
+[Host Injection](HostInjection.md)
 
 [How It Works](HowitWorks.md)
 
@@ -322,6 +354,8 @@
 
 [Notify Internet Access Denied](NotifyInternetAccessDenied.md)
 
+[Notify No Copy](NotifyNoCopy.md)
+
 [Notify Process Access Denied](NotifyProcessAccessDenied.md)
 
 [Notify Start Run Access Denied](NotifyStartRunAccessDenied.md)
@@ -372,6 +406,10 @@
 
 ~~[Process Limit 2](ProcessLimit2.md)~~ (removed since Sandboxie v0.7.1 / 5.48.5)
 
+[Process Memory Limit](ProcessMemoryLimit.md)
+
+[Process Number Limit](ProcessNumberLimit.md)
+
 [Program Name Prefix](ProgramNamePrefix.md)
 
 [Program Settings](ProgramSettings.md)
@@ -383,6 +421,8 @@
 [Programs View](ProgramsView.md)
 
 [Prompt For File Migration](PromptForFileMigration.md)
+
+[Prompt For Internet Access](PromptForInternetAccess.md)
 
 [Prompt On Secure Desktop](PromptOnSecureDesktop.md)
 
@@ -432,11 +472,15 @@
 
 ### S
 
+[Sandbox Desktop and Window Station](SandboxDesktop.md)
+
 [Sandbox Hierarchy](SandboxHierarchy.md)
 
 [Sandbox Menu](SandboxMenu.md)
 
 [Sandbox Settings](SandboxSettings.md)
+
+[Sandboxed Services](SandboxedServices.md)
 
 [Sandboxie](Sandboxie.md)
 
@@ -448,6 +492,8 @@
 
 [Sandboxie Live](../PlusContent/Sandboxie-Live.md)
 
+[Sandboxie Logon](SandboxieLogon.md)
+
 [Sandboxie Plus](../PlusContent/sandboxie-plus.md)
 
 [Sandboxie Plus Migration Guide](PlusMigrationGuide.md)
@@ -458,7 +504,8 @@
 
 [Sandboxie Trace](SandboxieTrace.md)
 
-[SandboxieDrv use of undocumented kernel exports](TokenMagic.md)
+
+[SandMan Triggers](SandManTriggers.md)
 
 [SBIE DLL API](SBIEDLLAPI.md)
 
@@ -766,6 +813,8 @@
 
 [Supporter Certificate](../PlusContent/supporter-certificate.md)
 
+[System Endpoints](SystemEndpoints.md)
+
 [System Event Log](SystemEventLog.md)
 
 ### T
@@ -773,6 +822,10 @@
 [Technical Aspects](TechnicalAspects.md)
 
 [Test Email Configuration](TestEmailConfiguration.md)
+
+[Token and Syscall Internals](TokenMagic.md)
+
+[Total Memory Limit](TotalMemoryLimit.md)
 
 [Trace logging](../PlusContent/TraceLog.md)
 
@@ -788,6 +841,10 @@
 
 [Use Auto Recover Ignore For Quick](UseAutoRecoverIgnoreForQuick.md)
 
+[Use Electron Detection](UseElectronDetection.md)
+
+[Use Fake Shell Dispatch](UseFakeShellDispatch.md)
+
 [Use File Image](UseFileImage.md)
 
 [Use Non Rude Hwnd Hack](UseNonRudeHwndHack.md)
@@ -801,8 +858,6 @@
 [Use Rule Specificity](UseRuleSpecificity.md)
 
 [Use Sandboxie UAC](UseSandboxieUAC.md)
-
-[Use SbieDesk Hack](UseSbieDeskHack.md)
 
 [Use Security Mode](UseSecurityMode.md)
 

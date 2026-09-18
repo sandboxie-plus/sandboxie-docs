@@ -3,7 +3,7 @@
 Sandboxie 采用了一种特别底层的方式，在进程创建期间将其代码注入目标进程。
 
 ##### 触发机制
-驱动程序注册了一个 PsSetCreateProcessNotifyRoutine 回调，当该回调被触发时，会检查该进程是否应被放入沙箱。如果决定需要沙箱化，则会阻塞并请求 SbieSvc 服务向进程映像注入加载器。另一种方式是先创建一个挂起状态的进程，通过 API_START_PROCESS 通知驱动将其放入沙箱，待驱动完成后再恢复进程运行。
+驱动程序注册了一个 PsSetCreateProcessNotifyRoutine 回调，当该回调被触发时，会检查该进程是否应被放入沙盒。如果决定需要沙盒化，则会阻塞并请求 SbieSvc 服务向进程映像注入加载器。另一种方式是先创建一个挂起状态的进程，通过 API_START_PROCESS 通知驱动将其放入沙盒，待驱动完成后再恢复进程运行。
 
 注入机制本身可以调整为无需驱动即可使用。自 5.44 版本起，加载器代码已从 SbieSvc.exe 移至 SbieDll.dll。
 
@@ -75,4 +75,4 @@ SbieDll.dll hook 入口点 `Dll_Ordinal1` 首先从作为第一个参数传入�
 
 ##### Ldr_Inject_Entry
 
-该函数首先通过 `SbieDll!Ldr_Inject_SaveBytes` 恢复原入口点函数的初始内容，并将调用者返回地址改为指向入口点起始处，这样一旦返回即可正式执行真实入口点。然后函数判断 `bHostInject` 是否为 0，若为 0，则先调用 `SbieDll!Ldr_LoadInjectDlls`，然后调用 `SbieDll!Dll_InitExeEntry` 完成最后的初始化步骤。若 `bHostInject != 0`，则仅调用 `SbieDll!Ldr_LoadInjectDlls`，该函数会检查 [Sandboxie.ini](SandboxieIni.md) 的 [InjectDll](InjectDll.md) 或 [InjectDll64](InjectDll64.md) 配置项，如配置有其他需要加载的 dll，则一并加载。
+该函数首先通过 `SbieDll!Ldr_Inject_SaveBytes` 恢复原入口点函数的初始内容，并将调用者返回地址改为指向入口点起始处，这样一旦返回即可正式执行真实入口点。然后函数判断 `bHostInject` 是否为 0，若为 0，则先调用 `SbieDll!Ldr_LoadInjectDlls`，然后调用 `SbieDll!Dll_InitExeEntry` 完成最后的初始化步骤。若 `bHostInject != 0`，则仅调用 `SbieDll!Ldr_LoadInjectDlls`，该函数会检查 [Sandboxie.ini](SandboxieIni.md) 的 [注入 Dll](InjectDll.md) 或 [注入 Dll64](InjectDll64.md) 配置项，如配置有其他需要加载的 dll，则一并加载。

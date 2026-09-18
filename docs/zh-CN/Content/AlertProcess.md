@@ -1,6 +1,6 @@
 # 警报进程
 
-_AlertProcess_ 是 [Sandboxie Ini](SandboxieIni.md) 文件中的一个全局设置。它指定的程序名称，如果在沙箱之外启动，会导致 Sandboxie 发出 [SBIE1301](SBIE1301.md) 警告消息。
+_AlertProcess_ 是 [Sandboxie Ini](SandboxieIni.md) 文件中的一个全局设置。它指定的程序名称，如果在沙盒之外启动，会导致 Sandboxie 发出 [SBIE1301](SBIE1301.md) 警告消息。
 
 用法:
 ```ini
@@ -12,9 +12,9 @@ AlertProcess=iexplore.exe
 AlertProcess=firefox.exe
 ```
 
-相关 [沙箱控制](SandboxieControl.md) 设置：
+相关 [沙盒管理器](SandboxieControl.md) 设置：
 * [程序设置](ProgramSettings.md)
-* [配置菜单 > 程序警报](ConfigureMenu.md#program-alerts)
+* [配置菜单 > 程序警报](ConfigureMenu.md#程序警报)
 
 相关 Sandboxie Plus 设置：
 * 选项菜单 > 全局设置 > 程序控制 > 程序警报

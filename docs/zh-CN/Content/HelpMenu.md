@@ -1,24 +1,24 @@
 # 帮助菜单
 
-[沙盘控制](SandboxieControl.md) > 帮助菜单
+[沙盒管理器](SandboxieControl.md) > 帮助菜单
 
 ![](../Media/HelpMenu.png)
 
 * * *
 
-### 帮助主题（网页）
+### 帮助主题（网页版）
 
-[沙盘控制](SandboxieControl.md) > [帮助菜单](HelpMenu.md) > 帮助主题（网页）
+[沙盒管理器](SandboxieControl.md) > [帮助菜单](HelpMenu.md) > 帮助主题（网页版）
 
-在网页浏览器中打开本在线文档的 [帮助主题](HelpTopics.md) 页面。将弹出一个窗口，询问是否应让网页浏览器在沙盘的监督下运行（推荐）或不运行。请参见下文的 [快速入门教程（网页）](HelpMenu.md#getting-started-tutorial-web)。
+在本在线文档的 [帮助主题](HelpTopics.md) 页面打开网页浏览器。会打开一个窗口，询问网页浏览器是否应在 Sandboxie 的监管下运行（推荐）还是不运行。参见下文 [入门教程（网页版）](HelpMenu.md#入门教程-网页版)。
 
 * * *
 
-### 快速入门教程（网页）
+### 入门教程（网页版）
 
-[沙盘控制](SandboxieControl.md) > [帮助菜单](HelpMenu.md) > 快速入门教程（网页）
+[沙盒管理器](SandboxieControl.md) > [帮助菜单](HelpMenu.md) > 入门教程（网页版）
 
-在网页浏览器中打开本在线文档的 [快速入门](GettingStarted.md) 页面。将弹出一个窗口，询问是否应让网页浏览器在沙盘的监督下运行（推荐）或不运行：
+在本在线文档的 [入门指南](GettingStarted.md) 页面打开网页浏览器。会打开一个窗口，询问网页浏览器是否应在 Sandboxie 的监管下运行（推荐）还是不运行：
 
 ![](../Media/OpenGettingStarted.png)
 
@@ -26,26 +26,26 @@
 
 ### 检查更新
 
-[沙盘控制](SandboxieControl.md) > [帮助菜单](HelpMenu.md) > 检查更新
+[沙盒管理器](SandboxieControl.md) > [帮助菜单](HelpMenu.md) > 检查更新
 
-该命令会检查沙盘官方网站上是否发布了比本机已安装版本更新的沙盘版本。
+此命令检查 Sandboxie 网站是否报告了比计算机上安装的版本更新的 Sandboxie 版本。
 
-*   点击 **立即** 按钮可立即进行检查
-*   点击 **下周** 按钮可将检查延后至以后
-*   点击 **从不** 按钮可禁用自动检查更新功能
+*   点击**立即**按钮立即执行检查。
+*   点击**下周**按钮把检查推迟到以后。
+*   点击**从不**按钮禁用自动检查更新。
 
 ![](../Media/CheckForUpdates.png)
 
 * * *
 
-### 关于沙盘
+### 关于 Sandboxie
 
-[沙盘控制](SandboxieControl.md) > [帮助菜单](HelpMenu.md) > 关于沙盘
+[沙盒管理器](SandboxieControl.md) > [帮助菜单](HelpMenu.md) > 关于 Sandboxie
 
-显示沙盘程序的产品 ~~及注册~~ 信息
+显示 Sandboxie 程序的产品~~和注册~~信息。
 
 ![](../Media/AboutSandboxie.png)
 
 * * *
 
-转到 [沙盘控制](SandboxieControl.md#menus)、[帮助主题](HelpTopics.md)。
+前往 [沙盒管理器](SandboxieControl.md#菜单)、[帮助主题](HelpTopics.md)。

@@ -1,65 +1,65 @@
 # 强制网络标记
 
-_ForceMarkOfTheWeb_ 是 [Sandboxie Ini](SandboxieIni.md) 中的全局设置。当启用时，它会强制所有带有网络标记（MOTW）的文件自动在指定的沙箱中进行沙箱化。这提供了增强的安全性，确保从互联网下载或通过电子邮件接收的文件自动被隔离。
+_ForceMarkOfTheWeb_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一项全局设置。启用时，它强制所有带网络标记（MOTW）的文件自动沙盒化到指定沙盒中。这通过确保从互联网下载或通过电子邮件收到的文件被自动隔离，提供增强的安全性。
 
 ## 设置
 
-该功能使用两个全局设置：
+此功能使用两项全局设置：
 
 ### ForceMarkOfTheWeb
 
-```ini
+```
 [GlobalSettings]
 ForceMarkOfTheWeb=y
 ```
 
-启用带有网络标记属性的文件的自动沙箱化。
+启用带网络标记属性文件的自动沙盒化。
 
 ### MarkOfTheWebBox
 
-```ini
+```
 [GlobalSettings]
 MarkOfTheWebBox=Web_Box
 ```
 
-指定用来隔离 MOTW 文件的沙箱。如果未指定，默认值为 `DefaultBox`。
+指定 MOTW 文件应使用哪个沙盒。未指定时默认值为 `DefaultBox`。
 
 ## 什么是网络标记？
 
-网络标记（MOTW）是 Windows 中的一个安全功能，用于标记文件为来自互联网或其他不受信任的位置。Windows 会自动将此标记应用于：
+网络标记（MOTW）是 Windows 中的一项安全功能，把文件标记为源自互联网或其他不受信任的位置。Windows 自动将此标记应用于：
 
 - 从网页浏览器下载的文件
 - 电子邮件附件
-- 从下载的 ZIP 压缩文件中提取的文件
-- 通过即时消息应用程序接收的文件
-- 从标记为互联网区域的网络共享中复制的文件
+- 从已下载的 ZIP 压缩包中提取的文件
+- 通过即时通讯应用程序收到的文件
+- 从标记为 Internet 区域的网络共享复制的文件
 
 ## 重要说明
 
-- 这是一个影响系统上的所有沙箱的 **全局设置**
-- 指定的沙箱必须已经存在并在您的 Sandboxie 配置中启用
-- 沙箱名称区分大小写，必须完全匹配
-- 已在任何沙箱中运行的文件不受此设置的影响
+- 这是影响系统上所有沙盒的**全局设置**
+- 指定的沙盒必须已存在于你的 Sandboxie 配置中并已启用
+- 沙盒名称区分大小写，必须完全匹配
+- 已在任何沙盒中运行的文件不受此设置影响
 
 ## 故障排除
 
-如果 MOTW 文件未被沙箱化：
+如果 MOTW 文件未被沙盒化：
 
-1. **验证两个设置是否已配置：**
-   - 在 `[GlobalSettings]` 中设置 `ForceMarkOfTheWeb=y`
-   - `MarkOfTheWebBox=SandboxName` 指向一个现有的沙箱
-2. **检查沙箱名称：** 确保沙箱名称完全匹配（区分大小写）
-3. **确认沙箱存在并已启用**
-4. **验证文件具有 MOTW 属性：** 使用 `dir /r filename` 检查 `Zone.Identifier` 流
+1. **确认两个设置都已配置：**
+   - `ForceMarkOfTheWeb=y` 已设置在 `[GlobalSettings]` 中
+   - `MarkOfTheWebBox=沙盒名称` 指向现有沙盒
+2. **检查沙盒名称：** 确保沙盒名称完全匹配（区分大小写）
+3. **确认沙盒存在且已启用**
+4. **确认文件具有 MOTW 属性：** 使用 `dir /r 文件名` 检查 `Zone.Identifier` 流
 
-## 相似设置
+## 类似设置
 
-- [ForceProcess](ForceProcess.md): 强制特定程序进入沙箱
-- [ForceFolder](ForceFolder.md): 强制来自特定文件夹的文件进入沙箱
+- [强制进程](ForceProcess.md)：把特定程序强制进沙盒
+- [强制文件夹](ForceFolder.md)：把特定文件夹中的文件强制进沙盒
 
 ## 用户界面
 
-此设置可以通过 Sandboxie Plus 中的以下路径进行配置：
-**全局设置 > 程序控制 > 强制进程选项**
+此设置可以在 Sandboxie Plus 中通过以下路径配置：
+**全局设置 > 程序控制 > 强制程序选项**
 
-![强制网络标记设置](../Media/ForceMarkOfTheWeb.png)
+![网络标记设置](../Media/ForceMarkOfTheWeb.png)

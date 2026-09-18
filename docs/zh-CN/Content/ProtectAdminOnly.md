@@ -1,6 +1,6 @@
-# 仅限管理员访问加密沙盘数据
+# 仅限管理员访问加密沙盒数据
 
-_ProtectAdminOnly_ 是 [沙盘配置文件](SandboxieIni.md) 中的沙盒设置，自 v1.16.4 / 5.71.4 版本起可用。该设置在加密沙盘中默认启用，可以通过 `ProtectAdminOnly=n` 来禁用。
+_ProtectAdminOnly_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一项沙盒设置，自 v1.16.4 / 5.71.4 起可用。这是加密沙盒中默认启用的设置，你可以通过 `ProtectAdminOnly=n` 禁用它。
 
 ## 用法：
 
@@ -12,4 +12,4 @@ _ProtectAdminOnly_ 是 [沙盘配置文件](SandboxieIni.md) 中的沙盒设置�
    ProtectAdminOnly=y
 ```
 
-启用后，使用非管理员组用户账户运行的 [Sandboxie Control](SandboxieControl.md) 或 [SandMan](PlusMigrationGuide.md) 将无法访问加密沙盘数据。
+启用时，在非管理员组成员用户帐户下运行的 [沙盒管理器](SandboxieControl.md)（经典版）或 [沙盒管理器](PlusMigrationGuide.md)（Plus 版）将无法访问加密沙盒的数据。
