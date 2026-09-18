@@ -106,6 +106,10 @@
 
 [Cover Boxed Windows](CoverBoxedWindows.md)
 
+[CPU Affinity Mask](CpuAffinityMask.md)
+
+[CPU Rate Limit](CpuRateLimit.md)
+
 [Custom Chromium Flags](CustomChromiumFlags.md)
 
 [Custom Locale/LangID](CustomLCID.md)
