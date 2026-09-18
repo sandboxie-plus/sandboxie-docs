@@ -502,7 +502,6 @@
 
 [Sandboxie Trace](SandboxieTrace.md)
 
-[SandboxieDrv use of undocumented kernel exports](TokenMagic.md)
 
 [SandMan Triggers](SandManTriggers.md)
 
@@ -821,6 +820,8 @@
 [Technical Aspects](TechnicalAspects.md)
 
 [Test Email Configuration](TestEmailConfiguration.md)
+
+[Token and Syscall Internals](TokenMagic.md)
 
 [Total Memory Limit](TotalMemoryLimit.md)
 
