@@ -358,6 +358,8 @@
 
 [Normal Key Path](NormalKeyPath.md)
 
+[Notification Settings](NotificationSettings.md)
+
 [Notify Direct Disk Access](NotifyDirectDiskAccess.md)
 
 [Notify Internet Access Denied](NotifyInternetAccessDenied.md)
