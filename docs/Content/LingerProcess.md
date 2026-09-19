@@ -1,26 +1,40 @@
 # Linger Process
 
-_LingerProcess_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It specifies names of programs that will be automatically terminated, when they are the last programs that remain in execution in a particular sandbox. This is useful as some programs occasionally launch _helper programs_ to carry out a specific task, and the helper program remains in execution even after the original program has ended. For example:
+_LingerProcess_ is a repeatable per-box setting in [Sandboxie Ini](SandboxieIni.md). It identifies helper or background executables that Sandboxie can treat as cleanup candidates after no ordinary non-lingering program remains.
 
-```
-   .
-   .
-   .
-   [DefaultBox]
-   LingerProcess=jusched.exe
+```ini
+[DefaultBox]
+LingerProcess=helper.exe
+LingerProcess=updater.exe
 ```
 
-_jusched.exe_ is part of the Sun Java framework. It is occasionally launched when Internet Explorer starts the Java framework. This _LingerProcess_ example setting specifies that if _jusched.exe_ remains the last program running in the sandbox DefaultBox, then it should be terminated.
+Names are matched exactly and case-insensitively. The current consumer does not perform wildcard matching.
 
-LingerProcess will not terminate a process, if that process was the first process launched in the sandbox.
+A matching process is not terminated immediately. Automatic cleanup is considered when all remaining relevant sandbox processes are lingerers and no applicable exemption prevents it. Sandboxie also treats some of its own service or helper processes as lingerers internally; that implementation list may change.
 
-For example, the default configuration includes Adobe Acrobat Reader as a LingerProcess, because it is typically launched when viewing PDF files through the Web browser, and remains running even after the browser has closed.
+## Linger leniency
+
+`LingerLeniency` is enabled by default. While enabled, it:
+
+1. preserves matching configured lingerers already active when SandboxieRpcSs initializes;
+2. exempts configured lingerers explicitly started through the relevant forced or `Start.exe` paths;
+3. applies the current five-second grace check to recently started remaining processes before automatic cleanup.
+
+```ini
+[DefaultBox]
+LingerLeniency=n
 ```
-   LingerProcess=acrord32.exe
-```
 
-However, if you manually start Adobe Acrobat Reader sandboxed, for example by running it from the Sandboxie Start Menu, then the LingerProcess setting will not apply to that process.
+Setting it to `n` disables those behaviors. The setting is therefore broader than a timeout switch, and the five-second interval is not configurable through it. It does not support an unconditional rule that the first process in a sandbox is always exempt.
 
-Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings -> Program Stop -> Lingering Programs](ProgramStopSettings.md#lingering-programs)
+`LingerLeniency` was introduced in Sandboxie Plus 1.0.7 / Classic 5.55.7. Sandboxie Plus 1.13.4 / Classic 5.68.4 expanded `LingerLeniency=n` so it also disables the five-second grace check.
 
-See also: [Program Settings](ProgramSettings.md#linger).
+## Visible windows
+
+[Linger Exempt Wnds](LingerExemptWnds.md) separately controls whether a visible top-level window prevents an otherwise eligible linger cleanup. It does not classify the process as a lingerer.
+
+The linger list is loaded when SandboxieRpcSs initializes inside the sandbox. Restart or recreate the affected sandbox process tree after changing the list or leniency policy for predictable behavior.
+
+In Sandboxie Plus, open **Sandbox Options > Program Control > Stop Behaviour > Lingering Programs**. `LingerLeniency` and the visible-window exemption are under **Stop Options**. Sandboxie Control Classic exposes the historical [Sandbox Settings > Program Stop > Lingering Programs](ProgramStopSettings.md#lingering-programs) page, but it should not be assumed to provide every newer SandMan control.
+
+See [Program Stop Settings](ProgramStopSettings.md) for the complete lifecycle overview.
