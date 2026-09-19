@@ -823,6 +823,8 @@
 
 [Supporter Certificate](../PlusContent/supporter-certificate.md)
 
+[System Call Settings](SyscallSettings.md)
+
 [System Endpoints](SystemEndpoints.md)
 
 [System Event Log](SystemEventLog.md)
