@@ -1,136 +1,86 @@
 # No Security Isolation
 
-_NoSecurityIsolation_ is a sandbox setting available since v1.0.0 / 5.55.0 that transforms Sandboxie from a secure isolation environment into an **Application Compartment** mode, prioritizing compatibility over security.
+_NoSecurityIsolation_ selects Sandboxie's **Application Compartment** mode. This mode favors compatibility by bypassing several security-isolation mechanisms used by a standard sandbox, but it does not disable every Sandboxie isolation or virtualization mechanism.
+
+> [!WARNING]
+> Application Compartment materially reduces isolation and is intended for trusted applications with compatibility requirements. File and registry virtualization can remain active, but virtualization alone should not be treated as a security boundary.
 
 ## Usage
 
 ```ini
 [DefaultBox]
-
 NoSecurityIsolation=y
 ```
 
-## Syntax
+The default is `n`. This is a box-wide setting.
 
-```ini
-NoSecurityIsolation=<y/n>
-```
+## Token behavior
 
-Where:
+Application Compartment bypasses Sandboxie's normal restricted-primary-token replacement and normal impersonation-token validation and filtering paths.
 
-- `y` enables compartment mode,
-- `n` (default) maintains security isolation.
+This does not itself elevate a process. Instead, the process can retain the security context with which it was launched:
 
-## How It Works
+- an unelevated process remains unelevated;
+- a process launched with an elevated token can retain that elevated context;
+- the setting does not grant administrator or SYSTEM privileges.
 
-When enabled, the driver sets `bAppCompartment = TRUE`, fundamentally changing Sandboxie's operation by:
+This behavior overlaps with parts of the separate `OriginalToken` setting, but Application Compartment does not automatically add or enable `OriginalToken=y` in the sandbox configuration.
 
-- **Bypassing token filtering**: Both primary and impersonation tokens remain unmodified[^1][^2][^3]
-- **Excluding Job Objects**: Processes avoid Windows Job Object restrictions[^4]  
-- **Relaxing path controls**: Default security-oriented path blocking is disabled[^5]
+## Job Object behavior
 
-## Feature Matrix
+Application Compartment processes are excluded from Sandboxie's normal root Job Object assignment. Consequently, the box-level process, memory, and CPU limits implemented through that Job Object do not apply in the usual way.
 
-| Feature | Standard Sandbox | Application Compartment |
-|---------|-----------------|-------------------------|
-| **File System Virtualization** | ✓ | ✓ |
-| **Registry Virtualization** | ✓ | ✓ |
-| **Object Namespace Isolation** | ✓ | ✓ |
-| **Process Monitoring** | ✓ | ✓ |
-| **Token-Based Security** | ✓ | ✗ |
-| **Privilege Restrictions** | ✓ | ✗ |
-| **Job Object Assignments** | ✓ | ✗ |
-| **Security Path Blocking** | ✓ | ✗ |
+This does not prevent a process from belonging to a Job Object created or assigned by another component. For the complete Job Object model, see [Job Objects](JobObjects.md).
 
-## Path Control Changes
+## Path-policy defaults
 
-In Application Compartment mode, three key path behaviors are automatically disabled[^5]:
+Application Compartment relaxes three specific Sandboxie path-policy defaults:
 
-- **`AlwaysCloseForBoxed`**: Boxed processes can access normally blocked paths[^6].
-- **`DontOpenForBoxed`**: Open path rules apply equally to all processes[^7].
-- **`ProtectHostImages`**: Host binary protection is relaxed[^8].
+- the normal `AlwaysCloseForBoxed` behavior is not applied;
+- the normal `DontOpenForBoxed` behavior is not applied;
+- `ProtectHostImages` is not applied.
 
-## Compatibility & Integration
+These changes do not mean that every resource rule is ignored. Other configured access rules, built-in template rules, and active filtering layers can still affect access.
 
-### Automatic Activation
+Sandboxie also loads the built-in `TemplateAppCPaths` rules for Application Compartment processes. These are template path policies for this box type; they do not disable all resource isolation.
 
-- **Unsupported Windows builds**: Automatically enabled with warning MSG_1207[^11].
-- **Sandboxie Plus box types**: Pre-configured in `Application Compartment` and `Application Compartment with Data Protection`.
+## Isolation that can remain active
 
-### Enhanced Compatibility
+In an ordinary Application Compartment configuration:
 
-- Processes interact freely with the host system.
-- Reduced conflicts with privilege-dependent applications.
-- Better support for complex software and development tools.
+- file-system and registry virtualization can remain active;
+- Sandboxie's file, registry-key, and kernel-object driver filters remain active unless disabled separately;
+- configured file, registry, IPC, network, and GUI rules can still apply;
+- named-object namespace handling remains subject to settings such as [Nt Namespace Isolation](NtNamespaceIsolation.md).
 
-## Security Implications
+`NoSecurityIsolation=y` alone does not set Sandboxie's file-, key-, or object-filter disable states. The separate [No Security Filtering](NoSecurityFiltering.md) setting can disable those three driver filters while Application Compartment is active.
 
-> [!IMPORTANT]
-> Application Compartment mode significantly reduces security isolation:
->
-> - Processes run with original security context and privileges.
-> - No token-based protection or privilege dropping.
-> - Sandbox provides virtualization but not security boundary.
+## Named-object namespace options
 
-## Related Settings
+Application Compartment normally continues to use Sandboxie's named kernel-object redirection and NT directory-object namespace handling. Advanced configurations can use `UseAlternateIpcNaming=y` to change the naming strategy for Sandboxie-redirected named objects instead of using the normal separate directory-object namespace.
 
-### Complementary
+`UseAlternateIpcNaming` is intended specifically for Application Compartment boxes. It does not rename every IPC protocol or disable every IPC control. See [Nt Namespace Isolation](NtNamespaceIsolation.md#alternate-ipc-naming) for details.
 
-- **[NoSecurityFiltering](NoSecurityFiltering.md)**: Further disables filtering[^9].
-- **OriginalToken**: Auto-enabled in compartment mode.
-- **Template Paths**: `TemplateAppCPaths` are applied[^10].
+## Unsupported DynData fallback
 
-### Job Object Limits (Disabled)
+When compatible DynData is unavailable, current driver code can force the affected process into the reduced-isolation Application Compartment state and emit warning `MSG_1207`. This changes the driver's process state; it does not write `NoSecurityIsolation=y` to the sandbox configuration.
 
-These settings become ineffective due to Job Object exclusion:
+## SandMan configuration
 
-- [`ProcessNumberLimit`](ProcessNumberLimit.md)
-- [`ProcessMemoryLimit`](ProcessMemoryLimit.md)
-- [`TotalMemoryLimit`](TotalMemoryLimit.md)
-- [`CpuRateLimit`](CpuRateLimit.md)
+Application Compartment can be selected as a box type in SandMan. The corresponding advanced setting is under:
 
-For details about Job Object assignment, UI restrictions, nested Jobs, and related settings, see [Job Objects](JobObjects.md).
+**Sandbox Options > Security Options > Security Isolation**
 
-## Use Cases & Troubleshooting
+The checkbox label is **Disable Security Isolation**. The current SandMan box-type selector calls the preset **Application Compartment**, while the New Box Wizard calls it **Application Compartment Box**. SandMan treats this mode as a supporter feature.
 
-**When to Enable:**
+## Version history
 
-- Software testing and development environments.
-- Legacy applications requiring full system privileges.
-- Token restriction compatibility issues.
-- Virtualization-only scenarios (file/registry separation).
+Application Compartment and `NoSecurityIsolation` were introduced in Sandboxie Plus 1.0.0 / Classic 5.55.0. Sandboxie Plus 1.8.0 moved the built-in Application Compartment access rules into `TemplateAppCPaths`.
 
-**Common Triggers:**
+## Related pages
 
-- Applications failing to start due to token restrictions.
-- Administrative privilege requirements.
-- Complex software compatibility issues.
-
-## Related
-
-- **Sandboxie Plus**: Sandbox Options > Security Options > Security Isolation
-- [Box Types](../PlusContent/box-preset-comparison.md)
-- [DropChildProcessToken](DropChildProcessToken.md)
-
-[^1]: **Token Bypass**: `Token_ReplacePrimary` returns `TRUE` when `proc->bAppCompartment` is set, bypassing all token filtering operations.
-
-[^2]: **Primary Tokens**: Left unmodified in `token.c` when Application Compartment mode is active.
-
-[^3]: **Impersonation Tokens**: `Thread_CheckTokenForImpersonation` returns `STATUS_SUCCESS` without restrictions when `proc->bAppCompartment` is enabled.
-
-[^4]: **Job Object Exclusion**: Condition `new_proc->bAppCompartment` in `process.c` excludes processes from Windows Job Objects.
-
-[^5]: **Path Handling**: Three behaviors disabled in `process.c`: `always_close_for_boxed`, `dont_open_for_boxed`, and `protect_host_images`.
-
-[^6]: **AlwaysCloseForBoxed**: `proc->always_close_for_boxed = !proc->bAppCompartment && Conf_Get_Boolean(...)` ensures boxed processes aren't blocked from normally closed paths.
-
-[^7]: **DontOpenForBoxed**: `proc->dont_open_for_boxed = !proc->bAppCompartment && Conf_Get_Boolean(...)` allows equal path rule application.
-
-[^8]: **ProtectHostImages**: `proc->protect_host_images = !proc->bAppCompartment && Conf_Get_Boolean(...)` disables host binary protection.
-
-[^9]: **Security Filtering**: `no_filtering = proc->bAppCompartment && Conf_Get_Boolean(..., L"NoSecurityFiltering", ...)` enables complete filtering bypass.
-
-[^10]: **Template Paths**: `Process_GetPaths(proc, list, L"TemplateAppCPaths", setting_name, FALSE)` applies compartment-specific template paths.
-
-[^11]: **Auto Fallback**: `!Dyndata_Active && !proc->bAppCompartment` triggers automatic compartment mode with `Log_Msg1(MSG_1207, info)`.
-
+- [Application Compartment](../PlusContent/compartment-mode.md)
+- [No Security Filtering](NoSecurityFiltering.md)
+- [Nt Namespace Isolation](NtNamespaceIsolation.md)
+- [Job Objects](JobObjects.md)
+- [Sandboxie Ini](SandboxieIni.md)
