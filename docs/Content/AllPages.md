@@ -885,6 +885,8 @@
 
 [WFP Support](../PlusContent/WFPSupport.md)
 
+[Win32k Hooks](Win32kHooks.md)
+
 [Windows 8](Windows8.md)
 
 [Windows XP Mode](WindowsXPMode.md)
