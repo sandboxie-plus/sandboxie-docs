@@ -12,7 +12,7 @@ The insider builds introduce several new features that are designed to improve t
 
  - [DNS query logging, filtering and redirection](../PlusContent/DNSFilter.md) feature allows you to block, or redirect DNS queries made by sandboxed programs for selected domains.
 
- - [USB drive sandboxing](../PlusContent/USBSandboxing.md) is yet another new feature that has been added to the Insider builds. This feature allows you to automatically sandbox any USB drive that you plug into your computer, which adds an extra layer of protection to your system.
+ - [USB drive sandboxing](../PlusContent/USBSandboxing.md) requires an active applicable Support Certificate in current releases and is not Insider-exclusive. It automatically maintains forced-folder rules for qualifying USB-backed volumes.
 
  - Insider builds include support for EFS, which is a feature in Windows that allows you to encrypt files and folders to protect them from unauthorized access.
 
