@@ -17,7 +17,7 @@ For example:
 BorderColor=#00FFFF,ttl,6,192,in,6
 ```
 
-The color is specified in HTML-like RGB notation:
+The color is specified as a six-digit hexadecimal value in #BBGGRR order: blue, green, then red.
 
 * The hash mark prefixes a six-digit hexadecimal number.
 * The first two digits specify the red component.
