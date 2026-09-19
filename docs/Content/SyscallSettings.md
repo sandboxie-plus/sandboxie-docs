@@ -30,11 +30,13 @@ Security Hardened mode and direct use of `SysCallLockDown` require a valid [Supp
 
 Approval marks an intercepted system-call entry as eligible for original/full-token execution while lockdown is active. It does not disable Sandboxie interception, bypass an associated Sandboxie handler, or execute the call outside the sandbox. File, registry, object, and other independent filtering also remain in effect.
 
-Approval entries belong in `GlobalSettings` or a template rather than an individual sandbox section. Keep custom approvals narrow: every approved entry restores the original/full-token path for that call under lockdown. The built-in templates contain maintained approvals for supported scenarios and should not be copied wholesale into a custom configuration.
+`ApproveWinNtSysCall` and `ApproveWin32SysCall` populate global approval maps; Sandboxie does not maintain separate maps for individual sandboxes. Built-in approvals come from the `[SysCallPresets]` section in `Templates.ini`. Custom approvals can be written directly in `[GlobalSettings]` or supplied by a custom template enabled through `[GlobalSettings]`.
+
+Approval entries in an individual sandbox section, or in a template enabled only for a particular sandbox, are not consulted when these global maps are built. Syscall approval is therefore not a per-box mechanism. Keep custom approvals narrow: every approved entry restores eligibility for the original/full-token path for that call under lockdown. The built-in approvals are maintained for supported scenarios and should not be copied wholesale into a custom configuration.
 
 ### NT system calls
 
-`ApproveWinNtSysCall` adds names to the NT system-call approval map. Names use the driver entry name without the `Nt` or `Zw` prefix. For example, current built-in templates contain entries in this form:
+`ApproveWinNtSysCall` adds names to the global NT system-call approval map. Names use the driver entry name without the `Nt` or `Zw` prefix. Direct custom approvals use `[GlobalSettings]`, for example:
 
 ```ini
 [GlobalSettings]
@@ -46,7 +48,7 @@ These examples demonstrate syntax only. They do not constitute a general recomme
 
 ### Win32k system calls
 
-`ApproveWin32SysCall` is the corresponding approval mechanism for intercepted Win32k system calls. A template entry can, for example, use a matching pattern:
+`ApproveWin32SysCall` is the corresponding global approval mechanism for intercepted Win32k system calls. A direct custom approval can use a matching pattern:
 
 ```ini
 [GlobalSettings]
@@ -81,7 +83,7 @@ The setting does not automatically disable unrelated layers such as file and reg
 ## Security considerations
 
 - Approve only the specific calls required by a confirmed compatibility problem.
-- Treat built-in template approvals as maintained implementation policy, not as a general list to copy.
+- Treat the built-in `[SysCallPresets]` approvals as maintained implementation policy, not as a general list to copy.
 - Approval changes the temporary token context; it does not remove the normal handler for the call.
 - `OpenAllSysCalls` removes more mediation than an approval and should not be used as a routine compatibility switch.
 - A working application is not evidence that a broad approval or debug bypass preserves the intended isolation boundary.
