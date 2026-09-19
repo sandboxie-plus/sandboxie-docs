@@ -96,6 +96,40 @@ The historical metadata wording that refers to RpcSs and DcomLaunch is not a com
 
 The selective form is useful when only particular services require the SYSTEM source identity.
 
+## RunRpcssAsSystem
+
+`RunRpcssAsSystem` controls the source identity used when SbieSvc starts the sandbox-associated RpcSs process:
+
+```ini
+RunRpcssAsSystem=y
+```
+
+The default is `n`. An explicit `y` makes SbieSvc duplicate its SYSTEM source token for the sandboxed RpcSs launch. The resulting `SandboxieRpcSs` process remains associated with the sandbox; this setting does not start or adopt the unsandboxed host RpcSs service.
+
+> [!WARNING]
+> Starting sandboxed RpcSs from a SYSTEM source token increases the consequences of access that remains open to that process. Use this compatibility option only when required. It does not, by itself, remove RpcSs from the sandbox.
+
+### Application Compartment and OriginalToken
+
+Current service-launch logic can select the same SYSTEM-source path automatically when both of the following are true:
+
+1. the caller is in Application Compartment mode or `OriginalToken=y` is configured; and
+2. either `MsiInstallerExemptions=y` or `RunServicesAsSystem=y` is enabled.
+
+Application Compartment alone therefore does not automatically make sandboxed RpcSs use a SYSTEM source token.
+
+Sandboxed DcomLaunch is started through the sandboxed RpcSs/server flow. The explicit token-source decision above is made for the RpcSs launch; it should not be generalized into a separate, identical DcomLaunch token-selection rule.
+
+### SandMan control
+
+The control is under **Sandbox Options > Security Options > Advanced Security** with the label:
+
+> Start the sandboxed RpcSs as a SYSTEM process (not recommended)
+
+SandMan loads this checkbox from the explicit `RunRpcssAsSystem` value. In Application Compartment mode, it disables the direct control when either broad `RunServicesAsSystem` behavior or `MsiInstallerExemptions` already causes the automatic runtime condition described above.
+
+For binding resolution, endpoint filtering, timeout behavior, and sandboxed RpcSs startup architecture, see [RPC Compatibility](RpcCompatibility.md).
+
 ## What "as SYSTEM" means
 
 For this service-start path, Sandboxie obtains a source token from SbieSvc, which runs as LocalSystem, duplicates a primary token, adjusts its session, and uses it to launch the sandboxed service process. Sandboxie also applies its service-side privilege stripping by default where applicable.
@@ -112,7 +146,7 @@ In a normal isolation box:
 
 ## Related special cases
 
-`RunRpcssAsSystem` has RpcSs-specific handling, [Msi Installer Exemptions](MsiInstallerExemptions.md) can alter MSIServer handling, and CryptSvc has current special-case behavior. These mechanisms are related to service identity but are not general replacements for the settings documented here.
+[Msi Installer Exemptions](MsiInstallerExemptions.md) can alter MSIServer handling, and CryptSvc has current special-case behavior. These mechanisms are related to service identity but are not general replacements for the settings documented here.
 
 ## Chromium elevation template
 
@@ -205,6 +239,7 @@ The runtime is implemented in shared Sandboxie components. SandMan provides the 
 | `RunServicesAsSystem` | Sandboxie Plus 0.5.4 / Classic 5.46.0 |
 | `RunServiceAsSystem` | Sandboxie Plus 0.5.4b / Classic 5.46.1 |
 | `SandboxService` | Sandboxie Plus 0.5.5 / Classic 5.46.4 |
+| `RunRpcssAsSystem` | Sandboxie Plus 0.9.7 |
 | Chromium elevation and DPAPI compatibility work | Sandboxie Plus 1.18.0 / Classic 5.73.0 era |
 | Selective Chromium elevation template | Sandboxie Plus 1.18.1 / Classic 5.73.1 |
 
@@ -212,6 +247,7 @@ These service settings predate their current Chromium elevation use.
 
 ## Related pages
 
+- [RPC Compatibility](RpcCompatibility.md)
 - [System Endpoints](SystemEndpoints.md)
 - [Service Programs](ServicePrograms.md)
 - [Start Service](StartService.md) — a lifecycle/startup setting, not an equivalent of `SandboxService`

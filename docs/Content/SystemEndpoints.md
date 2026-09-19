@@ -179,6 +179,7 @@ Runtime support is implemented in shared Sandboxie components. SandMan provides 
 
 ## Related pages
 
+- [RPC Compatibility](RpcCompatibility.md)
 - [Open IPC Path](OpenIpcPath.md)
 - [Closed IPC Path](ClosedIpcPath.md)
 - [Block Password](BlockPassword.md)

@@ -478,6 +478,8 @@
 
 [Restrictions Settings](RestrictionsSettings.md)
 
+[RPC Compatibility](RpcCompatibility.md)
+
 [Rule Specificity](../PlusContent/RuleSpecificity.md)
 
 ### S
