@@ -11,7 +11,7 @@ The setting is disabled by default and requires a currently applicable Support C
 
 ## What it protects
 
-With `ConfidentialBox=y`, the driver subjects attempts by unsandboxed host processes to open sandboxed processes or threads to the confidential-box access check. This includes read-only and query access, not only rights that could modify or control the target.
+With `ConfidentialBox=y`, the driver checks access rights requested by unsandboxed host processes when creating or duplicating handles to sandboxed processes or threads. This includes read-only and query access, not only rights that could modify or control the target.
 
 This protection is scoped to process and thread handles. It does not encrypt files, protect the mounted box root, or automatically restrict network, clipboard, GUI, IPC, and other permitted data-transfer paths. Use [Box Encryption](../PlusContent/BoxEncryption.md) when encrypted backing storage is required.
 
