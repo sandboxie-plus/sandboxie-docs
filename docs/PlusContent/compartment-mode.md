@@ -17,7 +17,9 @@ The primary box setting is:
 NoSecurityIsolation=y
 ```
 
-In SandMan, select the **Application Compartment** box type under **Sandbox Options > General Options**. The New Box Wizard calls the corresponding preset **Application Compartment Box**. The status column identifies the resulting box as **Application Compartment**.
+In SandMan, select the **Application Compartment** box type under **Sandbox Options > General Options**. The New Box Wizard calls the corresponding preset **Application Compartment Box**. The status column normally identifies the resulting box as **Application Compartment**.
+
+If the configuration also opens an entire resource root, for example with `OpenFilePath=*`, SandMan displays **OPEN Root Access** instead. This status warning takes display precedence over **Application Compartment**; it does not change the configured box type or disable `NoSecurityIsolation`.
 
 The underlying advanced control is under **Sandbox Options > Security Options > Security Isolation** and is labeled **Disable Security Isolation**.
 
