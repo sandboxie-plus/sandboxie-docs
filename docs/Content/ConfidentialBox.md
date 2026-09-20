@@ -39,7 +39,9 @@ DenyHostAccess=[host-program-or-group,]y|n
 - With no program prefix, the value supplies the box-wide default. `DenyHostAccess=y` is therefore equivalent to a default deny rule.
 - Program selectors use Sandboxie's [program-name matching](ProgramNamePrefix.md), including wildcards, and can refer to configured process groups.
 
-Without `ConfidentialBox`, `DenyHostAccess` is evaluated when a host process requests process or thread rights beyond the read/query subset that Sandboxie normally permits. A matching deny rule rejects that handle request, while read-only access remains available.
+Without `ConfidentialBox`, `DenyHostAccess` is evaluated when a host process requests rights outside Sandboxie's normally permitted access subset, which differs for process and thread handles. Requests containing only rights within the applicable subset do not trigger this particular restriction.
+
+In the object-filter path, a matching deny rule restricts the requested access mask for handle creation or duplication rather than directly rejecting the operation. If the operation succeeds, the resulting handle may have no usable access rights. Independent Windows access checks or protected-process restrictions may still cause the operation to fail.
 
 With `ConfidentialBox`, the same check also covers read-only and query requests, and the default becomes deny for host programs. An explicit `DenyHostAccess=program.exe,n` entry can create a compatibility exception. The built-in **Less Confidential Box** template currently uses such an exception for `audiodg.exe`.
 
