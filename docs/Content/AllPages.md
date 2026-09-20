@@ -821,6 +821,10 @@
 
 [Start Service](StartService.md)
 
+[Start System Box](StartSystemBox.md)
+
+[Strip System Privileges](StripSystemPrivileges.md)
+
 [Supporter Certificate](../PlusContent/supporter-certificate.md)
 
 [System Call Settings](SyscallSettings.md)
@@ -846,6 +850,8 @@
 [Tray Icon Menu](TrayIconMenu.md)
 
 ### U
+
+[Unrestricted SCM](UnrestrictedSCM.md)
 
 [Usage Tips](UsageTips.md)
 
