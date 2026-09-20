@@ -1,19 +1,72 @@
-# Compartment Mode
+# Application Compartment
 
-**NOTE: This feature requires a [supporter certificate](https://sandboxie-plus.com/supporter-certificate/).**
+> [!NOTE]
+> This feature requires a [supporter certificate](https://sandboxie-plus.com/supporter-certificate/).
 
-The concept of an "Application Compartment" mode was introduced in **Sandboxie Plus v1.0.0**. This mode disables the normally used token-based security isolation in order to significantly improve compatibility while still retaining a level of security comparable to that of other available sandboxing products. It avoids many of the typical Sandboxie issues caused by processes running with a heavily restricted token.
+Application Compartment was introduced in Sandboxie Plus 1.0.0. It favors application compatibility by bypassing several security-isolation mechanisms used by a standard sandbox while retaining selected Sandboxie virtualization and policy mechanisms.
 
-The setting for a compartment box can be enabled by adding `NoSecurityIsolation=y` to the box settings section of **[Sandboxie Ini](../Content/SandboxieIni.md)**. It can also be enabled in the Sandman UI. Right-click on a box and select "Sandbox Options" from the drop-down menu (or simply double-click on a box) to bring up the Box Options UI. Select the box type preset as "Application Compartment (NO Isolation)" (with a **green** box icon) and click OK to apply changes. The status column of Sandman UI labels this box as **Application Compartment**.
+> [!WARNING]
+> Application Compartment materially reduces isolation and should be used only for trusted applications with compatibility requirements. It is not equivalent to running without Sandboxie, but file and registry virtualization alone should not be treated as a security boundary.
+
+## Configuration
+
+The primary box setting is:
+
+```ini
+[DefaultBox]
+NoSecurityIsolation=y
+```
+
+In SandMan, select the **Application Compartment** box type under **Sandbox Options > General Options**. The New Box Wizard calls the corresponding preset **Application Compartment Box**. The status column normally identifies the resulting box as **Application Compartment**.
+
+If the configuration also opens an entire resource root, for example with `OpenFilePath=*`, SandMan displays **OPEN Root Access** instead. This status warning takes display precedence over **Application Compartment**; it does not change the configured box type or disable `NoSecurityIsolation`.
+
+The underlying advanced control is under **Sandbox Options > Security Options > Security Isolation** and is labeled **Disable Security Isolation**.
 
 ![](../Media/Box_CompartmentMode.png)
 
-In compartment mode, file system and registry filtering are still in place to enforce any access rules. So, processes do run without administrative privileges. This filtering can be disabled by adding `NoSecurityFiltering=y` to the box settings section of **[Sandboxie Ini](../Content/SandboxieIni.md)** in order to provide a greater degree of compatibility.
+## Security and compatibility model
 
-A new object access filter, enabled by default for new installations since **Sandboxie Plus v1.0.16**, replaces the Sandboxie's old process/thread handle filter to facilitate process isolation. For previous versions starting with **Sandboxie Plus v1.0.0**, it can be enabled by adding `EnableObjectFiltering=y` to the [GlobalSettings] section of **[Sandboxie Ini](../Content/SandboxieIni.md)**.
+Application Compartment bypasses Sandboxie's normal restricted-primary-token replacement and normal impersonation-token filtering paths. It also excludes processes from Sandboxie's normal root Job Object assignment and relaxes several security-oriented path-policy defaults.
 
-**Caveat:** Even though an application compartment virtualizes the file system and registry, it does not change the process token or apply other more limiting restrictions. As a result, a process could potentially escape the virtualization. Because of this reduced security (even though it is only a slight reduction), this mode should be **avoided for untrusted applications**.
+Application Compartment does not itself elevate a process. Instead, it bypasses Sandboxie's normal restricted-token replacement, so the process can retain the security context with which it was launched. An unelevated process remains unelevated, while a process deliberately launched elevated can retain that elevated context.
 
-**Recent Changes:** Token based workarounds were added in subsequent Sandboxie Plus versions to facilitate even greater compatibility with the more commonly used programs. They used `DropAppContainerToken=y` for such workarounds and `FakeAppContainerToken=program.exe,n` to disable their use for a specific program. In **Sandboxie Plus v1.8.2a** and above, such workarounds are disabled when in compartment mode. In case of issues with some programs (primarily browsers), they can be re-enabled by using `DeprecatedTokenHacks=y`. **Sandboxie Plus v1.8.0** moved the built-in access rules for an application compartment box to a dedicated template (included in the file **Templates.ini** under the `[TemplateAppCPaths]` section) for easier management. **Sandboxie Plus v1.10.1** addressed and fixed various long-standing bugs affecting application compartment boxes.
+File-system and registry virtualization can remain active. File, registry-key, and kernel-object driver filtering also remain separate and are not disabled merely by selecting Application Compartment. Configured resource, network, IPC, and GUI rules can continue to apply.
 
-**Fun Fact (for any box type):** If you add `OpenFilePath=*` to the box settings section of **[Sandboxie Ini](../Content/SandboxieIni.md)** (or disable the isolation in some other way), the status column in the Sandman UI displays **OPEN Root Access** as a warning that this box is no longer really a "sandbox"! Starting with **Sandboxie Plus v1.3.2**, the box icon also changes its default color.
+For the detailed behavior and limitations, see [No Security Isolation](../Content/NoSecurityIsolation.md).
+
+## Optional filtering relaxation
+
+For additional compatibility, an Application Compartment can use:
+
+```ini
+NoSecurityFiltering=y
+```
+
+This setting disables Sandboxie's driver-level file, registry-key, and kernel-object filters while Application Compartment is active. It does not literally disable every Sandboxie hook, service, rule, or virtualization mechanism. See [No Security Filtering](../Content/NoSecurityFiltering.md).
+
+In SandMan, the checkbox **Disable Security Filtering (not recommended)** appears on the same **Security Isolation** page and is enabled only when **Disable Security Isolation** is selected.
+
+## Path and namespace handling
+
+Sandboxie loads built-in `TemplateAppCPaths` rules for Application Compartment processes. Since Sandboxie Plus 1.8.0, the built-in path rules for this mode are maintained in that dedicated template. These rules provide box-type-specific path policy; they do not disable all resource isolation.
+
+Normal NT directory-object namespace isolation remains a separate setting. Advanced Application Compartment configurations can instead use `UseAlternateIpcNaming=y`, which gives Sandboxie-redirected named kernel objects a sandbox-specific name suffix rather than using the normal separate directory-object namespace. This does not rename every IPC mechanism. See [NT Namespace Isolation](../Content/NtNamespaceIsolation.md#alternate-ipc-naming).
+
+## Job Object limits
+
+Application Compartment processes are not assigned to Sandboxie's normal root Job Object. Box-level process, memory, and CPU limits implemented through that Job Object therefore do not apply in the usual way. See [Job Objects](../Content/JobObjects.md).
+
+## Version history
+
+- **Sandboxie Plus 1.0.0 / Classic 5.55.0:** introduced Application Compartment through `NoSecurityIsolation=y`, together with the optional `NoSecurityFiltering` compatibility setting.
+- **Sandboxie Plus 1.8.0:** moved the built-in Application Compartment access rules into `TemplateAppCPaths`.
+- **Sandboxie Plus 1.17.0 / Classic 5.72.0:** added `UseAlternateIpcNaming` for alternate named-object handling in Application Compartment boxes.
+
+## Related pages
+
+- [No Security Isolation](../Content/NoSecurityIsolation.md)
+- [No Security Filtering](../Content/NoSecurityFiltering.md)
+- [NT Namespace Isolation](../Content/NtNamespaceIsolation.md)
+- [Job Objects](../Content/JobObjects.md)
+- [Sandboxie Ini](../Content/SandboxieIni.md)
