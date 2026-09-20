@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Sandboxie-Plus introduces USB Drive Sandboxing, a new and impactful feature within our Insider builds. This innovative addition enhances your system&#x27;s defense by automatically sandboxing any connected USB drive. This proactive layer of security isolates potential threats, safeguarding your system from malware and unauthorized access.">
+        <meta name="description" content="USB Drive Sandboxing is SandMan automation built on Sandboxie&#x27;s forced-folder mechanism. SandMan maintains ForceFolder entries for the mount points of qualifying USB-backed volumes. Programs launched from those forced locations are then handled by the designated sandbox.">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>USB Sandboxing - Sandboxie Documentation</title>
+        <title>USB Drive Sandboxing - Sandboxie Documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#usb-sandboxing" class="md-skip">
+        <a href="#usb-drive-sandboxing" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              USB Sandboxing
+              USB Drive Sandboxing
             
           </span>
         </div>
@@ -5584,24 +5584,54 @@
   
 
 
-<h1 id="usb-sandboxing">USB Sandboxing<a class="headerlink" href="#usb-sandboxing" title="Permanent link"></a></h1>
-<p>Sandboxie-Plus introduces USB Drive Sandboxing, a new and impactful feature within our Insider builds. This innovative addition enhances your system's defense by automatically sandboxing any connected USB drive. This proactive layer of security isolates potential threats, safeguarding your system from malware and unauthorized access.</p>
-<h2 id="key-benefits">Key Benefits:<a class="headerlink" href="#key-benefits" title="Permanent link"></a></h2>
+<h1 id="usb-drive-sandboxing">USB Drive Sandboxing<a class="headerlink" href="#usb-drive-sandboxing" title="Permanent link"></a></h1>
+<p>USB Drive Sandboxing is SandMan automation built on Sandboxie's <a href="../../Content/ForceFolder/">forced-folder mechanism</a>. SandMan maintains <code>ForceFolder</code> entries for the mount points of qualifying USB-backed volumes. Programs launched from those forced locations are then handled by the designated sandbox.</p>
+<p>This feature does not place the USB device itself inside a sandbox, virtualize USB device I/O, or sandbox every program that accesses files on the volume. Its security effect depends on which programs are forced and on the configuration of the designated sandbox.</p>
+<h2 id="qualifying-storage">Qualifying storage<a class="headerlink" href="#qualifying-storage" title="Permanent link"></a></h2>
+<p>SandMan enumerates Windows volumes and their backing disks. A volume qualifies when at least one backing disk is reported through the <code>USBSTOR</code> enumerator. This can include USB flash drives, USB hard drives, and USB SSDs.</p>
+<p>Qualification is not based only on a drive letter, the removable-media attribute, the filesystem, or the volume label. A normal network drive or a <code>SUBST</code>/remapped path therefore does not qualify merely because it appears as a drive. For a volume spanning multiple disk extents, the current implementation treats the volume as USB-backed if at least one backing disk is identified as <code>USBSTOR</code>.</p>
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link"></a></h2>
+<p>USB Drive Sandboxing is global configuration and is disabled by default. Automatic maintenance requires an active applicable <a href="../supporter-certificate/">Support Certificate</a>.</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[GlobalSettings]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">ForceUsbDrives</span><span class="o">=</span><span class="s">y</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">UsbSandbox</span><span class="o">=</span><span class="s">USB_Box</span>
+</span></code></pre></div>
+<p><code>ForceUsbDrives=y</code> enables SandMan's automatic maintenance of USB forced-folder rules. When the setting is false or absent, SandMan does not rebuild the USB forced-folder list. It is not a low-level USB blocking policy. <code>UsbSandbox</code> names the sandbox that receives the generated rules; if it is absent, SandMan uses <code>USB_Box</code>.</p>
+<p>If the designated sandbox does not exist, SandMan attempts to create it. A sandbox created by this operation is a normal sandbox, not a special USB security type. SandMan currently adds these settings to a sandbox that it creates successfully:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">UseFileDeleteV2</span><span class="o">=</span><span class="s">y</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">UseRegDeleteV2</span><span class="o">=</span><span class="s">y</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="na">UseVolumeSerialNumbers</span><span class="o">=</span><span class="s">y</span>
+</span></code></pre></div>
+<p>If creation fails, SandMan cannot update the missing sandbox's forced-folder rules. <code>UseVolumeSerialNumbers</code> controls how that sandbox stores paths and is separate from the volume serial numbers used for USB exclusions.</p>
+<h2 id="generated-forcefolder-rules">Generated <code>ForceFolder</code> rules<a class="headerlink" href="#generated-forcefolder-rules" title="Permanent link"></a></h2>
+<p>For each qualifying volume that is not excluded, SandMan collects its current mount points and writes them as direct <code>ForceFolder</code> entries in the designated sandbox.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>USB refreshes replace the designated sandbox's direct <code>ForceFolder</code> list with the currently qualifying USB mount points. Do not use that direct list for unrelated persistent manual rules, and do not manually maintain USB drive letters there while automatic USB management is enabled. This replacement concerns the box's direct list; it does not imply that inherited or template configuration is rewritten.</p>
+<p>Disabling <code>ForceUsbDrives</code> or losing the required active certificate stops automatic maintenance but does not remove previously generated direct entries. Changing <code>UsbSandbox</code> makes subsequent refreshes maintain the new box, but generated direct entries in the former box are not cleaned automatically. Review and remove stale direct <code>ForceFolder</code> entries manually when disabling the feature or changing its designated sandbox.</p>
+</div>
+<p>The resulting rules affect programs launched from the forced locations according to normal <code>ForceFolder</code> behavior. They do not redirect every read or write performed by an otherwise unsandboxed host program.</p>
+<h2 id="excluding-volumes">Excluding volumes<a class="headerlink" href="#excluding-volumes" title="Permanent link"></a></h2>
+<p><code>DisabledForceVolume</code> is a repeatable global setting that excludes specific volumes from automatic USB sandboxing:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[GlobalSettings]</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">DisabledForceVolume</span><span class="o">=</span><span class="s">1234-ABCD</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="na">DisabledForceVolume</span><span class="o">=</span><span class="s">5678-EF90</span>
+</span></code></pre></div>
+<p>Each value is the Windows volume serial number formatted by SandMan as <code>XXXX-XXXX</code> in uppercase hexadecimal. It is not a drive letter, volume GUID path, USB hardware ID, or physical drive firmware serial number.</p>
+<p>Because an exclusion follows the Windows volume serial, changing a drive letter normally does not invalidate it. Reformatting or recreating the filesystem can change that serial, so the stored exclusion might no longer match.</p>
+<h2 id="sandman-interface">SandMan interface<a class="headerlink" href="#sandman-interface" title="Permanent link"></a></h2>
+<p>Open <strong>Global Settings &gt; Program Control &gt; USB Drive Sandboxing</strong>. This page provides:</p>
 <ul>
-<li>
-<p>Instant Isolation: When you plug in a USB drive, Sandboxie-Plus automatically forces all applications on the volume to be confined to a preset sandbox.</p>
-</li>
-<li>
-<p>Malware Defense: USB Drive Sandboxing guards against malicious content, ensuring that harmful elements remain contained within the sandbox.</p>
-</li>
-<li>
-<p>Effortless Protection: With automated sandboxing, there's no need for manual intervention. Your workflow remains uninterrupted while your system's security is bolstered.</p>
-</li>
-<li>
-<p>Data Integrity: Even in the presence of a potentially unsafe USB drive, your data remains intact while the malicious process is confined to the sandboxed environment.</p>
-</li>
+<li><strong>Automatically sandbox all attached USB drives</strong> — enables or disables <code>ForceUsbDrives</code>.</li>
+<li><strong>Sandbox for USB drives:</strong> — selects the designated sandbox.</li>
+<li>A volume list with <strong>Volume</strong> and <strong>Information</strong> columns. A checked USB-backed volume is included; clearing its checkbox stores its serial in <code>DisabledForceVolume</code>.</li>
 </ul>
-<p>Embrace a more secure future with USB Drive Sandboxing – a feature that revolutionizes your approach to external storage security, mitigating risks and reinforcing your system's defense mechanisms.</p>
+<p>An excluded volume that is not currently connected can remain listed by serial as <strong>Volume not attached</strong>. The sandbox selector and volume list require an active applicable Support Certificate.</p>
+<h2 id="drive-updates">Drive updates<a class="headerlink" href="#drive-updates" title="Permanent link"></a></h2>
+<p>SandMan rebuilds the generated rules when it refreshes drive information, including after relevant device-change notifications, and after USB settings are applied. SandMan must therefore be running to reflect newly attached or removed qualifying volumes automatically.</p>
+<p>If SandMan is not running, previously generated <code>ForceFolder</code> entries remain in the configuration, but arrivals and removals are not recomputed by an independent USB policy engine.</p>
+<h2 id="version-history">Version history<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
+<p><code>ForceUsbDrives</code>, <code>UsbSandbox</code>, and <code>DisabledForceVolume</code> are listed as added in version 1.12.0; the corresponding release pair was Sandboxie Plus 1.12.0 / Classic 5.67.0. The automatic USB maintenance described on this page is implemented by SandMan. Current automatic USB sandboxing requires an active applicable Support Certificate and is not Insider-exclusive.</p>
 
 
 

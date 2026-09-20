@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="LingerExemptWnds is a sandbox setting in Sandboxie Ini available since v1.13.4 / 5.68.4. To make the lingering process monitor mechanism no longer exempt lingering processes with windows from termination. For example:">
+        <meta name="description" content="LingerExemptWnds is a per-box Boolean setting in Sandboxie Ini, available since Sandboxie Plus 1.13.4 / Classic 5.68.4. It defaults to y.">
       
       
       
@@ -5585,15 +5585,15 @@
 
 
 <h1 id="linger-exempt-wnds">Linger Exempt Wnds<a class="headerlink" href="#linger-exempt-wnds" title="Permanent link"></a></h1>
-<p><em>LingerExemptWnds</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a> available since v1.13.4 / 5.68.4. To make the lingering process monitor mechanism no longer exempt lingering processes with windows from termination. For example:</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">LingerExemptWnds</span><span class="o">=</span><span class="s">n</span>
+<p><em>LingerExemptWnds</em> is a per-box Boolean setting in <a href="SandboxieIni.html">Sandboxie Ini</a>, available since Sandboxie Plus 1.13.4 / Classic 5.68.4. It defaults to <code>y</code>.</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">LingerExemptWnds</span><span class="o">=</span><span class="s">n</span>
 </span></code></pre></div>
-<p>Related <a href="SandboxieControl.html">Sandboxie Control</a> setting: <a href="ProgramStopSettings.html#lingering-programs">Sandbox Settings -&gt; Program Stop -&gt; Lingering Programs</a></p>
-<p>See also: <a href="ProgramSettings.html#linger">Program Settings</a>.</p>
+<p>When automatic linger cleanup would otherwise occur, <code>LingerExemptWnds=y</code> prevents that cleanup while a remaining sandbox process has a visible top-level window. Setting it to <code>n</code> removes the visible-window exemption.</p>
+<p>This setting does not make a process a lingerer and does not independently trigger termination. <a href="LingerProcess.html">Linger Process</a> identifies configured linger candidates, while <code>LingerLeniency</code> controls separate startup and grace-period exemptions.</p>
+<p>Sandboxie Plus exposes the setting under <strong>Sandbox Options &gt; Program Control &gt; Stop Behaviour &gt; Stop Options</strong> as <strong>Don't stop lingering processes with windows</strong>. The checkbox is selected for the default <code>y</code> behavior.</p>
+<p>The value is read during linger-cleanup evaluation. For predictable behavior after changing related leader, linger, or leniency policy, restart or recreate the affected sandbox process tree.</p>
+<p>See <a href="ProgramStopSettings.html">Program Stop Settings</a> for the complete lifecycle overview.</p>
 
 
 

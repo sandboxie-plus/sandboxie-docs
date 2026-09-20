@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="NOTE: This feature requires a supporter certificate.">
+        <meta name="description" content="Application Compartment was introduced in Sandboxie Plus 1.0.0. It favors application compatibility by bypassing several security-isolation mechanisms used by a standard sandbox while retaining selected Sandboxie virtualization and policy mechanisms.">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>Compartment Mode - Sandboxie Documentation</title>
+        <title>Application Compartment - Sandboxie Documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#compartment-mode" class="md-skip">
+        <a href="#application-compartment" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Compartment Mode
+              Application Compartment
             
           </span>
         </div>
@@ -5584,16 +5584,55 @@
   
 
 
-<h1 id="compartment-mode">Compartment Mode<a class="headerlink" href="#compartment-mode" title="Permanent link"></a></h1>
-<p><strong>NOTE: This feature requires a <a href="https://sandboxie-plus.com/supporter-certificate/">supporter certificate</a>.</strong></p>
-<p>The concept of an "Application Compartment" mode was introduced in <strong>Sandboxie Plus v1.0.0</strong>. This mode disables the normally used token-based security isolation in order to significantly improve compatibility while still retaining a level of security comparable to that of other available sandboxing products. It avoids many of the typical Sandboxie issues caused by processes running with a heavily restricted token.</p>
-<p>The setting for a compartment box can be enabled by adding <code>NoSecurityIsolation=y</code> to the box settings section of <strong><a href="../../Content/SandboxieIni/">Sandboxie Ini</a></strong>. It can also be enabled in the Sandman UI. Right-click on a box and select "Sandbox Options" from the drop-down menu (or simply double-click on a box) to bring up the Box Options UI. Select the box type preset as "Application Compartment (NO Isolation)" (with a <strong>green</strong> box icon) and click OK to apply changes. The status column of Sandman UI labels this box as <strong>Application Compartment</strong>.</p>
+<h1 id="application-compartment">Application Compartment<a class="headerlink" href="#application-compartment" title="Permanent link"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This feature requires a <a href="https://sandboxie-plus.com/supporter-certificate/">supporter certificate</a>.</p>
+</div>
+<p>Application Compartment was introduced in Sandboxie Plus 1.0.0. It favors application compatibility by bypassing several security-isolation mechanisms used by a standard sandbox while retaining selected Sandboxie virtualization and policy mechanisms.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Application Compartment materially reduces isolation and should be used only for trusted applications with compatibility requirements. It is not equivalent to running without Sandboxie, but file and registry virtualization alone should not be treated as a security boundary.</p>
+</div>
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link"></a></h2>
+<p>The primary box setting is:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">NoSecurityIsolation</span><span class="o">=</span><span class="s">y</span>
+</span></code></pre></div>
+<p>In SandMan, select the <strong>Application Compartment</strong> box type under <strong>Sandbox Options &gt; General Options</strong>. The New Box Wizard calls the corresponding preset <strong>Application Compartment Box</strong>. The status column normally identifies the resulting box as <strong>Application Compartment</strong>.</p>
+<p>If the configuration also opens an entire resource root, for example with <code>OpenFilePath=*</code>, SandMan displays <strong>OPEN Root Access</strong> instead. This status warning takes display precedence over <strong>Application Compartment</strong>; it does not change the configured box type or disable <code>NoSecurityIsolation</code>.</p>
+<p>The underlying advanced control is under <strong>Sandbox Options &gt; Security Options &gt; Security Isolation</strong> and is labeled <strong>Disable Security Isolation</strong>.</p>
 <p><img alt="" src="../../Media/Box_CompartmentMode.png" /></p>
-<p>In compartment mode, file system and registry filtering are still in place to enforce any access rules. So, processes do run without administrative privileges. This filtering can be disabled by adding <code>NoSecurityFiltering=y</code> to the box settings section of <strong><a href="../../Content/SandboxieIni/">Sandboxie Ini</a></strong> in order to provide a greater degree of compatibility.</p>
-<p>A new object access filter, enabled by default for new installations since <strong>Sandboxie Plus v1.0.16</strong>, replaces the Sandboxie's old process/thread handle filter to facilitate process isolation. For previous versions starting with <strong>Sandboxie Plus v1.0.0</strong>, it can be enabled by adding <code>EnableObjectFiltering=y</code> to the [GlobalSettings] section of <strong><a href="../../Content/SandboxieIni/">Sandboxie Ini</a></strong>.</p>
-<p><strong>Caveat:</strong> Even though an application compartment virtualizes the file system and registry, it does not change the process token or apply other more limiting restrictions. As a result, a process could potentially escape the virtualization. Because of this reduced security (even though it is only a slight reduction), this mode should be <strong>avoided for untrusted applications</strong>.</p>
-<p><strong>Recent Changes:</strong> Token based workarounds were added in subsequent Sandboxie Plus versions to facilitate even greater compatibility with the more commonly used programs. They used <code>DropAppContainerToken=y</code> for such workarounds and <code>FakeAppContainerToken=program.exe,n</code> to disable their use for a specific program. In <strong>Sandboxie Plus v1.8.2a</strong> and above, such workarounds are disabled when in compartment mode. In case of issues with some programs (primarily browsers), they can be re-enabled by using <code>DeprecatedTokenHacks=y</code>. <strong>Sandboxie Plus v1.8.0</strong> moved the built-in access rules for an application compartment box to a dedicated template (included in the file <strong>Templates.ini</strong> under the <code>[TemplateAppCPaths]</code> section) for easier management. <strong>Sandboxie Plus v1.10.1</strong> addressed and fixed various long-standing bugs affecting application compartment boxes.</p>
-<p><strong>Fun Fact (for any box type):</strong> If you add <code>OpenFilePath=*</code> to the box settings section of <strong><a href="../../Content/SandboxieIni/">Sandboxie Ini</a></strong> (or disable the isolation in some other way), the status column in the Sandman UI displays <strong>OPEN Root Access</strong> as a warning that this box is no longer really a "sandbox"! Starting with <strong>Sandboxie Plus v1.3.2</strong>, the box icon also changes its default color.</p>
+<h2 id="security-and-compatibility-model">Security and compatibility model<a class="headerlink" href="#security-and-compatibility-model" title="Permanent link"></a></h2>
+<p>Application Compartment bypasses Sandboxie's normal restricted-primary-token replacement and normal impersonation-token filtering paths. It also excludes processes from Sandboxie's normal root Job Object assignment and relaxes several security-oriented path-policy defaults.</p>
+<p>Application Compartment does not itself elevate a process. Instead, it bypasses Sandboxie's normal restricted-token replacement, so the process can retain the security context with which it was launched. An unelevated process remains unelevated, while a process deliberately launched elevated can retain that elevated context.</p>
+<p>File-system and registry virtualization can remain active. File, registry-key, and kernel-object driver filtering also remain separate and are not disabled merely by selecting Application Compartment. Configured resource, network, IPC, and GUI rules can continue to apply.</p>
+<p>For the detailed behavior and limitations, see <a href="../../Content/NoSecurityIsolation/">No Security Isolation</a>.</p>
+<h2 id="optional-filtering-relaxation">Optional filtering relaxation<a class="headerlink" href="#optional-filtering-relaxation" title="Permanent link"></a></h2>
+<p>For additional compatibility, an Application Compartment can use:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">NoSecurityFiltering</span><span class="o">=</span><span class="s">y</span>
+</span></code></pre></div>
+<p>This setting disables Sandboxie's driver-level file, registry-key, and kernel-object filters while Application Compartment is active. It does not literally disable every Sandboxie hook, service, rule, or virtualization mechanism. See <a href="../../Content/NoSecurityFiltering/">No Security Filtering</a>.</p>
+<p>In SandMan, the checkbox <strong>Disable Security Filtering (not recommended)</strong> appears on the same <strong>Security Isolation</strong> page and is enabled only when <strong>Disable Security Isolation</strong> is selected.</p>
+<h2 id="path-and-namespace-handling">Path and namespace handling<a class="headerlink" href="#path-and-namespace-handling" title="Permanent link"></a></h2>
+<p>Sandboxie loads built-in <code>TemplateAppCPaths</code> rules for Application Compartment processes. Since Sandboxie Plus 1.8.0, the built-in path rules for this mode are maintained in that dedicated template. These rules provide box-type-specific path policy; they do not disable all resource isolation.</p>
+<p>Normal NT directory-object namespace isolation remains a separate setting. Advanced Application Compartment configurations can instead use <code>UseAlternateIpcNaming=y</code>, which gives Sandboxie-redirected named kernel objects a sandbox-specific name suffix rather than using the normal separate directory-object namespace. This does not rename every IPC mechanism. See <a href="../../Content/NtNamespaceIsolation/#alternate-ipc-naming">NT Namespace Isolation</a>.</p>
+<h2 id="job-object-limits">Job Object limits<a class="headerlink" href="#job-object-limits" title="Permanent link"></a></h2>
+<p>Application Compartment processes are not assigned to Sandboxie's normal root Job Object. Box-level process, memory, and CPU limits implemented through that Job Object therefore do not apply in the usual way. See <a href="../../Content/JobObjects/">Job Objects</a>.</p>
+<h2 id="version-history">Version history<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
+<ul>
+<li><strong>Sandboxie Plus 1.0.0 / Classic 5.55.0:</strong> introduced Application Compartment through <code>NoSecurityIsolation=y</code>, together with the optional <code>NoSecurityFiltering</code> compatibility setting.</li>
+<li><strong>Sandboxie Plus 1.8.0:</strong> moved the built-in Application Compartment access rules into <code>TemplateAppCPaths</code>.</li>
+<li><strong>Sandboxie Plus 1.17.0 / Classic 5.72.0:</strong> added <code>UseAlternateIpcNaming</code> for alternate named-object handling in Application Compartment boxes.</li>
+</ul>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
+<ul>
+<li><a href="../../Content/NoSecurityIsolation/">No Security Isolation</a></li>
+<li><a href="../../Content/NoSecurityFiltering/">No Security Filtering</a></li>
+<li><a href="../../Content/NtNamespaceIsolation/">NT Namespace Isolation</a></li>
+<li><a href="../../Content/JobObjects/">Job Objects</a></li>
+<li><a href="../../Content/SandboxieIni/">Sandboxie Ini</a></li>
+</ul>
 
 
 

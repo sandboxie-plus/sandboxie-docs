@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="NoSecurityIsolation is a sandbox setting available since v1.0.0 / 5.55.0 that transforms Sandboxie from a secure isolation environment into an Application Compartment mode, prioritizing compatibility over security.">
+        <meta name="description" content="NoSecurityIsolation selects Sandboxie&#x27;s Application Compartment mode. This mode favors compatibility by bypassing several security-isolation mechanisms used by a standard sandbox, but it does not disable every Sandboxie isolation or virtualization mechanism.">
       
       
       
@@ -5585,182 +5585,65 @@
 
 
 <h1 id="no-security-isolation">No Security Isolation<a class="headerlink" href="#no-security-isolation" title="Permanent link"></a></h1>
-<p><em>NoSecurityIsolation</em> is a sandbox setting available since v1.0.0 / 5.55.0 that transforms Sandboxie from a secure isolation environment into an <strong>Application Compartment</strong> mode, prioritizing compatibility over security.</p>
+<p><em>NoSecurityIsolation</em> selects Sandboxie's <strong>Application Compartment</strong> mode. This mode favors compatibility by bypassing several security-isolation mechanisms used by a standard sandbox, but it does not disable every Sandboxie isolation or virtualization mechanism.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Application Compartment materially reduces isolation and is intended for trusted applications with compatibility requirements. File and registry virtualization can remain active, but virtualization alone should not be treated as a security boundary.</p>
+</div>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">NoSecurityIsolation</span><span class="o">=</span><span class="s">y</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">NoSecurityIsolation</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link"></a></h2>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">NoSecurityIsolation</span><span class="o">=</span><span class="s">&lt;y/n&gt;</span>
-</span></code></pre></div>
-<p>Where:</p>
+<p>The default is <code>n</code>. This is a box-wide setting.</p>
+<h2 id="token-behavior">Token behavior<a class="headerlink" href="#token-behavior" title="Permanent link"></a></h2>
+<p>Application Compartment bypasses Sandboxie's normal restricted-primary-token replacement and normal impersonation-token validation and filtering paths.</p>
+<p>This does not itself elevate a process. Instead, the process can retain the security context with which it was launched:</p>
 <ul>
-<li><code>y</code> enables compartment mode,</li>
-<li><code>n</code> (default) maintains security isolation.</li>
+<li>an unelevated process remains unelevated;</li>
+<li>a process launched with an elevated token can retain that elevated context;</li>
+<li>the setting does not grant administrator or SYSTEM privileges.</li>
 </ul>
-<h2 id="how-it-works">How It Works<a class="headerlink" href="#how-it-works" title="Permanent link"></a></h2>
-<p>When enabled, the driver sets <code>bAppCompartment = TRUE</code>, fundamentally changing Sandboxie's operation by:</p>
+<p>This behavior overlaps with parts of the separate <code>OriginalToken</code> setting, but Application Compartment does not automatically add or enable <code>OriginalToken=y</code> in the sandbox configuration.</p>
+<h2 id="job-object-behavior">Job Object behavior<a class="headerlink" href="#job-object-behavior" title="Permanent link"></a></h2>
+<p>Application Compartment processes are excluded from Sandboxie's normal root Job Object assignment. Consequently, the box-level process, memory, and CPU limits implemented through that Job Object do not apply in the usual way.</p>
+<p>This does not prevent a process from belonging to a Job Object created or assigned by another component. For the complete Job Object model, see <a href="../JobObjects/">Job Objects</a>.</p>
+<h2 id="path-policy-defaults">Path-policy defaults<a class="headerlink" href="#path-policy-defaults" title="Permanent link"></a></h2>
+<p>Application Compartment relaxes three specific Sandboxie path-policy defaults:</p>
 <ul>
-<li><strong>Bypassing token filtering</strong>: Both primary and impersonation tokens remain unmodified<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup><sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup><sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></li>
-<li><strong>Excluding Job Objects</strong>: Processes avoid Windows Job Object restrictions<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>  </li>
-<li><strong>Relaxing path controls</strong>: Default security-oriented path blocking is disabled<sup id="fnref2:5"><a class="footnote-ref" href="#fn:5">5</a></sup></li>
+<li>the normal <code>AlwaysCloseForBoxed</code> behavior is not applied;</li>
+<li>the normal <code>DontOpenForBoxed</code> behavior is not applied;</li>
+<li><code>ProtectHostImages</code> is not applied.</li>
 </ul>
-<h2 id="feature-matrix">Feature Matrix<a class="headerlink" href="#feature-matrix" title="Permanent link"></a></h2>
-<table>
-<thead>
-<tr>
-<th>Feature</th>
-<th>Standard Sandbox</th>
-<th>Application Compartment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>File System Virtualization</strong></td>
-<td>✓</td>
-<td>✓</td>
-</tr>
-<tr>
-<td><strong>Registry Virtualization</strong></td>
-<td>✓</td>
-<td>✓</td>
-</tr>
-<tr>
-<td><strong>Object Namespace Isolation</strong></td>
-<td>✓</td>
-<td>✓</td>
-</tr>
-<tr>
-<td><strong>Process Monitoring</strong></td>
-<td>✓</td>
-<td>✓</td>
-</tr>
-<tr>
-<td><strong>Token-Based Security</strong></td>
-<td>✓</td>
-<td>✗</td>
-</tr>
-<tr>
-<td><strong>Privilege Restrictions</strong></td>
-<td>✓</td>
-<td>✗</td>
-</tr>
-<tr>
-<td><strong>Job Object Assignments</strong></td>
-<td>✓</td>
-<td>✗</td>
-</tr>
-<tr>
-<td><strong>Security Path Blocking</strong></td>
-<td>✓</td>
-<td>✗</td>
-</tr>
-</tbody>
-</table>
-<h2 id="path-control-changes">Path Control Changes<a class="headerlink" href="#path-control-changes" title="Permanent link"></a></h2>
-<p>In Application Compartment mode, three key path behaviors are automatically disabled<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>:</p>
+<p>These changes do not mean that every resource rule is ignored. Other configured access rules, built-in template rules, and active filtering layers can still affect access.</p>
+<p>Sandboxie also loads the built-in <code>TemplateAppCPaths</code> rules for Application Compartment processes. These are template path policies for this box type; they do not disable all resource isolation.</p>
+<h2 id="isolation-that-can-remain-active">Isolation that can remain active<a class="headerlink" href="#isolation-that-can-remain-active" title="Permanent link"></a></h2>
+<p>In an ordinary Application Compartment configuration:</p>
 <ul>
-<li><strong><code>AlwaysCloseForBoxed</code></strong>: Boxed processes can access normally blocked paths<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup>.</li>
-<li><strong><code>DontOpenForBoxed</code></strong>: Open path rules apply equally to all processes<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup>.</li>
-<li><strong><code>ProtectHostImages</code></strong>: Host binary protection is relaxed<sup id="fnref:8"><a class="footnote-ref" href="#fn:8">8</a></sup>.</li>
+<li>file-system and registry virtualization can remain active;</li>
+<li>Sandboxie's file, registry-key, and kernel-object driver filters remain active unless disabled separately;</li>
+<li>configured file, registry, IPC, network, and GUI rules can still apply;</li>
+<li>named-object namespace handling remains subject to settings such as <a href="../NtNamespaceIsolation/">Nt Namespace Isolation</a>.</li>
 </ul>
-<h2 id="compatibility-integration">Compatibility &amp; Integration<a class="headerlink" href="#compatibility-integration" title="Permanent link"></a></h2>
-<h3 id="automatic-activation">Automatic Activation<a class="headerlink" href="#automatic-activation" title="Permanent link"></a></h3>
+<p><code>NoSecurityIsolation=y</code> alone does not set Sandboxie's file-, key-, or object-filter disable states. The separate <a href="../NoSecurityFiltering/">No Security Filtering</a> setting can disable those three driver filters while Application Compartment is active.</p>
+<h2 id="named-object-namespace-options">Named-object namespace options<a class="headerlink" href="#named-object-namespace-options" title="Permanent link"></a></h2>
+<p>Application Compartment normally continues to use Sandboxie's named kernel-object redirection and NT directory-object namespace handling. Advanced configurations can use <code>UseAlternateIpcNaming=y</code> to change the naming strategy for Sandboxie-redirected named objects instead of using the normal separate directory-object namespace.</p>
+<p><code>UseAlternateIpcNaming</code> is intended specifically for Application Compartment boxes. It does not rename every IPC protocol or disable every IPC control. See <a href="../NtNamespaceIsolation/#alternate-ipc-naming">Nt Namespace Isolation</a> for details.</p>
+<h2 id="unsupported-dyndata-fallback">Unsupported DynData fallback<a class="headerlink" href="#unsupported-dyndata-fallback" title="Permanent link"></a></h2>
+<p>When compatible DynData is unavailable, current driver code can force the affected process into the reduced-isolation Application Compartment state and emit warning <code>MSG_1207</code>. This changes the driver's process state; it does not write <code>NoSecurityIsolation=y</code> to the sandbox configuration.</p>
+<h2 id="sandman-configuration">SandMan configuration<a class="headerlink" href="#sandman-configuration" title="Permanent link"></a></h2>
+<p>Application Compartment can be selected as a box type in SandMan. The corresponding advanced setting is under:</p>
+<p><strong>Sandbox Options &gt; Security Options &gt; Security Isolation</strong></p>
+<p>The checkbox label is <strong>Disable Security Isolation</strong>. The current SandMan box-type selector calls the preset <strong>Application Compartment</strong>, while the New Box Wizard calls it <strong>Application Compartment Box</strong>. SandMan treats this mode as a supporter feature.</p>
+<h2 id="version-history">Version history<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
+<p>Application Compartment and <code>NoSecurityIsolation</code> were introduced in Sandboxie Plus 1.0.0 / Classic 5.55.0. Sandboxie Plus 1.8.0 moved the built-in Application Compartment access rules into <code>TemplateAppCPaths</code>.</p>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
 <ul>
-<li><strong>Unsupported Windows builds</strong>: Automatically enabled with warning MSG_1207<sup id="fnref:11"><a class="footnote-ref" href="#fn:11">11</a></sup>.</li>
-<li><strong>Sandboxie Plus box types</strong>: Pre-configured in <code>Application Compartment</code> and <code>Application Compartment with Data Protection</code>.</li>
+<li><a href="../../PlusContent/compartment-mode/">Application Compartment</a></li>
+<li><a href="../NoSecurityFiltering/">No Security Filtering</a></li>
+<li><a href="../NtNamespaceIsolation/">Nt Namespace Isolation</a></li>
+<li><a href="../JobObjects/">Job Objects</a></li>
+<li><a href="../SandboxieIni/">Sandboxie Ini</a></li>
 </ul>
-<h3 id="enhanced-compatibility">Enhanced Compatibility<a class="headerlink" href="#enhanced-compatibility" title="Permanent link"></a></h3>
-<ul>
-<li>Processes interact freely with the host system.</li>
-<li>Reduced conflicts with privilege-dependent applications.</li>
-<li>Better support for complex software and development tools.</li>
-</ul>
-<h2 id="security-implications">Security Implications<a class="headerlink" href="#security-implications" title="Permanent link"></a></h2>
-<div class="admonition warning">
-<p class="admonition-title">Important</p>
-<p>Application Compartment mode significantly reduces security isolation:</p>
-<ul>
-<li>Processes run with original security context and privileges.</li>
-<li>No token-based protection or privilege dropping.</li>
-<li>Sandbox provides virtualization but not security boundary.</li>
-</ul>
-</div>
-<h2 id="related-settings">Related Settings<a class="headerlink" href="#related-settings" title="Permanent link"></a></h2>
-<h3 id="complementary">Complementary<a class="headerlink" href="#complementary" title="Permanent link"></a></h3>
-<ul>
-<li><strong><a href="../NoSecurityFiltering/">NoSecurityFiltering</a></strong>: Further disables filtering<sup id="fnref:9"><a class="footnote-ref" href="#fn:9">9</a></sup>.</li>
-<li><strong>OriginalToken</strong>: Auto-enabled in compartment mode.</li>
-<li><strong>Template Paths</strong>: <code>TemplateAppCPaths</code> are applied<sup id="fnref:10"><a class="footnote-ref" href="#fn:10">10</a></sup>.</li>
-</ul>
-<h3 id="job-object-limits-disabled">Job Object Limits (Disabled)<a class="headerlink" href="#job-object-limits-disabled" title="Permanent link"></a></h3>
-<p>These settings become ineffective due to Job Object exclusion:</p>
-<ul>
-<li><a href="../ProcessNumberLimit/"><code>ProcessNumberLimit</code></a></li>
-<li><a href="../ProcessMemoryLimit/"><code>ProcessMemoryLimit</code></a></li>
-<li><a href="../TotalMemoryLimit/"><code>TotalMemoryLimit</code></a></li>
-<li><a href="../CpuRateLimit/"><code>CpuRateLimit</code></a></li>
-</ul>
-<p>For details about Job Object assignment, UI restrictions, nested Jobs, and related settings, see <a href="../JobObjects/">Job Objects</a>.</p>
-<h2 id="use-cases-troubleshooting">Use Cases &amp; Troubleshooting<a class="headerlink" href="#use-cases-troubleshooting" title="Permanent link"></a></h2>
-<p><strong>When to Enable:</strong></p>
-<ul>
-<li>Software testing and development environments.</li>
-<li>Legacy applications requiring full system privileges.</li>
-<li>Token restriction compatibility issues.</li>
-<li>Virtualization-only scenarios (file/registry separation).</li>
-</ul>
-<p><strong>Common Triggers:</strong></p>
-<ul>
-<li>Applications failing to start due to token restrictions.</li>
-<li>Administrative privilege requirements.</li>
-<li>Complex software compatibility issues.</li>
-</ul>
-<h2 id="related">Related<a class="headerlink" href="#related" title="Permanent link"></a></h2>
-<ul>
-<li><strong>Sandboxie Plus</strong>: Sandbox Options &gt; Security Options &gt; Security Isolation</li>
-<li><a href="../../PlusContent/box-preset-comparison/">Box Types</a></li>
-<li><a href="../DropChildProcessToken/">DropChildProcessToken</a></li>
-</ul>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:1">
-<p><strong>Token Bypass</strong>: <code>Token_ReplacePrimary</code> returns <code>TRUE</code> when <code>proc-&gt;bAppCompartment</code> is set, bypassing all token filtering operations.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-<li id="fn:2">
-<p><strong>Primary Tokens</strong>: Left unmodified in <code>token.c</code> when Application Compartment mode is active.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
-</li>
-<li id="fn:3">
-<p><strong>Impersonation Tokens</strong>: <code>Thread_CheckTokenForImpersonation</code> returns <code>STATUS_SUCCESS</code> without restrictions when <code>proc-&gt;bAppCompartment</code> is enabled.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
-</li>
-<li id="fn:4">
-<p><strong>Job Object Exclusion</strong>: Condition <code>new_proc-&gt;bAppCompartment</code> in <code>process.c</code> excludes processes from Windows Job Objects.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
-</li>
-<li id="fn:5">
-<p><strong>Path Handling</strong>: Three behaviors disabled in <code>process.c</code>: <code>always_close_for_boxed</code>, <code>dont_open_for_boxed</code>, and <code>protect_host_images</code>.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
-</li>
-<li id="fn:6">
-<p><strong>AlwaysCloseForBoxed</strong>: <code>proc-&gt;always_close_for_boxed = !proc-&gt;bAppCompartment &amp;&amp; Conf_Get_Boolean(...)</code> ensures boxed processes aren't blocked from normally closed paths.&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
-</li>
-<li id="fn:7">
-<p><strong>DontOpenForBoxed</strong>: <code>proc-&gt;dont_open_for_boxed = !proc-&gt;bAppCompartment &amp;&amp; Conf_Get_Boolean(...)</code> allows equal path rule application.&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
-</li>
-<li id="fn:8">
-<p><strong>ProtectHostImages</strong>: <code>proc-&gt;protect_host_images = !proc-&gt;bAppCompartment &amp;&amp; Conf_Get_Boolean(...)</code> disables host binary protection.&#160;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 8 in the text">&#8617;</a></p>
-</li>
-<li id="fn:9">
-<p><strong>Security Filtering</strong>: <code>no_filtering = proc-&gt;bAppCompartment &amp;&amp; Conf_Get_Boolean(..., L"NoSecurityFiltering", ...)</code> enables complete filtering bypass.&#160;<a class="footnote-backref" href="#fnref:9" title="Jump back to footnote 9 in the text">&#8617;</a></p>
-</li>
-<li id="fn:10">
-<p><strong>Template Paths</strong>: <code>Process_GetPaths(proc, list, L"TemplateAppCPaths", setting_name, FALSE)</code> applies compartment-specific template paths.&#160;<a class="footnote-backref" href="#fnref:10" title="Jump back to footnote 10 in the text">&#8617;</a></p>
-</li>
-<li id="fn:11">
-<p><strong>Auto Fallback</strong>: <code>!Dyndata_Active &amp;&amp; !proc-&gt;bAppCompartment</code> triggers automatic compartment mode with <code>Log_Msg1(MSG_1207, info)</code>.&#160;<a class="footnote-backref" href="#fnref:11" title="Jump back to footnote 11 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div>
 
 
 

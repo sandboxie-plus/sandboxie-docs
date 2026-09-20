@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="LingerProcess is a sandbox setting in Sandboxie Ini. It specifies names of programs that will be automatically terminated, when they are the last programs that remain in execution in a particular sandbox. This is useful as some programs occasionally launch helper programs to carry out a specific task, and the helper program remains in execution even after the original program has ended. For example:">
+        <meta name="description" content="LingerProcess is a repeatable per-box setting in Sandboxie Ini. It identifies helper or background executables that Sandboxie can treat as cleanup candidates after no ordinary non-lingering program remains.">
       
       
       
@@ -5585,21 +5585,30 @@
 
 
 <h1 id="linger-process">Linger Process<a class="headerlink" href="#linger-process" title="Permanent link"></a></h1>
-<p><em>LingerProcess</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. It specifies names of programs that will be automatically terminated, when they are the last programs that remain in execution in a particular sandbox. This is useful as some programs occasionally launch <em>helper programs</em> to carry out a specific task, and the helper program remains in execution even after the original program has ended. For example:</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">LingerProcess</span><span class="o">=</span><span class="s">jusched.exe</span>
+<p><em>LingerProcess</em> is a repeatable per-box setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. It identifies helper or background executables that Sandboxie can treat as cleanup candidates after no ordinary non-lingering program remains.</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">LingerProcess</span><span class="o">=</span><span class="s">helper.exe</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">LingerProcess</span><span class="o">=</span><span class="s">updater.exe</span>
 </span></code></pre></div>
-<p><em>jusched.exe</em> is part of the Sun Java framework. It is occasionally launched when Internet Explorer starts the Java framework. This <em>LingerProcess</em> example setting specifies that if <em>jusched.exe</em> remains the last program running in the sandbox DefaultBox, then it should be terminated.</p>
-<p>LingerProcess will not terminate a process, if that process was the first process launched in the sandbox.</p>
-<p>For example, the default configuration includes Adobe Acrobat Reader as a LingerProcess, because it is typically launched when viewing PDF files through the Web browser, and remains running even after the browser has closed.
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">   </span><span class="na">LingerProcess</span><span class="o">=</span><span class="s">acrord32.exe</span>
-</span></code></pre></div></p>
-<p>However, if you manually start Adobe Acrobat Reader sandboxed, for example by running it from the Sandboxie Start Menu, then the LingerProcess setting will not apply to that process.</p>
-<p>Related <a href="../SandboxieControl/">Sandboxie Control</a> setting: <a href="../ProgramStopSettings/#lingering-programs">Sandbox Settings -&gt; Program Stop -&gt; Lingering Programs</a></p>
-<p>See also: <a href="../ProgramSettings/#linger">Program Settings</a>.</p>
+<p>Names are matched exactly and case-insensitively. The current consumer does not perform wildcard matching.</p>
+<p>A matching process is not terminated immediately. Automatic cleanup is considered when all remaining relevant sandbox processes are lingerers and no applicable exemption prevents it. Sandboxie also treats some of its own service or helper processes as lingerers internally; that implementation list may change.</p>
+<h2 id="linger-leniency">Linger leniency<a class="headerlink" href="#linger-leniency" title="Permanent link"></a></h2>
+<p><code>LingerLeniency</code> is enabled by default. While enabled, it:</p>
+<ol>
+<li>preserves matching configured lingerers already active when SandboxieRpcSs initializes;</li>
+<li>exempts configured lingerers explicitly started through the relevant forced or <code>Start.exe</code> paths;</li>
+<li>applies the current five-second grace check to recently started remaining processes before automatic cleanup.</li>
+</ol>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">LingerLeniency</span><span class="o">=</span><span class="s">n</span>
+</span></code></pre></div>
+<p>Setting it to <code>n</code> disables those behaviors. The setting is therefore broader than a timeout switch, and the five-second interval is not configurable through it. It does not support an unconditional rule that the first process in a sandbox is always exempt.</p>
+<p><code>LingerLeniency</code> was introduced in Sandboxie Plus 1.0.7 / Classic 5.55.7. Sandboxie Plus 1.13.4 / Classic 5.68.4 expanded <code>LingerLeniency=n</code> so it also disables the five-second grace check.</p>
+<h2 id="visible-windows">Visible windows<a class="headerlink" href="#visible-windows" title="Permanent link"></a></h2>
+<p><a href="../LingerExemptWnds/">Linger Exempt Wnds</a> separately controls whether a visible top-level window prevents an otherwise eligible linger cleanup. It does not classify the process as a lingerer.</p>
+<p>The linger list is loaded when SandboxieRpcSs initializes inside the sandbox. Restart or recreate the affected sandbox process tree after changing the list or leniency policy for predictable behavior.</p>
+<p>In Sandboxie Plus, open <strong>Sandbox Options &gt; Program Control &gt; Stop Behaviour &gt; Lingering Programs</strong>. <code>LingerLeniency</code> and the visible-window exemption are under <strong>Stop Options</strong>. Sandboxie Control Classic exposes the historical <a href="../ProgramStopSettings/#lingering-programs">Sandbox Settings &gt; Program Stop &gt; Lingering Programs</a> page, but it should not be assumed to provide every newer SandMan control.</p>
+<p>See <a href="../ProgramStopSettings/">Program Stop Settings</a> for the complete lifecycle overview.</p>
 
 
 

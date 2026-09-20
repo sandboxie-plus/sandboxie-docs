@@ -1,40 +1,40 @@
 
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="zh" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Sandboxie provides several independent settings for deciding when remaining sandboxed processes should be stopped, restarting processes for compatibility during initialization, and choosing how termination requests are handled. The leader and linger classifications are evaluated inside the sandbox by SandboxieRpcSs; SandMan and Sandboxie Control provide configuration interfaces but do not perform that runtime classification themselves.">
+        <meta name="description" content="Sandboxie&#x27;s crash-dump and debugger-wait options are separate from Trace Log monitoring. Minidump settings create files after qualifying unhandled crashes, while debugger-wait settings pause matching processes early during Sandboxie DLL initialization so that a debugger can attach.">
       
       
       
-        <link rel="canonical" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/ProgramStopSettings.html">
+        <link rel="canonical" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/CrashAndDebuggerDiagnostics/">
       
       
       
       
         
-          <link rel="alternate" href="ProgramStopSettings.html" hreflang="en">
+          <link rel="alternate" href="../../../Content/CrashAndDebuggerDiagnostics/" hreflang="en">
         
-          <link rel="alternate" href="../zh-CN/Content/ProgramStopSettings.html" hreflang="zh">
+          <link rel="alternate" href="./" hreflang="zh">
         
       
       
-      <link rel="icon" href="../material/assets/images/favicon.ico">
+      <link rel="icon" href="../../../material/assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>Program Stop Settings - Sandboxie Documentation</title>
+        <title>Crash and Debugger Diagnostics - Sandboxie 文档</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -47,9 +47,9 @@
       
     
     
-      <link rel="stylesheet" href="../material/assets/stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../material/assets/stylesheets/extra.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -74,8 +74,8 @@
     <div data-md-component="skip">
       
         
-        <a href="#program-stop-settings" class="md-skip">
-          Skip to content
+        <a href="#crash-and-debugger-diagnostics" class="md-skip">
+          跳转至
         </a>
       
     </div>
@@ -89,10 +89,10 @@
   
 
 <header class="md-header md-header--shadow" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Sandboxie Documentation" class="md-header__button md-logo" aria-label="Sandboxie Documentation" data-md-component="logo">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="Sandboxie 文档" class="md-header__button md-logo" aria-label="Sandboxie 文档" data-md-component="logo">
       
-  <img src="../Media/SandDocs.png" alt="logo">
+  <img src="../../../Media/SandDocs.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -103,13 +103,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Sandboxie Documentation
+            Sandboxie 文档
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Program Stop Settings
+              Crash and Debugger Diagnostics
             
           </span>
         </div>
@@ -159,20 +159,20 @@
       <div class="md-header__option">
   <div class="md-select">
     
-    <button class="md-header__button md-icon" aria-label="Select language">
+    <button class="md-header__button md-icon" aria-label="选择当前语言">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
     </button>
     <div class="md-select__inner">
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="ProgramStopSettings.html" hreflang="en" class="md-select__link">
+            <a href="../../../Content/CrashAndDebuggerDiagnostics/" hreflang="en" class="md-select__link">
               English
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="../zh-CN/Content/ProgramStopSettings.html" hreflang="zh" class="md-select__link">
+            <a href="./" hreflang="zh" class="md-select__link">
               简体中文
             </a>
           </li>
@@ -193,21 +193,21 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="Search">
+      <nav class="md-search__options" aria-label="查找">
         
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
             
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
           </a>
         
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
@@ -220,7 +220,7 @@
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Initializing search
+            正在初始化搜索引擎
           </div>
           <ol class="md-search-result__list" role="presentation"></ol>
         </div>
@@ -232,7 +232,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/sandboxie-plus/Sandboxie" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/sandboxie-plus/Sandboxie" title="前往仓库" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
@@ -268,18 +268,18 @@
 
   
 
-<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Sandboxie Documentation" class="md-nav__button md-logo" aria-label="Sandboxie Documentation" data-md-component="logo">
+    <a href="../../.." title="Sandboxie 文档" class="md-nav__button md-logo" aria-label="Sandboxie 文档" data-md-component="logo">
       
-  <img src="../Media/SandDocs.png" alt="logo">
+  <img src="../../../Media/SandDocs.png" alt="logo">
 
     </a>
-    Sandboxie Documentation
+    Sandboxie 文档
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/sandboxie-plus/Sandboxie" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/sandboxie-plus/Sandboxie" title="前往仓库" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
@@ -331,7 +331,7 @@
   <span class="md-ellipsis">
     
   
-    Sandboxie Basics
+    Sandboxie 基础知识
   
 
     
@@ -347,7 +347,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Sandboxie Basics
+    Sandboxie 基础知识
   
 
           </label>
@@ -360,14 +360,14 @@
   
   
     <li class="md-nav__item">
-      <a href="HelpTopics.html" class="md-nav__link">
+      <a href="../HelpTopics/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Help Topics
+    帮助主题
   
 
     
@@ -388,14 +388,14 @@
   
   
     <li class="md-nav__item">
-      <a href="GettingStarted.html" class="md-nav__link">
+      <a href="../GettingStarted/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Getting Started
+    入门指南
   
 
     
@@ -450,7 +450,7 @@
   <span class="md-ellipsis">
     
   
-    Sandboxie Control
+    Sandboxie 控制
   
 
     
@@ -466,7 +466,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Sandboxie Control
+    Sandboxie 控制
   
 
           </label>
@@ -479,14 +479,14 @@
   
   
     <li class="md-nav__item">
-      <a href="SandboxieControl.html" class="md-nav__link">
+      <a href="../SandboxieControl/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Sandboxie Control
+    沙盒管理器
   
 
     
@@ -507,14 +507,14 @@
   
   
     <li class="md-nav__item">
-      <a href="FileMenu.html" class="md-nav__link">
+      <a href="../FileMenu/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    File Menu
+    文件菜单
   
 
     
@@ -535,14 +535,14 @@
   
   
     <li class="md-nav__item">
-      <a href="ViewMenu.html" class="md-nav__link">
+      <a href="../ViewMenu/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    View Menu
+    视图菜单
   
 
     
@@ -563,14 +563,14 @@
   
   
     <li class="md-nav__item">
-      <a href="SandboxMenu.html" class="md-nav__link">
+      <a href="../SandboxMenu/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Sandbox Menu
+    沙盒菜单
   
 
     
@@ -591,14 +591,14 @@
   
   
     <li class="md-nav__item">
-      <a href="ConfigureMenu.html" class="md-nav__link">
+      <a href="../ConfigureMenu/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Configure Menu
+    配置菜单
   
 
     
@@ -619,14 +619,14 @@
   
   
     <li class="md-nav__item">
-      <a href="HelpMenu.html" class="md-nav__link">
+      <a href="../HelpMenu/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Help Menu
+    帮助菜单
   
 
     
@@ -647,14 +647,14 @@
   
   
     <li class="md-nav__item">
-      <a href="TrayIconMenu.html" class="md-nav__link">
+      <a href="../TrayIconMenu/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Tray Icon Menu
+    托盘图标菜单
   
 
     
@@ -683,14 +683,14 @@
   
   
     <li class="md-nav__item">
-      <a href="UsageTips.html" class="md-nav__link">
+      <a href="../UsageTips/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Usage Tips
+    使用技巧
   
 
     
@@ -735,7 +735,7 @@
   <span class="md-ellipsis">
     
   
-    Command Line Usage
+    命令行用法
   
 
     
@@ -751,7 +751,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Command Line Usage
+    命令行用法
   
 
           </label>
@@ -764,14 +764,14 @@
   
   
     <li class="md-nav__item">
-      <a href="StartCommandLine.html" class="md-nav__link">
+      <a href="../StartCommandLine/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Start Command Line
+    启动命令行
   
 
     
@@ -792,14 +792,14 @@
   
   
     <li class="md-nav__item">
-      <a href="SbieIniCommandLine.html" class="md-nav__link">
+      <a href="../SbieIniCommandLine/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    SbieIni Command Line
+    SbieIni 命令行
   
 
     
@@ -828,7 +828,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SandboxieIni.html" class="md-nav__link">
+      <a href="../SandboxieIni/" class="md-nav__link">
         
   
   
@@ -863,14 +863,14 @@
   
   
     <li class="md-nav__item">
-      <a href="KnownConflicts.html" class="md-nav__link">
+      <a href="../KnownConflicts/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Known Conflicts
+    已知冲突
   
 
     
@@ -943,14 +943,14 @@
   
   
     <li class="md-nav__item">
-      <a href="PlusMigrationGuide.html" class="md-nav__link">
+      <a href="../PlusMigrationGuide/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Sandboxie-Plus Migration Guide
+    Sandboxie Plus 迁移指南
   
 
     
@@ -971,7 +971,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../PlusContent/Plus-Features.html" class="md-nav__link">
+      <a href="../../PlusContent/Plus-Features/" class="md-nav__link">
         
   
   
@@ -1042,7 +1042,7 @@
   <span class="md-ellipsis">
     
   
-    Advanced Topics
+    高级主题
   
 
     
@@ -1058,7 +1058,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Advanced Topics
+    高级主题
   
 
           </label>
@@ -1071,14 +1071,14 @@
   
   
     <li class="md-nav__item">
-      <a href="AdvancedTopics.html" class="md-nav__link">
+      <a href="../AdvancedTopics/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Advanced Topics
+    高级主题
   
 
     
@@ -1099,14 +1099,14 @@
   
   
     <li class="md-nav__item">
-      <a href="SandboxHierarchy.html" class="md-nav__link">
+      <a href="../SandboxHierarchy/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Sandbox Hierarchy
+    沙盒层级
   
 
     
@@ -1127,14 +1127,14 @@
   
   
     <li class="md-nav__item">
-      <a href="PrivacyConcerns.html" class="md-nav__link">
+      <a href="../PrivacyConcerns/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Privacy Concerns
+    隐私问题
   
 
     
@@ -1155,14 +1155,14 @@
   
   
     <li class="md-nav__item">
-      <a href="ServicePrograms.html" class="md-nav__link">
+      <a href="../ServicePrograms/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Service Programs
+    服务程序
   
 
     
@@ -1183,14 +1183,14 @@
   
   
     <li class="md-nav__item">
-      <a href="ResourceAccessMonitor.html" class="md-nav__link">
+      <a href="../ResourceAccessMonitor/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Resource Access Monitor (for Sandboxie Classic)
+    资源访问监视器（适用于 Sandboxie 经典版）
   
 
     
@@ -1211,14 +1211,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../PlusContent/TraceLog.html" class="md-nav__link">
+      <a href="../../PlusContent/TraceLog/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Trace logging (for Sandboxie Plus)
+    跟踪日志（适用于 Sandboxie Plus）
   
 
     
@@ -1239,14 +1239,14 @@
   
   
     <li class="md-nav__item">
-      <a href="HowToUseWinDbg.html" class="md-nav__link">
+      <a href="../HowToUseWinDbg/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    How To Use Win Dbg
+    如何使用 WinDbg
   
 
     
@@ -1567,7 +1567,7 @@
   <span class="md-ellipsis">
     
   
-    SBIE Messages
+    SBIE 消息
   
 
     
@@ -1583,7 +1583,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    SBIE Messages
+    SBIE 消息
   
 
           </label>
@@ -1596,14 +1596,14 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIEMessages.html" class="md-nav__link">
+      <a href="../SBIEMessages/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    SBIE Messages
+    SBIE 消息
   
 
     
@@ -1624,7 +1624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIEDLLAPI.html" class="md-nav__link">
+      <a href="../SBIEDLLAPI/" class="md-nav__link">
         
   
   
@@ -1652,7 +1652,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1101.html" class="md-nav__link">
+      <a href="../SBIE1101/" class="md-nav__link">
         
   
   
@@ -1680,7 +1680,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1102.html" class="md-nav__link">
+      <a href="../SBIE1102/" class="md-nav__link">
         
   
   
@@ -1708,7 +1708,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1103.html" class="md-nav__link">
+      <a href="../SBIE1103/" class="md-nav__link">
         
   
   
@@ -1736,7 +1736,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1104.html" class="md-nav__link">
+      <a href="../SBIE1104/" class="md-nav__link">
         
   
   
@@ -1764,7 +1764,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1105.html" class="md-nav__link">
+      <a href="../SBIE1105/" class="md-nav__link">
         
   
   
@@ -1792,7 +1792,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1106.html" class="md-nav__link">
+      <a href="../SBIE1106/" class="md-nav__link">
         
   
   
@@ -1820,7 +1820,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1108.html" class="md-nav__link">
+      <a href="../SBIE1108/" class="md-nav__link">
         
   
   
@@ -1848,7 +1848,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1109.html" class="md-nav__link">
+      <a href="../SBIE1109/" class="md-nav__link">
         
   
   
@@ -1876,7 +1876,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1110.html" class="md-nav__link">
+      <a href="../SBIE1110/" class="md-nav__link">
         
   
   
@@ -1904,7 +1904,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1111.html" class="md-nav__link">
+      <a href="../SBIE1111/" class="md-nav__link">
         
   
   
@@ -1932,7 +1932,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1112.html" class="md-nav__link">
+      <a href="../SBIE1112/" class="md-nav__link">
         
   
   
@@ -1960,7 +1960,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1113.html" class="md-nav__link">
+      <a href="../SBIE1113/" class="md-nav__link">
         
   
   
@@ -1988,7 +1988,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1114.html" class="md-nav__link">
+      <a href="../SBIE1114/" class="md-nav__link">
         
   
   
@@ -2016,7 +2016,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1116.html" class="md-nav__link">
+      <a href="../SBIE1116/" class="md-nav__link">
         
   
   
@@ -2044,7 +2044,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1119.html" class="md-nav__link">
+      <a href="../SBIE1119/" class="md-nav__link">
         
   
   
@@ -2072,7 +2072,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1120.html" class="md-nav__link">
+      <a href="../SBIE1120/" class="md-nav__link">
         
   
   
@@ -2100,7 +2100,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1121.html" class="md-nav__link">
+      <a href="../SBIE1121/" class="md-nav__link">
         
   
   
@@ -2128,7 +2128,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1122.html" class="md-nav__link">
+      <a href="../SBIE1122/" class="md-nav__link">
         
   
   
@@ -2156,7 +2156,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1151.html" class="md-nav__link">
+      <a href="../SBIE1151/" class="md-nav__link">
         
   
   
@@ -2184,7 +2184,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1152.html" class="md-nav__link">
+      <a href="../SBIE1152/" class="md-nav__link">
         
   
   
@@ -2212,7 +2212,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1153.html" class="md-nav__link">
+      <a href="../SBIE1153/" class="md-nav__link">
         
   
   
@@ -2240,7 +2240,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1201.html" class="md-nav__link">
+      <a href="../SBIE1201/" class="md-nav__link">
         
   
   
@@ -2268,7 +2268,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1202.html" class="md-nav__link">
+      <a href="../SBIE1202/" class="md-nav__link">
         
   
   
@@ -2296,7 +2296,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1203.html" class="md-nav__link">
+      <a href="../SBIE1203/" class="md-nav__link">
         
   
   
@@ -2324,7 +2324,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1204.html" class="md-nav__link">
+      <a href="../SBIE1204/" class="md-nav__link">
         
   
   
@@ -2352,7 +2352,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1211.html" class="md-nav__link">
+      <a href="../SBIE1211/" class="md-nav__link">
         
   
   
@@ -2380,7 +2380,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1212.html" class="md-nav__link">
+      <a href="../SBIE1212/" class="md-nav__link">
         
   
   
@@ -2408,7 +2408,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1213.html" class="md-nav__link">
+      <a href="../SBIE1213/" class="md-nav__link">
         
   
   
@@ -2436,7 +2436,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1214.html" class="md-nav__link">
+      <a href="../SBIE1214/" class="md-nav__link">
         
   
   
@@ -2464,7 +2464,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1215.html" class="md-nav__link">
+      <a href="../SBIE1215/" class="md-nav__link">
         
   
   
@@ -2492,7 +2492,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1216.html" class="md-nav__link">
+      <a href="../SBIE1216/" class="md-nav__link">
         
   
   
@@ -2520,7 +2520,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1222.html" class="md-nav__link">
+      <a href="../SBIE1222/" class="md-nav__link">
         
   
   
@@ -2548,7 +2548,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1223.html" class="md-nav__link">
+      <a href="../SBIE1223/" class="md-nav__link">
         
   
   
@@ -2576,7 +2576,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1224.html" class="md-nav__link">
+      <a href="../SBIE1224/" class="md-nav__link">
         
   
   
@@ -2604,7 +2604,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1241.html" class="md-nav__link">
+      <a href="../SBIE1241/" class="md-nav__link">
         
   
   
@@ -2632,7 +2632,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1242.html" class="md-nav__link">
+      <a href="../SBIE1242/" class="md-nav__link">
         
   
   
@@ -2660,7 +2660,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1301.html" class="md-nav__link">
+      <a href="../SBIE1301/" class="md-nav__link">
         
   
   
@@ -2688,7 +2688,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1303.html" class="md-nav__link">
+      <a href="../SBIE1303/" class="md-nav__link">
         
   
   
@@ -2716,7 +2716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1304.html" class="md-nav__link">
+      <a href="../SBIE1304/" class="md-nav__link">
         
   
   
@@ -2744,7 +2744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1306.html" class="md-nav__link">
+      <a href="../SBIE1306/" class="md-nav__link">
         
   
   
@@ -2772,7 +2772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1307.html" class="md-nav__link">
+      <a href="../SBIE1307/" class="md-nav__link">
         
   
   
@@ -2800,7 +2800,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1308.html" class="md-nav__link">
+      <a href="../SBIE1308/" class="md-nav__link">
         
   
   
@@ -2828,7 +2828,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1309.html" class="md-nav__link">
+      <a href="../SBIE1309/" class="md-nav__link">
         
   
   
@@ -2856,7 +2856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1310.html" class="md-nav__link">
+      <a href="../SBIE1310/" class="md-nav__link">
         
   
   
@@ -2884,7 +2884,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1311.html" class="md-nav__link">
+      <a href="../SBIE1311/" class="md-nav__link">
         
   
   
@@ -2912,7 +2912,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1312.html" class="md-nav__link">
+      <a href="../SBIE1312/" class="md-nav__link">
         
   
   
@@ -2940,7 +2940,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1313.html" class="md-nav__link">
+      <a href="../SBIE1313/" class="md-nav__link">
         
   
   
@@ -2968,7 +2968,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1314.html" class="md-nav__link">
+      <a href="../SBIE1314/" class="md-nav__link">
         
   
   
@@ -2996,7 +2996,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1401.html" class="md-nav__link">
+      <a href="../SBIE1401/" class="md-nav__link">
         
   
   
@@ -3024,7 +3024,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1402.html" class="md-nav__link">
+      <a href="../SBIE1402/" class="md-nav__link">
         
   
   
@@ -3052,7 +3052,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1403.html" class="md-nav__link">
+      <a href="../SBIE1403/" class="md-nav__link">
         
   
   
@@ -3080,7 +3080,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1404.html" class="md-nav__link">
+      <a href="../SBIE1404/" class="md-nav__link">
         
   
   
@@ -3108,7 +3108,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1405.html" class="md-nav__link">
+      <a href="../SBIE1405/" class="md-nav__link">
         
   
   
@@ -3136,7 +3136,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1406.html" class="md-nav__link">
+      <a href="../SBIE1406/" class="md-nav__link">
         
   
   
@@ -3164,7 +3164,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1408.html" class="md-nav__link">
+      <a href="../SBIE1408/" class="md-nav__link">
         
   
   
@@ -3192,7 +3192,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1409.html" class="md-nav__link">
+      <a href="../SBIE1409/" class="md-nav__link">
         
   
   
@@ -3220,7 +3220,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1410.html" class="md-nav__link">
+      <a href="../SBIE1410/" class="md-nav__link">
         
   
   
@@ -3248,7 +3248,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1411.html" class="md-nav__link">
+      <a href="../SBIE1411/" class="md-nav__link">
         
   
   
@@ -3276,7 +3276,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE1412.html" class="md-nav__link">
+      <a href="../SBIE1412/" class="md-nav__link">
         
   
   
@@ -3304,7 +3304,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2102.html" class="md-nav__link">
+      <a href="../SBIE2102/" class="md-nav__link">
         
   
   
@@ -3332,7 +3332,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2103.html" class="md-nav__link">
+      <a href="../SBIE2103/" class="md-nav__link">
         
   
   
@@ -3360,7 +3360,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2104.html" class="md-nav__link">
+      <a href="../SBIE2104/" class="md-nav__link">
         
   
   
@@ -3388,7 +3388,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2108.html" class="md-nav__link">
+      <a href="../SBIE2108/" class="md-nav__link">
         
   
   
@@ -3416,7 +3416,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2111.html" class="md-nav__link">
+      <a href="../SBIE2111/" class="md-nav__link">
         
   
   
@@ -3444,7 +3444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2191.html" class="md-nav__link">
+      <a href="../SBIE2191/" class="md-nav__link">
         
   
   
@@ -3472,7 +3472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2192.html" class="md-nav__link">
+      <a href="../SBIE2192/" class="md-nav__link">
         
   
   
@@ -3500,7 +3500,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2193.html" class="md-nav__link">
+      <a href="../SBIE2193/" class="md-nav__link">
         
   
   
@@ -3528,7 +3528,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2202.html" class="md-nav__link">
+      <a href="../SBIE2202/" class="md-nav__link">
         
   
   
@@ -3556,7 +3556,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2203.html" class="md-nav__link">
+      <a href="../SBIE2203/" class="md-nav__link">
         
   
   
@@ -3584,7 +3584,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2204.html" class="md-nav__link">
+      <a href="../SBIE2204/" class="md-nav__link">
         
   
   
@@ -3612,7 +3612,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2205.html" class="md-nav__link">
+      <a href="../SBIE2205/" class="md-nav__link">
         
   
   
@@ -3640,7 +3640,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2206.html" class="md-nav__link">
+      <a href="../SBIE2206/" class="md-nav__link">
         
   
   
@@ -3668,7 +3668,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2207.html" class="md-nav__link">
+      <a href="../SBIE2207/" class="md-nav__link">
         
   
   
@@ -3696,7 +3696,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2208.html" class="md-nav__link">
+      <a href="../SBIE2208/" class="md-nav__link">
         
   
   
@@ -3724,7 +3724,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2209.html" class="md-nav__link">
+      <a href="../SBIE2209/" class="md-nav__link">
         
   
   
@@ -3752,7 +3752,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2210.html" class="md-nav__link">
+      <a href="../SBIE2210/" class="md-nav__link">
         
   
   
@@ -3780,7 +3780,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2211.html" class="md-nav__link">
+      <a href="../SBIE2211/" class="md-nav__link">
         
   
   
@@ -3808,7 +3808,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2212.html" class="md-nav__link">
+      <a href="../SBIE2212/" class="md-nav__link">
         
   
   
@@ -3836,7 +3836,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2213.html" class="md-nav__link">
+      <a href="../SBIE2213/" class="md-nav__link">
         
   
   
@@ -3864,7 +3864,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2214.html" class="md-nav__link">
+      <a href="../SBIE2214/" class="md-nav__link">
         
   
   
@@ -3892,7 +3892,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2217.html" class="md-nav__link">
+      <a href="../SBIE2217/" class="md-nav__link">
         
   
   
@@ -3920,7 +3920,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2218.html" class="md-nav__link">
+      <a href="../SBIE2218/" class="md-nav__link">
         
   
   
@@ -3948,7 +3948,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2219.html" class="md-nav__link">
+      <a href="../SBIE2219/" class="md-nav__link">
         
   
   
@@ -3976,7 +3976,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2220.html" class="md-nav__link">
+      <a href="../SBIE2220/" class="md-nav__link">
         
   
   
@@ -4004,7 +4004,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2221.html" class="md-nav__link">
+      <a href="../SBIE2221/" class="md-nav__link">
         
   
   
@@ -4032,7 +4032,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2222.html" class="md-nav__link">
+      <a href="../SBIE2222/" class="md-nav__link">
         
   
   
@@ -4060,7 +4060,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2223.html" class="md-nav__link">
+      <a href="../SBIE2223/" class="md-nav__link">
         
   
   
@@ -4088,7 +4088,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2225.html" class="md-nav__link">
+      <a href="../SBIE2225/" class="md-nav__link">
         
   
   
@@ -4116,7 +4116,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2303.html" class="md-nav__link">
+      <a href="../SBIE2303/" class="md-nav__link">
         
   
   
@@ -4144,7 +4144,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2304.html" class="md-nav__link">
+      <a href="../SBIE2304/" class="md-nav__link">
         
   
   
@@ -4172,7 +4172,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2305.html" class="md-nav__link">
+      <a href="../SBIE2305/" class="md-nav__link">
         
   
   
@@ -4200,7 +4200,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2306.html" class="md-nav__link">
+      <a href="../SBIE2306/" class="md-nav__link">
         
   
   
@@ -4228,7 +4228,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2307.html" class="md-nav__link">
+      <a href="../SBIE2307/" class="md-nav__link">
         
   
   
@@ -4256,7 +4256,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2308.html" class="md-nav__link">
+      <a href="../SBIE2308/" class="md-nav__link">
         
   
   
@@ -4284,7 +4284,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2309.html" class="md-nav__link">
+      <a href="../SBIE2309/" class="md-nav__link">
         
   
   
@@ -4312,7 +4312,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2310.html" class="md-nav__link">
+      <a href="../SBIE2310/" class="md-nav__link">
         
   
   
@@ -4340,7 +4340,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2311.html" class="md-nav__link">
+      <a href="../SBIE2311/" class="md-nav__link">
         
   
   
@@ -4368,7 +4368,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2312.html" class="md-nav__link">
+      <a href="../SBIE2312/" class="md-nav__link">
         
   
   
@@ -4396,7 +4396,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2313.html" class="md-nav__link">
+      <a href="../SBIE2313/" class="md-nav__link">
         
   
   
@@ -4424,7 +4424,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2314.html" class="md-nav__link">
+      <a href="../SBIE2314/" class="md-nav__link">
         
   
   
@@ -4452,7 +4452,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2315.html" class="md-nav__link">
+      <a href="../SBIE2315/" class="md-nav__link">
         
   
   
@@ -4480,7 +4480,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2316.html" class="md-nav__link">
+      <a href="../SBIE2316/" class="md-nav__link">
         
   
   
@@ -4508,7 +4508,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2317.html" class="md-nav__link">
+      <a href="../SBIE2317/" class="md-nav__link">
         
   
   
@@ -4536,7 +4536,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2318.html" class="md-nav__link">
+      <a href="../SBIE2318/" class="md-nav__link">
         
   
   
@@ -4564,7 +4564,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2321.html" class="md-nav__link">
+      <a href="../SBIE2321/" class="md-nav__link">
         
   
   
@@ -4592,7 +4592,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2322.html" class="md-nav__link">
+      <a href="../SBIE2322/" class="md-nav__link">
         
   
   
@@ -4620,7 +4620,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2323.html" class="md-nav__link">
+      <a href="../SBIE2323/" class="md-nav__link">
         
   
   
@@ -4648,7 +4648,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2326.html" class="md-nav__link">
+      <a href="../SBIE2326/" class="md-nav__link">
         
   
   
@@ -4676,7 +4676,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2327.html" class="md-nav__link">
+      <a href="../SBIE2327/" class="md-nav__link">
         
   
   
@@ -4704,7 +4704,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2328.html" class="md-nav__link">
+      <a href="../SBIE2328/" class="md-nav__link">
         
   
   
@@ -4732,7 +4732,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2329.html" class="md-nav__link">
+      <a href="../SBIE2329/" class="md-nav__link">
         
   
   
@@ -4760,7 +4760,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2331.html" class="md-nav__link">
+      <a href="../SBIE2331/" class="md-nav__link">
         
   
   
@@ -4788,7 +4788,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2332.html" class="md-nav__link">
+      <a href="../SBIE2332/" class="md-nav__link">
         
   
   
@@ -4816,7 +4816,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE2334.html" class="md-nav__link">
+      <a href="../SBIE2334/" class="md-nav__link">
         
   
   
@@ -4844,7 +4844,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE3207.html" class="md-nav__link">
+      <a href="../SBIE3207/" class="md-nav__link">
         
   
   
@@ -4872,7 +4872,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE3208.html" class="md-nav__link">
+      <a href="../SBIE3208/" class="md-nav__link">
         
   
   
@@ -4900,7 +4900,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE3209.html" class="md-nav__link">
+      <a href="../SBIE3209/" class="md-nav__link">
         
   
   
@@ -4928,7 +4928,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE6004.html" class="md-nav__link">
+      <a href="../SBIE6004/" class="md-nav__link">
         
   
   
@@ -4956,7 +4956,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE6008.html" class="md-nav__link">
+      <a href="../SBIE6008/" class="md-nav__link">
         
   
   
@@ -4984,7 +4984,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE6009.html" class="md-nav__link">
+      <a href="../SBIE6009/" class="md-nav__link">
         
   
   
@@ -5012,7 +5012,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE9101.html" class="md-nav__link">
+      <a href="../SBIE9101/" class="md-nav__link">
         
   
   
@@ -5040,7 +5040,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE9153.html" class="md-nav__link">
+      <a href="../SBIE9153/" class="md-nav__link">
         
   
   
@@ -5068,7 +5068,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE9154.html" class="md-nav__link">
+      <a href="../SBIE9154/" class="md-nav__link">
         
   
   
@@ -5096,7 +5096,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE9156.html" class="md-nav__link">
+      <a href="../SBIE9156/" class="md-nav__link">
         
   
   
@@ -5124,7 +5124,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE9201.html" class="md-nav__link">
+      <a href="../SBIE9201/" class="md-nav__link">
         
   
   
@@ -5152,7 +5152,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE9202.html" class="md-nav__link">
+      <a href="../SBIE9202/" class="md-nav__link">
         
   
   
@@ -5180,7 +5180,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE9203.html" class="md-nav__link">
+      <a href="../SBIE9203/" class="md-nav__link">
         
   
   
@@ -5208,7 +5208,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE9204.html" class="md-nav__link">
+      <a href="../SBIE9204/" class="md-nav__link">
         
   
   
@@ -5236,7 +5236,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE9205.html" class="md-nav__link">
+      <a href="../SBIE9205/" class="md-nav__link">
         
   
   
@@ -5264,7 +5264,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE9206.html" class="md-nav__link">
+      <a href="../SBIE9206/" class="md-nav__link">
         
   
   
@@ -5292,7 +5292,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE9207.html" class="md-nav__link">
+      <a href="../SBIE9207/" class="md-nav__link">
         
   
   
@@ -5320,7 +5320,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE9208.html" class="md-nav__link">
+      <a href="../SBIE9208/" class="md-nav__link">
         
   
   
@@ -5348,7 +5348,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE9251.html" class="md-nav__link">
+      <a href="../SBIE9251/" class="md-nav__link">
         
   
   
@@ -5376,7 +5376,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE9252.html" class="md-nav__link">
+      <a href="../SBIE9252/" class="md-nav__link">
         
   
   
@@ -5404,7 +5404,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE9253.html" class="md-nav__link">
+      <a href="../SBIE9253/" class="md-nav__link">
         
   
   
@@ -5432,7 +5432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE9302.html" class="md-nav__link">
+      <a href="../SBIE9302/" class="md-nav__link">
         
   
   
@@ -5460,7 +5460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE9304.html" class="md-nav__link">
+      <a href="../SBIE9304/" class="md-nav__link">
         
   
   
@@ -5488,7 +5488,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SBIE9305.html" class="md-nav__link">
+      <a href="../SBIE9305/" class="md-nav__link">
         
   
   
@@ -5531,14 +5531,14 @@
   
   
     <li class="md-nav__item">
-      <a href="TechnicalAspects.html" class="md-nav__link">
+      <a href="../TechnicalAspects/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Technical Aspects
+    技术细节
   
 
     
@@ -5568,7 +5568,7 @@
 
 
   
-    <a href="https://github.com/sandboxie-plus/sandboxie-docs/edit/main/docs/Content/ProgramStopSettings.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/sandboxie-plus/sandboxie-docs/edit/main/docs/zh-CN/Content/CrashAndDebuggerDiagnostics.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -5577,104 +5577,71 @@
     
       
     
-    <a href="https://github.com/sandboxie-plus/sandboxie-docs/raw/main/docs/Content/ProgramStopSettings.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/sandboxie-plus/sandboxie-docs/raw/main/docs/zh-CN/Content/CrashAndDebuggerDiagnostics.md" title="查看本页的源代码" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<h1 id="program-stop-settings">Program Stop Settings<a class="headerlink" href="#program-stop-settings" title="Permanent link"></a></h1>
-<p>Sandboxie provides several independent settings for deciding when remaining sandboxed processes should be stopped, restarting processes for compatibility during initialization, and choosing how termination requests are handled. The leader and linger classifications are evaluated inside the sandbox by SandboxieRpcSs; SandMan and Sandboxie Control provide configuration interfaces but do not perform that runtime classification themselves.</p>
-<h2 id="leader-cleanup">Leader cleanup<a class="headerlink" href="#leader-cleanup" title="Permanent link"></a></h2>
-<p><a href="LeaderProcess.html">LeaderProcess</a> identifies one or more primary executable images. Configured leaders must first have been observed running. After that, Sandboxie requests termination of the remaining processes when none of the configured leader images remains.</p>
-<p>Multiple entries behave collectively. If <code>browser.exe</code> and <code>viewer.exe</code> have both been configured and observed, <code>browser.exe</code> exiting does not trigger cleanup while <code>viewer.exe</code> is still running. Leader-triggered cleanup bypasses the linger-specific leniency, recent-process grace, and visible-window checks.</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">LeaderProcess</span><span class="o">=</span><span class="s">browser.exe</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">LeaderProcess</span><span class="o">=</span><span class="s">viewer.exe</span>
+<h1 id="crash-and-debugger-diagnostics">Crash and Debugger Diagnostics<a class="headerlink" href="#crash-and-debugger-diagnostics" title="Permanent link"></a></h1>
+<p>Sandboxie's crash-dump and debugger-wait options are separate from <a href="../SandboxieTrace/">Trace Log monitoring</a>. Minidump settings create files after qualifying unhandled crashes, while debugger-wait settings pause matching processes early during Sandboxie DLL initialization so that a debugger can attach.</p>
+<h2 id="minidump-crash-diagnostics">Minidump crash diagnostics<a class="headerlink" href="#minidump-crash-diagnostics" title="Permanent link"></a></h2>
+<h3 id="enableminidump">EnableMiniDump<a class="headerlink" href="#enableminidump" title="Permanent link"></a></h3>
+<p><code>EnableMiniDump</code> is image-aware and disabled by default:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">EnableMiniDump</span><span class="o">=</span><span class="s">y</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">EnableMiniDump</span><span class="o">=</span><span class="s">program.exe,y</span>
 </span></code></pre></div>
-<p>Names are matched exactly and case-insensitively. The current consumer does not interpret wildcards.</p>
-<h2 id="linger-cleanup">Linger cleanup<a class="headerlink" href="#linger-cleanup" title="Permanent link"></a></h2>
-<p><a href="LingerProcess.html">LingerProcess</a> identifies helper or background executables that can be cleanup candidates once no ordinary non-lingering process remains. A matching process is not terminated merely because it started or because its name appears in the list. Cleanup is considered only when all remaining relevant processes are classified as lingerers and no applicable exemption prevents it. Sandboxie also treats some of its own helper processes as lingerers internally.</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[DefaultBox]</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">LingerProcess</span><span class="o">=</span><span class="s">helper.exe</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="na">LingerProcess</span><span class="o">=</span><span class="s">updater.exe</span>
+<p>For matching sandboxed processes, Sandboxie installs a process-local unhandled-exception dump handler that uses Windows DbgHelp <code>MiniDumpWriteDump</code> support. A dump is produced only for crashes that reach this top-level unhandled-exception path. The setting does not guarantee a dump for every crash or termination method, and it does not automatically cover unboxed SandMan, SbieSvc, SbieDrv, or every Sandboxie component.</p>
+<p>Dump files are written inside the sandbox as:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>&lt;sandbox root&gt;\&lt;image-name&gt;.&lt;unique counter&gt;.dmp
 </span></code></pre></div>
-<p>Names are matched exactly and case-insensitively; wildcards are not supported by the current consumer.</p>
-<h3 id="lingerleniency">LingerLeniency<a class="headerlink" href="#lingerleniency" title="Permanent link"></a></h3>
-<p><code>LingerLeniency</code> is a per-box Boolean setting and defaults to <code>y</code>. When enabled, it provides three compatibility behaviors:</p>
-<ol>
-<li>Configured lingerers already active when SandboxieRpcSs initializes are preserved.</li>
-<li>Configured lingerers explicitly started through the relevant forced or <code>Start.exe</code> paths are exempted.</li>
-<li>Recently started remaining processes receive the current five-second grace check before automatic linger cleanup.</li>
-</ol>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[DefaultBox]</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">LingerLeniency</span><span class="o">=</span><span class="s">n</span>
+<p>The suffix is a runtime-generated unique value. The crashing sandboxed process writes the file using its current permissions.</p>
+<p>Restart matching processes after changing <code>EnableMiniDump</code>. <code>EnableMiniDump</code> and <code>MiniDumpFlags</code> were introduced in Sandboxie Plus 1.0.5 and Sandboxie Classic 5.55.5.</p>
+<h3 id="minidumpflags">MiniDumpFlags<a class="headerlink" href="#minidumpflags" title="Permanent link"></a></h3>
+<p><code>MiniDumpFlags</code> controls the type of dump requested:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">MiniDumpFlags</span><span class="o">=</span><span class="s">Extended</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">MiniDumpFlags</span><span class="o">=</span><span class="s">0xAABBCCDD</span>
 </span></code></pre></div>
-<p>Setting it to <code>n</code> disables these leniency behaviors. The five-second interval is not a configurable duration through this setting. <code>LingerLeniency</code> was introduced in Sandboxie Plus 1.0.7 / Classic 5.55.7. Sandboxie Plus 1.13.4 / Classic 5.68.4 expanded the disabled behavior so that <code>n</code> also removes the five-second grace check.</p>
-<h3 id="visible-window-exemption">Visible-window exemption<a class="headerlink" href="#visible-window-exemption" title="Permanent link"></a></h3>
-<p><a href="LingerExemptWnds.html">LingerExemptWnds</a> defaults to <code>y</code>. While automatic linger cleanup is otherwise eligible, it preserves the remaining cleanup candidates if a remaining sandbox process has a visible top-level window. Setting it to <code>n</code> removes that exemption. It does not classify a process as a lingerer or initiate termination by itself.</p>
-<h2 id="process-initialization-restart-settings">Process-initialization restart settings<a class="headerlink" href="#process-initialization-restart-settings" title="Permanent link"></a></h2>
-<p>These settings concern compatibility restarts during process initialization. They are not a crash-recovery service and do not relaunch an application after it later exits normally.</p>
-<h3 id="forcerestart">ForceRestart<a class="headerlink" href="#forcerestart" title="Permanent link"></a></h3>
-<p><code>ForceRestart</code> is a repeatable per-box list. When a forced process exactly matches a configured image name, case-insensitively, Sandboxie cleanly restarts it through the current forced-process restart path before normal execution continues. Wildcards are not supported by the current consumer.</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">[DefaultBox]</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">ForceRestart</span><span class="o">=</span><span class="s">program.exe</span>
+<p>If the setting is absent, or contains unrecognized ordinary text, Sandboxie uses its built-in default flags. <code>Extended</code> requests a much more comprehensive dump. Advanced users can supply a hexadecimal Windows <code>MINIDUMP_TYPE</code> bitmask.</p>
+<p>Extended or full-memory-style dumps can be large and may contain sensitive memory, including application data, document contents, credentials, or other secrets resident in the process. Review dumps before sharing them and do not use <code>Extended</code> as a routine default without a troubleshooting need.</p>
+<h2 id="waiting-for-a-debugger">Waiting for a debugger<a class="headerlink" href="#waiting-for-a-debugger" title="Permanent link"></a></h2>
+<h3 id="waitfordebugger">WaitForDebugger<a class="headerlink" href="#waitfordebugger" title="Permanent link"></a></h3>
+<p>Use <code>WaitForDebugger</code> to select an executable by exact image name:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">WaitForDebugger</span><span class="o">=</span><span class="s">program.exe</span>
 </span></code></pre></div>
-<p>There is no dedicated current SandMan list editor for individual <code>ForceRestart</code> entries. The setting was introduced in Sandboxie Plus 0.8.0 / Classic 5.50.0.</p>
-<h3 id="forcerestartall">ForceRestartAll<a class="headerlink" href="#forcerestartall" title="Permanent link"></a></h3>
-<p><code>ForceRestartAll</code> is a per-box Boolean setting, disabled by default. When enabled, the forced-process restart path applies to all forced processes instead of only images listed with <code>ForceRestart</code>.</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">[DefaultBox]</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="na">ForceRestartAll</span><span class="o">=</span><span class="s">y</span>
+<p>Multiple entries are supported. Matching is case-insensitive and does not use wildcard syntax. A matching process pauses very early during Sandboxie DLL initialization until a debugger attaches.</p>
+<p>There is no timeout. If no debugger attaches, the process can remain paused indefinitely.</p>
+<h3 id="waitfordebuggerall">WaitForDebuggerAll<a class="headerlink" href="#waitfordebuggerall" title="Permanent link"></a></h3>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="na">WaitForDebuggerAll</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>SandMan exposes it under <strong>Sandbox Options &gt; Various Options &gt; Compatibility</strong> as <strong>Restart force process before they begin to execute</strong>. The setting metadata lists version 0.8.0; the dedicated UI option was added in Sandboxie Plus 1.14.5 / Classic 5.69.5.</p>
-<h3 id="norestartonpca">NoRestartOnPCA<a class="headerlink" href="#norestartonpca" title="Permanent link"></a></h3>
-<p>Windows Program Compatibility Assistant can launch a process within a PCA job. For a non-AppContainer process carrying Sandboxie's PCA-job flag, Sandboxie handles the PCA restart path first. This PCA branch takes precedence over the separate forced-process <code>ForceRestart</code> / <code>ForceRestartAll</code> branch; the forced-process branch is not evaluated for that initialization when the PCA condition matches.</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">[DefaultBox]</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="na">NoRestartOnPCA</span><span class="o">=</span><span class="s">y</span>
+<p>This makes every affected sandboxed process wait for a debugger. It is disabled by default and should be used only for deliberate developer or troubleshooting work: accidental enablement can prevent sandboxed applications from starting normally.</p>
+<h3 id="waitfordebuggercmdline">WaitForDebuggerCmdLine<a class="headerlink" href="#waitfordebuggercmdline" title="Permanent link"></a></h3>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="na">WaitForDebuggerCmdLine</span><span class="o">=</span><span class="s">some argument</span>
 </span></code></pre></div>
-<p><code>NoRestartOnPCA=y</code> suppresses the normal PCA restart. Because the PCA condition has already selected that branch, suppressing the restart does not fall through to <code>ForceRestart</code> or <code>ForceRestartAll</code> for the same process initialization. The setting is therefore independent of <code>ForceRestartAll</code>, not an alias or subordinate switch for it.</p>
-<p>SandMan presents the inverted positive option <strong>Restart forced processes that were launched within a PCA (Program Compatibility Assistant) job object</strong> under <strong>Sandbox Options &gt; Various Options &gt; Compatibility</strong>. The checkbox is selected when <code>NoRestartOnPCA</code> is absent or <code>n</code>; clearing it stores the negative <code>NoRestartOnPCA=y</code> setting. SandMan disables this checkbox while <code>ForceRestartAll</code> is selected.</p>
-<p>The corrected <code>NoRestartOnPCA</code> spelling was documented in Sandboxie Plus 1.11.4 / Classic 5.66.4. The dedicated checkbox was added in Sandboxie Plus 1.16.7.</p>
-<h2 id="global-terminate-all-exclusion">Global Terminate All exclusion<a class="headerlink" href="#global-terminate-all-exclusion" title="Permanent link"></a></h2>
-<p><code>ExcludeFromTerminateAll</code> is a per-box Boolean setting, disabled by default. SandMan's normal global <strong>Terminate All Processes</strong> operation skips a box configured with:</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">[DefaultBox]</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="na">ExcludeFromTerminateAll</span><span class="o">=</span><span class="s">y</span>
-</span></code></pre></div>
-<p>This does not prevent ordinary per-box termination, leader or linger cleanup, or every other termination route. SandMan exposes the setting under <strong>Sandbox Options &gt; Various Options &gt; Compatibility</strong> as <strong>Exclude this sandbox from being terminated when "Terminate All Processes" is invoked.</strong> The setting metadata lists version 1.12.0.</p>
-<p>The configured global terminate/panic hotkey has a separate repeated-activation override within its one-second counter window: the first activation performs the normal operation, the second rapid activation intentionally performs no termination, and the third and later rapid activations invoke global termination with exclusions bypassed. This behavior belongs specifically to the hotkey; repeatedly clicking the ordinary menu command is not the same mechanism.</p>
-<h2 id="termination-route">Termination route<a class="headerlink" href="#termination-route" title="Permanent link"></a></h2>
-<p><code>TerminateUsingService</code> is an effectively global Boolean setting and defaults to <code>y</code>. When enabled, Sandboxie first attempts service-assisted process cancellation. If that does not succeed, it falls back to the normal kernel-scheduled termination path. With <code>TerminateUsingService=n</code>, the service-assisted attempt is skipped.</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">[GlobalSettings]</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="na">TerminateUsingService</span><span class="o">=</span><span class="s">n</span>
-</span></code></pre></div>
-<p>This is not a guaranteed graceful shutdown. It selects the normal per-process termination route and is separate from the <code>TerminateJobObject</code> behavior described in <a href="JobObjects.html">Job Objects</a>. Leader and linger cleanup ultimately request normal kill-all behavior. The setting metadata lists version 0.8.5, and no dedicated current SandMan editor control was identified.</p>
-<h2 id="when-cleanup-makes-the-sandbox-empty">When cleanup makes the sandbox empty<a class="headerlink" href="#when-cleanup-makes-the-sandbox-empty" title="Permanent link"></a></h2>
-<p>Leader or linger cleanup can indirectly lead to an <code>OnBoxTerminate</code> event by making the sandbox empty; neither setting directly executes the trigger. Once SandMan observes the normal transition to an empty box, the documented lifecycle can include <code>OnBoxTerminate</code>, recovery or <a href="AutoDelete.html">Auto Delete</a> handling, and <code>OnBoxDelete</code> before cleanup where applicable. See <a href="SandManTriggers.html">SandMan Triggers</a> for the detailed ordering.</p>
-<h2 id="sandboxie-plus-interface">Sandboxie Plus interface<a class="headerlink" href="#sandboxie-plus-interface" title="Permanent link"></a></h2>
-<p>Open <strong>Sandbox Options &gt; Program Control &gt; Stop Behaviour</strong>. The relevant tabs are:</p>
+<p>Multiple entries are supported. Each entry is matched as a case-insensitive substring of the process command line. Despite historical metadata describing this value as a pattern, it does not implement wildcard or regular-expression syntax.</p>
+<p><code>WaitForDebugger</code>, <code>WaitForDebuggerAll</code>, and <code>WaitForDebuggerCmdLine</code> are alternative selectors. A match from any one of them can trigger the wait.</p>
+<h3 id="waitfordebuggersilent">WaitForDebuggerSilent<a class="headerlink" href="#waitfordebuggersilent" title="Permanent link"></a></h3>
+<p>After a debugger attaches, current behavior depends on <code>WaitForDebuggerSilent</code>:</p>
 <ul>
-<li><strong>Lingering Programs</strong> for <code>LingerProcess</code> entries;</li>
-<li><strong>Leader Programs</strong> for <code>LeaderProcess</code> entries;</li>
-<li><strong>Stop Options</strong>, containing <strong>Don't stop lingering processes with windows</strong> and <strong>Use Linger Leniency</strong>.</li>
+<li>When silent mode is enabled, the process continues without Sandboxie deliberately raising a breakpoint.</li>
+<li>When silent mode is disabled, Sandboxie raises a debug breakpoint so the attached debugger stops there.</li>
 </ul>
-<p>The restart and global-termination exclusion controls described above are under <strong>Sandbox Options &gt; Various Options &gt; Compatibility</strong>.</p>
-<h2 id="sandboxie-control-classic">Sandboxie Control Classic<a class="headerlink" href="#sandboxie-control-classic" title="Permanent link"></a></h2>
-<p>Sandboxie Control retains its historical <strong>Program Stop</strong> pages:</p>
-<p><a href="SandboxieControl.html">Sandboxie Control</a> &gt; <a href="SandboxSettings.html">Sandbox Settings</a> &gt; Program Stop</p>
-<p><img alt="" src="../Media/ProgramStopSettings.png" /></p>
-<h3 id="lingering-programs">Lingering Programs<a class="headerlink" href="#lingering-programs" title="Permanent link"></a></h3>
-<p><a href="SandboxieControl.html">Sandboxie Control</a> &gt; <a href="SandboxSettings.html">Sandbox Settings</a> &gt; Program Stop &gt; Lingering Programs</p>
-<p><img alt="" src="../Media/LingeringProgramsSettings.png" /></p>
-<p>This page configures <a href="LingerProcess.html">LingerProcess</a>. The <a href="ProgramSettings.html#linger">Program Settings</a> window also provides the historical per-program shortcut.</p>
-<h3 id="leader-programs">Leader Programs<a class="headerlink" href="#leader-programs" title="Permanent link"></a></h3>
-<p><a href="SandboxieControl.html">Sandboxie Control</a> &gt; <a href="SandboxSettings.html">Sandbox Settings</a> &gt; Program Stop &gt; Leader Programs</p>
-<p><img alt="" src="../Media/LeaderProgramsSettings.png" /></p>
-<p>This page configures <a href="LeaderProcess.html">LeaderProcess</a>. The <a href="ProgramSettings.html#leader">Program Settings</a> window also provides the historical per-program shortcut.</p>
-<p>The shared runtime can consume compatible manual INI settings, but Sandboxie Control Classic should not be assumed to provide dedicated controls for every newer lifecycle option exposed by SandMan.</p>
+<p>If <code>WaitForDebuggerSilent</code> is absent, the current runtime uses silent continuation. To request a breakpoint after attachment, configure:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="na">WaitForDebuggerSilent</span><span class="o">=</span><span class="s">n</span>
+</span></code></pre></div>
+<p>There is no SandMan <strong>Resume</strong> action. Attaching a debugger releases the initial wait; when breakpoint mode is used, continue execution from the debugger.</p>
+<h2 id="sandman-configuration">SandMan configuration<a class="headerlink" href="#sandman-configuration" title="Permanent link"></a></h2>
+<p>SandMan's <strong>Sandbox Options &gt; Advanced Options &gt; Debug &gt; Debug Options</strong> generic settings editor exposes at least <code>EnableMiniDump</code> and <code>WaitForDebugger</code>. It does not provide dedicated checkboxes for <code>MiniDumpFlags</code>, <code>WaitForDebuggerAll</code>, <code>WaitForDebuggerCmdLine</code>, or <code>WaitForDebuggerSilent</code>.</p>
+<p>No equivalent dedicated Sandboxie Control Classic settings panel was identified for these options. The compatible manual INI settings are consumed by the shared runtime.</p>
 <h2 id="applying-changes">Applying changes<a class="headerlink" href="#applying-changes" title="Permanent link"></a></h2>
-<p>The <code>LeaderProcess</code> and <code>LingerProcess</code> lists are loaded when SandboxieRpcSs initializes. <code>LingerLeniency</code> is read both at initialization and during later cleanup checks, while <code>LingerExemptWnds</code> is read during cleanup evaluation. Restart or recreate the affected sandbox process tree after changing leader, linger, leniency, or restart policy for predictable behavior.</p>
-<p><code>ForceRestart</code>, <code>ForceRestartAll</code>, and <code>NoRestartOnPCA</code> are read during process initialization. <code>ExcludeFromTerminateAll</code> is read when SandMan performs global termination, and <code>TerminateUsingService</code> is read for each relevant driver termination request. A service or driver restart is not normally required merely because these settings changed.</p>
+<p>These options are evaluated during process initialization. Restart matching sandboxed processes after changing them; recreating the affected sandbox process tree is the most reliable approach. A SandMan, service, or driver restart is not normally required.</p>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
+<ul>
+<li><a href="../HowToUseWinDbg/">How To Use WinDbg</a></li>
+<li><a href="../SandboxieTrace/">Sandboxie Trace</a></li>
+<li><a href="../SandboxieIni/">Sandboxie Ini</a></li>
+</ul>
 
 
 
@@ -5701,7 +5668,7 @@
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
-  Back to top
+  回到页面顶部
 </button>
         
       </main>
@@ -5752,12 +5719,12 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow", "toc.integrate"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow", "toc.integrate"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="../material/assets/javascripts/extra.js"></script>
+        <script src="../../../material/assets/javascripts/extra.js"></script>
       
     
   </body>

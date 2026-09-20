@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="BorderColor is a sandbox setting in Sandboxie Ini. It controls whether Sandboxie displays a colored border around the active foreground window, if that windows belongs to a sandboxed application.">
+        <meta name="description" content="BorderColor is a per-sandbox setting in Sandboxie Ini. It controls the colored border and optional sandbox-name label that SandMan displays around applicable sandboxed windows. The border is a visual indicator only; it does not resize or reposition the application window or change the sandbox&#x27;s isolation.">
       
       
       
@@ -5585,27 +5585,128 @@
 
 
 <h1 id="border-color">Border Color<a class="headerlink" href="#border-color" title="Permanent link"></a></h1>
-<p><em>BorderColor</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It controls whether Sandboxie displays a colored border around the active foreground window, if that windows belongs to a sandboxed application.</p>
-<p>Usage:</p>
-<p><div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">BorderColor</span><span class="o">=</span><span class="c1">#00FFFF,ttl,6</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">   </span><span class="na">BorderColor</span><span class="o">=</span><span class="c1">#00FFFF,off,6</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">   </span><span class="na">BorderColor</span><span class="o">=</span><span class="c1">#00FFFF,on,6</span>
+<p><em>BorderColor</em> is a per-sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It controls the colored border and optional sandbox-name label that SandMan displays around applicable sandboxed windows. The border is a visual indicator only; it does not resize or reposition the application window or change the sandbox's isolation.</p>
+<h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link"></a></h2>
+<p>The current format is:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">BorderColor</span><span class="o">=</span><span class="c1">#hex_color_code,border_mode,border_width,border_color_alpha,label_mode[,label_font_size]</span>
 </span></code></pre></div>
-Its default value is  <em>"#00FFFF,ttl,6"</em>. The number represents the default pixel width of the drawn border and can be omitted.</p>
-<p>Sandboxie doesn't draw the border if <em>BorderColor</em> ends with <em>",off,6"</em>, while in previous versions it was  <em>",n"</em>.</p>
-<p>The color is specified in HTML-like RGB color notation:</p>
+<p>For example:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">BorderColor</span><span class="o">=</span><span class="c1">#00FFFF,ttl,6,192,in,6</span>
+</span></code></pre></div>
+<p>The color is specified as a six-digit hexadecimal value in #BBGGRR order: blue, green, then red.</p>
 <ul>
-<li>The hash mark prefixes a hexadecimal (base-16) number that is exactly 6-digits long.</li>
-<li>The first two hex digits denote the red component of the color.</li>
-<li>The next two hex digits denote the green component of the color.</li>
-<li>The last two hex digits denote the blue component of the color.</li>
+<li>The hash mark prefixes a six-digit hexadecimal number.</li>
+<li>The first two digits specify the red component.</li>
+<li>The next two digits specify the green component.</li>
+<li>The last two digits specify the blue component.</li>
 </ul>
-<p>The border will not be drawn when <a href="SandboxieControl.html">Sandboxie Control</a> is not running.</p>
-<p>Related <a href="SandboxieControl.html">Sandboxie Control</a> setting: <a href="AppearanceSettings.html">Sandbox Settings &gt; Appearance</a></p>
+<p>The remaining fields have these meanings:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Values and behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>border_mode</code></td>
+<td>Selects when and where the border is shown. See <a href="#border-modes">Border modes</a>.</td>
+</tr>
+<tr>
+<td><code>border_width</code></td>
+<td>Border width in pixels. The current default is <code>6</code>.</td>
+</tr>
+<tr>
+<td><code>border_color_alpha</code></td>
+<td>Border opacity from <code>0</code> to <code>255</code>. The current default and invalid-value fallback is <code>192</code>.</td>
+</tr>
+<tr>
+<td><code>label_mode</code></td>
+<td><code>no</code> hides the label, <code>out</code> places it above the border, and <code>in</code> places it within the border.</td>
+</tr>
+<tr>
+<td><code>label_font_size</code></td>
+<td>Optional reference size for the label. When omitted or invalid, it uses the border width.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="border-modes">Border modes<a class="headerlink" href="#border-modes" title="Permanent link"></a></h2>
+<p>SandMan currently presents the main modes as follows:</p>
+<table>
+<thead>
+<tr>
+<th>INI mode</th>
+<th>SandMan label</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>off</code></td>
+<td><strong>Border disabled</strong></td>
+<td>Does not display the border.</td>
+</tr>
+<tr>
+<td><code>ttl</code></td>
+<td><strong>Show only when title is in focus</strong></td>
+<td>Displays the border according to the title-focus behavior.</td>
+</tr>
+<tr>
+<td><code>on</code></td>
+<td><strong>Always show (focused window only)</strong></td>
+<td>Displays the border for the focused applicable window.</td>
+</tr>
+<tr>
+<td><code>all</code></td>
+<td><strong>Show for all windows in this box</strong></td>
+<td>Displays borders for all applicable windows in the sandbox.</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>ttloutside</code>, <code>onoutside</code>, and <code>alloutside</code> variants use the corresponding mode but draw the border outside the application frame. SandMan identifies these entries with <strong>(outside)</strong> in the selector.</p>
+<p>The runtime also accepts <code>ttllbl</code>, <code>onlbl</code>, and <code>alllbl</code>. These label-only forms show the sandbox name or alias without the colored border frame. Label-only mode uses non-outside placement; an <code>outside</code> suffix is not retained for that mode.</p>
+<h2 id="label-placement">Label placement<a class="headerlink" href="#label-placement" title="Permanent link"></a></h2>
+<p>The <code>label_mode</code> field maps to these SandMan choices:</p>
+<table>
+<thead>
+<tr>
+<th>INI value</th>
+<th>SandMan label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>no</code></td>
+<td><strong>Don't show in border</strong></td>
+</tr>
+<tr>
+<td><code>out</code></td>
+<td><strong>Show above the border</strong></td>
+</tr>
+<tr>
+<td><code>in</code></td>
+<td><strong>Show within the border</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The displayed text can be affected by the sandbox alias and global alias-display settings described in <a href="BoxAlias.html">Box Alias</a>.</p>
+<h2 id="borderinsidemaximized">BorderInsideMaximized<a class="headerlink" href="#borderinsidemaximized" title="Permanent link"></a></h2>
+<p><em>BorderInsideMaximized</em> controls how an outside border or outside-positioned label is placed for maximized or arranged (snapped) windows. It is enabled by default.</p>
+<p>When enabled, SandMan draws the overlay inside such a window when its outside placement would otherwise extend beyond the application frame. This changes only the border overlay placement; it does not alter the application window's size or position.</p>
+<p>To disable the automatic inside placement:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">BorderInsideMaximized</span><span class="o">=</span><span class="s">n</span>
+</span></code></pre></div>
+<p>The setting metadata lists <em>BorderInsideMaximized</em> as added in version 1.18.1, while the feature is described in the Sandboxie Plus 1.18.2 / Classic 5.73.2 release notes.</p>
+<h2 id="sandman-interface">SandMan interface<a class="headerlink" href="#sandman-interface" title="Permanent link"></a></h2>
+<p>The current controls are available under:</p>
+<p><strong>Sandbox Options &gt; General Options &gt; Box Options &gt; Appearance</strong></p>
+<p>This area provides the border mode, color, width, opacity, label placement, label-only option, and label-size controls. For outside modes, <strong>Inside when maximized or snapped</strong> enables <em>BorderInsideMaximized</em>. Its tooltip explains that an outside border which would be clipped by the monitor edge is drawn inside maximized or snapped windows instead.</p>
+<p>The current Sandboxie Plus border is a SandMan overlay. Appearance changes generally do not require restarting sandboxed applications, although SandMan must be running to display its overlay.</p>
+<h2 id="sandboxie-control-classic">Sandboxie Control Classic<a class="headerlink" href="#sandboxie-control-classic" title="Permanent link"></a></h2>
+<p>Sandboxie Control Classic provides its established border controls under <a href="AppearanceSettings.html">Sandbox Settings &gt; Appearance</a>. The available Classic controls may differ from the current SandMan modes and options; in particular, do not assume that every newer SandMan mode is exposed by the historical Classic interface.</p>
 
 
 

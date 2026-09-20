@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="NoSecurityFiltering is a sandbox setting in Sandboxie Ini available since v1.0.0 / 5.55.0. This setting disables all remaining security filtering mechanisms in Application Compartment mode, providing maximum compatibility at the cost of virtually all security protections.">
+        <meta name="description" content="NoSecurityFiltering is an advanced compatibility setting for Application Compartment boxes. When it is effective, Sandboxie&#x27;s driver disables its file, registry-key, and kernel-object filters for processes in the box.">
       
       
       
@@ -5585,74 +5585,49 @@
 
 
 <h1 id="no-security-filtering">No Security Filtering<a class="headerlink" href="#no-security-filtering" title="Permanent link"></a></h1>
-<p><em>NoSecurityFiltering</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a> available since v1.0.0 / 5.55.0. This setting disables all remaining security filtering mechanisms in <a href="../../PlusContent/compartment-mode/">Application Compartment</a> mode, providing maximum compatibility at the cost of virtually all security protections.</p>
-<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link"></a></h2>
+<p><em>NoSecurityFiltering</em> is an advanced compatibility setting for <a href="../../PlusContent/compartment-mode/">Application Compartment</a> boxes. When it is effective, Sandboxie's driver disables its file, registry-key, and kernel-object filters for processes in the box.</p>
 <div class="admonition warning">
-<p class="admonition-title">Important</p>
-<p><code>NoSecurityFiltering</code> only functions when <strong><a href="../NoSecurityIsolation/">NoSecurityIsolation</a></strong> is also enabled. This setting has no effect in standard sandbox mode.</p>
+<p class="admonition-title">Warning</p>
+<p>This setting removes three central driver enforcement layers in a mode that already bypasses normal token restriction and Sandboxie Job Object assignment. Use it only for trusted applications whose compatibility requires these filters to be disabled.</p>
 </div>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h2>
+<h2 id="prerequisite-and-syntax">Prerequisite and syntax<a class="headerlink" href="#prerequisite-and-syntax" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">NoSecurityIsolation</span><span class="o">=</span><span class="s">y</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">NoSecurityFiltering</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link"></a></h2>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">NoSecurityFiltering</span><span class="o">=</span><span class="s">&lt;y/n&gt;</span>
-</span></code></pre></div>
-<p>Where:</p>
+<p>Both settings default to <code>n</code>. <code>NoSecurityFiltering</code> has its combined effect only while <code>NoSecurityIsolation=y</code> is active. It has no effect by itself in a standard-isolation sandbox.</p>
+<h2 id="what-it-disables">What it disables<a class="headerlink" href="#what-it-disables" title="Permanent link"></a></h2>
+<p>With both settings enabled, the driver sets the same three internal filter-disable states controlled individually by:</p>
 <ul>
-<li><code>y</code> disables all security filtering (only effective in Application Compartment mode).</li>
-<li><code>n</code> (default) maintains standard filtering mechanisms.</li>
+<li><a href="../DisableFileFilter/">Disable File Filter</a>;</li>
+<li><a href="../DisableKeyFilter/">Disable Key Filter</a>;</li>
+<li><a href="../DisableObjectFilter/">Disable Object Filter</a>.</li>
 </ul>
-<h2 id="interaction-with-individual-filter-settings">Interaction with Individual Filter Settings<a class="headerlink" href="#interaction-with-individual-filter-settings" title="Permanent link"></a></h2>
-<p><code>NoSecurityFiltering</code> serves as a master override that enables the individual filter disable settings:</p>
+<p>The individual settings remain separate configuration keys. <code>NoSecurityFiltering</code> does not write or automatically add those keys to the sandbox configuration; it causes the equivalent three states to be enabled at runtime for an Application Compartment process.</p>
+<p>The affected layers are specifically Sandboxie's driver-level:</p>
 <ul>
-<li><strong><a href="../DisableFileFilter/">DisableFileFilter</a></strong>: Disabled file filtering (same effect as <code>NoSecurityFiltering</code> for files).</li>
-<li><strong><a href="../DisableKeyFilter/">DisableKeyFilter</a></strong>: Disabled registry filtering (same effect as <code>NoSecurityFiltering</code> for registry).</li>
-<li><strong><a href="../DisableObjectFilter/">DisableObjectFilter</a></strong>: Disabled object filtering (same effect as <code>NoSecurityFiltering</code> for objects).</li>
+<li>file filter;</li>
+<li>registry-key filter;</li>
+<li>kernel-object filter.</li>
 </ul>
-<p>When <code>NoSecurityFiltering=y</code> is set, all three individual disable settings are automatically activated<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup><sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>[^3].</p>
-<h2 id="ui-integration">UI Integration<a class="headerlink" href="#ui-integration" title="Permanent link"></a></h2>
-<p>In Sandboxie Plus, this setting appears as:</p>
+<h2 id="what-it-does-not-mean">What it does not mean<a class="headerlink" href="#what-it-does-not-mean" title="Permanent link"></a></h2>
+<p><code>NoSecurityFiltering</code> is not a universal switch for every Sandboxie hook, rule, or service. The setting should not be described as disabling all Sandboxie security or virtualization behavior. In particular, its current driver implementation does not itself disable every SbieDll hook, GUI restriction, network control, service behavior, or configuration rule.</p>
+<p>Other mechanisms can therefore remain relevant, although the combination of Application Compartment and disabled driver filters provides substantially less protection than a standard sandbox.</p>
+<h2 id="sandman-configuration">SandMan configuration<a class="headerlink" href="#sandman-configuration" title="Permanent link"></a></h2>
+<p>The control is under:</p>
+<p><strong>Sandbox Options &gt; Security Options &gt; Security Isolation</strong></p>
+<p>Its exact label is <strong>Disable Security Filtering (not recommended)</strong>. SandMan enables this checkbox only while <strong>Disable Security Isolation</strong> is selected.</p>
+<h2 id="version-history">Version history<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
+<p><code>NoSecurityFiltering</code> was introduced with Application Compartment in Sandboxie Plus 1.0.0 / Classic 5.55.0.</p>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
 <ul>
-<li><strong>Checkbox</strong>: "Disable Security Filtering (not recommended)"<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</li>
-<li><strong>Location</strong>: Sandbox Options &gt; Security Options &gt; Sandbox Isolation.</li>
-<li><strong>Availability</strong>: Only enabled when "Disable Security Isolation" is checked<sup id="fnref2:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</li>
+<li><a href="../NoSecurityIsolation/">No Security Isolation</a></li>
+<li><a href="../../PlusContent/compartment-mode/">Application Compartment</a></li>
+<li><a href="../DisableFileFilter/">Disable File Filter</a></li>
+<li><a href="../DisableKeyFilter/">Disable Key Filter</a></li>
+<li><a href="../DisableObjectFilter/">Disable Object Filter</a></li>
+<li><a href="../SandboxieIni/">Sandboxie Ini</a></li>
 </ul>
-<h2 id="use-cases">Use Cases<a class="headerlink" href="#use-cases" title="Permanent link"></a></h2>
-<p>This extreme configuration might be justified for:</p>
-<ul>
-<li><strong>Legacy Software</strong>: Applications with severe compatibility issues.</li>
-<li><strong>Development Tools</strong>: Build systems requiring unrestricted system access.</li>
-<li><strong>System Utilities</strong>: Administrative tools that must access host resources.</li>
-<li><strong>Testing Scenarios</strong>: When you need to verify application behavior without any restrictions.</li>
-</ul>
-<h2 id="debugging-and-development">Debugging and Development<a class="headerlink" href="#debugging-and-development" title="Permanent link"></a></h2>
-<p><code>NoSecurityFiltering</code> can be useful for:</p>
-<ul>
-<li><strong>Diagnosing Compatibility Issues</strong>: Determining if filtering mechanisms cause application problems.</li>
-<li><strong>Development Testing</strong>: Running development tools that require unrestricted access.</li>
-<li><strong>Legacy Application Support</strong>: Supporting applications that cannot function with any filtering.</li>
-</ul>
-<h2 id="related-settings">Related Settings<a class="headerlink" href="#related-settings" title="Permanent link"></a></h2>
-<h3 id="alternative-granular-controls">Alternative Granular Controls<a class="headerlink" href="#alternative-granular-controls" title="Permanent link"></a></h3>
-<p>Instead of disabling all filtering, consider these individual controls:</p>
-<ul>
-<li><strong><a href="../DisableFileFilter/">DisableFileFilter</a></strong>: Disables only file system filtering.</li>
-<li><strong><a href="../DisableKeyFilter/">DisableKeyFilter</a></strong>: Disables only registry filtering.</li>
-<li><strong><a href="../DisableObjectFilter/">DisableObjectFilter</a></strong>: Disables only object filtering.</li>
-</ul>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:1">
-<p>UI label in <code>OptionsWindow.ui</code>: The checkbox text "Disable Security Filtering (not recommended)" clearly indicates the security implications and discourages casual use of this setting.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-<li id="fn:2">
-<p>UI dependency in <code>OptionsAdvanced.cpp</code>: The code <code>ui.chkNoSecurityFiltering-&gt;setEnabled(ui.chkNoSecurityIsolation-&gt;isChecked());</code> ensures that NoSecurityFiltering can only be enabled when NoSecurityIsolation is also active, enforcing the Application Compartment mode prerequisite.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div>
 
 
 

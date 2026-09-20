@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="HookTrace is a sandbox setting in Sandboxie Ini available since v1.15.5 / 5.70.5. It enables detailed logging of all function hooking activities performed by the  SbieDll component.">
+        <meta name="description" content="HookTrace records diagnostic information about function hooks installed through SbieDll&#x27;s common hook-installation path. It is useful when investigating hook compatibility or process-initialization problems.">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>HookTrace - Sandboxie Documentation</title>
+        <title>Hook Trace - Sandboxie Documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#hooktrace" class="md-skip">
+        <a href="#hook-trace" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              HookTrace
+              Hook Trace
             
           </span>
         </div>
@@ -5584,108 +5584,44 @@
   
 
 
-<h1 id="hooktrace">HookTrace<a class="headerlink" href="#hooktrace" title="Permanent link"></a></h1>
-<p><em>HookTrace</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a> available since v1.15.5 / 5.70.5. It enables detailed logging of all function hooking activities performed by the  <a href="../SBIEDLLAPI/">SbieDll</a> component.</p>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h2>
+<h1 id="hook-trace">Hook Trace<a class="headerlink" href="#hook-trace" title="Permanent link"></a></h1>
+<p><code>HookTrace</code> records diagnostic information about function hooks installed through SbieDll's common hook-installation path. It is useful when investigating hook compatibility or process-initialization problems.</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">HookTrace</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h2>
-<p>Function hooking is a core mechanism used by Sandboxie to intercept and redirect system calls from sandboxed processes. The <code>HookTrace</code> setting provides detailed visibility into this process, logging every hook attempt, success, failure, and related metadata. This is primarily useful for troubleshooting sandboxing issues and understanding how Sandboxie instruments applications.</p>
-<h2 id="how-it-works">How It Works<a class="headerlink" href="#how-it-works" title="Permanent link"></a></h2>
-<p>When <code>HookTrace</code> is enabled:</p>
-<ol>
-<li><strong>Hook Detection</strong>: SbieDll logs all attempts to hook functions in loaded modules<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</li>
-<li><strong>Status Tracking</strong>: Each hook operation is classified with status flags indicating success, failure reasons, or special conditions<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</li>
-<li><strong>Module Resolution</strong>: The system identifies the source module for each hooked function using address lookup<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>.</li>
-<li><strong>Monitor Output</strong>: Hook information is sent to the monitoring system using the MONITOR_HOOK flag<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>.</li>
-</ol>
-<h2 id="output-format">Output Format<a class="headerlink" href="#output-format" title="Permanent link"></a></h2>
-<p>Hook trace entries appear in the format:</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">Hooking</span><span class="o">:</span><span class="w"> </span><span class="s">module!function</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">FAILED Hooking</span><span class="o">:</span><span class="w"> </span><span class="s">module!function</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="na">Skipped Hooking</span><span class="o">:</span><span class="w"> </span><span class="s">module!function</span><span class="w">  </span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="na">Hooking (trace)</span><span class="o">:</span><span class="w"> </span><span class="s">module!function</span>
+<p>The output appears in the Hook category of the shared monitor used by <a href="../SandboxieTrace/">Sandboxie Trace</a> and the Sandboxie Plus <a href="../../PlusContent/TraceLog/">Trace Log</a>. Typical entries include:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Hooking: module!function
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>FAILED Hooking: module!function
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Skipped Hooking: module!function
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Hooking (trace): module!function
 </span></code></pre></div>
-<p>Additional status information may be appended:</p>
+<p>Additional platform- or implementation-specific annotations may appear. The displayed text is diagnostic output rather than a stable, exhaustive format.</p>
+<p>Current output can include these annotations:</p>
 <ul>
-<li><code>(Chrome Hook Hooked)</code> - Chrome-specific hook was successfully applied<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>.</li>
-<li><code>(Chrome Hook Unresolved)</code> - Chrome-specific hook failed to resolve<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup>.</li>
-<li><code>FFS Target not found, hooked x86 code instead</code> - ARM64 fallback was used<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup>.</li>
+<li><code>(Chrome Hook Hooked)</code> indicates that Sandboxie's Chrome-specific hook handling was used successfully for that hook.</li>
+<li><code>(Chrome Hook Unresolved)</code> indicates that the Chrome-specific target could not be resolved through that path. This annotation alone does not establish that the application will fail.</li>
+<li><code>FFS Target not found, hooked x86 code instead</code> is an ARM64EC-specific fallback. The expected Fast Forward Sequence target was unavailable, so Sandboxie hooked the x86-side code instead.</li>
 </ul>
-<h2 id="hook-status-types">Hook Status Types<a class="headerlink" href="#hook-status-types" title="Permanent link"></a></h2>
-<p>The tracing system categorizes hook operations with several status flags:</p>
+<p><code>HookTrace</code> covers hooks installed through this common SbieDll path; it does not report every hooking mechanism used anywhere in Sandboxie. Process startup can generate a large amount of output, so enable it only while troubleshooting.</p>
+<h2 id="application-hooking-records">Application hooking records<a class="headerlink" href="#application-hooking-records" title="Permanent link"></a></h2>
+<p>When <code>HookTrace</code> is active, certain calls through Sandboxie's intercepted <code>WriteProcessMemory</code> path can produce records beginning with:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Application Hooking:
+</span></code></pre></div>
+<p>These records can appear when a sandboxed application calls that path and the destination address can be associated with an exported function in another module. The current record includes the resolved module and export, an offset, and a hexadecimal representation of the bytes being written. This can help diagnose application-level code patching or hooking that may interact with Sandboxie's own hooks.</p>
+<p>The record does not mean that every <code>WriteProcessMemory</code> call is logged, that Sandboxie detects all application hooking, or that the activity is malicious.</p>
+<p>The setting is initialized per process. Restart affected sandboxed processes after enabling, disabling, or changing it.</p>
+<p><code>HookTrace</code> was introduced in Sandboxie Plus 1.15.5 and Sandboxie Classic 5.70.5.</p>
+<h2 id="related-settings">Related settings<a class="headerlink" href="#related-settings" title="Permanent link"></a></h2>
 <ul>
-<li><strong>HOOK_STAT_CHROME</strong>: Chrome browser-specific hook handling<sup id="fnref:8"><a class="footnote-ref" href="#fn:8">8</a></sup>.</li>
-<li><strong>HOOK_STAT_CHROME_FAIL</strong>: Chrome hook resolution failed<sup id="fnref:9"><a class="footnote-ref" href="#fn:9">9</a></sup>.</li>
-<li><strong>HOOK_STAT_NO_FFS</strong>: ARM64 architecture-specific Fast Forward Sequence not found<sup id="fnref:10"><a class="footnote-ref" href="#fn:10">10</a></sup>.</li>
-<li><strong>HOOK_STAT_SKIPPED</strong>: Hook was intentionally skipped based on configuration<sup id="fnref:11"><a class="footnote-ref" href="#fn:11">11</a></sup>.</li>
-<li><strong>HOOK_STAT_TRACE</strong>: Hook is for API tracing purposes only<sup id="fnref:12"><a class="footnote-ref" href="#fn:12">12</a></sup>.</li>
-<li><strong>HOOK_STAT_SYSCALL</strong>: ARM64 system call hooking (ARM64 EC only)<sup id="fnref:13"><a class="footnote-ref" href="#fn:13">13</a></sup>.</li>
+<li><a href="../FuncSkipHook/">Function Skip Hook</a> selectively suppresses hooks by function name.</li>
+<li><a href="../SkipHook/">Skip Hook</a> controls named Sandboxie hook groups for matching processes.</li>
 </ul>
-<h2 id="application-hook-detection">Application Hook Detection<a class="headerlink" href="#application-hook-detection" title="Permanent link"></a></h2>
-<p>When <code>HookTrace</code> is enabled, the system also monitors applications that attempt to modify other processes' memory, which may indicate application-level hooking attempts. This provides additional insight into potential conflicts with Sandboxie's own hooking mechanisms<sup id="fnref:14"><a class="footnote-ref" href="#fn:14">14</a></sup>.</p>
-<h2 id="performance-considerations">Performance Considerations<a class="headerlink" href="#performance-considerations" title="Permanent link"></a></h2>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
 <ul>
-<li><strong>Increased Logging</strong>: Enabling HookTrace generates significant log output, particularly during process startup when many modules are loaded and hooked.</li>
-<li><strong>Debug Purposes Only</strong>: This setting is primarily intended for debugging and troubleshooting, not for production use.</li>
-<li><strong>Storage Impact</strong>: The verbose output can quickly consume log storage space.</li>
+<li><a href="../SandboxieTrace/">Sandboxie Trace</a></li>
+<li><a href="../../PlusContent/TraceLog/">Trace logging</a></li>
 </ul>
-<h2 id="related-settings">Related Settings<a class="headerlink" href="#related-settings" title="Permanent link"></a></h2>
-<ul>
-<li><a href="../SandboxieTrace/">ApiTrace</a> - Traces actual API calls after hooks are established.</li>
-<li><a href="../SandboxieTrace/">DebugTrace</a> - General debug output from Sandboxie components.</li>
-<li><a href="../SandboxieTrace/">FuncSkipHook</a> - Controls which functions should not be hooked.</li>
-<li><a href="../SandboxieTrace/">SkipHook</a> - Module-specific hook skipping configuration.</li>
-</ul>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:1">
-<p>Hook initialization occurs in <code>SbieDll_HookInit()</code> where <code>Dll_HookTrace = SbieApi_QueryConfBool(NULL, L"HookTrace", FALSE)</code>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-<li id="fn:2">
-<p>Hook status tracking is implemented using multiple flags defined as <code>HOOK_STAT_*</code> constants, including <code>HOOK_STAT_CHROME</code>, <code>HOOK_STAT_CHROME_FAIL</code>, <code>HOOK_STAT_NO_FFS</code>, <code>HOOK_STAT_SKIPPED</code>, <code>HOOK_STAT_TRACE</code>, and <code>HOOK_STAT_SYSCALL</code>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
-</li>
-<li id="fn:3">
-<p>Module resolution is performed by <code>Trace_FindModuleByAddress((void*)module)</code> to identify the source module of each hooked function&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
-</li>
-<li id="fn:4">
-<p>Hook trace output is sent to the monitoring system via <code>SbieApi_MonitorPutMsg(MONITOR_HOOK | MONITOR_TRACE | ((HookStats &amp; HOOK_STAT_SKIPPED) ? MONITOR_OPEN : 0), dbg)</code>&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
-</li>
-<li id="fn:5">
-<p>Chrome hook success is indicated by <code>HookStats &amp; HOOK_STAT_CHROME</code> and logged as "Chrome Hook Hooked"&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
-</li>
-<li id="fn:6">
-<p>Chrome hook failure is indicated by <code>HookStats &amp; HOOK_STAT_CHROME_FAIL</code> and logged as "Chrome Hook Unresolved"&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
-</li>
-<li id="fn:7">
-<p>ARM64 fallback is indicated by <code>HookStats &amp; HOOK_STAT_NO_FFS</code> and logged as "FFS Target not found, hooked x86 code instead"&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
-</li>
-<li id="fn:8">
-<p><code>HOOK_STAT_CHROME</code> flag value <code>0x00000001</code> indicates successful Chrome-specific hook handling&#160;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 8 in the text">&#8617;</a></p>
-</li>
-<li id="fn:9">
-<p><code>HOOK_STAT_CHROME_FAIL</code> flag value <code>0x00000002</code> indicates failed Chrome hook resolution&#160;<a class="footnote-backref" href="#fnref:9" title="Jump back to footnote 9 in the text">&#8617;</a></p>
-</li>
-<li id="fn:10">
-<p><code>HOOK_STAT_NO_FFS</code> flag value <code>0x00000004</code> indicates ARM64 Fast Forward Sequence target not found&#160;<a class="footnote-backref" href="#fnref:10" title="Jump back to footnote 10 in the text">&#8617;</a></p>
-</li>
-<li id="fn:11">
-<p><code>HOOK_STAT_SKIPPED</code> flag value <code>0x00000008</code> indicates the hook was intentionally skipped&#160;<a class="footnote-backref" href="#fnref:11" title="Jump back to footnote 11 in the text">&#8617;</a></p>
-</li>
-<li id="fn:12">
-<p><code>HOOK_STAT_TRACE</code> flag value <code>0x00000100</code> indicates the hook is for API tracing purposes&#160;<a class="footnote-backref" href="#fnref:12" title="Jump back to footnote 12 in the text">&#8617;</a></p>
-</li>
-<li id="fn:13">
-<p><code>HOOK_STAT_SYSCALL</code> flag value <code>0x00000200</code> is used for ARM64 system call hooking in ARM64 EC mode only&#160;<a class="footnote-backref" href="#fnref:13" title="Jump back to footnote 13 in the text">&#8617;</a></p>
-</li>
-<li id="fn:14">
-<p>Application hook detection is implemented in <code>file_misc.c</code> where <code>Dll_HookTrace</code> enables monitoring of <code>WriteProcessMemory</code> calls that may indicate application-level hooking attempts&#160;<a class="footnote-backref" href="#fnref:14" title="Jump back to footnote 14 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div>
 
 
 

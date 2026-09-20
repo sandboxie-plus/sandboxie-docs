@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="The Trace Log tool displays the names of any system resources that are accessed by programs running under the supervision of Sandboxie Plus. Designed to make it easy to identify those system resources which should be excluded from sandboxing, this tool can be used with the Sandboxie Trace options.">
+        <meta name="description" content="The Trace Log displays resource access and other diagnostic records from sandboxed programs. It is the Sandboxie Plus viewer for the shared monitor used by the Sandboxie Trace options.">
       
       
       
@@ -1288,10 +1288,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#performance-impact" class="md-nav__link">
+  <a href="#stack-traces-and-process-information" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Performance Impact
+        Stack traces and process information
       
     </span>
   </a>
@@ -1299,10 +1299,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#additional-improvements" class="md-nav__link">
+  <a href="#buffer-size" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Additional Improvements
+        Buffer size
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-impact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance impact
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version history
       
     </span>
   </a>
@@ -5671,26 +5693,37 @@
 
 
 <h1 id="trace-logging-for-sandboxie-plus">Trace logging (for Sandboxie Plus)<a class="headerlink" href="#trace-logging-for-sandboxie-plus" title="Permanent link"></a></h1>
-<p>The Trace Log tool displays the names of any system resources that are accessed by programs running under the supervision of Sandboxie Plus. Designed to make it easy to identify those system resources which should be excluded from sandboxing, this tool can be used with the <a href="../../Content/SandboxieTrace/">Sandboxie Trace</a> options.</p>
+<p>The Trace Log displays resource access and other diagnostic records from sandboxed programs. It is the Sandboxie Plus viewer for the shared monitor used by the <a href="../../Content/SandboxieTrace/">Sandboxie Trace</a> options.</p>
 <p><strong>Important:</strong> Please consider to use the Trace Log before opening a new issue.</p>
 <p><img alt="" src="../../Media/TraceLog.png" /></p>
-<h3 id="using-the-trace-log">Using the Trace Log<a class="headerlink" href="#using-the-trace-log" title="Permanent link"></a></h3>
-<p>1. Enable <strong>Trace Log</strong> tab by opening <strong>View</strong> menu -&gt; <strong>Trace Logging</strong>.</p>
+<h2 id="using-the-trace-log">Using the Trace Log<a class="headerlink" href="#using-the-trace-log" title="Permanent link"></a></h2>
+<p>1. Enable the <strong>Trace Log</strong> tab through <strong>View &gt; Trace Logging</strong>.</p>
 <p>2. When the Trace Log tab is activated, it immediately starts to collect and display resource access information from all sandboxed programs that are running.</p>
 <p>3. At this point, perform any specific tasks that fail when done under the supervision of Sandboxie Plus.</p>
-<p>4. Finally, right click on the collected data and select the entry named <strong>Copy Panel</strong>. This copies the collected data into the clipboard.</p>
+<p>4. Inspect or filter the collected records. Right-click and select <strong>Copy Panel</strong> to copy the data, or use the save action to write a log file.</p>
 <p>5. You can now paste (Ctrl+V) the collected data somewhere and make it available for analysis.</p>
-<p>6. Optionally, the keyboard shortcut CTRL+F can be used to search for specific entries within the Trace Log tab.</p>
-<h3 id="performance-impact">Performance Impact<a class="headerlink" href="#performance-impact" title="Permanent link"></a></h3>
-<p>When inactive, the Trace Log does not use any system resources and does not have any performance impact on any running programs. When active, the Trace Log has a small performance penalty on sandboxed programs.</p>
-<h3 id="additional-improvements">Additional Improvements<a class="headerlink" href="#additional-improvements" title="Permanent link"></a></h3>
+<p>6. Use Ctrl+F to search for specific entries when needed.</p>
+<p>Opening Trace Logging activates the monitor and display pipeline. It does not automatically enable every detailed setting, such as <code>ApiTrace</code>, <code>FileTrace</code>, <code>HookTrace</code>, <code>DebugTrace</code>, or <code>ErrorTrace</code>. Configure those options separately under <strong>Sandbox Options &gt; Advanced Options &gt; Tracing</strong> or in <a href="../../Content/SandboxieIni/">Sandboxie Ini</a>.</p>
+<h2 id="stack-traces-and-process-information">Stack traces and process information<a class="headerlink" href="#stack-traces-and-process-information" title="Permanent link"></a></h2>
+<p><strong>Show Stack Trace</strong> controls <code>MonitorStackTrace</code>; simply opening Trace Logging does not enable stack capture. Stack information is collected with monitor entries only after the option is active for a newly created monitor buffer. SandMan then resolves symbols asynchronously.</p>
+<p>After changing <strong>Show Stack Trace</strong>, stop Trace Logging and start it again for reliable activation or deactivation. Stack capture and symbol resolution add diagnostic cost, and symbol downloads can involve network access.</p>
+<p>While integrated Trace Logging is active, SandMan temporarily enables <strong>Keep terminated</strong> and restores the user's saved preference when tracing stops. Retaining process information helps SandMan with process naming and symbol handling; it is not what enables the underlying stack capture.</p>
+<h2 id="buffer-size">Buffer size<a class="headerlink" href="#buffer-size" title="Permanent link"></a></h2>
+<p><code>TraceBufferPages</code> can request a larger shared monitor buffer. For example:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[GlobalSettings]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">TraceBufferPages</span><span class="o">=</span><span class="s">2560</span>
+</span></code></pre></div>
+<p>This example does not represent a documented byte or MiB conversion. Stop and restart Trace Logging after changing it. See <a href="../../Content/SandboxieTrace/#monitor-buffer-size">Sandboxie Trace</a> for current behavior and overflow considerations.</p>
+<h2 id="performance-impact">Performance impact<a class="headerlink" href="#performance-impact" title="Permanent link"></a></h2>
+<p>When Trace Logging is disabled, SandMan does not keep its active monitor buffer. Separately enabled trace settings can still install hooks or add work inside sandboxed processes while the viewer is closed. During active tracing, overhead depends on the selected diagnostics and event volume.</p>
+<h2 id="version-history">Version history<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
 <blockquote>
-<p><strong>Sandboxie Plus v0.7.0</strong> adds the ability to adjust the buffer size with <code>TraceBufferPages=2560</code>.</p>
+<p><strong>Sandboxie Plus v0.7.0</strong> added the ability to adjust the monitor buffer with <code>TraceBufferPages</code>.</p>
 <p><strong>Sandboxie Plus v0.8.0</strong> adds the ability to disable resource access monitor for selected sandboxes with <code>DisableResourceMonitor=y</code>.</p>
 <p><strong>Sandboxie Plus v0.9.8b</strong> adds the ability to save the trace log output into a new .log file (via the floppy disk icon).</p>
 <p><strong>Sandboxie Plus v0.9.8d</strong> adds the ability to select multiple access types at once.</p>
 <p><strong>Sandboxie Plus v1.0.16</strong> adds a monitor mode to the resource access trace.</p>
-<p><strong>Sandboxie Plus v1.9.6</strong> adds a full stack trace to all trace messages. Note that activating the Trace Log also turns on the Keep Terminated feature. This is not a bug, but a new intended behaviour. Without it, the stack trace in the Trace Log would not work properly, as it uses the process objects to cache the symbols.</p>
+<p><strong>Sandboxie Plus v1.9.6</strong> added opt-in stack information for monitor records. SandMan also temporarily enables <strong>Keep terminated</strong> while integrated Trace Logging is active to retain process information used for naming and symbol handling.</p>
 <p><strong>Sandboxie Plus v1.10.1</strong> adds an auto scroll functionality (enabled by default in the monitor mode).</p>
 </blockquote>
 
