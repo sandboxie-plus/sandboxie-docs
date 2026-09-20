@@ -60,6 +60,8 @@
 
 ~~[Block Port](BlockPort.md)~~ (removed since Sandboxie v0.9.0 / 5.51.0)
 
+[Block Register Device Notification](BlockRegisterDeviceNotification.md)
+
 [Block Screen Capture](BlockScreenCapture.md)
 
 ~~[Block Sys Param](BlockSysParam.md)~~ (removed since Sandboxie v4.xx)
@@ -381,6 +383,8 @@
 [Open Conf Path](OpenConfPath.md)
 
 [Open Credentials](OpenCredentials.md)
+
+[Open Device Configuration Manager API](OpenDevCMApi.md)
 
 [Open File Path](OpenFilePath.md)
 
