@@ -28,7 +28,7 @@ Notes:
 
 *   Forced Folders can be temporarily suspended using the [Disable Forced Programs](FileMenu.md#disable-forced-programs) command.
 
-*   Forced Folders take precedence over [Forced Programs](ProgramStartSettings.md#forced-programs). In other words, when a program matches both a Forced Folders and a Forced Programs setting, the Forced Folder setting will apply, and the Forced Programs setting will be ignored.
+*   A Forced Folder match based on the executable's own directory is evaluated before [Forced Programs](ProgramStartSettings.md#forced-programs). Additional Forced Folder checks based on the working directory or document argument occur after Forced Programs, so Forced Folders do not have universal precedence.
 
 Related [Sandboxie Ini](SandboxieIni.md) setting: [ForceFolder](ForceFolder.md).
 
@@ -55,6 +55,6 @@ Notes:
 
 *   Forced Programs can be temporarily suspended using the [Disable Forced Programs](FileMenu.md#disable-forced-programs) command.
 
-*   [Forced Folders](ProgramStartSettings.md#forced-folders) take precedence over Forced Programs. In other words, when a program matches both a Forced Folders and a Forced Programs setting, the Forced Folder setting will apply, and the Forced Programs setting will be ignored.
+*   A [Forced Folder](ProgramStartSettings.md#forced-folders) match based on the executable's own directory is evaluated before Forced Programs. Additional Forced Folder checks based on the working directory or document argument occur after Forced Programs, so Forced Folders do not have universal precedence.
 
 Related [Sandboxie Ini](SandboxieIni.md) setting: [ForceProcess](ForceProcess.md).
