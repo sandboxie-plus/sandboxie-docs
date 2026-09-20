@@ -34,7 +34,8 @@ DenyHostAccess=[host-program-or-group,]y|n
 ```
 
 - `y` denies the matching unsandboxed host program.
-- `n` allows the matching program through this particular protection check.
+- `y` applies the access restriction to the matching unsandboxed host program, subject to the operational exceptions described above.
+- `n` exempts the matching program from this particular protection check. It does not grant rights that Windows or other checks would otherwise deny.
 - With no program prefix, the value supplies the box-wide default. `DenyHostAccess=y` is therefore equivalent to a default deny rule.
 - Program selectors use Sandboxie's [program-name matching](ProgramNamePrefix.md), including wildcards, and can refer to configured process groups.
 
