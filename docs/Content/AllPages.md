@@ -184,6 +184,8 @@
 
 [Drop Child Process Token](DropChildProcessToken.md)
 
+[Drop ConHost Integrity](DropConHostIntegrity.md)
+
 ### E
 
 [Edit Admin Only](EditAdminOnly.md)
@@ -349,6 +351,8 @@
 [Never Delete](NeverDelete.md)
 
 [No Rename Win Class](NoRenameWinClass.md)
+
+[No Sandboxie Console](NoSandboxieConsole.md)
 
 [No Security Filtering](NoSecurityFiltering.md)
 
