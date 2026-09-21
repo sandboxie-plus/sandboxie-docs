@@ -873,6 +873,8 @@
 
 [Use Chrome Secure Preferences Hack](UseChromeSecurePreferencesHack.md)
 
+[Use Drag Drop Hack](UseDragDropHack.md)
+
 [Use Electron Detection](UseElectronDetection.md)
 
 [Use Fake Shell Dispatch](UseFakeShellDispatch.md)
