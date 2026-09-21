@@ -26,7 +26,7 @@ NotifyForceProcessEnabled=y
 | --- | --- | --- | --- | --- |
 | `AlwaysShowReminder` | `n` | Global | Support/reminder dialog scheduling; not an SBIE event message | See [Support reminder](#support-reminder). |
 | `NotifyBoxProtected` | `n` | Protected box | SBIE1318 when a host process is denied access to a protected sandboxed process | Event-time; SandMan checkbox, which currently changes only this setting. |
-| `NotifyDirectDiskAccess` | `n` | Box | [SBIE1313](SBIE1313.md) when an open of a disk device itself remains denied | Cached for the sandboxed process. See [Notify Direct Disk Access](NotifyDirectDiskAccess.md). |
+| `NotifyDirectDiskAccess` | `n` | Box | [SBIE1313](SBIE1313.md) for certain denied attempts to open a disk device directly; not every denied disk-access request | Cached for the sandboxed process. See [Notify Direct Disk Access](NotifyDirectDiskAccess.md) for exceptions. |
 | `NotifyForceProcessDisabled` | `n` | Global | [SBIE1301](SBIE1301.md) when a process that matches a force rule is not forced because forcing is temporarily disabled | Event-time; global Program Alerts checkbox. |
 | `NotifyForceProcessEnabled` | `n` | Global | SBIE1321 when a process matches forcing and is assigned to a sandbox | Event-time; global Program Alerts checkbox. |
 | `NotifyImageLoadDenied` | `y` | Box | SBIE1305 when [Protect Host Images](ProtectHostImages.md) blocks a boxed image or DLL from being mapped into a protected host-image process | Event-time; SandMan checkbox. |
