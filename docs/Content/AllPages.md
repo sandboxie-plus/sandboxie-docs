@@ -408,6 +408,8 @@
 
 [Privacy Mode](../PlusContent/privacy-mode.md)
 
+[Process Group](ProcessGroup.md)
+
 [Process Limit](ProcessLimit.md)
 
 ~~[Process Limit 1](ProcessLimit1.md)~~ (removed since Sandboxie v0.7.1 / 5.48.5)
