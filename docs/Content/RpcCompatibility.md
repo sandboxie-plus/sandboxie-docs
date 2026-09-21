@@ -46,7 +46,7 @@ In short: **object UUID = which object; interface UUID = which operations; strin
 A schematic form is:
 
 ```ini
-RpcPortBinding=<module>,<interface-UUID-or-binding-pattern>[,Resolve=<port-id>][,TimeOut=y|n]
+RpcPortBinding=<module>,<object-UUID-or-string-binding-pattern>[,Resolve=<port-id>][,TimeOut=y|n]
 ```
 
 When a preset matches, Sandboxie can substitute a resolved local endpoint and can override the timeout decision for that binding. `Resolve=<port-id>` asks SbieSvc's endpoint mapper helper to resolve the logical identifier to a current endpoint.
