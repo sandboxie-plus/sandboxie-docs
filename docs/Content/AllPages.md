@@ -70,6 +70,8 @@
 
 ~~[Block Win Hooks](BlockWinHooks.md)~~ (removed since Sandboxie v4.xx)
 
+[Block WinRM](BlockWinRM.md)
+
 [Border Color](BorderColor.md)
 
 [Border Exclude Taskbar](BorderExcludeTaskbar.md)
