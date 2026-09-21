@@ -1,6 +1,8 @@
 # Virtualization Scheme V1 and V2
 
-Sandboxie offers two schemes for recording deletions and certain renames inside a sandbox. The scheme changes how sandbox-side file and registry state is represented; it does not change the basic rule that deleting a host-backed item inside the sandbox does not delete the host item.
+Sandboxie supports two virtualization schemes, V1 and V2, for tracking deleted or renamed files, folders, and registry entries inside a sandbox. They differ in how Sandboxie records these changes and presents the resulting sandbox view.
+
+Normally, these changes leave the original host data untouched. Direct-access rules such as `OpenFilePath` or `OpenKeyPath` are an exception: they can allow changes to the actual host data, regardless of the selected scheme.
 
 ## Settings
 
