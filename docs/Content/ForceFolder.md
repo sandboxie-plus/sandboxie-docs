@@ -12,7 +12,7 @@ The first entry forces programs started from `C:\Download` or one of its subfold
 
 ## What is matched
 
-During normal force-rule evaluation, Sandboxie first checks the executable's directory against _ForceFolder_. If that does not select a sandbox, it checks [ForceProcess](ForceProcess.md). If neither check selects a sandbox, the effective working directory and a document argument can also be checked against _ForceFolder_. The latter checks are skipped when Sandboxie's `Start.exe` is launching the process.
+During normal force-rule evaluation, Sandboxie first checks the executable's directory against _ForceFolder_. If that does not select a sandbox, it checks [ForceProcess](ForceProcess.md). If neither check selects a sandbox, the effective working directory and a document argument can also be checked against _ForceFolder_. The latter checks are skipped when the process being evaluated is Sandboxie's `Start.exe` itself.
 
 An ordinary folder entry is matched as a recursive path prefix. An entry containing `*` is instead handled as a wildcard pattern against the normalized directory path. A `?` character does not by itself switch a _ForceFolder_ entry to wildcard matching; it participates as a wildcard only when the same entry also contains `*`. Use [ForceProcess](ForceProcess.md) when selection by executable name is required.
 
