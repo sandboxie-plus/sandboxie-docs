@@ -22,7 +22,7 @@ The optional executable selector is matched against the sandboxed process that a
 
 The setting does not force every process launch to elevate. Sandboxie first uses the normal `CreateProcess` path. The fallback is considered only when that attempt fails with `ERROR_ELEVATION_REQUIRED` and the effective **ApplyElevateCreateProcessFix** rule is enabled for the calling process.
 
-Sandboxie then retries the requested launch through `ShellExecuteExW` with the `runas` verb. If the request succeeds, the resulting process handle is returned through the original process-information structure. If the user cancels the elevation request, the launch remains cancelled. The fallback also avoids recursively starting another elevation attempt while Sandboxie is already processing a `ShellExecute` path.
+Sandboxie retries the launch with `ShellExecuteExW` using the `runas` verb. If it succeeds, Sandboxie returns the new process handle through the original process-information structure. Cancelling the elevation prompt cancels the launch. Sandboxie also skips this fallback when the launch is already being handled through `ShellExecute`, preventing a recursive elevation attempt.
 
 The resulting `runas` request can subsequently enter Sandboxie's UAC proxy. [No UAC Proxy](NoUACProxy.md) controls whether supported elevation RPC is intercepted, while [Use Sandboxie UAC](UseSandboxieUAC.md) controls the enhanced prompt when proxying is active.
 
