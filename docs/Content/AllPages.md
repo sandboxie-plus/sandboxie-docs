@@ -4,6 +4,8 @@
 
 [Access Token Isolation](AccessTokenIsolation.md)
 
+[Advanced Loader and SxS Compatibility](AdvancedLoaderCompatibility.md)
+
 [Advanced Topics](AdvancedTopics.md)
 
 [Advanced Token Settings](AdvancedTokenSettings.md)
