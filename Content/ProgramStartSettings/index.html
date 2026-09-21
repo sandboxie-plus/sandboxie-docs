@@ -5606,7 +5606,7 @@
 <p>Forced Folders can be temporarily suspended using the <a href="../FileMenu/#disable-forced-programs">Disable Forced Programs</a> command.</p>
 </li>
 <li>
-<p>Forced Folders take precedence over <a href="./#forced-programs">Forced Programs</a>. In other words, when a program matches both a Forced Folders and a Forced Programs setting, the Forced Folder setting will apply, and the Forced Programs setting will be ignored.</p>
+<p>A Forced Folder match based on the executable's own directory is evaluated before <a href="./#forced-programs">Forced Programs</a>. Additional Forced Folder checks based on the working directory or document argument occur after Forced Programs, so Forced Folders do not have universal precedence.</p>
 </li>
 </ul>
 <p>Related <a href="../SandboxieIni/">Sandboxie Ini</a> setting: <a href="../ForceFolder/">ForceFolder</a>.</p>
@@ -5628,7 +5628,7 @@
 <p>Forced Programs can be temporarily suspended using the <a href="../FileMenu/#disable-forced-programs">Disable Forced Programs</a> command.</p>
 </li>
 <li>
-<p><a href="./#forced-folders">Forced Folders</a> take precedence over Forced Programs. In other words, when a program matches both a Forced Folders and a Forced Programs setting, the Forced Folder setting will apply, and the Forced Programs setting will be ignored.</p>
+<p>A <a href="./#forced-folders">Forced Folder</a> match based on the executable's own directory is evaluated before Forced Programs. Additional Forced Folder checks based on the working directory or document argument occur after Forced Programs, so Forced Folders do not have universal precedence.</p>
 </li>
 </ul>
 <p>Related <a href="../SandboxieIni/">Sandboxie Ini</a> setting: <a href="../ForceProcess/">ForceProcess</a>.</p>

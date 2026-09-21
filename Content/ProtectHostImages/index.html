@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="ProtectHostImages is a sandbox setting in Sandboxie Ini available since v1.9.0 / 5.64.0. This setting can be enabled to prevent processes located outside the sandbox from loading boxed DLLs.">
+        <meta name="description" content="ProtectHostImages is a sandbox setting in Sandboxie Ini. It protects certain sandboxed processes whose main executable image comes from the host from executable content originating inside the sandbox.">
       
       
       
@@ -5585,14 +5585,33 @@
 
 
 <h1 id="protect-host-images">Protect Host Images<a class="headerlink" href="#protect-host-images" title="Permanent link"></a></h1>
-<p><em>ProtectHostImages</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a> available since v1.9.0 / 5.64.0. This setting can be enabled to prevent processes located outside the sandbox from loading boxed DLLs.</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">ProtectHostImages</span><span class="o">=</span><span class="s">y</span>
+<p><em>ProtectHostImages</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. It protects certain sandboxed processes whose main executable image comes from the host from executable content originating inside the sandbox.</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">ProtectHostImages</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>Related Sandboxie Plus setting: Sandbox Options &gt; Various Options &gt; Dlls &amp; Extensions &gt; Prevent sandboxed programs installed on host from loading DLLs from the sandbox</p>
+<p>The setting is disabled by default and requires a currently applicable Support Certificate.</p>
+<h2 id="behavior">Behavior<a class="headerlink" href="#behavior" title="Permanent link"></a></h2>
+<p>When the setting is enabled, the driver identifies sandboxed processes whose executable was loaded from the host rather than from the sandbox. For those processes, it blocks executable image mappings from boxed paths during normal image loading. This is intended to prevent a DLL or other executable image placed in the sandbox from being loaded into a host-installed program that is running sandboxed.</p>
+<p>The current driver also prevents a process whose own executable comes from the sandbox from obtaining write access to a protected host-image process, even within the same box, and prevents that boxed-image process from starting a host-image child through the protected path.</p>
+<p>This setting does not prevent every DLL or image load, every form of code injection, or every interaction with host processes. The executable-image mapping check has a limited exception for mappings required during process creation; separate <code>ProtectHostImages</code> process-creation checks still apply. Application compatibility can also require file-migration exceptions.</p>
+<p><code>ProtectHostImages</code> is disabled for an <a href="../../PlusContent/compartment-mode/">Application Compartment</a> box (<code>NoSecurityIsolation=y</code>). It is independent of <a href="../ConfidentialBox/">ConfidentialBox</a>: one restricts image and related process operations inside the sandbox, while the other restricts process/thread handles opened from the host.</p>
+<h2 id="compatibility">Compatibility<a class="headerlink" href="#compatibility" title="Permanent link"></a></h2>
+<p>Blocking boxed executable images can expose applications that expect their installed modules to be copied into and loaded from the sandbox. Current default templates include migration exceptions for common installation locations of Firefox-family browsers. Custom installation paths may need equivalent <code>DontCopy</code> rules if affected.</p>
+<p>When notification is enabled, Sandboxie issues message 1305 for a blocked executable-image load. The related <code>NotifyImageLoadDenied</code> setting is enabled by default while its SandMan control is available.</p>
+<h2 id="sandman-configuration">SandMan configuration<a class="headerlink" href="#sandman-configuration" title="Permanent link"></a></h2>
+<p>The control is under:</p>
+<p><strong>Sandbox Options &gt; Advanced Options &gt; Dlls &amp; Extensions &gt; Image Protection</strong></p>
+<p>Its current label is:</p>
+<p><strong>Prevent sandboxed programs installed on the host from loading DLLs from the sandbox</strong></p>
+<p>The adjacent <strong>Issue message 1305 when a program tries to load a sandboxed dll</strong> checkbox controls <code>NotifyImageLoadDenied</code>. SandMan supports a global <code>ProtectHostImages</code> default with a per-box override.</p>
+<p>The driver records <code>ProtectHostImages</code> when a sandboxed process is initialized. Restart the affected sandboxed process tree after changing it.</p>
+<h2 id="version-history">Version history<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
+<p><code>ProtectHostImages</code> and <code>NotifyImageLoadDenied</code> were introduced in Sandboxie Plus 1.9.0 / Classic 5.64.0. Compatibility fixes for Firefox-family browsers followed in Sandboxie Plus 1.15.4 / Classic 5.70.4.</p>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
+<ul>
+<li><a href="../ConfidentialBox/">Confidential Box</a></li>
+<li><a href="../../PlusContent/BoxEncryption/">Box Encryption</a></li>
+</ul>
 
 
 

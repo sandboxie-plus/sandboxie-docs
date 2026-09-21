@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="ProtectAdminOnly is a sandbox setting in Sandboxie Ini available since v1.16.4 / 5.71.4. This is a setting enabled by default in encrypted box, you can disable it by ProtectAdminOnly=n.">
+        <meta name="description" content="ProtectAdminOnly is a sandbox setting in Sandboxie Ini. It controls whether Sandboxie&#x27;s session leader must have administrative access to receive exceptions from protected-root and confidential-process checks.">
       
       
       
@@ -5585,15 +5585,31 @@
 
 
 <h1 id="protect-admin-only">Protect Admin Only<a class="headerlink" href="#protect-admin-only" title="Permanent link"></a></h1>
-<p><em>ProtectAdminOnly</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a> available since v1.16.4 / 5.71.4. This is a setting enabled by default in encrypted box, you can disable it by <code>ProtectAdminOnly=n</code>.</p>
-<h2 id="usage">Usage:<a class="headerlink" href="#usage" title="Permanent link"></a></h2>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">ProtectAdminOnly</span><span class="o">=</span><span class="s">y</span>
+<p><em>ProtectAdminOnly</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It controls whether Sandboxie's session leader must have administrative access to receive exceptions from protected-root and confidential-process checks.</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">ProtectAdminOnly</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>When enabled, <a href="SandboxieControl.html">Sandboxie Control</a> or <a href="PlusMigrationGuide.html">SandMan</a> running under user accounts which are not members of the Administrators group will not be able to access to encrypted box data.</p>
+<p>The current runtime default is <code>y</code>. Set <code>ProtectAdminOnly=n</code> to permit the session leader through these checks without requiring administrative access.</p>
+<h2 id="encrypted-root-behavior">Encrypted-root behavior<a class="headerlink" href="#encrypted-root-behavior" title="Permanent link"></a></h2>
+<p>When an encrypted box image is mounted with <strong>Protect Box Root from access by unsandboxed processes</strong>, the driver normally blocks unrelated host processes from opening the mounted root. The sandbox that owns the root, SbieSvc, required Windows components, and the permitted SandMan or Sandboxie Control session leader remain exceptions.</p>
+<p>With <code>ProtectAdminOnly=y</code>, that session-leader exception is granted only when the session leader has administrative access. A non-administrative SandMan or Sandboxie Control instance is therefore blocked by the protected-root check. With <code>ProtectAdminOnly=n</code>, the session leader may receive the exception without being elevated.</p>
+<p>This setting does not require ordinary sandboxed applications to run as administrators, and it is not a general Windows administrator policy or filesystem ACL. For encrypted-root access, it controls the session-leader exception only while root protection is active; its separate process/thread effect is described below.</p>
+<h2 id="confidential-process-behavior">Confidential-process behavior<a class="headerlink" href="#confidential-process-behavior" title="Permanent link"></a></h2>
+<p>The same setting is consulted when <a href="ConfidentialBox.html">ConfidentialBox</a> or <code>DenyHostAccess</code> would otherwise block a host process from opening a sandboxed process or thread. With <code>ProtectAdminOnly=y</code>, a non-administrative session leader is not exempt from that denial; an administrative session leader can be exempt. Other implementation-required system and Sandboxie exceptions remain separate.</p>
+<h2 id="sandman-configuration">SandMan configuration<a class="headerlink" href="#sandman-configuration" title="Permanent link"></a></h2>
+<p>The control is under:</p>
+<p><strong>Sandbox Options &gt; Security Options &gt; Box Protection</strong></p>
+<p>Its current label is:</p>
+<p><strong>When box root is protected require SandMan to run as Administrator in order to access the files</strong></p>
+<p>The checkbox is selected when the setting is absent because the runtime default is enabled.</p>
+<p>Changing the setting affects later process/thread access checks after configuration reload. If an encrypted root is already mounted, unmount and remount the box to apply the choice to its root protection.</p>
+<h2 id="version-history">Version history<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
+<p><code>ProtectAdminOnly</code> was introduced in Sandboxie Plus 1.16.4 / Classic 5.71.4 with a default of enabled. SandMan added the dedicated checkbox in Sandboxie Plus 1.16.8 / Classic 5.71.8.</p>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
+<ul>
+<li><a href="../PlusContent/BoxEncryption.html">Box Encryption</a></li>
+<li><a href="ConfidentialBox.html">Confidential Box</a></li>
+</ul>
 
 
 

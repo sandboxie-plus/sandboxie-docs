@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="ForceProcess is a sandbox setting in Sandboxie Ini. It specifies names of programs. If any of these programs are started outside any sandbox, they will be automatically sandboxed in a particular sandbox. For example:">
+        <meta name="description" content="ForceProcess is a sandbox setting in Sandboxie Ini that automatically starts matching programs in a particular sandbox. For example:">
       
       
       
@@ -5585,28 +5585,37 @@
 
 
 <h1 id="force-process">Force Process<a class="headerlink" href="#force-process" title="Permanent link"></a></h1>
-<p><em>ForceProcess</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It specifies names of programs. If any of these programs are started outside any sandbox, they will be automatically sandboxed in a particular sandbox. For example:</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">ForceProcess</span><span class="o">=</span><span class="s">iexplore.exe</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">   </span><span class="na">ForceProcess</span><span class="o">=</span><span class="s">firefox.exe</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">   </span><span class="na">ForceProcess</span><span class="o">=</span><span class="s">App*.exe</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">   </span><span class="na">ForceProcess</span><span class="o">=</span><span class="s">App?.exe</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">   </span><span class="k">[MailBox]</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">   </span><span class="na">ForceProcess</span><span class="o">=</span><span class="s">outlook.exe</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">   </span><span class="na">ForceProcess</span><span class="o">=</span><span class="s">cl?cke?.exe</span>
+<p><em>ForceProcess</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a> that automatically starts matching programs in a particular sandbox. For example:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">ForceProcess</span><span class="o">=</span><span class="s">iexplore.exe</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">ForceProcess</span><span class="o">=</span><span class="s">firefox.exe</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">[MailBox]</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="na">ForceProcess</span><span class="o">=</span><span class="s">outlook.exe</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="na">ForceProcess</span><span class="o">=</span><span class="s">cl?cke?.exe</span>
 </span></code></pre></div>
+<p>The first two entries force Internet Explorer and Firefox into <code>DefaultBox</code>. The other entries force Outlook and executable names such as <code>clicker.exe</code> or <code>clicked.exe</code> into <code>MailBox</code>.</p>
+<p>An entry without <code>*</code> is matched case-insensitively against the executable name and may use <code>?</code> to match one character. In the current runtime, an entry containing <code>*</code> is instead matched as a case-insensitive pattern against the full normalized executable path. A name-only pattern such as <code>App*.exe</code> therefore does not have the same semantics as the older name-only matching; exact executable names are preferable when they are sufficient.</p>
+<p><em>ForceProcess</em> applies only when a program starts outside a sandbox. It is not reapplied when a program is explicitly started in a sandbox or is launched by an already sandboxed program.</p>
+<h2 id="immersive-applications">Immersive applications<a class="headerlink" href="#immersive-applications" title="Permanent link"></a></h2>
+<p>By default, after a normal <em>ForceProcess</em> or <a href="ForceFolder.html">ForceFolder</a> rule selects a sandbox, Sandboxie discards that selection if it identifies the resulting process as an immersive/AppContainer application. The global setting below enables these force rules for such processes:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[GlobalSettings]</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">AllowForceImmersive</span><span class="o">=</span><span class="s">y</span>
+</span></code></pre></div>
+<p><code>AllowForceImmersive</code> defaults to <code>n</code>, is not a per-sandbox setting, and has no dedicated SandMan control. Enabling it does not guarantee compatibility with every AppContainer, UWP, or other immersive application. See <a href="ForceFolder.html#immersive-applications">Force Folder</a> for the resulting launch behavior and limitations.</p>
+<h2 id="rule-order">Rule order<a class="headerlink" href="#rule-order" title="Permanent link"></a></h2>
+<p>Sandboxie checks the executable's directory against <em>ForceFolder</em> before checking <em>ForceProcess</em>. Working-directory and document-argument <em>ForceFolder</em> checks occur later, after <em>ForceProcess</em>, so <em>ForceFolder</em> does not have unconditional precedence in every case.</p>
+<h2 id="user-interfaces">User interfaces<a class="headerlink" href="#user-interfaces" title="Permanent link"></a></h2>
+<p>In SandMan, open <strong>Sandbox Options &gt; Program Control &gt; Force Programs</strong> and use <strong>Force Program</strong> to maintain the list. The same page also provides <strong>Force Children</strong>, <strong>Force Folder</strong>, <strong>Remove</strong>, and <strong>Show Templates</strong> controls.</p>
+<p>Sandboxie Control Classic provides the related <a href="ProgramStartSettings.html#forced-programs">Sandbox Settings &gt; Program Start &gt; Forced Programs</a> page.</p>
+<h2 id="version-history">Version history<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
+<p><code>AllowForceImmersive</code> was added in Sandboxie Plus 1.16.0 / Classic 5.71.0. <em>ForceProcess</em> predates the current version metadata and has no introduction version recorded there.</p>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
 <ul>
-<li><code>*</code> defines any character.</li>
-<li><code>?</code> defines one character.</li>
+<li><a href="ForceFolder.html">Force Folder</a></li>
+<li><a href="ProgramSettings.html#page-1">Program Settings</a></li>
+<li><a href="SandboxieIni.html">Sandboxie Ini</a></li>
 </ul>
-<p>The example specifies that Internet Explorer (iexplore.exe), Firefox (firefox.exe), App* (Appga, App03 and etc.). and App? (App1, Appg, Appa and etc.). will be forced to run sandboxed in the sandbox <em>DefaultBox</em>. Outlook.exe and cl?cke? (clicker, clicked and etc.). will be forced to run sandboxed in the sandbox <em>MailBox</em>.</p>
-<p>Note that the <em>ForceProcess</em> settings only apply to programs that start unsandboxed. If a program is specifically started in a sandbox, or started by a program that is already sandboxed, then <em>ForceProcess</em> settings are not applied.</p>
-<p>See also: <a href="ForceFolder.html">ForceFolder</a>. If both a <em>ForceFolder</em> and a <em>ForceProcess</em> are applicable to a program that is starting, the ForceFolder setting takes precedence.</p>
-<p>Related <a href="SandboxieControl.html">Sandboxie Control</a> setting: <a href="ProgramStartSettings.html#forced-programs">Sandbox Settings &gt; Program Start &gt; Forced Programs</a></p>
-<p>See also: <a href="ProgramSettings.html#page-1">Program Settings</a>.</p>
 
 
 

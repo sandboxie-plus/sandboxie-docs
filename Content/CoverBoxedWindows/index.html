@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="CoverBoxedWindows is a sandbox setting in Sandboxie Ini available since v1.13.6 / 5.68.6. If enabled, it will block host processes from taking screenshots of sandboxed processes.">
+        <meta name="description" content="CoverBoxedWindows is a sandbox setting in Sandboxie Ini that asks Windows to exclude eligible sandboxed application windows from compatible capture paths. It does not make every sandboxed window universally uncapturable.">
       
       
       
@@ -5585,15 +5585,40 @@
 
 
 <h1 id="cover-boxed-windows">Cover Boxed Windows<a class="headerlink" href="#cover-boxed-windows" title="Permanent link"></a></h1>
-<p><em>CoverBoxedWindows</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a> available since v1.13.6 / 5.68.6. If enabled, it will block host processes from taking screenshots of sandboxed processes.</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">CoverBoxedWindows</span><span class="o">=</span><span class="s">y</span>
+<p><em>CoverBoxedWindows</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a> that asks Windows to exclude eligible sandboxed application windows from compatible capture paths. It does not make every sandboxed window universally uncapturable.</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">CoverBoxedWindows</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>A setting similar to <em>CoverBoxedWindows</em> is <a href="../BlockScreenCapture/">BlockScreenCapture</a>.</p>
-<p>Related Sandboxie Plus setting: Sandbox Options &gt; Security Options &gt; Box Protection &gt; Prevent processes from capturing window images from sandboxed windows</p>
+<p>The default is <code>n</code>.</p>
+<h2 id="how-it-works">How it works<a class="headerlink" href="#how-it-works" title="Permanent link"></a></h2>
+<p>Sandboxie intercepts the ANSI and Unicode <code>CreateWindowEx</code> paths in the sandboxed process. After a window is created successfully with a null parent/owner argument, Sandboxie calls the Windows <code>SetWindowDisplayAffinity</code> API with <code>WDA_EXCLUDEFROMCAPTURE</code> (<code>0x00000011</code>).</p>
+<p>This applies to eligible parentless windows reached through those intercepted creation paths. Sandboxie does not recursively apply the affinity to child windows or to owned windows created with a non-null parent/owner argument. The current implementation does not check whether <code>SetWindowDisplayAffinity</code> succeeds and does not retry or apply a fallback if the call fails.</p>
+<h2 id="windows-behavior-and-limitations">Windows behavior and limitations<a class="headerlink" href="#windows-behavior-and-limitations" title="Permanent link"></a></h2>
+<p>Microsoft documents that <code>SetWindowDisplayAffinity</code> requires a top-level window owned by the calling process and works only while the Desktop Window Manager is composing the desktop. It affects a specific set of public operating-system capture features rather than every capture technique.</p>
+<p><code>WDA_EXCLUDEFROMCAPTURE</code> provides its exclusion behavior starting with Windows 10 version 2004. On earlier supported Windows versions, Microsoft documents the value as behaving like <code>WDA_MONITOR</code>, which displays the window on a monitor but presents it without content elsewhere.</p>
+<p>Windows display affinity is not a security feature or DRM guarantee. Capture results depend on Windows and the capture path being used. See Microsoft's <a href="https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-setwindowdisplayaffinity"><code>SetWindowDisplayAffinity</code> documentation</a>.</p>
+<p>Project-specific limitations also apply:</p>
+<ul>
+<li><em>CoverBoxedWindows</em> does not currently work with Chromium-based browsers version 128 or later; <a href="https://github.com/sandboxie-plus/Sandboxie/issues/4302">issue #4302</a> remains open.</li>
+<li>Console applications such as <code>cmd.exe</code> are not supported.</li>
+<li>Child, owned, or otherwise unhandled windows must not be assumed to receive display affinity.</li>
+</ul>
+<h2 id="configuration-and-runtime-changes">Configuration and runtime changes<a class="headerlink" href="#configuration-and-runtime-changes" title="Permanent link"></a></h2>
+<p><em>CoverBoxedWindows</em> is a box setting. Normal template and global fallback can contribute its effective value when the box does not provide an overriding value.</p>
+<p>The value is cached when the sandboxed process initializes its GUI hooks, and the affinity is requested when each eligible window is created. Changing the setting does not update an already running process or retrofit existing windows. Restart affected sandboxed applications after changing it; restarting SandMan, the service, or the driver is not normally required.</p>
+<h2 id="sandman">SandMan<a class="headerlink" href="#sandman" title="Permanent link"></a></h2>
+<p>Open <strong>Sandbox Options &gt; Security Options &gt; Box Protection</strong> and use:</p>
+<blockquote>
+<p>Prevent processes from capturing window images from sandboxed windows</p>
+</blockquote>
+<p>The project metadata classifies this setting as experimental.</p>
+<h2 id="related-settings">Related settings<a class="headerlink" href="#related-settings" title="Permanent link"></a></h2>
+<ul>
+<li><a href="../BlockScreenCapture/">Block Screen Capture</a> limits selected capture attempts initiated by sandboxed processes against the desktop or windows outside their sandbox.</li>
+<li><a href="../HideBordersFromCapture/">Hide Borders From Capture</a> applies separately to SandMan's border and label overlay.</li>
+</ul>
+<h2 id="version-history">Version history<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
+<p>The feature was introduced as <code>IsProtectScreen</code> in Sandboxie Plus 1.13.2 / Classic 5.68.2 and received fixes in 1.13.3 / 5.68.3. It was renamed to <code>CoverBoxedWindows</code> in 1.13.6 / 5.68.6.</p>
 
 
 

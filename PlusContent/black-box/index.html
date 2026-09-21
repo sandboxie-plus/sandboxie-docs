@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Sandboxie Plus lets you run programs in isolated sandboxes on Windows, enhancing security and privacy by containing changes from the rest of the system.">
+        <meta name="description" content="Black Box is the SandMan preset that combines two separate protections:">
       
       
       
@@ -5585,13 +5585,23 @@
 
 
 <h1 id="black-box">Black Box<a class="headerlink" href="#black-box" title="Permanent link"></a></h1>
-<p>TODO</p>
+<p><strong>Black Box</strong> is the SandMan preset that combines two separate protections:</p>
+<ul>
+<li><a href="../BoxEncryption/">Encrypted sandbox storage</a>, which places the sandbox root and registry hive in an encrypted disk image.</li>
+<li><a href="../../Content/ConfidentialBox/">Confidential Box</a>, which restricts unsandboxed host processes from obtaining handles to sandboxed processes and threads.</li>
+</ul>
+<p>The preset configures <code>UseFileImage=y</code> and <code>ConfidentialBox=y</code>. These settings remain separate mechanisms: encryption primarily protects the backing storage while it is unmounted, whereas confidential-box filtering acts while sandboxed processes are running.</p>
+<p>Additional controls, including mounted-root protection, <a href="../../Content/ProtectAdminOnly/">ProtectAdminOnly</a>, <code>DenyHostAccess</code> exceptions, and <a href="../../Content/ProtectHostImages/">ProtectHostImages</a>, have their own scope and defaults.</p>
+<p>Black Box does not mean that every communication or data-transfer path is blocked. Normal Sandboxie file, registry, IPC, network, clipboard, GUI, and other policies continue to determine which operations are permitted while the box is running.</p>
 
 
 
 
 
 
+
+  
+  
 
 
 

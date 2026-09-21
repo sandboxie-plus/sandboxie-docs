@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="UseSandboxieUAC is a global sandbox setting in Sandboxie Ini available since v1.16.0/5.71.0. Sandboxie intercepts and manages UAC elevation requests from sandboxed applications when enabled.">
+        <meta name="description" content="Sandboxie Plus lets you run programs in isolated sandboxes on Windows, enhancing security and privacy by containing changes from the rest of the system.">
       
       
       
@@ -5585,74 +5585,78 @@
 
 
 <h1 id="use-sandboxie-uac">Use Sandboxie UAC<a class="headerlink" href="#use-sandboxie-uac" title="Permanent link"></a></h1>
-<p><strong>UseSandboxieUAC</strong> is a global sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a> available since v1.16.0/5.71.0. Sandboxie intercepts and manages UAC elevation requests from sandboxed applications when enabled.</p>
-<p>Usage:</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[GlobalSettings]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">UseSandboxieUAC</span><span class="o">=</span><span class="s">y</span>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h2>
+<p><strong>UseSandboxieUAC</strong> is a global setting in <a href="../SandboxieIni/">Sandboxie Ini</a> that controls Sandboxie's enhanced prompt within the Sandboxie UAC proxy path. It is enabled by default.</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[GlobalSettings]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">UseSandboxieUAC</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<h2 id="sandboxie-uac-prompt">Sandboxie UAC Prompt<a class="headerlink" href="#sandboxie-uac-prompt" title="Permanent link"></a></h2>
+<p>Sandboxie can recognize supported asynchronous elevation requests to the Windows Application Information (AppInfo) service and route them through its UAC proxy. This setting is consulted after a request has entered that proxy path:</p>
+<ul>
+<li><code>UseSandboxieUAC=y</code> shows Sandboxie's enhanced prompt.</li>
+<li><code>UseSandboxieUAC=n</code> skips the enhanced prompt, but the underlying Sandboxie UAC proxy handling continues.</li>
+</ul>
+<p>Disabling this setting therefore does not disable the UAC proxy. See <a href="../NoUACProxy/">No UAC Proxy</a> for the separate setting that disables Sandboxie's interception of supported UAC RPC requests.</p>
+<h2 id="prompt-choices">Prompt choices<a class="headerlink" href="#prompt-choices" title="Permanent link"></a></h2>
 <p><img alt="Sandboxie UAC Prompt" src="../../Media/SandboxieUAC.png" /></p>
+<p>The enhanced prompt identifies the sandbox and requesting program and offers these choices:</p>
 <table>
 <thead>
 <tr>
-<th>Field/Button</th>
-<th>Description</th>
+<th>Choice</th>
+<th>Result</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Sandbox</strong></td>
-<td>The sandbox name where the request originates (e.g., "DefaultBox").</td>
-</tr>
-<tr>
-<td><strong>Program</strong></td>
-<td>The executable requesting privileges (e.g., "C:\WINDOWS\System32\cmd.exe").</td>
-</tr>
-<tr>
-<td><strong>Note</strong></td>
-<td>Explains risks of granting real admin rights and recommends fake rights for safety, though some installers may fail.</td>
-</tr>
-<tr>
 <td><strong>Yes</strong></td>
-<td>Grants real Administrator privileges (may trigger a UAC prompt).</td>
+<td>Requests real elevation. Sandboxie may use an available administrator or linked administrator token in the applicable quick path; otherwise it continues through the normal Windows <code>runas</code> elevation flow.</td>
 </tr>
 <tr>
 <td><strong>No</strong></td>
-<td>Grants fake<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> Administrator privileges (application believes it has them).</td>
+<td>Uses fake administrator rights for this elevation operation. The application may observe selected administrator checks as successful, but it does not receive a genuinely elevated administrator token.</td>
 </tr>
 <tr>
 <td><strong>Cancel</strong></td>
-<td>Denies the request and aborts the program startup.</td>
+<td>Completes the intercepted elevation request as cancelled; the requested elevated launch is not approved.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="behavior-and-configuration">Behavior and Configuration<a class="headerlink" href="#behavior-and-configuration" title="Permanent link"></a></h2>
-<p>By default, Sandboxie follows the system's UAC configuration - when User Account Control is set to prompt on the secure desktop, Sandboxie's UAC prompts will also appear there. This behavior can be modified using the <a href="../PromptOnSecureDesktop/">PromptOnSecureDesktop</a> setting to prevent sandboxed applications from displaying elevation prompts on the secure desktop.</p>
-<h2 id="customization-tip">Customization Tip<a class="headerlink" href="#customization-tip" title="Permanent link"></a></h2>
-<p>You can customize the secure desktop wallpaper by placing a personalized <code>SbieWallpaper.png</code> file in the Sandboxie Plus installation directory. This image will be displayed as the background on the secure desktop.</p>
-<h2 id="related-configuration">Related Configuration<a class="headerlink" href="#related-configuration" title="Permanent link"></a></h2>
-<p>This setting corresponds to the GUI option in <strong>Sandboxie Plus</strong> under the following path:</p>
-<p><strong>Options</strong> &gt; <strong>Global Settings</strong> &gt; <strong>Advanced Config</strong>: <em>Use Sandboxie's own enhanced UAC prompt (experimental)</em>.</p>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:1">
-<p>See <a href="../FakeAdminRights/">FakeAdminRights</a> for more information.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div>
+<p>The fake-administrator choice is related to <a href="../FakeAdminRights/">Fake Admin Rights</a>, but it does not enable <code>FakeAdminRights=y</code> globally or for every process in the sandbox.</p>
+<h2 id="secure-desktop">Secure desktop<a class="headerlink" href="#secure-desktop" title="Permanent link"></a></h2>
+<p>The <a href="../PromptOnSecureDesktop/">Prompt On Secure Desktop</a> setting controls whether Sandboxie's enhanced prompt is permitted to use the secure desktop. The prompt is placed there only when that setting is enabled and the host Windows UAC policy also uses secure-desktop prompting.</p>
+<p>You can customize the secure-desktop background used by Sandboxie's prompt by placing <code>SbieWallpaper.png</code> in the Sandboxie Plus installation directory.</p>
+<h2 id="relationship-to-other-elevation-settings">Relationship to other elevation settings<a class="headerlink" href="#relationship-to-other-elevation-settings" title="Permanent link"></a></h2>
+<p>The three elevation-related settings act at different stages:</p>
+<ul>
+<li><a href="../ApplyElevateCreateProcessFix/">Apply ElevateCreateProcess Fix</a> can retry a <code>CreateProcess</code> launch through Windows <code>runas</code> after the original call fails because elevation is required.</li>
+<li><a href="../NoUACProxy/">No UAC Proxy</a> controls whether Sandboxie intercepts supported AppInfo/UAC asynchronous RPC requests and routes them through its proxy.</li>
+<li><strong>UseSandboxieUAC</strong> controls whether the already-active proxy shows Sandboxie's enhanced preliminary prompt.</li>
+</ul>
+<p>In particular, <code>UseSandboxieUAC=n</code> is not equivalent to <code>NoUACProxy=y</code>.</p>
+<h2 id="sandman-configuration">SandMan configuration<a class="headerlink" href="#sandman-configuration" title="Permanent link"></a></h2>
+<p>In Sandboxie Plus, open <strong>Options &gt; Global Settings &gt; Advanced Config &gt; Sandboxie Config</strong> and use:</p>
+<blockquote>
+<p>Use Sandboxie's own enhanced UAC prompt (recommended)</p>
+</blockquote>
+<p>The checkbox is selected by default. The current interface describes the option as recommended; the older experimental label is no longer current.</p>
+<h2 id="applying-changes">Applying changes<a class="headerlink" href="#applying-changes" title="Permanent link"></a></h2>
+<p>The service reads this global setting when handling each applicable elevation request. After the configuration change has been saved and reloaded, subsequent requests use the new value; restarting sandboxed processes, SbieSvc, or the driver is not normally required. A request already in progress is not changed retroactively.</p>
+<h2 id="version-history">Version history<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
+<p><code>UseSandboxieUAC</code> and Sandboxie's enhanced prompt were introduced in Sandboxie Plus 1.16.0 / Classic 5.71.0.</p>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
+<ul>
+<li><a href="../ApplyElevateCreateProcessFix/">Apply ElevateCreateProcess Fix</a></li>
+<li><a href="../FakeAdminRights/">Fake Admin Rights</a></li>
+<li><a href="../NoUACProxy/">No UAC Proxy</a></li>
+<li><a href="../PromptOnSecureDesktop/">Prompt On Secure Desktop</a></li>
+<li><a href="../SandboxieIni/">Sandboxie Ini</a></li>
+</ul>
 
 
 
 
 
 
-
-  
-  
 
 
 

@@ -6,14 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="BlockScreenCapture is a sandbox setting in Sandboxie Ini available since v1.13.6 / 5.68.6. If enabled, it will prevent sandboxed processes from accessing the images of the window outside the sandbox. For example:
-   .
-   .
-   .
-   [DefaultBox]
-   BlockScreenCapture=y
-
-A setting similar to BlockScreenCapture is CoverBoxedWindows.">
+        <meta name="description" content="BlockScreenCapture is a sandbox setting in Sandboxie Ini that limits selected capture attempts made by a sandboxed process against the desktop or windows outside the same sandbox. It covers selected common USER32 and GDI capture paths; it is not a complete screen-capture prevention mechanism.">
       
       
       
@@ -5592,15 +5585,46 @@ A setting similar to BlockScreenCapture is CoverBoxedWindows.">
 
 
 <h1 id="block-screen-capture">Block Screen Capture<a class="headerlink" href="#block-screen-capture" title="Permanent link"></a></h1>
-<p><em>BlockScreenCapture</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a> available since v1.13.6 / 5.68.6. If enabled, it will prevent sandboxed processes from accessing the images of the window outside the sandbox. For example:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">BlockScreenCapture</span><span class="o">=</span><span class="s">y</span>
+<p><em>BlockScreenCapture</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a> that limits selected capture attempts made by a sandboxed process against the desktop or windows outside the same sandbox. It covers selected common USER32 and GDI capture paths; it is not a complete screen-capture prevention mechanism.</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">BlockScreenCapture</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-A setting similar to <em>BlockScreenCapture</em> is <a href="../CoverBoxedWindows/">CoverBoxedWindows</a>.</p>
-<p>Related Sandboxie Plus setting: Sandbox Options &gt; General Options &gt; Restrictions &gt; Prevent sandboxed processes from capturing window images</p>
+<p>The default is <code>n</code>.</p>
+<h2 id="what-it-intercepts">What it intercepts<a class="headerlink" href="#what-it-intercepts" title="Permanent link"></a></h2>
+<p>With normal GUI isolation active, Sandboxie intercepts these USER32 functions when <em>BlockScreenCapture</em> is enabled:</p>
+<ul>
+<li><code>GetDC</code></li>
+<li><code>GetWindowDC</code></li>
+<li><code>GetDCEx</code></li>
+<li><code>PrintWindow</code></li>
+<li><code>ReleaseDC</code></li>
+</ul>
+<p>For <code>GetDC</code>, <code>GetWindowDC</code>, and <code>GetDCEx</code>, a request targeting a null window handle, the desktop window, or a window outside the same sandbox receives a compatible memory DC backed by a dummy bitmap instead of the real display or window DC. <code>ReleaseDC</code> recognizes and releases these substitute DCs.</p>
+<p>For the same outside targets, <code>PrintWindow</code> fails, returns zero, and sets the Windows error to access denied. Calls targeting a window in the same sandbox remain eligible for the normal API operation.</p>
+<p>Sandboxie also intercepts the ANSI and Unicode <code>CreateDC</code> paths when they request the <code>DISPLAY</code> driver without a specific device, substituting a dummy DC. The current implementation does not hook <code>BitBlt</code> or <code>StretchBlt</code> themselves.</p>
+<h2 id="scope-and-limitations">Scope and limitations<a class="headerlink" href="#scope-and-limitations" title="Permanent link"></a></h2>
+<p>This setting is experimental and may cause UI glitches. As the SandMan tooltip notes, it blocks only some common ways of obtaining a screen capture. It should not be treated as protection against every capture API, capture program, display driver, or recording technique.</p>
+<p>When <code>OpenWinClass=*</code> is configured, SandMan disables the normal <em>BlockScreenCapture</em> checkbox and Sandboxie does not install the principal USER32 interception path described above. The separate GDI display-DC interception can still be initialized if the setting is forced manually, but that partial behavior should not be treated as normal or complete capture protection.</p>
+<h2 id="configuration-and-runtime-changes">Configuration and runtime changes<a class="headerlink" href="#configuration-and-runtime-changes" title="Permanent link"></a></h2>
+<p><em>BlockScreenCapture</em> is a box setting. Normal template and global fallback can contribute its effective value when the box does not provide an overriding value.</p>
+<p>The value is cached when the sandboxed process initializes its GUI/GDI hooks. Restart affected sandboxed applications after changing it; restarting SandMan, the service, or the driver is not normally required.</p>
+<h2 id="sandman">SandMan<a class="headerlink" href="#sandman" title="Permanent link"></a></h2>
+<p>Open <strong>Sandbox Options &gt; General Options &gt; Restrictions</strong> and use:</p>
+<blockquote>
+<p>Prevent sandboxed processes from capturing window images (Experimental, may cause UI glitches)</p>
+</blockquote>
+<p>The tooltip states:</p>
+<blockquote>
+<p>This feature does not block all means of obtaining a screen capture, only some common ones.</p>
+</blockquote>
+<h2 id="related-settings">Related settings<a class="headerlink" href="#related-settings" title="Permanent link"></a></h2>
+<ul>
+<li><a href="../CoverBoxedWindows/">Cover Boxed Windows</a> asks Windows to exclude eligible sandboxed application windows from compatible capture paths.</li>
+<li><a href="../HideBordersFromCapture/">Hide Borders From Capture</a> applies to SandMan's separate border and label overlay.</li>
+</ul>
+<p>These controls are independent and operate in different directions.</p>
+<h2 id="version-history">Version history<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
+<p>The feature was introduced as <code>IsBlockCapture</code> in Sandboxie Plus 1.13.4 / Classic 5.68.4. It was renamed to <code>BlockScreenCapture</code> in 1.13.6 / 5.68.6, which also included Windows 7 and KeePass compatibility fixes.</p>
 
 
 

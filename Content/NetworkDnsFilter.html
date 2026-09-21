@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="NetworkDnsFilter is a sandbox setting in Sandboxie Ini available since v1.14.0 / 5.69.0 and requires a supporter certificate. It allows users to block or redirect DNS queries for specific domains on a per-process basis, offering control over network traffic within sandboxes.">
+        <meta name="description" content="NetworkDnsFilter blocks or redirects matching hostname lookups made through Sandboxie&#x27;s intercepted Windows Winsock service-lookup path. Rules can apply to all processes in a sandbox or to selected programs, and domain names can be matched with wildcard patterns.">
       
       
       
@@ -5585,69 +5585,122 @@
 
 
 <h1 id="network-dns-filtering">Network DNS Filtering<a class="headerlink" href="#network-dns-filtering" title="Permanent link"></a></h1>
-<p><strong>NetworkDnsFilter</strong> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a> available since <strong>v1.14.0 / 5.69.0</strong> and requires a <a href="https://sandboxie-plus.com/supporter-certificate/">supporter certificate</a>. It allows users to block or redirect DNS queries for specific domains on a per-process basis, offering control over network traffic within sandboxes.</p>
+<p><code>NetworkDnsFilter</code> blocks or redirects matching hostname lookups made through Sandboxie's intercepted Windows Winsock service-lookup path. Rules can apply to all processes in a sandbox or to selected programs, and domain names can be matched with wildcard patterns.</p>
+<p>This is a user-mode name-resolution filter, not a packet-level firewall. Blocking a hostname does not prevent a program from connecting directly to an IP address or from resolving the name through a path that Sandboxie does not intercept.</p>
+<p>An applicable <a href="https://sandboxie-plus.com/supporter-certificate/">Supporter Certificate</a> is required for the filter.</p>
 <h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link"></a></h2>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">NetworkDnsFilter</span><span class="o">=</span><span class="s">[process,]domain[:ip_address]</span>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">NetworkDnsFilter</span><span class="o">=</span><span class="s">[process,]domain[:ip_address[</span><span class="c1">;ip_address...]]</span>
 </span></code></pre></div>
 <ul>
-<li><strong>process</strong> (optional): The name of the executable to which the rule applies. If omitted, the rule applies to all sandboxed applications.</li>
-<li><strong>domain</strong>: The fully qualified domain name (FQDN) to filter. Wildcards are not supported.</li>
-<li><strong>ip_address</strong> (optional): The IP address to redirect the domain to. If left empty, the domain is blocked.</li>
+<li><code>process</code> is an optional <a href="ProgramNamePrefix.html">program selector</a>. If omitted, the rule applies to all processes in the sandbox.</li>
+<li><code>domain</code> is the hostname or wildcard pattern to match. Matching is case-insensitive.</li>
+<li><code>ip_address</code> is an optional IPv4 or IPv6 address returned instead of the normal result. Separate multiple addresses with semicolons. If the address portion is omitted, the matching lookup is blocked.</li>
 </ul>
-<h3 id="example">Example:<a class="headerlink" href="#example" title="Permanent link"></a></h3>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">NetworkDnsFilter</span><span class="o">=</span><span class="s">program.exe,example.com:1.1.1.1</span>
+<p>For example, this rule redirects matching lookups from every process in the box:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">NetworkDnsFilter</span><span class="o">=</span><span class="s">example.com:192.0.2.10</span>
 </span></code></pre></div>
-<p>In this example:</p>
+<h2 id="domain-matching">Domain matching<a class="headerlink" href="#domain-matching" title="Permanent link"></a></h2>
+<p>Domain patterns use Sandboxie's wildcard matching, not regular expressions:</p>
 <ul>
-<li><code>program.exe</code> is the process to which the rule applies.</li>
-<li><code>example.com</code> is the domain to filter.</li>
-<li><code>1.1.1.1</code> is the IP address to which <code>example.com</code> requests will be redirected.</li>
+<li><code>*</code> matches any sequence of characters.</li>
+<li><code>?</code> matches one character.</li>
+<li>Matching is case-insensitive.</li>
 </ul>
-<h2 id="usage-examples">Usage Examples<a class="headerlink" href="#usage-examples" title="Permanent link"></a></h2>
-<h3 id="1-redirect-all-requests-made-to-a-domain">1. Redirect all requests made to a domain<a class="headerlink" href="#1-redirect-all-requests-made-to-a-domain" title="Permanent link"></a></h3>
-<p>This rule redirects all DNS requests made to <code>example.com</code> to <code>1.1.1.1</code> for any sandboxed application:</p>
+<p>For example:</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[DefaultBox]</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">NetworkDnsFilter</span><span class="o">=</span><span class="s">example.com:1.1.1.1</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">NetworkDnsFilter</span><span class="o">=</span><span class="s">*.example.com</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="na">NetworkDnsFilter</span><span class="o">=</span><span class="s">example.com</span>
 </span></code></pre></div>
-<h3 id="2-redirect-requests-to-a-domain-only-for-a-specific-application">2. Redirect requests to a domain only for a specific application<a class="headerlink" href="#2-redirect-requests-to-a-domain-only-for-a-specific-application" title="Permanent link"></a></h3>
-<p>This rule redirects DNS requests to <code>example.com</code> to <code>1.1.1.1</code>, but only for the sandboxed application <code>program.exe</code>:</p>
+<p>The first rule blocks subdomains such as <code>www.example.com</code>; it does not also match the bare <code>example.com</code>, which is covered by the second rule.</p>
+<p>Rule selection is not a simple last-rule-wins list. Rules are examined in configuration order, while process-match level and domain-pattern match length also participate in selection. A matching domain pattern that does not end in <code>*</code> ends the search; otherwise, a later candidate replaces the current match only when the implementation considers it a stronger match. Equal candidates retain the earlier entry. Put specific rules before broader overlapping wildcard rules and avoid relying on ambiguous overlaps.</p>
+<h2 id="blocking-and-redirection">Blocking and redirection<a class="headerlink" href="#blocking-and-redirection" title="Permanent link"></a></h2>
+<p>Omit the address portion to return no result for a matching lookup:</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">[DefaultBox]</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">NetworkDnsFilter</span><span class="o">=</span><span class="s">program.exe,example.com:1.1.1.1</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">NetworkDnsFilter</span><span class="o">=</span><span class="s">blocked.example</span>
 </span></code></pre></div>
-<h3 id="3-block-all-requests-to-a-domain">3. Block all requests to a domain<a class="headerlink" href="#3-block-all-requests-to-a-domain" title="Permanent link"></a></h3>
-<p>This rule blocks all DNS requests to <code>example.com</code> for any sandboxed application:</p>
+<p>Provide an address to synthesize a result without requesting the matching name from the normal system resolver through this lookup path:</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">[DefaultBox]</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="na">NetworkDnsFilter</span><span class="o">=</span><span class="s">example.com</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="na">NetworkDnsFilter</span><span class="o">=</span><span class="s">redirected.example:192.0.2.20</span>
 </span></code></pre></div>
-<h3 id="4-block-requests-to-a-domain-only-for-a-specific-application">4. Block requests to a domain only for a specific application<a class="headerlink" href="#4-block-requests-to-a-domain-only-for-a-specific-application" title="Permanent link"></a></h3>
-<p>This rule blocks DNS requests to <code>example.com</code> only for the sandboxed <code>program.exe</code>:</p>
+<p>Multiple valid addresses can be returned by one rule:</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">[DefaultBox]</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="na">NetworkDnsFilter</span><span class="o">=</span><span class="s">program.exe,example.com</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="na">NetworkDnsFilter</span><span class="o">=</span><span class="s">service.example:192.0.2.20</span><span class="c1">;192.0.2.21</span>
 </span></code></pre></div>
-<h2 id="important-notes">Important Notes<a class="headerlink" href="#important-notes" title="Permanent link"></a></h2>
+<p>Invalid address entries are ignored. If a matching rule contains no valid address for the requested address family, the lookup returns no result. Validate manually written entries carefully.</p>
+<h2 id="process-matching">Process matching<a class="headerlink" href="#process-matching" title="Permanent link"></a></h2>
+<p>The optional selector before the comma supports executable names, Sandboxie wildcard matching, configured process groups, and a leading <code>!</code> for a negative selector. Examples include:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="na">NetworkDnsFilter</span><span class="o">=</span><span class="s">browser.exe,example.com:192.0.2.30</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="na">NetworkDnsFilter</span><span class="o">=</span><span class="s">*.exe,telemetry.example</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="na">NetworkDnsFilter</span><span class="o">=</span><span class="s">&lt;InternetAccess&gt;,internal.example:192.0.2.40</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="na">NetworkDnsFilter</span><span class="o">=</span><span class="s">!updater.exe,updates.example</span>
+</span></code></pre></div>
+<p>The last rule applies to processes other than <code>updater.exe</code>. Process selectors use executable names rather than full paths. An omitted selector or <code>*</code> applies to every process in the box.</p>
+<h2 id="ipv4-and-ipv6">IPv4 and IPv6<a class="headerlink" href="#ipv4-and-ipv6" title="Permanent link"></a></h2>
+<p>Address selection follows the lookup's requested family:</p>
 <ul>
-<li><strong>Wildcard support is not available</strong>: You must specify complete domain names; wildcards (e.g., <code>*.example.com</code>) are not supported.</li>
-<li><strong>System DNS requirement</strong>: For proper DNS filtering, you may need to use the <code>Template=BlockDNS</code> template. This ensures that applications make DNS queries through the system.</li>
-<li>
-<p><strong>Third-party interference</strong>: Some third-party applications may interfere with or override DNS filtering.</p>
-</li>
-<li>
-<p><strong>Limitations</strong>: DNS filtering will not work when</p>
+<li>IPv4 (<code>A</code>) lookups return configured IPv4 addresses.</li>
+<li>IPv6 (<code>AAAA</code>) lookups return configured IPv6 addresses.</li>
+<li>When a rule contains only IPv4 addresses, Sandboxie also makes IPv4-mapped IPv6 results available to IPv6 lookups.</li>
+<li>When a rule contains any explicit IPv6 address, IPv6 lookups use the explicit IPv6 entries; Sandboxie does not also generate mapped IPv6 entries from that rule's IPv4 addresses.</li>
+<li>A rule containing only IPv6 addresses provides no result for an IPv4 lookup.</li>
+</ul>
+<p>A mixed rule can supply both families:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="na">NetworkDnsFilter</span><span class="o">=</span><span class="s">dual-stack.example:192.0.2.50</span><span class="c1">;2001:db8::50</span>
+</span></code></pre></div>
+<h2 id="how-the-filter-is-applied">How the filter is applied<a class="headerlink" href="#how-the-filter-is-applied" title="Permanent link"></a></h2>
+<p>Sandboxie installs the filter when a sandboxed process initializes Winsock. It intercepts the standard Winsock service-lookup sequence used to begin, retrieve, and end a lookup. A matched rule is handled locally: Sandboxie either returns the configured addresses or reports that no result is available. An unmatched lookup continues through the normal system path.</p>
+<p>This mechanism means the filter can handle a configured name even when the normal resolver would not know that name. The earlier limitation in which redirection depended on successful upstream resolution was removed in Sandboxie Plus 1.16.0 / Classic 5.71.0.</p>
+<h2 id="block-dns-template">Block DNS template<a class="headerlink" href="#block-dns-template" title="Permanent link"></a></h2>
+<p>SandMan's separate <strong>Block DNS, UDP port 53</strong> option enables the <code>BlockDNS</code> template. The current template blocks direct outbound UDP traffic to port 53 for sandboxed programs:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="na">Template</span><span class="o">=</span><span class="s">BlockDNS</span>
+</span></code></pre></div>
+<p>This can complement <code>NetworkDnsFilter</code>, but it does not force every form of name resolution through the filter. It does not block TCP port 53, DNS over HTTPS, DNS over TLS, remote proxy name resolution, or another resolver path that does not use UDP port 53.</p>
+<h2 id="sandman-configuration">SandMan configuration<a class="headerlink" href="#sandman-configuration" title="Permanent link"></a></h2>
+<p>Open <strong>Sandbox Options &gt; Network Options &gt; DNS Filter</strong>. The table contains <strong>Program</strong>, <strong>Domain</strong>, and <strong>IP</strong> columns. Use <strong>Add Filter</strong> and <strong>Remove</strong> to manage rows. The <strong>IP</strong> field accepts multiple addresses separated by semicolons.</p>
+<p>Each row can be enabled or disabled. SandMan stores disabled rows as <code>NetworkDnsFilterDisabled</code>; that name is inactive UI storage rather than a second runtime filtering setting. Template-provided rows are displayed read-only.</p>
+<h2 id="applying-configuration-changes">Applying configuration changes<a class="headerlink" href="#applying-configuration-changes" title="Permanent link"></a></h2>
+<p>Rules are loaded when the sandboxed process initializes Winsock; they are not dynamically rebuilt for a process that has already initialized networking. Restart affected sandboxed processes after changing the rules. Restarting SandMan, the Sandboxie service, or the driver is not normally required.</p>
+<h2 id="limitations-and-security-boundaries">Limitations and security boundaries<a class="headerlink" href="#limitations-and-security-boundaries" title="Permanent link"></a></h2>
+<p><code>NetworkDnsFilter</code> covers supported lookups that reach Sandboxie's intercepted Winsock service-lookup path. It does not provide a universal domain-access policy. In particular:</p>
 <ul>
-<li>A secure DNS (e.g., DNS-over-HTTPS) is configured within an application.</li>
-<li>The "Proxy DNS when using SOCKS 4/5" or a similar setting is configured within an application.</li>
+<li>Applications using their own resolver, raw DNS traffic, or an internal DNS-over-HTTPS implementation can avoid this lookup path.</li>
+<li>If a program sends a hostname to a proxy for remote resolution without resolving it locally, the local DNS filter does not receive that hostname.</li>
+<li>A program can still connect directly to a known IP address unless separate network policy blocks it.</li>
+<li>DNS filtering and <a href="SandboxieTrace.html"><code>DnsTrace</code></a> are separate. Tracing records supported lookup activity but does not enable filtering.</li>
 </ul>
-</li>
-<li>
-<p><strong>Bugs</strong>:</p>
+<p>Use independent network restrictions when direct connections must be prevented. DNS filtering should not be treated as a firewall or as a guarantee that all DNS activity is blocked, redirected, or kept private.</p>
+<h2 id="version-history">Version history<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
+<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DNS lookup interception, logging, filtering, and redirection introduced</td>
+<td>Sandboxie Plus 1.14.0 / Classic 5.69.0</td>
+</tr>
+<tr>
+<td>Fixed a crash when a filtered domain had no configured IP address</td>
+<td>Sandboxie Plus 1.15.5 / Classic 5.70.5</td>
+</tr>
+<tr>
+<td>Refactored matching so blocking and redirection no longer depend on a successful normal DNS result</td>
+<td>Sandboxie Plus 1.16.0 / Classic 5.71.0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
 <ul>
-<li>Redirection fails when host not found. <a href="https://github.com/sandboxie-plus/Sandboxie/issues/4359">Refer to this issue</a> for details.</li>
+<li><a href="../PlusContent/DNSFilter.html">DNS Filter overview</a></li>
+<li><a href="SandboxieTrace.html">Sandboxie Trace</a></li>
+<li><a href="SandboxieIni.html">Sandboxie Ini</a></li>
 </ul>
-</li>
-</ul>
-<h2 id="related-configuration">Related Configuration<a class="headerlink" href="#related-configuration" title="Permanent link"></a></h2>
-<p>This setting corresponds to the GUI option in <strong>Sandboxie Plus</strong> under the following path:</p>
-<p><strong>Sandbox Options</strong> &gt; <strong>Network Options</strong> &gt; <strong>DNS Filter</strong>.</p>
 
 
 

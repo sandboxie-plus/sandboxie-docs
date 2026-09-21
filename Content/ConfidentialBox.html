@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="ConfidentialBox is a sandbox setting in Sandboxie Ini.">
+        <meta name="description" content="ConfidentialBox is a sandbox setting in Sandboxie Ini. It enables additional protection for the processes and threads running in a sandbox.">
       
       
       
@@ -5585,16 +5585,62 @@
 
 
 <h1 id="confidential-box">Confidential Box<a class="headerlink" href="#confidential-box" title="Permanent link"></a></h1>
-<p><em>ConfidentialBox</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>.</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">ConfidentialBox</span><span class="o">=</span><span class="s">y</span>
+<p><em>ConfidentialBox</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It enables additional protection for the processes and threads running in a sandbox.</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">ConfidentialBox</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>Use the 'ConfidentialBox=y' option to prevent the host process from reading access to the isolated process.</p>
-<p><strong>Technical Details</strong></p>
-<p>For more information, see <a href="../PlusContent/BoxEncryption.html">Box Encryption</a> and <a href="../PlusContent/box-preset-comparison.html">Box Preset Comparison</a>.</p>
+<p>The setting is disabled by default and requires a currently applicable Support Certificate.</p>
+<h2 id="what-it-protects">What it protects<a class="headerlink" href="#what-it-protects" title="Permanent link"></a></h2>
+<p>With <code>ConfidentialBox=y</code>, the driver checks access rights requested by unsandboxed host processes when creating or duplicating handles to sandboxed processes or threads. This includes read-only and query access, not only rights that could modify or control the target.</p>
+<p>This protection is scoped to process and thread handles. It does not encrypt files, protect the mounted box root, or automatically restrict network, clipboard, GUI, IPC, and other permitted data-transfer paths. Use <a href="../PlusContent/BoxEncryption.html">Box Encryption</a> when encrypted backing storage is required.</p>
+<p>Sandboxie retains operational exceptions for components and Windows processes needed to manage or run the sandbox. These include SbieSvc and Start, selected core or protected Windows processes, the process that is starting a target during its initialization, and an eligible SandMan or Sandboxie Control session leader. <a href="ProtectAdminOnly.html">ProtectAdminOnly</a> determines whether that session-leader exception requires administrative access.</p>
+<h2 id="denyhostaccess">DenyHostAccess<a class="headerlink" href="#denyhostaccess" title="Permanent link"></a></h2>
+<p><code>DenyHostAccess</code> supplies program-specific rules for the same process/thread protection path. It can be used independently of <code>ConfidentialBox</code>.</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">DenyHostAccess</span><span class="o">=</span><span class="s">monitor.exe,y</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="na">DenyHostAccess</span><span class="o">=</span><span class="s">audiodg.exe,n</span>
+</span></code></pre></div>
+<p>The general syntax is:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">DenyHostAccess</span><span class="o">=</span><span class="s">[host-program-or-group,]y|n</span>
+</span></code></pre></div>
+<ul>
+<li><code>y</code> denies the matching unsandboxed host program.</li>
+<li><code>y</code> applies the access restriction to the matching unsandboxed host program, subject to the operational exceptions described above.</li>
+<li><code>n</code> exempts the matching program from this particular protection check. It does not grant rights that Windows or other checks would otherwise deny.</li>
+<li>With no program prefix, the value supplies the box-wide default. <code>DenyHostAccess=y</code> is therefore equivalent to a default deny rule.</li>
+<li>Program selectors use Sandboxie's <a href="ProgramNamePrefix.html">program-name matching</a>, including wildcards, and can refer to configured process groups.</li>
+</ul>
+<p>Without <code>ConfidentialBox</code>, <code>DenyHostAccess</code> is evaluated when a host process requests rights outside Sandboxie's normally permitted access subset, which differs for process and thread handles. Requests containing only rights within the applicable subset do not trigger this particular restriction.</p>
+<p>In the object-filter path, a matching deny rule restricts the requested access mask for handle creation or duplication rather than directly rejecting the operation. If the operation succeeds, the resulting handle may have no usable access rights. Independent Windows access checks or protected-process restrictions may still cause the operation to fail.</p>
+<p>With <code>ConfidentialBox</code>, the same check also covers read-only and query requests, and the default becomes deny for host programs. An explicit <code>DenyHostAccess=program.exe,n</code> entry can create a compatibility exception. The built-in <strong>Less Confidential Box</strong> template currently uses such an exception for <code>audiodg.exe</code>.</p>
+<p>The operational exceptions described above still apply. <code>DenyHostAccess</code> is not a general filesystem rule and does not block the named executable from every form of interaction with the sandbox.</p>
+<h2 id="related-settings">Related settings<a class="headerlink" href="#related-settings" title="Permanent link"></a></h2>
+<ul>
+<li><a href="../PlusContent/BoxEncryption.html">Box Encryption</a> protects the sandbox's backing storage and can add mounted-root protection. It is independent of <code>ConfidentialBox</code>.</li>
+<li><a href="ProtectAdminOnly.html">ProtectAdminOnly</a> controls the session-leader exception for protected processes and for an encrypted root mounted with root protection.</li>
+<li><a href="ProtectHostImages.html">ProtectHostImages</a> restricts executable images loaded by certain sandboxed processes. It is a separate protection path.</li>
+</ul>
+<h2 id="sandman-configuration">SandMan configuration<a class="headerlink" href="#sandman-configuration" title="Permanent link"></a></h2>
+<p>The controls are under:</p>
+<p><strong>Sandbox Options &gt; Security Options &gt; Box Protection</strong></p>
+<ul>
+<li><strong>Protect processes within this box from host processes</strong> writes <code>ConfidentialBox=y</code> when selected.</li>
+<li><strong>Allow useful Windows processes access to protected processes</strong> enables the <strong>Less Confidential Box</strong> compatibility template.</li>
+<li>The host-process list and its <strong>Allow Process</strong> and <strong>Deny Process</strong> actions write <code>DenyHostAccess</code> entries.</li>
+<li><strong>When box root is protected require SandMan to run as Administrator in order to access the files</strong> controls <code>ProtectAdminOnly</code>.</li>
+</ul>
+<p>The UI's host-process editor accepts program names. More advanced program-group or wildcard rules can be configured manually.</p>
+<h2 id="applying-changes">Applying changes<a class="headerlink" href="#applying-changes" title="Permanent link"></a></h2>
+<p><code>ConfidentialBox</code> is recorded when each sandboxed process is initialized, so restart the affected sandboxed process tree after changing it. <code>DenyHostAccess</code> and the process-access part of <code>ProtectAdminOnly</code> are consulted during host access checks after configuration reload.</p>
+<h2 id="version-history">Version history<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
+<p><code>ConfidentialBox</code> and <code>DenyHostAccess</code> were introduced in Sandboxie Plus 1.3.3 / Classic 5.58.3. Encrypted sandbox images were added later, in Sandboxie Plus 1.11.0 / Classic 5.66.0.</p>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
+<ul>
+<li><a href="../PlusContent/black-box.html">Black Box</a></li>
+<li><a href="../PlusContent/BoxEncryption.html">Box Encryption</a></li>
+<li><a href="ProtectAdminOnly.html">Protect Admin Only</a></li>
+<li><a href="ProtectHostImages.html">Protect Host Images</a></li>
+</ul>
 
 
 

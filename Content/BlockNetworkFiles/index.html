@@ -6,12 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="BlockNetworkFiles is a sandbox setting in Sandboxie Ini. It specifies whether Sandboxie will block sandboxed programs from accessing network files and folders without specifically opened.
-   .
-   .
-   .
-   [DefaultBox]
-   BlockNetworkFiles=n">
+        <meta name="description" content="BlockNetworkFiles controls access to files and folders on network shares from sandboxed processes. It is a file-path restriction, not a firewall or a block on Internet connections.">
       
       
       
@@ -5590,16 +5585,32 @@
 
 
 <h1 id="block-network-files">Block Network Files<a class="headerlink" href="#block-network-files" title="Permanent link"></a></h1>
-<p>BlockNetworkFiles is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. It specifies whether Sandboxie will block sandboxed programs from accessing network files and folders without specifically opened.
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">BlockNetworkFiles</span><span class="o">=</span><span class="s">n</span>
-</span></code></pre></div></p>
-<p>Specifying <em>n</em> indicates that a sandboxed program may access network files without specifically opened, in this case "Net Share" will appear in sandbox status.</p>
-<p>Related Sandboxie Plus setting: Sandbox Options &gt; Network Options &gt; Other Options &gt; Block network files and folders, unless specifically opened</p>
-<p>Related Sandboxie Plus setting when creating a new sandbox with "Configure advanced options" selected: Sandbox Isolation options &gt; Network Access &gt; Allow access to network files and folders</p>
+<p><em>BlockNetworkFiles</em> controls access to files and folders on network shares from sandboxed processes. It is a file-path restriction, not a firewall or a block on Internet connections.</p>
+<h2 id="configuration-and-defaults">Configuration and defaults<a class="headerlink" href="#configuration-and-defaults" title="Permanent link"></a></h2>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">BlockNetworkFiles</span><span class="o">=</span><span class="s">y</span>
+</span></code></pre></div>
+<p>With <code>y</code>, network-share paths start blocked for both reading and writing unless a matching file-access rule permits access. With <code>n</code>, they follow normal sandbox file-access rules, which may still restrict them. A separate network policy can also prevent a connection needed to reach a share.</p>
+<p>The driver uses <code>n</code> as its fallback when no effective value exists, although the setting metadata lists <code>y</code> as the default. Normally, newly initialized boxes created by SandMan or Sandboxie Control Classic explicitly receive <code>BlockNetworkFiles=y</code>. A box-specific value takes precedence over a value inherited from <code>[GlobalSettings]</code>.</p>
+<h2 id="network-file-scope-and-exceptions">Network-file scope and exceptions<a class="headerlink" href="#network-file-scope-and-exceptions" title="Permanent link"></a></h2>
+<p>The restriction covers file access through recognized network redirector paths, including ordinary UNC shares and mapped network drives. It applies to network filesystem paths rather than blocking SMB packets or ports. Access through other providers remains subject to the paths Sandboxie recognizes and to other applicable rules.</p>
+<p>More specific file-access rules can permit access to selected network paths. For example, a matching <code>OpenFilePath</code> can allow direct host-file access, while <code>ReadFilePath</code> can allow reading without writes. In rule-specificity mode, <code>NormalFilePath</code> can restore normal sandbox file handling for a matched path. These rules can also use supported program or process-group selectors. The result depends on the matching rules and their precedence; an opening rule should not be assumed to override every separate closing rule.</p>
+<p><code>BlockNetworkFiles</code> does not replace <a href="../BlockWinRM/">Block WinRM</a>, Internet-access rules, or <a href="../../PlusContent/WFPSupport/">WFP Support</a>. Conversely, setting it to <code>n</code> does not guarantee that a share will be reachable when separate network or device restrictions apply.</p>
+<h2 id="user-interface">User interface<a class="headerlink" href="#user-interface" title="Permanent link"></a></h2>
+<p>In SandMan, use <strong>Sandbox Options &gt; Network Options &gt; Other Options &gt; Block network files and folders, unless specifically opened.</strong></p>
+<p>When creating a box with advanced options, <strong>Sandbox Isolation options &gt; Network Access &gt; Allow access to network files and folders</strong> has inverted meaning: checked writes <code>BlockNetworkFiles=n</code>; unchecked writes <code>y</code>. The wizard defaults this access checkbox to unchecked and disables it for hardened box types.</p>
+<p>SandMan may display <strong>Net Share</strong> in a box's status when network-file blocking is disabled. The status indicator is not a substitute for checking the effective file and network rules.</p>
+<p>Sandboxie Control Classic also provides a network-files checkbox in its Sandbox Settings interface.</p>
+<h2 id="applying-changes">Applying changes<a class="headerlink" href="#applying-changes" title="Permanent link"></a></h2>
+<p>The driver reads this option while initializing each sandboxed process. Restart affected sandboxed processes after changing it; already-running processes do not have their stored value rebuilt by the change. A SandMan, service, or driver restart is not normally needed for newly started processes.</p>
+<h2 id="version-history">Version history<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
+<p>The setting metadata does not specify an introduction version. Sandboxie Plus 1.7.1 / Classic 5.62.1 fixed an interaction with <code>RestrictDevices=y</code> that had allowed access to mapped network drives despite <code>BlockNetworkFiles=y</code> (<a href="https://github.com/sandboxie-plus/Sandboxie/issues/2629">issue #2629</a>).</p>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
+<ul>
+<li><a href="../BlockWinRM/">Block WinRM</a></li>
+<li><a href="../SandboxieIni/">Sandboxie Ini</a></li>
+<li><a href="../../PlusContent/WFPSupport/">WFP Support</a></li>
+</ul>
 
 
 
