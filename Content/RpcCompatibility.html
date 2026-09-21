@@ -6,19 +6,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="NotifyDirectDiskAccess is a sandbox setting in Sandboxie Ini. It defaults to n.">
+        <meta name="description" content="Sandboxie includes compatibility handling for applications that use Windows Remote Procedure Call (RPC). This handling helps sandboxed processes construct suitable bindings, resolve dynamic local endpoints, apply communication-timeout adjustments, and connect to selected host services without replacing the Windows RPC runtime.">
       
       
       
-        <link rel="canonical" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NotifyDirectDiskAccess.html">
+        <link rel="canonical" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/RpcCompatibility.html">
       
       
       
       
         
-          <link rel="alternate" href="NotifyDirectDiskAccess.html" hreflang="en">
+          <link rel="alternate" href="RpcCompatibility.html" hreflang="en">
         
-          <link rel="alternate" href="../zh-CN/Content/NotifyDirectDiskAccess.html" hreflang="zh">
+          <link rel="alternate" href="../zh-CN/Content/RpcCompatibility.html" hreflang="zh">
         
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>Notify Direct Disk Access - Sandboxie Documentation</title>
+        <title>RPC Compatibility - Sandboxie Documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#notify-direct-disk-access" class="md-skip">
+        <a href="#rpc-compatibility" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Notify Direct Disk Access
+              RPC Compatibility
             
           </span>
         </div>
@@ -166,13 +166,13 @@
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="NotifyDirectDiskAccess.html" hreflang="en" class="md-select__link">
+            <a href="RpcCompatibility.html" hreflang="en" class="md-select__link">
               English
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="../zh-CN/Content/NotifyDirectDiskAccess.html" hreflang="zh" class="md-select__link">
+            <a href="../zh-CN/Content/RpcCompatibility.html" hreflang="zh" class="md-select__link">
               简体中文
             </a>
           </li>
@@ -5568,7 +5568,7 @@
 
 
   
-    <a href="https://github.com/sandboxie-plus/sandboxie-docs/edit/main/docs/Content/NotifyDirectDiskAccess.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/sandboxie-plus/sandboxie-docs/edit/main/docs/Content/RpcCompatibility.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -5577,24 +5577,134 @@
     
       
     
-    <a href="https://github.com/sandboxie-plus/sandboxie-docs/raw/main/docs/Content/NotifyDirectDiskAccess.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/sandboxie-plus/sandboxie-docs/raw/main/docs/Content/RpcCompatibility.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<h1 id="notify-direct-disk-access">Notify Direct Disk Access<a class="headerlink" href="#notify-direct-disk-access" title="Permanent link"></a></h1>
-<p><em>NotifyDirectDiskAccess</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It defaults to <code>n</code>.</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">NotifyDirectDiskAccess</span><span class="o">=</span><span class="s">y</span>
+<h1 id="rpc-compatibility">RPC Compatibility<a class="headerlink" href="#rpc-compatibility" title="Permanent link"></a></h1>
+<p>Sandboxie includes compatibility handling for applications that use Windows Remote Procedure Call (RPC). This handling helps sandboxed processes construct suitable bindings, resolve dynamic local endpoints, apply communication-timeout adjustments, and connect to selected host services without replacing the Windows RPC runtime.</p>
+<p>These mechanisms are not a general RPC firewall. Generic IPC reachability, Windows access checks, endpoint-specific request filtering, and the identity of sandboxed service processes are separate parts of the overall model.</p>
+<h2 id="architecture-overview">Architecture overview<a class="headerlink" href="#architecture-overview" title="Permanent link"></a></h2>
+<p>RPC compatibility spans several Sandboxie components:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sandboxed application
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>        |
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        v
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>SbieDll RPC binding interception
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        |
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>        +-- optional binding preset and timeout decision
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        |
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        +-- optional dynamic endpoint request
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>                    |
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>                    v
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>             SbieSvc endpoint mapper helper
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>                    |
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>                    +-- Windows endpoint mapper or service process lookup
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>                    |
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>                    v
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>             SbieDrv dynamic-port registration and optional filter
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>                    |
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>                    v
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>             Windows RPC endpoint
 </span></code></pre></div>
-<p>When enabled, Sandboxie issues <a href="SBIE1313.html">SBIE1313</a> for certain denied attempts to open a disk device directly. It does not report every denied disk-access request or access to files and folders below the device.</p>
-<p>The message is not generated when the effective file-access rule blocks host access entirely, such as <code>ClosedFilePath</code> or <code>WriteFilePath</code>. A <code>ReadFilePath</code> rule does not always suppress the message: a denied write request can still generate it.</p>
-<p>This setting controls the notification only. It does not grant direct disk access or alter the policy that denied the request. Access-related settings such as <a href="AllowRawDiskRead.html">Allow Raw Disk Read</a>, <a href="OpenFilePath.html">Open File Path</a>, and <a href="OpenPipePath.html">Open Pipe Path</a> are separate.</p>
-<p>In Sandboxie Plus, open <strong>Sandbox Options &gt; General Options &gt; File Options</strong>, find <strong>Disk/File access</strong>, and select <strong>Warn when an application opens a harddrive handle</strong>. Sandboxie Control Classic has no equivalent dedicated current control.</p>
-<p>The value is cached when the sandboxed process initializes. Restart affected sandboxed processes after changing it for predictable behavior.</p>
-<p>See <a href="NotificationSettings.html">Notification Settings</a> for the distinction between access policy, message generation, and presentation.</p>
+<p>Built-in templates provide the maintained mappings required by supported compatibility cases. Endpoint-specific security behavior for LSA, SAM, WPAD, and related services is documented under <a href="SystemEndpoints.html">System Endpoints</a>.</p>
+<h2 id="rpc-binding-presets">RPC binding presets<a class="headerlink" href="#rpc-binding-presets" title="Permanent link"></a></h2>
+<p><code>RpcPortBinding</code> provides advanced compatibility presets for RPC bindings. Each preset matches the calling module and an identifier supplied by the binding operation:</p>
+<ul>
+<li>For <code>RpcBindingCreateW</code>, the identifier is the binding template's object UUID.</li>
+<li>For <code>RpcBindingFromStringBindingW</code>, the configured pattern is matched against the complete string binding.</li>
+</ul>
+<p>The object UUID used for this matching should not be confused with the RPC interface UUID used for endpoint lookup.</p>
+<p>In short: <strong>object UUID = which object; interface UUID = which operations; string binding = how to reach it.</strong></p>
+<p>A schematic form is:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">RpcPortBinding</span><span class="o">=</span><span class="s">&lt;module&gt;,&lt;object-UUID-or-string-binding-pattern&gt;[,Resolve=&lt;port-id&gt;][,TimeOut=y|n]</span>
+</span></code></pre></div>
+<p>When a preset matches, Sandboxie can supply a local endpoint and adjust the communication timeout. <code>Resolve=&lt;port-id&gt;</code> requests an endpoint lookup using the mappings described below. In the <code>RpcBindingCreateW</code> path, endpoint substitution applies to local RPC bindings that do not already specify an endpoint.</p>
+<p>If no preset matches, Sandboxie continues through the normal binding path. An unmatched preset does not deny access.</p>
+<p>The parser also supports internal forms used by maintained templates. Prefer those templates rather than treating every supported form or endpoint identifier as a stable manual-configuration interface.</p>
+<h3 id="dynamic-endpoint-mappings">Dynamic endpoint mappings<a class="headerlink" href="#dynamic-endpoint-mappings" title="Permanent link"></a></h3>
+<p>Two related settings supply the endpoint mapper helper with the information needed for <code>Resolve=</code>:</p>
+<ul>
+<li><code>RpcPortBindingIfId</code> maps a logical port identifier to an RPC interface UUID. SbieSvc can then ask the Windows endpoint mapper for a matching current endpoint.</li>
+<li><code>RpcPortBindingSvc</code> maps a logical port identifier to a Windows service name. SbieSvc identifies the service process and asks the driver for that process's current dynamic RPC port.</li>
+</ul>
+<p>These settings are primarily maintained template and service-resolution plumbing. Interface UUIDs and service endpoint details can change with Windows and should not be copied blindly from templates.</p>
+<h2 id="dynamic-port-filtering">Dynamic-port filtering<a class="headerlink" href="#dynamic-port-filtering" title="Permanent link"></a></h2>
+<p><code>RpcPortFilter</code> supports request filtering for dynamically resolved ports that Sandboxie registers globally with the driver. SbieSvc reads the maintained filter entries and submits the resolved port and filter identifiers to SbieDrv. The driver accepts this registration through its service-only path, examines requests sent to the registered port, and rejects configured matches with access denied.</p>
+<p>An optional function name in a filter entry is informational; current enforcement uses the configured request identifier, not that label. For supported special endpoints, an <code>Open&lt;Name&gt;Endpoint</code> option can suppress the corresponding filter when the endpoint is registered.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The request identifiers used by <code>RpcPortFilter</code> are protocol- and version-sensitive implementation details. Incorrect values can block legitimate RPC activity. Prefer Sandboxie's maintained templates instead of inventing entries or copying message identifiers as though they were a stable RPC authorization API.</p>
+</div>
+<p><code>RpcPortFilter</code> does not filter every RPC endpoint and is not a general-purpose RPC firewall. See <a href="SystemEndpoints.html">System Endpoints</a> for the supported endpoint-specific compatibility controls.</p>
+<h2 id="rpc-communication-timeout">RPC communication timeout<a class="headerlink" href="#rpc-communication-timeout" title="Permanent link"></a></h2>
+<p>Sandboxie normally applies an RPC communication-timeout adjustment to binding handles. The current runtime default for <code>RpcMgmtSetComTimeout</code> is enabled when the setting is absent.</p>
+<p>To disable the default adjustment explicitly:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">RpcMgmtSetComTimeout</span><span class="o">=</span><span class="s">n</span>
+</span></code></pre></div>
+<p>This setting changes compatibility and timing behavior. It does not grant endpoint access, block an endpoint, or provide a firewall.</p>
+<p>In SandMan, the control is under <strong>Sandbox Options &gt; Various Options &gt; Compatibility</strong> and is labeled:</p>
+<blockquote>
+<p>Disable the use of RpcMgmtSetComTimeout by default (this may resolve compatibility issues)</p>
+</blockquote>
+<p>The checkbox is inverted relative to the setting:</p>
+<ul>
+<li>selected writes <code>RpcMgmtSetComTimeout=n</code>;</li>
+<li>cleared retains the normal enabled behavior.</li>
+</ul>
+<h3 id="calling-module-override">Calling-module override<a class="headerlink" href="#calling-module-override" title="Permanent link"></a></h3>
+<p><code>UseRpcMgmtSetComTimeout</code> is an advanced calling-module-qualified override used when the current binding has not already supplied its timeout decision. For example, maintained templates can select different timeout behavior for calls originating in a particular DLL.</p>
+<p><code>UseRpcMgmtSetComTimeout</code> allows different timeout behavior for calls originating in particular modules, such as a DLL. Sandboxie checks this setting before looking for a matching <code>RpcPortBinding</code> preset.</p>
+<p>If the matching preset includes <code>TimeOut=</code>, that value overrides the module-specific decision. Otherwise, the module-specific decision remains in effect, even when a binding preset matches. If neither provides an override, Sandboxie uses the process's <code>RpcMgmtSetComTimeout</code> default.</p>
+<h2 id="sandboxed-rpcss-startup">Sandboxed RpcSs startup<a class="headerlink" href="#sandboxed-rpcss-startup" title="Permanent link"></a></h2>
+<p>Sandboxie normally starts its sandbox-associated RpcSs when a process needs the sandboxed endpoint mapper. That RpcSs can in turn start the sandboxed DcomLaunch process through the special server-start flow. These are Sandboxie service executables associated with the box, not the unsandboxed host service instances.</p>
+<p><code>NoSandboxieRpcSs</code> causes the special server-start helper to return before starting sandboxed RpcSs or DcomLaunch for the relevant endpoint requests. It does not disable Windows RPC, block all RPC communication, or disable <code>RpcPortBinding</code>. No supported general user workflow for this option is documented, so it should be treated as internal compatibility behavior rather than a routine configuration control.</p>
+<p>The identity used to launch sandboxed RpcSs is controlled separately. See <a href="SandboxedServices.html#runrpcssassystem">Sandboxed Services</a>.</p>
+<h2 id="applying-changes">Applying changes<a class="headerlink" href="#applying-changes" title="Permanent link"></a></h2>
+<p>RPC timeout defaults are initialized in each sandboxed process, while module-specific binding decisions are made as bindings are created. Dynamic endpoints are also resolved and registered as needed. Restart affected sandboxed processes, or recreate the sandboxed process tree, after changing these settings so existing bindings and cached endpoint information are not reused.</p>
+<p>Changes to the RpcSs launch identity require restarting the sandboxed RpcSs process. A SandMan, SbieSvc, or driver restart is not normally required solely for these configuration changes.</p>
+<h2 id="version-history">Version history<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
+<table>
+<thead>
+<tr>
+<th>Setting or mechanism</th>
+<th>Introduced</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>RpcMgmtSetComTimeout</code></td>
+<td>Sandboxie Plus 0.6.7</td>
+</tr>
+<tr>
+<td><code>UseRpcMgmtSetComTimeout</code></td>
+<td>Sandboxie Plus 0.7.1</td>
+</tr>
+<tr>
+<td><code>RpcPortBinding</code>, <code>RpcPortBindingIfId</code>, and <code>RpcPortBindingSvc</code></td>
+<td>Sandboxie Plus 0.7.3</td>
+</tr>
+<tr>
+<td><code>NoSandboxieRpcSs</code></td>
+<td>Sandboxie Plus 1.5.0</td>
+</tr>
+<tr>
+<td><code>RpcPortFilter</code></td>
+<td>Sandboxie Plus 1.14.2</td>
+</tr>
+</tbody>
+</table>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
+<ul>
+<li><a href="SystemEndpoints.html">System Endpoints</a></li>
+<li><a href="SandboxedServices.html">Sandboxed Services</a></li>
+<li><a href="OpenIpcPath.html">Open IPC Path</a></li>
+<li><a href="ClosedIpcPath.html">Closed IPC Path</a></li>
+<li><a href="SandboxieIni.html">Sandboxie Ini</a></li>
+</ul>
 
 
 

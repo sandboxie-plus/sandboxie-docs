@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="NotifyInternetAccessDenied is a sandbox setting in Sandboxie Ini. It is typically specified as NotifyInternetAccessDenied=y, and indicates that Sandboxie should issue message SBIE1307 when programs are denied access to the Internet.">
+        <meta name="description" content="NotifyInternetAccessDenied is a sandbox setting in Sandboxie Ini. It defaults to y.">
       
       
       
@@ -5585,16 +5585,14 @@
 
 
 <h1 id="notify-internet-access-denied">Notify Internet Access Denied<a class="headerlink" href="#notify-internet-access-denied" title="Permanent link"></a></h1>
-<p><em>NotifyInternetAccessDenied</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It is typically specified as <em>NotifyInternetAccessDenied=y</em>, and indicates that Sandboxie should issue message <a href="SBIE1307.html">SBIE1307</a> when programs are denied access to the Internet.</p>
-<p>Usage:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">NotifyInternetAccessDenied</span><span class="o">=</span><span class="s">y</span>
-</span></code></pre></div></p>
-<p>Related <a href="SandboxieControl.html">Sandboxie Control</a> setting: <a href="RestrictionsSettings.html#internet-access">Sandbox Settings &gt; Restrictions &gt; Internet Access</a></p>
-<p>Related <a href="SandboxieControl.html">Sandboxie Control</a> setting: <a href="ProgramSettings.html#page-2">Program Settings</a></p>
+<p><em>NotifyInternetAccessDenied</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It defaults to <code>y</code>.</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">NotifyInternetAccessDenied</span><span class="o">=</span><span class="s">y</span>
+</span></code></pre></div>
+<p>When Sandboxie's Internet-access policy denies a sandboxed process, this setting controls generation of <a href="SBIE1307.html">SBIE1307</a>. The message is normally emitted once per affected process. Disabling the message does not grant Internet access or otherwise change network policy.</p>
+<p>In Sandboxie Plus, open <strong>Sandbox Options &gt; Network Options &gt; Internet Access</strong> and use <strong>Issue message 1307 when a program is denied internet access</strong>. Sandboxie Control Classic exposes the corresponding option under <a href="RestrictionsSettings.html#internet-access">Sandbox Settings &gt; Restrictions &gt; Internet Access</a>.</p>
+<p>The value is cached in the sandboxed process state. Restart affected sandboxed processes after changing it for predictable behavior.</p>
+<p>This message switch is separate from <a href="PromptForInternetAccess.html">Prompt For Internet Access</a>, which can ask whether to grant a runtime exemption. See <a href="NotificationSettings.html">Notification Settings</a> for the broader message model.</p>
 
 
 

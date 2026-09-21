@@ -5644,6 +5644,30 @@
 <h3 id="selective-and-broad-forms">Selective and broad forms<a class="headerlink" href="#selective-and-broad-forms" title="Permanent link"></a></h3>
 <p><code>RunServiceAsSystem=&lt;name&gt;</code> targets only named services. <code>RunServicesAsSystem=y</code> enables broader SYSTEM-source selection, so services not named by the selective setting can still use the broad path where current logic permits. Adding a selective entry does not cancel the global setting for other services.</p>
 <p>The selective form is useful when only particular services require the SYSTEM source identity.</p>
+<h2 id="runrpcssassystem">RunRpcssAsSystem<a class="headerlink" href="#runrpcssassystem" title="Permanent link"></a></h2>
+<p><code>RunRpcssAsSystem</code> controls the source identity used when SbieSvc starts the sandbox-associated RpcSs process:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="na">RunRpcssAsSystem</span><span class="o">=</span><span class="s">y</span>
+</span></code></pre></div>
+<p>The default is <code>n</code>. An explicit <code>y</code> makes SbieSvc duplicate its SYSTEM source token for the sandboxed RpcSs launch. The resulting <code>SandboxieRpcSs</code> process remains associated with the sandbox; this setting does not start or adopt the unsandboxed host RpcSs service.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Starting sandboxed RpcSs from a SYSTEM source token increases the consequences of access that remains open to that process. Use this compatibility option only when required. It does not, by itself, remove RpcSs from the sandbox.</p>
+</div>
+<h3 id="application-compartment-and-originaltoken">Application Compartment and OriginalToken<a class="headerlink" href="#application-compartment-and-originaltoken" title="Permanent link"></a></h3>
+<p>Current service-launch logic can select the same SYSTEM-source path automatically when both of the following are true:</p>
+<ol>
+<li>the caller is in Application Compartment mode or <code>OriginalToken=y</code> is configured; and</li>
+<li>either <code>MsiInstallerExemptions=y</code> or <code>RunServicesAsSystem=y</code> is enabled.</li>
+</ol>
+<p>Application Compartment alone therefore does not automatically make sandboxed RpcSs use a SYSTEM source token.</p>
+<p>Sandboxed DcomLaunch is started through the sandboxed RpcSs/server flow. The explicit token-source decision above is made for the RpcSs launch; it should not be generalized into a separate, identical DcomLaunch token-selection rule.</p>
+<h3 id="sandman-control">SandMan control<a class="headerlink" href="#sandman-control" title="Permanent link"></a></h3>
+<p>The control is under <strong>Sandbox Options &gt; Security Options &gt; Advanced Security</strong> with the label:</p>
+<blockquote>
+<p>Start the sandboxed RpcSs as a SYSTEM process (not recommended)</p>
+</blockquote>
+<p>SandMan loads this checkbox from the explicit <code>RunRpcssAsSystem</code> value. In Application Compartment mode, it disables the direct control when either broad <code>RunServicesAsSystem</code> behavior or <code>MsiInstallerExemptions</code> already causes the automatic runtime condition described above.</p>
+<p>For binding resolution, endpoint filtering, timeout behavior, and sandboxed RpcSs startup architecture, see <a href="../RpcCompatibility/">RPC Compatibility</a>.</p>
 <h2 id="what-as-system-means">What "as SYSTEM" means<a class="headerlink" href="#what-as-system-means" title="Permanent link"></a></h2>
 <p>For this service-start path, Sandboxie obtains a source token from SbieSvc, which runs as LocalSystem, duplicates a primary token, adjusts its session, and uses it to launch the sandboxed service process. Sandboxie also applies its service-side privilege stripping by default where applicable.</p>
 <p>"Run as SYSTEM" therefore describes the source identity used to start the sandboxed service. It does not mean an unrestricted LocalSystem process running outside the sandbox.</p>
@@ -5655,28 +5679,28 @@
 </ul>
 <p><code>NoSecurityIsolation</code> / Application Compartment changes later token and isolation behavior, so the settings on this page do not guarantee one identical final token under every box mode.</p>
 <h2 id="related-special-cases">Related special cases<a class="headerlink" href="#related-special-cases" title="Permanent link"></a></h2>
-<p><code>RunRpcssAsSystem</code> has RpcSs-specific handling, <a href="../MsiInstallerExemptions/">Msi Installer Exemptions</a> can alter MSIServer handling, and CryptSvc has current special-case behavior. These mechanisms are related to service identity but are not general replacements for the settings documented here.</p>
+<p><a href="../MsiInstallerExemptions/">Msi Installer Exemptions</a> can alter MSIServer handling, and CryptSvc has current special-case behavior. These mechanisms are related to service identity but are not general replacements for the settings documented here.</p>
 <h2 id="chromium-elevation-template">Chromium elevation template<a class="headerlink" href="#chromium-elevation-template" title="Permanent link"></a></h2>
 <p>The current <code>Chromium_Elevation</code> template uses this pattern:</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="na">OpenSamEndpoint</span><span class="o">=</span><span class="s">y</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="na">SandboxService</span><span class="o">=</span><span class="s">MicrosoftEdgeElevationService</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="na">RunServiceAsSystem</span><span class="o">=</span><span class="s">MicrosoftEdgeElevationService</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="na">SandboxService</span><span class="o">=</span><span class="s">MicrosoftEdgeDevElevationService</span>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="na">RunServiceAsSystem</span><span class="o">=</span><span class="s">MicrosoftEdgeDevElevationService</span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="na">SandboxService</span><span class="o">=</span><span class="s">MicrosoftCopilotElevationService</span>
-</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="na">RunServiceAsSystem</span><span class="o">=</span><span class="s">MicrosoftCopilotElevationService</span>
-</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
-</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="na">SandboxService</span><span class="o">=</span><span class="s">GoogleChromeElevationService</span>
-</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="na">RunServiceAsSystem</span><span class="o">=</span><span class="s">GoogleChromeElevationService</span>
-</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>
-</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="na">SandboxService</span><span class="o">=</span><span class="s">GoogleChromeDevElevationService</span>
-</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="na">RunServiceAsSystem</span><span class="o">=</span><span class="s">GoogleChromeDevElevationService</span>
-</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>
-</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="na">SandboxService</span><span class="o">=</span><span class="s">BraveElevationService</span>
-</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="na">RunServiceAsSystem</span><span class="o">=</span><span class="s">BraveElevationService</span>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="na">OpenSamEndpoint</span><span class="o">=</span><span class="s">y</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="na">SandboxService</span><span class="o">=</span><span class="s">MicrosoftEdgeElevationService</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="na">RunServiceAsSystem</span><span class="o">=</span><span class="s">MicrosoftEdgeElevationService</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="na">SandboxService</span><span class="o">=</span><span class="s">MicrosoftEdgeDevElevationService</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="na">RunServiceAsSystem</span><span class="o">=</span><span class="s">MicrosoftEdgeDevElevationService</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="na">SandboxService</span><span class="o">=</span><span class="s">MicrosoftCopilotElevationService</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="na">RunServiceAsSystem</span><span class="o">=</span><span class="s">MicrosoftCopilotElevationService</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="na">SandboxService</span><span class="o">=</span><span class="s">GoogleChromeElevationService</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="na">RunServiceAsSystem</span><span class="o">=</span><span class="s">GoogleChromeElevationService</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="na">SandboxService</span><span class="o">=</span><span class="s">GoogleChromeDevElevationService</span>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="na">RunServiceAsSystem</span><span class="o">=</span><span class="s">GoogleChromeDevElevationService</span>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="na">SandboxService</span><span class="o">=</span><span class="s">BraveElevationService</span>
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="na">RunServiceAsSystem</span><span class="o">=</span><span class="s">BraveElevationService</span>
 </span></code></pre></div>
 <p>The template supplies three separate parts of the compatibility flow:</p>
 <dl>
@@ -5741,6 +5765,10 @@
 <td>Sandboxie Plus 0.5.5 / Classic 5.46.4</td>
 </tr>
 <tr>
+<td><code>RunRpcssAsSystem</code></td>
+<td>Sandboxie Plus 0.9.7</td>
+</tr>
+<tr>
 <td>Chromium elevation and DPAPI compatibility work</td>
 <td>Sandboxie Plus 1.18.0 / Classic 5.73.0 era</td>
 </tr>
@@ -5753,6 +5781,7 @@
 <p>These service settings predate their current Chromium elevation use.</p>
 <h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
 <ul>
+<li><a href="../RpcCompatibility/">RPC Compatibility</a></li>
 <li><a href="../SystemEndpoints/">System Endpoints</a></li>
 <li><a href="../ServicePrograms/">Service Programs</a></li>
 <li><a href="../StartService/">Start Service</a> — a lifecycle/startup setting, not an equivalent of <code>SandboxService</code></li>

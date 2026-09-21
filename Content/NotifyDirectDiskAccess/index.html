@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="NotifyDirectDiskAccess is a sandbox setting in Sandboxie Ini. It is typically specified as NotifyDirectDiskAccess=y.">
+        <meta name="description" content="NotifyDirectDiskAccess is a sandbox setting in Sandboxie Ini. It defaults to n.">
       
       
       
@@ -5585,16 +5585,16 @@
 
 
 <h1 id="notify-direct-disk-access">Notify Direct Disk Access<a class="headerlink" href="#notify-direct-disk-access" title="Permanent link"></a></h1>
-<p><em>NotifyDirectDiskAccess</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. It is typically specified as <em>NotifyDirectDiskAccess=y</em>.</p>
-<p>Usage:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">NotifyDirectDiskAccess</span><span class="o">=</span><span class="s">y</span>
-</span></code></pre></div></p>
-<p>Note that the default behavior of Sandboxie is to deny all direct access requests, unless explicit direct access is given to the hard disk device through the <a href="../OpenFilePath/">OpenFilePath</a> or <a href="../OpenPipePath/">OpenPipePath</a> settings. Normally, a message is not issued when such access is denied.</p>
-<p>This setting can not be altered using <a href="../SandboxieControl/">Sandboxie Control</a> and must be edited in <a href="../SandboxieIni/">Sandboxie Ini</a>.</p>
+<p><em>NotifyDirectDiskAccess</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. It defaults to <code>n</code>.</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">NotifyDirectDiskAccess</span><span class="o">=</span><span class="s">y</span>
+</span></code></pre></div>
+<p>When enabled, Sandboxie issues <a href="../SBIE1313/">SBIE1313</a> for certain denied attempts to open a disk device directly. It does not report every denied disk-access request or access to files and folders below the device.</p>
+<p>The message is not generated when the effective file-access rule blocks host access entirely, such as <code>ClosedFilePath</code> or <code>WriteFilePath</code>. A <code>ReadFilePath</code> rule does not always suppress the message: a denied write request can still generate it.</p>
+<p>This setting controls the notification only. It does not grant direct disk access or alter the policy that denied the request. Access-related settings such as <a href="../AllowRawDiskRead/">Allow Raw Disk Read</a>, <a href="../OpenFilePath/">Open File Path</a>, and <a href="../OpenPipePath/">Open Pipe Path</a> are separate.</p>
+<p>In Sandboxie Plus, open <strong>Sandbox Options &gt; General Options &gt; File Options</strong>, find <strong>Disk/File access</strong>, and select <strong>Warn when an application opens a harddrive handle</strong>. Sandboxie Control Classic has no equivalent dedicated current control.</p>
+<p>The value is cached when the sandboxed process initializes. Restart affected sandboxed processes after changing it for predictable behavior.</p>
+<p>See <a href="../NotificationSettings/">Notification Settings</a> for the distinction between access policy, message generation, and presentation.</p>
 
 
 

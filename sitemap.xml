@@ -1177,6 +1177,13 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NormalKeyPath/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/NotificationSettings/</loc>
+        <lastmod>2026-09-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NotificationSettings/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NotificationSettings/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/NotifyDirectDiskAccess/</loc>
         <lastmod>2026-09-21</lastmod>
         <changefreq>daily</changefreq>
@@ -1567,6 +1574,13 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/RestrictionsSettings/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/RestrictionsSettings/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/RpcCompatibility/</loc>
+        <lastmod>2026-09-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/RpcCompatibility/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/RpcCompatibility/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/SBIE1101/</loc>
@@ -2806,6 +2820,13 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UseChromeSecurePreferencesHack/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseChromeSecurePreferencesHack/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/UseDragDropHack/</loc>
+        <lastmod>2026-09-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UseDragDropHack/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseDragDropHack/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/UseElectronDetection/</loc>
@@ -4285,6 +4306,13 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NormalKeyPath/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NotificationSettings/</loc>
+        <lastmod>2026-09-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NotificationSettings/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NotificationSettings/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NotifyDirectDiskAccess/</loc>
         <lastmod>2026-09-21</lastmod>
         <changefreq>daily</changefreq>
@@ -4675,6 +4703,13 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/RestrictionsSettings/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/RestrictionsSettings/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/RpcCompatibility/</loc>
+        <lastmod>2026-09-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/RpcCompatibility/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/RpcCompatibility/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/SBIE1101/</loc>
@@ -5914,6 +5949,13 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseChromeSecurePreferencesHack/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UseChromeSecurePreferencesHack/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseDragDropHack/</loc>
+        <lastmod>2026-09-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseDragDropHack/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UseDragDropHack/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseElectronDetection/</loc>

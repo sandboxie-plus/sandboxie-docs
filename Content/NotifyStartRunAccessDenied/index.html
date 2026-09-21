@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="NotifyStartRunAccessDenied is a sandbox setting in Sandboxie Ini. It is typically specified as NotifyStartRunAccessDenied=y, and indicates that Sandboxie should issue message SBIE1308 when programs are denied from starting or running.">
+        <meta name="description" content="NotifyStartRunAccessDenied is a sandbox setting in Sandboxie Ini. It defaults to y.">
       
       
       
@@ -5585,15 +5585,15 @@
 
 
 <h1 id="notify-start-run-access-denied">Notify Start Run Access Denied<a class="headerlink" href="#notify-start-run-access-denied" title="Permanent link"></a></h1>
-<p><em>NotifyStartRunAccessDenied</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. It is typically specified as <em>NotifyStartRunAccessDenied=y</em>, and indicates that Sandboxie should issue message <a href="../SBIE1308/">SBIE1308</a> when programs are denied from starting or running.</p>
-<p>Usage:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">NotifyStartRunAccessDenied</span><span class="o">=</span><span class="s">y</span>
-</span></code></pre></div></p>
-<p>Related <a href="../SandboxieControl/">Sandboxie Control</a> setting: <a href="../RestrictionsSettings/#startrun-access">Sandbox Settings &gt; Restrictions &gt; Start/Run Access</a> Related <a href="../SandboxieControl/">Sandboxie Control</a> setting: <a href="../ProgramSettings/#page-2">Program Settings</a></p>
+<p><em>NotifyStartRunAccessDenied</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. It defaults to <code>y</code>.</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">NotifyStartRunAccessDenied</span><span class="o">=</span><span class="s">y</span>
+</span></code></pre></div>
+<p>When the sandbox's Start/Run restriction mechanism denies the relevant launch or access operation, this setting controls generation of <a href="../SBIE1308/">SBIE1308</a>. The message is normally emitted once per affected process. Disabling it does not permit a launch or alter the underlying Start/Run policy.</p>
+<p>In Sandboxie Plus, open <strong>Sandbox Options &gt; Program Control &gt; Start Restrictions</strong> and use <strong>Issue message 1308 when a program fails to start</strong>. Sandboxie Control Classic exposes the corresponding option under <a href="../RestrictionsSettings/#startrun-access">Sandbox Settings &gt; Restrictions &gt; Start/Run Access</a>.</p>
+<p>The value is cached in the sandboxed process state. Restart affected sandboxed processes after changing it for predictable behavior.</p>
+<p><code>AlertStartRunAccessDenied</code> is a separate global setting used by the program-alert mechanism. The two settings are independently consumed and can both generate SBIE1308 from different denial paths; they are not aliases.</p>
+<p>See <a href="../NotificationSettings/">Notification Settings</a> for the broader message model and <a href="../AlertBeforeStart/">Alert Before Start</a> for the separate pre-launch confirmation feature.</p>
 
 
 
