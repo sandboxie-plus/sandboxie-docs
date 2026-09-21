@@ -37,7 +37,7 @@ In SandMan, open:
 
 **Sandbox Options > Security Options > Advanced Security**
 
-The checkbox is labeled **Drop ConHost.exe Process Integrity Level**. Selecting it writes `DropConHostIntegrity=y`; clearing it leaves the option disabled.
+The checkbox is labeled **Drop ConHost.exe Process Integrity Level**. Selecting it writes `DropConHostIntegrity=y`; clearing it removes the sandbox’s explicit value. The setting then falls back to any inherited template or `[GlobalSettings]` value, or to the default `n` if none is configured.
 
 ## Applying changes
 
