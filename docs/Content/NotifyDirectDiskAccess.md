@@ -7,7 +7,9 @@ _NotifyDirectDiskAccess_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md
 NotifyDirectDiskAccess=y
 ```
 
-When enabled, Sandboxie issues [SBIE1313](SBIE1313.md) when an attempt to open a disk device itself remains denied. It does not report every form of raw-disk activity or a request for a remaining path below the device.
+When enabled, Sandboxie issues [SBIE1313](SBIE1313.md) for certain denied attempts to open a disk device directly. It does not report every denied disk-access request or access to files and folders below the device.
+
+The message is not generated when the effective file-access rule blocks host access entirely, such as `ClosedFilePath` or `WriteFilePath`. A `ReadFilePath` rule does not always suppress the message: a denied write request can still generate it.
 
 This setting controls the notification only. It does not grant direct disk access or alter the policy that denied the request. Access-related settings such as [Allow Raw Disk Read](AllowRawDiskRead.md), [Open File Path](OpenFilePath.md), and [Open Pipe Path](OpenPipePath.md) are separate.
 
