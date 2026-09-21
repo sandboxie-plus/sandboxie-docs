@@ -34,7 +34,16 @@ Built-in templates provide the maintained mappings required by supported compati
 
 ## RPC binding presets
 
-`RpcPortBinding` is advanced compatibility and template plumbing. A binding preset identifies a calling module and matches either an RPC interface UUID or a string-binding pattern. A schematic form is:
+`RpcPortBinding` provides advanced compatibility presets for RPC bindings. Each preset matches the calling module and an identifier supplied by the binding operation:
+
+- For `RpcBindingCreateW`, the identifier is the binding template's object UUID.
+- For `RpcBindingFromStringBindingW`, the configured pattern is matched against the complete string binding.
+
+The object UUID used for this matching should not be confused with the RPC interface UUID used for endpoint lookup.
+
+In short: **object UUID = which object; interface UUID = which operations; string binding = how to reach it.**
+
+A schematic form is:
 
 ```ini
 RpcPortBinding=<module>,<interface-UUID-or-binding-pattern>[,Resolve=<port-id>][,TimeOut=y|n]
