@@ -49,11 +49,11 @@ A schematic form is:
 RpcPortBinding=<module>,<object-UUID-or-string-binding-pattern>[,Resolve=<port-id>][,TimeOut=y|n]
 ```
 
-When a preset matches, Sandboxie can substitute a resolved local endpoint and can override the timeout decision for that binding. `Resolve=<port-id>` asks SbieSvc's endpoint mapper helper to resolve the logical identifier to a current endpoint.
+When a preset matches, Sandboxie can supply a local endpoint and adjust the communication timeout. `Resolve=<port-id>` requests an endpoint lookup using the mappings described below. In the `RpcBindingCreateW` path, endpoint substitution applies to local RPC bindings that do not already specify an endpoint.
 
-Matching is aware of the module that initiated the binding operation. The identifier is compared with the interface UUID or string binding used by that operation. If no `RpcPortBinding` preset matches, Sandboxie continues through the normal binding path; absence of a match is not a deny rule.
+If no preset matches, Sandboxie continues through the normal binding path. An unmatched preset does not deny access.
 
-The parser supports additional internal forms used by maintained templates. Those forms and opaque endpoint identifiers should not be treated as a stable manual-configuration interface.
+The parser also supports internal forms used by maintained templates. Prefer those templates rather than treating every supported form or endpoint identifier as a stable manual-configuration interface.
 
 ### Dynamic endpoint mappings
 
