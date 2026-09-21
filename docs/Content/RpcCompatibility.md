@@ -101,7 +101,9 @@ The checkbox is inverted relative to the setting:
 
 `UseRpcMgmtSetComTimeout` is an advanced calling-module-qualified override used when the current binding has not already supplied its timeout decision. For example, maintained templates can select different timeout behavior for calls originating in a particular DLL.
 
-If a matching `RpcPortBinding` contains `TimeOut=`, that value takes precedence over the `UseRpcMgmtSetComTimeout` decision for the binding. Although older changelog text described this option as deprecated when `RpcPortBinding` was introduced, current source still consults it in the no-binding case.
+`UseRpcMgmtSetComTimeout` allows different timeout behavior for calls originating in particular modules, such as a DLL. Sandboxie checks this setting before looking for a matching `RpcPortBinding` preset.
+
+If the matching preset includes `TimeOut=`, that value overrides the module-specific decision. Otherwise, the module-specific decision remains in effect, even when a binding preset matches. If neither provides an override, Sandboxie uses the process's `RpcMgmtSetComTimeout` default.
 
 ## Sandboxed RpcSs startup
 
