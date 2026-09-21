@@ -1,30 +1,50 @@
 # Force Process
 
-_ForceProcess_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It specifies names of programs. If any of these programs are started outside any sandbox, they will be automatically sandboxed in a particular sandbox. For example:
+_ForceProcess_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md) that automatically starts matching programs in a particular sandbox. For example:
 
-```
-   .
-   .
-   .
-   [DefaultBox]
-   ForceProcess=iexplore.exe
-   ForceProcess=firefox.exe
-   ForceProcess=App*.exe
-   ForceProcess=App?.exe
-   [MailBox]
-   ForceProcess=outlook.exe
-   ForceProcess=cl?cke?.exe
+```ini
+[DefaultBox]
+ForceProcess=iexplore.exe
+ForceProcess=firefox.exe
+
+[MailBox]
+ForceProcess=outlook.exe
+ForceProcess=cl?cke?.exe
 ```
 
-- `*` defines any character.
-- `?` defines one character.
+The first two entries force Internet Explorer and Firefox into `DefaultBox`. The other entries force Outlook and executable names such as `clicker.exe` or `clicked.exe` into `MailBox`.
 
-The example specifies that Internet Explorer (iexplore.exe), Firefox (firefox.exe), App* (Appga, App03 and etc.). and App? (App1, Appg, Appa and etc.). will be forced to run sandboxed in the sandbox _DefaultBox_. Outlook.exe and cl?cke? (clicker, clicked and etc.). will be forced to run sandboxed in the sandbox _MailBox_.
+An entry without `*` is matched case-insensitively against the executable name and may use `?` to match one character. In the current runtime, an entry containing `*` is instead matched as a case-insensitive pattern against the full normalized executable path. A name-only pattern such as `App*.exe` therefore does not have the same semantics as the older name-only matching; exact executable names are preferable when they are sufficient.
 
-Note that the _ForceProcess_ settings only apply to programs that start unsandboxed. If a program is specifically started in a sandbox, or started by a program that is already sandboxed, then _ForceProcess_ settings are not applied.
+_ForceProcess_ applies only when a program starts outside a sandbox. It is not reapplied when a program is explicitly started in a sandbox or is launched by an already sandboxed program.
 
-See also: [ForceFolder](ForceFolder.md). If both a _ForceFolder_ and a _ForceProcess_ are applicable to a program that is starting, the ForceFolder setting takes precedence.
+## Immersive applications
 
-Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Program Start > Forced Programs](ProgramStartSettings.md#forced-programs)
+By default, after a normal _ForceProcess_ or [ForceFolder](ForceFolder.md) rule selects a sandbox, Sandboxie discards that selection if it identifies the resulting process as an immersive/AppContainer application. The global setting below enables these force rules for such processes:
 
-See also: [Program Settings](ProgramSettings.md#page-1).
+```ini
+[GlobalSettings]
+AllowForceImmersive=y
+```
+
+`AllowForceImmersive` defaults to `n`, is not a per-sandbox setting, and has no dedicated SandMan control. Enabling it does not guarantee compatibility with every AppContainer, UWP, or other immersive application. See [Force Folder](ForceFolder.md#immersive-applications) for the resulting launch behavior and limitations.
+
+## Rule order
+
+Sandboxie checks the executable's directory against _ForceFolder_ before checking _ForceProcess_. Working-directory and document-argument _ForceFolder_ checks occur later, after _ForceProcess_, so _ForceFolder_ does not have unconditional precedence in every case.
+
+## User interfaces
+
+In SandMan, open **Sandbox Options > Program Control > Force Programs** and use **Force Program** to maintain the list. The same page also provides **Force Children**, **Force Folder**, **Remove**, and **Show Templates** controls.
+
+Sandboxie Control Classic provides the related [Sandbox Settings > Program Start > Forced Programs](ProgramStartSettings.md#forced-programs) page.
+
+## Version history
+
+`AllowForceImmersive` was added in Sandboxie Plus 1.16.0 / Classic 5.71.0. _ForceProcess_ predates the current version metadata and has no introduction version recorded there.
+
+## Related pages
+
+- [Force Folder](ForceFolder.md)
+- [Program Settings](ProgramSettings.md#page-1)
+- [Sandboxie Ini](SandboxieIni.md)
