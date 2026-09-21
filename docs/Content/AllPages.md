@@ -24,6 +24,8 @@
 
 [Applications Settings](ApplicationsSettings.md)
 
+[Apply ElevateCreateProcess Fix](ApplyElevateCreateProcessFix.md)
+
 [Applying a Supporter Certificate](../PlusContent/applying-supporter-certificate.md)
 
 [Auto Delete](AutoDelete.md)
@@ -357,6 +359,8 @@
 [No Security Filtering](NoSecurityFiltering.md)
 
 [No Security Isolation](NoSecurityIsolation.md)
+
+[No UAC Proxy](NoUACProxy.md)
 
 [Normal File Path](NormalFilePath.md)
 
