@@ -14,7 +14,7 @@ These advanced settings address specific process-creation, Side-by-Side (SxS) ac
 
 `PreferExternalManifest` is disabled by default. Despite its name, it does not simply tell Windows to prefer an application's own external `.manifest` file. When enabled for a child executable, Sandboxie can intercept opens of that child's manifest or configuration file during process creation and substitute files shipped with Sandboxie. It can also redirect relevant SxS registry access to Sandboxie's service-side compatibility key. The application's actual manifest is not edited.
 
-When Sandboxie's process-creation path marks the child as `asInvoker`—for example, after finding an explicit `requestedExecutionLevel`—the substituted files are a small `asInvoker` manifest and a minimal configuration file. Otherwise Sandboxie substitutes an empty file so that Windows can still apply its UAC elevation heuristics. These substitutions are specific to the process-creation compatibility path, not a general replacement of all application manifests.
+When Sandboxie's process-creation path marks the child as `asInvoker`, for example when the application's manifest explicitly requests `asInvoker`, the substituted files are a small `asInvoker` manifest and a minimal configuration file. Otherwise Sandboxie substitutes an empty file so that Windows can still apply its UAC elevation heuristics. These substitutions are specific to the process-creation compatibility path, not a general replacement of all application manifests.
 
 For example:
 
