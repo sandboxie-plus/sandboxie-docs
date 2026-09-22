@@ -75,7 +75,7 @@ The token dropping mechanism:
 
 ## Related Compatibility Settings
 
-- **OriginalToken**: When enabled, bypasses most token-related modifications including `DropChildProcessToken`.
+- **[OriginalToken](OriginalToken.md)**: Bypasses Sandboxie's normal restricted primary-token replacement, but does not bypass `DropChildProcessToken`. The child-token rule is evaluated earlier in process creation and can clear a caller-supplied token before the `OriginalToken` branch runs.
 - **DeprecatedTokenHacks**: Re-enables older token-based workarounds that were disabled in compartment mode.
 - **NoSecurityIsolation**: The core Green Box setting that disables token-based security isolation.
 - **FakeAppContainerToken**: Controls AppContainer token simulation for specific applications.
