@@ -1,15 +1,14 @@
-# Normal Ipc Path
+# Normal IPC Path
 
-_Normal Ipc Path_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It specifies path patterns for which Sandboxie will apply the default sandboxing scheme. This setting is most useful in combination with [Rule Specificity](../PlusContent/RuleSpecificity.md) where it allows to restore default sandboxing behaviour for paths whose parents have been configured as Open, WriteOnly, or even Closed.
+_NormalIpcPath_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It restores Sandboxie's normal/default IPC handling for matching named IPC objects. It does not grant direct host access.
 
-Example:
+With [Rule Specificity](../PlusContent/RuleSpecificity.md) enabled, a more-specific Normal rule can override a broader Open or Closed IPC path rule when the matcher selects it.
 
-```
-   .
-   .
-   .
-   [DefaultBox]
-   NormalIpcPath=\RPC Control\AudioSrv
+```ini
+[DefaultBox]
+NormalIpcPath=\RPC Control\AudioSrv
 ```
 
-Related Sandboxie Plus setting: Sandbox Options > Resource Access > IPC > Add IPC Path > Access column > Normal
+IPC path rules do not receive the implicit trailing `*` that Sandboxie normally adds to File and Registry rules without a wildcard. The example therefore matches according to the configured IPC pattern itself. If broader matching is intended, add the wildcard explicitly.
+
+Related Sandboxie Plus setting: **Sandbox Options > Resource Access > IPC > Add IPC Path > Access column > Normal**
