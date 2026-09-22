@@ -204,6 +204,8 @@
 
 [Enable EFS](EnableEFS.md)
 
+[Enable Object Filtering](EnableObjectFiltering.md)
+
 [Expandable Variables](ExpandableVariables.md)
 
 [External Tutorials](ExternalTutorials.md)
