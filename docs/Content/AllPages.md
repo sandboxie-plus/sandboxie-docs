@@ -500,6 +500,8 @@
 
 [Rule Specificity](../PlusContent/RuleSpecificity.md)
 
+[Run Command](RunCommand.md)
+
 ### S
 
 [Sandbox Desktop and Window Station](SandboxDesktop.md)
