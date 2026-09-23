@@ -865,6 +865,8 @@
 
 [Technical Aspects](TechnicalAspects.md)
 
+[Template Architecture](TemplateArchitecture.md)
+
 [Test Email Configuration](TestEmailConfiguration.md)
 
 [Token and Syscall Internals](TokenMagic.md)

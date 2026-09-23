@@ -100,7 +100,7 @@ Select (highlight) the desired configuration and click the _Add_ button to enabl
 
 Use this settings page to enter your own custom settings as an application configuration package that can be easily enabled or disabled for a particular sandbox.
 
-For more information about designing your own application configuration packages, or templates, consult the _Templates.ini_ file in the Sandboxie installation folder.
+The stock _Templates.ini_ file in the Sandboxie installation folder provides examples for designing templates. Put your own templates in [Sandboxie Ini](SandboxieIni.md), normally using a `[Template_Local_*]` section. See [Template Architecture](TemplateArchitecture.md) for how they are selected and applied.
 
 * * *
 

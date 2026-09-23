@@ -36,6 +36,8 @@ The following table lists the variables that Sandboxie recognizes.
 
 Global templates are part of the Sandboxie installation and located in the file _Templates.ini_ in the Sandboxie installation folder. Additional local templates may be added to [Sandboxie Ini](SandboxieIni.md). Any template may reference template variables in the form _%Tmpl.SomeVariableName%_. These variable names are not built into the core of Sandboxie. They must be defined in _Templates.ini_ or _Sandboxie.ini_ in a [TemplateSettings] section.
 
+`[TemplateSettings]` contains shared template-variable definitions; it is distinct from a selectable `[Template_Name]` compatibility template. See [Template Architecture](TemplateArchitecture.md) for how templates and their metadata are used.
+
 ### Overriding Variables
 
 Any of the variables in the table above, including the [Shell Folders](ShellFolders.md) and template variables, can be overridden by the [Sandboxie Ini](SandboxieIni.md) configuration file. To override a variable, add a parameter prefixed with **Ovr.**.
