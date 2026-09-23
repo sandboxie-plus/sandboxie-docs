@@ -448,6 +448,8 @@
 
 [Process Speed Settings](ProcessSpeedSettings.md)
 
+[Program Forcing Controls](ProgramForcingControls.md)
+
 [Program Name Prefix](ProgramNamePrefix.md)
 
 [Program Settings](ProgramSettings.md)
