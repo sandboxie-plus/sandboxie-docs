@@ -86,7 +86,7 @@ Although the parser and SandMan editor recognize `ICMP`, the user-mode hooks foc
 
 ## SandMan and version context
 
-The rule editor is at **Sandbox Options > Network Options > Network Firewall**. Its fields correspond to Program, Action, Protocol, IP/Address, and Port. The test controls evaluate which configured rule would win for an entered program, address, port, and protocol; they do not make a network connection.
+The rule editor is at **Sandbox Options > Network Options > Network Firewall**. Its fields correspond to Program, Action, Protocol, IP/Address, and Port. The **Test Rules** controls offer a partial preview for an entered program, address, port, and protocol; they do not make a network connection. The preview does not handle wildcard or process-group selectors, skips template rules, and may consider disabled rules. Its highlighted result can therefore differ from the rule applied at runtime.
 
 `NetworkAccess` was introduced in Sandboxie Plus 0.9.0. Rule coverage and update behavior depend on the enforcement path, so restart affected sandboxed applications after changing policy to ensure process-local state is rebuilt consistently. WFP rules can also be refreshed for existing tracked processes through Sandboxie's configuration update path.
 
