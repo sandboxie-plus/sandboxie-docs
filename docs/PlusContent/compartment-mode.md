@@ -35,6 +35,12 @@ File-system and registry virtualization can remain active. File, registry-key, a
 
 For the detailed behavior and limitations, see [No Security Isolation](../Content/NoSecurityIsolation.md).
 
+## AppContainer token behavior
+
+Application Compartment does not install the standard-sandbox `CreateAppContainerToken` and `CreateAppContainerProfile` compatibility hooks or suppress AppContainer process-creation attributes through that standard-box branch. `DropAppContainerToken` defaults to `n` in this mode. Explicitly enabling it can remove a caller-supplied AppContainer token restriction while Sandboxie's normal restricted-primary-token replacement is bypassed, weakening token isolation without granting elevation.
+
+The historical `FakeAppContainerToken` setting does not control the current compartment behavior. See [AppContainer Token Compatibility](../Content/AppContainerTokens.md) for the separate API and child-creation stages.
+
 ## Optional filtering relaxation
 
 For additional compatibility, an Application Compartment can use:

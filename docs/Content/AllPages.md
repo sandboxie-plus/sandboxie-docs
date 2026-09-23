@@ -22,6 +22,8 @@
 
 [Allow Spooler Print To File](AllowSpoolerPrintToFile.md)
 
+[AppContainer Token Compatibility](AppContainerTokens.md)
+
 [Appearance Settings](AppearanceSettings.md)
 
 [Applications Settings](ApplicationsSettings.md)

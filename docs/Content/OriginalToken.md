@@ -47,7 +47,7 @@ An active filter is not a promise of the same host-access result as a normally r
 
 For child creation, *OriginalToken* skips Sandboxie's later suspended-creation and token-replacement sequence and passes the resulting token choice to Windows. It does **not** guarantee that every child receives an exact copy of its parent's token. In particular, [Drop Child Process Token](DropChildProcessToken.md) can clear a caller-supplied token **before** the *OriginalToken* branch runs. *DropAppContainerToken* is also evaluated before that branch, and other special-case handling can affect the token passed to Windows.
 
-*OriginalToken* does not disable all AppContainer compatibility handling. The AppContainer-specific settings have their own scope and should not be inferred from this option.
+*OriginalToken* does not disable all AppContainer compatibility handling. [AppContainer Token Compatibility](AppContainerTokens.md) explains those separate API, process-attribute, and caller-supplied-token stages.
 
 ## Impersonation and related effects
 
