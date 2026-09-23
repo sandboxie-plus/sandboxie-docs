@@ -1,126 +1,32 @@
 # Drop Child Process Token
 
-_DropChildProcessToken_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md) available since v1.15.6 / 5.70.6. This setting forces child processes of specified applications to run without modified security tokens, bypassing Sandboxie's normal restricted token mechanism. It's primarily designed as a debugging tool for troubleshooting "green box" (Application Compartment) compatibility issues where applications fail to start or function properly due to token restrictions.
+`DropChildProcessToken` is an advanced debugging setting introduced in Sandboxie Plus 1.15.6 / Classic 5.70.6. It can help troubleshoot child-creation problems, including issues historically described as “green box” compatibility problems. It is not a general recommendation to relax token handling.
 
-## Usage
+When the setting matches, Sandboxie clears the explicit `hToken` supplied by the calling process to its child-process creation path. It does not disable Sandboxie's entire token pipeline or rewrite an existing token object.
+
+## Configuration and caller scope
 
 ```ini
 [DefaultBox]
-
-DropChildProcessToken=chrome.exe,y
-DropChildProcessToken=firefox.exe,y
-DropChildProcessToken=acroread.exe,y
+DropChildProcessToken=parent.exe,y
 ```
 
-## Syntax
+The runtime default is `n`. This is an image-aware setting: `parent.exe` selects the sandboxed process **making the child-creation call**, not the executable it launches. The rule changes how matching callers create children; it does not change the token of `parent.exe` itself.
 
-```ini
-DropChildProcessToken=<executable>,y
-```
+Sandboxie also clears a caller-supplied child token automatically for images classified as Acrobat Reader or plugin containers. Those hardcoded cases do not require a `DropChildProcessToken` rule. Historical Flash-specific code is commented out and is not an active automatic case.
 
-Where:
+## What happens to the child
 
-- `<executable>` is the name of the application executable file (case-insensitive).
-- The value must be `y` to enable the setting.
+The setting removes a caller-supplied child token from this creation request (`hToken = NULL`). What token the child ultimately runs with depends on the later sandbox mode and token-processing path:
 
-## Technical Details
+- **Standard sandbox:** The driver ordinarily still reaches `Token_ReplacePrimary()` and assigns Sandboxie's restricted primary token. Clearing the caller's token and performing that later replacement are separate stages.
+- **[Application Compartment](../PlusContent/compartment-mode.md) or [OriginalToken](OriginalToken.md):** Normal restricted-primary-token replacement is bypassed. Clearing the supplied token can therefore have a different and potentially larger effect on the Windows token chosen for the child.
 
-When `DropChildProcessToken` is enabled, Sandboxie modifies its process creation behavior during child process initialization:
+The setting does not guarantee that a child inherits its parent's full token or that Sandboxie's remaining isolation mechanisms are disabled. Use it to investigate a specific child-creation compatibility problem, and review the token implications before retaining it in a configuration.
 
-1. **Token Nullification**: During `CreateProcessInternalW`, the system checks if the target application matches any configured `DropChildProcessToken` entries and sets the process token to `NULL`[^1].
+## Related pages
 
-2. **Automatic Application**: The setting automatically applies to specific application types - Adobe Acrobat Reader and plugin containers receive this treatment by default through hardcoded image type detection[^2].
-
-3. **Green Box Compatibility**: This mechanism helps applications that struggle with Sandboxie's restricted security tokens to function in compartment mode, where compatibility is prioritized over strict isolation[^3].
-
-## Default Behavior
-
-Sandboxie automatically applies token dropping to certain application categories without explicit configuration:
-
-- **Adobe Acrobat Reader**: All versions automatically have child process tokens dropped to prevent privilege escalation.
-- **Plugin Containers**: Applications classified as `DLL_IMAGE_PLUGIN_CONTAINER` through [SpecialImage](SpecialImage.md) automatically receive this treatment.
-- **Flash Player Sandbox**: Historical support for Adobe Flash Player sandbox architecture (commented out in current versions).
-
-**Usage Scenarios**
-
-- **Green Box Debugging**: Troubleshooting Application Compartment boxes where applications fail to start due to token restrictions.
-- **Legacy Application Support**: Enabling older applications that don't work well with modern security token restrictions.
-- **Plugin Compatibility**: Ensuring browser plugins and helper processes can function without token-related conflicts.
-- **Development Testing**: Testing application behavior without Sandboxie's token-based security isolation.
-
-**Security Implications**
-
-- **Reduced Security**: Child processes run with the same token as their parent, potentially reducing isolation effectiveness.
-- **Privilege Management**: Removes Sandboxie's normal privilege restrictions, allowing processes to inherit full parent privileges.
-- **Compatibility Trade-off**: Improves application compatibility at the cost of some security isolation.
-- **Debugging Context**: Primarily intended for troubleshooting rather than production use.
-
-**Green Box Integration**
-
-This setting is particularly relevant for Green Box (Application Compartment) configurations:
-
-- **Compartment Mode**: Green boxes use `NoSecurityIsolation=y` to disable token-based security while maintaining file/registry virtualization.
-- **Token Conflicts**: Some applications still experience issues even in compartment mode, requiring complete token dropping.
-- **Compatibility Priority**: Green boxes prioritize compatibility over security, making this setting a natural fit for problematic applications.
-
-## Implementation Notes
-
-The token dropping mechanism:
-
-- Operates during the `Proc_CreateProcessInternalW` function in the DLL injection layer.
-- Uses `Config_GetSettingsForImageName_bool` to query per-application settings with a default value of `FALSE`[^4].
-- Integrates with the image type classification system to automatically handle known problematic application types.
-- Sets `hToken = NULL` to bypass normal token creation and restriction processes[^5].
-- Affects the `CreateProcessInternalW` call chain where restricted tokens would normally be applied.
-
-## Related Compatibility Settings
-
-- **[OriginalToken](OriginalToken.md)**: Bypasses Sandboxie's normal restricted primary-token replacement, but does not bypass `DropChildProcessToken`. The child-token rule is evaluated earlier in process creation and can clear a caller-supplied token before the `OriginalToken` branch runs.
-- **DeprecatedTokenHacks**: Re-enables older token-based workarounds that were disabled in compartment mode.
-- **NoSecurityIsolation**: The core Green Box setting that disables token-based security isolation.
-- **FakeAppContainerToken**: Controls AppContainer token simulation for specific applications.
-
-## Usage Examples
-
-- **Browser Child Process Issues**:
-  ```ini
-  DropChildProcessToken=chrome.exe,y
-  DropChildProcessToken=msedge.exe,y
-  ```
-
-- **Plugin Container Problems**:
-  ```ini
-  DropChildProcessToken=plugin-container.exe,y
-  DropChildProcessToken=flashplayer.exe,y
-  ```
-
-- **Custom Application Debugging**:
-  ```ini
-  DropChildProcessToken=myapp.exe,y
-  ```
-
-## Troubleshooting Green Boxes
-
-When applications fail in Green Box mode:
-
-1. Enable `DropChildProcessToken` for the problematic executable.
-2. Test if the application starts and functions correctly.
-3. If successful, the issue was token-related and the setting can remain enabled.
-4. If unsuccessful, investigate other compatibility settings or file/registry access issues.
-
-## Related Settings
-
-- [SpecialImage](SpecialImage.md) - Automatically applies token dropping to plugin containers and Adobe Reader.
-- [NoSecurityIsolation](NoSecurityIsolation.md) - Core Green Box setting for Application Compartment mode.
-
-Related Sandboxie Plus setting: Available in advanced debugging options (not exposed in standard UI).
-
-[^1]: Token nullification in `proc.c`: The function `Proc_CreateProcessInternalW` checks `Config_GetSettingsForImageName_bool(L"DropChildProcessToken", FALSE)` and sets `hToken = NULL` when the condition is met, bypassing the normal restricted token creation process.
-
-[^2]: Automatic application in `proc.c`: The condition `Dll_ImageType == DLL_IMAGE_ACROBAT_READER || Dll_ImageType == DLL_IMAGE_PLUGIN_CONTAINER` automatically applies token dropping to Adobe Reader and plugin containers regardless of explicit configuration.
-
-[^3]: Green box compatibility mechanism: This setting addresses the fundamental tension between Sandboxie's security model and application compatibility by allowing selective bypassing of token restrictions while maintaining file system and registry virtualization.
-
-[^4]: Configuration query in `proc.c`: The system uses `Config_GetSettingsForImageName_bool(L"DropChildProcessToken", FALSE)` to retrieve per-application settings, with the `FALSE` default ensuring the feature is only active when explicitly enabled.
-
-[^5]: Token bypass implementation in `proc.c`: Setting `hToken = NULL` in the `CreateProcessInternalW` function effectively disables the entire restricted token creation pipeline, allowing child processes to inherit their parent's full security context.
+- [AppContainer Token Compatibility](AppContainerTokens.md)
+- [Original Token](OriginalToken.md)
+- [Application Compartment](../PlusContent/compartment-mode.md)
+- [Sandboxie Ini](SandboxieIni.md)
