@@ -51,7 +51,7 @@ Template=Example
 
 Global selection contributes settings to the global effective configuration. It does not make a separate permanent copy of the template definition in every sandbox section.
 
-`TemplateReject=Name` records compatibility-template selection state so a detected template is treated as rejected/configured instead of remaining a pending recommendation. It does not subtract settings from an explicitly selected `Template=Name`; normal template merging still applies to that selection.
+`TemplateReject=Name` belongs in `[GlobalSettings]`. It records compatibility-template selection state so a detected template is treated as rejected/configured instead of remaining a pending recommendation. A value in an individual sandbox section is not consulted for this purpose. It does not subtract settings from an explicitly selected `Template=Name`; normal template merging still applies to that selection.
 
 ## How templates are merged
 
