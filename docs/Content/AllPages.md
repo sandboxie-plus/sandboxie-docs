@@ -500,6 +500,8 @@
 
 [Resource Access Settings](ResourceAccessSettings.md)
 
+[Restrict Devices](RestrictDevices.md)
+
 [Restrictions Settings](RestrictionsSettings.md)
 
 [RPC Compatibility](RpcCompatibility.md)
