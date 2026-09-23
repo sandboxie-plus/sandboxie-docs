@@ -8,6 +8,8 @@
 
 Programs that run in a sandbox are generally not allowed to access system resources directly. In some cases, it may be desirable to make exceptions to this rule. The settings here display and change that set of exceptions.
 
+When multiple rules match the same resource, the result depends on whether [Rule Specificity](../PlusContent/RuleSpecificity.md) is active, which process selector applies, how the resource pattern matches, and which access mode the rule represents.
+
 Examples where exceptions are convenient or necessary:
 
 *   Allow direct access to some specific folder. For example, let the Web browser place downloads directly in a _Downloads_ folder.<br>
@@ -87,7 +89,7 @@ Related [Sandboxie Ini](SandboxieIni.md) settings: [WriteFilePath](WriteFilePath
 
 #### File Access > Blocked Access
 
-Deny all access to the resource, for example to a folder containing sensitive data. _Blocked Access_ settings take precedence over all other resource access rules. For example, if an exclusion for **C:\Downloads** appears in both _Direct Access_ and _Blocked Access_, the latter will apply, denying all access to the folder.
+Deny all access to the resource, for example to a folder containing sensitive data. When [Rule Specificity](../PlusContent/RuleSpecificity.md) is disabled, a matching _Blocked Access_ rule has classical priority over the other File Access modes. When Rule Specificity is enabled, conflicts are resolved using the specificity and process-match rules, so a more-specific applicable rule can take precedence.
 
 Related [Sandboxie Ini](SandboxieIni.md) settings: [ClosedFilePath](ClosedFilePath.md)
 
@@ -121,7 +123,7 @@ Related [Sandboxie Ini](SandboxieIni.md) settings: [WriteKeyPath](WriteKeyPath.m
 
 #### Registry Access > Blocked Access
 
-Deny all access to a registry key resource, for example to a key containing Windows policy settings. _Blocked Access_ settings take precedence over all other resource access rules. For example, if an exclusion for a registry key appears in both _Direct Access_ and _Blocked Access_, the latter will apply, denying all access to the registry key.
+Deny all access to a registry key resource, for example to a key containing Windows policy settings. When [Rule Specificity](../PlusContent/RuleSpecificity.md) is disabled, a matching _Blocked Access_ rule has classical priority over the other Registry Access modes. When Rule Specificity is enabled, a more-specific applicable rule can take precedence.
 
 Related [Sandboxie Ini](SandboxieIni.md) settings: [ClosedKeyPath](ClosedKeyPath.md)
 
@@ -143,7 +145,7 @@ Related [Sandboxie Ini](SandboxieIni.md) settings: [OpenIpcPath](OpenIpcPath.md)
 
 #### IPC Access > Blocked Access
 
-Deny all access to an IPC object resource. _Blocked Access_ settings take precedence over all other resource access rules. For example, if an exclusion for an IPC object appears in both _Direct Access_ and _Blocked Access_, the latter will apply, denying all access to the object.
+Deny all access to an IPC object resource. Generic IPC object matching compares Closed, Normal, and Open rules. When [Rule Specificity](../PlusContent/RuleSpecificity.md) is disabled, a matching _Blocked Access_ rule has classical priority. When Rule Specificity is enabled, a more-specific applicable Normal or Open IPC rule can take precedence. The separate `ReadIpcPath=$:...` process-target policy does not participate in this generic IPC comparison.
 
 This setting can be used to override default _IPC Access > Direct Access_ settings in Sandboxie, and block the access. For example, by default Sandboxie allows sandboxed programs to access the audio device. To override this and cut off audio output by sandboxed programs, add an exclusion for **\RPC Control\AudioSrv**.
 
