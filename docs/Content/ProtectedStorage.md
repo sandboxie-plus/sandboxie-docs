@@ -1,15 +1,21 @@
 # Protected Storage
 
-Protected Storage (hereafter PStore) was a small memory space available until Windows 7, managed by the system security component, and usable by applications. Applications that needed to store sensitive information, such as passwords, could use PStore rather than implement means to encrypt and protect that information.
+Windows Protected Storage (PStore) is a legacy interface that let applications store user data intended to be protected, such as passwords or other sensitive values, through `PStoreCreateInstance` and the `IPStore` API. It is distinct from the Windows Credential APIs (WinCred) described in [Open Credentials](OpenCredentials.md). These facilities should not be treated as interchangeable names for a modern Windows password store.
 
-Note that PStore memory of one user account is not accessible by another user account; but all programs running in the same user account can see and change information entered into the memory store by any other application.
+In an ordinary sandbox, Sandboxie normally replaces `PStoreCreateInstance` with its own `IPStoreImpl` compatibility implementation. Its data uses sandbox-local backing storage. Current code constructs a `SbiePst.dat` filename under the Windows directory by default, but a build-time filename override is possible and sandbox file virtualization determines the physical location; do not rely on a fixed host path. This implementation provides compatibility for applications using the legacy PStore interface, not an assurance that all Windows credential mechanisms are isolated.
 
-The best application example is Internet Explorer version 6, which uses PStore to store AutoComplete history (such as the Google search box) and passwords in Web forms.
+Sandboxie's default WinCred compatibility layer also uses this PStore implementation as backing storage for intercepted credential modifications. Its read and enumeration paths can still consult the native Windows credential store. See [Open Credentials](OpenCredentials.md) for that important boundary.
 
-(Note that Internet Explorer version 7 still encrypts this information, but no longer uses PStore to do it. Presumably this is an effort to hide the sensitive information from other programs -- most likely spyware that may be running in the same user account.)
+## Data visibility and protection
 
-Sandboxie can provide its own implementation of PStore, for sandboxed applications. This is the default setting, unless altered in [Sandbox Settings > Applications > Web Browser](ApplicationsSettings.md#web-browser).
+Sandboxie's replacement uses a common backing file in the sandboxed Windows path rather than a private PStore file for each application. Access to that file still depends on sandbox and host permissions, so this does not establish visibility across Windows user accounts.
 
-The Sandboxie PStore is stored in the file _SbiePst.dat_ in the **sandboxed** _Windows_ folder.
+The current file format applies a simple reversible transformation to stored blocks, not strong encryption. Treat sandbox data containing PStore items as sensitive. When the backing file remains inside the sandbox, deleting that sandbox's contents removes the local items with it; this does not delete host credentials or data stored through an opened host path.
 
-The Sandboxie implementation of PStore encrypts data using a _much weaker_ method than what the system security component would have done. However, information entered into the Sandboxie PStore will likely disappear quickly, as part of the process of deleting the sandbox.
+## Opening the system implementation
+
+Select the [Open Protected Storage](OpenProtectedStorage.md) template to open the relevant system endpoints. The open protected-storage IPC path causes Sandboxie to skip its replacement PStore hook and also its user-mode WinCred hooks. The old `OpenProtectedStorage=y` Boolean is not the current method.
+
+[Application Compartment](../PlusContent/compartment-mode.md) also skips Sandboxie's PStore replacement hook. The WinCred hooks have separate checks, so compartment mode alone should not be described as automatically enabling `OpenCredentials`.
+
+These compatibility choices do not cover every way a sandboxed application might store or access secrets. See [SBIE2205](SBIE2205.md) for unsupported PStore methods and [SBIE2213](SBIE2213.md) for failure to initialize Sandboxie's credential backing store.
