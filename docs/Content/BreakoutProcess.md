@@ -1,31 +1,20 @@
 # Breakout Process
 
-_BreakoutProcess_  is a sandbox setting in [Sandboxie Ini](SandboxieIni.md) available since v1.0.8 / 5.55.8. It specifies which applications shall run unsandboxed when launched within the sandbox. A combination of this and _ForceProcess_ allows for a simple priority system.
+_BreakoutProcess_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md), available since Sandboxie Plus 1.0.8 / Classic 5.55.8. It identifies an executable that may leave the current sandbox when a sandboxed process tries to start it.
 
-Usage:
-
-```
-   .
-   .
-   .
-   [DefaultBox]
-   BreakoutProcess=ProgramName.exe
-   BreakoutProcess=Program*.exe
-   BreakoutProcess=Program?.exe
-   BreakoutProcess=Pro?ram*.exe
+```ini
+[DefaultBox]
+BreakoutProcess=viewer.exe
 ```
 
-- `*` defines any name after Program (Program0Test1.exe, Program5Test92G.exe and etc.).
-- `?` defines one character from name (Program1.exe, Programg.exe and etc.).
+The value is the executable's **basename**, such as `viewer.exe`. Matching is an exact, case-insensitive comparison. The current breakout implementation does not interpret `*` or `?` as wildcards for this setting, and a full executable path is not supported as its value. SandMan's executable picker also stores the basename.
 
-Also, you can combine several wildcards to match the specified name.
+## Host executable requirement
 
-Specifying _ProgramName_ indicates the application that should be launched unsandboxed. Alternatively, the program's path can be specified.
+The service accepts a matching `BreakoutProcess` launch only if it can open and resolve the target executable as a host file outside the source sandbox's file root. An executable that resolves inside that root, a network/MUP path, or a target that cannot be opened or resolved does not pass this breakout check. This host-file validation is specific to `BreakoutProcess`; do not assume it applies to [Breakout Folder](BreakoutFolder.md).
 
-Priority System:
-If you set a program to breakout from a sandbox and force it to be sandboxed in another, this acts as a useful priority system.
+## Interaction with forced programs
 
-Example:
-Let's say you happen to use your browser as a PDF viewer and have 2 sandboxes "Browser" and "Email". Assume you received a PDF through an email and would rather have the PDF launch a browser tab in the respective "Browser" sandbox rather than the current ("Email") sandbox. You can break out your browser exe in the "Email" sandbox and force it in the "Browser" sandbox.
+Breakout does not guarantee an unsandboxed destination. After accepting the breakout rule, the service can find a matching [Force Process](ForceProcess.md) or [Force Folder](ForceFolder.md) rule in another enabled box and create the process there. If its check resolves back to the source box, the launch follows the normal sandboxed process-creation path instead. Do not rely on a fixed priority when multiple boxes could capture the process.
 
-Check [ForceProcess](ForceProcess.md) for more information.
+This setting affects future process launches, not a process already running in the sandbox. See [Breakout Execution](BreakoutExecution.md) for the service validation, limited returned handles, security implications, and SandMan controls.
