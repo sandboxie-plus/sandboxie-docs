@@ -63,7 +63,7 @@ For `msedge.exe` specifically, the runtime default is `y`. This compatibility ex
 
 `DropChildProcessToken` defaults to `n` and can clear any caller-supplied child token for a selected calling image. The same clearing behavior is hardcoded for images classified as Acrobat Reader or plugin containers. A separate Firefox branch can clear a token for child command lines containing `-sandboxingKind`. These are distinct paths; the old Flash-specific condition is commented out. See [Drop Child Process Token](DropChildProcessToken.md) for the setting's scope.
 
-`DeprecatedTokenHacks` is still queried for an older Edge compatibility branch that may clear a caller-supplied token for selected service-sandbox command lines. It does not re-enable `FakeAppContainerToken` or restore every historical token workaround.
+`DeprecatedTokenHacks` is still queried for a legacy Chromium/Edge compatibility branch, but only outside Application Compartment mode and when `OriginalToken` is disabled. When enabled, this branch can clear the caller-supplied token for a child process if the calling process is classified as Chrome and the child command line contains `--service-sandbox-type`. It does not re-enable `FakeAppContainerToken` or act as a blanket switch for every historical token workaround.
 
 ## Security and configuration
 
