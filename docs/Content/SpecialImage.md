@@ -1,138 +1,82 @@
 # Special Image Classification
 
-_SpecialImage_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md) available since v0.5.3a / 5.45.2. This setting allows you to classify specific executable files as belonging to predefined application categories. Sandboxie uses this classification to apply specialized handling, optimizations, and security measures tailored to each application type. The setting maps application executables to internal image types that trigger category-specific behaviors throughout the sandboxing process.
-
-## Usage
-
-```ini
-[DefaultBox]
-
-SpecialImage=chrome,chrome.exe
-SpecialImage=firefox,firefox.exe
-SpecialImage=mail,outlook.exe
-```
+_SpecialImage_ is a [Sandboxie Ini](SandboxieIni.md) setting that selects an initial compatibility classification for a sandboxed process. The resulting image type is consulted by selected process-creation, file-handling, and GUI compatibility paths. It is not a sandbox security level, token type, or isolation mode, and assigning a category does not guarantee one uniform set of behaviors for every application in it.
 
 ## Syntax
 
 ```ini
-SpecialImage=<category>,<executable>
+[DefaultBox]
+SpecialImage=chrome,mybrowser.exe
+SpecialImage=firefox,anotherbrowser.exe
+SpecialImage=mail,myclient.exe
 ```
 
-Where:
+The format is `SpecialImage=category,program.exe`. Supported categories are `chrome`, `firefox`, `thunderbird`, `browser`, `mail`, `plugin`, and `none`.
 
-- `<category>` is one of the predefined application types
-- `<executable>` is the name of the application executable file (case-insensitive)
+Sandboxie compares `program.exe` with the executable's basename exactly and without regard to case. The first matching _SpecialImage_ entry in the effective configuration wins. This dedicated format does not use the generic program-name prefix rules: wildcard executable names, ProcessGroup selectors, and negated selectors are not supported here.
 
-## Technical Details
+Entries can be configured directly for a box or supplied by applicable templates. Sandboxie's default `SpecialImages` template provides mappings for known browser and mail applications.
 
-When `SpecialImage` is configured, Sandboxie performs application classification during DLL initialization:
+Manual classification can be useful when an application needs the compatibility handling associated with a category but is not recognized by the existing mappings or automatic detection. Check for an existing mapping first, since the first matching entry wins.
 
-1. **Image Type Detection**: During process startup, the system queries all `SpecialImage` configurations and matches the current executable against defined mappings[^1].
+## Supported categories
 
-2. **Internal Classification**: Matched applications are assigned internal image types (such as `DLL_IMAGE_GOOGLE_CHROME` or `DLL_IMAGE_MOZILLA_FIREFOX`) that determine specialized behavior[^2].
+- `chrome` selects the Chrome/Chromium compatibility image type, also used for some Electron-based applications.
+- `firefox` selects the Firefox compatibility image type.
+- `thunderbird` selects the Thunderbird mail image type.
+- `browser` selects the other-web-browser image type.
+- `mail` selects the other-mail-client image type.
+- `plugin` selects the plugin-container image type.
+- `none` suppresses initial fallback classification, subject to the later detection described [below](#the-none-category).
 
-3. **Behavior Customization**: The assigned image type influences various aspects including GUI handling, process restrictions, file access patterns, and security token management[^3].
+These names identify compatibility categories, not a promise that every application assigned to a category receives identical file, GUI, or token treatment.
 
-## Supported Categories
+## Classification order
 
-- **chrome**: Chromium-based browsers and Electron applications
-- **firefox**: Mozilla Firefox and related browsers  
-- **thunderbird**: Mozilla Thunderbird email client
-- **browser**: Other web browsers not based on Chrome or Firefox
-- **mail**: Email clients other than Thunderbird
-- **plugin**: Browser plugin containers and helper processes
+During process initialization, Sandboxie determines the initial image classification in this order:
 
-## Default Configuration
+1. The first matching _SpecialImage_ entry, if any.
+2. Built-in classification of known executable names, if no entry matched.
+3. An early Electron/Chromium file-layout heuristic, if the image is still unclassified and [Use Electron Detection](UseElectronDetection.md) is enabled.
 
-Sandboxie includes extensive default mappings in the `Template_SpecialImages` template:
+_UseElectronDetection_ is enabled by default. These are fallback stages, not checks that necessarily run for every process. Classification primarily selects compatibility-specific behavior for that sandboxed process.
+
+## How the classification is used
+
+The image type is checked by specific compatibility paths; their other conditions and settings still matter. For example:
+
+- Chromium classification is checked before applying configured `CustomChromiumFlags` to an eligible command line. It is also checked by the conditional Chrome Secure Preferences file-handling path and selected window-station or desktop compatibility fallbacks.
+- Firefox classification is checked by selected window-station and desktop fallbacks, a process-creation compatibility case, and a file-open workaround for executable files. These are specific cases, not general permission changes for all Firefox-classified processes.
+- Mail classifications can cause selected mail-program checks to consult `OpenFilePath` configuration, while Chrome, Firefox, and other-browser classifications are explicitly excluded from that mail-program path. This does not establish category-wide filesystem permissions.
+- Plugin classification can affect the token argument used when creating child processes. It does not remove the current plugin process's token or make that process tokenless.
+
+## Default mappings
+
+The default `Template_SpecialImages` configuration provides mappings for known Chromium-family and Firefox-family browsers, other browsers, mail clients, and some Electron/Chromium-based applications. The maintained list can change between releases; the example above is illustrative, not a complete list of template mappings. A program's category is determined by its actual matching entry, not merely by its product name.
+
+## The `none` category
 
 ```ini
-# Chromium-based browsers
-SpecialImage=chrome,chrome.exe
-SpecialImage=chrome,msedge.exe  
-SpecialImage=chrome,brave.exe
-SpecialImage=chrome,vivaldi.exe
-SpecialImage=chrome,opera.exe
-
-# Firefox family
-SpecialImage=firefox,firefox.exe
-SpecialImage=firefox,waterfox.exe
-SpecialImage=firefox,librewolf.exe
-
-# Email clients
-SpecialImage=mail,winmail.exe
-SpecialImage=mail,foxmail.exe
-SpecialImage=mail,mailbird.exe
-
-# Electron applications
-SpecialImage=chrome,slack.exe
-SpecialImage=chrome,spotify.exe
-SpecialImage=chrome,steam.exe
+[DefaultBox]
+SpecialImage=none,example.exe
 ```
 
-## Category-Specific Behaviors
+`none` suppresses the initial built-in and early Electron/Chromium fallback classification for that executable. It does not establish a permanent "never classify" state: later dynamic detection may still classify the process.
 
-- **Chrome Applications**: Receive specialized sandbox handling, custom command line flags via [CustomChromiumFlags](CustomChromiumFlags.md), restricted token management for child processes, and optimized GUI window station handling[^4].
+## Dynamic detection
 
-- **Firefox Applications**: Get tailored file access permissions, specialized D3D11 handling on specific Windows versions, sandbox process token modifications, and customized GUI enumeration behavior[^5].
+`DynamicImageDetection` is enabled by default and is separate from the early _UseElectronDetection_ heuristic. If a process remains unclassified, Sandboxie's loader can later assign a classification when characteristic modules are loaded. This can also happen after an initial _SpecialImage=none_ match.
 
-- **Email Clients**: Receive appropriate file system access permissions and specialized handling for mail database operations.
+## Applying changes
 
-- **Plugin Containers**: Have their process tokens dropped to prevent privilege escalation and receive specialized restricted token handling[^6].
+Initial classification and the dynamic-detection setting are initialized for each sandboxed process. After changing _SpecialImage_, _UseElectronDetection_, or `DynamicImageDetection`, start a new instance of the affected application and its relevant child processes to ensure they use the new configuration. A Windows reboot or Sandboxie service restart is not normally needed.
 
-**Security Implications**
+_SpecialImage_ entries are primarily managed through templates or manual INI configuration; SandMan does not provide a dedicated checkbox for them. SandMan does provide the _UseElectronDetection_ checkbox under **Sandbox Options > Various Options > Compatibility**.
 
-- **Privilege Management**: Applications classified as plugin containers or certain browser types have their security tokens automatically restricted or dropped entirely
-- **Child Process Handling**: Browser applications receive specialized handling for their sandbox child processes, preventing token inheritance issues
-- **File System Access**: Each category receives tailored file system access permissions appropriate to their function
-- **GUI Isolation**: Browser and mail applications get enhanced GUI isolation through specialized window station handling
+_SpecialImage_ was introduced in Sandboxie Plus 0.5.3a / Classic 5.45.2.
 
-## Implementation Notes
+## Related settings
 
-The image type classification system:
-
-- Queries configuration during DLL initialization using `SbieApi_QueryConfAsIs` with indexed access to handle multiple mappings[^7]
-- Performs case-insensitive string matching between the current executable name and configured mappings
-- Falls back to automatic detection for well-known applications if no explicit mapping exists
-- Stores the determined image type globally for use throughout the sandboxing process
-- Influences numerous subsystems including process creation, GUI handling, file access, and security token management
-
-## Usage Examples
-
-- **Electron Application Support**:
-  ```
-  SpecialImage=chrome,discord.exe
-  SpecialImage=chrome,vscode.exe
-  ```
-
-- **Alternative Browser Classification**:
-  ```
-  SpecialImage=chrome,thorium.exe
-  SpecialImage=firefox,librewolf.exe
-  ```
-
-- **Custom Mail Client Support**:
-  ```
-  SpecialImage=mail,myclient.exe
-  ```
-
-## Related Settings
-
-- [CustomChromiumFlags](CustomChromiumFlags.md) - Automatically applies to applications classified as `chrome`
-- [DropChildProcessToken](DropChildProcessToken.md) - Affects behavior of plugin containers and certain browser types
-
-Related Sandboxie Plus setting: Not directly exposed in UI (uses template-defined defaults automatically)
-
-[^1]: Image type detection in `dllmain.c`: The function `Dll_GetImageType` iterates through all `SpecialImage` configurations using indexed queries, parsing the comma-separated category and executable pairs to find matches against the current process executable name.
-
-[^2]: Internal classification mapping in `dllmain.c`: String comparisons map category names to internal constants: "chrome" maps to `DLL_IMAGE_GOOGLE_CHROME`, "firefox" to `DLL_IMAGE_MOZILLA_FIREFOX`, "thunderbird" to `DLL_IMAGE_MOZILLA_THUNDERBIRD`, "browser" to `DLL_IMAGE_OTHER_WEB_BROWSER`, "mail" to `DLL_IMAGE_OTHER_MAIL_CLIENT`, and "plugin" to `DLL_IMAGE_PLUGIN_CONTAINER`.
-
-[^3]: Behavior customization throughout codebase: The assigned image type influences multiple subsystems including GUI window enumeration in `guienum.c`, process creation and token handling in `proc.c`, file access permissions in `file.c`, and specialized browser handling in `kernel.c`.
-
-[^4]: Chrome-specific handling in `kernel.c`: Applications classified as `DLL_IMAGE_GOOGLE_CHROME` receive automatic injection of custom command line flags through the `CustomChromiumFlags` mechanism, with special handling to avoid flag duplication in child processes containing the "--type=" parameter.
-
-[^5]: Firefox-specific optimizations in `guienum.c` and `proc.c`: Firefox applications receive specialized D3D11 graphics handling on Windows 10+, custom sandbox process token management for contentproc children, and tailored GUI window station behavior for better compatibility.
-
-[^6]: Plugin container restrictions in `proc.c`: Applications classified as `DLL_IMAGE_PLUGIN_CONTAINER` automatically have their security tokens dropped entirely during process creation to prevent privilege escalation, along with Adobe Reader and other sandboxed plugin systems.
-
-[^7]: Configuration query mechanism in `dllmain.c`: The system uses `SbieApi_QueryConfAsIs(NULL, L"SpecialImage", index, buf, 90 * sizeof(WCHAR))` with incrementing index values to retrieve all SpecialImage entries, parsing each comma-separated value pair until no more entries exist.
+- [Use Electron Detection](UseElectronDetection.md) controls the early Electron/Chromium heuristic used when the process is still unclassified.
+- [Custom Chromium Flags](CustomChromiumFlags.md) is relevant to Chromium-classified processes.
+- [Drop Child Process Token](DropChildProcessToken.md) is a separate child-process token control; `SpecialImage=plugin` does not drop the current process's token.
