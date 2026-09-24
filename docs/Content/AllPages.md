@@ -294,6 +294,8 @@
 
 [Hide Sandboxie Processes](HideSbieProcesses.md)
 
+[Hook and Loader Compatibility](HookAndLoaderCompatibility.md)
+
 [Hook Trace](HookTrace.md)
 
 [Host Injection](HostInjection.md)
