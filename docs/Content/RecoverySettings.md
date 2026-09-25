@@ -1,12 +1,14 @@
 # Recovery Settings
 
+This page shows the Sandboxie Control / Classic recovery settings. For the current SandMan workflow and the distinction between automatic detection, Quick Recovery scanning, and host-side file moves, see [File Recovery Architecture](RecoveryArchitecture.md).
+
 ### "Recovery" Settings Group
 
 [Sandboxie Control](SandboxieControl.md) > [Sandbox Settings](SandboxSettings.md) > Recovery:
 
 ![](../Media/RecoverySettings.png)
 
-While you can manually explore the contents of the sandbox and extract the files you need, Sandboxie has a [Quick Recovery](QuickRecovery.md) tool that scans particular folders and informs you if any files are available for recovery out of the sandbox. The Recovery group configures this tool.
+While you can manually explore the contents of the sandbox and extract the files you need, Sandboxie has a [Quick Recovery](QuickRecovery.md) tool that scans particular folders and informs you if any files are available for recovery out of the sandbox. The Classic Recovery group configures Quick Recovery locations and Immediate Recovery detection.
 
 * * *
 
@@ -37,9 +39,9 @@ Related [Sandboxie Ini](SandboxieIni.md) setting: [RecoverFolder](RecoverFolder.
 
 ![](../Media/ImmediateRecoverySettings.png)
 
-The Quick Recovery tool scans folders only when invoked, which is either explicitly, or when the sandbox is about to be deleted. [Immediate Recovery](ImmediateRecovery.md) is an extension which notifies you about recoverable files as soon as they are created by a sandboxed program.
+Quick Recovery scans folders when invoked, including through the Classic deletion workflow. [Immediate Recovery](ImmediateRecovery.md) separately detects eligible files during sandboxed file activity and can notify you about them.
 
-This behavior is usually useful and is enabled by default, but it may be disabled if so desired.
+Classic new-box defaults enable this behavior, but it can be disabled. The runtime fallback when `AutoRecover` is absent is disabled; current SandMan's new-box wizard can also explicitly enable it.
 
 It may also be desirable to keep Immediate Recovery enabled, but exclude some file types from Immediate Recovery. For example: You may want to receive Immediate Recovery notifications about document files saved to the (sandboxed) desktop, but not about shortcuts (_.LNK_) files that may be created on the desktop during the installation of sandboxed programs.
 

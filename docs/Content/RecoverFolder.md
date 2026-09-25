@@ -1,6 +1,6 @@
 # Recover Folder
 
-_RecoverFolder_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md). It specifies the sandboxed folders that [Quick Recovery](QuickRecovery.md) should examine. [Shell Folders](ShellFolders.md) may be specified. For example:
+_RecoverFolder_ is a repeatable sandbox setting in [Sandboxie Ini](SandboxieIni.md). It identifies recoverable locations for both [Quick Recovery](QuickRecovery.md) and automatic [Immediate Recovery](ImmediateRecovery.md) detection when `AutoRecover=y`. Effective entries can include enabled templates. [Shell Folders](ShellFolders.md) may be specified. For example:
 ```
    .
    .
@@ -16,8 +16,10 @@ The first two example settings specify that [Quick Recovery](QuickRecovery.md) f
 
 The third example setting specifies that QuickRecovery from the InstallBox sandbox should look in the _Program Files_ folder in drive D.
 
-Note that when [Quick Recovery](QuickRecovery.md) looks in the specified folder, it also looks in any folders within that folder, and any folders within those folders, for as many levels of depth as are needed.
+For a literal directory entry, [Quick Recovery](QuickRecovery.md) scans that folder and its subfolders recursively. Automatic detection instead checks eligible file activity against the configured entries.
 
-Since Sandboxie Plus 1.18.0, folder paths may contain the wildcards `*` (matches any number of characters), `?` (matches a single character), and `**` (matches any number of characters, including path separators). Paths are matched in their NT, DOS, and network-alias forms.
+Since Sandboxie Plus 1.18.0, entries may contain wildcard patterns using `*`, `?`, and `**`. A wildcard entry filters candidate paths; it does not itself establish an arbitrary recursive Quick Recovery scan root. Matching can consider translated NT, DOS, and network-alias paths. The precise pattern handling differs between the process-side detector and SandMan's Quick Recovery list, so do not treat these symbols as a universal filesystem glob grammar.
+
+See [File Recovery Architecture](RecoveryArchitecture.md) for the two consumers and their different lifecycles.
 
 Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Recovery > Quick Recovery](RecoverySettings.md#quick-recovery)
