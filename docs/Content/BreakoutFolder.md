@@ -1,35 +1,18 @@
 # Breakout Folder
 
-_BreakoutFolder_  is a sandbox setting in [Sandboxie Ini](SandboxieIni.md) available since v1.0.8 / 5.55.8. It forces a folder's content to run unsandboxed even if started from inside the sandbox.
+_BreakoutFolder_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md), available since Sandboxie Plus 1.0.8 / Classic 5.55.8. It matches the directory portion of an executable that a sandboxed process is trying to start. It does not make arbitrary access to files in that directory unsandboxed.
 
-Usage:
-
-```
-   .
-   .
-   .
-   [DefaultBox]
-   BreakoutFolder=C:\Downloads
-   BreakoutFolder=E:\
-   BreakoutFolder=C:\App\*
-   BreakoutFolder=C:\App?
-   BreakoutFolder=C:\?pp\*
+```ini
+[DefaultBox]
+BreakoutFolder=C:\Example
+BreakoutFolder=C:\OtherApp\*
+BreakoutFolder=C:\?pp\*
 ```
 
-The first example specifies that any content inside the folder "C:\Downloads" will be launched unsandboxed.
+The first rule matches an executable directly in `C:\Example`, but does not automatically match its subdirectories. The second uses `*` to match executable directories below `C:\OtherApp`; it does not include executables directly in `C:\OtherApp`. Add separate rules when both the directory itself and its subdirectories should match.
 
-Entire drives can also be specified as shown in the second example.
+`BreakoutFolder` uses case-insensitive pattern matching and supports `*` and `?`. For example, `C:\App?` can match a one-character variation of an executable directory name. The combined `C:\?pp\*` example matches directories below a name such as `App`, but not an executable directly in `C:\App`. Match the directory string deliberately: a trailing `\` is not interchangeable with the directory name without that slash. A bare drive-root entry such as `E:\` is not a rule for the entire drive.
 
-The third and fourth lines show basic characters from wildcards.
+For a shortcut launch, the relevant directory is that of the executable actually selected for the new process, not merely the directory containing the shortcut. A shortcut in `C:\Example` pointing to `C:\Tools\viewer.exe` does not match `BreakoutFolder=C:\Example` just because of the shortcut's location. A matching launch may still be captured by another enabled sandbox's [Force Process](ForceProcess.md) or [Force Folder](ForceFolder.md) rule; breakout does not guarantee an unsandboxed destination.
 
-- `*` defines any subfolder beyond App folder (App\1, App\1\1 and etc.).
-- `?` defines a single character from folder (Appa, App8 and etc.) but not subfolders.
-
-Also, you can combine several wildcards to match the specified folder name and subfolders.
-
-NOTE:
- * Shortcuts that link to a program outside the specified folders will be launched sandboxed. For example: if you place a shortcut inside a broken out folder and it links to some program in a non broken out folder, then the shortcut will launch sandboxed.
-
-Check [BreakoutProcess](BreakoutProcess.md) for information on breaking out programs.
-
-Also check [ForceFolder](ForceFolder.md), the counterpart of this setting, which forces a folder's content to launch sandboxed.
+This setting affects future process launches, not existing processes or general file access. See [Breakout Execution](BreakoutExecution.md) for the service validation, security implications, and SandMan controls. Unlike [Breakout Process](BreakoutProcess.md), this rule does not use the service's separate host-file check for the executable.
