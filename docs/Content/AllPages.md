@@ -402,6 +402,8 @@
 
 ### O
 
+[Object Lookup Compatibility](ObjectLookupCompatibility.md)
+
 [Open Clipboard](OpenClipboard.md)
 
 [Open Clsid](OpenClsid.md)
