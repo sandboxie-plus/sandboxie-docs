@@ -530,6 +530,8 @@
 
 [Sandbox Menu](SandboxMenu.md)
 
+[Sandbox Roots and Volume Layout](SandboxRootsVolumeLayout.md)
+
 [Sandbox Settings](SandboxSettings.md)
 
 [Sandboxed Services](SandboxedServices.md)

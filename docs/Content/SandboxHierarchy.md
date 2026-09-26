@@ -8,7 +8,7 @@ Beginning with version 2.80 of Sandboxie, the layout of the sandbox is not tied 
 
 ### Files
 
-Files are created in the _Sandbox_ folder according to the following hierarchy:
+With the default file-layout options, redirected files are organized beneath [FileRootPath](FileRootPath.md) approximately as follows:
 ```
   . FileRootPath
   . . drive
@@ -18,29 +18,36 @@ Files are created in the _Sandbox_ folder according to the following hierarchy:
   . . user
   . . . all
   . . . current
+  . . . public
+  . . share
+  . . . server
+  . . . . share
+  . RegHive
 ```
+
+The `user\public` branch applies where a Public profile is available. [SeparateUserFolders](SeparateUserFolders.md) and the volume-layout options can change these folder names; see [Sandbox Roots and Volume Layout](SandboxRootsVolumeLayout.md).
 
 The [FileRootPath](FileRootPath.md) setting specifies a path to the root of a particular sandbox. In other words, if [FileRootPath](FileRootPath.md) specifies the folder _C:\MySandbox_, then the sub-folders _drive_ and _user_ are created as _C:\MySandbox\drive_ and _C:\MySandbox\user,_ respectively.
 
-If the [FileRootPath](FileRootPath.md) setting is omitted, the [BoxRootFolder](BoxRootFolder.md) setting is used instead. The [Box Root Folder](BoxRootFolder.md) setting specifies a path to a group of sandboxes. In other words, if [Box Root Folder](BoxRootFolder.md) specifies the folder _C:\MySandbox_, then the sub-folders _drive_ and _user_ are created as _C:\MySandbox\Sandbox\DefaultBox\drive_ and _C:\MySandbox\Sandbox\DefaultBox\user,_ respectively, and assuming the sandbox is called DefaultBox. Please note that [BoxRootFolder](BoxRootFolder.md) is a deprecated setting.
+If no effective [FileRootPath](FileRootPath.md) is available, the deprecated [BoxRootFolder](BoxRootFolder.md) is used if present. It supplies a base folder: for a box named DefaultBox and `BoxRootFolder=C:\MySandbox`, the derived file root is `C:\MySandbox\Sandbox\DefaultBox`, with `drive` and, under the default profile layout, `user` beneath it. If neither setting is available, Sandboxie uses its built-in file-root default.
 
 As sandboxed programs create new files or modify existing files, Sandboxie redirects these operations to act on paths that lead into the sandbox. If the sandboxed program was trying to create the file _C:\NEW.TXT_, it will be redirected to create instead _([FileRootPath](FileRootPath.md))\drive\C\NEW.TXT_.
 
 If the sandboxed program was trying to create the file _C:\Users\joe\Documents\NEW.TXT_, it will be redirected to create _([FileRootPath](FileRootPath.md))\user\current\Documents\NEW.TXT_.
 
-Files that are created or modified in or below _profile_ (or _home_) folders, such as _C:\Users\joe_ (on Windows Vista and later) are redirected into the sandboxed _user\current_ folder.
+With `SeparateUserFolders=y` (the default), files created or modified in or below the current user's _profile_ (or _home_) folder, such as _C:\Users\joe_ (on Windows Vista and later), are redirected into the sandboxed _user\current_ folder.
 
-Files that are created or modified in or below the generic (or _All Users_) profile, are redirected into the sandboxed _user\all_ folder.
+Under that same option, files in the generic (or _All Users_) profile use _user\all_; a recognized Public profile can use _user\public_. With `SeparateUserFolders=n`, ordinary local profile paths instead follow the drive layout, such as _drive\C\Users\joe_. Existing content is not moved between these layouts automatically.
 
-Other files that don't match either of the above paths are redirected to the sandboxed _drive\X_ folder, where _X_ would be the drive in which the files were _supposed_ to have been written.
+Other local files normally use the sandboxed _drive\X_ folder, where _X_ is the drive letter for their host volume. With `UseVolumeSerialNumbers=y` and a readable filesystem volume serial, the component becomes, for example, _drive\C~1234-ABCD_. For volumes mounted without a drive letter, the default mapping follows a mounted directory; `UseVolumeGuidWhenNoLetter=y` can instead use _drive\{volume-guid}_.
 
 Files that are created or modified on a remote network share are redirected into the sandboxed _share\\servername\\sharename_ folder.
 
 When a program tries to open a file for which a copy already exists in the sandbox, Sandboxie will redirect the program to the copy of the file that was previously stored in the sandbox. On the other hand, if a copy for the file does not exist in the sandbox, and if the program does not try to modify the file, then Sandboxie will permit read-only access on the original file outside the sandbox. This behavior can be affected with the file-related settings [OpenFilePath](OpenFilePath.md), [ReadFilePath](ReadFilePath.md), and [ClosedFilePath](ClosedFilePath.md).
 
-Note that the _Sandbox_ folder itself resides on one particular drive, so even as sandboxed programs may create and modify files in multiple drives, all these files will end up residing _physically_ in the same drive -- the drive where the _Sandbox_ folder resides.
+For an ordinary directory-backed box, the file root resides on one storage volume. Sandboxed programs may create or modify files that appear to be on several host drives, while their redirected copies are stored beneath that box's file root.
 
-Apart from the two sub-folders, _drive_ and _user_, the _Sandbox_ folder itself contains the file _RegHive_, and typically also _RegHive.LOG_. These hold the sandboxed registry. See below.
+Alongside the file-layout folders, the sandbox root contains _RegHive_ and may contain associated registry-hive log files. These hold the sandboxed registry. See below.
 
 ### Registry
 
