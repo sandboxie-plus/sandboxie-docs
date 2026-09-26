@@ -15,6 +15,27 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/AccessTokenIsolation/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/AddSleepSpeed/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/AddSleepSpeed/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/AddSleepSpeed/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/AddTickSpeed/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/AddTickSpeed/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/AddTickSpeed/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/AddTimerSpeed/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/AddTimerSpeed/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/AddTimerSpeed/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/AdvancedLoaderCompatibility/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -57,6 +78,13 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/AlertProcess/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/AlertStartRunAccessDenied/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/AlertStartRunAccessDenied/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/AlertStartRunAccessDenied/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/AllPages/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -64,11 +92,32 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/AllPages/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/AllowBoxedJobs/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/AllowBoxedJobs/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/AllowBoxedJobs/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/AllowCoverTaskbar/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/AllowCoverTaskbar/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/AllowCoverTaskbar/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/AllowForceSystem/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/AllowForceSystem/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/AllowForceSystem/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/AllowNetworkAccess/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/AllowNetworkAccess/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/AllowNetworkAccess/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/AllowRawDiskRead/</loc>
@@ -83,6 +132,41 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/AllowSpoolerPrintToFile/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/AllowSpoolerPrintToFile/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/AlwaysShowReminder/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/AlwaysShowReminder/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/AlwaysShowReminder/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/AlwaysUseWin32kHooks/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/AlwaysUseWin32kHooks/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/AlwaysUseWin32kHooks/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/ApiSkipTrace/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/ApiSkipTrace/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ApiSkipTrace/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/ApiTrace/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/ApiTrace/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ApiTrace/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/ApiTraceDll/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/ApiTraceDll/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ApiTraceDll/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/AppContainerTokens/</loc>
@@ -111,6 +195,20 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/ApplyElevateCreateProcessFix/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ApplyElevateCreateProcessFix/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/ApproveWin32SysCall/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/ApproveWin32SysCall/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ApproveWin32SysCall/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/ApproveWinNtSysCall/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/ApproveWinNtSysCall/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ApproveWinNtSysCall/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/Arm64ChpeCompatibility/</loc>
@@ -153,6 +251,13 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/AutoRecoverIgnore/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/AutoRecoverIgnore/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/AutoRemove/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/AutoRemove/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/AutoRemove/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/BindAdapter/</loc>
@@ -246,6 +351,13 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/BlockScreenCapture/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/BlockSoftwareUpdaters/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/BlockSoftwareUpdaters/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/BlockSoftwareUpdaters/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/BlockSysParam/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -316,6 +428,13 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/BreakoutDocument/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/BreakoutDocumentProcess/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/BreakoutDocumentProcess/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/BreakoutDocumentProcess/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/BreakoutExecution/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -342,6 +461,20 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/ByteOrderMark/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ByteOrderMark/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/CallTrace/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/CallTrace/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/CallTrace/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/CallTraceEx/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/CallTraceEx/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/CallTraceEx/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/ClosePrintSpooler/</loc>
@@ -384,6 +517,13 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/ClosedRT/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ClosedRT/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/ClsidTrace/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/ClsidTrace/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ClsidTrace/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/CodeInjection/</loc>
@@ -463,6 +603,13 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/CopyNewer/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/CopyTokenAttributes/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/CopyTokenAttributes/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/CopyTokenAttributes/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/CoverBoxedWindows/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -505,11 +652,25 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/CustomLCID/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/DebugTrace/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/DebugTrace/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DebugTrace/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/DefaultFolder/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/DefaultFolder/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DefaultFolder/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/DelayLoadDll/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/DelayLoadDll/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DelayLoadDll/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/Delete-V2/</loc>
@@ -547,6 +708,13 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DeprecatedSandboxieIniSettings/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/DeprecatedTokenHacks/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/DeprecatedTokenHacks/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DeprecatedTokenHacks/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/Description/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -559,6 +727,20 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/DetectingKeyLoggers/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DetectingKeyLoggers/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/DisableBoxedWinSxS/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/DisableBoxedWinSxS/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DisableBoxedWinSxS/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/DisableCHPE/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/DisableCHPE/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DisableCHPE/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/DisableCustomTitleOpt/</loc>
@@ -603,11 +785,53 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DisableRTBlacklist/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/DisableResourceMonitor/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/DisableResourceMonitor/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DisableResourceMonitor/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/DisableWin32Hook/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/DisableWin32Hook/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DisableWin32Hook/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/DisableWinNtHook/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/DisableWinNtHook/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DisableWinNtHook/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/DisabledForceVolume/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/DisabledForceVolume/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DisabledForceVolume/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/DiskSerialNumber/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/DiskSerialNumber/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DiskSerialNumber/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/DllSkipHook/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/DllSkipHook/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DllSkipHook/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/DnsTrace/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/DnsTrace/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DnsTrace/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/DontCopy/</loc>
@@ -622,6 +846,13 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/DropAdminRights/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DropAdminRights/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/DropAppContainerToken/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/DropAppContainerToken/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DropAppContainerToken/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/DropChildProcessToken/</loc>
@@ -666,11 +897,39 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/EnableEFS/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/EnableMiniDump/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/EnableMiniDump/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/EnableMiniDump/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/EnableObjectFiltering/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/EnableObjectFiltering/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/EnableObjectFiltering/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/EnableVerboseChecks/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/EnableVerboseChecks/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/EnableVerboseChecks/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/EnableWin32Hook/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/EnableWin32Hook/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/EnableWin32Hook/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/EnableWin32kHooks/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/EnableWin32kHooks/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/EnableWin32kHooks/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/Enabled/</loc>
@@ -680,11 +939,32 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Enabled/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/ErrorTrace/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/ErrorTrace/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ErrorTrace/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/ExcludeFromTerminateAll/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/ExcludeFromTerminateAll/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ExcludeFromTerminateAll/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/ExpandableVariables/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/ExpandableVariables/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ExpandableVariables/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/ExternalManifestHack/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/ExternalManifestHack/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ExternalManifestHack/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/ExternalTutorials/</loc>
@@ -713,6 +993,13 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/FakeAdminRights/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/FakeAdminRights/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/FakeAppContainerToken/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/FakeAppContainerToken/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/FakeAppContainerToken/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/FeatureComparison/</loc>
@@ -755,6 +1042,13 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/FileRootPath/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/FileRootPath/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/FileTrace/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/FileTrace/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/FileTrace/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/FilesAndFoldersView/</loc>
@@ -825,6 +1119,27 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/ForceProtectionOnMount/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ForceProtectionOnMount/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/ForceRestart/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/ForceRestart/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ForceRestart/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/ForceRestartAll/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/ForceRestartAll/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ForceRestartAll/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/ForceUsbDrives/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/ForceUsbDrives/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ForceUsbDrives/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/ForgetPassword/</loc>
@@ -902,6 +1217,13 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/GettingStartedPartTwo/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/GettingStartedPartTwo/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/GuiTrace/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/GuiTrace/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/GuiTrace/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/HelpMenu/</loc>
@@ -988,6 +1310,34 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/HookTrace/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/HostInjectDll/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/HostInjectDll/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/HostInjectDll/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/HostInjectDll64/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/HostInjectDll64/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/HostInjectDll64/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/HostInjectDllARM64/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/HostInjectDllARM64/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/HostInjectDllARM64/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/HostInjectProcess/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/HostInjectProcess/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/HostInjectProcess/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/HostInjection/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -1007,6 +1357,13 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/HowitWorks/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/HowitWorks/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/IgnoreWin32HookBlacklist/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/IgnoreWin32HookBlacklist/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/IgnoreWin32HookBlacklist/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/ImmediateRecovery/</loc>
@@ -1051,6 +1408,13 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/IpcRootPath/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/IpcTrace/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/IpcTrace/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/IpcTrace/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/IsolationMechanism/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -1065,11 +1429,32 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/JobObjects/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/KeepTokenIntegrity/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/KeepTokenIntegrity/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/KeepTokenIntegrity/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/KeepUserGroup/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/KeepUserGroup/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/KeepUserGroup/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/KeyRootPath/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/KeyRootPath/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/KeyRootPath/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/KeyTrace/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/KeyTrace/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/KeyTrace/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/KnownConflicts/</loc>
@@ -1093,6 +1478,13 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/LingerExemptWnds/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/LingerLeniency/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/LingerLeniency/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/LingerLeniency/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/LingerProcess/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -1114,6 +1506,27 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/LogMessageEvents/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/LowSleepSpeed/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/LowSleepSpeed/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/LowSleepSpeed/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/LowTickSpeed/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/LowTickSpeed/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/LowTickSpeed/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/LowTimerSpeed/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/LowTimerSpeed/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/LowTimerSpeed/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/MarkOfTheWebBox/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -1128,6 +1541,13 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/MessagesFromSandboxie/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/MiniDumpFlags/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/MiniDumpFlags/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/MiniDumpFlags/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/MonitorAdminOnly/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -1135,11 +1555,25 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/MonitorAdminOnly/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/MonitorStackTrace/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/MonitorStackTrace/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/MonitorStackTrace/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/MsiInstallerExemptions/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/MsiInstallerExemptions/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/MsiInstallerExemptions/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/NetFwTrace/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NetFwTrace/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NetFwTrace/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/NetworkAccess/</loc>
@@ -1163,11 +1597,53 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NetworkDnsFilter/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/NetworkEnableWFP/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NetworkEnableWFP/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NetworkEnableWFP/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/NetworkProxyResolveHostnames/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NetworkProxyResolveHostnames/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NetworkProxyResolveHostnames/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/NetworkUseProxy/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NetworkUseProxy/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NetworkUseProxy/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/NeverDelete/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NeverDelete/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NeverDelete/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/NeverRemove/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NeverRemove/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NeverRemove/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/NoAddProcessToJob/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NoAddProcessToJob/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NoAddProcessToJob/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/NoParallelLoading/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NoParallelLoading/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NoParallelLoading/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/NoRenameWinClass/</loc>
@@ -1177,11 +1653,32 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NoRenameWinClass/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/NoRestartOnPCA/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NoRestartOnPCA/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NoRestartOnPCA/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/NoSandboxieConsole/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NoSandboxieConsole/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NoSandboxieConsole/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/NoSandboxieDesktop/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NoSandboxieDesktop/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NoSandboxieDesktop/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/NoSandboxieRpcSs/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NoSandboxieRpcSs/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NoSandboxieRpcSs/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/NoSecurityFiltering/</loc>
@@ -1198,11 +1695,25 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NoSecurityIsolation/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/NoSysCallHooks/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NoSysCallHooks/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NoSysCallHooks/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/NoUACProxy/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NoUACProxy/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NoUACProxy/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/NoUntrustedToken/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NoUntrustedToken/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NoUntrustedToken/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/NormalFilePath/</loc>
@@ -1233,6 +1744,13 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NotificationSettings/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/NotifyBoxProtected/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NotifyBoxProtected/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NotifyBoxProtected/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/NotifyDirectDiskAccess/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -1240,11 +1758,39 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NotifyDirectDiskAccess/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/NotifyForceProcessDisabled/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NotifyForceProcessDisabled/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NotifyForceProcessDisabled/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/NotifyForceProcessEnabled/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NotifyForceProcessEnabled/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NotifyForceProcessEnabled/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/NotifyImageLoadDenied/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NotifyImageLoadDenied/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NotifyImageLoadDenied/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/NotifyInternetAccessDenied/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NotifyInternetAccessDenied/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NotifyInternetAccessDenied/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/NotifyMsiInstaller/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NotifyMsiInstaller/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NotifyMsiInstaller/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/NotifyNoCopy/</loc>
@@ -1259,6 +1805,13 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NotifyProcessAccessDenied/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NotifyProcessAccessDenied/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/NotifyRootProtected/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NotifyRootProtected/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NotifyRootProtected/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/NotifyStartRunAccessDenied/</loc>
@@ -1287,6 +1840,34 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/ObjectLookupCompatibility/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ObjectLookupCompatibility/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/OnBoxDelete/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/OnBoxDelete/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/OnBoxDelete/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/OnBoxTerminate/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/OnBoxTerminate/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/OnBoxTerminate/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/OnFileRecovery/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/OnFileRecovery/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/OnFileRecovery/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/OpenAllSysCalls/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/OpenAllSysCalls/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/OpenAllSysCalls/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/OpenClipboard/</loc>
@@ -1345,6 +1926,13 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/OpenKeyPath/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/OpenLsaEndpoint/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/OpenLsaEndpoint/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/OpenLsaEndpoint/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/OpenPipePath/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -1366,11 +1954,32 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/OpenProtectedStorage/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/OpenSamEndpoint/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/OpenSamEndpoint/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/OpenSamEndpoint/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/OpenWPADEndpoint/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/OpenWPADEndpoint/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/OpenWPADEndpoint/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/OpenWinClass/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/OpenWinClass/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/OpenWinClass/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/OpenWndStation/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/OpenWndStation/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/OpenWndStation/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/OriginalToken/</loc>
@@ -1380,11 +1989,25 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/OriginalToken/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/OverrideOsBuild/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/OverrideOsBuild/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/OverrideOsBuild/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/PaperAnalogy/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/PaperAnalogy/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/PaperAnalogy/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/PipeTrace/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/PipeTrace/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/PipeTrace/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/PlusMigrationGuide/</loc>
@@ -1406,6 +2029,13 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/PortableSandbox/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/PortableSandbox/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/PreferExternalManifest/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/PreferExternalManifest/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/PreferExternalManifest/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/PrivacyConcerns/</loc>
@@ -1625,6 +2255,13 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/RecoverySettings/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/ReplicateToken/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/ReplicateToken/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ReplicateToken/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/ResourceAccess/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -1667,11 +2304,67 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/RpcCompatibility/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/RpcMgmtSetComTimeout/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/RpcMgmtSetComTimeout/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/RpcMgmtSetComTimeout/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/RpcPortBinding/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/RpcPortBinding/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/RpcPortBinding/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/RpcPortBindingIfId/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/RpcPortBindingIfId/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/RpcPortBindingIfId/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/RpcPortBindingSvc/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/RpcPortBindingSvc/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/RpcPortBindingSvc/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/RpcPortFilter/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/RpcPortFilter/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/RpcPortFilter/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/RunCommand/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/RunCommand/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/RunCommand/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/RunRpcssAsSystem/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/RunRpcssAsSystem/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/RunRpcssAsSystem/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/RunServiceAsSystem/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/RunServiceAsSystem/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/RunServiceAsSystem/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/RunServicesAsSystem/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/RunServicesAsSystem/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/RunServicesAsSystem/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/SBIE1101/</loc>
@@ -2696,6 +3389,13 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/SandboxRootsVolumeLayout/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/SandboxService/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/SandboxService/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/SandboxService/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/SandboxSettings/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -2759,6 +3459,13 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/SbieIniCommandLine/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/SbieTrace/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/SbieTrace/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/SbieTrace/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/SecureDeleteSandbox/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -2801,6 +3508,13 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/SkipHook/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/SoftwareUpdater/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/SoftwareUpdater/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/SoftwareUpdater/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/SpecialImage/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -2822,6 +3536,13 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/StartProgram/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/StartRunAlertDenied/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/StartRunAlertDenied/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/StartRunAlertDenied/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/StartService/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -2841,6 +3562,13 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/StripSystemPrivileges/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/StripSystemPrivileges/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/SysCallLockDown/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/SysCallLockDown/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/SysCallLockDown/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/SyscallSettings/</loc>
@@ -2878,11 +3606,137 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/TemplateArchitecture/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/TemplateReject/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/TemplateReject/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/TemplateReject/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/TerminateJobObject/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/TerminateJobObject/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/TerminateJobObject/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/TerminateUsingService/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/TerminateUsingService/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/TerminateUsingService/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/TestEmailConfiguration/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/TestEmailConfiguration/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/TestEmailConfiguration/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.Class/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.Class/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.Class/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.Comment/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.Comment/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.Comment/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.Entry/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.Entry/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.Entry/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.Hide/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.Hide/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.Hide/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.Scan/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.Scan/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.Scan/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.ScanFile/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.ScanFile/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.ScanFile/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.ScanIpc/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.ScanIpc/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.ScanIpc/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.ScanKey/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.ScanKey/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.ScanKey/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.ScanProduct/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.ScanProduct/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.ScanProduct/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.ScanScript/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.ScanScript/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.ScanScript/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.ScanService/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.ScanService/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.ScanService/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.ScanWinClass/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.ScanWinClass/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.ScanWinClass/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.Title/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.Title/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.Title/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.Url/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.Url/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.Url/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.Version/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.Version/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.Version/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/TokenMagic/</loc>
@@ -2899,11 +3753,32 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/TotalMemoryLimit/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/TraceBufferPages/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/TraceBufferPages/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/TraceBufferPages/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/TrayIconMenu/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/TrayIconMenu/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/TrayIconMenu/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/UnRestrictAppContainerToken/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UnRestrictAppContainerToken/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UnRestrictAppContainerToken/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/UnfilteredToken/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UnfilteredToken/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UnfilteredToken/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/UnrestrictedSCM/</loc>
@@ -2913,6 +3788,20 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UnrestrictedSCM/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/UnrestrictedToken/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UnrestrictedToken/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UnrestrictedToken/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/UnstrippedToken/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UnstrippedToken/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UnstrippedToken/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/UsageTips/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -2920,11 +3809,32 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UsageTips/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/UsbSandbox/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UsbSandbox/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UsbSandbox/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/UseAlternateIpcNaming/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UseAlternateIpcNaming/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseAlternateIpcNaming/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/UseAutoRecoverIgnoreForQuick/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UseAutoRecoverIgnoreForQuick/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseAutoRecoverIgnoreForQuick/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/UseChangeSpeed/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UseChangeSpeed/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseChangeSpeed/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/UseChromeSecurePreferencesHack/</loc>
@@ -2941,6 +3851,13 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseDragDropHack/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/UseDriverObjLookup/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UseDriverObjLookup/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseDriverObjLookup/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/UseElectronDetection/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -2953,6 +3870,13 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UseFakeShellDispatch/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseFakeShellDispatch/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/UseFileDeleteV2/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UseFileDeleteV2/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseFileDeleteV2/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/UseFileImage/</loc>
@@ -2969,6 +3893,13 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseNonRudeHwndHack/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/UseObjectNameForKeys/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UseObjectNameForKeys/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseObjectNameForKeys/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/UseOriginalACLs/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -2983,11 +3914,32 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UsePrivacyMode/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/UseProxyThreads/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UseProxyThreads/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseProxyThreads/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/UseRamDisk/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UseRamDisk/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseRamDisk/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/UseRegDeleteV2/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UseRegDeleteV2/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseRegDeleteV2/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/UseRpcMgmtSetComTimeout/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UseRpcMgmtSetComTimeout/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseRpcMgmtSetComTimeout/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/UseRuleSpecificity/</loc>
@@ -3011,6 +3963,13 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseSbieDeskHack/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/UseSbieWndStation/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UseSbieWndStation/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseSbieWndStation/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/UseSecurityMode/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -3025,6 +3984,34 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseShellNotifyIconProxy/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/UseVolumeGuidWhenNoLetter/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UseVolumeGuidWhenNoLetter/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseVolumeGuidWhenNoLetter/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/UseVolumeSerialNumbers/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UseVolumeSerialNumbers/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseVolumeSerialNumbers/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/UseWin32kFilterTable/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UseWin32kFilterTable/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseWin32kFilterTable/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/UseWin32kHooks/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UseWin32kHooks/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseWin32kHooks/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/UserAccountsSettings/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -3037,6 +4024,34 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/ViewMenu/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ViewMenu/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/WaitForDebugger/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/WaitForDebugger/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/WaitForDebugger/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/WaitForDebuggerAll/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/WaitForDebuggerAll/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/WaitForDebuggerAll/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/WaitForDebuggerCmdLine/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/WaitForDebuggerCmdLine/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/WaitForDebuggerCmdLine/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/WaitForDebuggerSilent/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/WaitForDebuggerSilent/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/WaitForDebuggerSilent/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/Win32kHooks/</loc>
@@ -3256,6 +4271,27 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/AccessTokenIsolation/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/AddSleepSpeed/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/AddSleepSpeed/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/AddSleepSpeed/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/AddTickSpeed/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/AddTickSpeed/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/AddTickSpeed/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/AddTimerSpeed/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/AddTimerSpeed/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/AddTimerSpeed/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/AdvancedLoaderCompatibility/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -3298,6 +4334,13 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/AlertProcess/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/AlertStartRunAccessDenied/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/AlertStartRunAccessDenied/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/AlertStartRunAccessDenied/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/AllPages/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -3305,11 +4348,32 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/AllPages/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/AllowBoxedJobs/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/AllowBoxedJobs/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/AllowBoxedJobs/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/AllowCoverTaskbar/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/AllowCoverTaskbar/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/AllowCoverTaskbar/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/AllowForceSystem/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/AllowForceSystem/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/AllowForceSystem/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/AllowNetworkAccess/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/AllowNetworkAccess/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/AllowNetworkAccess/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/AllowRawDiskRead/</loc>
@@ -3324,6 +4388,41 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/AllowSpoolerPrintToFile/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/AllowSpoolerPrintToFile/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/AlwaysShowReminder/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/AlwaysShowReminder/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/AlwaysShowReminder/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/AlwaysUseWin32kHooks/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/AlwaysUseWin32kHooks/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/AlwaysUseWin32kHooks/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ApiSkipTrace/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ApiSkipTrace/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/ApiSkipTrace/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ApiTrace/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ApiTrace/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/ApiTrace/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ApiTraceDll/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ApiTraceDll/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/ApiTraceDll/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/AppContainerTokens/</loc>
@@ -3352,6 +4451,20 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ApplyElevateCreateProcessFix/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/ApplyElevateCreateProcessFix/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ApproveWin32SysCall/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ApproveWin32SysCall/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/ApproveWin32SysCall/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ApproveWinNtSysCall/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ApproveWinNtSysCall/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/ApproveWinNtSysCall/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Arm64ChpeCompatibility/</loc>
@@ -3394,6 +4507,13 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/AutoRecoverIgnore/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/AutoRecoverIgnore/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/AutoRemove/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/AutoRemove/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/AutoRemove/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/BindAdapter/</loc>
@@ -3487,6 +4607,13 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/BlockScreenCapture/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/BlockSoftwareUpdaters/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/BlockSoftwareUpdaters/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/BlockSoftwareUpdaters/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/BlockSysParam/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -3557,6 +4684,13 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/BreakoutDocument/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/BreakoutDocumentProcess/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/BreakoutDocumentProcess/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/BreakoutDocumentProcess/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/BreakoutExecution/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -3583,6 +4717,20 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ByteOrderMark/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/ByteOrderMark/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/CallTrace/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/CallTrace/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/CallTrace/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/CallTraceEx/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/CallTraceEx/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/CallTraceEx/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ClosePrintSpooler/</loc>
@@ -3625,6 +4773,13 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ClosedRT/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/ClosedRT/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ClsidTrace/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ClsidTrace/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/ClsidTrace/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/CodeInjection/</loc>
@@ -3704,6 +4859,13 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/CopyNewer/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/CopyTokenAttributes/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/CopyTokenAttributes/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/CopyTokenAttributes/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/CoverBoxedWindows/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -3746,11 +4908,25 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/CustomLCID/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DebugTrace/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DebugTrace/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/DebugTrace/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DefaultFolder/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DefaultFolder/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/DefaultFolder/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DelayLoadDll/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DelayLoadDll/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/DelayLoadDll/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Delete-V2/</loc>
@@ -3788,6 +4964,13 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/DeprecatedSandboxieIniSettings/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DeprecatedTokenHacks/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DeprecatedTokenHacks/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/DeprecatedTokenHacks/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Description/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -3800,6 +4983,20 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DetectingKeyLoggers/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/DetectingKeyLoggers/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DisableBoxedWinSxS/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DisableBoxedWinSxS/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/DisableBoxedWinSxS/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DisableCHPE/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DisableCHPE/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/DisableCHPE/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DisableCustomTitleOpt/</loc>
@@ -3844,11 +5041,53 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/DisableRTBlacklist/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DisableResourceMonitor/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DisableResourceMonitor/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/DisableResourceMonitor/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DisableWin32Hook/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DisableWin32Hook/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/DisableWin32Hook/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DisableWinNtHook/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DisableWinNtHook/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/DisableWinNtHook/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DisabledForceVolume/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DisabledForceVolume/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/DisabledForceVolume/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DiskSerialNumber/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DiskSerialNumber/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/DiskSerialNumber/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DllSkipHook/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DllSkipHook/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/DllSkipHook/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DnsTrace/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DnsTrace/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/DnsTrace/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DontCopy/</loc>
@@ -3863,6 +5102,13 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DropAdminRights/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/DropAdminRights/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DropAppContainerToken/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DropAppContainerToken/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/DropAppContainerToken/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/DropChildProcessToken/</loc>
@@ -3907,11 +5153,39 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/EnableEFS/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/EnableMiniDump/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/EnableMiniDump/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/EnableMiniDump/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/EnableObjectFiltering/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/EnableObjectFiltering/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/EnableObjectFiltering/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/EnableVerboseChecks/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/EnableVerboseChecks/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/EnableVerboseChecks/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/EnableWin32Hook/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/EnableWin32Hook/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/EnableWin32Hook/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/EnableWin32kHooks/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/EnableWin32kHooks/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/EnableWin32kHooks/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Enabled/</loc>
@@ -3921,11 +5195,32 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/Enabled/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ErrorTrace/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ErrorTrace/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/ErrorTrace/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ExcludeFromTerminateAll/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ExcludeFromTerminateAll/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/ExcludeFromTerminateAll/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ExpandableVariables/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ExpandableVariables/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/ExpandableVariables/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ExternalManifestHack/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ExternalManifestHack/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/ExternalManifestHack/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ExternalTutorials/</loc>
@@ -3954,6 +5249,13 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/FakeAdminRights/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/FakeAdminRights/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/FakeAppContainerToken/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/FakeAppContainerToken/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/FakeAppContainerToken/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/FeatureComparison/</loc>
@@ -3996,6 +5298,13 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/FileRootPath/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/FileRootPath/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/FileTrace/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/FileTrace/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/FileTrace/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/FilesAndFoldersView/</loc>
@@ -4066,6 +5375,27 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ForceProtectionOnMount/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/ForceProtectionOnMount/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ForceRestart/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ForceRestart/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/ForceRestart/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ForceRestartAll/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ForceRestartAll/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/ForceRestartAll/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ForceUsbDrives/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ForceUsbDrives/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/ForceUsbDrives/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ForgetPassword/</loc>
@@ -4143,6 +5473,13 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/GettingStartedPartTwo/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/GettingStartedPartTwo/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/GuiTrace/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/GuiTrace/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/GuiTrace/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/HelpMenu/</loc>
@@ -4229,6 +5566,34 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/HookTrace/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/HostInjectDll/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/HostInjectDll/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/HostInjectDll/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/HostInjectDll64/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/HostInjectDll64/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/HostInjectDll64/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/HostInjectDllARM64/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/HostInjectDllARM64/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/HostInjectDllARM64/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/HostInjectProcess/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/HostInjectProcess/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/HostInjectProcess/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/HostInjection/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -4248,6 +5613,13 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/HowitWorks/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/HowitWorks/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/IgnoreWin32HookBlacklist/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/IgnoreWin32HookBlacklist/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/IgnoreWin32HookBlacklist/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ImmediateRecovery/</loc>
@@ -4292,6 +5664,13 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/IpcRootPath/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/IpcTrace/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/IpcTrace/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/IpcTrace/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/IsolationMechanism/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -4306,11 +5685,32 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/JobObjects/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/KeepTokenIntegrity/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/KeepTokenIntegrity/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/KeepTokenIntegrity/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/KeepUserGroup/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/KeepUserGroup/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/KeepUserGroup/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/KeyRootPath/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/KeyRootPath/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/KeyRootPath/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/KeyTrace/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/KeyTrace/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/KeyTrace/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/KnownConflicts/</loc>
@@ -4334,6 +5734,13 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/LingerExemptWnds/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/LingerLeniency/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/LingerLeniency/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/LingerLeniency/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/LingerProcess/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -4355,6 +5762,27 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/LogMessageEvents/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/LowSleepSpeed/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/LowSleepSpeed/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/LowSleepSpeed/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/LowTickSpeed/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/LowTickSpeed/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/LowTickSpeed/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/LowTimerSpeed/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/LowTimerSpeed/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/LowTimerSpeed/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/MarkOfTheWebBox/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -4369,6 +5797,13 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/MessagesFromSandboxie/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/MiniDumpFlags/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/MiniDumpFlags/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/MiniDumpFlags/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/MonitorAdminOnly/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -4376,11 +5811,25 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/MonitorAdminOnly/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/MonitorStackTrace/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/MonitorStackTrace/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/MonitorStackTrace/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/MsiInstallerExemptions/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/MsiInstallerExemptions/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/MsiInstallerExemptions/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NetFwTrace/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NetFwTrace/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NetFwTrace/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NetworkAccess/</loc>
@@ -4404,11 +5853,53 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NetworkDnsFilter/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NetworkEnableWFP/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NetworkEnableWFP/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NetworkEnableWFP/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NetworkProxyResolveHostnames/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NetworkProxyResolveHostnames/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NetworkProxyResolveHostnames/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NetworkUseProxy/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NetworkUseProxy/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NetworkUseProxy/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NeverDelete/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NeverDelete/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NeverDelete/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NeverRemove/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NeverRemove/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NeverRemove/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NoAddProcessToJob/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NoAddProcessToJob/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NoAddProcessToJob/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NoParallelLoading/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NoParallelLoading/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NoParallelLoading/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NoRenameWinClass/</loc>
@@ -4418,11 +5909,32 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NoRenameWinClass/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NoRestartOnPCA/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NoRestartOnPCA/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NoRestartOnPCA/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NoSandboxieConsole/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NoSandboxieConsole/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NoSandboxieConsole/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NoSandboxieDesktop/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NoSandboxieDesktop/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NoSandboxieDesktop/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NoSandboxieRpcSs/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NoSandboxieRpcSs/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NoSandboxieRpcSs/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NoSecurityFiltering/</loc>
@@ -4439,11 +5951,25 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NoSecurityIsolation/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NoSysCallHooks/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NoSysCallHooks/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NoSysCallHooks/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NoUACProxy/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NoUACProxy/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NoUACProxy/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NoUntrustedToken/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NoUntrustedToken/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NoUntrustedToken/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NormalFilePath/</loc>
@@ -4474,6 +6000,13 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NotificationSettings/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NotifyBoxProtected/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NotifyBoxProtected/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NotifyBoxProtected/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NotifyDirectDiskAccess/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -4481,11 +6014,39 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NotifyDirectDiskAccess/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NotifyForceProcessDisabled/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NotifyForceProcessDisabled/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NotifyForceProcessDisabled/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NotifyForceProcessEnabled/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NotifyForceProcessEnabled/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NotifyForceProcessEnabled/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NotifyImageLoadDenied/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NotifyImageLoadDenied/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NotifyImageLoadDenied/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NotifyInternetAccessDenied/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NotifyInternetAccessDenied/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NotifyInternetAccessDenied/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NotifyMsiInstaller/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NotifyMsiInstaller/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NotifyMsiInstaller/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NotifyNoCopy/</loc>
@@ -4500,6 +6061,13 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NotifyProcessAccessDenied/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NotifyProcessAccessDenied/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NotifyRootProtected/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NotifyRootProtected/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NotifyRootProtected/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NotifyStartRunAccessDenied/</loc>
@@ -4528,6 +6096,34 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ObjectLookupCompatibility/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/ObjectLookupCompatibility/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/OnBoxDelete/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/OnBoxDelete/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/OnBoxDelete/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/OnBoxTerminate/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/OnBoxTerminate/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/OnBoxTerminate/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/OnFileRecovery/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/OnFileRecovery/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/OnFileRecovery/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/OpenAllSysCalls/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/OpenAllSysCalls/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/OpenAllSysCalls/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/OpenClipboard/</loc>
@@ -4586,6 +6182,13 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/OpenKeyPath/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/OpenLsaEndpoint/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/OpenLsaEndpoint/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/OpenLsaEndpoint/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/OpenPipePath/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -4607,11 +6210,32 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/OpenProtectedStorage/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/OpenSamEndpoint/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/OpenSamEndpoint/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/OpenSamEndpoint/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/OpenWPADEndpoint/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/OpenWPADEndpoint/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/OpenWPADEndpoint/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/OpenWinClass/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/OpenWinClass/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/OpenWinClass/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/OpenWndStation/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/OpenWndStation/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/OpenWndStation/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/OriginalToken/</loc>
@@ -4621,11 +6245,25 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/OriginalToken/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/OverrideOsBuild/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/OverrideOsBuild/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/OverrideOsBuild/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/PaperAnalogy/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/PaperAnalogy/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/PaperAnalogy/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/PipeTrace/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/PipeTrace/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/PipeTrace/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/PlusMigrationGuide/</loc>
@@ -4647,6 +6285,13 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/PortableSandbox/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/PortableSandbox/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/PreferExternalManifest/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/PreferExternalManifest/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/PreferExternalManifest/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/PrivacyConcerns/</loc>
@@ -4866,6 +6511,13 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/RecoverySettings/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ReplicateToken/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ReplicateToken/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/ReplicateToken/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ResourceAccess/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -4908,11 +6560,67 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/RpcCompatibility/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/RpcMgmtSetComTimeout/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/RpcMgmtSetComTimeout/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/RpcMgmtSetComTimeout/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/RpcPortBinding/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/RpcPortBinding/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/RpcPortBinding/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/RpcPortBindingIfId/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/RpcPortBindingIfId/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/RpcPortBindingIfId/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/RpcPortBindingSvc/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/RpcPortBindingSvc/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/RpcPortBindingSvc/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/RpcPortFilter/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/RpcPortFilter/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/RpcPortFilter/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/RunCommand/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/RunCommand/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/RunCommand/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/RunRpcssAsSystem/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/RunRpcssAsSystem/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/RunRpcssAsSystem/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/RunServiceAsSystem/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/RunServiceAsSystem/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/RunServiceAsSystem/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/RunServicesAsSystem/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/RunServicesAsSystem/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/RunServicesAsSystem/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/SBIE1101/</loc>
@@ -5937,6 +7645,13 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/SandboxRootsVolumeLayout/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/SandboxService/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/SandboxService/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/SandboxService/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/SandboxSettings/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -6000,6 +7715,13 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/SbieIniCommandLine/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/SbieTrace/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/SbieTrace/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/SbieTrace/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/SecureDeleteSandbox/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -6042,6 +7764,13 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/SkipHook/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/SoftwareUpdater/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/SoftwareUpdater/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/SoftwareUpdater/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/SpecialImage/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -6063,6 +7792,13 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/StartProgram/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/StartRunAlertDenied/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/StartRunAlertDenied/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/StartRunAlertDenied/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/StartService/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -6082,6 +7818,13 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/StripSystemPrivileges/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/StripSystemPrivileges/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/SysCallLockDown/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/SysCallLockDown/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/SysCallLockDown/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/SyscallSettings/</loc>
@@ -6119,11 +7862,137 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/TemplateArchitecture/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/TemplateReject/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/TemplateReject/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/TemplateReject/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/TerminateJobObject/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/TerminateJobObject/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/TerminateJobObject/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/TerminateUsingService/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/TerminateUsingService/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/TerminateUsingService/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/TestEmailConfiguration/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/TestEmailConfiguration/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/TestEmailConfiguration/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.Class/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.Class/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.Class/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.Comment/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.Comment/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.Comment/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.Entry/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.Entry/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.Entry/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.Hide/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.Hide/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.Hide/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.Scan/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.Scan/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.Scan/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.ScanFile/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.ScanFile/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.ScanFile/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.ScanIpc/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.ScanIpc/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.ScanIpc/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.ScanKey/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.ScanKey/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.ScanKey/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.ScanProduct/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.ScanProduct/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.ScanProduct/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.ScanScript/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.ScanScript/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.ScanScript/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.ScanService/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.ScanService/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.ScanService/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.ScanWinClass/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.ScanWinClass/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.ScanWinClass/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.Title/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.Title/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.Title/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.Url/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.Url/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.Url/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.Version/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Tmpl.Version/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/Tmpl.Version/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/TokenMagic/</loc>
@@ -6140,11 +8009,32 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/TotalMemoryLimit/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/TraceBufferPages/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/TraceBufferPages/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/TraceBufferPages/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/TrayIconMenu/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/TrayIconMenu/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/TrayIconMenu/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UnRestrictAppContainerToken/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UnRestrictAppContainerToken/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UnRestrictAppContainerToken/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UnfilteredToken/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UnfilteredToken/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UnfilteredToken/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UnrestrictedSCM/</loc>
@@ -6154,6 +8044,20 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UnrestrictedSCM/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UnrestrictedToken/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UnrestrictedToken/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UnrestrictedToken/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UnstrippedToken/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UnstrippedToken/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UnstrippedToken/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UsageTips/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -6161,11 +8065,32 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UsageTips/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UsbSandbox/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UsbSandbox/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UsbSandbox/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseAlternateIpcNaming/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseAlternateIpcNaming/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UseAlternateIpcNaming/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseAutoRecoverIgnoreForQuick/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseAutoRecoverIgnoreForQuick/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UseAutoRecoverIgnoreForQuick/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseChangeSpeed/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseChangeSpeed/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UseChangeSpeed/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseChromeSecurePreferencesHack/</loc>
@@ -6182,6 +8107,13 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UseDragDropHack/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseDriverObjLookup/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseDriverObjLookup/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UseDriverObjLookup/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseElectronDetection/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -6194,6 +8126,13 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseFakeShellDispatch/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UseFakeShellDispatch/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseFileDeleteV2/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseFileDeleteV2/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UseFileDeleteV2/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseFileImage/</loc>
@@ -6210,6 +8149,13 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UseNonRudeHwndHack/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseObjectNameForKeys/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseObjectNameForKeys/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UseObjectNameForKeys/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseOriginalACLs/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -6224,11 +8170,32 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UsePrivacyMode/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseProxyThreads/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseProxyThreads/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UseProxyThreads/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseRamDisk/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseRamDisk/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UseRamDisk/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseRegDeleteV2/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseRegDeleteV2/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UseRegDeleteV2/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseRpcMgmtSetComTimeout/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseRpcMgmtSetComTimeout/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UseRpcMgmtSetComTimeout/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseRuleSpecificity/</loc>
@@ -6252,6 +8219,13 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UseSbieDeskHack/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseSbieWndStation/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseSbieWndStation/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UseSbieWndStation/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseSecurityMode/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -6266,6 +8240,34 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UseShellNotifyIconProxy/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseVolumeGuidWhenNoLetter/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseVolumeGuidWhenNoLetter/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UseVolumeGuidWhenNoLetter/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseVolumeSerialNumbers/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseVolumeSerialNumbers/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UseVolumeSerialNumbers/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseWin32kFilterTable/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseWin32kFilterTable/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UseWin32kFilterTable/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseWin32kHooks/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UseWin32kHooks/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/UseWin32kHooks/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/UserAccountsSettings/</loc>
         <lastmod>2026-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -6278,6 +8280,34 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/ViewMenu/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/ViewMenu/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/WaitForDebugger/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/WaitForDebugger/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/WaitForDebugger/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/WaitForDebuggerAll/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/WaitForDebuggerAll/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/WaitForDebuggerAll/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/WaitForDebuggerCmdLine/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/WaitForDebuggerCmdLine/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/WaitForDebuggerCmdLine/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/WaitForDebuggerSilent/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/WaitForDebuggerSilent/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/WaitForDebuggerSilent/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/Win32kHooks/</loc>
