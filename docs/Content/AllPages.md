@@ -32,6 +32,8 @@
 
 [Applying a Supporter Certificate](../PlusContent/applying-supporter-certificate.md)
 
+[ARM64 and CHPE Compatibility](Arm64ChpeCompatibility.md)
+
 [Auto Delete](AutoDelete.md)
 
 [Auto Delete Snapshot Target](AutoDeleteSnapshotTarget.md)
