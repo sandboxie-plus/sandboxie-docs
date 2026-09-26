@@ -230,6 +230,8 @@
 
 [File Migration Settings](FileMigrationSettings.md)
 
+[File Recovery Architecture](RecoveryArchitecture.md)
+
 [File Root Path](FileRootPath.md)
 
 [Files And Folders View](FilesAndFoldersView.md)
