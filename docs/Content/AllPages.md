@@ -526,6 +526,8 @@
 
 ### S
 
+[Sandbox Deletion and Removal Lifecycle](SandboxRemoval.md)
+
 [Sandbox Desktop and Window Station](SandboxDesktop.md)
 
 [Sandbox Hierarchy](SandboxHierarchy.md)
