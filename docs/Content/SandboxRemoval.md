@@ -7,6 +7,7 @@ Deleting sandbox contents and removing a sandbox definition are different operat
 | **Delete Contents** (clean the box) | Discards or resets stored sandbox changes while retaining the sandbox definition. With retained snapshots, the resulting state may be a saved snapshot rather than an empty directory. |
 | **Remove Sandbox** | Removes the sandbox definition. Ordinary manual removal first handles its stored contents; removal can fail if the storage is not empty. |
 
+**File-root scope:** For ordinary boxes, **Delete Contents** and **Remove Sandbox** operate on the currently resolved file root. Changing [FileRootPath](FileRootPath.md) does not move data from the previous root, so files left there are not cleaned up by those operations. Quick Recovery scans the current root, not the previous one. Handle old-root data separately before changing roots.
 ## Automatic content cleanup
 
 [`AutoDelete=y`](AutoDelete.md) asks SandMan to clean the contents when it observes a previously active box reach zero running processes. The setting is off when absent. It does **not** itself remove the sandbox definition. On the normal box-close path, SandMan runs [`OnBoxTerminate`](SandManTriggers.md#onboxterminate) first, then checks `NeverDelete` and `AutoDelete`. If cleanup is eligible, [recovery](QuickRecovery.md) may offer recoverable files before deletion; cancelling that workflow stops this cleanup, while no visible recoverable files can allow it to continue silently. Recovery is not a guarantee that every valuable file will be found.
