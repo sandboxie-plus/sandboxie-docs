@@ -4783,6 +4783,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#error-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error Codes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typical-causes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -5699,31 +5710,51 @@
 <p><strong>Severity</strong>: Error (popup)</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>In some builds the explicit <code>SBIE2328</code> popup is disabled in the hook installer. In that case the unresolved hook is recorded in the hook monitor / trace output (the monitor message includes "Chrome Hook Unresolved") and in hook statistics rather than showing a user-facing popup. If you do not see a popup, check the Monitor/Trace output, the resource/monitor windows in Sandboxie Manager, or enable API/hook tracing to collect diagnostic details.<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup><sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
+<p>The current hook installer logs <code>SBIE2328</code> when browser-hook resolution fails. It also records "Chrome Hook Unresolved" in the hook monitor output for calls through <code>SbieDll_Hook</code>; enabling API/hook tracing is not required for this failure record.<sup id="fnref5:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
 </div>
 <h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link"></a></h2>
-<p>This message indicates that Sandboxie's DLL hook code attempted to detect or follow a browser (Chromium/Chrome-derived or Firefox) runtime hook but was unable to resolve the target address. The message includes the name of the function it tried to resolve.</p>
-<p>Sandboxie contains heuristic logic that recognises the way some browsers install an in-process hook (a small trampoline that jumps to a table of function pointers). When the pattern is recognised, Sandboxie will try to locate the real target function and hook it instead of the small trampoline. If that resolution fails, <code>SBIE2328</code> is raised.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
+<p>This message indicates that Sandboxie's DLL hook code attempted to follow a recognised browser (Chromium/Chrome-derived or Firefox) runtime hook but could not resolve a usable target address. The message includes the function name and an error code, for example <code>NtMapViewOfSection (1)</code>.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup><sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
+<p>Sandboxie contains heuristic logic that recognises the way some browsers install an in-process hook (a small trampoline that jumps to an interceptor). When the pattern is recognised, Sandboxie tries to locate the saved original target function and hook it instead of the small trampoline. If resolution fails or the returned address fails validation, <code>SBIE2328</code> is logged.<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup><sup id="fnref2:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
+<h2 id="error-codes">Error Codes<a class="headerlink" href="#error-codes" title="Permanent link"></a></h2>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>1</code></td>
+<td><code>Hook_CheckChromeHook</code> returned its failure sentinel, <code>(void*)-1</code>: a recognised browser-hook path did not yield a usable saved original target. This does <strong>not</strong> mean that the named API export is missing.</td>
+</tr>
+<tr>
+<td><code>2</code></td>
+<td>The scanner returned an address, but <code>Hook_IsCodeAddress</code> rejected it. <code>VirtualQuery</code> failed, or the address was not in committed executable memory, or its protection included <code>PAGE_GUARD</code> or <code>PAGE_NOACCESS</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>The x64 and ARM64 scanners already validate their scan regions, pointer slots and resolved targets. A candidate rejected inside those scanners can therefore result in code <code>1</code>; code <code>2</code> is the separate final check in the DLL hook installer. The code alone does not identify the exact instruction or pointer that failed.<sup id="fnref3:1"><a class="footnote-ref" href="#fn:1">1</a></sup><sup id="fnref3:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
+<p>If no supported outer trampoline pattern is recognised, the helper returns <code>NULL</code> and this path does not log <code>SBIE2328</code>. On either error code, Sandboxie retains the original source address and continues attempting to install its hook there. The message does not by itself mean that the subsequent hook installation failed.<sup id="fnref4:1"><a class="footnote-ref" href="#fn:1">1</a></sup><sup id="fnref4:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
 <h2 id="typical-causes">Typical Causes<a class="headerlink" href="#typical-causes" title="Permanent link"></a></h2>
 <ul>
-<li>The browser or target module changed its internal code layout (new version), so the heuristic no longer finds the expected instruction pattern.<sup id="fnref3:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
-<li>The target module is packed, obfuscated, or compiled with a different toolchain, preventing recognition of the expected pattern.</li>
-<li>The detected trampoline points at data or code that is not reachable or not in the expected format (for example, a different calling convention or relocated data).</li>
-<li>A platform/architecture difference (x86 vs x64 vs ARM) where available heuristics do not cover the observed pattern.<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></li>
+<li>The browser or target module changed its internal code layout, so the scanner no longer finds the expected saved-original instruction pattern.<sup id="fnref5:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
+<li>A scan region or pointer slot fails memory validation, the saved pointer is null, or a candidate target is not executable.<sup id="fnref6:1"><a class="footnote-ref" href="#fn:1">1</a></sup><sup id="fnref6:2"><a class="footnote-ref" href="#fn:2">2</a></sup></li>
+<li>A recognised trampoline leads to an interceptor layout that the architecture-specific scanner does not support.<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></li>
 </ul>
 <h2 id="suggested-actions">Suggested Actions<a class="headerlink" href="#suggested-actions" title="Permanent link"></a></h2>
 <ol>
 <li>Update Sandboxie to the latest release. Hook heuristics are occasionally updated to match browser changes.<sup id="fnref2:3"><a class="footnote-ref" href="#fn:3">3</a></sup></li>
-<li>If the issue occurs only for a specific browser version or vendor (Chrome, Vivaldi, some Firefox builds), test with a different browser build or disable Sandboxie hook tracing for that module.</li>
-<li>If you need to avoid the failure temporarily, configure the process or function to be skipped by the hook system using the <code>FuncSkipHook</code> or <code>SkipHook</code> settings (see advanced configuration). This prevents Sandboxie from attempting the Chrome-specific resolution for that function.</li>
-<li>Collect diagnostic information (module name, function name, process image) and open an issue with Sandboxie maintainers so they can adjust the heuristic or add explicit support for the new browser layout.</li>
+<li>If the issue occurs only for a specific browser version or vendor, compare with another browser build. Disabling API/hook tracing does not disable this resolution path or fix the failure.<sup id="fnref7:2"><a class="footnote-ref" href="#fn:2">2</a></sup></li>
+<li>Collect the complete message, including the function name and error code, plus the Sandboxie version, browser version, process image, architecture and module name. Include the hook monitor output when reporting the issue to Sandboxie maintainers.</li>
+<li>Do not treat <code>FuncSkipHook</code> or <code>SkipHook</code> as a general fix. <code>FuncSkipHook</code> bypasses the hook entirely for matching function names in <code>SbieDll_Hook</code>, not just browser-target resolution; <code>SkipHook</code> is honoured only by callers that check <code>Dll_SkipHook</code>. Skipping hooks changes Sandboxie's interception behaviour and should be used only for a targeted diagnostic recommended by maintainers.<sup id="fnref8:2"><a class="footnote-ref" href="#fn:2">2</a></sup></li>
 </ol>
 <h2 id="related-messages-and-settings">Related Messages and Settings<a class="headerlink" href="#related-messages-and-settings" title="Permanent link"></a></h2>
 <ul>
-<li><a href="SBIE2303.html">SBIE2303</a> — Generic hook error used for a variety of hook failures.</li>
-<li><a href="SBIE2329.html">SBIE2329</a> — Failed to find a Fast-Forward Sequence (FFS) target or other hook-related resolution problems.</li>
-<li><a href="FuncSkipHook.html">FuncSkipHook</a> - Function-level setting: a list of API function names that Sandboxie should not attempt to hook. When a function matches an entry here the hook installer skips it.</li>
-<li><a href="SkipHook.html">SkipHook</a> - Module/hook-name level setting: comma-separated module or image names and hook identifiers used to skip hooking for specific modules. This is consulted by callers that check <code>Dll_SkipHook</code> and prevents module-specific hooks where honored (note: not every hook-install path necessarily queries this setting).</li>
+<li><a href="SBIE2303.html">SBIE2303</a> - Generic hook error used for a variety of hook failures.</li>
+<li><a href="SBIE2329.html">SBIE2329</a> - Failed to find a Fast-Forward Sequence (FFS) target on the ARM64EC hook path.</li>
+<li><a href="FuncSkipHook.html">FuncSkipHook</a> - Function-name setting consulted before hook installation by <code>SbieDll_Hook</code>.</li>
+<li><a href="SkipHook.html">SkipHook</a> - Process-specific list of hook identifiers consulted by callers of <code>Dll_SkipHook</code>; it is not a universal module-level bypass.</li>
 </ul>
 <h2 id="implementation-notes-and-footnotes">Implementation Notes and Footnotes<a class="headerlink" href="#implementation-notes-and-footnotes" title="Permanent link"></a></h2>
 <p>Technical details below are intended for maintainers and advanced users who want to trace how the message can be generated. Exact line numbers are intentionally omitted.</p>
@@ -5731,13 +5762,13 @@
 <hr />
 <ol>
 <li id="fn:1">
-<p>The hook-resolution logic is implemented in <code>common/hook_util.c</code> in the function <code>Hook_CheckChromeHook(...)</code>. This code scans the machine instructions of the suspected trampoline and attempts to locate a table or pointer to the real target (separate logic exists for x86, x64 and ARM variants). If the pattern matching finds nothing usable it returns a special failure value which indicates the unresolved state.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>The hook-resolution logic is implemented in <code>Sandboxie/common/hook_util.c</code>, in <code>Hook_CheckChromeHook(...)</code> and its architecture-specific scanners. A recognised browser-hook path whose scanner cannot resolve a target returns <code>(void*)-1</code>; no matching outer pattern returns <code>NULL</code>. The x64 and ARM64 scanners use memory-query helpers to bound instruction reads, validate pointer slots and accept executable targets. The x64 Firefox path uses the exported <code>g_originals</code> range and can follow one validated image-local stub pointer.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref4:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref5:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref6:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>In <code>core/dll/dllhook.c</code>, Sandboxie's hook installer calls <code>Hook_CheckChromeHook(...)</code>. If the helper returns the special failure value, the code marks the hook with a <code>CHROME_FAIL</code> status and may emit <code>SBIE2328</code> (the code path for this message is present beside the CHROME resolution logic). The hook code also records hook statistics (<code>HOOK_STAT_CHROME_FAIL</code>) to aid diagnostics.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>In <code>Sandboxie/core/dll/dllhook.c</code>, <code>SbieDll_HookFunc(...)</code> calls <code>Hook_CheckChromeHook(...)</code>, assigns code <code>1</code> for <code>(void*)-1</code>, or code <code>2</code> when <code>Hook_IsCodeAddress(...)</code> rejects a returned address. On either error it calls <code>SbieApi_Log(2328, _fmt1, SourceFuncName, ChromeError)</code>, where <code>_fmt1</code> is <code>%s (%d)</code>, and sets <code>HOOK_STAT_CHROME_FAIL</code> when statistics are supplied. It retains <code>SourceFunc</code> and proceeds to the architecture-specific hook installer. <code>SbieDll_Hook(...)</code> emits "Chrome Hook Unresolved" through <code>SbieApi_MonitorPutMsg(...)</code> for this failure flag even without <code>Dll_HookTrace</code>. The same file implements <code>SbieDll_FuncSkipHook(...)</code> and <code>Dll_SkipHook(...)</code>.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref4:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref5:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref6:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref7:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref8:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p>The heuristics cover multiple browsers (Chrome, Chromium derivatives, and some Firefox/launcher variants) and multiple architectures; when browsers change their build toolchain or internal layout this logic requires updates. Providing the module image and function name helps maintainers reproduce and update the detection code.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>The heuristics cover supported Chromium/Firefox hook layouts on x86, x64 and ARM64, rather than every possible browser trampoline. Browser layout changes can require scanner updates. The current x64 code includes Chrome's R15 saved-original load and a bounded Firefox one-hop resolver.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
