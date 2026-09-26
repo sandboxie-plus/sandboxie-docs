@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="SeparateUserFolders is a sandbox setting in Sandboxie Ini available since v0.2.2 / 5.41.2. It specifies whether user profile files will be stored separately in the sandbox.">
+        <meta name="description" content="SeparateUserFolders is a sandbox setting in Sandboxie Ini, available since Sandboxie Plus 0.2.2 / Classic 5.41.2. It selects how redirected user-profile files are organized beneath FileRootPath. The runtime default is y.">
       
       
       
@@ -5585,15 +5585,13 @@
 
 
 <h1 id="separate-user-folders">Separate User Folders<a class="headerlink" href="#separate-user-folders" title="Permanent link"></a></h1>
-<p><em>SeparateUserFolders</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a> available since v0.2.2 / 5.41.2. It specifies whether user profile files will be stored separately in the sandbox.</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">SeparateUserFolders</span><span class="o">=</span><span class="s">n</span>
+<p><em>SeparateUserFolders</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>, available since Sandboxie Plus 0.2.2 / Classic 5.41.2. It selects how redirected user-profile files are organized beneath <a href="FileRootPath.html">FileRootPath</a>. The runtime default is <code>y</code>.</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">SeparateUserFolders</span><span class="o">=</span><span class="s">n</span>
 </span></code></pre></div>
-<p>The setting in the example will result in user profile files no longer being stored separately in the sandbox.</p>
-<p>Related Sandboxie Plus setting: Sandbox Options &gt; File Options &gt; Separate user folders</p>
+<p>With <code>y</code>, Sandboxie maps recognized profile locations to portable folders such as <code>user\current</code>, <code>user\all</code>, and, where available, <code>user\public</code>. With <code>n</code>, it does not set up those special mappings. An ordinary local profile path then uses the drive layout, for example <code>drive\C\Users\...</code>. The setting does not alter Windows user profiles or account permissions.</p>
+<p>The SandMan checkbox is <strong>Sandbox Options &gt; File Options &gt; Separate user folders</strong>. It is unavailable when the box is not empty. Changing the setting does not migrate files between <code>user\...</code> and <code>drive\...</code>; use it on an empty box. If existing data must be preserved, handle it separately rather than assuming the setting will migrate it.</p>
+<p>Sandboxie reads this option while initializing file handling in each sandboxed process. Restart affected processes after changing it; existing processes do not rebuild their profile mapping automatically. See <a href="SandboxRootsVolumeLayout.html">Sandbox Roots and Volume Layout</a> and <a href="SandboxHierarchy.html">Sandbox Hierarchy</a>.</p>
 
 
 

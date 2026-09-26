@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Sandboxie prior to build 5.55.0 handled rules exclusively in a very simple way, a path may be Closed, Read Only, Write Only, or Open and the priority of rule application was the same, when a closed rule matched a particular path it overruled all other rules.">
+        <meta name="description" content="Sandboxie can evaluate conflicting File, Registry, and IPC resource rules in two modes. Classical evaluation gives fixed priority to access modes. Specificity-based evaluation compares the process selector and the resource-pattern match before deciding which access mode applies.">
       
       
       
@@ -5585,11 +5585,183 @@
 
 
 <h1 id="rule-specificity">Rule Specificity<a class="headerlink" href="#rule-specificity" title="Permanent link"></a></h1>
-<p>Sandboxie prior to build 5.55.0 handled rules exclusively in a very simple way, a path may be <a href="../Content/ClosedFilePath.html">Closed</a>, <a href="../Content/ReadFilePath.html">Read Only</a>, <a href="../Content/WriteFilePath.html">Write Only</a>, or <a href="../Content/OpenFilePath.html">Open</a> and the priority of rule application was the same, when a closed rule matched a particular path it overruled all other rules.</p>
-<p>Starting with build 1.0.0, Sandboxie-Plus has introduced a new mechanism to evaluate and apply rules, based on how specific they are and which match level they have.</p>
-<p>The rule specificity is a measure to how well a given rule matches a particular path, simply put the specificity is the length of characters from the begin of the path up to and including the last matching non-wildcard substring. A rule which matches only file types like "*.tmp" would have the highest specificity as it would always match the entire file path.</p>
-<p>The process match level has a higher priority than the specificity and describes how a rule applies to a given process. Rules applying by process name or group have the strongest match level, followed by the match by negation (i.e. rules applying to all processes but the given one), while the lowest match levels have global matches, i.e. rules that apply to any process.</p>
-<p>For this feature, a new type of path directive has been introduced <a href="../Content/NormalFilePath.html">Normal</a>, which allows to restore default sandboxing behaviour for a path whose parent have been set to one of the prior 4 types.</p>
+<p>Sandboxie can evaluate conflicting File, Registry, and IPC resource rules in two modes. Classical evaluation gives fixed priority to access modes. Specificity-based evaluation compares the process selector and the resource-pattern match before deciding which access mode applies.</p>
+<p>These are separate parts of the decision:</p>
+<ul>
+<li>the <strong>process selector</strong> determines which program-specific form of a rule matches;</li>
+<li>the <strong>resource pattern</strong> determines how the configured path or object name matches the requested resource;</li>
+<li>the <strong>access mode</strong> determines the action represented by the winning rule, such as Closed, Read, Write, Normal, or Open.</li>
+</ul>
+<p>Rule Specificity does not reduce these parts to a simple "longest rule wins" calculation.</p>
+<h2 id="when-specificity-based-evaluation-is-enabled">When specificity-based evaluation is enabled<a class="headerlink" href="#when-specificity-based-evaluation-is-enabled" title="Permanent link"></a></h2>
+<p>The effective state is:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>RestrictDevices OR UsePrivacyMode OR UseRuleSpecificity
+</span></code></pre></div>
+<p><code>UseSecurityMode=y</code> enables the device-restriction behavior and therefore also enables Rule Specificity. Consequently, explicitly setting <code>UseRuleSpecificity=n</code> does not turn specificity off while Privacy Mode or Restrict Devices is active.</p>
+<p>In an ordinary sandbox where none of those options enables the feature, classical evaluation is used. See <a href="../Content/UseRuleSpecificity.html">Use Rule Specificity</a> for configuration and SandMan behavior.</p>
+<h2 id="classical-evaluation">Classical evaluation<a class="headerlink" href="#classical-evaluation" title="Permanent link"></a></h2>
+<p>With Rule Specificity disabled, File and Registry rules use fixed classical priority:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Closed &gt; Write &gt; Read &gt; Open &gt; Normal &gt; default
+</span></code></pre></div>
+<p>A matching Closed, Write, or Read rule ends the comparison at its priority level. A Normal match can be selected, but a matching Open rule can replace it. Under this model, a Closed match therefore takes precedence over a conflicting Open match even when the Open pattern appears more narrowly scoped.</p>
+<h2 id="specificity-based-evaluation">Specificity-based evaluation<a class="headerlink" href="#specificity-based-evaluation" title="Permanent link"></a></h2>
+<p>With Rule Specificity enabled, Sandboxie compares candidates from the relevant access lists. A later access list can replace an earlier candidate when the process selector is no worse and the resource-pattern match improves one of the characteristics considered by the matcher.</p>
+<p>This means that neither a program-specific rule nor a longer-looking path is automatically the winner. Both the process selector and the actual pattern match matter.</p>
+<h3 id="process-selectors">Process selectors<a class="headerlink" href="#process-selectors" title="Permanent link"></a></h3>
+<p>The current process match levels are:</p>
+<table>
+<thead>
+<tr>
+<th>Selector</th>
+<th style="text-align: right;">Internal level</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Matching positive process name, wildcard name, or ProcessGroup</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>Matching negated selector</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td>Explicit <code>*</code> selector</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr>
+<td>No process selector</td>
+<td style="text-align: right;">3</td>
+</tr>
+</tbody>
+</table>
+<p>For example:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">OpenFilePath</span><span class="o">=</span><span class="s">firefox.exe,C:\Path</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">OpenFilePath</span><span class="o">=</span><span class="s">fire*.exe,C:\Path</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="na">OpenFilePath</span><span class="o">=</span><span class="s">&lt;Browsers&gt;,C:\Path</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="na">OpenFilePath</span><span class="o">=</span><span class="s">!firefox.exe,C:\Path</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="na">OpenFilePath</span><span class="o">=</span><span class="s">*,C:\Path</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="na">OpenFilePath</span><span class="o">=</span><span class="s">C:\Path</span>
+</span></code></pre></div>
+<p>The first three forms can all receive the best level when they match. It is therefore more accurate to call level 0 a <strong>matching positive process selector</strong>, not an exact process-name match.</p>
+<p>A better process level acts as a gate during cross-list comparison; it is not an absolute priority. A new candidate must not have a worse process level and must improve a relevant resource-match characteristic. For example:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">OpenFilePath</span><span class="o">=</span><span class="s">firefox.exe,C:\*</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">ClosedFilePath</span><span class="o">=</span><span class="s">C:\Sensitive\Records\*</span>
+</span></code></pre></div>
+<p>The positive Firefox selector does not, by itself, guarantee that the broad Open rule replaces a more-specific Closed candidate.</p>
+<h3 id="resource-pattern-matching">Resource-pattern matching<a class="headerlink" href="#resource-pattern-matching" title="Permanent link"></a></h3>
+<p>Sandboxie's internal exact/non-exact distinction is not the same as "contains no wildcard." It is based primarily on whether the pattern ends in <code>*</code>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>C:\Foo\*   non-exact
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>*foo*      non-exact
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>*.tmp      exact
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>foo?       can be exact
+</span></code></pre></div>
+<p>The match length describes how far the pattern successfully matched the tested resource. For wildcard patterns, it is not necessarily the literal number of characters in the configured rule.</p>
+<p>For this reason, <code>*.tmp</code> can be a strong candidate: it can be classified as exact and its match can extend to the end of the requested path. It does not universally outrank every other rule. Process level, access-list comparison, other match properties, and ties still participate.</p>
+<p>The matcher also distinguishes a direct match from certain compatibility matches produced by retrying a path with a trailing separator. A direct match can take priority when otherwise competing candidates are compared.</p>
+<p>When candidates from different access lists have the same positive match length, a candidate with fewer internal wildcard segments can be preferred. This is not a universal rule that fewer wildcards always wins. In particular, it is not a general tie breaker between entries within the same list.</p>
+<p>Within one access list, a longer qualifying match can replace an earlier candidate. An equal-length candidate normally does not replace the existing candidate solely because it has fewer wildcards. Configuration order can therefore still matter in a complete tie, but the detailed loading order of box, template, fallback, and internal rules should not be treated as a stable public precedence contract.</p>
+<h3 id="access-list-comparison">Access-list comparison<a class="headerlink" href="#access-list-comparison" title="Permanent link"></a></h3>
+<p>For specificity-based File and Registry evaluation, the current traversal order is:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Closed, Write, Read, Normal, Open
+</span></code></pre></div>
+<p>Later lists can replace an earlier candidate when their actual match is considered better. If all compared characteristics are tied, the earlier candidate remains. A complete tie therefore favors:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Closed &gt; Write &gt; Read &gt; Normal &gt; Open
+</span></code></pre></div>
+<p>This is only tie behavior. It does not mean that Closed always wins while Rule Specificity is active.</p>
+<h2 id="file-and-registry-rules">File and Registry rules<a class="headerlink" href="#file-and-registry-rules" title="Permanent link"></a></h2>
+<p>File and Registry matching uses five access lists:</p>
+<table>
+<thead>
+<tr>
+<th>Access mode</th>
+<th>General meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Normal</td>
+<td>Apply Sandboxie's normal virtualization policy</td>
+</tr>
+<tr>
+<td>Open</td>
+<td>Access the host resource directly</td>
+</tr>
+<tr>
+<td>Closed</td>
+<td>Deny access</td>
+</tr>
+<tr>
+<td>Read</td>
+<td>Allow reading the real resource while denying modifications</td>
+</tr>
+<tr>
+<td>Write / Box Only</td>
+<td>Hide the host resource while keeping the sandbox copy available</td>
+</tr>
+</tbody>
+</table>
+<p>These are conceptual descriptions; individual File and Registry operations do not necessarily map identically at the Windows API level.</p>
+<p>For example, with specificity enabled:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="na">UseRuleSpecificity</span><span class="o">=</span><span class="s">y</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="na">ClosedFilePath</span><span class="o">=</span><span class="s">C:\Data\*</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="na">OpenFilePath</span><span class="o">=</span><span class="s">C:\Data\App\*</span>
+</span></code></pre></div>
+<p>The more-specific Open rule can win for resources under <code>C:\Data\App\</code>. With specificity disabled, the matching Closed rule wins under classical evaluation.</p>
+<h2 id="ipc-differences">IPC differences<a class="headerlink" href="#ipc-differences" title="Permanent link"></a></h2>
+<p>Generic named IPC-object matching does not use the same five-list comparison. It uses:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>NormalIpcPath
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>OpenIpcPath
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>ClosedIpcPath
+</span></code></pre></div>
+<p>When specificity is active, a more-specific Normal or Open IPC candidate can replace a broader Closed candidate under the same comparison principles. See <a href="../Content/NormalIpcPath.html">Normal IPC Path</a>.</p>
+<p><code>ReadIpcPath</code> is different. Its documented <code>$:</code> form belongs primarily to the separate process/thread access policy:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="na">ClosedIpcPath</span><span class="o">=</span><span class="s">$:target.exe</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="na">OpenIpcPath</span><span class="o">=</span><span class="s">$:target.exe</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="na">ReadIpcPath</span><span class="o">=</span><span class="s">$:target.exe</span>
+</span></code></pre></div>
+<p>Those target-process rules use their own matcher and relevant order of Closed, Open, then Read. They do not use the resource-path specificity levels described above. See <a href="../Content/ReadIpcPath.html">Read IPC Path</a>.</p>
+<h2 id="configuration-pattern-details">Configuration pattern details<a class="headerlink" href="#configuration-pattern-details" title="Permanent link"></a></h2>
+<p>Configured File and Registry rules normally receive implicit suffix-star handling when the pattern contains no <code>*</code>. For example, a configured rule such as:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="na">NormalFilePath</span><span class="o">=</span><span class="s">C:\Foo</span>
+</span></code></pre></div>
+<p>may be loaded as the equivalent of <code>C:\Foo*</code>. This changes the rule's scope and its exact/non-exact classification. A leading <code>|</code> suppresses that automatic suffix and is removed before File/Registry matching.</p>
+<p>IPC path lists do not receive the same implicit trailing <code>*</code>. Write an IPC wildcard explicitly when broader matching is intended.</p>
+<h2 id="version-history">Version history<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
+<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Optional Rule Specificity and Normal rules introduced</td>
+<td>Sandboxie Plus 1.0.0 / Classic 5.55.0</td>
+</tr>
+<tr>
+<td>Exact-versus-trailing-wildcard priority improved</td>
+<td>Sandboxie Plus 1.3.0 / Classic 5.58.0</td>
+</tr>
+<tr>
+<td>Wildcard and tie handling improved</td>
+<td>Sandboxie Plus 1.3.1 / Classic 5.58.1</td>
+</tr>
+<tr>
+<td>Primary matches given priority over auxiliary matches</td>
+<td>Sandboxie Plus 1.8.0 / Classic 5.63.0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
+<ul>
+<li><a href="../Content/UseRuleSpecificity.html">Use Rule Specificity</a></li>
+<li><a href="../Content/NormalFilePath.html">Normal File Path</a></li>
+<li><a href="../Content/NormalKeyPath.html">Normal Key Path</a></li>
+<li><a href="../Content/NormalIpcPath.html">Normal IPC Path</a></li>
+<li><a href="../Content/ResourceAccessSettings.html">Resource Access Settings</a></li>
+</ul>
 
 
 

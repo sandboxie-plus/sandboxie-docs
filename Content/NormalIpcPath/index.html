@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Normal Ipc Path is a sandbox setting in Sandboxie Ini. It specifies path patterns for which Sandboxie will apply the default sandboxing scheme. This setting is most useful in combination with Rule Specificity where it allows to restore default sandboxing behaviour for paths whose parents have been configured as Open, WriteOnly, or even Closed.">
+        <meta name="description" content="NormalIpcPath is a sandbox setting in Sandboxie Ini. It restores Sandboxie&#x27;s normal/default IPC handling for matching named IPC objects. It does not grant direct host access.">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>Normal Ipc Path - Sandboxie Documentation</title>
+        <title>Normal IPC Path - Sandboxie Documentation</title>
       
     
     
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Normal Ipc Path
+              Normal IPC Path
             
           </span>
         </div>
@@ -5584,16 +5584,14 @@
   
 
 
-<h1 id="normal-ipc-path">Normal Ipc Path<a class="headerlink" href="#normal-ipc-path" title="Permanent link"></a></h1>
-<p><em>Normal Ipc Path</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. It specifies path patterns for which Sandboxie will apply the default sandboxing scheme. This setting is most useful in combination with <a href="../../PlusContent/RuleSpecificity/">Rule Specificity</a> where it allows to restore default sandboxing behaviour for paths whose parents have been configured as Open, WriteOnly, or even Closed.</p>
-<p>Example:</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">NormalIpcPath</span><span class="o">=</span><span class="s">\RPC Control\AudioSrv</span>
+<h1 id="normal-ipc-path">Normal IPC Path<a class="headerlink" href="#normal-ipc-path" title="Permanent link"></a></h1>
+<p><em>NormalIpcPath</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. It restores Sandboxie's normal/default IPC handling for matching named IPC objects. It does not grant direct host access.</p>
+<p>With <a href="../../PlusContent/RuleSpecificity/">Rule Specificity</a> enabled, a more-specific Normal rule can override a broader Open or Closed IPC path rule when the matcher selects it.</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">NormalIpcPath</span><span class="o">=</span><span class="s">\RPC Control\AudioSrv</span>
 </span></code></pre></div>
-<p>Related Sandboxie Plus setting: Sandbox Options &gt; Resource Access &gt; IPC &gt; Add IPC Path &gt; Access column &gt; Normal</p>
+<p>IPC path rules do not receive the implicit trailing <code>*</code> that Sandboxie normally adds to File and Registry rules without a wildcard. The example therefore matches according to the configured IPC pattern itself. If broader matching is intended, add the wildcard explicitly.</p>
+<p>Related Sandboxie Plus setting: <strong>Sandbox Options &gt; Resource Access &gt; IPC &gt; Add IPC Path &gt; Access column &gt; Normal</strong></p>
 
 
 

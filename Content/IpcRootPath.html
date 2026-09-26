@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="IpcRootPath is a sandbox setting in Sandboxie Ini. It specifies the location within the NT object namespace where a particular sandbox is created.">
+        <meta name="description" content="IpcRootPath is a sandbox setting in Sandboxie Ini. It specifies the NT named-object namespace root for a box, not a folder on disk. Sandboxie also derives a related pipe-path representation from this root.">
       
       
       
@@ -5585,20 +5585,20 @@
 
 
 <h1 id="ipc-root-path">Ipc Root Path<a class="headerlink" href="#ipc-root-path" title="Permanent link"></a></h1>
-<p><em>IpcRootPath</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It specifies the location within the NT object namespace where a particular sandbox is created.</p>
-<p>As with all sandbox settings, it may also be specified in the global section, and in that case will apply for all sandboxes where the setting is not also specified in the sandbox section.</p>
-<p>See <a href="SandboxHierarchy.html">Sandbox Hierarchy</a> for more information.</p>
+<p><em>IpcRootPath</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It specifies the NT named-object namespace root for a box, not a folder on disk. Sandboxie also derives a related pipe-path representation from this root.</p>
+<p>It may be set for a box or supplied through <code>[GlobalSettings]</code> or an applicable enabled template. Its default contains <code>%SESSION%</code>, so the expanded namespace root can differ between Windows sessions.</p>
+<p>See <a href="SandboxRootsVolumeLayout.html">Sandbox Roots and Volume Layout</a> and <a href="SandboxHierarchy.html">Sandbox Hierarchy</a> for its relationship to the other roots.</p>
 <p>Usage:
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">IpcRootPath</span><span class="o">=</span><span class="s">\Sandbox\%BOXNAME%</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">IpcRootPath</span><span class="o">=</span><span class="s">\Sandbox\%USER%\%SANDBOX%\Session_%SESSION%</span>
 </span></code></pre></div></p>
 <p>The following substitution variables may be useful in this path.</p>
 <ul>
 <li>The variable %SANDBOX% which expands to the name of the sandbox</li>
-<li>The variable %USER% which expands to the user name</li>
+<li>The variable %USER% (or %USERNAME%) which expands to the user name</li>
 <li>The variable %SID% which expands to the user security-ID (SID)</li>
 <li>The variable %SESSION% which expands to the Terminal Services session number</li>
 </ul>
@@ -5607,6 +5607,8 @@
 <li><em>\Sandbox\%USER%\%SANDBOX%\Session</em>%SESSION%_</li>
 </ul>
 <p>There is probably no reason to change the default value for this setting, and doing so is not recommended.</p>
+<p><code>%BOXNAME%</code> is not a supported alias in this root-expansion path; use <code>%SANDBOX%</code>. Changing this namespace root does not itself permit access to host IPC objects or replace <a href="NtNamespaceIsolation.html">NT Namespace Isolation</a> and IPC access rules. Restart affected sandboxed processes after a change; an existing process retains its initialized root.</p>
+<p>In SandMan, the global default is at <strong>Global Settings &gt; Advanced Config &gt; Sandboxie Config &gt; Sandbox ipc root</strong>. A per-box value can be entered in <strong>Sandbox Options &gt; Advanced Options &gt; Miscellaneous &gt; Add Option</strong>.</p>
 
 
 

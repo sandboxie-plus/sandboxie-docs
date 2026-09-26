@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="AlertFolder is a global setting in Sandboxie Ini available since v0.5.0 / 5.45.0. It specifies path patterns that, if started outside the sandbox, will cause Sandboxie to issue message SBIE1301.">
+        <meta name="description" content="AlertFolder is a global Sandboxie Ini setting introduced in Sandboxie Plus 0.5.0 / Classic 5.45.0. It evaluates the executable&#x27;s own path/directory when a program starts outside a sandbox. It does not inspect the current working directory or a document argument for alert matching, unlike some Force Folder checks. It does not watch arbitrary file access.">
       
       
       
@@ -5585,16 +5585,13 @@
 
 
 <h1 id="alert-folder">Alert Folder<a class="headerlink" href="#alert-folder" title="Permanent link"></a></h1>
-<p><em>AlertFolder</em> is a global setting in <a href="SandboxieIni.html">Sandboxie Ini</a> available since v0.5.0 / 5.45.0. It specifies path patterns that, if started outside the sandbox, will cause Sandboxie to issue message <a href="SBIE1301.html">SBIE1301</a>.</p>
-<p>Usage:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[GlobalSettings]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">AlertFolder</span><span class="o">=</span><span class="s">%ProgramFiles%\Mozilla Firefox</span>
-</span></code></pre></div></p>
-<p>Related Sandboxie Plus setting: Options menu &gt; Global Settings &gt; Program Control &gt; Program Alerts</p>
-<p>See also: <a href="AlertProcess.html">Alert Process</a>.</p>
+<p><code>AlertFolder</code> is a global <a href="SandboxieIni.html">Sandboxie Ini</a> setting introduced in Sandboxie Plus 0.5.0 / Classic 5.45.0. It evaluates the <strong>executable's own path/directory</strong> when a program starts outside a sandbox. It does not inspect the current working directory or a document argument for alert matching, unlike some <a href="ForceFolder.html">Force Folder</a> checks. It does not watch arbitrary file access.</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[GlobalSettings]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">AlertFolder</span><span class="o">=</span><span class="s">C:\Example</span>
+</span></code></pre></div>
+<p>An ordinary folder entry matches executables recursively beneath that folder; entries containing wildcards are processed as patterns. After normal forcing fails to select a sandbox, <code>AlertFolder</code> is checked before <a href="AlertProcess.html">Alert Process</a>. A successful earlier force selection does not proceed through this ordinary alert-list check. The alert does not select a destination sandbox.</p>
+<p>With the default <code>StartRunAlertDenied=n</code>, a match can issue <a href="SBIE1301.html">SBIE1301</a> without this mechanism itself blocking the start. With global <code>StartRunAlertDenied=y</code>, a normal alert-list match is denied instead. <code>AlertStartRunAccessDenied</code> defaults to <code>y</code> and controls the <a href="SBIE1308.html">SBIE1308</a> notification for that denial, not the blocking decision.</p>
+<p>In SandMan, use <strong>Global Settings &gt; Program Control &gt; Program Alerts &gt; Add Folder</strong>. The <strong>Prevent the listed programs from starting on this system</strong> control enables the blocking mode. See <a href="ProgramForcingControls.html">Program Forcing Controls</a> for evaluation order, pause behavior, and the distinction from sandbox Start/Run restrictions.</p>
 
 
 

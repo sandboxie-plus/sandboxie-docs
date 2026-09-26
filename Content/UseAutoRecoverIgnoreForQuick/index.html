@@ -5593,10 +5593,11 @@
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">UseAutoRecoverIgnoreForQuick</span><span class="o">=</span><span class="s">n</span>
 </span></code></pre></div>
-<p>This setting is enabled by default. Set it to <em>n</em> to show all recoverable files in the Quick Recovery window, including files that match <a href="../AutoRecoverIgnore/">AutoRecoverIgnore</a> patterns.</p>
-<p>Note that this only takes effect when the "Show All" checkbox in the Quick Recovery window is not checked.</p>
+<p>The setting metadata describes an <em>n</em> default, but current SandMan reads an absent value as enabled. Thus its ordinary Quick Recovery list hides matching files unless the option is explicitly set to <em>n</em> or the window's display controls override filtering. This is a SandMan consumer default, not a process-side detector default. Setting <em>n</em> does not change how automatic recovery applies <a href="../AutoRecoverIgnore/">AutoRecoverIgnore</a>.</p>
+<p>The Quick Recovery <strong>Show All Files</strong> or <strong>Show Ignored</strong> view can display entries normally hidden by this option. SandMan also consults this preference when deciding whether to open an initial Immediate Recovery dialog for a reported candidate; it does not change the SbieDll detector's ignore decision.</p>
 <p>In SandMan, this corresponds to the "Use the above exclusion list to hide matching files from the Quick Recovery window" checkbox under Sandbox Options &gt; File Recovery &gt; Immediate Recovery.</p>
 <p>Related <a href="../SandboxieIni/">Sandboxie Ini</a> settings: <a href="../AutoRecoverIgnore/">AutoRecoverIgnore</a>, <a href="../RecoverFolder/">RecoverFolder</a>. See also <a href="../QuickRecovery/">Quick Recovery</a>.</p>
+<p>See <a href="../RecoveryArchitecture/">File Recovery Architecture</a> for the separate recovery workflows.</p>
 
 
 

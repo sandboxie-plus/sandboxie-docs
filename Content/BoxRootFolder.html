@@ -5586,8 +5586,9 @@
 
 <h1 id="box-root-folder">Box Root Folder<a class="headerlink" href="#box-root-folder" title="Permanent link"></a></h1>
 <p><strong>This setting is deprecated. Please use <a href="FileRootPath.html">FileRootPath</a> instead.</strong></p>
-<p><em>BoxRootFolder</em> is a global setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It specifies the folder containing all sandboxes. One sub-folder is created within the container folder for each sandbox in active use.</p>
-<p>In Sandboxie version 3 and later, the <a href="FileRootPath.html">FileRootPath</a> setting is the preferred way to specify the location of sandboxes, and takes precedence over BoxRootFolder in case both settings exist. Note that as any other sandbox setting, the <a href="FileRootPath.html">FileRootPath</a> may appear in the <em>GlobalSettings</em> section, and in that case, it applies to all sandboxes.</p>
+<p><em>BoxRootFolder</em> is a legacy setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It specifies a base folder from which Sandboxie derives a box's file root by appending <code>\Sandbox\&lt;box name&gt;</code>. It remains an active compatibility fallback, not a removed setting.</p>
+<p>In Sandboxie version 3 and later, <a href="FileRootPath.html">FileRootPath</a> is preferred. The runtime first looks up the effective <code>FileRootPath</code> for a box and consults <code>BoxRootFolder</code> only if none is available. An effective global <code>FileRootPath</code> therefore takes precedence over a box-local <code>BoxRootFolder</code>.</p>
+<p>Although the historical example below uses <code>[GlobalSettings]</code>, the current fallback lookup uses the effective configuration for the box. A box section or applicable enabled template can also supply <code>BoxRootFolder</code>; it is not enforced as global-only. Do not use it for new configurations.</p>
 <p>See <a href="SandboxHierarchy.html">Sandbox Hierarchy</a> for more information.</p>
 <p>Usage:</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
@@ -5597,6 +5598,7 @@
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">BoxRootFolder</span><span class="o">=</span><span class="s">C:\Sandbox</span>
 </span></code></pre></div>
 <p>Related <a href="SandboxieControl.html">Sandboxie Control</a> setting: <a href="SandboxMenu.html#set-container-folder">Sandbox menu &gt; Set Container Folder</a></p>
+<p>The Classic/legacy dialog changes configuration and warns when boxes already contain files; it does not itself move those files. Changing this fallback on a populated box can leave existing content under the previous root. See <a href="SandboxRootsVolumeLayout.html">Sandbox Roots and Volume Layout</a>.</p>
 
 
 

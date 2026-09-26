@@ -5605,10 +5605,8 @@
 <h1 id="sbie2213">SBIE2213<a class="headerlink" href="#sbie2213" title="Permanent link"></a></h1>
 <p><strong>Message:</strong> SBIE2213 Windows Credentials cannot be stored in the sandbox</p>
 <p><strong>Logged To:</strong> <a href="PopupMessageLog.html">Popup Message Log</a>.</p>
-<p><strong>Explanation:</strong></p>
-<p>Windows Credentials are username and password information stored in Windows by some Microsoft applications. For example, Windows Messenger stores email addresses and passwords as Windows Credentials.</p>
-<p>Sandboxie provides its own implementation of Windows Credentials which stores the information in the sandbox in order to keep them isolated from the rest of the system. To disable this implementation of isolated credentials, specify the <a href="OpenCredentials.html">OpenCredentials</a>=y setting.</p>
-<p>This message is an indication that the Sandboxie implementation of Windows Credentials was asked to store Windows Credentials but failed to do so. The credentials in question are discarded.</p>
+<p><strong>Explanation:</strong> Windows Credential APIs let applications store and retrieve user names, passwords, and related sign-in information. Sandboxie's user-mode credential compatibility layer logs this message when it cannot initialize its <a href="ProtectedStorage.html">Protected Storage</a> (PStore) backing implementation for a credential operation. The initialization path sets <code>ERROR_NO_SUCH_LOGON_SESSION</code> and returns failure. An intercepted credential operation that requires that backend can therefore fail; the result depends on the operation. The message does not establish that every credential was discarded.</p>
+<p>See <a href="OpenCredentials.html">Open Credentials</a> for the scope of the WinCred hooks and native read-through behavior, and <a href="OpenProtectedStorage.html">Open Protected Storage</a> for the separate template that bypasses these compatibility hooks.</p>
 
 
 

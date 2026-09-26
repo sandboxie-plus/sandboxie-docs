@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="MarkOfTheWebBox is a global setting in Sandboxie Ini. It specifies which sandbox should be used for MoTW files. The default value is DefaultBox if not specified.">
+        <meta name="description" content="MarkOfTheWebBox is a global Sandboxie Ini setting that names the destination sandbox for Force Mark of The Web process-start evaluation.">
       
       
       
@@ -5585,8 +5585,13 @@
 
 
 <h1 id="mark-of-the-web-box">Mark Of The Web Box<a class="headerlink" href="#mark-of-the-web-box" title="Permanent link"></a></h1>
-<p><em>MarkOfTheWebBox</em> is a global setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It specifies which sandbox should be used for MoTW files. The default value is <code>DefaultBox</code> if not specified.</p>
-<p><strong>For complete instructions and usage, please see:</strong> <a href="ForceMarkOfTheWeb.html">Force Mark of The Web</a></p>
+<p><em>MarkOfTheWebBox</em> is a global <a href="SandboxieIni.html">Sandboxie Ini</a> setting that names the destination sandbox for <a href="ForceMarkOfTheWeb.html">Force Mark of The Web</a> process-start evaluation.</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[GlobalSettings]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">ForceMarkOfTheWeb</span><span class="o">=</span><span class="s">y</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">MarkOfTheWebBox</span><span class="o">=</span><span class="s">Web_Box</span>
+</span></code></pre></div>
+<p>If <code>MarkOfTheWebBox</code> is absent or empty, the driver's runtime fallback is <code>DefaultBox</code>. The destination name is matched case-insensitively against sandboxes eligible for forcing. The sandbox must be enabled for the current user and session; <a href="DisableForceRules.html">DisableForceRules</a> excludes it from the eligible list.</p>
+<p>If the Mark-of-the-Web check matches but the destination cannot be selected, Sandboxie marks the new process for termination instead of allowing this path to continue unsandboxed. See <a href="ForceMarkOfTheWeb.html">Force Mark of The Web</a> for what is checked and the limits of this process-start rule.</p>
 
 
 

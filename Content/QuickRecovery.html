@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Sandboxie Control &gt; Sandbox Menu &gt; Quick Recovery">
+        <meta name="description" content="The menu paths and screenshot below describe Sandboxie Control / Classic. In current Sandboxie Plus, SandMan configures recovery locations under Sandbox Options &gt; File Recovery &gt; Quick Recovery and opens a separate Quick Recovery window. The scan is independent of AutoRecover; see File Recovery Architecture.">
       
       
       
@@ -5585,12 +5585,13 @@
 
 
 <h1 id="quick-recovery">Quick Recovery<a class="headerlink" href="#quick-recovery" title="Permanent link"></a></h1>
+<p>The menu paths and screenshot below describe Sandboxie Control / Classic. In current Sandboxie Plus, SandMan configures recovery locations under <strong>Sandbox Options &gt; File Recovery &gt; Quick Recovery</strong> and opens a separate Quick Recovery window. The scan is independent of <a href="AutoRecover.html"><code>AutoRecover</code></a>; see <a href="RecoveryArchitecture.html">File Recovery Architecture</a>.</p>
 <p><a href="SandboxieControl.html">Sandboxie Control</a> &gt; <a href="SandboxMenu.html">Sandbox Menu</a> &gt; Quick Recovery</p>
 <p><a href="SandboxieControl.html">Sandboxie Control</a> &gt; <a href="TrayIconMenu.html">Tray Icon Menu</a> &gt; Quick Recovery</p>
 <p><img alt="" src="../Media/QuickRecoverSandbox.png" /></p>
 <p>Sandboxed programs create files and folders inside the sandbox. It may be desirable to move some of these created files out of the sandbox. For instance, a document file downloaded by a sandboxed browser is saved into the sandbox, but that file should be extracted and placed in the <em>Documents</em> folder outside the sandbox.</p>
 <p>The rudimentary approach is to use the regular, non-sandboxed Windows Explorer to navigate inside the folders that make up the sandbox. By using the <a href="SandboxMenu.html#sandbox-menu">Sandbox Menu &gt; Sandbox &gt; Explore Contents</a> command, you can open a folder window (unsandboxed) with a view into the sandbox. You can then navigate in the depth of the sandbox folder, and <em>cut</em> sandboxed files in order to <em>paste</em> them somewhere else.</p>
-<p>The Quick Recovery feature makes it easier to extract files (and even whole folders) that are created and saved by sandboxed programs. It scans a few sandboxed folders, which have to be selected in advance, and lists the files (and folders) it finds within them. These files (and folders) can be recovered into the corresponding location outside the sandbox, or to any location.</p>
+<p>The Quick Recovery feature makes it easier to extract files (and even whole folders) that are created and saved by sandboxed programs. It scans configured literal recovery folders recursively and lists matching files (and folders). Wildcard <code>RecoverFolder</code> entries act as candidate filters rather than arbitrary scan roots. The window can also show all boxed files. Selected items can be recovered into the corresponding location outside the sandbox, or to another location.</p>
 <p>To invoke the Quick Recovery window, use the <a href="SandboxMenu.html#sandbox-menu">Sandbox Menu &gt; Sandbox &gt; Quick Recovery</a> command (or the corresponding command from the <a href="TrayIconMenu.html">Tray Icon Menu</a>). Quick Recovery also appears as part of the <a href="DeleteSandbox.html">Delete Sandbox</a> window.</p>
 <p><strong>The Quick Recovery Window</strong></p>
 <p>The central area which extends to the lower right corner of the window shows the quick-recoverable files and folders in a particular sandbox. Select a file or folder, and then click one of the two <em>Recover to</em> buttons on the left:</p>
@@ -5600,12 +5601,14 @@
 </ul>
 <p>These commands are also available if you invoke the context menu on a file or folder, typically by clicking the right mouse button on it.</p>
 <p><strong>Adding Folders to Quick Recovery</strong></p>
-<p>As noted, Quick Recovery only scans folders which are explicitly selected. By default, it scans the <em>Desktop</em>, <em>Favorites</em> and <em>Documents</em> folders. Where applicable, your <em>Downloads</em> folder is also considered a recoverable folder.</p>
+<p>As noted, configured literal folders provide the normal Quick Recovery scan roots. Current new-box defaults include <em>Desktop</em> and <em>Documents</em> (<em>Personal</em>), plus <em>Downloads</em> where available; <em>Favorites</em> is not a current default. These are box-creation settings, not intrinsic scan roots for every box. Enabled templates can also supply effective <code>RecoverFolder</code> entries.</p>
 <ul>
 <li>You can add more folders using the <em>Add Folder</em> button.</li>
 <li>You can use <a href="RecoverySettings.html#quick-recovery">Sandbox Settings &gt; Recovery &gt; Quick Recovery</a> to add and remove folders.</li>
 <li>When <a href="SandboxieControl.html">Sandboxie Control</a> is in <a href="FilesAndFoldersView.html">Files And Folders View</a> view, you can right-click a folder and select <em>Add Folder to Quick Recovery</em>.</li>
 </ul>
+<p>In SandMan, <a href="UseAutoRecoverIgnoreForQuick.html"><code>UseAutoRecoverIgnoreForQuick</code></a> can hide entries matching <a href="AutoRecoverIgnore.html"><code>AutoRecoverIgnore</code></a>. <strong>Show All Files</strong> and <strong>Show Ignored</strong> can expose otherwise hidden entries. This filtering does not require automatic recovery to be enabled.</p>
+<p>Current SandMan performs the selected recovery as a host-side move. It may ask before overwriting an existing destination and reports failures; it does not guarantee that every recovery succeeds. Reusable alternate destinations are user-interface preferences, not <code>RecoverFolder</code> box rules.</p>
 <hr />
 <p>Go to <a href="DeleteSandbox.html">Delete Sandbox</a>, <a href="ImmediateRecovery.html">Immediate Recovery</a>, <a href="SandboxieControl.html">Sandboxie Control</a>, <a href="HelpTopics.html">Help Topics</a>.</p>
 

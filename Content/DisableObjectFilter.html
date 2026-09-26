@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="DisableObjectFilter is a sandbox setting in Sandboxie Ini available since v1.0.0 / 5.55.0. This setting disables the object filtering mechanism, allowing sandboxed processes to bypass object access restrictions and directly interact with processes, threads, and other system objects outside the sandbox.">
+        <meta name="description" content="DisableObjectFilter is an advanced sandbox setting in Sandboxie Ini. For affected sandboxed processes, it relaxes the kernel Object Manager callback policy that normally restricts process and thread handle access to targets outside the same sandbox.">
       
       
       
@@ -5585,50 +5585,96 @@
 
 
 <h1 id="disable-object-filter">Disable Object Filter<a class="headerlink" href="#disable-object-filter" title="Permanent link"></a></h1>
-<p><em>DisableObjectFilter</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a> available since v1.0.0 / 5.55.0. This setting disables the object filtering mechanism, allowing sandboxed processes to bypass object access restrictions and directly interact with processes, threads, and other system objects outside the sandbox.</p>
-<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link"></a></h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Object filtering requires global activation via <code>EnableObjectFiltering=y</code> in the [GlobalSettings] section. When globally enabled, individual sandboxes can disable it using <code>DisableObjectFilter=y</code>.</p>
-</div>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h2>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">DisableObjectFilter</span><span class="o">=</span><span class="s">y</span>
-</span></code></pre></div>
-<h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link"></a></h2>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">DisableObjectFilter</span><span class="o">=</span><span class="s">&lt;y/n&gt;</span>
-</span></code></pre></div>
-<p>Where:</p>
-<ul>
-<li><code>y</code> disables object filtering for this sandbox</li>
-<li><code>n</code> (default) maintains object filtering when globally enabled</li>
-</ul>
-<h2 id="security-implications">Security Implications<a class="headerlink" href="#security-implications" title="Permanent link"></a></h2>
+<p><em>DisableObjectFilter</em> is an advanced sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. For affected sandboxed processes, it relaxes the kernel Object Manager callback policy that normally restricts process and thread handle access to targets outside the same sandbox.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>This setting disables driver-level enforcement of object access restrictions. Malicious software can potentially bypass these protections through various techniques including code injection, API hooking, or direct system calls, making this setting unsuitable for untrusted applications.</p>
+<p>This setting can expose process and thread handle rights that Sandboxie normally restricts, increasing a sandboxed program's ability to inspect, modify, or control processes outside its sandbox. Sandboxie classifies the option as unsafe. It does not disable all Sandboxie isolation, but it should be used only when a specific compatibility requirement justifies the reduced protection.</p>
 </div>
-<h2 id="related-settings">Related Settings<a class="headerlink" href="#related-settings" title="Permanent link"></a></h2>
-<h3 id="master-override">Master Override<a class="headerlink" href="#master-override" title="Permanent link"></a></h3>
-<p><code>DisableObjectFilter</code> is automatically enabled when:</p>
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link"></a></h2>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">DisableObjectFilter</span><span class="o">=</span><span class="s">y</span>
+</span></code></pre></div>
+<p>The syntax is:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">DisableObjectFilter</span><span class="o">=</span><span class="s">y|n</span>
+</span></code></pre></div>
 <ul>
-<li><strong><a href="NoSecurityFiltering.html">NoSecurityFiltering</a></strong> is set in Application Compartment mode<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</li>
+<li><code>y</code> enables the per-process filter exception.</li>
+<li><code>n</code>, the default, keeps the normal callback policy.</li>
 </ul>
-<h3 id="alternative-granular-controls">Alternative Granular Controls<a class="headerlink" href="#alternative-granular-controls" title="Permanent link"></a></h3>
+<p>The setting is resolved from the effective sandbox configuration and stored when each sandboxed process is initialized. Normal template and global fallback can therefore contribute to the effective value, but the current consumer does not provide executable-qualified matching for this setting.</p>
+<h2 id="what-it-disables">What it disables<a class="headerlink" href="#what-it-disables" title="Permanent link"></a></h2>
+<p>When a sandboxed caller passes through the kernel callback's process/thread policy with <code>DisableObjectFilter=y</code>, Sandboxie preserves the requested access instead of applying its normal outbound restriction for that caller.</p>
+<p>The affected callback covers the creation and duplication of process and thread handles. Despite the generic setting name, it is not a switch for every type of Windows object.</p>
+<h2 id="what-it-does-not-disable">What it does not disable<a class="headerlink" href="#what-it-does-not-disable" title="Permanent link"></a></h2>
+<p><code>DisableObjectFilter=y</code> does not:</p>
 <ul>
-<li><strong><a href="DisableFileFilter.html">DisableFileFilter</a></strong>: Disables only file system filtering.</li>
-<li><strong><a href="DisableKeyFilter.html">DisableKeyFilter</a></strong>: Disables only registry filtering.</li>
-<li><strong><a href="NoSecurityFiltering.html">NoSecurityFiltering</a></strong>: Disables all filtering in Application Compartment mode.</li>
+<li>unregister the global Object Manager callbacks;</li>
+<li>disable callback filtering for other sandboxed processes whose effective configuration does not enable it;</li>
+<li>disable file or registry filtering;</li>
+<li>disable every IPC namespace or resource-access mechanism;</li>
+<li>disable all Sandboxie process/thread access checks;</li>
+<li>make the process unsandboxed.</li>
 </ul>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:1">
-<p>Object filter control in <code>process.c</code>: The setting <code>proc-&gt;disable_object_flt = no_filtering || Conf_Get_Boolean(proc-&gt;box-&gt;name, L"DisableObjectFilter", 0, FALSE)</code> allows DisableObjectFilter to completely bypass object filtering either independently or as part of NoSecurityFiltering in Application Compartment mode.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div>
+<p>The current driver retains syscall-specific process/thread checks. When the global callbacks are unavailable, some of those paths apply the shared access policy directly and do not uniformly consult the per-process <code>DisableObjectFilter</code> state. Consequently, this setting must not be treated as a universal switch for every current process/thread access restriction. This is an implementation boundary rather than a guarantee that the fallback will always have exactly the same structure.</p>
+<h2 id="global-callback-setting">Global callback setting<a class="headerlink" href="#global-callback-setting" title="Permanent link"></a></h2>
+<p>Object Manager callback filtering is globally enabled by default. Users do not need to add <code>EnableObjectFiltering=y</code> for normal current behavior.</p>
+<p>The global and per-sandbox controls are not equivalent:</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Scope</th>
+<th>Object Manager callbacks</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>EnableObjectFiltering=n</code></td>
+<td>Global</td>
+<td>Unregistered</td>
+<td>Removes the callback layer for every sandbox; syscall-specific checks can remain</td>
+</tr>
+<tr>
+<td><code>DisableObjectFilter=y</code></td>
+<td>Affected sandboxed processes</td>
+<td>Still installed</td>
+<td>Relaxes outbound callback filtering for those processes</td>
+</tr>
+</tbody>
+</table>
+<p>See <a href="EnableObjectFiltering.html">Enable Object Filtering</a> for the global default, callback scope, and syscall-filter distinction.</p>
+<h2 id="host-to-sandbox-protection">Host-to-sandbox protection<a class="headerlink" href="#host-to-sandbox-protection" title="Permanent link"></a></h2>
+<p>The callback has a separate path for an unsandboxed host process requesting a handle to a sandboxed process or thread. This path supports <a href="ConfidentialBox.html">Confidential Box</a> and settings including <code>DenyHostAccess</code> and <code>ProtectAdminOnly</code>.</p>
+<p>Host-to-sandbox protection is evaluated separately and before the outbound <code>DisableObjectFilter</code> exception. Enabling <code>DisableObjectFilter</code> in the target sandbox therefore does not by itself allow host processes unrestricted access to that sandbox's processes while the global callback layer remains active.</p>
+<h2 id="application-compartment-and-nosecurityfiltering">Application Compartment and NoSecurityFiltering<a class="headerlink" href="#application-compartment-and-nosecurityfiltering" title="Permanent link"></a></h2>
+<p><a href="NoSecurityIsolation.html">Application Compartment</a> mode does not automatically set <code>DisableObjectFilter=y</code> in the configuration.</p>
+<p>For new Application Compartment processes, <a href="NoSecurityFiltering.html">No Security Filtering</a> enables the corresponding file, registry-key, and object-filter disable states at runtime. This includes the same per-process object-filter state controlled directly by <code>DisableObjectFilter</code>, but it still does not unregister the global callbacks or change other sandboxes.</p>
+<h2 id="ipc-process-rules">IPC process rules<a class="headerlink" href="#ipc-process-rules" title="Permanent link"></a></h2>
+<p>With normal object filtering, process-target forms such as the following can permit or deny specific access without disabling the filter for the whole sandbox:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">OpenIpcPath</span><span class="o">=</span><span class="s">$:target.exe</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">ReadIpcPath</span><span class="o">=</span><span class="s">$:target.exe</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="na">ClosedIpcPath</span><span class="o">=</span><span class="s">$:target.exe</span>
+</span></code></pre></div>
+<p>See <a href="OpenIpcPath.html">Open IPC Path</a>, <a href="ReadIpcPath.html">Read IPC Path</a>, and <a href="ClosedIpcPath.html">Closed IPC Path</a>. These rules can provide a narrower compatibility exception than <code>DisableObjectFilter=y</code>.</p>
+<h2 id="sandman-configuration">SandMan configuration<a class="headerlink" href="#sandman-configuration" title="Permanent link"></a></h2>
+<p>SandMan does not provide a dedicated sandbox checkbox for <code>DisableObjectFilter</code>; it is an advanced INI/configuration option. SandMan's unsafe-configuration detection recognizes the setting, although another box-state warning can take precedence in the displayed status.</p>
+<h2 id="applying-changes">Applying changes<a class="headerlink" href="#applying-changes" title="Permanent link"></a></h2>
+<p>The setting is stored in each sandboxed process's driver state during process initialization. Configuration reload does not rewrite that state for processes that are already running.</p>
+<p>Restart affected sandboxed processes after changing <code>DisableObjectFilter</code>. Restarting the sandboxed process tree is appropriate when testing the change consistently. A Windows reboot is not normally required.</p>
+<h2 id="version-history">Version history<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
+<p>The settings metadata lists <code>DisableObjectFilter</code> as added in Sandboxie Plus 0.9.2. The corresponding process-state assignment was not active in that old tag; the active per-process opt-out and Object Manager callback feature were present and publicly documented with Sandboxie Plus 1.0.0 / Classic 5.55.0.</p>
+<p>The callback layer became enabled by default in Sandboxie Plus 1.0.16 / Classic 5.55.16, so the historical requirement to add <code>EnableObjectFiltering=y</code> no longer applies.</p>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
+<ul>
+<li><a href="EnableObjectFiltering.html">Enable Object Filtering</a></li>
+<li><a href="NoSecurityFiltering.html">No Security Filtering</a></li>
+<li><a href="NoSecurityIsolation.html">No Security Isolation</a></li>
+<li><a href="ConfidentialBox.html">Confidential Box</a></li>
+<li><a href="DisableFileFilter.html">Disable File Filter</a></li>
+<li><a href="DisableKeyFilter.html">Disable Key Filter</a></li>
+<li><a href="SandboxieIni.html">Sandboxie Ini</a></li>
+</ul>
 
 
 

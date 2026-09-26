@@ -6,12 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="OpenProtectedStorage is a sandbox setting in Sandboxie Ini. It is typically specified as OpenProtectedStorage=y (see Yes Or No Settings), and indicates that Sandboxie should not isolate Protected Storage in the sandbox. For example:
-   .
-   .
-   .
-   [DefaultBox]
-   OpenProtectedStorage=y">
+        <meta name="description" content="The current way to open the host&#x27;s legacy Windows Protected Storage (PStore) endpoints is to select Sandboxie&#x27;s Open Protected Storage template for a box:">
       
       
       
@@ -5590,16 +5585,23 @@
 
 
 <h1 id="open-protected-storage">Open Protected Storage<a class="headerlink" href="#open-protected-storage" title="Permanent link"></a></h1>
-<p><em>OpenProtectedStorage</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It is typically specified as <em>OpenProtectedStorage=y</em> (see <a href="YesOrNoSettings.html">Yes Or No Settings</a>), and indicates that Sandboxie should not isolate <a href="ProtectedStorage.html">Protected Storage</a> in the sandbox. For example:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">OpenProtectedStorage</span><span class="o">=</span><span class="s">y</span>
-</span></code></pre></div></p>
-<p>Indicates that programs running in the DefaultBox sandbox will update the global system <a href="ProtectedStorage.html">Protected Storage</a>, rather than a sandboxed instance of it.</p>
-<p>Related Sandboxie Plus setting: Sandbox Options &gt; App Templates &gt; Templates &gt; Open Protected Storage</p>
-<p>Related <a href="SandboxieControl.html">Sandboxie Control</a> setting: <em>Save outside sandbox: History of search strings and invoked commands</em> in <a href="ApplicationsSettings.html#web-browser">Sandbox Settings &gt; Applications &gt; Web Browser</a></p>
+<p>The current way to open the host's legacy Windows <a href="ProtectedStorage.html">Protected Storage</a> (PStore) endpoints is to select Sandboxie's <strong>Open Protected Storage</strong> template for a box:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">Template</span><span class="o">=</span><span class="s">OpenProtectedStorage</span>
+</span></code></pre></div>
+<p>The older <code>OpenProtectedStorage=y</code> Boolean remains in setting metadata and may appear in old configurations, but it is <strong>not</strong> the current configuration method. Sandboxie Plus 1.8.0 / Classic 5.63.0 replaced it with the template. Legacy configuration migration can convert the old Boolean to template selection; the old driver consumers visible in current source are commented out. Do not edit the shipped template to enable this option.</p>
+<h2 id="what-the-template-does">What the template does<a class="headerlink" href="#what-the-template-does" title="Permanent link"></a></h2>
+<p>The shipped template opens these system paths:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">OpenFilePath</span><span class="o">=</span><span class="s">|\Device\NamedPipe\protected_storage</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">OpenIpcPath</span><span class="o">=</span><span class="s">*\BaseNamedObjects*\PS_SERVICE_STARTED</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="na">OpenIpcPath</span><span class="o">=</span><span class="s">\RPC Control\protected_storage</span>
+</span></code></pre></div>
+<p>In an ordinary sandbox, Sandboxie normally hooks <code>PStoreCreateInstance</code> and supplies its own <code>IPStoreImpl</code> compatibility implementation. When the effective IPC policy opens <code>\RPC Control\protected_storage</code>, Sandboxie's PStore initialization skips that hook. The template opens that endpoint, allowing the native PStore path instead of Sandboxie's replacement through this mechanism. The historical <code>FuncSkipHook=PStoreCreateInstance</code> line in the shipped template is commented out, not an active rule.</p>
+<p>The same endpoint check runs before Sandboxie's <a href="OpenCredentials.html">Open Credentials</a> setting is checked. With this template selected, Sandboxie also skips its user-mode WinCred hooks; supported native credential API calls can pass through. By contrast, <code>OpenCredentials=y</code> alone leaves the separate PStore hook in place. PStore and the Windows Credential APIs are related here but are not the same facility.</p>
+<h2 id="sandman-and-scope">SandMan and scope<a class="headerlink" href="#sandman-and-scope" title="Permanent link"></a></h2>
+<p>SandMan exposes this template at <strong>Sandbox Options &gt; General Options &gt; Restrictions &gt; Other restrictions &gt; Open System Protected Storage</strong>. When selected, its separate <strong>Open Windows Credentials Store (user mode)</strong> checkbox appears checked and disabled. SandMan saves the template selection, not <code>OpenProtectedStorage=y</code> or an automatic <code>OpenCredentials=y</code> value.</p>
+<p>In <a href="../PlusContent/compartment-mode.html">Application Compartment</a>, Sandboxie already skips its replacement PStore hook. That does not, by itself, establish whether the separate WinCred hooks are installed; their own endpoint and <code>OpenCredentials</code> checks still matter.</p>
+<p>The hook decisions are made as relevant modules initialize in sandboxed processes. Restart affected sandboxed applications and their child processes after changing the template. A Windows reboot or routine driver/service restart is not normally necessary solely for these user-mode hooks.</p>
 
 
 

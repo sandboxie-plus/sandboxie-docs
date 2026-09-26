@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="ClosedClsid is a sandbox setting in Sandboxie Ini available since v0.5.3a / 5.45.2. It specifies the COM class identifiers for unsandboxed COM objects that should not be accessible by a sandboxed program.">
+        <meta name="description" content="ClosedClsid is a sandbox setting in Sandboxie Ini, available since v0.5.3a / 5.45.2. It blocks specified COM class identifiers in Sandboxie&#x27;s intercepted client-side activation paths.">
       
       
       
@@ -5585,16 +5585,18 @@
 
 
 <h1 id="closed-clsid">Closed Clsid<a class="headerlink" href="#closed-clsid" title="Permanent link"></a></h1>
-<p><em>ClosedClsid</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a> available since v0.5.3a / 5.45.2. It specifies the COM class identifiers for unsandboxed COM objects that should not be accessible by a sandboxed program.</p>
-<p>Usage:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">ClosedClsid</span><span class="o">=</span><span class="s">{8BC3F05E-D86B-11D0-A075-00C04FB68820}</span>
-</span></code></pre></div></p>
-<p>This example makes the <em>Windows Management and Instrumentation</em> not accessible to sandboxed programs.</p>
-<p>Related Sandboxie Plus setting: Sandbox Options &gt; Resource Access &gt; COM &gt; Add COM Object &gt; Access column &gt; Closed</p>
+<p><em>ClosedClsid</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>, available since v0.5.3a / 5.45.2. It blocks specified COM class identifiers in Sandboxie's intercepted client-side activation paths.</p>
+<p>For example:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">ClosedClsid</span><span class="o">=</span><span class="s">{8BC3F05E-D86B-11D0-A075-00C04FB68820}</span>
+</span></code></pre></div>
+<p>This WMI class rule denies matching intercepted COM activation attempts for that CLSID. It does not establish that every way to use Windows Management Instrumentation is blocked.</p>
+<h2 id="program-qualified-rules">Program-qualified rules<a class="headerlink" href="#program-qualified-rules" title="Permanent link"></a></h2>
+<p>Like <a href="OpenClsid.html">Open Clsid</a>, this setting accepts a plain <code>{CLSID}</code> or a <code>program.exe,{CLSID}</code> or <code>&lt;GroupName&gt;,{CLSID}</code> value. The optional selector is checked against the sandboxed calling process. Executable-name matching is exact and case-insensitive; wildcard and negated program selectors are not supported. Omit the prefix to avoid restricting the rule to one caller; <code>*</code> is not an all-program selector here. <a href="ProcessGroup.html">Process Groups</a> can be nested.</p>
+<h2 id="scope-and-precedence">Scope and precedence<a class="headerlink" href="#scope-and-precedence" title="Permanent link"></a></h2>
+<p>Sandboxie checks <code>ClosedClsid</code> in its intercepted <code>CoGetClassObject</code>, <code>CoCreateInstance</code>, and <code>CoCreateInstanceEx</code> paths. A match returns <code>E_ACCESSDENIED</code> before a matching <code>OpenClsid</code> rule can select the COM broker. This is a path-specific precedence rule: the intercepted <code>CoGetObject</code> elevation-moniker path does not perform the same closed-list check, and the SbieSvc broker checks open eligibility without consulting <code>ClosedClsid</code>. Do not rely on this setting as a universal block on every COM or RPC route.</p>
+<p>Effective values can include box configuration, applicable enabled templates, and <code>[GlobalSettings]</code> fallback. SandMan's disabled rows are not active rules. The client-side list is cached after initialization, so restart affected sandboxed applications after changing <code>ClosedClsid</code>; a routine service restart or Windows reboot is not required for this client-side setting.</p>
+<p>In Sandboxie Plus, use <strong>Sandbox Options &gt; Resource Access &gt; COM &gt; Add COM Object</strong> and choose <strong>Closed</strong> in the Access column. The editor also has a Program column.</p>
 
 
 

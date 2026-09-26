@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="BreakoutDocument is a sandbox setting in Sandboxie Ini available since v1.8.5 / 5.63.5. It specifies which documents shall be opened unsandboxed when opened from within the sandbox.">
+        <meta name="description" content="BreakoutDocument is a sandbox setting in Sandboxie Ini, available since Sandboxie Plus 1.15.0 / Classic 5.70.0. It can route a matching path from a supported Shell document-open request to the host Shell, so the document may open outside the source sandbox. It is separate from process-directory Breakout Folder rules.">
       
       
       
@@ -5585,15 +5585,17 @@
 
 
 <h1 id="breakout-document">Breakout Document<a class="headerlink" href="#breakout-document" title="Permanent link"></a></h1>
-<p><em>BreakoutDocument</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a> available since v1.8.5 / 5.63.5. It specifies which documents shall be opened unsandboxed when opened from within the sandbox.</p>
-<p>Usage:</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">BreakoutDocument</span><span class="o">=</span><span class="s">C:\path\*.txt</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">   </span><span class="na">BreakoutDocument</span><span class="o">=</span><span class="s">C:\path\*.jpg</span>
+<p><em>BreakoutDocument</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>, available since Sandboxie Plus 1.15.0 / Classic 5.70.0. It can route a matching path from a supported Shell document-open request to the host Shell, so the document may open outside the source sandbox. It is separate from process-directory <a href="../BreakoutFolder/">Breakout Folder</a> rules.</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">BreakoutDocument</span><span class="o">=</span><span class="s">C:\Documents\*.pdf</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">BreakoutDocument</span><span class="o">=</span><span class="s">C:\Pictures\*.jpg</span>
 </span></code></pre></div>
+<p>The rule is matched case-insensitively against the file/path text supplied to an intercepted <code>ShellExecuteExW</code> request, using Sandboxie's pattern syntax for this path. It does not inspect the file's contents, verify its MIME type, or cover every way an application can open a document. A matching request is revalidated by the user-session proxy, which asks the host Shell to open that path with the <code>open</code> verb. The original Shell verb, parameters, and working directory are not forwarded unchanged.</p>
+<blockquote>
+<p><strong>Security warning:</strong> A host-side open can start an application or execute content outside the source sandbox. Restrict rules to intended paths and document types. A broad rule such as <code>BreakoutDocument=C:\path\*</code> can allow scripts or executables to run outside the sandbox.</p>
+</blockquote>
+<p>SandMan's <strong>Breakout Document</strong> workflow asks for a folder and extension and warns about broad or risky selections. Those checks apply when creating entries in the interface; they are not a runtime extension allowlist. A manually edited INI can contain broader patterns.</p>
+<p>The rule affects future supported Shell-open requests, not completed opens or arbitrary file access. See <a href="../BreakoutExecution/">Breakout Execution</a> for the architecture, Explorer compatibility bridge, other breakout settings, and SandMan controls.</p>
 
 
 

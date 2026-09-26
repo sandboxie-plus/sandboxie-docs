@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Sandboxie Plus lets you run programs in isolated sandboxes on Windows, enhancing security and privacy by containing changes from the rest of the system.">
+        <meta name="description" content="This page shows the Sandboxie Control / Classic recovery settings. For the current SandMan workflow and the distinction between automatic detection, Quick Recovery scanning, and host-side file moves, see File Recovery Architecture.">
       
       
       
@@ -5585,10 +5585,11 @@
 
 
 <h1 id="recovery-settings">Recovery Settings<a class="headerlink" href="#recovery-settings" title="Permanent link"></a></h1>
+<p>This page shows the Sandboxie Control / Classic recovery settings. For the current SandMan workflow and the distinction between automatic detection, Quick Recovery scanning, and host-side file moves, see <a href="../RecoveryArchitecture/">File Recovery Architecture</a>.</p>
 <h3 id="recovery-settings-group">"Recovery" Settings Group<a class="headerlink" href="#recovery-settings-group" title="Permanent link"></a></h3>
 <p><a href="../SandboxieControl/">Sandboxie Control</a> &gt; <a href="../SandboxSettings/">Sandbox Settings</a> &gt; Recovery:</p>
 <p><img alt="" src="../../Media/RecoverySettings.png" /></p>
-<p>While you can manually explore the contents of the sandbox and extract the files you need, Sandboxie has a <a href="../QuickRecovery/">Quick Recovery</a> tool that scans particular folders and informs you if any files are available for recovery out of the sandbox. The Recovery group configures this tool.</p>
+<p>While you can manually explore the contents of the sandbox and extract the files you need, Sandboxie has a <a href="../QuickRecovery/">Quick Recovery</a> tool that scans particular folders and informs you if any files are available for recovery out of the sandbox. The Classic Recovery group configures Quick Recovery locations and Immediate Recovery detection.</p>
 <hr />
 <h3 id="quick-recovery">Quick Recovery<a class="headerlink" href="#quick-recovery" title="Permanent link"></a></h3>
 <p><a href="../SandboxieControl/">Sandboxie Control</a> &gt; <a href="../SandboxSettings/">Sandbox Settings</a> &gt; Recovery &gt; Quick Recovery:</p>
@@ -5608,8 +5609,8 @@
 <h3 id="immediate-recovery">Immediate Recovery<a class="headerlink" href="#immediate-recovery" title="Permanent link"></a></h3>
 <p><a href="../SandboxieControl/">Sandboxie Control</a> &gt; <a href="../SandboxSettings/">Sandbox Settings</a> &gt; Recovery &gt; Immediate Recovery:</p>
 <p><img alt="" src="../../Media/ImmediateRecoverySettings.png" /></p>
-<p>The Quick Recovery tool scans folders only when invoked, which is either explicitly, or when the sandbox is about to be deleted. <a href="../ImmediateRecovery/">Immediate Recovery</a> is an extension which notifies you about recoverable files as soon as they are created by a sandboxed program.</p>
-<p>This behavior is usually useful and is enabled by default, but it may be disabled if so desired.</p>
+<p>Quick Recovery scans folders when invoked, including through the Classic deletion workflow. <a href="../ImmediateRecovery/">Immediate Recovery</a> separately detects eligible files during sandboxed file activity and can notify you about them.</p>
+<p>Classic new-box defaults enable this behavior, but it can be disabled. The runtime fallback when <code>AutoRecover</code> is absent is disabled; current SandMan's new-box wizard can also explicitly enable it.</p>
 <p>It may also be desirable to keep Immediate Recovery enabled, but exclude some file types from Immediate Recovery. For example: You may want to receive Immediate Recovery notifications about document files saved to the (sandboxed) desktop, but not about shortcuts (<em>.LNK</em>) files that may be created on the desktop during the installation of sandboxed programs.</p>
 <p>Use this settings page to enable or disable the Immediate Recovery extension, and configure exclusions to Immediate Recovery.</p>
 <p>Related <a href="../SandboxieIni/">Sandboxie Ini</a> settings: <a href="../AutoRecover/">AutoRecover</a>, <a href="../AutoRecoverIgnore/">AutoRecoverIgnore</a>.</p>
@@ -5619,6 +5620,9 @@
 
 
 
+
+  
+  
 
 
 

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="AlertProcess is a global setting in Sandboxie Ini. It specifies names of programs that, if started outside the sandbox, will cause Sandboxie to issue message SBIE1301.">
+        <meta name="description" content="AlertProcess is a global Sandboxie Ini setting for programs starting outside sandboxes. It matches executable/image identity, not arbitrary program activity, and does not select a destination sandbox.">
       
       
       
@@ -5585,21 +5585,15 @@
 
 
 <h1 id="alert-process">Alert Process<a class="headerlink" href="#alert-process" title="Permanent link"></a></h1>
-<p><em>AlertProcess</em> is a global setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It specifies names of programs that, if started outside the sandbox, will cause Sandboxie to issue message <a href="SBIE1301.html">SBIE1301</a>.</p>
-<p>Usage:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[GlobalSettings]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">AlertProcess</span><span class="o">=</span><span class="s">iexplore.exe</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">   </span><span class="na">AlertProcess</span><span class="o">=</span><span class="s">firefox.exe</span>
-</span></code></pre></div></p>
-<p>Related <a href="SandboxieControl.html">Sandboxie Control</a> settings:
-* <a href="ProgramSettings.html">Program Settings</a>
-* <a href="ConfigureMenu.html#program-alerts">Configure Menu &gt; Alert Programs</a></p>
-<p>Related Sandboxie Plus setting:
-* Options menu &gt; Global Settings &gt; Program Control &gt; Program Alerts</p>
-<p>See also: <a href="AlertFolder.html">Alert Folder</a>.</p>
+<p><code>AlertProcess</code> is a global <a href="SandboxieIni.html">Sandboxie Ini</a> setting for programs starting outside sandboxes. It matches executable/image identity, not arbitrary program activity, and does not select a destination sandbox.</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[GlobalSettings]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">AlertProcess</span><span class="o">=</span><span class="s">example.exe</span>
+</span></code></pre></div>
+<p>Ordinary entries match executable image names. An entry containing <code>*</code> is handled as a case-insensitive pattern against the normalized executable path. Do not assume that other selector syntaxes apply to this alert path.</p>
+<p>After configured forcing fails to select a box, Sandboxie checks <a href="AlertFolder.html">Alert Folder</a> and then <code>AlertProcess</code>. A successful earlier normal force selection does not receive the ordinary alert-list decision through this branch.</p>
+<p>With the default <code>StartRunAlertDenied=n</code>, a match can issue <a href="SBIE1301.html">SBIE1301</a> without this mechanism itself denying the start. With global <code>StartRunAlertDenied=y</code>, a normal alert-list match blocks the start. <code>AlertStartRunAccessDenied</code> defaults to <code>y</code> and controls whether the denied start reports <a href="SBIE1308.html">SBIE1308</a>; it does not control the denial.</p>
+<p>In SandMan, use <strong>Global Settings &gt; Program Control &gt; Program Alerts &gt; Add Program</strong>. <strong>Prevent the listed programs from starting on this system</strong> controls blocking. See <a href="ProgramForcingControls.html">Program Forcing Controls</a> for the broader force, alert, and pause architecture.</p>
+<p>For Sandboxie Control Classic, see <a href="ConfigureMenu.html#program-alerts">Configure Menu &gt; Program Alerts</a> and the <a href="ProgramSettings.html#alert">Program Settings alert option</a>.</p>
 
 
 

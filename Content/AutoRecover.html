@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="AutoRecover is a sandbox setting in Sandboxie Ini. It is typically specified as AutoRecover=y, and enables the Immediate Recovery extension of Quick Recovery.">
+        <meta name="description" content="AutoRecover is a sandbox setting in Sandboxie Ini. With AutoRecover=y, SbieDll initializes process-side Immediate Recovery detection using the effective RecoverFolder and AutoRecoverIgnore entries. It reports eligible files to the recovery UI; it does not itself move files to the host.">
       
       
       
@@ -5585,7 +5585,8 @@
 
 
 <h1 id="auto-recover">Auto Recover<a class="headerlink" href="#auto-recover" title="Permanent link"></a></h1>
-<p><em>AutoRecover</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It is typically specified as <em>AutoRecover=y</em>, and enables the Immediate Recovery extension of <a href="QuickRecovery.html">Quick Recovery</a>.</p>
+<p><em>AutoRecover</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. With <em>AutoRecover=y</em>, SbieDll initializes process-side <a href="ImmediateRecovery.html">Immediate Recovery</a> detection using the effective <a href="RecoverFolder.html">RecoverFolder</a> and <a href="AutoRecoverIgnore.html">AutoRecoverIgnore</a> entries. It reports eligible files to the recovery UI; it does not itself move files to the host.</p>
+<p>When no effective value is present, the detector's runtime fallback is disabled. Classic new-box defaults explicitly enable it, and the current SandMan new-box wizard offers it enabled by default. <a href="QuickRecovery.html">Quick Recovery</a> remains available when <em>AutoRecover=n</em> because its SandMan scan is separate. Restart affected sandboxed processes after changing automatic detection settings.</p>
 <p>Usage:</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
@@ -5594,6 +5595,7 @@
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">AutoRecover</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
 <p>Related <a href="SandboxieControl.html">Sandboxie Control</a> setting: <a href="RecoverySettings.html#immediate-recovery">Sandbox Settings &gt; Recovery &gt; Immediate Recovery</a></p>
+<p>See <a href="RecoveryArchitecture.html">File Recovery Architecture</a> for the complete workflow.</p>
 
 
 

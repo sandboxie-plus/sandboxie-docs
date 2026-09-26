@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="KeyRootPath is a sandbox setting in Sandboxie Ini. It specifies the registry location where the registry hive for a particular sandbox is mounted.">
+        <meta name="description" content="KeyRootPath is a sandbox setting in Sandboxie Ini. It specifies the registry location where the registry hive for a particular sandbox is mounted. The hive&#x27;s backing file, RegHive, resides beneath FileRootPath; the two roots are not interchangeable.">
       
       
       
@@ -5585,20 +5585,20 @@
 
 
 <h1 id="key-root-path">Key Root Path<a class="headerlink" href="#key-root-path" title="Permanent link"></a></h1>
-<p><em>KeyRootPath</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. It specifies the registry location where the registry hive for a particular sandbox is mounted.</p>
-<p>As with all sandbox settings, it may also be specified in the global section, and in that case will apply for all sandboxes where the setting is not also specified in the sandbox section.</p>
-<p>See <a href="../SandboxHierarchy/">Sandbox Hierarchy</a> for more information.</p>
+<p><em>KeyRootPath</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. It specifies the registry location where the registry hive for a particular sandbox is mounted. The hive's backing file, <code>RegHive</code>, resides beneath <a href="../FileRootPath/">FileRootPath</a>; the two roots are not interchangeable.</p>
+<p>It may be set for a box or supplied through <code>[GlobalSettings]</code> or an applicable enabled template. The expanded root is established when Sandboxie constructs the box path information, and an already mounted hive can constrain a change to the same registry target.</p>
+<p>See <a href="../SandboxRootsVolumeLayout/">Sandbox Roots and Volume Layout</a> and <a href="../SandboxHierarchy/">Sandbox Hierarchy</a> for the distinction between hive file and registry mount point.</p>
 <p>Usage:
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">KeyRootPath</span><span class="o">=</span><span class="s">\REGISTRY\USER\%BOXNAME%</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">KeyRootPath</span><span class="o">=</span><span class="s">\REGISTRY\USER\Sandbox_%USER%_%SANDBOX%</span>
 </span></code></pre></div></p>
 <p>The following substitution variables may be useful in this path.</p>
 <ul>
 <li>The variable %SANDBOX% which expands to the name of the sandbox</li>
-<li>The variable %USER% which expands to the user name</li>
+<li>The variable %USER% (or %USERNAME%) which expands to the user name</li>
 <li>The variable %SID% which expands to the user security-ID (SID)</li>
 <li>The variable %SESSION% which expands to the Terminal Services session number</li>
 </ul>
@@ -5606,9 +5606,10 @@
 <ul>
 <li><em>\REGISTRY\USER\Sandbox</em>%USER%<em>%SANDBOX%</em></li>
 </ul>
-<p>The value must begin with the prefix *<em>\REGISTRY\USER*</em> or Sandboxie will not be able to mount the registry hive.</p>
-<p>There is probably no reason to change the default value for this setting, and doing so is not recommended.</p>
+<p><code>%BOXNAME%</code> is not a supported alias in this root-expansion path; use <code>%SANDBOX%</code>. The current root initializer does not itself enforce a <code>\REGISTRY\USER\</code> prefix on a custom value. Nevertheless, the expanded value must be a usable registry mount target or hive mounting will fail. The default under <code>\REGISTRY\USER\</code> is the appropriate choice for ordinary boxes.</p>
+<p>There is usually no reason to change this default. The service also uses the registry root to identify a mounted image or RAM-disk box; changing it while a box is in use can create a mount conflict. This setting does not change registry access permissions.</p>
 <p>If Sandboxie cannot successfully mount or un-mount the sandboxed registry hive, it will issue messages <a href="../SBIE1241/">SBIE1241</a> and <a href="../SBIE2208/">SBIE2208</a>, respectively.</p>
+<p>In SandMan, the global default is at <strong>Global Settings &gt; Advanced Config &gt; Sandboxie Config &gt; Sandbox registry root</strong>. A per-box value can be entered in <strong>Sandbox Options &gt; Advanced Options &gt; Miscellaneous &gt; Add Option</strong>.</p>
 
 
 

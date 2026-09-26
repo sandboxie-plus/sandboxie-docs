@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="RecoverFolder is a sandbox setting in Sandboxie Ini. It specifies the sandboxed folders that Quick Recovery should examine. Shell Folders may be specified. For example:
+        <meta name="description" content="RecoverFolder is a repeatable sandbox setting in Sandboxie Ini. It identifies recoverable locations for both Quick Recovery and automatic Immediate Recovery detection when AutoRecover=y. Effective entries can include enabled templates. Shell Folders may be specified. For example:
    .
    .
    .
@@ -5593,7 +5593,7 @@
 
 
 <h1 id="recover-folder">Recover Folder<a class="headerlink" href="#recover-folder" title="Permanent link"></a></h1>
-<p><em>RecoverFolder</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It specifies the sandboxed folders that <a href="QuickRecovery.html">Quick Recovery</a> should examine. <a href="ShellFolders.html">Shell Folders</a> may be specified. For example:
+<p><em>RecoverFolder</em> is a repeatable sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It identifies recoverable locations for both <a href="QuickRecovery.html">Quick Recovery</a> and automatic <a href="ImmediateRecovery.html">Immediate Recovery</a> detection when <code>AutoRecover=y</code>. Effective entries can include enabled templates. <a href="ShellFolders.html">Shell Folders</a> may be specified. For example:
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
@@ -5605,8 +5605,9 @@
 </span></code></pre></div></p>
 <p>The first two example settings specify that <a href="QuickRecovery.html">Quick Recovery</a> from the DefaultBox sandbox should look in the <em>Documents</em> and the <em>Downloads</em> folders in drive C.</p>
 <p>The third example setting specifies that QuickRecovery from the InstallBox sandbox should look in the <em>Program Files</em> folder in drive D.</p>
-<p>Note that when <a href="QuickRecovery.html">Quick Recovery</a> looks in the specified folder, it also looks in any folders within that folder, and any folders within those folders, for as many levels of depth as are needed.</p>
-<p>Since Sandboxie Plus 1.18.0, folder paths may contain the wildcards <code>*</code> (matches any number of characters), <code>?</code> (matches a single character), and <code>**</code> (matches any number of characters, including path separators). Paths are matched in their NT, DOS, and network-alias forms.</p>
+<p>For a literal directory entry, <a href="QuickRecovery.html">Quick Recovery</a> scans that folder and its subfolders recursively. Automatic detection instead checks eligible file activity against the configured entries.</p>
+<p>Since Sandboxie Plus 1.18.0, entries may contain wildcard patterns using <code>*</code>, <code>?</code>, and <code>**</code>. A wildcard entry filters candidate paths; it does not itself establish an arbitrary recursive Quick Recovery scan root. Matching can consider translated NT, DOS, and network-alias paths. The precise pattern handling differs between the process-side detector and SandMan's Quick Recovery list, so do not treat these symbols as a universal filesystem glob grammar.</p>
+<p>See <a href="RecoveryArchitecture.html">File Recovery Architecture</a> for the two consumers and their different lifecycles.</p>
 <p>Related <a href="SandboxieControl.html">Sandboxie Control</a> setting: <a href="RecoverySettings.html#quick-recovery">Sandbox Settings &gt; Recovery &gt; Quick Recovery</a></p>
 
 

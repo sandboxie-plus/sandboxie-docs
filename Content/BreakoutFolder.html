@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="BreakoutFolder  is a sandbox setting in Sandboxie Ini available since v1.0.8 / 5.55.8. It forces a folder&#x27;s content to run unsandboxed even if started from inside the sandbox.">
+        <meta name="description" content="BreakoutFolder is a sandbox setting in Sandboxie Ini, available since Sandboxie Plus 1.0.8 / Classic 5.55.8. It matches the directory portion of an executable that a sandboxed process is trying to start. It does not make arbitrary access to files in that directory unsandboxed.">
       
       
       
@@ -5585,30 +5585,16 @@
 
 
 <h1 id="breakout-folder">Breakout Folder<a class="headerlink" href="#breakout-folder" title="Permanent link"></a></h1>
-<p><em>BreakoutFolder</em>  is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a> available since v1.0.8 / 5.55.8. It forces a folder's content to run unsandboxed even if started from inside the sandbox.</p>
-<p>Usage:</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">BreakoutFolder</span><span class="o">=</span><span class="s">C:\Downloads</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">   </span><span class="na">BreakoutFolder</span><span class="o">=</span><span class="s">E:</span>\
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">   </span><span class="s">BreakoutFolder=C:\App</span>\<span class="s">*</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">   </span><span class="na">BreakoutFolder</span><span class="o">=</span><span class="s">C:\App?</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">   </span><span class="na">BreakoutFolder</span><span class="o">=</span><span class="s">C:\?pp\*</span>
+<p><em>BreakoutFolder</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>, available since Sandboxie Plus 1.0.8 / Classic 5.55.8. It matches the directory portion of an executable that a sandboxed process is trying to start. It does not make arbitrary access to files in that directory unsandboxed.</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">BreakoutFolder</span><span class="o">=</span><span class="s">C:\Example</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">BreakoutFolder</span><span class="o">=</span><span class="s">C:\OtherApp\*</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="na">BreakoutFolder</span><span class="o">=</span><span class="s">C:\?pp\*</span>
 </span></code></pre></div>
-<p>The first example specifies that any content inside the folder "C:\Downloads" will be launched unsandboxed.</p>
-<p>Entire drives can also be specified as shown in the second example.</p>
-<p>The third and fourth lines show basic characters from wildcards.</p>
-<ul>
-<li><code>*</code> defines any subfolder beyond App folder (App\1, App\1\1 and etc.).</li>
-<li><code>?</code> defines a single character from folder (Appa, App8 and etc.) but not subfolders.</li>
-</ul>
-<p>Also, you can combine several wildcards to match the specified folder name and subfolders.</p>
-<p>NOTE:
- * Shortcuts that link to a program outside the specified folders will be launched sandboxed. For example: if you place a shortcut inside a broken out folder and it links to some program in a non broken out folder, then the shortcut will launch sandboxed.</p>
-<p>Check <a href="BreakoutProcess.html">BreakoutProcess</a> for information on breaking out programs.</p>
-<p>Also check <a href="ForceFolder.html">ForceFolder</a>, the counterpart of this setting, which forces a folder's content to launch sandboxed.</p>
+<p>The first rule matches an executable directly in <code>C:\Example</code>, but does not automatically match its subdirectories. The second uses <code>*</code> to match executable directories below <code>C:\OtherApp</code>; it does not include executables directly in <code>C:\OtherApp</code>. Add separate rules when both the directory itself and its subdirectories should match.</p>
+<p><code>BreakoutFolder</code> uses case-insensitive pattern matching and supports <code>*</code> and <code>?</code>. For example, <code>C:\App?</code> can match a one-character variation of an executable directory name. The combined <code>C:\?pp\*</code> example matches directories below a name such as <code>App</code>, but not an executable directly in <code>C:\App</code>. Match the directory string deliberately: a trailing <code>\</code> is not interchangeable with the directory name without that slash. A bare drive-root entry such as <code>E:\</code> is not a rule for the entire drive.</p>
+<p>For a shortcut launch, the relevant directory is that of the executable actually selected for the new process, not merely the directory containing the shortcut. A shortcut in <code>C:\Example</code> pointing to <code>C:\Tools\viewer.exe</code> does not match <code>BreakoutFolder=C:\Example</code> just because of the shortcut's location. A matching launch may still be captured by another enabled sandbox's <a href="ForceProcess.html">Force Process</a> or <a href="ForceFolder.html">Force Folder</a> rule; breakout does not guarantee an unsandboxed destination.</p>
+<p>This setting affects future process launches, not existing processes or general file access. See <a href="BreakoutExecution.html">Breakout Execution</a> for the service validation, security implications, and SandMan controls. Unlike <a href="BreakoutProcess.html">Breakout Process</a>, this rule does not use the service's separate host-file check for the executable.</p>
 
 
 

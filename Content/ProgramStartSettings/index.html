@@ -5603,7 +5603,7 @@
 <p>Notes:</p>
 <ul>
 <li>
-<p>Forced Folders can be temporarily suspended using the <a href="../FileMenu/#disable-forced-programs">Disable Forced Programs</a> command.</p>
+<p>The legacy Classic <a href="../FileMenu/#disable-forced-programs">Disable Forced Programs</a> command and current SandMan <strong>Pause Forcing Programs</strong> temporarily pause new-process forcing for the Windows session. This is distinct from persistent, per-box <a href="../DisableForceRules/">Disable Force Rules</a>. See <a href="../ProgramForcingControls/">Program Forcing Controls</a>.</p>
 </li>
 <li>
 <p>A Forced Folder match based on the executable's own directory is evaluated before <a href="./#forced-programs">Forced Programs</a>. Additional Forced Folder checks based on the working directory or document argument occur after Forced Programs, so Forced Folders do not have universal precedence.</p>
@@ -5625,7 +5625,7 @@
 <p>Notes:</p>
 <ul>
 <li>
-<p>Forced Programs can be temporarily suspended using the <a href="../FileMenu/#disable-forced-programs">Disable Forced Programs</a> command.</p>
+<p>The legacy Classic <a href="../FileMenu/#disable-forced-programs">Disable Forced Programs</a> command and current SandMan <strong>Pause Forcing Programs</strong> temporarily pause new-process forcing for the Windows session; they do not set per-box <code>DisableForceRules=y</code>. See <a href="../ProgramForcingControls/">Program Forcing Controls</a>.</p>
 </li>
 <li>
 <p>A <a href="./#forced-folders">Forced Folder</a> match based on the executable's own directory is evaluated before Forced Programs. Additional Forced Folder checks based on the working directory or document argument occur after Forced Programs, so Forced Folders do not have universal precedence.</p>

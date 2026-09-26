@@ -5605,18 +5605,9 @@
 <h1 id="sbie2205">SBIE2205<a class="headerlink" href="#sbie2205" title="Permanent link"></a></h1>
 <p><strong>Message:</strong> SBIE2205 Service not implemented: <em>name</em></p>
 <p><strong>Logged To:</strong> <a href="PopupMessageLog.html">Popup Message Log</a>.</p>
-<p><strong>Explanation:</strong></p>
-<p>Some little-used system service, which is identified by <em>name</em>, is not implemented by Sandboxie. This is a warning/notification message from Sandboxie. The sandboxed program may or may not fail.</p>
-<p><strong>Missing functionality related to Protected Storage and Windows Credentials</strong></p>
-<p>The explanation below applies to these missing services:</p>
-<ul>
-<li>CredReadA</li>
-<li>IPStore::GetTypeInfo</li>
-</ul>
-<p><a href="ProtectedStorage.html">Protected Storage</a> is a facility that some Windows programs use to collect history of typed text. <strong>Windows credentials</strong> is a facility that some Windows programs (like Windows Messenger), and some Microsoft web sites (like Hotmail) use to remember user/password information.</p>
-<p>Sandboxie provides its own implementation for these facilities, which store any collected information in the sandbox rather than in the real Protected Storage. This is part of the overall approach of Sandboxie which aims to contain any effects by a programs into the sandbox.</p>
-<p>This Sandboxie implementation is complete enough that it enables most programs to work as expected. However, it is not 100% compatible with the real implementation of the facilities in Windows. Few programs use services which are not implemented. In this cases, Sandboxie issues message SBIE2205 to report that a program tried to do something which was not supported, and that the operation failed. The message does <strong>not</strong> imply that any information was stored outside the sandbox.</p>
-<p>More information: <a href="ProtectedStorage.html">Protected Storage</a>, <a href="OpenProtectedStorage.html">Open Protected Storage</a>, <a href="OpenCredentials.html">Open Credentials</a>, and <a href="InternetExplorerTips.html#save-outside-sandbox">Save Outside Sandbox in Internet Explorer Tips</a>.</p>
+<p><strong>Explanation:</strong> Sandboxie uses this general diagnostic when an operation named in the message is not implemented by one of its compatibility components. It is not specific to credentials or <a href="ProtectedStorage.html">Protected Storage</a>. A sandboxed application may continue or fail, depending on whether it needs that operation.</p>
+<p>Sandboxie's compatibility implementations do not reproduce every system operation. In the PStore implementation, <code>IPStore::GetTypeInfo</code> is one confirmed unsupported method: it logs <code>SBIE2205</code> with its name and returns failure. The name displayed in the message identifies what was unsupported. Do not infer from this message alone that credential information escaped the sandbox or that a particular WinCred operation, such as <code>CredReadA</code>, is inherently unimplemented.</p>
+<p>For related behavior, see <a href="ProtectedStorage.html">Protected Storage</a>, <a href="OpenProtectedStorage.html">Open Protected Storage</a>, and <a href="OpenCredentials.html">Open Credentials</a>.</p>
 
 
 

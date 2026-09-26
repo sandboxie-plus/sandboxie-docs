@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Protected Storage (hereafter PStore) was a small memory space available until Windows 7, managed by the system security component, and usable by applications. Applications that needed to store sensitive information, such as passwords, could use PStore rather than implement means to encrypt and protect that information.">
+        <meta name="description" content="Windows Protected Storage (PStore) is a legacy interface that let applications store user data intended to be protected, such as passwords or other sensitive values, through PStoreCreateInstance and the IPStore API. It is distinct from the Windows Credential APIs (WinCred) described in Open Credentials. These facilities should not be treated as interchangeable names for a modern Windows password store.">
       
       
       
@@ -5585,13 +5585,16 @@
 
 
 <h1 id="protected-storage">Protected Storage<a class="headerlink" href="#protected-storage" title="Permanent link"></a></h1>
-<p>Protected Storage (hereafter PStore) was a small memory space available until Windows 7, managed by the system security component, and usable by applications. Applications that needed to store sensitive information, such as passwords, could use PStore rather than implement means to encrypt and protect that information.</p>
-<p>Note that PStore memory of one user account is not accessible by another user account; but all programs running in the same user account can see and change information entered into the memory store by any other application.</p>
-<p>The best application example is Internet Explorer version 6, which uses PStore to store AutoComplete history (such as the Google search box) and passwords in Web forms.</p>
-<p>(Note that Internet Explorer version 7 still encrypts this information, but no longer uses PStore to do it. Presumably this is an effort to hide the sensitive information from other programs -- most likely spyware that may be running in the same user account.)</p>
-<p>Sandboxie can provide its own implementation of PStore, for sandboxed applications. This is the default setting, unless altered in <a href="ApplicationsSettings.html#web-browser">Sandbox Settings &gt; Applications &gt; Web Browser</a>.</p>
-<p>The Sandboxie PStore is stored in the file <em>SbiePst.dat</em> in the <strong>sandboxed</strong> <em>Windows</em> folder.</p>
-<p>The Sandboxie implementation of PStore encrypts data using a <em>much weaker</em> method than what the system security component would have done. However, information entered into the Sandboxie PStore will likely disappear quickly, as part of the process of deleting the sandbox.</p>
+<p>Windows Protected Storage (PStore) is a legacy interface that let applications store user data intended to be protected, such as passwords or other sensitive values, through <code>PStoreCreateInstance</code> and the <code>IPStore</code> API. It is distinct from the Windows Credential APIs (WinCred) described in <a href="OpenCredentials.html">Open Credentials</a>. These facilities should not be treated as interchangeable names for a modern Windows password store.</p>
+<p>In an ordinary sandbox, Sandboxie normally replaces <code>PStoreCreateInstance</code> with its own <code>IPStoreImpl</code> compatibility implementation. Its data uses sandbox-local backing storage. Current code constructs a <code>SbiePst.dat</code> filename under the Windows directory by default, but a build-time filename override is possible and sandbox file virtualization determines the physical location; do not rely on a fixed host path. This implementation provides compatibility for applications using the legacy PStore interface, not an assurance that all Windows credential mechanisms are isolated.</p>
+<p>Sandboxie's default WinCred compatibility layer also uses this PStore implementation as backing storage for intercepted credential modifications. Its read and enumeration paths can still consult the native Windows credential store. See <a href="OpenCredentials.html">Open Credentials</a> for that important boundary.</p>
+<h2 id="data-visibility-and-protection">Data visibility and protection<a class="headerlink" href="#data-visibility-and-protection" title="Permanent link"></a></h2>
+<p>Sandboxie's replacement uses a common backing file in the sandboxed Windows path rather than a private PStore file for each application. Access to that file still depends on sandbox and host permissions, so this does not establish visibility across Windows user accounts.</p>
+<p>The current file format applies a simple reversible transformation to stored blocks, not strong encryption. Treat sandbox data containing PStore items as sensitive. When the backing file remains inside the sandbox, deleting that sandbox's contents removes the local items with it; this does not delete host credentials or data stored through an opened host path.</p>
+<h2 id="opening-the-system-implementation">Opening the system implementation<a class="headerlink" href="#opening-the-system-implementation" title="Permanent link"></a></h2>
+<p>Select the <a href="OpenProtectedStorage.html">Open Protected Storage</a> template to open the relevant system endpoints. The open protected-storage IPC path causes Sandboxie to skip its replacement PStore hook and also its user-mode WinCred hooks. The old <code>OpenProtectedStorage=y</code> Boolean is not the current method.</p>
+<p><a href="../PlusContent/compartment-mode.html">Application Compartment</a> also skips Sandboxie's PStore replacement hook. The WinCred hooks have separate checks, so compartment mode alone should not be described as automatically enabling <code>OpenCredentials</code>.</p>
+<p>These compatibility choices do not cover every way a sandboxed application might store or access secrets. See <a href="SBIE2205.html">SBIE2205</a> for unsupported PStore methods and <a href="SBIE2213.html">SBIE2213</a> for failure to initialize Sandboxie's credential backing store.</p>
 
 
 

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Sandboxie Plus lets you run programs in isolated sandboxes on Windows, enhancing security and privacy by containing changes from the rest of the system.">
+        <meta name="description" content="This page retains the Sandboxie Control / Classic screenshot and workflow. Current Sandboxie Plus uses SandMan for recovery dialogs or notifications; see File Recovery Architecture.">
       
       
       
@@ -5585,16 +5585,17 @@
 
 
 <h1 id="immediate-recovery">Immediate Recovery<a class="headerlink" href="#immediate-recovery" title="Permanent link"></a></h1>
+<p>This page retains the Sandboxie Control / Classic screenshot and workflow. Current Sandboxie Plus uses SandMan for recovery dialogs or notifications; see <a href="RecoveryArchitecture.html">File Recovery Architecture</a>.</p>
 <p><img alt="" src="../Media/ImmediateRecoverFavIcon.png" /></p>
-<p>Immediate Recovery is an extension of <a href="QuickRecovery.html">Quick Recovery</a>. Both Quick and Immediate Recovery scan the list of folders configured in <a href="RecoverySettings.html#quick-recovery">Sandbox Settings &gt; Recovery &gt; Quick Recovery</a>, and suggest an easy way to move any files (or folders) found out of the sandbox.</p>
-<p>Quick Recovery is invoked by explicit request, or just before the sandbox is deleted, that is, typically it is invoked after the sandboxed programs have finished running. By contrast, <em>Immediate Recovery</em> works within the sandboxed program, and identifies files as soon as they are created and eligible for recovery.</p>
-<p>As soon as a file is eligible for recovery, the <em>Immediate Recovery</em> window appears, and as long as the window stays open, any further files that become eligible for recovery will be collected into that window. The upper area (see picture above) shows the files eligible for recovery, while the lower area lists destination folders.</p>
+<p>Immediate Recovery uses the configured <a href="RecoverFolder.html"><code>RecoverFolder</code></a> entries, but it is not the same scan as <a href="QuickRecovery.html">Quick Recovery</a>. With <a href="AutoRecover.html"><code>AutoRecover=y</code></a>, SbieDll detects eligible file activity in the sandboxed process and applies <a href="AutoRecoverIgnore.html"><code>AutoRecoverIgnore</code></a>. Quick Recovery separately scans and lists files when invoked.</p>
+<p>Quick Recovery is invoked by explicit request, or through the Classic deletion workflow, typically after sandboxed programs have finished running. By contrast, Immediate Recovery's <strong>detection</strong> runs in the sandboxed process. Presentation and the actual move out of the sandbox are handled by the host-side recovery UI. An eligible, non-empty file is reported after relevant file activity, not necessarily at the exact moment it is created.</p>
+<p>In the Classic workflow shown above, eligible files appear in the <em>Immediate Recovery</em> window, and further candidates can be collected while it remains open. The upper area shows eligible files, while the lower area lists destination folders. Current SandMan may instead present a notification, depending on its global notification preference; a temporarily suppressed prompt may not appear.</p>
 <p>To recover files, select one or more files in the upper area, then select a folder from the lower area, and click <em>Recover</em>. (Use the <em>CTRL</em> and <em>SHIFT</em> keys to select multiple files in the upper area).</p>
 <p>The lower area initially offers just the special destinations <em>Recover to Same Folder</em> and <em>Recover to Any Folder</em>. These work the same as described in <a href="QuickRecovery.html">Quick Recovery</a>. As you use the <em>Recover to Any Folder</em> command, more destinations will be recorded in the lower area for later use.</p>
 <ul>
 <li>You can disable this feature by clearing the checkbox <em>Store selected folders for later use</em> in the <em>Browse For Folder</em> dialog box that appears when you invoke the <em>Recover to Any Folder</em> command.</li>
 </ul>
-<p><em>Immediate Recovery</em> can be temporarily disabled until all sandboxed activity stops, by marking the checkbox <em>Don't prompt again until all sandboxed programs stop</em> at the bottom of the window.</p>
+<p>In the Classic window, <em>Immediate Recovery</em> prompting can be temporarily disabled until all sandboxed activity stops by marking <em>Don't prompt again until all sandboxed programs stop</em>. SandMan has its own presentation preferences under <strong>Global Settings &gt; General Config &gt; Notifications</strong> and <strong>Recovery Options</strong>.</p>
 <hr />
 <p>Go to <a href="QuickRecovery.html">Quick Recovery</a>, <a href="SandboxieControl.html">Sandboxie Control</a>, <a href="HelpTopics.html">Help Topics</a>.</p>
 
@@ -5603,6 +5604,9 @@
 
 
 
+
+  
+  
 
 
 

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="NeverDelete is a sandbox setting in Sandboxie Ini. It is typically specified as NeverDelete=y, and indicates that the contents of the sandbox should never be deleted by Sandboxie. For example:">
+        <meta name="description" content="NeverDelete is a sandbox setting in Sandboxie Ini. With NeverDelete=y, SandMan does not start AutoDelete cleanup when the box closes, and ordinary full-cleanup paths reject content deletion. This is not an absolute safeguard against every manual snapshot or image-backed operation, nor a filesystem permission boundary. For example:">
       
       
       
@@ -5585,13 +5585,14 @@
 
 
 <h1 id="never-delete">Never Delete<a class="headerlink" href="#never-delete" title="Permanent link"></a></h1>
-<p><em>NeverDelete</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It is typically specified as <em>NeverDelete=y</em>, and indicates that the contents of the sandbox should never be deleted by Sandboxie. For example:</p>
+<p><em>NeverDelete</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. With <em>NeverDelete=y</em>, SandMan does not start <a href="AutoDelete.html"><code>AutoDelete</code></a> cleanup when the box closes, and ordinary full-cleanup paths reject content deletion. This is not an absolute safeguard against every manual snapshot or image-backed operation, nor a filesystem permission boundary. For example:</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">NeverDelete</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
+<p><code>NeverRemove</code> is separate: it guards the normal manual <strong>Remove Sandbox</strong> action, which removes the box definition. In SandMan, <strong>Sandbox Options &gt; File Options &gt; Box Delete options &gt; Protect this sandbox from deletion or emptying</strong> is a tri-state control: checked saves both protections; partially checked saves <code>NeverRemove=y</code> without <code>NeverDelete</code>. The current automatic <code>AutoRemove</code> transition after cleanup does not consult <code>NeverRemove</code>. See <a href="SandboxRemoval.html">Sandbox Deletion and Removal Lifecycle</a> for the path-specific limits and interaction.</p>
 <p>Related <a href="SandboxieControl.html">Sandboxie Control</a> setting: <a href="DeleteSettings.html#invocation">Sandbox Settings &gt; Delete &gt; Invocation</a></p>
 
 

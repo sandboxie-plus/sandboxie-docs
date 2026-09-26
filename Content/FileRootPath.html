@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="FileRootPath is a sandbox setting in Sandboxie Ini. It specifies the root folder for a particular sandbox.">
+        <meta name="description" content="FileRootPath is a sandbox setting in Sandboxie Ini. It specifies the file-container root for a particular sandbox. It is a storage-location setting, not a rule granting access to host files.">
       
       
       
@@ -5585,9 +5585,9 @@
 
 
 <h1 id="file-root-path">File Root Path<a class="headerlink" href="#file-root-path" title="Permanent link"></a></h1>
-<p><em>FileRootPath</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It specifies the root folder for a particular sandbox.</p>
-<p>As with all sandbox settings, it may also be specified in the global section, and in that case will apply for all sandboxes where the setting is not also specified in the sandbox section.</p>
-<p>See <a href="SandboxHierarchy.html">Sandbox Hierarchy</a> for more information.</p>
+<p><em>FileRootPath</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It specifies the file-container root for a particular sandbox. It is a storage-location setting, not a rule granting access to host files.</p>
+<p>It can be set for a box or supplied through the effective global or enabled-template configuration. An effective <code>FileRootPath</code> takes precedence over the legacy <a href="BoxRootFolder.html">BoxRootFolder</a>, even if <code>FileRootPath</code> came from <code>[GlobalSettings]</code> and <code>BoxRootFolder</code> was set for the box.</p>
+<p>See <a href="SandboxRootsVolumeLayout.html">Sandbox Roots and Volume Layout</a> and <a href="SandboxHierarchy.html">Sandbox Hierarchy</a> for the contents beneath this root.</p>
 <p>Usage:</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
@@ -5596,25 +5596,28 @@
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">FileRootPath</span><span class="o">=</span><span class="s">C:\Sandbox\MySandbox</span>
 </span></code></pre></div>
 <p>Related <a href="SandboxieControl.html">Sandboxie Control</a> setting: <a href="SandboxMenu.html#set-container-folder">Sandbox menu &gt; Set Container Folder</a></p>
-<p>Related Sandboxie Plus setting: Options menu &gt; Global Settings &gt; Advanced Config &gt; Sandboxie Config &gt; Sandbox file system root</p>
+<p>In SandMan, the global default is at <strong>Global Settings &gt; Advanced Config &gt; Sandboxie Config &gt; Sandbox file system root</strong>. The New Box wizard offers a container location, and a per-box <code>FileRootPath</code> can be entered in <strong>Sandbox Options &gt; Advanced Options &gt; Miscellaneous &gt; Add Option</strong>. The Sandboxie Control link above describes the Classic/legacy interface.</p>
 <p><strong>Technical Details</strong></p>
 <p>The following substitution variables may be useful in this path.</p>
 <ul>
 <li><a href="ShellFolders.html">Shell Folders</a> variables such as %Personal% which expands to the user's Documents folder</li>
 <li>The variable %SBIEHOME% which expands to the root of the Sandboxie installation</li>
+<li>The variable %SystemDrive% which expands to the Windows system drive letter</li>
 <li>The variable %SANDBOX% which expands to the name of the sandbox</li>
-<li>The variable %USER% which expands to the user name</li>
+<li>The variable %USER% (or %USERNAME%) which expands to the user name</li>
 <li>The variable %SID% which expands to the user security ID (SID)</li>
 <li>The variable %SESSION% which expands to the Terminal Services session number</li>
 </ul>
-<p>If <em>FileRootPath</em> is not specified, its default value is constructed using the <em>deprecated</em> <a href="BoxRootFolder.html">BoxRootFolder</a> setting, thus:</p>
+<p>If no effective <em>FileRootPath</em> is available, Sandboxie checks for the deprecated <a href="BoxRootFolder.html">BoxRootFolder</a>. When present, its value is followed by the old-style suffix:</p>
 <ul>
-<li><code>BoxRootFolder\Sandbox\%SANDBOX%</code></li>
+<li><code>BoxRootFolder\Sandbox\&lt;box name&gt;</code></li>
 </ul>
-<p>If <em>BoxRootFolder</em> is also not specified, then the default setting is:</p>
+<p>If neither setting is available, the built-in runtime default is:</p>
 <ul>
-<li><code>C:\Sandbox\%USER%\%SANDBOX%</code></li>
+<li><code>\??\%SystemDrive%\Sandbox\%USER%\%SANDBOX%</code></li>
 </ul>
+<p>For a typical Windows installation this resolves to a location such as <code>C:\Sandbox\alice\DefaultBox</code>. <code>%BOXNAME%</code> is not a supported root-expansion alias; use <code>%SANDBOX%</code>.</p>
+<p>Changing <code>FileRootPath</code> in configuration does not move an existing container. Stop affected sandboxed processes before changing the path, and do not assume existing content will be relocated automatically; changing the path alone can leave the old content behind.</p>
 
 
 

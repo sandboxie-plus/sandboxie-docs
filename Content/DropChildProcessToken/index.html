@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="DropChildProcessToken is a sandbox setting in Sandboxie Ini available since v1.15.6 / 5.70.6. This setting forces child processes of specified applications to run without modified security tokens, bypassing Sandboxie&#x27;s normal restricted token mechanism. It&#x27;s primarily designed as a debugging tool for troubleshooting &quot;green box&quot; (Application Compartment) compatibility issues where applications fail to start or function properly due to token restrictions.">
+        <meta name="description" content="DropChildProcessToken is an advanced debugging setting introduced in Sandboxie Plus 1.15.6 / Classic 5.70.6. It can help troubleshoot child-creation problems, including issues historically described as “green box” compatibility problems. It is not a general recommendation to relax token handling.">
       
       
       
@@ -5585,133 +5585,28 @@
 
 
 <h1 id="drop-child-process-token">Drop Child Process Token<a class="headerlink" href="#drop-child-process-token" title="Permanent link"></a></h1>
-<p><em>DropChildProcessToken</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a> available since v1.15.6 / 5.70.6. This setting forces child processes of specified applications to run without modified security tokens, bypassing Sandboxie's normal restricted token mechanism. It's primarily designed as a debugging tool for troubleshooting "green box" (Application Compartment) compatibility issues where applications fail to start or function properly due to token restrictions.</p>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h2>
+<p><code>DropChildProcessToken</code> is an advanced debugging setting introduced in Sandboxie Plus 1.15.6 / Classic 5.70.6. It can help troubleshoot child-creation problems, including issues historically described as “green box” compatibility problems. It is not a general recommendation to relax token handling.</p>
+<p>When the setting matches, Sandboxie clears the explicit <code>hToken</code> supplied by the calling process to its child-process creation path. It does not disable Sandboxie's entire token pipeline or rewrite an existing token object.</p>
+<h2 id="configuration-and-caller-scope">Configuration and caller scope<a class="headerlink" href="#configuration-and-caller-scope" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">DropChildProcessToken</span><span class="o">=</span><span class="s">chrome.exe,y</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="na">DropChildProcessToken</span><span class="o">=</span><span class="s">firefox.exe,y</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="na">DropChildProcessToken</span><span class="o">=</span><span class="s">acroread.exe,y</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">DropChildProcessToken</span><span class="o">=</span><span class="s">parent.exe,y</span>
 </span></code></pre></div>
-<h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link"></a></h2>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">DropChildProcessToken</span><span class="o">=</span><span class="s">&lt;executable&gt;,y</span>
-</span></code></pre></div>
-<p>Where:</p>
+<p>The runtime default is <code>n</code>. This is an image-aware setting: <code>parent.exe</code> selects the sandboxed process <strong>making the child-creation call</strong>, not the executable it launches. The rule changes how matching callers create children; it does not change the token of <code>parent.exe</code> itself.</p>
+<p>Sandboxie also clears a caller-supplied child token automatically for images classified as Acrobat Reader or plugin containers. Those hardcoded cases do not require a <code>DropChildProcessToken</code> rule. Historical Flash-specific code is commented out and is not an active automatic case.</p>
+<h2 id="what-happens-to-the-child">What happens to the child<a class="headerlink" href="#what-happens-to-the-child" title="Permanent link"></a></h2>
+<p>The setting removes a caller-supplied child token from this creation request (<code>hToken = NULL</code>). What token the child ultimately runs with depends on the later sandbox mode and token-processing path:</p>
 <ul>
-<li><code>&lt;executable&gt;</code> is the name of the application executable file (case-insensitive).</li>
-<li>The value must be <code>y</code> to enable the setting.</li>
+<li><strong>Standard sandbox:</strong> The driver ordinarily still reaches <code>Token_ReplacePrimary()</code> and assigns Sandboxie's restricted primary token. Clearing the caller's token and performing that later replacement are separate stages.</li>
+<li><strong><a href="../../PlusContent/compartment-mode/">Application Compartment</a> or <a href="../OriginalToken/">OriginalToken</a>:</strong> Normal restricted-primary-token replacement is bypassed. Clearing the supplied token can therefore have a different and potentially larger effect on the Windows token chosen for the child.</li>
 </ul>
-<h2 id="technical-details">Technical Details<a class="headerlink" href="#technical-details" title="Permanent link"></a></h2>
-<p>When <code>DropChildProcessToken</code> is enabled, Sandboxie modifies its process creation behavior during child process initialization:</p>
-<ol>
-<li>
-<p><strong>Token Nullification</strong>: During <code>CreateProcessInternalW</code>, the system checks if the target application matches any configured <code>DropChildProcessToken</code> entries and sets the process token to <code>NULL</code><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
-</li>
-<li>
-<p><strong>Automatic Application</strong>: The setting automatically applies to specific application types - Adobe Acrobat Reader and plugin containers receive this treatment by default through hardcoded image type detection<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</p>
-</li>
-<li>
-<p><strong>Green Box Compatibility</strong>: This mechanism helps applications that struggle with Sandboxie's restricted security tokens to function in compartment mode, where compatibility is prioritized over strict isolation<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>.</p>
-</li>
-</ol>
-<h2 id="default-behavior">Default Behavior<a class="headerlink" href="#default-behavior" title="Permanent link"></a></h2>
-<p>Sandboxie automatically applies token dropping to certain application categories without explicit configuration:</p>
+<p>The setting does not guarantee that a child inherits its parent's full token or that Sandboxie's remaining isolation mechanisms are disabled. Use it to investigate a specific child-creation compatibility problem, and review the token implications before retaining it in a configuration.</p>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
 <ul>
-<li><strong>Adobe Acrobat Reader</strong>: All versions automatically have child process tokens dropped to prevent privilege escalation.</li>
-<li><strong>Plugin Containers</strong>: Applications classified as <code>DLL_IMAGE_PLUGIN_CONTAINER</code> through <a href="../SpecialImage/">SpecialImage</a> automatically receive this treatment.</li>
-<li><strong>Flash Player Sandbox</strong>: Historical support for Adobe Flash Player sandbox architecture (commented out in current versions).</li>
+<li><a href="../AppContainerTokens/">AppContainer Token Compatibility</a></li>
+<li><a href="../OriginalToken/">Original Token</a></li>
+<li><a href="../../PlusContent/compartment-mode/">Application Compartment</a></li>
+<li><a href="../SandboxieIni/">Sandboxie Ini</a></li>
 </ul>
-<p><strong>Usage Scenarios</strong></p>
-<ul>
-<li><strong>Green Box Debugging</strong>: Troubleshooting Application Compartment boxes where applications fail to start due to token restrictions.</li>
-<li><strong>Legacy Application Support</strong>: Enabling older applications that don't work well with modern security token restrictions.</li>
-<li><strong>Plugin Compatibility</strong>: Ensuring browser plugins and helper processes can function without token-related conflicts.</li>
-<li><strong>Development Testing</strong>: Testing application behavior without Sandboxie's token-based security isolation.</li>
-</ul>
-<p><strong>Security Implications</strong></p>
-<ul>
-<li><strong>Reduced Security</strong>: Child processes run with the same token as their parent, potentially reducing isolation effectiveness.</li>
-<li><strong>Privilege Management</strong>: Removes Sandboxie's normal privilege restrictions, allowing processes to inherit full parent privileges.</li>
-<li><strong>Compatibility Trade-off</strong>: Improves application compatibility at the cost of some security isolation.</li>
-<li><strong>Debugging Context</strong>: Primarily intended for troubleshooting rather than production use.</li>
-</ul>
-<p><strong>Green Box Integration</strong></p>
-<p>This setting is particularly relevant for Green Box (Application Compartment) configurations:</p>
-<ul>
-<li><strong>Compartment Mode</strong>: Green boxes use <code>NoSecurityIsolation=y</code> to disable token-based security while maintaining file/registry virtualization.</li>
-<li><strong>Token Conflicts</strong>: Some applications still experience issues even in compartment mode, requiring complete token dropping.</li>
-<li><strong>Compatibility Priority</strong>: Green boxes prioritize compatibility over security, making this setting a natural fit for problematic applications.</li>
-</ul>
-<h2 id="implementation-notes">Implementation Notes<a class="headerlink" href="#implementation-notes" title="Permanent link"></a></h2>
-<p>The token dropping mechanism:</p>
-<ul>
-<li>Operates during the <code>Proc_CreateProcessInternalW</code> function in the DLL injection layer.</li>
-<li>Uses <code>Config_GetSettingsForImageName_bool</code> to query per-application settings with a default value of <code>FALSE</code><sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>.</li>
-<li>Integrates with the image type classification system to automatically handle known problematic application types.</li>
-<li>Sets <code>hToken = NULL</code> to bypass normal token creation and restriction processes<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>.</li>
-<li>Affects the <code>CreateProcessInternalW</code> call chain where restricted tokens would normally be applied.</li>
-</ul>
-<h2 id="related-compatibility-settings">Related Compatibility Settings<a class="headerlink" href="#related-compatibility-settings" title="Permanent link"></a></h2>
-<ul>
-<li><strong>OriginalToken</strong>: When enabled, bypasses most token-related modifications including <code>DropChildProcessToken</code>.</li>
-<li><strong>DeprecatedTokenHacks</strong>: Re-enables older token-based workarounds that were disabled in compartment mode.</li>
-<li><strong>NoSecurityIsolation</strong>: The core Green Box setting that disables token-based security isolation.</li>
-<li><strong>FakeAppContainerToken</strong>: Controls AppContainer token simulation for specific applications.</li>
-</ul>
-<h2 id="usage-examples">Usage Examples<a class="headerlink" href="#usage-examples" title="Permanent link"></a></h2>
-<ul>
-<li>
-<p><strong>Browser Child Process Issues</strong>:
-  <div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">DropChildProcessToken</span><span class="o">=</span><span class="s">chrome.exe,y</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">DropChildProcessToken</span><span class="o">=</span><span class="s">msedge.exe,y</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p><strong>Plugin Container Problems</strong>:
-  <div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">DropChildProcessToken</span><span class="o">=</span><span class="s">plugin-container.exe,y</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">DropChildProcessToken</span><span class="o">=</span><span class="s">flashplayer.exe,y</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p><strong>Custom Application Debugging</strong>:
-  <div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="na">DropChildProcessToken</span><span class="o">=</span><span class="s">myapp.exe,y</span>
-</span></code></pre></div></p>
-</li>
-</ul>
-<h2 id="troubleshooting-green-boxes">Troubleshooting Green Boxes<a class="headerlink" href="#troubleshooting-green-boxes" title="Permanent link"></a></h2>
-<p>When applications fail in Green Box mode:</p>
-<ol>
-<li>Enable <code>DropChildProcessToken</code> for the problematic executable.</li>
-<li>Test if the application starts and functions correctly.</li>
-<li>If successful, the issue was token-related and the setting can remain enabled.</li>
-<li>If unsuccessful, investigate other compatibility settings or file/registry access issues.</li>
-</ol>
-<h2 id="related-settings">Related Settings<a class="headerlink" href="#related-settings" title="Permanent link"></a></h2>
-<ul>
-<li><a href="../SpecialImage/">SpecialImage</a> - Automatically applies token dropping to plugin containers and Adobe Reader.</li>
-<li><a href="../NoSecurityIsolation/">NoSecurityIsolation</a> - Core Green Box setting for Application Compartment mode.</li>
-</ul>
-<p>Related Sandboxie Plus setting: Available in advanced debugging options (not exposed in standard UI).</p>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:1">
-<p>Token nullification in <code>proc.c</code>: The function <code>Proc_CreateProcessInternalW</code> checks <code>Config_GetSettingsForImageName_bool(L"DropChildProcessToken", FALSE)</code> and sets <code>hToken = NULL</code> when the condition is met, bypassing the normal restricted token creation process.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-<li id="fn:2">
-<p>Automatic application in <code>proc.c</code>: The condition <code>Dll_ImageType == DLL_IMAGE_ACROBAT_READER || Dll_ImageType == DLL_IMAGE_PLUGIN_CONTAINER</code> automatically applies token dropping to Adobe Reader and plugin containers regardless of explicit configuration.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
-</li>
-<li id="fn:3">
-<p>Green box compatibility mechanism: This setting addresses the fundamental tension between Sandboxie's security model and application compatibility by allowing selective bypassing of token restrictions while maintaining file system and registry virtualization.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
-</li>
-<li id="fn:4">
-<p>Configuration query in <code>proc.c</code>: The system uses <code>Config_GetSettingsForImageName_bool(L"DropChildProcessToken", FALSE)</code> to retrieve per-application settings, with the <code>FALSE</code> default ensuring the feature is only active when explicitly enabled.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
-</li>
-<li id="fn:5">
-<p>Token bypass implementation in <code>proc.c</code>: Setting <code>hToken = NULL</code> in the <code>CreateProcessInternalW</code> function effectively disables the entire restricted token creation pipeline, allowing child processes to inherit their parent's full security context.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div>
 
 
 

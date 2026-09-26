@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="AutoRecoverIgnore is a sandbox setting in Sandboxie Ini. It specifies folders or file types that should be ignored by the Immediate Recovery extension of Quick Recovery. For example:">
+        <meta name="description" content="AutoRecoverIgnore is a repeatable sandbox setting in Sandboxie Ini. Automatic Immediate Recovery detection checks this list after matching RecoverFolder, so ignored candidates are not reported for automatic recovery. SandMan can also use it to hide matching Quick Recovery entries when UseAutoRecoverIgnoreForQuick is enabled. For example:">
       
       
       
@@ -5585,7 +5585,7 @@
 
 
 <h1 id="auto-recover-ignore">Auto Recover Ignore<a class="headerlink" href="#auto-recover-ignore" title="Permanent link"></a></h1>
-<p><em>AutoRecoverIgnore</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It specifies folders or file types that should be ignored by the Immediate Recovery extension of <a href="QuickRecovery.html">Quick Recovery</a>. For example:</p>
+<p><em>AutoRecoverIgnore</em> is a repeatable sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. Automatic <a href="ImmediateRecovery.html">Immediate Recovery</a> detection checks this list after matching <a href="RecoverFolder.html">RecoverFolder</a>, so ignored candidates are not reported for automatic recovery. SandMan can also use it to hide matching <a href="QuickRecovery.html">Quick Recovery</a> entries when <a href="UseAutoRecoverIgnoreForQuick.html">UseAutoRecoverIgnoreForQuick</a> is enabled. For example:</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
@@ -5594,10 +5594,11 @@
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">   </span><span class="na">AutoRecoverIgnore</span><span class="o">=</span><span class="s">%Desktop%</span>
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">   </span><span class="na">AutoRecoverIgnore</span><span class="o">=</span><span class="s">C:\Folder</span>
 </span></code></pre></div>
-<p>The first example excludes from Immediate Recovery any files ending in <em>.part</em>. These files are created by the download manager of the Mozilla browsers, and represent incomplete downloads. When the download completes, the <em>.part</em> extension is removed from the file, thus making it eligible for Immediate Recovery. Note that <em>.part</em> is a default setting.</p>
-<p>The second and third examples exclude the specified folders from Immediate Recovery.</p>
-<p>Since Sandboxie Plus 1.18.0, entries may contain the wildcards <code>*</code> (matches any number of characters), <code>?</code> (matches a single character), and <code>**</code> (matches any number of characters, including path separators). Paths are matched in their NT, DOS, and network-alias forms.</p>
-<p>Since Sandboxie Plus 1.18.0, the exclusion list can also be applied to the <a href="QuickRecovery.html">Quick Recovery</a> window; see <a href="UseAutoRecoverIgnoreForQuick.html">UseAutoRecoverIgnoreForQuick</a>.</p>
+<p>The first example excludes files ending in <em>.part</em> from automatic recovery. Such files can represent incomplete downloads; removing the extension can make the completed file eligible. The supplied AutoRecoverIgnore template includes <em>.part</em>. Literal entries are matched case-insensitively as path-prefix or end-of-path suffix patterns, as applicable.</p>
+<p>The second and third examples exclude the specified folders from automatic recovery. Effective ignore entries can also come from enabled templates.</p>
+<p>Since Sandboxie Plus 1.18.0, entries may contain wildcard patterns using <code>*</code>, <code>?</code>, and <code>**</code>. Matching can consider translated NT, DOS, and network-alias paths. The process-side detector and SandMan's Quick Recovery list use different pattern matchers, so these symbols should not be read as a universal filesystem glob grammar.</p>
+<p>Since Sandboxie Plus 1.18.0, the exclusion list can also be applied to the <a href="QuickRecovery.html">Quick Recovery</a> window; see <a href="UseAutoRecoverIgnoreForQuick.html">UseAutoRecoverIgnoreForQuick</a>. The window's <strong>Show All Files</strong> or <strong>Show Ignored</strong> view can expose entries hidden by Quick-list filtering; neither changes automatic detection's own ignore check.</p>
+<p>See <a href="RecoveryArchitecture.html">File Recovery Architecture</a> for the distinction between automatic detection and Quick-list filtering.</p>
 <p>Related <a href="SandboxieControl.html">Sandboxie Control</a> setting: <a href="RecoverySettings.html#immediate-recovery">Sandbox Settings &gt; Recovery &gt; Immediate Recovery</a></p>
 
 
