@@ -26,7 +26,7 @@ Use this settings page to select the folders (or drives) to which Forced Folders
 
 Notes:
 
-*   Forced Folders can be temporarily suspended using the [Disable Forced Programs](FileMenu.md#disable-forced-programs) command.
+*   The legacy Classic [Disable Forced Programs](FileMenu.md#disable-forced-programs) command and current SandMan **Pause Forcing Programs** temporarily pause new-process forcing for the Windows session. This is distinct from persistent, per-box [Disable Force Rules](DisableForceRules.md). See [Program Forcing Controls](ProgramForcingControls.md).
 
 *   A Forced Folder match based on the executable's own directory is evaluated before [Forced Programs](ProgramStartSettings.md#forced-programs). Additional Forced Folder checks based on the working directory or document argument occur after Forced Programs, so Forced Folders do not have universal precedence.
 
@@ -53,7 +53,7 @@ You can also configure this setting in the [Program Settings](ProgramSettings.md
 
 Notes:
 
-*   Forced Programs can be temporarily suspended using the [Disable Forced Programs](FileMenu.md#disable-forced-programs) command.
+*   The legacy Classic [Disable Forced Programs](FileMenu.md#disable-forced-programs) command and current SandMan **Pause Forcing Programs** temporarily pause new-process forcing for the Windows session; they do not set per-box `DisableForceRules=y`. See [Program Forcing Controls](ProgramForcingControls.md).
 
 *   A [Forced Folder](ProgramStartSettings.md#forced-folders) match based on the executable's own directory is evaluated before Forced Programs. Additional Forced Folder checks based on the working directory or document argument occur after Forced Programs, so Forced Folders do not have universal precedence.
 
