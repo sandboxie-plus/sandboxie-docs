@@ -38,7 +38,7 @@ SandMan exposes the lists under **Global Settings > Program Control > Program Al
 
 ## Temporary pause and persistent per-box disabling
 
-SandMan's **Pause Forcing Programs** command asks for a duration when starting a pause. The driver stores the pause timestamp for the relevant Windows session; it does not set `DisableForceRules=y` on boxes or suspend already-running processes. A matching `ForceFolder`, `ForceProcess`, or `ForceChildren` rule is skipped for a new launch while the pause is effective.
+SandMan's **Pause Forcing Programs** menu action prompts for a duration when starting a pause. The toolbar and hotkey actions do not prompt. The driver stores the pause timestamp for the relevant Windows session; it does not set `DisableForceRules=y` on boxes or suspend already-running processes. A matching `ForceFolder`, `ForceProcess`, or `ForceChildren` rule is skipped for a new launch while the pause is effective.
 
 A skipped force match retains its paused-force status: `StartRunAlertDenied` does **not** turn that match into a blocked start. If `NotifyForceProcessDisabled=y`, it can instead generate SBIE1301. If no force rule matched, the ordinary `AlertFolder` / `AlertProcess` checks still run and may block under `StartRunAlertDenied=y`. Pausing forcing does not disable the global alert/block list.
 
