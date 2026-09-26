@@ -4,6 +4,12 @@
 
 [Access Token Isolation](AccessTokenIsolation.md)
 
+[Add Sleep Speed](AddSleepSpeed.md)
+
+[Add Tick Speed](AddTickSpeed.md)
+
+[Add Timer Speed](AddTimerSpeed.md)
+
 [Advanced Loader and SxS Compatibility](AdvancedLoaderCompatibility.md)
 
 [Advanced Topics](AdvancedTopics.md)
@@ -16,11 +22,29 @@
 
 [Alert Process](AlertProcess.md)
 
+[Alert Start Run Access Denied](AlertStartRunAccessDenied.md)
+
+[Allow Boxed Jobs](AllowBoxedJobs.md)
+
 [Allow Cover Taskbar](AllowCoverTaskbar.md)
+
+[Allow Force System](AllowForceSystem.md)
+
+[Allow Network Access](AllowNetworkAccess.md)
 
 [Allow Raw Disk Read](AllowRawDiskRead.md)
 
 [Allow Spooler Print To File](AllowSpoolerPrintToFile.md)
+
+[Always Show Reminder](AlwaysShowReminder.md)
+
+[Always Use Win32k Hooks](AlwaysUseWin32kHooks.md)
+
+[API Skip Trace](ApiSkipTrace.md)
+
+[API Trace](ApiTrace.md)
+
+[API Trace DLL](ApiTraceDll.md)
 
 [AppContainer Token Compatibility](AppContainerTokens.md)
 
@@ -31,6 +55,10 @@
 [Apply ElevateCreateProcess Fix](ApplyElevateCreateProcessFix.md)
 
 [Applying a Supporter Certificate](../PlusContent/applying-supporter-certificate.md)
+
+[Approve Win Nt System Call](ApproveWinNtSysCall.md)
+
+[Approve Win32 System Call](ApproveWin32SysCall.md)
 
 [ARM64 and CHPE Compatibility](Arm64ChpeCompatibility.md)
 
@@ -43,6 +71,8 @@
 [Auto Recover](AutoRecover.md)
 
 [Auto Recover Ignore](AutoRecoverIgnore.md)
+
+[Auto Remove](AutoRemove.md)
 
 ### B
 
@@ -76,6 +106,8 @@
 
 ~~[Block Win Hooks](BlockWinHooks.md)~~ (removed since Sandboxie v4.xx)
 
+[Block Software Updaters](BlockSoftwareUpdaters.md)
+
 [Block WinRM](BlockWinRM.md)
 
 [Border Color](BorderColor.md)
@@ -98,6 +130,8 @@
 
 [Breakout Document](BreakoutDocument.md)
 
+[Breakout Document Process](BreakoutDocumentProcess.md)
+
 [Breakout Execution](BreakoutExecution.md)
 
 [Breakout Folder](BreakoutFolder.md)
@@ -107,6 +141,10 @@
 ~~[Byte Order Mark](ByteOrderMark.md)~~ (removed since Sandboxie v0.6.5 / 5.47.0)
 
 ### C
+
+[Call Trace](CallTrace.md)
+
+[Call Trace Ex](CallTraceEx.md)
 
 [Close Print Spooler](ClosePrintSpooler.md)
 
@@ -119,6 +157,8 @@
 [Closed Key Path](ClosedKeyPath.md)
 
 [Closed RT](ClosedRT.md)
+
+[CLSID Trace](ClsidTrace.md)
 
 [Code Injection](CodeInjection.md)
 
@@ -144,6 +184,8 @@
 
 [Copy Newer](CopyNewer.md)
 
+[Copy Token Attributes](CopyTokenAttributes.md)
+
 [Cover Boxed Windows](CoverBoxedWindows.md)
 
 [Crash and Debugger Diagnostics](CrashAndDebuggerDiagnostics.md)
@@ -158,7 +200,11 @@
 
 ### D
 
+[Debug Trace](DebugTrace.md)
+
 [Default Folder](DefaultFolder.md)
+
+[Delay Load DLL](DelayLoadDll.md)
 
 [Delete Command](DeleteCommand.md)
 
@@ -168,11 +214,17 @@
 
 [Delete V2](Delete-V2.md)
 
+[Deprecated Token Hacks](DeprecatedTokenHacks.md)
+
 [Deprecated/Obsolete/Removed Sandboxie Ini Settings](DeprecatedSandboxieIniSettings.md)
 
 [Description](Description.md)
 
 [Detecting Key Loggers](DetectingKeyLoggers.md)
+
+[Disable Boxed WinSxS](DisableBoxedWinSxS.md)
+
+[Disable CHPE](DisableCHPE.md)
 
 [Disable Custom Title Optimization](DisableCustomTitleOpt.md)
 
@@ -184,15 +236,29 @@
 
 [Disable Object Filter](DisableObjectFilter.md)
 
+[Disable Resource Monitor](DisableResourceMonitor.md)
+
 [Disable RT Blacklist](DisableRTBlacklist.md)
+
+[Disable Win Nt Hook](DisableWinNtHook.md)
+
+[Disable Win32 Hook](DisableWin32Hook.md)
+
+[Disabled Force Volume](DisabledForceVolume.md)
 
 [Disk Serial Number](DiskSerialNumber.md)
 
+[DLL Skip Hook](DllSkipHook.md)
+
 [DNS Filter](../PlusContent/DNSFilter.md)
+
+[DNS Trace](DnsTrace.md)
 
 [Don't Copy](DontCopy.md)
 
 [Drop Admin Rights](DropAdminRights.md)
+
+[Drop App Container Token](DropAppContainerToken.md)
 
 [Drop Child Process Token](DropChildProcessToken.md)
 
@@ -206,19 +272,35 @@
 
 [Email Protection](EmailProtection.md)
 
+[Enable Mini Dump](EnableMiniDump.md)
+
+[Enable Verbose Checks](EnableVerboseChecks.md)
+
+[Enable Win32 Hook](EnableWin32Hook.md)
+
+[Enable Win32k Hooks](EnableWin32kHooks.md)
+
 [Enabled](Enabled.md)
 
 [Enable EFS](EnableEFS.md)
 
 [Enable Object Filtering](EnableObjectFiltering.md)
 
+[Error Trace](ErrorTrace.md)
+
+[Exclude From Terminate All](ExcludeFromTerminateAll.md)
+
 [Expandable Variables](ExpandableVariables.md)
+
+[External Manifest Hack](ExternalManifestHack.md)
 
 [External Tutorials](ExternalTutorials.md)
 
 ### F
 
 [Fake Admin Rights](FakeAdminRights.md)
+
+[Fake App Container Token](FakeAppContainerToken.md)
 
 [FAQ Email](FAQEmail.md)
 
@@ -233,6 +315,8 @@
 [File Recovery Architecture](RecoveryArchitecture.md)
 
 [File Root Path](FileRootPath.md)
+
+[File Trace](FileTrace.md)
 
 [Files And Folders View](FilesAndFoldersView.md)
 
@@ -253,6 +337,12 @@
 [Force Process](ForceProcess.md)
 
 [Force Protection On Mount](ForceProtectionOnMount.md)
+
+[Force Restart](ForceRestart.md)
+
+[Force Restart All](ForceRestartAll.md)
+
+[Force USB Drives](ForceUsbDrives.md)
 
 [Forget Password](ForgetPassword.md)
 
@@ -275,6 +365,8 @@
 [Getting Started Part Three](GettingStartedPartThree.md)
 
 [Getting Started Part Two](GettingStartedPartTwo.md)
+
+[Gui Trace](GuiTrace.md)
 
 ### H
 
@@ -304,6 +396,14 @@
 
 [Hook Trace](HookTrace.md)
 
+[Host Inject DLL](HostInjectDll.md)
+
+[Host Inject DLL ARM64](HostInjectDllARM64.md)
+
+[Host Inject Dll64](HostInjectDll64.md)
+
+[Host Inject Process](HostInjectProcess.md)
+
 [Host Injection](HostInjection.md)
 
 [How It Works](HowitWorks.md)
@@ -311,6 +411,8 @@
 [How To Use Win Dbg](HowToUseWinDbg.md)
 
 ### I
+
+[Ignore Win32 Hook Blacklist](IgnoreWin32HookBlacklist.md)
 
 [ImDisk Integration](../PlusContent/imdisk.md)
 
@@ -326,6 +428,8 @@
 
 [Ipc Root Path](IpcRootPath.md)
 
+[IPC Trace](IpcTrace.md)
+
 [Isolation Mechanism](IsolationMechanism.md)
 
 ### J
@@ -334,7 +438,13 @@
 
 ### K
 
+[Keep Token Integrity](KeepTokenIntegrity.md)
+
+[Keep User Group](KeepUserGroup.md)
+
 [Key Root Path](KeyRootPath.md)
+
+[Key Trace](KeyTrace.md)
 
 [Known Conflicts](KnownConflicts.md)
 
@@ -344,11 +454,19 @@
 
 [Linger Exempt Wnds](LingerExemptWnds.md)
 
+[Linger Leniency](LingerLeniency.md)
+
 [Linger Process](LingerProcess.md)
 
 [Lock Box To User](LockBoxToUser.md)
 
 [Log Message Events](LogMessageEvents.md)
+
+[Low Sleep Speed](LowSleepSpeed.md)
+
+[Low Tick Speed](LowTickSpeed.md)
+
+[Low Timer Speed](LowTimerSpeed.md)
 
 ### M
 
@@ -356,11 +474,17 @@
 
 [Messages From Sandboxie](MessagesFromSandboxie.md)
 
+[Mini Dump Flags](MiniDumpFlags.md)
+
 [Monitor Admin Only](MonitorAdminOnly.md)
+
+[Monitor Stack Trace](MonitorStackTrace.md)
 
 [Msi Installer Exemptions](MsiInstallerExemptions.md)
 
 ### N
+
+[Net Fw Trace](NetFwTrace.md)
 
 [Network Adapter MAC](NetworkAdapterMAC.md)
 
@@ -368,17 +492,39 @@
 
 [Network Dns Filter](NetworkDnsFilter.md)
 
+[Network Enable WFP](NetworkEnableWFP.md)
+
+[Network Proxy Resolve Hostnames](NetworkProxyResolveHostnames.md)
+
+[Network Use Proxy](NetworkUseProxy.md)
+
 [Never Delete](NeverDelete.md)
+
+[Never Remove](NeverRemove.md)
+
+[No Add Process To Job](NoAddProcessToJob.md)
+
+[No Parallel Loading](NoParallelLoading.md)
 
 [No Rename Win Class](NoRenameWinClass.md)
 
+[No Restart On PCA](NoRestartOnPCA.md)
+
 [No Sandboxie Console](NoSandboxieConsole.md)
+
+[No Sandboxie Desktop](NoSandboxieDesktop.md)
+
+[No Sandboxie RPCSS](NoSandboxieRpcSs.md)
 
 [No Security Filtering](NoSecurityFiltering.md)
 
 [No Security Isolation](NoSecurityIsolation.md)
 
+[No System Call Hooks](NoSysCallHooks.md)
+
 [No UAC Proxy](NoUACProxy.md)
+
+[No Untrusted Token](NoUntrustedToken.md)
 
 [Normal File Path](NormalFilePath.md)
 
@@ -388,13 +534,25 @@
 
 [Notification Settings](NotificationSettings.md)
 
+[Notify Box Protected](NotifyBoxProtected.md)
+
 [Notify Direct Disk Access](NotifyDirectDiskAccess.md)
 
+[Notify Force Process Disabled](NotifyForceProcessDisabled.md)
+
+[Notify Force Process Enabled](NotifyForceProcessEnabled.md)
+
+[Notify Image Load Denied](NotifyImageLoadDenied.md)
+
 [Notify Internet Access Denied](NotifyInternetAccessDenied.md)
+
+[Notify MSI Installer](NotifyMsiInstaller.md)
 
 [Notify No Copy](NotifyNoCopy.md)
 
 [Notify Process Access Denied](NotifyProcessAccessDenied.md)
+
+[Notify Root Protected](NotifyRootProtected.md)
 
 [Notify Start Run Access Denied](NotifyStartRunAccessDenied.md)
 
@@ -405,6 +563,14 @@
 ### O
 
 [Object Lookup Compatibility](ObjectLookupCompatibility.md)
+
+[On Box Delete](OnBoxDelete.md)
+
+[On Box Terminate](OnBoxTerminate.md)
+
+[On File Recovery](OnFileRecovery.md)
+
+[Open All Sys Calls](OpenAllSysCalls.md)
 
 [Open Clipboard](OpenClipboard.md)
 
@@ -422,23 +588,37 @@
 
 [Open Key Path](OpenKeyPath.md)
 
+[Open LSA Endpoint](OpenLsaEndpoint.md)
+
 [Open Pipe Path](OpenPipePath.md)
 
 [Open Print Spooler](OpenPrintSpooler.md)
 
 [Open Protected Storage](OpenProtectedStorage.md)
 
+[Open SAM Endpoint](OpenSamEndpoint.md)
+
 [Open Win Class](OpenWinClass.md)
 
+[Open Window Station](OpenWndStation.md)
+
+[Open WPAD Endpoint](OpenWPADEndpoint.md)
+
 [Original Token](OriginalToken.md)
+
+[Override OS Build](OverrideOsBuild.md)
 
 ### P
 
 [Paper Analogy](PaperAnalogy.md)
 
+[Pipe Trace](PipeTrace.md)
+
 [Popup Message Log](PopupMessageLog.md)
 
 [Portable Sandbox](PortableSandbox.md)
+
+[Prefer External Manifest](PreferExternalManifest.md)
 
 [Privacy Concerns](PrivacyConcerns.md)
 
@@ -510,6 +690,8 @@
 
 [Recovery Settings](RecoverySettings.md)
 
+[Replicate Token](ReplicateToken.md)
+
 [Resource Access](ResourceAccess.md)
 
 [Resource Access Monitor for Sandboxie Classic](ResourceAccessMonitor.md)
@@ -522,9 +704,25 @@
 
 [RPC Compatibility](RpcCompatibility.md)
 
+[RPC Management Set COM Timeout](RpcMgmtSetComTimeout.md)
+
+[RPC Port Binding](RpcPortBinding.md)
+
+[RPC Port Binding If ID](RpcPortBindingIfId.md)
+
+[RPC Port Binding Svc](RpcPortBindingSvc.md)
+
+[RPC Port Filter](RpcPortFilter.md)
+
 [Rule Specificity](../PlusContent/RuleSpecificity.md)
 
 [Run Command](RunCommand.md)
+
+[Run Rpcss As System](RunRpcssAsSystem.md)
+
+[Run Service As System](RunServiceAsSystem.md)
+
+[Run Services As System](RunServicesAsSystem.md)
 
 ### S
 
@@ -537,6 +735,8 @@
 [Sandbox Menu](SandboxMenu.md)
 
 [Sandbox Roots and Volume Layout](SandboxRootsVolumeLayout.md)
+
+[Sandbox Service](SandboxService.md)
 
 [Sandbox Settings](SandboxSettings.md)
 
@@ -570,6 +770,8 @@
 [SBIE DLL API](SBIEDLLAPI.md)
 
 [SBIE Messages](SBIEMessages.md)
+
+[Sbie Trace](SbieTrace.md)
 
 [SBIE1101](SBIE1101.md)
 
@@ -863,11 +1065,15 @@
 
 [Skip Hook](SkipHook.md)
 
+[Software Updater](SoftwareUpdater.md)
+
 [Special Image](SpecialImage.md)
 
 [Start Command Line](StartCommandLine.md)
 
 [Start Program](StartProgram.md)
+
+[Start Run Alert Denied](StartRunAlertDenied.md)
 
 [Start Service](StartService.md)
 
@@ -876,6 +1082,8 @@
 [Strip System Privileges](StripSystemPrivileges.md)
 
 [Supporter Certificate](../PlusContent/supporter-certificate.md)
+
+[System Call Lock Down](SysCallLockDown.md)
 
 [System Call Settings](SyscallSettings.md)
 
@@ -889,11 +1097,49 @@
 
 [Template Architecture](TemplateArchitecture.md)
 
+[Template Class](Tmpl.Class.md)
+
+[Template Comment](Tmpl.Comment.md)
+
+[Template Entry](Tmpl.Entry.md)
+
+[Template Hide](Tmpl.Hide.md)
+
+[Template Reject](TemplateReject.md)
+
+[Template Scan](Tmpl.Scan.md)
+
+[Template ScanFile](Tmpl.ScanFile.md)
+
+[Template ScanIpc](Tmpl.ScanIpc.md)
+
+[Template ScanKey](Tmpl.ScanKey.md)
+
+[Template ScanProduct](Tmpl.ScanProduct.md)
+
+[Template ScanScript](Tmpl.ScanScript.md)
+
+[Template ScanService](Tmpl.ScanService.md)
+
+[Template ScanWinClass](Tmpl.ScanWinClass.md)
+
+[Template Title](Tmpl.Title.md)
+
+[Template Url](Tmpl.Url.md)
+
+[Template Version](Tmpl.Version.md)
+
+[Terminate Job Object](TerminateJobObject.md)
+
+[Terminate Using Service](TerminateUsingService.md)
+
 [Test Email Configuration](TestEmailConfiguration.md)
 
 [Token and Syscall Internals](TokenMagic.md)
 
 [Total Memory Limit](TotalMemoryLimit.md)
+
+[Trace Buffer Pages](TraceBufferPages.md)
 
 [Trace logging](../PlusContent/TraceLog.md)
 
@@ -903,39 +1149,75 @@
 
 ### U
 
+[Un Restrict App Container Token](UnRestrictAppContainerToken.md)
+
+[Unfiltered Token](UnfilteredToken.md)
+
 [Unrestricted SCM](UnrestrictedSCM.md)
+
+[Unrestricted Token](UnrestrictedToken.md)
+
+[Unstripped Token](UnstrippedToken.md)
 
 [Usage Tips](UsageTips.md)
 
+[USB Sandbox](UsbSandbox.md)
+
 [USB Sandboxing](../PlusContent/USBSandboxing.md)
 
+[Use Alternate IPC Naming](UseAlternateIpcNaming.md)
+
 [Use Auto Recover Ignore For Quick](UseAutoRecoverIgnoreForQuick.md)
+
+[Use Change Speed](UseChangeSpeed.md)
 
 [Use Chrome Secure Preferences Hack](UseChromeSecurePreferencesHack.md)
 
 [Use Drag Drop Hack](UseDragDropHack.md)
 
+[Use Driver Obj Lookup](UseDriverObjLookup.md)
+
 [Use Electron Detection](UseElectronDetection.md)
 
 [Use Fake Shell Dispatch](UseFakeShellDispatch.md)
+
+[Use File Delete V2](UseFileDeleteV2.md)
 
 [Use File Image](UseFileImage.md)
 
 [Use Non Rude Hwnd Hack](UseNonRudeHwndHack.md)
 
+[Use Object Name For Keys](UseObjectNameForKeys.md)
+
 [Use Original ACLs](UseOriginalACLs.md)
 
 [Use Privacy Mode](UsePrivacyMode.md)
 
+[Use Proxy Threads](UseProxyThreads.md)
+
 [Use Ram Disk](UseRamDisk.md)
+
+[Use Reg Delete V2](UseRegDeleteV2.md)
+
+[Use RPC Management Set COM Timeout](UseRpcMgmtSetComTimeout.md)
 
 [Use Rule Specificity](UseRuleSpecificity.md)
 
 [Use Sandboxie UAC](UseSandboxieUAC.md)
 
+[Use Sbie Window Station](UseSbieWndStation.md)
+
 [Use Security Mode](UseSecurityMode.md)
 
 [Use Shell Notify Icon Proxy](UseShellNotifyIconProxy.md)
+
+[Use Volume Guid When No Letter](UseVolumeGuidWhenNoLetter.md)
+
+[Use Volume Serial Numbers](UseVolumeSerialNumbers.md)
+
+[Use Win32k Filter Table](UseWin32kFilterTable.md)
+
+[Use Win32k Hooks](UseWin32kHooks.md)
 
 [User Accounts Settings](UserAccountsSettings.md)
 
@@ -944,6 +1226,14 @@
 [View Menu](ViewMenu.md)
 
 ### W
+
+[Wait For Debugger](WaitForDebugger.md)
+
+[Wait For Debugger All](WaitForDebuggerAll.md)
+
+[Wait For Debugger Cmd Line](WaitForDebuggerCmdLine.md)
+
+[Wait For Debugger Silent](WaitForDebuggerSilent.md)
 
 [WFP Support](../PlusContent/WFPSupport.md)
 
