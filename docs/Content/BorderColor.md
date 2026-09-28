@@ -20,9 +20,9 @@ BorderColor=#00FFFF,ttl,6,192,in,6
 The color is specified as a six-digit hexadecimal value in #BBGGRR order: blue, green, then red.
 
 * The hash mark prefixes a six-digit hexadecimal number.
-* The first two digits specify the red component.
+* The first two digits specify the blue component.
 * The next two digits specify the green component.
-* The last two digits specify the blue component.
+* The last two digits specify the red component.
 
 The remaining fields have these meanings:
 
