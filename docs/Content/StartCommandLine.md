@@ -70,7 +70,7 @@ The parameter _/wait_ can be used to run a program, wait for it to finish, and r
 
 Note that Start.exe is a Win32 application and not a console application, so the system "start" command is useful here to force the system to wait for Start.exe to finish:
 ```cmd
-  start /wait "C:\Program Files\Sandboxie\Start.exe" /wait cmd /c exit 9
+  start "" /wait "C:\Program Files\Sandboxie\Start.exe" /wait cmd /c exit 9
   echo %ERRORLEVEL%
   9
 ```
@@ -309,7 +309,7 @@ Example:
 "Start.exe" open_agent:"SandMan.exe -autorun"
 ```
 
-* * *  
+* * *
 
 ### Related Reading Material
 

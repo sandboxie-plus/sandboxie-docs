@@ -64,13 +64,13 @@
 ```
 
 参数 _/wait_ 可用于运行程序，等待其完成，并返回程序的退出状态：
-```pwsh
+```cmd
   "C:\Program Files\Sandboxie\Start.exe"  /wait cmd.exe
 ```
 
 请注意，Start.exe 是一个 Win32 应用程序，而不是控制台应用程序，因此系统的 "start" 命令在此处很有用，可以强制系统等待 Start.exe 完成：
-```pwsh
-  start /wait "C:\Program Files\Sandboxie\Start.exe" /wait cmd /c exit 9
+```cmd
+  start "" /wait "C:\Program Files\Sandboxie\Start.exe" /wait cmd /c exit 9
   echo %ERRORLEVEL%
   9
 ```
