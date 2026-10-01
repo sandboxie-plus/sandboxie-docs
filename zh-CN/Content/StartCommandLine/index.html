@@ -5878,12 +5878,12 @@
 <div class="language-pwsh highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>  <span class="s2">"C:\Program Files\Sandboxie\Start.exe"</span>  <span class="p">/</span><span class="n">hide_window</span> <span class="n">cmd</span><span class="p">.</span><span class="n">exe</span> <span class="p">/</span><span class="n">c</span> <span class="n">automated_script</span><span class="p">.</span><span class="n">bat</span>
 </span></code></pre></div></p>
 <p>参数 <em>/wait</em> 可用于运行程序，等待其完成，并返回程序的退出状态：
-<div class="language-pwsh highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>  <span class="s2">"C:\Program Files\Sandboxie\Start.exe"</span>  <span class="p">/</span><span class="n">wait</span> <span class="n">cmd</span><span class="p">.</span><span class="n">exe</span>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="w">  </span><span class="na">"C</span><span class="o">:</span><span class="s">\Program Files\Sandboxie\Start.exe"  /wait cmd.exe</span>
 </span></code></pre></div></p>
 <p>请注意，Start.exe 是一个 Win32 应用程序，而不是控制台应用程序，因此系统的 "start" 命令在此处很有用，可以强制系统等待 Start.exe 完成：
-<div class="language-pwsh highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>  <span class="nb">start </span><span class="p">/</span><span class="n">wait</span> <span class="s2">"C:\Program Files\Sandboxie\Start.exe"</span> <span class="p">/</span><span class="n">wait</span> <span class="n">cmd</span> <span class="p">/</span><span class="n">c</span> <span class="n">exit</span> <span class="n">9</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>  <span class="nb">echo </span><span class="k">%</span><span class="n">ERRORLEVEL</span><span class="p">%</span>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>  <span class="n">9</span>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="w">  </span><span class="na">start "" /wait "C</span><span class="o">:</span><span class="s">\Program Files\Sandboxie\Start.exe" /wait cmd /c exit 9</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="na">echo %ERRORLEVEL%</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="na">9</span>
 </span></code></pre></div></p>
 <p>系统等待 Start.exe 完成，而 Start.exe 又等待 "cmd /c exit 9" 完成，然后退出状态 9 一直返回。</p>
 <p>参数可以按任何顺序组合。例如：

@@ -5881,7 +5881,7 @@
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="w">  </span><span class="na">"C</span><span class="o">:</span><span class="s">\Program Files\Sandboxie\Start.exe"  /wait cmd.exe</span>
 </span></code></pre></div></p>
 <p>Note that Start.exe is a Win32 application and not a console application, so the system "start" command is useful here to force the system to wait for Start.exe to finish:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="w">  </span><span class="na">start /wait "C</span><span class="o">:</span><span class="s">\Program Files\Sandboxie\Start.exe" /wait cmd /c exit 9</span>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="w">  </span><span class="na">start "" /wait "C</span><span class="o">:</span><span class="s">\Program Files\Sandboxie\Start.exe" /wait cmd /c exit 9</span>
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="na">echo %ERRORLEVEL%</span>
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="na">9</span>
 </span></code></pre></div></p>
