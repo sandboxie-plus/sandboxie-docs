@@ -122,6 +122,8 @@
 
 [Box Name Title](BoxNameTitle.md)
 
+[Box Presentation and Actions](BoxPresentation.md)
+
 [Box Preset Comparison](../PlusContent/box-preset-comparison.md)
 
 ~~[Box Root Folder](BoxRootFolder.md)~~ (deprecated since Sandboxie v3.xx)
