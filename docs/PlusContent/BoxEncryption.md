@@ -1,22 +1,30 @@
 # Encrypted Sandboxes
 
-Sandboxie Plus can store a sandbox root, including its registry hive, in a password-protected encrypted disk image. The current implementation uses ImBox and the cryptographic implementation from DiskCryptor; images created through SandMan use AES-XTS.
+Sandboxie Plus can store a sandbox root, including its registry hive, in an encrypted disk image. The normal service workflow uses ImBox and a DiskCryptor-derived cryptographic implementation with AES-XTS. This changes the physical backing beneath the file root, not Sandboxie's logical file virtualization.
 
 Encrypted storage is one layer of protection. It is separate from Sandboxie's runtime isolation and from the settings that restrict host access to sandboxed processes.
 
 ## At-rest encrypted storage
 
-When the image is not mounted, the sandbox content is stored in its encrypted `.box` backing file. Starting a program in the sandbox mounts the image after the correct password is supplied and makes its filesystem available to Sandboxie. SandMan can unmount it when the last sandboxed process stops.
+When the image is not mounted, content stored inside it remains in the encrypted `.box` backing file. SandMan can prompt and pre-mount it before launching a program. Other startup paths can attempt service-side acquisition without an interactive password prompt and can fail if the image cannot be unlocked. Automatic unmount depends on the current mount option and successful Registry/root release and device cleanup.
+
+This at-rest boundary does not automatically cover `Sandboxie.ini`, external header backups, recovered/exported files, host metadata, or every external application side effect.
 
 Encryption protects the backing storage while it is unmounted. While the image is mounted, programs in the sandbox and the Sandboxie components needed to operate it can access the mounted filesystem according to the active sandbox policy. Encryption does not replace file, registry, IPC, network, clipboard, GUI, or other resource controls.
 
-Encrypted images require the ImDisk driver and a currently applicable Support Certificate. Damage to the image or its encryption header can make its content inaccessible, so encrypted sandboxes still require backups.
+Encrypted images require an available ImDisk device/driver and a currently applicable active Support Certificate with the encryption feature. ImDisk supplies the virtual disk; ImBox supplies the encryption backing. Damage to the image or its encryption header can prevent access, so encrypted sandboxes still require backups.
+
+## Password and header model
+
+The standard Sandbox Options creation workflow expects a password. However, the low-level service can select encrypted backing with empty password input; encryption alone does not establish that a meaningful password was chosen. The normal workflow does not provide a reusable password vault or store the mount password in `Sandboxie.ini`.
+
+Changing the password updates header/key-protection metadata rather than re-encrypting the entire payload. A header backup contains sensitive encryption material and is not a content backup. Restoring a matching older header overwrites the current header and can restore older password/key metadata; changing the password does not automatically invalidate all previous matching header backups. Neither recovery nor transactional rollback is guaranteed. See [Use File Image](../Content/UseFileImage.md) for password and header procedures.
 
 ## Root protection while mounted
 
-The mount dialog offers **Protect Box Root from access by unsandboxed processes**. When selected, SbieDrv restricts direct filesystem access to the mounted sandbox root from unrelated host processes. The sandbox that owns the root, SbieSvc, required Windows components, and an allowed session leader are exceptions needed to operate the box.
+The mount dialog offers **Protect Box Root from access by unsandboxed processes**. It requests a separate SbieDrv restriction on relevant new filesystem opens beneath the mounted disk root from unrelated host processes. Exceptions include the owning sandbox, SbieSvc, `csrss.exe`, and an allowed session leader. Previously obtained handles are not universally revoked; kernel-mode and other paths skipped by this check are outside its coverage. Windows filesystem permissions remain separate.
 
-[ProtectAdminOnly](../Content/ProtectAdminOnly.md) controls whether a non-administrative SandMan or Sandboxie Control session leader receives that exception. **Force protection on mount** can make root protection mandatory for subsequent mounts.
+[ProtectAdminOnly](../Content/ProtectAdminOnly.md) controls whether the session-leader exception also requires administrative access; it is not a general exception for every administrator or SYSTEM process. [Force protection on mount](../Content/ForceProtectionOnMount.md) constrains SandMan's reviewed mount workflow to request protection, not every service caller. A protection request can fail without failing the image mount, so protected mounting is not a fail-closed host-access guarantee. The normal mount query does not establish successful protection registration.
 
 Root protection applies to the mounted root path. It is not a universal data-flow control and does not prevent a sandboxed application from using other channels that its sandbox policy permits.
 
@@ -38,7 +46,7 @@ The relevant controls are:
 
 - **Encrypt sandbox content** — stores the box root in an encrypted disk image.
 - **Set Password** or **Change Password** — creates or updates the image password.
-- **Force protection on mount** — prevents root protection and automatic unmount from being disabled in the mount dialog.
+- **Force protection on mount** — constrains SandMan's mount dialog to request root protection. It must not be relied on to force automatic unmount for every mount; the current manual path can leave the disabled auto-lock option off.
 
 When mounting an image, SandMan also offers:
 
@@ -57,6 +65,8 @@ Encrypted sandbox support and `UseFileImage` were introduced in Sandboxie Plus 1
 
 ## Related pages
 
+- [Use File Image](../Content/UseFileImage.md)
+- [Force Protection On Mount](../Content/ForceProtectionOnMount.md)
 - [Black Box](black-box.md)
 - [Confidential Box](../Content/ConfidentialBox.md)
 - [Protect Admin Only](../Content/ProtectAdminOnly.md)
