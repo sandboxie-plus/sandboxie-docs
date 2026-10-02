@@ -1,17 +1,14 @@
 # Network Adapter MAC
 
-**NetworkAdapterMAC** is a sandbox setting in [Sandboxie Ini](SandboxieIni.md) available since **v1.15.2 / 5.70.2**. This setting allows assigning custom MAC addresses to specific network adapters within sandboxes.
+**NetworkAdapterMAC** is a sandbox setting in [Sandboxie Ini](SandboxieIni.md) available since **v1.15.2 / 5.70.2**. It supplies custom address bytes for the selected NSI/NDIS table path when [Hide Network Adapter MAC](HideNetworkAdapterMAC.md) is enabled. It does not change the physical adapter's address or every API that can report an adapter identity.
 
-## Syntax
+## Syntax and examples
 
 ```ini
-NetworkAdapterMAC=<Index>,<MAC Address>
+NetworkAdapterMAC=<ordinal>,<MAC address>
 ```
 
-* **Index**: Index value of the target network adapter, starts at 0
-* **MAC Address**: Custom MAC address in hyphenated format (AA-BB-CC-DD-EE-FF) or plain format (AABBCCDDEEFF)
-
-## Example Usage
+Use a conventional six-byte hexadecimal MAC address, with or without hyphens:
 
 ```ini
 [DefaultBox]
@@ -20,36 +17,22 @@ NetworkAdapterMAC=0,12-34-56-78-9A-BC
 NetworkAdapterMAC=1,DE-F0-12-34-56-78
 ```
 
-## Identifying Network Adapter Index Values
+The parser accepts hexadecimal digits and ignores hyphens. If no applicable valid custom value is available, Sandboxie generates replacement bytes on the intercepted path. The setting does not enforce a locally administered or unicast address bit pattern; choose custom values appropriate for the software being tested.
 
-Sandboxie assigns index values only to adapters that have MAC addresses, in the order the system enumerates them. Virtual adapters without MAC addresses are skipped.
+The parser does not require a six-byte result. `NetworkAdapterMAC=0,AA` replaces only the first byte and preserves the remaining original bytes; `NetworkAdapterMAC=0,--` can succeed without replacing any bytes. Only parser failure triggers the random fallback. Use exactly six bytes for a full conventional MAC replacement.
+## What the ordinal means
 
-To identify which adapters get which Sandboxie index values, get a rough list of adapters with MAC addresses (run in Command Prompt):
-```
-wmic path win32_networkadapter where "MACAddress is not null" get netconnectionid,name,macaddress
-```
+The ordinal starts at `0` for the first previously uncached original address processed in a sandboxed process, then advances for each new original address. A repeated original address reuses its cached replacement and does not consume a new ordinal. This number is **not** the Windows interface index, `ifIndex`, or a stable adapter ID. Which adapter receives `0` or `1` can vary with query order and between processes; the order shown by `wmic` or `ipconfig` does not establish Sandboxie's ordinal mapping.
 
-Sandboxie assigns index values starting at 0 for the first adapter in this list, then 1, 2, 3, etc. However, Sandboxie's internal enumeration order may not match the command output order.
+The replacement cache is local to the sandboxed process and keyed by the original address. Changing a custom value does not rewrite an existing mapping; restart the affected process to rebuild the map. The Boolean enable decision is read when the relevant `nsi.dll` initialization path runs, so restarting is also the reliable way to apply a changed enable value.
 
-For accurate mapping, use the testing method:
+For compatibility testing, distinct valid values such as `AA-00-00-00-00-00` and `AA-11-11-11-11-11` can help observe the order in an application known to use this intercepted path. Such observations apply to that process and query order; they do not turn the ordinal into a permanent adapter index.
 
-1. Set unique MAC addresses for each index:
-```ini
-NetworkAdapterMAC=0,AA-00-00-00-00-00
-NetworkAdapterMAC=1,AA-11-11-11-11-11
-NetworkAdapterMAC=2,AA-22-22-22-22-22
-NetworkAdapterMAC=3,AA-33-33-33-33-33
-```
-2. Run `ipconfig /all` inside the sandbox to see which adapter has which test MAC
+## Configuration availability
 
-## Important Notes
+SandMan has a **Hide Network Adapter MAC Address** checkbox under **Sandbox Options > Advanced Options > Privacy**, but no dedicated editor for custom `NetworkAdapterMAC` entries was identified. Custom values can be configured in the INI. The checkbox shows a direct box value, while an effective enable value can also come from applicable template or global configuration.
 
-- Requires `HideNetworkAdapterMAC=y` to be enabled in the same sandbox
-- Configuration available through INI only (no user interface option available)
-- Invalid MAC address formats result in random MAC generation as fallback
-- Each sandbox can assign different MAC addresses to the same physical adapters
+## Related settings
 
-## Related Settings
-
-- [Hide Network Adapter MAC](HideNetworkAdapterMAC.md) - Required dependency for MAC address customization
-- [Bind Adapter](BindAdapter.md) - Controls which network adapter programs use
+- [Hide Network Adapter MAC](HideNetworkAdapterMAC.md) enables this NSI/NDIS address-substitution path.
+- [Bind Adapter](BindAdapter.md) controls a separate network binding behavior.
