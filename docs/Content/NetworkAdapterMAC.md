@@ -19,6 +19,7 @@ NetworkAdapterMAC=1,DE-F0-12-34-56-78
 
 The parser accepts hexadecimal digits and ignores hyphens. If no applicable valid custom value is available, Sandboxie generates replacement bytes on the intercepted path. The setting does not enforce a locally administered or unicast address bit pattern; choose custom values appropriate for the software being tested.
 
+The parser does not require a six-byte result. `NetworkAdapterMAC=0,AA` replaces only the first byte and preserves the remaining original bytes; `NetworkAdapterMAC=0,--` can succeed without replacing any bytes. Only parser failure triggers the random fallback. Use exactly six bytes for a full conventional MAC replacement.
 ## What the ordinal means
 
 The ordinal starts at `0` for the first previously uncached original address processed in a sandboxed process, then advances for each new original address. A repeated original address reuses its cached replacement and does not consume a new ordinal. This number is **not** the Windows interface index, `ifIndex`, or a stable adapter ID. Which adapter receives `0` or `1` can vary with query order and between processes; the order shown by `wmic` or `ipconfig` does not establish Sandboxie's ordinal mapping.
