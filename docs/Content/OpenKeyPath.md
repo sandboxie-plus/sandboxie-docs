@@ -18,7 +18,7 @@ These examples let the Firefox program, _firefox.exe_, have direct access to the
 
 The value specified for _OpenKeyPath_ can include wildcards, although for registry keys, the use of wildcards is rarely needed. For more information on this, including examples that show the use of wildcards, see [OpenFilePath](OpenFilePath.md). (_OpenFilePath_ deals with files, not registry keys, but the principle of using wildcards remains the same.)
 
-**Note:** For security reasons, this setting does not apply when the program executable file resides within the sandbox. This means that (potentially malicious) software downloaded into your computer and executed, cannot take advantage of this setting.
+**Note:** Ordinary _OpenKeyPath_ entries are normally excluded when the requesting executable itself resides inside the sandbox while Sandboxie's boxed-image Open restriction is active. This is an eligibility rule, not an unconditional property of the syntax; configurations such as [Application Compartment](NoSecurityIsolation.md) can alter that policy. [OpenConfPath](OpenConfPath.md) is not excluded by that normal gate. Eligibility does not guarantee that a rule wins; see [Rule Specificity](../PlusContent/RuleSpecificity.md).
 
 Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Resource Access > Registry Access > Direct Access](ResourceAccessSettings.md#registry-access-direct-access)
 

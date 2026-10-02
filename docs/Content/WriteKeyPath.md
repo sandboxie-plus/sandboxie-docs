@@ -16,7 +16,7 @@ Example:
 
 This example hides any data which exists outside the sandbox within the _TypedPaths_ registry key, while allowing a program to create new keys and values within the corresponding _TypedPaths_ registry key in the sandbox. This means that Windows Explorer running in the sandbox will not be able to display the history of paths that were typed into Windows Explorer outside the sandbox. But the Windows Explorer running in the sandbox will be able to record and store new paths as they are typed.
 
-Note: _WriteKeyPath_ is implemented internally as an enhanced form of [ClosedKeyPath](ClosedKeyPath.md).
+Note: The mode hides ordinary host Registry data for the selected scope while allowing sandbox-side keys and values. **Write Only** does not mean applications cannot read data that exists in the sandbox-side view. The selected scope depends on rule matching; see [Rule Specificity](../PlusContent/RuleSpecificity.md).
 
 Related [Sandboxie Control](SandboxieControl.md) setting: [Sandbox Settings > Resource Access > Registry Access > Write-Only Access](ResourceAccessSettings.md#registry-access-write-only-access)
 
