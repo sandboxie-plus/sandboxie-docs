@@ -1,20 +1,23 @@
 # Use File Image
 
-_UseFileImage_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md) (introduced in v1.11.0 / 5.66.0) that replaces the standard file system storage with a file-backed virtual disk image as the sandbox root directory.
+_UseFileImage_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md), introduced in Sandboxie Plus 1.11.0 / Classic 5.66.0. It changes the physical backing beneath the sandbox's normal file root. Sandboxie's logical file virtualization remains in place above that storage.
 
-> [!WARNING]
-> Configure this setting on a per-sandbox basis. Applying it globally will force all sandboxes to use file images, which may break existing sandboxes that rely on standard file system storage or cause compatibility issues with non-encrypted sandbox configurations.
+The normal service workflow uses a persistent encrypted `.box` image mounted through ImBox and ImDisk. ImBox provides the image/encryption backing, ImDisk provides the virtual disk, and Sandboxie's service and driver provide integration and mounted-root protection.
 
 > [!NOTE]
-> This setting requires an active advanced [supporter certificate](https://sandboxie-plus.com/supporter-certificate/).
+> This feature requires a currently applicable active [Support Certificate](https://sandboxie-plus.com/supporter-certificate/) with the encryption feature.
 
 ## Prerequisites
 
-- Install the **ImDisk Toolkit** via the **Add-Ons Manager > Optional Add-Ons** tab in **Global Settings**.
+Install the **ImDisk Toolkit** through **Global Settings > Add-Ons Manager > Optional Add-Ons**.
 
-    ![ImDisk Install](../Media/UseRamDisk1.png)
+![ImDisk Install](../Media/UseRamDisk1.png)
 
-## Usage
+The ImDisk device/driver must be available and respond with the expected capability/version. SandMan checks device readiness, not merely whether an installer record exists.
+
+## Configuration
+
+Configure the setting directly in the intended sandbox:
 
 ```ini
 [DefaultBox]
@@ -22,124 +25,216 @@ _UseFileImage_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md) (introdu
 UseFileImage=y
 ```
 
-When this setting is enabled, the Sandboxie service creates a virtual disk image file with extension `.box`. The image file path is determined by the service[^1] which appends `.box` to the sandbox's file root[^2] path. The sandbox file system is then mounted from this image using the ImDisk virtual disk driver through the mount manager[^3]. All file I/O operations within the sandbox are redirected to the mounted image rather than creating files directly on the host file system.
+The service reads effective configuration, including applicable templates and global fallback, with a consumer fallback of `n`. SandMan's normal checkbox reads the direct box value instead. Direct per-box configuration is the supported and clearest workflow; an inherited/global value can reach the service even when the checkbox does not represent that effective state. Do not configure image backing globally as a substitute for configuring individual boxes.
 
-Password protection and header backup/restore operations are available through the SandMan GUI or the ImBox command-line utility.
+Do not configure both `UseFileImage` and [UseRamDisk](UseRamDisk.md). SandMan treats them as alternative storage choices. If both nevertheless become effective, the current service path selects RAM-disk backing rather than reporting a configuration conflict; its entitlement check still observes the image flag.
+
+> [!WARNING]
+> The ordinary Options workflow is intended for an empty box. Enabling `UseFileImage` does not copy existing directory-backed files, `RegHive`, or snapshot metadata into an image or convert the old root in place. Disabling it does not extract image contents back into directory storage. Handle existing data separately; transfer/import/export is a different workflow.
+
+## Image path and contents
+
+The service appends `.box` to the resolved [FileRootPath](FileRootPath.md):
+
+```text
+Resolved FileRootPath: C:\Sandbox\alice\ExampleBox
+Backing image:         C:\Sandbox\alice\ExampleBox.box
+Mounted sandbox root:  C:\Sandbox\alice\ExampleBox
+```
+
+The `.box` file is a sibling backing file, not a file inside the mounted sandbox directory. The normal root path becomes a junction to `\Sandbox` inside the mounted virtual disk.
+
+```text
+Sandboxie logical file virtualization
+        |
+        v
+resolved sandbox FileRootPath
+        |
+        v
+junction to mounted virtual disk \Sandbox
+        |
+        v
+ImDisk proxy device
+        |
+        v
+ImBox encrypted backing
+        |
+        v
+persistent .box file
+```
+
+Content stored beneath that root resides inside the image, including normal sandbox files, `RegHive`, `RegPaths.dat`, `FilePaths.dat`, `Snapshots.ini`, and snapshot directories. This does not redirect every file operation into the image: normal resource-access rules, including access to permitted host paths, remain relevant.
+
+`Sandboxie.ini`, external header backups, recovered/exported files, and unrelated service state are not automatically stored inside the image. Changing the root path does not relocate an existing image. See [Sandbox Roots and Volume Layout](SandboxRootsVolumeLayout.md) for root configuration.
 
 ## SandMan GUI
 
 ### Setting Password
 
-1. **Right-click** on the sandbox in SandMan > `Sandbox Options`.
-2. Navigate to `File Options` tab.
-3. Enable the `Encrypt sandbox content`.
-4. (Optional) Enable the [`Force protection on mount`](ForceProtectionOnMount.md)
-5. Click the `Set Password` button.
+For an empty box with ImDisk ready:
+
+1. **Right-click** the sandbox in SandMan and open **Sandbox Options**.
+2. Navigate to **General Options > File Options**.
+3. Enable **Encrypt sandbox content**.
+4. Optionally enable [**Force protection on mount**](ForceProtectionOnMount.md).
+5. Click **Set Password**.
 
     ![Setting Password 1](../Media/UseFileImage1.png)
 
-6. Enter and confirm password in the dialog.
+6. Enter and confirm the password, and select the image capacity.
 
     ![Setting Password 2](../Media/UseFileImage2.png)
 
+7. Apply the Sandbox Options changes to request creation.
+
+The standard Sandbox Options creation path expects a password before final creation. However, the low-level service selects the encrypted image implementation even with empty password input; encryption alone does not establish that a meaningful password was chosen.
+
+SandMan supplies the password/capacity to the service, which uses ImBox/ImDisk to create an NTFS virtual disk and then attempts to unmount it. Creation does not itself initialize all sandbox content and is not a transactional operation with guaranteed rollback. Check errors and the resulting image before relying on it.
+
+Image capacity is selected at creation. There is no universal supported maximum established here, and supplying another creation size does not resize an existing non-empty image. Do not treat the creation operation as an overwrite or resize procedure.
+
 ### Changing Password
 
-1. **Right-click** on the sandbox in SandMan > `Sandbox Options`.
-2. Navigate to `File Options` tab.
-3. Click the `Change Password` button.
+Unmount the image before changing its password.
+
+1. **Right-click** the sandbox and open **Sandbox Options > General Options > File Options**.
+2. Click **Change Password**.
 
     ![Changing Password 1](../Media/UseFileImage3.png)
 
-4. Enter current password in the dialog.
+3. Enter the current password.
 
     ![Changing Password 2](../Media/UseFileImage4.png)
 
-5. Enter new password and confirm password in the dialog.
+4. Enter and confirm the new password.
+
+Changing the password updates the image-header encryption/key-protection metadata rather than re-encrypting every payload block. Password/header operations are not documented as transactional. Keep a full backup and verify that the image unlocks with the new password before relying on the change.
+
+The mount password is supplied for the operation; the normal workflow does not provide a reusable password vault or store it in `Sandboxie.ini`. An already-mounted image can be reused without revalidating a supplied password.
 
 ### Header Backup
 
-1. In sandbox options `File Options` tab.
-2. Click the down arrow next to `Change Password` button.
-3. Select `Backup Header` from dropdown menu.
+With the image unmounted:
+
+1. Open **Sandbox Options > General Options > File Options**.
+2. Click the down arrow next to **Change Password**.
+3. Select **Backup Image Header**.
 
     ![Header Backup](../Media/UseFileImage3.png)
 
-4. Choose location to save `.hdr` file.
-5. Header is exported using ImBox utility[^4].
+4. Choose a location for the `.hdr` file. SandMan invokes the ImBox utility to copy the header.
+
+Copying the header does not require supplying the image password. A header backup is not a full content backup: it contains sensitive encryption/header material needed to interpret the image. Protect it accordingly and maintain a full backup when the content matters.
 
 ### Header Restore
 
-1. In sandbox options `File Options` tab.
-2. Click the down arrow next to `Change Password` button.
-3. Select `Restore Header` from dropdown menu.
+With the image unmounted:
+
+1. Open **Sandbox Options > General Options > File Options**.
+2. Click the down arrow next to **Change Password**.
+3. Select **Restore Image Header**.
 
     ![Header Restore](../Media/UseFileImage3.png)
 
-4. Select previously saved `.hdr` file.
-5. Header is imported using ImBox utility[^4].
+4. Select a known-good `.hdr` file from the matching image. SandMan invokes ImBox to restore it.
+
+> [!WARNING]
+> Restoring overwrites the current image header. A valid older header from the same image can restore older password/key metadata; changing the password does not automatically invalidate all previous matching header backups. Utility completion does not guarantee full recoverability. Image/header damage can prevent access, so retain full backups as well.
 
 ### Mounting Box Image
 
-1. **Right-click** on the sandbox in SandMan.
-2. Select `Mount Box Image` from the context menu.
+1. **Right-click** the sandbox in SandMan.
+2. Select **Mount Box Image**.
 
     ![Mount Box Image 1](../Media/UseFileImage5.png)
 
-3. Enter the **password** when prompted.
+3. Enter the password and review the mount options.
 
     ![Mount Box Image 2](../Media/UseFileImage6.png)
-    
-    - (Optional) Enable `Protect Box Root from access by unsandboxed processes` to prevent unsandboxed programs from accessing the encrypted sandbox content.
-    
-    - (Optional) Enable `Lock the box when all processes stop` to automatically unmount the image when the last sandboxed program terminates.
 
-> [!NOTE]
-> The image is automatically mounted when starting any program from the sandbox via the UI.
+    - **Protect Box Root from access by unsandboxed processes** requests a separate mounted-root access restriction, not encryption.
+    - **Lock the box when all processes stop.** requests automatic cleanup/unmount for this mount.
+
+These are mount-instance options. Root protection restricts relevant new filesystem opens to the mounted disk root from unrelated host processes, with exceptions for the owning sandbox, SbieSvc, `csrss.exe`, and an allowed session leader. [ProtectAdminOnly](ProtectAdminOnly.md) controls whether that session-leader exception also requires administrative access.
+
+Previously obtained handles are not universally revoked; kernel-mode and other paths skipped by this check are outside its coverage. Windows filesystem permissions remain separate. Neither all administrators nor all SYSTEM processes receive a blanket exception.
+
+> [!WARNING]
+> A mount request can succeed even if root-protection registration fails. Root protection is not a fail-closed condition for successful mounting, and the normal mount query does not reliably establish that protection is active.
+
+See [Encrypted Sandboxes](../PlusContent/BoxEncryption.md) for the security boundaries.
+
+### Automatic mounting and locking
+
+When SandMan starts a program, it can pre-mount the image and prompt for its password before launching. Cancelling or failing that pre-mount prevents that launch path from continuing.
+
+Separately, the service acquires the box root during sandbox process initialization. It can reuse a mounted image or attempt mounting without a universal interactive password prompt. Other startup paths can therefore fail instead of prompting if the image needs a password. Ordinary service acquisition does not create a missing image.
+
+Displaying a box does not mount it, and the service does not eagerly mount every configured image at startup.
+
+When **Lock the box when all processes stop.** is enabled for the current mount, cleanup/unmount is requested after the sandbox Registry/root lifecycle is released. This can follow the last process's exit, but successful hive unload and device cleanup are still required; it is not an immediate process-count guarantee. [ForceProtectionOnMount](ForceProtectionOnMount.md) must not be relied on to enable automatic unmount for every mount.
 
 ### Unmounting Box Image
 
-1. **Right-click** on the sandbox in SandMan.
+Close programs and save work first.
 
-    ![Mount Box Image 2](../Media/UseFileImage7.png)
+1. **Right-click** the sandbox in SandMan.
 
-2. Select `Unmount Box Image` from the context menu.
+    ![Unmount Box Image](../Media/UseFileImage7.png)
+
+2. Select **Unmount Box Image**.
 
 > [!WARNING]
-> Unmounting the image will **terminate all running programs** within the sandbox.
+> SandMan's manual unmount action attempts to terminate sandboxed processes before requesting unmount. The underlying unmount API does not terminate processes and can refuse a root still marked in use. Neither termination nor unmount is guaranteed to succeed.
 
-## Best Practices
+Mounted state belongs to the service/device lifecycle, not only the SandMan window. Closing SandMan does not itself prove the image was unmounted. Service shutdown attempts cleanup, but crashes/power loss are not clean-unmount guarantees. The `.box` file persists after reboot; an unlocked mount and a reusable password are not automatically persisted.
 
-- Manually close programs before unmounting when possible.
-- Ensure no critical processes are running in the sandbox.
+## Snapshots, recovery, and cleanup
+
+[Snapshots](../PlusContent/BoxSnapshots.md) and [recovery](RecoveryArchitecture.md) use the mounted sandbox-root paths. Unmounted image contents are unavailable through those ordinary paths; recovery is not an automatic unlock workflow.
+
+Deleting sandbox contents and deleting the `.box` backing image are different operations. Mounted content cleanup acts on sandbox filesystem contents, not by simply reformatting or removing the backing image.
 
 ## Command Line Operations
 
-- Using `ImBox.exe` for advanced image management:
+Advanced header utilities, used with an unmounted image:
 
-  ```cmd
-  # Backup header
-  ImBox.exe type=image image="C:\Sandbox\DefaultBox.box" backup="C:\Sandbox\backup.hdr"
-  
-  # Restore header  
-  ImBox.exe type=image image="C:\Sandbox\DefaultBox.box" restore="C:\Sandbox\backup.hdr"
-  ```
+```cmd
+rem Backup header
+ImBox.exe type=image image="C:\Sandbox\DefaultBox.box" backup="C:\Sandbox\backup.hdr"
 
-- Using [`Start.exe`](StartCommandLine.md) for image [mounting](StartCommandLine.md#mount-box-images)/[unmounting](StartCommandLine.md#unmount-box-images) operations.
+rem Restore header; this overwrites the current header
+ImBox.exe type=image image="C:\Sandbox\DefaultBox.box" restore="C:\Sandbox\backup.hdr"
+```
 
-Image mounting is handled by the service which verifies driver capabilities before attempting to mount the virtual disk. If the driver does not support encrypted containers or mounting fails, the sandbox will not start and an error is logged.
+The same backup/restore cautions apply to these commands.
 
-## Technical Notes
+[Start.exe](StartCommandLine.md) provides [mount](StartCommandLine.md#mount-box-images) and [unmount](StartCommandLine.md#unmount-box-images) operations:
 
-- Requires ImDisk driver support for encrypted image containers.
-- Mutually exclusive with [UseRamDisk](UseRamDisk.md).
-- Header corruption can render encrypted images unrecoverable - always maintain header backups.
-- Maximum image size limited by available disk space and driver constraints.
-- Command-line mounting operations handled by `Start.exe` with `mount` and `mount_protected` switches[^5].
+```cmd
+Start.exe /box:BoxName /key:"Password" /mount
+Start.exe /box:BoxName /key:"Password" /mount_protected
+Start.exe /box:BoxName /unmount
+Start.exe /unmount_all
+```
 
-[^1]: `MountManager::GetImageFileName` - determines image file path.
-[^2]: File root is the base directory where sandbox files are stored, configured via `FileRootPath` setting.
-[^3]: `MountManager::AcquireBoxRoot` - handles image mounting process.
-[^4]: GUI operations implemented in `COptionsWindow::OnSetPassword`, `COptionsWindow::OnBackupHeader`, and `COptionsWindow::OnRestoreHeader`.
-[^5]: Command-line mounting switches implemented in `Sandboxie\apps\start\Start.cpp` - `mount` and `mount_protected` parameters for programmatic image mounting operations.
+`/box` and `/key` must precede the mount operation. Command-line passwords can be exposed through command history or process inspection; use SandMan's interactive workflow where appropriate.
 
-Related [Sandboxie Ini](SandboxieIni.md), [ForceProtectionOnMount](ForceProtectionOnMount.md), [UseRamDisk](UseRamDisk.md), [FileRootPath](FileRootPath.md), [StartCommandLine](StartCommandLine.md)
+`/mount_protected` explicitly requests root protection. `/mount` does not consume `ForceProtectionOnMount`, and Start.exe does not provide the equivalent interactive password dialog. Its unmount commands attempt termination, but do not guarantee successful cleanup.
+
+Shared SbieDll/SbieSvc/Start.exe paths exist independently of SandMan. This does not imply equivalent encrypted-image configuration dialogs in Sandboxie Control Classic.
+
+## Failure considerations
+
+Image creation/mounting can fail because prerequisites, credentials, the image/header, or root preparation are unavailable or invalid. If required root acquisition fails, sandbox startup cannot complete. Unmount can fail while the root remains in use. Do not assume rollback or guaranteed recovery from creation/header operations.
+
+## Related pages
+
+- [Sandboxie Ini](SandboxieIni.md)
+- [Encrypted Sandboxes](../PlusContent/BoxEncryption.md)
+- [Force Protection On Mount](ForceProtectionOnMount.md)
+- [Protect Admin Only](ProtectAdminOnly.md)
+- [Use RAM Disk](UseRamDisk.md)
+- [File Root Path](FileRootPath.md)
+- [Sandbox Roots and Volume Layout](SandboxRootsVolumeLayout.md)
+- [Start Command Line](StartCommandLine.md)
