@@ -23,7 +23,7 @@ The data-operation hooks consult the setting when each operation occurs. After a
 
 In an ordinary [Application Compartment](NoSecurityIsolation.md), the standard `OpenClipboard` hook enforcement is not active, and the process is not assigned to Sandboxie's normal root Job Object. Clipboard access remains subject to Windows and other applicable restrictions.
 
-With [`NoSandboxieDesktop=y`](NoSandboxieDesktop.md), the standard clipboard hooks and GUI proxy are not installed through this path, so `OpenClipboard=n` is not enforced by those hooks. Unlike Application Compartment, the normal Job Object clipboard-read restriction can remain active independently. The absent hooks do not block writes or clearing through `OpenClipboard=n`, although other restrictions may still apply.
+With [`NoSandboxieDesktop=y`](NoSandboxieDesktop.md), the standard clipboard hooks and GUI proxy are not installed through this path, so `OpenClipboard=n` is not enforced by those hooks. Newly started NoSandboxieDesktop processes also skip Sandboxie's normal root Job Object assignment path and its clipboard-read restriction; existing or inherited job restrictions can still apply. The absent hooks do not block writes or clearing through `OpenClipboard=n`, although other restrictions may still apply.
 
 This setting describes Sandboxie's standard clipboard handling paths; it is not a guarantee covering every Windows data-transfer API.
 
