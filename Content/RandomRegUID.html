@@ -5586,14 +5586,19 @@
 
 <h1 id="random-registry-uid">Random Registry UID<a class="headerlink" href="#random-registry-uid" title="Permanent link"></a></h1>
 <p>RandomRegUID is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>.</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">RandomRegUID</span><span class="o">=</span><span class="s">y</span>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">RandomRegUID</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>Use the 'RandomRegUID=y' option to obfuscate known unique identifier in the Windows registry.</p>
-<p>Related Sandboxie Plus setting: Sandbox Options &gt; Advanced Options &gt; Privacy &gt; obfuscate known unique identifier in registry</p>
+<p>During initial sandbox customization, this setting attempts to write replacements for three values in the boxed Registry view:</p>
+<ul>
+<li><code>HKLM\Software\Microsoft\Windows NT\CurrentVersion\ProductId</code></li>
+<li><code>HKLM\Software\Microsoft\Cryptography\MachineGuid</code></li>
+<li><code>HKLM\Software\Microsoft\SQMClient\MachineId</code></li>
+</ul>
+<p>It is not a Registry-read hook and does not generate a new value on every read. Other Registry identifiers are not covered by this setting. The three writes are attempted separately, so a failure can leave only some replacements in place.</p>
+<p>The runtime fallback is disabled when no effective value is configured. The decision can use image-qualified, template, or global configuration, but it occurs when sandbox customization runs; it does not create a separate persistent identity for each process image. Current process initialization invokes customization only when the initiating process is neither using Sandboxie's restricted-token state nor its AppContainer-token state. This is not a categorical rule about Application Compartment.</p>
+<p>Successfully written replacements persist with the sandboxed Registry content. Once the box is marked customized, changing <code>RandomRegUID</code> or restarting an application does not by itself repeat the writes. If the relevant sandbox content is removed and subsequently recreated, customization can run again under its normal initialization conditions.</p>
+<p>In <strong>Sandbox Options &gt; Advanced Options &gt; Privacy</strong>, <strong>Obfuscate known unique identifiers in the registry</strong> controls the direct box setting. The checkbox is unchecked when no direct value is configured; an effective value can also come from applicable template or global configuration.</p>
 
 
 

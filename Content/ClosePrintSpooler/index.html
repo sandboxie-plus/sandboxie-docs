@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="ClosePrintSpooler is a sandbox setting that provides nuanced control over how sandboxed applications interact with the print spooler service.">
+        <meta name="description" content="ClosePrintSpooler controls Sandboxie&#x27;s mediated path for resolving the Windows Print Spooler endpoint. If no effective value is configured, it defaults to n.">
       
       
       
@@ -5585,14 +5585,16 @@
 
 
 <h1 id="close-print-spooler">Close Print Spooler<a class="headerlink" href="#close-print-spooler" title="Permanent link"></a></h1>
-<p><em>ClosePrintSpooler</em> is a sandbox setting that provides nuanced control over how sandboxed applications interact with the print spooler service.</p>
+<p><em>ClosePrintSpooler</em> controls Sandboxie's mediated path for resolving the Windows Print Spooler endpoint. If no effective value is configured, it defaults to <code>n</code>.</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">ClosePrintSpooler</span><span class="o">=</span><span class="s">n</span>
 </span></code></pre></div>
-<p>This setting can be used to prevent sandboxed applications from interacting with the print spooler service. When set to <code>y</code>, sandboxed applications will be unable to interact with the print spooler service - for example, print.</p>
+<p>With <code>ClosePrintSpooler=y</code>, Sandboxie rejects new spooler endpoint-resolution requests through this path. This normally prevents printing that depends on obtaining that endpoint, but does not stop the Windows Print Spooler service or revoke an endpoint, binding, or handle already obtained.</p>
+<p>The service checks the effective value for each new endpoint request. After reloading a changed configuration, later endpoint-resolution requests can use the new value.</p>
+<p>In SandMan, this is <strong>Sandbox Options &gt; General Options &gt; Restrictions &gt; Printing restrictions &gt; Block access to the printer spooler</strong>. The checkbox is disabled for Application Compartment boxes. It reflects the direct box value, while the runtime can also use applicable template or global configuration. Sandboxie Control Classic does not provide the equivalent active settings page; the option can be configured in <code>Sandboxie.ini</code>.</p>
 <p>Added as part of 0.5.4 / 5.46.0 version.</p>
 <h2 id="interaction-with-openprintspooler">Interaction with <a href="../OpenPrintSpooler/">OpenPrintSpooler</a><a class="headerlink" href="#interaction-with-openprintspooler" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">   </span><span class="na">.</span>
@@ -5602,7 +5604,8 @@
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">   </span><span class="na">ClosePrintSpooler</span><span class="o">=</span><span class="s">n</span>
 </span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">   </span><span class="na">OpenPrintSpooler</span><span class="o">=</span><span class="s">n</span>
 </span></code></pre></div>
-<p>When both settings are configured as shown above, requests from sandboxed applications to the print spooler are selectively filtered. This means that certain actions related to the print spooler are permitted ("open") while others are restricted ("closed"). Specifically, this configuration allows for printing operations but restricts activities that would modify printer configurations or the installation/removal of printers on the system.</p>
+<p>With both settings at <code>n</code>, <em>ClosePrintSpooler</em> does not deny new endpoint-resolution requests, while <em>OpenPrintSpooler</em> keeps Sandboxie's selective spooler RPC-message filter active. The filter denies selected operations, not every printer-configuration operation, and does not guarantee that printing will succeed. Setting <code>OpenPrintSpooler=y</code> skips that specific filter but does not override <code>ClosePrintSpooler=y</code>.</p>
+<p>The separate <a href="../AllowSpoolerPrintToFile/">AllowSpoolerPrintToFile</a> setting concerns file opens by the host spooler on behalf of sandboxed processes.</p>
 
 
 

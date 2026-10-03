@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="ReadKeyPath is a sandbox setting in Sandboxie Ini. It specifies a path patterns, for which Sandboxie will not apply sandboxing for registry keys, and will not allow writing.">
+        <meta name="description" content="ReadKeyPath is a sandbox setting in Sandboxie Ini. A winning rule selects direct host Registry access. In a standard sandbox with the Registry filter active, host write/delete access is normally denied by the driver. Native Windows permissions also remain applicable.">
       
       
       
@@ -5585,7 +5585,7 @@
 
 
 <h1 id="read-key-path">Read Key Path<a class="headerlink" href="#read-key-path" title="Permanent link"></a></h1>
-<p><em>ReadKeyPath</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It specifies a path patterns, for which Sandboxie will not apply sandboxing for registry keys, and will not allow writing.</p>
+<p><em>ReadKeyPath</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. A winning rule selects direct host Registry access. In a standard sandbox with the Registry filter active, host write/delete access is normally denied by the driver. Native Windows permissions also remain applicable.</p>
 <p><a href="ProgramNamePrefix.html">Program Name Prefix</a> may be specified.</p>
 <p>Example:
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
@@ -5594,8 +5594,8 @@
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">ReadKeyPath</span><span class="o">=</span><span class="s">HKEY_LOCAL_MACHINE\SOFTWARE\Policies</span>
 </span></code></pre></div></p>
-<p>This example forces the <em>Policies</em> key, and everything below it, to be readable, but not writable (or deletable) by sandboxed programs.</p>
-<p>Note: <em>ReadKeyPath</em> is a restricted form of <a href="OpenKeyPath.html">OpenKeyPath</a>. As with <em>OpenKeyPath</em>, any already-existing sandboxed contents for the specified registry key locations are ignored.</p>
+<p>With the standard Registry filter active and this rule selected, the example uses host reads for the <em>Policies</em> key and its descendants while normally denying host write/delete access.</p>
+<p>Note: <em>ReadKeyPath</em> uses the same direct-host data path as <a href="OpenKeyPath.html">OpenKeyPath</a>; ordinary sandbox copies are not merged into that selected view. This describes the normal access path, not every metadata/query API. Disabling relevant Registry filtering changes the read-only enforcement assumption, and configuration changes do not universally revoke already-open handles.</p>
 <p>Related <a href="SandboxieControl.html">Sandboxie Control</a> setting: <a href="ResourceAccessSettings.html#registry-access-read-only-access">Sandbox Settings &gt; Resource Access &gt; Registry Access &gt; Read-Only Access</a></p>
 <p>Related Sandboxie Plus setting: Sandbox Options &gt; Resource Access &gt; Registry &gt; Add Reg Key &gt; Access column &gt; Read Only</p>
 

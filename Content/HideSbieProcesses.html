@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="HideSbieProcesses is a sandbox setting in Sandboxie Ini.">
+        <meta name="description" content="HideSbieProcesses is a sandbox setting in Sandboxie Ini. Its runtime fallback is n.">
       
       
       
@@ -5585,15 +5585,17 @@
 
 
 <h1 id="hide-sandboxie-processes">Hide Sandboxie Processes<a class="headerlink" href="#hide-sandboxie-processes" title="Permanent link"></a></h1>
-<p>HideSbieProcesses is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>.</p>
+<p><em>HideSbieProcesses</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. Its runtime fallback is <code>n</code>.</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">HideSbieProcesses</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>Use the 'HideSbieProcesses=y' option to hide Sandboxie worker processes (SbieSvc, SandboxieRpcSs etc.)</p>
-<p>Related <a href="SandboxieIni.html">Sandboxie Ini</a> setting: <a href="HideHostProcess.html">HideHostProcess</a>,<a href="HideNonSystemProcesses.html">HideNonSystemProcesses</a></p>
+<p>With <code>HideSbieProcesses=y</code>, Sandboxie removes entries whose presented process name begins with <code>Sandboxie</code> or <code>Sbie</code> (case-insensitively) from its filtered native process-list results. <code>SbieSvc.exe</code> and <code>SandboxieRpcSs.exe</code> are examples, not an exhaustive list. The name-prefix test does not verify product identity: another executable with a matching prefix can qualify, while names without those prefixes are not removed by this setting.</p>
+<p>This box setting is different from SandMan's global <strong>Hide Sandboxie's own processes from the task list</strong> preference (<code>Options/HideSbieProcesses</code>). The global preference affects SandMan's own task tree and can be configured independently; it is not a checkbox for this sandbox setting. No dedicated box-options checkbox for this setting is available in the current SandMan interface, but it can be configured in the INI file.</p>
+<p>The value is read on later enumerations, so a configuration reload can affect an already-running process if the <code>NtQuerySystemInformation</code> hook was installed for it. See <a href="HideNonSystemProcesses.html">Hide Non System Processes</a> for the hook and WMI limitations.</p>
+<p>Related <a href="SandboxieIni.html">Sandboxie Ini</a> settings: <a href="HideHostProcess.html">Hide Host Process</a> and <a href="HideNonSystemProcesses.html">Hide Non System Processes</a>.</p>
 
 
 

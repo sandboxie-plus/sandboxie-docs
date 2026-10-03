@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="ForceProtectionOnMount is a sandbox setting in Sandboxie Ini (introduced in v1.13.4 / 5.68.4) that forces a file-backed sandbox image to be mounted with root protection enabled. When set, the mount flow and the mount/create dialog enforce the image root protect option so users cannot mount the image without protection.">
+        <meta name="description" content="ForceProtectionOnMount is a SandMan-consumed per-box setting in Sandboxie Ini, introduced in Sandboxie Plus 1.13.4 / Classic 5.68.4. It constrains SandMan&#x27;s image-mount dialog/workflow to request mounted-root protection for a file-backed sandbox image.">
       
       
       
@@ -5585,114 +5585,40 @@
 
 
 <h1 id="force-protection-on-mount">Force Protection On Mount<a class="headerlink" href="#force-protection-on-mount" title="Permanent link"></a></h1>
-<p><em>ForceProtectionOnMount</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a> (introduced in v1.13.4 / 5.68.4) that forces a file-backed sandbox image to be mounted with root protection enabled. When set, the mount flow and the mount/create dialog enforce the image root protect option so users cannot mount the image without protection.</p>
+<p><em>ForceProtectionOnMount</em> is a SandMan-consumed per-box setting in <a href="SandboxieIni.html">Sandboxie Ini</a>, introduced in Sandboxie Plus 1.13.4 / Classic 5.68.4. It constrains SandMan's image-mount dialog/workflow to request mounted-root protection for a <a href="UseFileImage.html">file-backed sandbox image</a>.</p>
+<p>It is not a service-wide rule enforced for every mount caller.</p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">ForceProtectionOnMount</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
+<p>SandMan reads the direct box value, with a fallback of <code>n</code>. Do not assume that a template or GlobalSettings value controls this workflow.</p>
 <h2 id="when-to-use">When to use<a class="headerlink" href="#when-to-use" title="Permanent link"></a></h2>
-<ul>
-<li>
-<p>You want a sandbox image always mounted in protected mode (prevent unsandboxed processes from accessing the mounted image).</p>
-</li>
-<li>
-<p>Useful for encrypted images where you want to guarantee protection at mount time.</p>
-</li>
-</ul>
+<p>Use this setting when you want SandMan to request mounted-root protection without allowing it to be unchecked in the mount dialog. Protection while mounted is separate from image encryption and is not an absolute host-access guarantee.</p>
 <h2 id="behavior-and-ui">Behavior and UI<a class="headerlink" href="#behavior-and-ui" title="Permanent link"></a></h2>
-<ul>
-<li>
-<p>The General / File Options UI exposes a checkbox bound to <code>ForceProtectionOnMount</code> (<code>ui.chkForceProtection</code> in the code).</p>
-<ul>
-<li>The checkbox is enabled only when the sandbox is configured as an <a href="UseFileImage.html">encrypted sandbox</a> (not for RAM disk).</li>
-</ul>
+<p>Enable <strong>Force protection on mount</strong> under <strong>Sandbox Options &gt; General Options &gt; File Options</strong>. The checkbox is available when the image-backing option is enabled and selected, not for the normal RAM-disk choice.</p>
 <p><img alt="Force Protection On Mount 1" src="../Media/UseFileImage1.png" /></p>
-</li>
-<li>
-<p>When the box image mount dialog is shown programmatically with force applied, <code>CBoxImageWindow::SetForce(true)</code>:</p>
-<ul>
-<li>forces <code>ui.chkProtect</code> checked,</li>
-<li>disables the protect checkbox so users cannot uncheck it,</li>
-</ul>
+<p>For the resulting SandMan mount dialog, the setting checks and disables <strong>Protect Box Root from access by unsandboxed processes</strong>. The mount request reaches the service and driver to request protection.</p>
 <p><img alt="Force Protection On Mount 2" src="../Media/UseFileImage8.png" /></p>
-<ul>
-<li>forces <code>ui.chkAutoLock</code> (auto-unmount on last process stop) checked/disabled in the dialog.  </li>
-<li>On mount the service receives a mount request with the <code>protect_root</code> flag set; the mount manager and driver enforce protection.</li>
-</ul>
-</li>
-</ul>
-<h2 id="technical-notes-code-references">Technical notes / code references<a class="headerlink" href="#technical-notes-code-references" title="Permanent link"></a></h2>
-<ul>
-<li>
-<p>UI reads/writes:</p>
-<ul>
-<li>Read: <code>m_pBox-&gt;GetBool("ForceProtectionOnMount", false)</code> (see <code>COptionsWindow::LoadGeneral</code>).<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
-<li>Save: <code>WriteAdvancedCheck(ui.chkForceProtection, "ForceProtectionOnMount", "y", "")</code> (see <code>COptionsWindow::SaveGeneral</code>).<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
-</ul>
-</li>
-<li>
-<p>Mount wire protocol:</p>
-<ul>
-<li><code>IMBOX_MOUNT_REQ</code> contains <code>BOOL protect_root;</code> (mount wire header in <code>MountManagerWire.h</code>).<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></li>
-</ul>
-</li>
-<li>
-<p>Mount dialog enforcement:</p>
-<ul>
-<li><code>CBoxImageWindow::SetForce(bool force)</code> sets the protect checkbox enabled/checked state.<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></li>
-</ul>
-</li>
-<li>
-<p>Mount flow:</p>
-<ul>
-<li><code>MountManager::AcquireBoxRoot</code> (mount manager) will include the <code>protect_root</code> flag in mount requests when appropriate.<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></li>
-</ul>
-</li>
-<li>
-<p>Start process integration:</p>
-<ul>
-<li><code>Start.cpp</code> handles the <code>mount_protected</code> parameter during sandbox startup and process creation.<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup></li>
-</ul>
-</li>
-</ul>
-<h2 id="compatibility-constraints">Compatibility &amp; constraints<a class="headerlink" href="#compatibility-constraints" title="Permanent link"></a></h2>
-<ul>
-<li>Only meaningful for sandboxes using <code>UseFileImage</code> (file-backed <code>.box</code> images).</li>
-<li>If the filesystem driver or mount manager cannot honor protected mounts (or encrypted containers), mounts may fail and the sandbox will not start - check logs and mount manager errors.</li>
-<li>Protecting the root is enforced at mount time; unmounting while processes run will terminate those processes.</li>
-</ul>
-<h2 id="best-practices">Best practices<a class="headerlink" href="#best-practices" title="Permanent link"></a></h2>
-<ul>
-<li>Apply per-sandbox (do not set globally unless you intend to force protection for every sandbox).</li>
-</ul>
-<h2 id="related">Related<a class="headerlink" href="#related" title="Permanent link"></a></h2>
-<ul>
-<li><a href="UseFileImage.html"><code>UseFileImage</code></a> - enables file-backed sandbox images.</li>
-<li><code>CBoxImageWindow::SetForce</code> - UI enforcement on the mount/create dialog.</li>
-<li><code>IMBOX_MOUNT_REQ.protect_root</code> - mount request flag used by the mount manager.</li>
-<li><a href="StartCommandLine.html#mount-box-images"><code>StartCommandLine</code></a> - Command-line operations including <code>mount_protected</code> switch for protected mounting.</li>
-</ul>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:1">
-<p>See UI code in <code>SandMan\Windows\OptionsGeneral.cpp</code> - <code>COptionsWindow::LoadGeneral</code> and <code>COptionsWindow::SaveGeneral</code> handle reading and writing the <code>ForceProtectionOnMount</code> key via <code>m_pBox</code>.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-<li id="fn:2">
-<p>Mount protocol definition in <code>..\Sandboxie\core\svc\MountManagerWire.h</code> - <code>tagIMBOX_MOUNT_REQ</code> includes the <code>protect_root</code> field used by the mount manager.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
-</li>
-<li id="fn:3">
-<p>Implementation in <code>SandMan\Windows\BoxImageWindow.cpp</code> - <code>CBoxImageWindow::SetForce(bool force)</code> forces the dialog checkboxes to reflect a forced protected mount.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
-</li>
-<li id="fn:4">
-<p>Mount manager code (mount request assembly) will propagate the <code>protect_root</code> flag to the service/driver; see the mount manager implementation (e.g., <code>MountManager::AcquireBoxRoot</code>) in the service codebase.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
-</li>
-<li id="fn:5">
-<p>Start process implementation in <code>Sandboxie\apps\start\Start.cpp</code> - handles the <code>mount_protected</code> parameter during sandbox startup and process initialization.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
-</li>
-</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Requesting protection does not prove successful registration. A mount can succeed even if root-protection registration fails, and the normal mount query does not establish that protection is active.</p>
 </div>
+<p>See <a href="../PlusContent/BoxEncryption.html">Encrypted Sandboxes</a> for the mounted-access boundary and <a href="ProtectAdminOnly.html">Protect Admin Only</a> for the session-leader exception.</p>
+<h2 id="automatic-unmount-limitation">Automatic unmount limitation<a class="headerlink" href="#automatic-unmount-limitation" title="Permanent link"></a></h2>
+<p>Do not rely on this setting to force automatic unmount for every SandMan mount. Current caller initialization can overwrite the auto-lock state after the dialog's force state is applied.</p>
+<p>SandMan's startup-mount path supplies automatic unmount enabled. The normal manual-mount path supplies it disabled, which can leave <strong>Lock the box when all processes stop.</strong> disabled and unchecked, as shown above. This is a current implementation discrepancy, not a guarantee that automatic unmount is forced.</p>
+<p>Automatic unmount itself depends on successful Registry/root release and device cleanup. See <a href="UseFileImage.html#automatic-mounting-and-locking">Use File Image</a> for that lifecycle.</p>
+<h2 id="other-callers-and-unmounting">Other callers and unmounting<a class="headerlink" href="#other-callers-and-unmounting" title="Permanent link"></a></h2>
+<p><code>Start.exe /mount</code> does not consume <code>ForceProtectionOnMount</code>. <code>/mount_protected</code> requests root protection explicitly; see <a href="StartCommandLine.html#mount-box-images">Start Command Line</a>.</p>
+<p>The setting does not control process termination or unmount success. SandMan's manual unmount action and the underlying service unmount operation have separate behavior, described in <a href="UseFileImage.html#unmounting-box-image">Use File Image</a>.</p>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
+<ul>
+<li><a href="UseFileImage.html">Use File Image</a></li>
+<li><a href="../PlusContent/BoxEncryption.html">Encrypted Sandboxes</a></li>
+<li><a href="ProtectAdminOnly.html">Protect Admin Only</a></li>
+<li><a href="StartCommandLine.html#mount-box-images">Start Command Line</a></li>
+</ul>
 
 
 

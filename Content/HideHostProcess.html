@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="HideHostProcess is a sandbox setting in Sandboxie Ini available since v0.3 / 5.42. It is used to hide unsandboxed host processes. It can also be used to hide Sandboxie services.">
+        <meta name="description" content="HideHostProcess is a sandbox setting in Sandboxie Ini available since v0.3 / 5.42. It removes matching entries from process lists returned to sandboxed applications through Sandboxie&#x27;s filtered native enumeration path. You can repeat the setting for multiple process names.">
       
       
       
@@ -5585,14 +5585,16 @@
 
 
 <h1 id="hide-host-process">Hide Host Process<a class="headerlink" href="#hide-host-process" title="Permanent link"></a></h1>
-<p><em>HideHostProcess</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a> available since v0.3 / 5.42. It is used to hide unsandboxed host processes. It can also be used to hide Sandboxie services.</p>
+<p><em>HideHostProcess</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a> available since v0.3 / 5.42. It removes matching entries from process lists returned to sandboxed applications through Sandboxie's filtered native enumeration path. You can repeat the setting for multiple process names.</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">HideHostProcess</span><span class="o">=</span><span class="s">program.exe</span>
 </span></code></pre></div>
-<p>Related Sandboxie Plus setting: Sandbox Options &gt; Advanced Options &gt; Hide Processes</p>
+<p>The value is compared with the presented process name using an exact, case-insensitive match. Use an executable name, not a full path or wildcard pattern. The setting normally applies to entries without a sandbox association; it can also match entries whose presented name begins with <code>Sandboxie</code>, including some Sandboxie service or worker processes. It does not normally remove an ordinary process assigned to another box merely because its name matches.</p>
+<p>In SandMan, manage the process-name list under Sandbox Options &gt; Advanced Options &gt; Processes &gt; Process Hiding. The list may also show entries supplied by templates.</p>
+<p>This setting filters a process-list result; it does not by itself deny access to a process by known PID. Other discovery paths, including WMI, are separate. See <a href="HideNonSystemProcesses.html">Hide Non System Processes</a> and <a href="HideOtherBoxes.html">Hide Other Boxes</a> for related list filters.</p>
 
 
 

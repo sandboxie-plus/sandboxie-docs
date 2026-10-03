@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="AllowSpoolerPrintToFile is a sandbox setting that provides nuanced control over how sandboxed applications interact with the print spooler service.">
+        <meta name="description" content="AllowSpoolerPrintToFile controls a special file-open guard for the Windows Print Spooler service, spoolsv.exe, when it acts on behalf of a sandboxed process. If no effective value is configured, it defaults to n.">
       
       
       
@@ -5585,14 +5585,18 @@
 
 
 <h1 id="allow-spooler-print-to-file">Allow Spooler Print To File<a class="headerlink" href="#allow-spooler-print-to-file" title="Permanent link"></a></h1>
-<p><code>AllowSpoolerPrintToFile</code> is a sandbox setting that provides nuanced control over how sandboxed applications interact with the print spooler service.</p>
+<p><code>AllowSpoolerPrintToFile</code> controls a special file-open guard for the Windows Print Spooler service, <code>spoolsv.exe</code>, when it acts on behalf of a sandboxed process. If no effective value is configured, it defaults to <code>n</code>.</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">AllowSpoolerPrintToFile</span><span class="o">=</span><span class="s">n</span>
 </span></code></pre></div>
-<p>This setting can be used to prevent sandboxed applications from printing to file. By default, Sandboxie blocks all <code>CreateFile</code> calls that ask for write access for a sandboxed <code>spoolsv.exe</code>.</p>
+<p>With <code>AllowSpoolerPrintToFile=n</code>, Sandboxie checks applicable write-access file opens by the host <code>spoolsv.exe</code> against the originating sandboxed process's normal file-access policy. The guard has exceptions, including the sandbox's spooler work directory, and does not block every <code>CreateFile</code> call or every print job. Normal file-access rules can affect whether a destination is allowed.</p>
+<p>With <code>AllowSpoolerPrintToFile=y</code>, this special guard is skipped for the associated sandboxed process. This does not give <code>spoolsv.exe</code> unrestricted access to the host filesystem; Windows permissions and other controls still apply.</p>
+<p>An applicable denial can produce <strong>SBIE1319</strong>. For a process that is still running, SandMan can ask whether to allow the spooler to write outside the sandbox for that process. Choosing <strong>Yes</strong> grants a temporary exception for that process ID and future matching file opens. It does not change <code>Sandboxie.ini</code>, set <code>AllowSpoolerPrintToFile=y</code>, or retry the file open that already failed. The exception ends when that process exits. In Sandboxie Control Classic, <strong>SBIE1319</strong> is followed by <strong>SBIE1320</strong>; double-clicking the latter grants the same process-specific exception.</p>
+<p>The persistent setting is loaded when the sandboxed process initializes its IPC state. Restart affected sandboxed processes after changing it to ensure they use the new value. In SandMan, the control is <strong>Sandbox Options &gt; General Options &gt; Restrictions &gt; Printing restrictions &gt; Allow the print spooler to print to files outside the sandbox</strong>. It is disabled when <strong>Block access to the printer spooler</strong> or <strong>Disable Security Filtering (not recommended)</strong> is checked, but not solely because the box uses Application Compartment. In an Application Compartment with <code>NoSecurityFiltering=y</code>, the normal file-policy check used by this guard no longer provides its usual denial. The checkbox reflects the direct box value, while the runtime can also use applicable template or global configuration.</p>
+<p><a href="../ClosePrintSpooler/">ClosePrintSpooler</a> instead controls new spooler endpoint-resolution requests; <a href="../OpenPrintSpooler/">OpenPrintSpooler</a> controls a separate, selective message filter.</p>
 
 
 

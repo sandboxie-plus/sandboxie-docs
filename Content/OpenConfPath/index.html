@@ -5586,7 +5586,7 @@
 
 <h1 id="open-conf-path">Open Conf Path<a class="headerlink" href="#open-conf-path" title="Permanent link"></a></h1>
 <p><em>OpenConfPath</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a> available since v1.0.0 / 5.55.0. It specifies a path pattern, for which Sandboxie will not apply sandboxing for registry keys. This lets sandboxed programs have direct access to update system settings <em>outside the sandbox</em>. This setting essentially <em>punches a hole</em> in the sandbox, at a particular registry key location.</p>
-<p>It is the same as the <a href="../OpenKeyPath/">OpenKeyPath</a> setting, except that this setting is always applied, whereas <em>OpenKeyPath</em> is only applied if the application is running from a file or folder that is located outside the sandbox.</p>
+<p>Once selected, <em>OpenConfPath</em> uses the same direct-host Registry access model as <a href="../OpenKeyPath/">OpenKeyPath</a>. Its important difference is eligibility: it is not excluded by the normal boxed-executable Open rule gate. <strong>Open for All</strong> means eligible for boxed executables, not guaranteed precedence; process selectors and <a href="../../PlusContent/RuleSpecificity/">Rule Specificity</a> still apply.</p>
 <p><a href="../ProgramNamePrefix/">Program Name Prefix</a> may be specified.</p>
 <p>Example:
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
@@ -5598,7 +5598,7 @@
 </span></code></pre></div></p>
 <p>These examples let the Firefox program, <em>firefox.exe</em>, have direct access to the Mozilla registry key trees (both system-wide and per-user registry trees).</p>
 <p>The value specified for <em>OpenConfPath</em> can include wildcards, although for registry keys, the use of wildcards is rarely needed. For more information on this, including examples that show the use of wildcards, see <a href="../OpenFilePath/">OpenFilePath</a>. (<em>OpenFilePath</em> deals with files, not registry keys, but the principle of using wildcards remains the same.)</p>
-<p><strong>Note:</strong> This setting does apply even when the program executable file resides within the sandbox. This means that (potentially malicious) software downloaded into your computer and executed, can take advantage of this setting.</p>
+<p><strong>Note:</strong> This setting can apply even when the program executable file resides within the sandbox. This means that (potentially malicious) software downloaded into your computer and executed can take advantage of direct host access when this rule wins and native permissions allow it.</p>
 <p>Related Sandboxie Plus setting: Sandbox Options &gt; Resource Access &gt; Registry &gt; Add Reg Key &gt; Access column &gt; Open for All</p>
 
 

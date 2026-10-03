@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="HideNonSystemProcesses is a sandbox setting in Sandboxie Ini.">
+        <meta name="description" content="HideNonSystemProcesses is a sandbox setting in Sandboxie Ini. Its runtime fallback is n.">
       
       
       
@@ -5585,16 +5585,22 @@
 
 
 <h1 id="hide-non-system-processes">Hide Non System Processes<a class="headerlink" href="#hide-non-system-processes" title="Permanent link"></a></h1>
-<p>HideNonSystemProcesses is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>.</p>
+<p><em>HideNonSystemProcesses</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. Its runtime fallback is <code>n</code>.</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">HideNonSystemProcesses</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>Use the 'HideNonSystemProcesses=y' option to prevent sandboxed processed from seeing processes running outside the sandbox.</p>
-<p>Related Sandboxie Plus setting: Sandbox Options &gt; Advanced Options &gt; Privacy &gt; Hide Non System Processes</p>
-<p>Related <a href="SandboxieIni.html">Sandboxie Ini</a> setting: <a href="HideHostProcess.html">HideHostProcess</a>, <a href="HideSbieProcesses.html">HideSbieProcesses</a></p>
+<p>With <code>HideNonSystemProcesses=y</code>, Sandboxie removes many entries not associated with a sandbox from its filtered native process-list results.</p>
+<div class="admonition danger">
+<p class="admonition-title">Caution</p>
+<p>The system and service SID exceptions do not protect entries without a sandbox association, because the query API used by sandboxed callers does not return a SID for those targets. Legitimate system or service processes may therefore also be hidden.</p>
+</div>
+<p>The setting does not prevent discovery through every mechanism or deny access to a process by known PID. WMI is a separate path that may expose process information; SandMan provides a separate WMI-blocking option, without making this setting a general WMI filter.</p>
+<p>In SandMan, the checkbox is Sandbox Options &gt; Advanced Options &gt; Processes &gt; Process Hiding &gt; Don't allow sandboxed processes to see processes running outside any boxes. Its direct box-side default is unchecked; an effective value inherited through configuration may differ from the direct checkbox state.</p>
+<p>The value is read on later enumerations, so a configuration reload can affect an already-running process if the <code>NtQuerySystemInformation</code> hook was installed for it. If that hook was skipped at process initialization through <a href="SkipHook.html">SkipHook</a> (<code>ntqsi</code>), changing this value does not install it retroactively.</p>
+<p>Related <a href="SandboxieIni.html">Sandboxie Ini</a> settings: <a href="HideHostProcess.html">Hide Host Process</a>, <a href="HideOtherBoxes.html">Hide Other Boxes</a>, and <a href="HideSbieProcesses.html">Hide Sandboxie Processes</a>.</p>
 
 
 

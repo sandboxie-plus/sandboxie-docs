@@ -5715,18 +5715,18 @@
 <p>Alongside the file-layout folders, the sandbox root contains <em>RegHive</em> and may contain associated registry-hive log files. These hold the sandboxed registry. See below.</p>
 <h3 id="registry">Registry<a class="headerlink" href="#registry" title="Permanent link"></a></h3>
 <p>Registry keys are created in a sandboxed registry hive. A <em>registry hive</em> is the Microsoft Windows term for a group of related registry keys that are stored in a single <em>hive file</em>.</p>
-<p>Sandboxie creates the hive file in the <em>Sandbox</em> folder, as the files <em>RegHive</em> and <em>RegHive.LOG</em>. This hive is mounted (or in other words, loaded into the registry) when a sandboxed program starts. The hive is unmounted when all sandboxed programs end.</p>
-<p>The sandboxed hive has the following position and structure within the global structure of the Windows registry.
+<p>The hive's backing file is <em>RegHive</em> beneath <a href="FileRootPath.html">FileRootPath</a>; Windows-maintained supporting hive files may also exist. The hive is mounted (loaded into the registry) during sandboxed process initialization. Multiple processes can share the mount, and unload is coordinated when the hive becomes eligible; it may not be immediate after all sandboxed programs end.</p>
+<p>With the default registry root, the sandboxed hive has the following position and structure within the global structure of the Windows registry.
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w"> </span><span class="na">. HKEY_USERS</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w"> </span><span class="na">. . KeyRootPath</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w"> </span><span class="na">. . . machine</span>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w"> </span><span class="na">. . . user</span>
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w"> </span><span class="na">. . . . current</span>
 </span></code></pre></div></p>
-<p>The <a href="KeyRootPath.html">KeyRootPath</a> setting specifies a path to the root of a particular sandbox. If omitted, it defaults to <em>HKEY_USERS\Sandbox</em>(user name)<em>(sandbox name)</em>. For example, if the user joe is using the sandbox DefaultBox, the default <a href="KeyRootPath.html">KeyRootPath</a> is <em>HKEY_USERS\Sandbox_joe_DefaultBox</em>.</p>
+<p>The <a href="KeyRootPath.html">KeyRootPath</a> setting specifies the registry location where the hive is mounted, not its backing filename. If no effective value is configured, it defaults to <em>HKEY_USERS\Sandbox</em>(user name)<em>(sandbox name)</em>. For example, if the user joe is using the sandbox DefaultBox, the default <a href="KeyRootPath.html">KeyRootPath</a> is <em>HKEY_USERS\Sandbox_joe_DefaultBox</em>.</p>
 <p>As sandboxed programs create new registry keys or modify existing keys, Sandboxie redirects these operations to act on paths that lead into the sandbox. If the sandboxed program was trying to create the key <em>HKEY_LOCAL_MACHINE\Software\NewKey</em>, it will be redirected to create instead <em>(<a href="KeyRootPath.html">KeyRootPath</a>)\machine\Software\NewKey</em>.</p>
 <p>If the sandboxed program was trying to create the key <em>HKEY_CURRENT_USER\Software\NewKey</em>, it will be redirected to create <em>(<a href="KeyRootPath.html">KeyRootPath</a>)\user\current\Software\NewKey</em>.</p>
-<p>With the sandboxed registry, the rules for redirection are simpler than for sandboxed files:</p>
+<p>For normal registry virtualization, the main mappings are:</p>
 <ul>
 <li>
 <p>A registry key created or modified below the HKEY_LOCAL_MACHINE tree will be redirected below the sandboxed <em>machine</em> key.</p>
@@ -5735,11 +5735,11 @@
 <p>A registry key created or modified below the HKEY_CURRENT_USER tree will be redirected below the sandboxed <em>user\current</em> key.</p>
 </li>
 <li>
-<p>A registry key created or modified below the HKEY_CLASSES_ROOT tree will be redirected below the sandboxed <em>user\current_classes</em> key.</p>
+<p>HKEY_CLASSES_ROOT is Windows' Classes view, not one independent uniform Sandboxie root. Its machine/per-user merge and Sandboxie's sandbox-side Classes mapping are separate relationships.</p>
 </li>
 </ul>
-<p>Note that the sandboxed <em>user\current\software\classes</em> key is a symbolic link to the <em>user\current_classes</em> key which means and the keys are effectively synonyms and share the same content in the sandboxed Windows registry.</p>
-<p>As with files, access to a key which has a copy in the sandboxed registry will be redirected to use the copy in the sandbox. Read-only access to a key which does not have a copy in the sandboxed registry will be permitted to access the key outside the sandbox. This behavior can be affected with the registry-related settings <a href="OpenKeyPath.html">OpenKeyPath</a>, <a href="ReadKeyPath.html">ReadKeyPath</a>, and <a href="ClosedKeyPath.html">ClosedKeyPath</a>.</p>
+<p>Sandbox customization can create a symbolic link from <em>user\current\software\classes</em> to <em>user\current_classes</em>. Where that link is created, the two names refer to the same sandbox-side content.</p>
+<p>A normal read-only open of an existing host-only key can use the host key without first creating a sandbox counterpart. When sandbox state exists, selected key/value queries and enumeration can merge it with eligible host state; a sandbox key is not necessarily a complete copy that fully shadows the host key. This behavior can be affected with the registry-related settings <a href="OpenKeyPath.html">OpenKeyPath</a>, <a href="ReadKeyPath.html">ReadKeyPath</a>, and <a href="ClosedKeyPath.html">ClosedKeyPath</a>. See <a href="RegistryVirtualization.html">Registry Virtualization</a> for the merge, deletion, access-mode, and lifecycle boundaries.</p>
 <h3 id="inter-process-objects">Inter-Process Objects<a class="headerlink" href="#inter-process-objects" title="Permanent link"></a></h3>
 <p>These objects are used by programs to share information, synchronize processing, and provide services. These objects are never written to disk and they disappear when the system shuts down.</p>
 <p>Sandboxie isolates these objects in order to make it possible to run the same program sandboxed and un-sandboxed side-by-side. It also keeps sandboxed programs from interfering with un-sandboxed ones.</p>

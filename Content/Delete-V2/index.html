@@ -5630,8 +5630,8 @@
 <thead>
 <tr>
 <th>SandMan display</th>
-<th>Effective <code>UseFileDeleteV2</code></th>
-<th>Effective <code>UseRegDeleteV2</code></th>
+<th>Box/global <code>UseFileDeleteV2</code></th>
+<th>Box/global <code>UseRegDeleteV2</code></th>
 </tr>
 </thead>
 <tbody>
@@ -5652,7 +5652,7 @@
 </tr>
 </tbody>
 </table>
-<p>The table describes effective values, including inherited global settings, not necessarily two explicit lines in the box section. Selecting Version 2 writes both settings as <code>y</code>. Selecting Version 1 removes a local setting when its global fallback is already false, or writes an explicit local <code>n</code> when needed to override a global <code>y</code>.</p>
+<p>The table describes SandMan's direct box values with explicit <code>[GlobalSettings]</code> fallback, not necessarily two explicit lines in the box section. This UI lookup does not include enabled-template values; the runtime's effective configuration can therefore differ when templates contribute either setting. Selecting Version 2 writes both settings as <code>y</code>. Selecting Version 1 removes a local setting when its global fallback is already false, or writes an explicit local <code>n</code> when needed to override a global <code>y</code>.</p>
 <h3 id="two-different-defaults">Two different defaults<a class="headerlink" href="#two-different-defaults" title="Permanent link"></a></h3>
 <p>These defaults apply at different layers:</p>
 <ul>
@@ -5661,7 +5661,7 @@
 </ul>
 <p>Thus a box with no effective V2 settings uses V1, while a newly created SandMan box normally has explicit V2 settings. V2 is the wizard's initial choice, <strong>not</strong> the low-level missing-setting default.</p>
 <h2 id="changing-the-scheme-in-sandman">Changing the scheme in SandMan<a class="headerlink" href="#changing-the-scheme-in-sandman" title="Permanent link"></a></h2>
-<p>Open <strong>Sandbox Options &gt; File Options &gt; Box Structure &gt; Virtualization scheme</strong>. SandMan offers <strong>Version 1</strong> and <strong>Version 2</strong> and shows <strong>Indeterminate</strong> when the effective file and registry choices differ.</p>
+<p>Open <strong>Sandbox Options &gt; File Options &gt; Box Structure &gt; Virtualization scheme</strong>. SandMan offers <strong>Version 1</strong> and <strong>Version 2</strong> and shows <strong>Indeterminate</strong> when its box/global file and registry choices differ.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>SandMan enables the scheme control only when the sandbox is empty. Empty the sandbox before changing schemes through SandMan. Changing the raw INI settings of a populated box is not an in-place conversion of its existing deletion and relocation state.</p>

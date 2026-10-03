@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="UseFileImage is a sandbox setting in Sandboxie Ini (introduced in v1.11.0 / 5.66.0) that replaces the standard file system storage with a file-backed virtual disk image as the sandbox root directory.">
+        <meta name="description" content="UseFileImage is a sandbox setting in Sandboxie Ini, introduced in Sandboxie Plus 1.11.0 / Classic 5.66.0. It changes the physical backing beneath the sandbox&#x27;s normal file root. Sandboxie&#x27;s logical file virtualization remains in place above that storage.">
       
       
       
@@ -5585,173 +5585,204 @@
 
 
 <h1 id="use-file-image">Use File Image<a class="headerlink" href="#use-file-image" title="Permanent link"></a></h1>
-<p><em>UseFileImage</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a> (introduced in v1.11.0 / 5.66.0) that replaces the standard file system storage with a file-backed virtual disk image as the sandbox root directory.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Configure this setting on a per-sandbox basis. Applying it globally will force all sandboxes to use file images, which may break existing sandboxes that rely on standard file system storage or cause compatibility issues with non-encrypted sandbox configurations.</p>
-</div>
+<p><em>UseFileImage</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>, introduced in Sandboxie Plus 1.11.0 / Classic 5.66.0. It changes the physical backing beneath the sandbox's normal file root. Sandboxie's logical file virtualization remains in place above that storage.</p>
+<p>The normal service workflow uses a persistent encrypted <code>.box</code> image mounted through ImBox and ImDisk. ImBox provides the image/encryption backing, ImDisk provides the virtual disk, and Sandboxie's service and driver provide integration and mounted-root protection.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This setting requires an active advanced <a href="https://sandboxie-plus.com/supporter-certificate/">supporter certificate</a>.</p>
+<p>This feature requires a currently applicable active <a href="https://sandboxie-plus.com/supporter-certificate/">Support Certificate</a> with the encryption feature.</p>
 </div>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link"></a></h2>
-<ul>
-<li>
-<p>Install the <strong>ImDisk Toolkit</strong> via the <strong>Add-Ons Manager &gt; Optional Add-Ons</strong> tab in <strong>Global Settings</strong>.</p>
+<p>Install the <strong>ImDisk Toolkit</strong> through <strong>Global Settings &gt; Add-Ons Manager &gt; Optional Add-Ons</strong>.</p>
 <p><img alt="ImDisk Install" src="../Media/UseRamDisk1.png" /></p>
-</li>
-</ul>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h2>
+<p>The ImDisk device/driver must be available and respond with the expected capability/version. SandMan checks device readiness, not merely whether an installer record exists.</p>
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link"></a></h2>
+<p>Configure the setting directly in the intended sandbox:</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">UseFileImage</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>When this setting is enabled, the Sandboxie service creates a virtual disk image file with extension <code>.box</code>. The image file path is determined by the service<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> which appends <code>.box</code> to the sandbox's file root<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> path. The sandbox file system is then mounted from this image using the ImDisk virtual disk driver through the mount manager<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>. All file I/O operations within the sandbox are redirected to the mounted image rather than creating files directly on the host file system.</p>
-<p>Password protection and header backup/restore operations are available through the SandMan GUI or the ImBox command-line utility.</p>
+<p>The service reads effective configuration, including applicable templates and global fallback, with a consumer fallback of <code>n</code>. SandMan's normal checkbox reads the direct box value instead. Direct per-box configuration is the supported and clearest workflow; an inherited/global value can reach the service even when the checkbox does not represent that effective state. Do not configure image backing globally as a substitute for configuring individual boxes.</p>
+<p>Do not configure both <code>UseFileImage</code> and <a href="UseRamDisk.html">UseRamDisk</a>. SandMan treats them as alternative storage choices. If both nevertheless become effective, the current service path selects RAM-disk backing rather than reporting a configuration conflict; its entitlement check still observes the image flag.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The ordinary Options workflow is intended for an empty box. Enabling <code>UseFileImage</code> does not copy existing directory-backed files, <code>RegHive</code>, or snapshot metadata into an image or convert the old root in place. Disabling it does not extract image contents back into directory storage. Handle existing data separately; transfer/import/export is a different workflow.</p>
+</div>
+<h2 id="image-path-and-contents">Image path and contents<a class="headerlink" href="#image-path-and-contents" title="Permanent link"></a></h2>
+<p>The service appends <code>.box</code> to the resolved <a href="FileRootPath.html">FileRootPath</a>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Resolved FileRootPath: C:\Sandbox\alice\ExampleBox
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Backing image:         C:\Sandbox\alice\ExampleBox.box
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Mounted sandbox root:  C:\Sandbox\alice\ExampleBox
+</span></code></pre></div>
+<p>The <code>.box</code> file is a sibling backing file, not a file inside the mounted sandbox directory. The normal root path becomes a junction to <code>\Sandbox</code> inside the mounted virtual disk.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Sandboxie logical file virtualization
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>        |
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>        v
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>resolved sandbox FileRootPath
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>        |
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>        v
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>junction to mounted virtual disk \Sandbox
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>        |
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>        v
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>ImDisk proxy device
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>        |
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>        v
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>ImBox encrypted backing
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>        |
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>        v
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>persistent .box file
+</span></code></pre></div>
+<p>Content stored beneath that root resides inside the image, including normal sandbox files, <code>RegHive</code>, <code>RegPaths.dat</code>, <code>FilePaths.dat</code>, <code>Snapshots.ini</code>, and snapshot directories. This does not redirect every file operation into the image: normal resource-access rules, including access to permitted host paths, remain relevant.</p>
+<p><code>Sandboxie.ini</code>, external header backups, recovered/exported files, and unrelated service state are not automatically stored inside the image. Changing the root path does not relocate an existing image. See <a href="SandboxRootsVolumeLayout.html">Sandbox Roots and Volume Layout</a> for root configuration.</p>
 <h2 id="sandman-gui">SandMan GUI<a class="headerlink" href="#sandman-gui" title="Permanent link"></a></h2>
 <h3 id="setting-password">Setting Password<a class="headerlink" href="#setting-password" title="Permanent link"></a></h3>
+<p>For an empty box with ImDisk ready:</p>
 <ol>
-<li><strong>Right-click</strong> on the sandbox in SandMan &gt; <code>Sandbox Options</code>.</li>
-<li>Navigate to <code>File Options</code> tab.</li>
-<li>Enable the <code>Encrypt sandbox content</code>.</li>
-<li>(Optional) Enable the <a href="ForceProtectionOnMount.html"><code>Force protection on mount</code></a></li>
+<li><strong>Right-click</strong> the sandbox in SandMan and open <strong>Sandbox Options</strong>.</li>
+<li>Navigate to <strong>General Options &gt; File Options</strong>.</li>
+<li>Enable <strong>Encrypt sandbox content</strong>.</li>
+<li>Optionally enable <a href="ForceProtectionOnMount.html"><strong>Force protection on mount</strong></a>.</li>
 <li>
-<p>Click the <code>Set Password</code> button.</p>
+<p>Click <strong>Set Password</strong>.</p>
 <p><img alt="Setting Password 1" src="../Media/UseFileImage1.png" /></p>
 </li>
 <li>
-<p>Enter and confirm password in the dialog.</p>
+<p>Enter and confirm the password, and select the image capacity.</p>
 <p><img alt="Setting Password 2" src="../Media/UseFileImage2.png" /></p>
 </li>
-</ol>
-<h3 id="changing-password">Changing Password<a class="headerlink" href="#changing-password" title="Permanent link"></a></h3>
-<ol>
-<li><strong>Right-click</strong> on the sandbox in SandMan &gt; <code>Sandbox Options</code>.</li>
-<li>Navigate to <code>File Options</code> tab.</li>
 <li>
-<p>Click the <code>Change Password</code> button.</p>
+<p>Apply the Sandbox Options changes to request creation.</p>
+</li>
+</ol>
+<p>The standard Sandbox Options creation path expects a password before final creation. However, the low-level service selects the encrypted image implementation even with empty password input; encryption alone does not establish that a meaningful password was chosen.</p>
+<p>SandMan supplies the password/capacity to the service, which uses ImBox/ImDisk to create an NTFS virtual disk and then attempts to unmount it. Creation does not itself initialize all sandbox content and is not a transactional operation with guaranteed rollback. Check errors and the resulting image before relying on it.</p>
+<p>Image capacity is selected at creation. There is no universal supported maximum established here, and supplying another creation size does not resize an existing non-empty image. Do not treat the creation operation as an overwrite or resize procedure.</p>
+<h3 id="changing-password">Changing Password<a class="headerlink" href="#changing-password" title="Permanent link"></a></h3>
+<p>Unmount the image before changing its password.</p>
+<ol>
+<li><strong>Right-click</strong> the sandbox and open <strong>Sandbox Options &gt; General Options &gt; File Options</strong>.</li>
+<li>
+<p>Click <strong>Change Password</strong>.</p>
 <p><img alt="Changing Password 1" src="../Media/UseFileImage3.png" /></p>
 </li>
 <li>
-<p>Enter current password in the dialog.</p>
+<p>Enter the current password.</p>
 <p><img alt="Changing Password 2" src="../Media/UseFileImage4.png" /></p>
 </li>
 <li>
-<p>Enter new password and confirm password in the dialog.</p>
+<p>Enter and confirm the new password.</p>
 </li>
 </ol>
+<p>Changing the password updates the image-header encryption/key-protection metadata rather than re-encrypting every payload block. Password/header operations are not documented as transactional. Keep a full backup and verify that the image unlocks with the new password before relying on the change.</p>
+<p>The mount password is supplied for the operation; the normal workflow does not provide a reusable password vault or store it in <code>Sandboxie.ini</code>. An already-mounted image can be reused without revalidating a supplied password.</p>
 <h3 id="header-backup">Header Backup<a class="headerlink" href="#header-backup" title="Permanent link"></a></h3>
+<p>With the image unmounted:</p>
 <ol>
-<li>In sandbox options <code>File Options</code> tab.</li>
-<li>Click the down arrow next to <code>Change Password</code> button.</li>
+<li>Open <strong>Sandbox Options &gt; General Options &gt; File Options</strong>.</li>
+<li>Click the down arrow next to <strong>Change Password</strong>.</li>
 <li>
-<p>Select <code>Backup Header</code> from dropdown menu.</p>
+<p>Select <strong>Backup Image Header</strong>.</p>
 <p><img alt="Header Backup" src="../Media/UseFileImage3.png" /></p>
 </li>
 <li>
-<p>Choose location to save <code>.hdr</code> file.</p>
+<p>Choose a location for the <code>.hdr</code> file. SandMan invokes the ImBox utility to copy the header.</p>
 </li>
-<li>Header is exported using ImBox utility<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>.</li>
 </ol>
+<p>Copying the header does not require supplying the image password. A header backup is not a full content backup: it contains sensitive encryption/header material needed to interpret the image. Protect it accordingly and maintain a full backup when the content matters.</p>
 <h3 id="header-restore">Header Restore<a class="headerlink" href="#header-restore" title="Permanent link"></a></h3>
+<p>With the image unmounted:</p>
 <ol>
-<li>In sandbox options <code>File Options</code> tab.</li>
-<li>Click the down arrow next to <code>Change Password</code> button.</li>
+<li>Open <strong>Sandbox Options &gt; General Options &gt; File Options</strong>.</li>
+<li>Click the down arrow next to <strong>Change Password</strong>.</li>
 <li>
-<p>Select <code>Restore Header</code> from dropdown menu.</p>
+<p>Select <strong>Restore Image Header</strong>.</p>
 <p><img alt="Header Restore" src="../Media/UseFileImage3.png" /></p>
 </li>
 <li>
-<p>Select previously saved <code>.hdr</code> file.</p>
-</li>
-<li>Header is imported using ImBox utility<sup id="fnref2:4"><a class="footnote-ref" href="#fn:4">4</a></sup>.</li>
-</ol>
-<h3 id="mounting-box-image">Mounting Box Image<a class="headerlink" href="#mounting-box-image" title="Permanent link"></a></h3>
-<ol>
-<li><strong>Right-click</strong> on the sandbox in SandMan.</li>
-<li>
-<p>Select <code>Mount Box Image</code> from the context menu.</p>
-<p><img alt="Mount Box Image 1" src="../Media/UseFileImage5.png" /></p>
-</li>
-<li>
-<p>Enter the <strong>password</strong> when prompted.</p>
-<p><img alt="Mount Box Image 2" src="../Media/UseFileImage6.png" /></p>
-<ul>
-<li>
-<p>(Optional) Enable <code>Protect Box Root from access by unsandboxed processes</code> to prevent unsandboxed programs from accessing the encrypted sandbox content.</p>
-</li>
-<li>
-<p>(Optional) Enable <code>Lock the box when all processes stop</code> to automatically unmount the image when the last sandboxed program terminates.</p>
-</li>
-</ul>
-</li>
-</ol>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The image is automatically mounted when starting any program from the sandbox via the UI.</p>
-</div>
-<h3 id="unmounting-box-image">Unmounting Box Image<a class="headerlink" href="#unmounting-box-image" title="Permanent link"></a></h3>
-<ol>
-<li>
-<p><strong>Right-click</strong> on the sandbox in SandMan.</p>
-<p><img alt="Mount Box Image 2" src="../Media/UseFileImage7.png" /></p>
-</li>
-<li>
-<p>Select <code>Unmount Box Image</code> from the context menu.</p>
+<p>Select a known-good <code>.hdr</code> file from the matching image. SandMan invokes ImBox to restore it.</p>
 </li>
 </ol>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Unmounting the image will <strong>terminate all running programs</strong> within the sandbox.</p>
+<p>Restoring overwrites the current image header. A valid older header from the same image can restore older password/key metadata; changing the password does not automatically invalidate all previous matching header backups. Utility completion does not guarantee full recoverability. Image/header damage can prevent access, so retain full backups as well.</p>
 </div>
-<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link"></a></h2>
-<ul>
-<li>Manually close programs before unmounting when possible.</li>
-<li>Ensure no critical processes are running in the sandbox.</li>
-</ul>
-<h2 id="command-line-operations">Command Line Operations<a class="headerlink" href="#command-line-operations" title="Permanent link"></a></h2>
-<ul>
-<li>Using <code>ImBox.exe</code> for advanced image management:</li>
-</ul>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Backup header</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">ImBox.exe type=image image</span><span class="o">=</span><span class="s">"C:\Sandbox\DefaultBox.box"</span><span class="w"> </span><span class="na">backup</span><span class="o">=</span><span class="s">"C:\Sandbox\backup.hdr"</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Restore header  </span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="na">ImBox.exe type=image image</span><span class="o">=</span><span class="s">"C:\Sandbox\DefaultBox.box"</span><span class="w"> </span><span class="na">restore</span><span class="o">=</span><span class="s">"C:\Sandbox\backup.hdr"</span>
-</span></code></pre></div>
-<ul>
-<li>Using <a href="StartCommandLine.html"><code>Start.exe</code></a> for image <a href="StartCommandLine.html#mount-box-images">mounting</a>/<a href="StartCommandLine.html#unmount-box-images">unmounting</a> operations.</li>
-</ul>
-<p>Image mounting is handled by the service which verifies driver capabilities before attempting to mount the virtual disk. If the driver does not support encrypted containers or mounting fails, the sandbox will not start and an error is logged.</p>
-<h2 id="technical-notes">Technical Notes<a class="headerlink" href="#technical-notes" title="Permanent link"></a></h2>
-<ul>
-<li>Requires ImDisk driver support for encrypted image containers.</li>
-<li>Mutually exclusive with <a href="UseRamDisk.html">UseRamDisk</a>.</li>
-<li>Header corruption can render encrypted images unrecoverable - always maintain header backups.</li>
-<li>Maximum image size limited by available disk space and driver constraints.</li>
-<li>Command-line mounting operations handled by <code>Start.exe</code> with <code>mount</code> and <code>mount_protected</code> switches<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>.</li>
-</ul>
-<p>Related <a href="SandboxieIni.html">Sandboxie Ini</a>, <a href="ForceProtectionOnMount.html">ForceProtectionOnMount</a>, <a href="UseRamDisk.html">UseRamDisk</a>, <a href="FileRootPath.html">FileRootPath</a>, <a href="StartCommandLine.html">StartCommandLine</a></p>
-<div class="footnote">
-<hr />
+<h3 id="mounting-box-image">Mounting Box Image<a class="headerlink" href="#mounting-box-image" title="Permanent link"></a></h3>
 <ol>
-<li id="fn:1">
-<p><code>MountManager::GetImageFileName</code> - determines image file path.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<li><strong>Right-click</strong> the sandbox in SandMan.</li>
+<li>
+<p>Select <strong>Mount Box Image</strong>.</p>
+<p><img alt="Mount Box Image 1" src="../Media/UseFileImage5.png" /></p>
 </li>
-<li id="fn:2">
-<p>File root is the base directory where sandbox files are stored, configured via <code>FileRootPath</code> setting.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
-</li>
-<li id="fn:3">
-<p><code>MountManager::AcquireBoxRoot</code> - handles image mounting process.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
-</li>
-<li id="fn:4">
-<p>GUI operations implemented in <code>COptionsWindow::OnSetPassword</code>, <code>COptionsWindow::OnBackupHeader</code>, and <code>COptionsWindow::OnRestoreHeader</code>.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
-</li>
-<li id="fn:5">
-<p>Command-line mounting switches implemented in <code>Sandboxie\apps\start\Start.cpp</code> - <code>mount</code> and <code>mount_protected</code> parameters for programmatic image mounting operations.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+<li>
+<p>Enter the password and review the mount options.</p>
+<p><img alt="Mount Box Image 2" src="../Media/UseFileImage6.png" /></p>
+<ul>
+<li><strong>Protect Box Root from access by unsandboxed processes</strong> requests a separate mounted-root access restriction, not encryption.</li>
+<li><strong>Lock the box when all processes stop.</strong> requests automatic cleanup/unmount for this mount.</li>
+</ul>
 </li>
 </ol>
+<p>These are mount-instance options. Root protection restricts relevant new filesystem opens to the mounted disk root from unrelated host processes, with exceptions for the owning sandbox, SbieSvc, <code>csrss.exe</code>, and an allowed session leader. <a href="ProtectAdminOnly.html">ProtectAdminOnly</a> controls whether that session-leader exception also requires administrative access.</p>
+<p>Previously obtained handles are not universally revoked; kernel-mode and other paths skipped by this check are outside its coverage. Windows filesystem permissions remain separate. Neither all administrators nor all SYSTEM processes receive a blanket exception.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>A mount request can succeed even if root-protection registration fails. Root protection is not a fail-closed condition for successful mounting, and the normal mount query does not reliably establish that protection is active.</p>
 </div>
+<p>See <a href="../PlusContent/BoxEncryption.html">Encrypted Sandboxes</a> for the security boundaries.</p>
+<h3 id="automatic-mounting-and-locking">Automatic mounting and locking<a class="headerlink" href="#automatic-mounting-and-locking" title="Permanent link"></a></h3>
+<p>When SandMan starts a program, it can pre-mount the image and prompt for its password before launching. Cancelling or failing that pre-mount prevents that launch path from continuing.</p>
+<p>Separately, the service acquires the box root during sandbox process initialization. It can reuse a mounted image or attempt mounting without a universal interactive password prompt. Other startup paths can therefore fail instead of prompting if the image needs a password. Ordinary service acquisition does not create a missing image.</p>
+<p>Displaying a box does not mount it, and the service does not eagerly mount every configured image at startup.</p>
+<p>When <strong>Lock the box when all processes stop.</strong> is enabled for the current mount, cleanup/unmount is requested after the sandbox Registry/root lifecycle is released. This can follow the last process's exit, but successful hive unload and device cleanup are still required; it is not an immediate process-count guarantee. <a href="ForceProtectionOnMount.html">ForceProtectionOnMount</a> must not be relied on to enable automatic unmount for every mount.</p>
+<h3 id="unmounting-box-image">Unmounting Box Image<a class="headerlink" href="#unmounting-box-image" title="Permanent link"></a></h3>
+<p>Close programs and save work first.</p>
+<ol>
+<li>
+<p><strong>Right-click</strong> the sandbox in SandMan.</p>
+<p><img alt="Unmount Box Image" src="../Media/UseFileImage7.png" /></p>
+</li>
+<li>
+<p>Select <strong>Unmount Box Image</strong>.</p>
+</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>SandMan's manual unmount action attempts to terminate sandboxed processes before requesting unmount. The underlying unmount API does not terminate processes and can refuse a root still marked in use. Neither termination nor unmount is guaranteed to succeed.</p>
+</div>
+<p>Mounted state belongs to the service/device lifecycle, not only the SandMan window. Closing SandMan does not itself prove the image was unmounted. Service shutdown attempts cleanup, but crashes/power loss are not clean-unmount guarantees. The <code>.box</code> file persists after reboot; an unlocked mount and a reusable password are not automatically persisted.</p>
+<h2 id="snapshots-recovery-and-cleanup">Snapshots, recovery, and cleanup<a class="headerlink" href="#snapshots-recovery-and-cleanup" title="Permanent link"></a></h2>
+<p><a href="../PlusContent/BoxSnapshots.html">Snapshots</a> and <a href="RecoveryArchitecture.html">recovery</a> use the mounted sandbox-root paths. Unmounted image contents are unavailable through those ordinary paths; recovery is not an automatic unlock workflow.</p>
+<p>Deleting sandbox contents and deleting the <code>.box</code> backing image are different operations. Mounted content cleanup acts on sandbox filesystem contents, not by simply reformatting or removing the backing image.</p>
+<h2 id="command-line-operations">Command Line Operations<a class="headerlink" href="#command-line-operations" title="Permanent link"></a></h2>
+<p>Advanced header utilities, used with an unmounted image:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">rem Backup header</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">ImBox.exe type=image image</span><span class="o">=</span><span class="s">"C:\Sandbox\DefaultBox.box"</span><span class="w"> </span><span class="na">backup</span><span class="o">=</span><span class="s">"C:\Sandbox\backup.hdr"</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="na">rem Restore header; this overwrites the current header</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="na">ImBox.exe type=image image</span><span class="o">=</span><span class="s">"C:\Sandbox\DefaultBox.box"</span><span class="w"> </span><span class="na">restore</span><span class="o">=</span><span class="s">"C:\Sandbox\backup.hdr"</span>
+</span></code></pre></div>
+<p>The same backup/restore cautions apply to these commands.</p>
+<p><a href="StartCommandLine.html">Start.exe</a> provides <a href="StartCommandLine.html#mount-box-images">mount</a> and <a href="StartCommandLine.html#unmount-box-images">unmount</a> operations:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="na">Start.exe /box:BoxName /key</span><span class="o">:</span><span class="s">"Password"</span><span class="w"> </span><span class="na">/mount</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="na">Start.exe /box:BoxName /key</span><span class="o">:</span><span class="s">"Password"</span><span class="w"> </span><span class="na">/mount_protected</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="na">Start.exe /box</span><span class="o">:</span><span class="s">BoxName /unmount</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="na">Start.exe /unmount_all</span>
+</span></code></pre></div>
+<p><code>/box</code> and <code>/key</code> must precede the mount operation. Command-line passwords can be exposed through command history or process inspection; use SandMan's interactive workflow where appropriate.</p>
+<p><code>/mount_protected</code> explicitly requests root protection. <code>/mount</code> does not consume <code>ForceProtectionOnMount</code>, and Start.exe does not provide the equivalent interactive password dialog. Its unmount commands attempt termination, but do not guarantee successful cleanup.</p>
+<p>Shared SbieDll/SbieSvc/Start.exe paths exist independently of SandMan. This does not imply equivalent encrypted-image configuration dialogs in Sandboxie Control Classic.</p>
+<h2 id="failure-considerations">Failure considerations<a class="headerlink" href="#failure-considerations" title="Permanent link"></a></h2>
+<p>Image creation/mounting can fail because prerequisites, credentials, the image/header, or root preparation are unavailable or invalid. If required root acquisition fails, sandbox startup cannot complete. Unmount can fail while the root remains in use. Do not assume rollback or guaranteed recovery from creation/header operations.</p>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
+<ul>
+<li><a href="SandboxieIni.html">Sandboxie Ini</a></li>
+<li><a href="../PlusContent/BoxEncryption.html">Encrypted Sandboxes</a></li>
+<li><a href="ForceProtectionOnMount.html">Force Protection On Mount</a></li>
+<li><a href="ProtectAdminOnly.html">Protect Admin Only</a></li>
+<li><a href="UseRamDisk.html">Use RAM Disk</a></li>
+<li><a href="FileRootPath.html">File Root Path</a></li>
+<li><a href="SandboxRootsVolumeLayout.html">Sandbox Roots and Volume Layout</a></li>
+<li><a href="StartCommandLine.html">Start Command Line</a></li>
+</ul>
 
 
 

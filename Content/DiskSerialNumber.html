@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="DiskSerialNumber is a sandbox setting in Sandboxie Ini available since v1.15.2 / 5.70.2. This setting allows assigning custom serial numbers to specific disk devices within sandboxes, working in conjunction with Hide Disk Serial Number.">
+        <meta name="description" content="DiskSerialNumber is a sandbox setting in Sandboxie Ini available since v1.15.2 / 5.70.2. It provides a custom Windows volume serial number for software using the GetVolumeInformationByHandleW path intercepted by Hide Disk Serial Number. It does not change the manufacturer&#x27;s physical disk serial number or every way of identifying a disk.">
       
       
       
@@ -5585,170 +5585,34 @@
 
 
 <h1 id="disk-serial-number">Disk Serial Number<a class="headerlink" href="#disk-serial-number" title="Permanent link"></a></h1>
-<p><em>DiskSerialNumber</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a> available since v1.15.2 / 5.70.2. This setting allows assigning custom serial numbers to specific disk devices within sandboxes, working in conjunction with <a href="HideDiskSerialNumber.html">Hide Disk Serial Number</a>.</p>
-<h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link"></a></h2>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">DiskSerialNumber</span><span class="o">=</span><span class="s">&lt;DeviceName&gt;,&lt;SerialNumber&gt;</span>
+<p><em>DiskSerialNumber</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a> available since v1.15.2 / 5.70.2. It provides a custom Windows <strong>volume serial number</strong> for software using the <code>GetVolumeInformationByHandleW</code> path intercepted by <a href="HideDiskSerialNumber.html">Hide Disk Serial Number</a>. It does not change the manufacturer's physical disk serial number or every way of identifying a disk.</p>
+<h2 id="syntax-and-examples">Syntax and examples<a class="headerlink" href="#syntax-and-examples" title="Permanent link"></a></h2>
+<p>An unqualified value can be used as the general replacement, or a device name can select a specific volume:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">DiskSerialNumber</span><span class="o">=</span><span class="s">1234-ABCD</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">DiskSerialNumber</span><span class="o">=</span><span class="s">HarddiskVolume1,1234-ABCD</span>
 </span></code></pre></div>
-<ul>
-<li><strong>DeviceName</strong>: Windows device name (e.g., HarddiskVolume1, HarddiskVolume2)</li>
-<li><strong>SerialNumber</strong>: Custom serial number in hexadecimal format (with or without hyphens)</li>
-</ul>
-<h2 id="example-usage">Example Usage<a class="headerlink" href="#example-usage" title="Permanent link"></a></h2>
+<p>For example, a box can configure different values for named volumes:</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[DefaultBox]</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="na">HideDiskSerialNumber</span><span class="o">=</span><span class="s">y</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="na">DiskSerialNumber</span><span class="o">=</span><span class="s">HarddiskVolume1,1234-ABCD</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="na">DiskSerialNumber</span><span class="o">=</span><span class="s">HarddiskVolume2,5678-EFGH</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="na">DiskSerialNumber</span><span class="o">=</span><span class="s">HarddiskVolume3,9ABC-DEF0</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">HideDiskSerialNumber</span><span class="o">=</span><span class="s">y</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="na">DiskSerialNumber</span><span class="o">=</span><span class="s">HarddiskVolume1,1234-ABCD</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="na">DiskSerialNumber</span><span class="o">=</span><span class="s">HarddiskVolume2,5678-EF01</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="na">DiskSerialNumber</span><span class="o">=</span><span class="s">HarddiskVolume3,9ABC-DEF0</span>
 </span></code></pre></div>
-<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link"></a></h2>
+<p>The device selector is the first component after <code>\Device\</code> in the NT path resolved for the queried handle; <code>HarddiskVolume1</code> is an example, not a permanent mapping to a drive letter. It is not a program-name selector. A matching device-specific value takes precedence over an unqualified value. Windows drive-letter listings, Disk Management, and volume-serial commands do not by themselves establish which NT name this hook will resolve or whether an application uses the intercepted API.</p>
+<h2 id="value-format-and-behavior">Value format and behavior<a class="headerlink" href="#value-format-and-behavior" title="Permanent link"></a></h2>
+<p>Use hexadecimal digits, optionally separated by hyphens, for example <code>1234ABCD</code>, <code>1234-ABCD</code>, <code>12-34-AB-CD</code>, or <code>DEADBEEF</code>. Conventional examples above represent four bytes. Non-hexadecimal characters and odd numbers of digits are invalid. If no applicable valid custom value is available, Sandboxie generates a replacement on this path; it does not thereby promise a fallback to the host serial.</p>
+<p>An effective <code>HideDiskSerialNumber=y</code> value is required for the hook to use these entries. The setting can be useful for deterministic testing or compatibility with software that reads the volume serial through <code>GetVolumeInformationByHandleW</code>, but it does not prevent identification through other disk or volume APIs or WMI classes.</p>
+<p>The replacement is cached within each sandboxed process by the original volume serial, not by device path. Repeated queries for that original serial reuse the chosen value; volumes sharing an original serial can share the first cached replacement in that process. Changing a custom value does not update an existing cache entry. Restart the affected sandboxed process to rebuild its cache.</p>
+<p>If the expected value is not observed, check that <code>HideDiskSerialNumber</code> is effectively enabled, the custom value is valid hexadecimal, the selected NT device name matches, and the application actually uses the intercepted by-handle API. A different query path will not demonstrate this setting's effect.</p>
+<h2 id="configuration-availability">Configuration availability<a class="headerlink" href="#configuration-availability" title="Permanent link"></a></h2>
+<p>SandMan has a <strong>Hide Disk Serial Number</strong> checkbox under <strong>Sandbox Options &gt; Advanced Options &gt; Privacy</strong>, but no dedicated editor for custom <code>DiskSerialNumber</code> values was identified. Custom values can be configured in the INI. The checkbox shows a direct box value, while an effective enable value can also come from applicable template or global configuration.</p>
+<h2 id="related-settings">Related settings<a class="headerlink" href="#related-settings" title="Permanent link"></a></h2>
 <ul>
-<li>Requires <code>HideDiskSerialNumber=y</code> to be enabled in the same sandbox<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</li>
-<li>Without this prerequisite, the DiskSerialNumber settings are ignored.</li>
+<li><a href="HideDiskSerialNumber.html">Hide Disk Serial Number</a> enables this volume-serial substitution path.</li>
+<li><a href="HideFirmwareInfo.html">Hide Firmware Info</a> affects a separate SMBIOS query path.</li>
+<li><a href="HideNetworkAdapterMAC.html">Hide Network Adapter MAC</a> affects a separate network-address path.</li>
+<li><a href="RandomRegUID.html">Random Registry UID</a> affects selected boxed Registry values.</li>
 </ul>
-<h2 id="serial-number-formats">Serial Number Formats<a class="headerlink" href="#serial-number-formats" title="Permanent link"></a></h2>
-<h3 id="supported-formats">Supported Formats<a class="headerlink" href="#supported-formats" title="Permanent link"></a></h3>
-<ul>
-<li><strong>Hyphenated</strong>: <code>1234-ABCD</code>, <code>AA-BB-CC-DD</code>.</li>
-<li><strong>Plain</strong>: <code>1234ABCD</code>, <code>AABBCCDD</code>.</li>
-<li><strong>Mixed</strong>: Any combination of hex digits with optional hyphens.</li>
-</ul>
-<h3 id="valid-examples">Valid Examples<a class="headerlink" href="#valid-examples" title="Permanent link"></a></h3>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">DiskSerialNumber</span><span class="o">=</span><span class="s">HarddiskVolume1,1234ABCD</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">DiskSerialNumber</span><span class="o">=</span><span class="s">HarddiskVolume2,12-34-AB-CD</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="na">DiskSerialNumber</span><span class="o">=</span><span class="s">HarddiskVolume3,12345678</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="na">DiskSerialNumber</span><span class="o">=</span><span class="s">HarddiskVolume4,DEADBEEF</span>
-</span></code></pre></div>
-<h3 id="invalid-formats">Invalid Formats<a class="headerlink" href="#invalid-formats" title="Permanent link"></a></h3>
-<ul>
-<li>Non-hexadecimal characters (G-Z).</li>
-<li>Odd number of hex digits.</li>
-<li>Empty strings.</li>
-<li>Special characters other than hyphens.</li>
-</ul>
-<h2 id="device-name-discovery">Device Name Discovery<a class="headerlink" href="#device-name-discovery" title="Permanent link"></a></h2>
-<h3 id="method-1-using-wmic-command">Method 1: Using WMIC Command<a class="headerlink" href="#method-1-using-wmic-command" title="Permanent link"></a></h3>
-<p>Run in Command Prompt to list available disk volumes:</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">wmic logicaldisk get caption,volumeserialnumber,deviceid</span>
-</span></code></pre></div>
-<h3 id="method-2-using-disk-management">Method 2: Using Disk Management<a class="headerlink" href="#method-2-using-disk-management" title="Permanent link"></a></h3>
-<ol>
-<li>Open <strong>Disk Management</strong> (<code>diskmgmt.msc</code>).</li>
-<li>Right-click on volumes to see properties.</li>
-<li>Note the volume labels and drive letters.</li>
-</ol>
-<h3 id="method-3-registry-inspection">Method 3: Registry Inspection<a class="headerlink" href="#method-3-registry-inspection" title="Permanent link"></a></h3>
-<p>Check registry key: <code>HKEY_LOCAL_MACHINE\SYSTEM\MountedDevices</code></p>
-<h3 id="method-4-testing-with-random-values">Method 4: Testing with Random Values<a class="headerlink" href="#method-4-testing-with-random-values" title="Permanent link"></a></h3>
-<ol>
-<li>Set test configurations:</li>
-</ol>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="na">DiskSerialNumber</span><span class="o">=</span><span class="s">HarddiskVolume1,11111111</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="na">DiskSerialNumber</span><span class="o">=</span><span class="s">HarddiskVolume2,22222222</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="na">DiskSerialNumber</span><span class="o">=</span><span class="s">HarddiskVolume3,33333333</span>
-</span></code></pre></div>
-<ol>
-<li>Run <code>vol C:</code>, <code>vol D:</code>, etc., in the sandbox to identify which device corresponds to which drive.</li>
-</ol>
-<h2 id="technical-implementation">Technical Implementation<a class="headerlink" href="#technical-implementation" title="Permanent link"></a></h2>
-<h3 id="device-path-resolution">Device Path Resolution<a class="headerlink" href="#device-path-resolution" title="Permanent link"></a></h3>
-<ul>
-<li>Sandboxie extracts device names from Windows NT paths with <code>\Device\</code> prefix<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</li>
-<li>Device name parsing stops at the next backslash or string terminator<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>.</li>
-<li>Failed device extraction results in random serial number generation<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>.</li>
-</ul>
-<h3 id="hexadecimal-processing">Hexadecimal Processing<a class="headerlink" href="#hexadecimal-processing" title="Permanent link"></a></h3>
-<ul>
-<li>Custom parser handles both hyphenated and plain hex formats<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>.</li>
-<li>Invalid hex strings trigger fallback to random generation<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup>.</li>
-<li>Byte order is automatically swapped to match Windows DWORD format<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup>.</li>
-</ul>
-<h3 id="caching-mechanism">Caching Mechanism<a class="headerlink" href="#caching-mechanism" title="Permanent link"></a></h3>
-<ul>
-<li>Serial numbers are cached per session for performance<sup id="fnref:8"><a class="footnote-ref" href="#fn:8">8</a></sup></li>
-<li>Thread-safe implementation using critical sections<sup id="fnref:9"><a class="footnote-ref" href="#fn:9">9</a></sup></li>
-<li>Cache keys are based on original hardware serial numbers<sup id="fnref:10"><a class="footnote-ref" href="#fn:10">10</a></sup></li>
-</ul>
-<h2 id="use-cases">Use Cases<a class="headerlink" href="#use-cases" title="Permanent link"></a></h2>
-<h3 id="application-testing">Application Testing<a class="headerlink" href="#application-testing" title="Permanent link"></a></h3>
-<ul>
-<li>Test software behavior with specific disk serial number patterns.</li>
-<li>Simulate different hardware configurations.</li>
-<li>Debug serial number-dependent functionality.</li>
-</ul>
-<h3 id="privacy-enhancement">Privacy Enhancement<a class="headerlink" href="#privacy-enhancement" title="Permanent link"></a></h3>
-<ul>
-<li>Replace real hardware identifiers with known values.</li>
-<li>Create consistent sandbox fingerprints.</li>
-<li>Prevent hardware-based tracking.</li>
-</ul>
-<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link"></a></h2>
-<h3 id="common-issues">Common Issues<a class="headerlink" href="#common-issues" title="Permanent link"></a></h3>
-<p><strong>Setting Not Applied</strong></p>
-<ul>
-<li>Ensure <code>HideDiskSerialNumber=y</code> is enabled.</li>
-<li>Verify correct device name format.</li>
-<li>Check hexadecimal string validity.</li>
-</ul>
-<p><strong>Wrong Device Targeted</strong></p>
-<ul>
-<li>Use device discovery methods to identify correct names.</li>
-<li>Test with unique serial numbers to verify mapping.</li>
-</ul>
-<p><strong>Random Values Still Returned</strong></p>
-<ul>
-<li>Invalid hex format triggers random fallback.</li>
-<li>Device name mismatch results in random generation.</li>
-<li>Missing <code>HideDiskSerialNumber</code> prerequisite.</li>
-</ul>
-<h2 id="related-settings">Related Settings<a class="headerlink" href="#related-settings" title="Permanent link"></a></h2>
-<ul>
-<li><a href="HideDiskSerialNumber.html">Hide Disk Serial Number</a> - Required prerequisite setting.</li>
-<li><a href="HideFirmwareInfo.html">Hide Firmware Info</a> - Hides additional hardware identifiers.</li>
-<li><a href="HideNetworkAdapterMAC.html">Hide Network Adapter MAC</a> - Customizes network adapter identifiers.</li>
-<li><a href="RandomRegUID.html">Random Registry UID</a> - Randomizes registry-based unique identifiers.</li>
-</ul>
-<h2 id="configuration-availability">Configuration Availability<a class="headerlink" href="#configuration-availability" title="Permanent link"></a></h2>
-<ul>
-<li><strong>INI Configuration</strong>: Available</li>
-<li><strong>Plus UI</strong>: Not available (INI-only setting)</li>
-<li><strong>Classic UI</strong>: Not available</li>
-</ul>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:1">
-<p><strong>Prerequisite Check</strong>: The <code>HideDiskSerialNumber</code> setting must be enabled for device-specific serial number mapping to function (kernel.c).&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-<li id="fn:2">
-<p><strong>Device Path Parsing</strong>: Sandboxie searches for <code>\Device\</code> prefix in NT path strings to extract device names (kernel.c).&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
-</li>
-<li id="fn:3">
-<p><strong>Name Extraction Logic</strong>: Device name parsing terminates at the first backslash or null character after the <code>\Device\</code> prefix (kernel.c).&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
-</li>
-<li id="fn:4">
-<p><strong>Fallback Behavior</strong>: Empty device names trigger <code>Dll_rand()</code> for random serial number generation (kernel.c).&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
-</li>
-<li id="fn:5">
-<p><strong>Hex Parser Implementation</strong>: <code>hex_string_to_uint8_array()</code> function processes hex strings while skipping hyphen characters (custom.c).&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
-</li>
-<li id="fn:6">
-<p><strong>Error Handling</strong>: Invalid hex characters, odd digit counts, or parsing failures return FALSE, triggering random generation (custom.c).&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
-</li>
-<li id="fn:7">
-<p><strong>Endianness Conversion</strong>: Byte swapping is performed when <code>swap_bytes=TRUE</code> to match Windows little-endian DWORD format (custom.c).&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
-</li>
-<li id="fn:8">
-<p><strong>Session Persistence</strong>: <code>map_insert()</code> stores computed serial numbers using original hardware values as keys (kernel.c).&#160;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 8 in the text">&#8617;</a></p>
-</li>
-<li id="fn:9">
-<p><strong>Thread Safety</strong>: Critical section <code>Kernel_DiskSN_CritSec</code> protects concurrent access to the serial number cache (kernel.c5).&#160;<a class="footnote-backref" href="#fnref:9" title="Jump back to footnote 9 in the text">&#8617;</a></p>
-</li>
-<li id="fn:10">
-<p><strong>Cache Key Strategy</strong>: Original disk serial numbers serve as map keys for consistent per-session value retrieval (kernel.c).&#160;<a class="footnote-backref" href="#fnref:10" title="Jump back to footnote 10 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div>
 
 
 

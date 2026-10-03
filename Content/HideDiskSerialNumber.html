@@ -5586,14 +5586,13 @@
 
 <h1 id="hide-disk-serial-number">Hide Disk Serial Number<a class="headerlink" href="#hide-disk-serial-number" title="Permanent link"></a></h1>
 <p>HideDiskSerialNumber is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>.</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">HideDiskSerialNumber</span><span class="o">=</span><span class="s">y</span>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">HideDiskSerialNumber</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>Use the 'HideDiskSerialNumber=y' option to return a random value when applications try to get disk serial number.</p>
-<p>Related Sandboxie Plus setting: Sandbox Options &gt; Advanced Options &gt; Privacy &gt; Hide Disk Serial Number</p>
+<p>When enabled, Sandboxie substitutes the Windows <strong>volume serial number</strong> returned through the intercepted <code>GetVolumeInformationByHandleW</code> path. This is not the manufacturer's physical disk serial number. The replacement is either generated or supplied by <a href="DiskSerialNumber.html">Disk Serial Number</a>. Other disk and volume identification APIs may use different paths; this setting does not cover every disk identifier or WMI query.</p>
+<p>Sandboxie calls the original Windows function and returns its Boolean result. Supplying a replacement serial does not convert an unsuccessful original call into success. A chosen replacement is cached in the sandboxed process for the original volume serial value. Changing a custom value does not replace an already-cached entry.</p>
+<p>The runtime fallback is disabled when no effective value is configured. The Boolean lookup can be qualified by process image and can include applicable template or global configuration. Sandboxie reads the enable value and installs this hook during process initialization, so restarting affected sandboxed processes is the reliable way to apply a changed enable value or rebuild the replacement cache.</p>
+<p>In <strong>Sandbox Options &gt; Advanced Options &gt; Privacy</strong>, <strong>Hide Disk Serial Number</strong> controls the direct box setting. An inherited effective value can differ from the checkbox state.</p>
 
 
 

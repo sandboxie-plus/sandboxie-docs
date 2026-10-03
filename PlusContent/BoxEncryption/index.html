@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Sandboxie Plus can store a sandbox root, including its registry hive, in a password-protected encrypted disk image. The current implementation uses ImBox and the cryptographic implementation from DiskCryptor; images created through SandMan use AES-XTS.">
+        <meta name="description" content="Sandboxie Plus can store a sandbox root, including its registry hive, in an encrypted disk image. The normal service workflow uses ImBox and a DiskCryptor-derived cryptographic implementation with AES-XTS. This changes the physical backing beneath the file root, not Sandboxie&#x27;s logical file virtualization.">
       
       
       
@@ -5585,15 +5585,19 @@
 
 
 <h1 id="encrypted-sandboxes">Encrypted Sandboxes<a class="headerlink" href="#encrypted-sandboxes" title="Permanent link"></a></h1>
-<p>Sandboxie Plus can store a sandbox root, including its registry hive, in a password-protected encrypted disk image. The current implementation uses ImBox and the cryptographic implementation from DiskCryptor; images created through SandMan use AES-XTS.</p>
+<p>Sandboxie Plus can store a sandbox root, including its registry hive, in an encrypted disk image. The normal service workflow uses ImBox and a DiskCryptor-derived cryptographic implementation with AES-XTS. This changes the physical backing beneath the file root, not Sandboxie's logical file virtualization.</p>
 <p>Encrypted storage is one layer of protection. It is separate from Sandboxie's runtime isolation and from the settings that restrict host access to sandboxed processes.</p>
 <h2 id="at-rest-encrypted-storage">At-rest encrypted storage<a class="headerlink" href="#at-rest-encrypted-storage" title="Permanent link"></a></h2>
-<p>When the image is not mounted, the sandbox content is stored in its encrypted <code>.box</code> backing file. Starting a program in the sandbox mounts the image after the correct password is supplied and makes its filesystem available to Sandboxie. SandMan can unmount it when the last sandboxed process stops.</p>
+<p>When the image is not mounted, content stored inside it remains in the encrypted <code>.box</code> backing file. SandMan can prompt and pre-mount it before launching a program. Other startup paths can attempt service-side acquisition without an interactive password prompt and can fail if the image cannot be unlocked. Automatic unmount depends on the current mount option and successful Registry/root release and device cleanup.</p>
+<p>This at-rest boundary does not automatically cover <code>Sandboxie.ini</code>, external header backups, recovered/exported files, host metadata, or every external application side effect.</p>
 <p>Encryption protects the backing storage while it is unmounted. While the image is mounted, programs in the sandbox and the Sandboxie components needed to operate it can access the mounted filesystem according to the active sandbox policy. Encryption does not replace file, registry, IPC, network, clipboard, GUI, or other resource controls.</p>
-<p>Encrypted images require the ImDisk driver and a currently applicable Support Certificate. Damage to the image or its encryption header can make its content inaccessible, so encrypted sandboxes still require backups.</p>
+<p>Encrypted images require an available ImDisk device/driver and a currently applicable active Support Certificate with the encryption feature. ImDisk supplies the virtual disk; ImBox supplies the encryption backing. Damage to the image or its encryption header can prevent access, so encrypted sandboxes still require backups.</p>
+<h2 id="password-and-header-model">Password and header model<a class="headerlink" href="#password-and-header-model" title="Permanent link"></a></h2>
+<p>The standard Sandbox Options creation workflow expects a password. However, the low-level service can select encrypted backing with empty password input; encryption alone does not establish that a meaningful password was chosen. The normal workflow does not provide a reusable password vault or store the mount password in <code>Sandboxie.ini</code>.</p>
+<p>Changing the password updates header/key-protection metadata rather than re-encrypting the entire payload. A header backup contains sensitive encryption material and is not a content backup. Restoring a matching older header overwrites the current header and can restore older password/key metadata; changing the password does not automatically invalidate all previous matching header backups. Neither recovery nor transactional rollback is guaranteed. See <a href="../../Content/UseFileImage/">Use File Image</a> for password and header procedures.</p>
 <h2 id="root-protection-while-mounted">Root protection while mounted<a class="headerlink" href="#root-protection-while-mounted" title="Permanent link"></a></h2>
-<p>The mount dialog offers <strong>Protect Box Root from access by unsandboxed processes</strong>. When selected, SbieDrv restricts direct filesystem access to the mounted sandbox root from unrelated host processes. The sandbox that owns the root, SbieSvc, required Windows components, and an allowed session leader are exceptions needed to operate the box.</p>
-<p><a href="../../Content/ProtectAdminOnly/">ProtectAdminOnly</a> controls whether a non-administrative SandMan or Sandboxie Control session leader receives that exception. <strong>Force protection on mount</strong> can make root protection mandatory for subsequent mounts.</p>
+<p>The mount dialog offers <strong>Protect Box Root from access by unsandboxed processes</strong>. It requests a separate SbieDrv restriction on relevant new filesystem opens beneath the mounted disk root from unrelated host processes. Exceptions include the owning sandbox, SbieSvc, <code>csrss.exe</code>, and an allowed session leader. Previously obtained handles are not universally revoked; kernel-mode and other paths skipped by this check are outside its coverage. Windows filesystem permissions remain separate.</p>
+<p><a href="../../Content/ProtectAdminOnly/">ProtectAdminOnly</a> controls whether the session-leader exception also requires administrative access; it is not a general exception for every administrator or SYSTEM process. <a href="../../Content/ForceProtectionOnMount/">Force protection on mount</a> constrains SandMan's reviewed mount workflow to request protection, not every service caller. A protection request can fail without failing the image mount, so protected mounting is not a fail-closed host-access guarantee. The normal mount query does not establish successful protection registration.</p>
 <p>Root protection applies to the mounted root path. It is not a universal data-flow control and does not prevent a sandboxed application from using other channels that its sandbox policy permits.</p>
 <h2 id="confidential-box-protection">Confidential-box protection<a class="headerlink" href="#confidential-box-protection" title="Permanent link"></a></h2>
 <p><a href="../../Content/ConfidentialBox/">ConfidentialBox</a> is an independent runtime setting. It restricts unsandboxed host processes from obtaining handles to sandboxed processes and threads, subject to documented operational exceptions. <code>DenyHostAccess</code> supplies per-program allow or deny rules for the same protection path.</p>
@@ -5606,7 +5610,7 @@
 <ul>
 <li><strong>Encrypt sandbox content</strong> — stores the box root in an encrypted disk image.</li>
 <li><strong>Set Password</strong> or <strong>Change Password</strong> — creates or updates the image password.</li>
-<li><strong>Force protection on mount</strong> — prevents root protection and automatic unmount from being disabled in the mount dialog.</li>
+<li><strong>Force protection on mount</strong> — constrains SandMan's mount dialog to request root protection. It must not be relied on to force automatic unmount for every mount; the current manual path can leave the disabled auto-lock option off.</li>
 </ul>
 <p>When mounting an image, SandMan also offers:</p>
 <ul>
@@ -5620,6 +5624,8 @@
 <p>Encrypted sandbox support and <code>UseFileImage</code> were introduced in Sandboxie Plus 1.11.0 / Classic 5.66.0. Confidential process protection predates encrypted images; <code>ConfidentialBox</code> and <code>DenyHostAccess</code> were introduced in Sandboxie Plus 1.3.3 / Classic 5.58.3.</p>
 <h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
 <ul>
+<li><a href="../../Content/UseFileImage/">Use File Image</a></li>
+<li><a href="../../Content/ForceProtectionOnMount/">Force Protection On Mount</a></li>
 <li><a href="../black-box/">Black Box</a></li>
 <li><a href="../../Content/ConfidentialBox/">Confidential Box</a></li>
 <li><a href="../../Content/ProtectAdminOnly/">Protect Admin Only</a></li>
