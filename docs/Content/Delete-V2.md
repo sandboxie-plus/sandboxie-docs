@@ -44,13 +44,13 @@ V1's marker-based hierarchy could lose the expected view of host content after s
 
 Raw configuration can mix the two schemes, such as filesystem V2 with registry V1. SandMan's **Virtualization scheme** control instead treats them as a pair:
 
-| SandMan display | Effective `UseFileDeleteV2` | Effective `UseRegDeleteV2` |
+| SandMan display | Box/global `UseFileDeleteV2` | Box/global `UseRegDeleteV2` |
 | --- | --- | --- |
 | Version 1 | `n` | `n` |
 | Version 2 | `y` | `y` |
 | Indeterminate | Different values | Different values |
 
-The table describes effective values, including inherited global settings, not necessarily two explicit lines in the box section. Selecting Version 2 writes both settings as `y`. Selecting Version 1 removes a local setting when its global fallback is already false, or writes an explicit local `n` when needed to override a global `y`.
+The table describes SandMan's direct box values with explicit `[GlobalSettings]` fallback, not necessarily two explicit lines in the box section. This UI lookup does not include enabled-template values; the runtime's effective configuration can therefore differ when templates contribute either setting. Selecting Version 2 writes both settings as `y`. Selecting Version 1 removes a local setting when its global fallback is already false, or writes an explicit local `n` when needed to override a global `y`.
 
 ### Two different defaults
 
@@ -63,7 +63,7 @@ Thus a box with no effective V2 settings uses V1, while a newly created SandMan 
 
 ## Changing the scheme in SandMan
 
-Open **Sandbox Options > File Options > Box Structure > Virtualization scheme**. SandMan offers **Version 1** and **Version 2** and shows **Indeterminate** when the effective file and registry choices differ.
+Open **Sandbox Options > File Options > Box Structure > Virtualization scheme**. SandMan offers **Version 1** and **Version 2** and shows **Indeterminate** when its box/global file and registry choices differ.
 
 > [!WARNING]
 > SandMan enables the scheme control only when the sandbox is empty. Empty the sandbox before changing schemes through SandMan. Changing the raw INI settings of a populated box is not an in-place conversion of its existing deletion and relocation state.

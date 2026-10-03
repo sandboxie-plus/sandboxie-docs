@@ -53,9 +53,9 @@ Alongside the file-layout folders, the sandbox root contains _RegHive_ and may c
 
 Registry keys are created in a sandboxed registry hive. A _registry hive_ is the Microsoft Windows term for a group of related registry keys that are stored in a single _hive file_.
 
-Sandboxie creates the hive file in the _Sandbox_ folder, as the files _RegHive_ and _RegHive.LOG_. This hive is mounted (or in other words, loaded into the registry) when a sandboxed program starts. The hive is unmounted when all sandboxed programs end.
+The hive's backing file is _RegHive_ beneath [FileRootPath](FileRootPath.md); Windows-maintained supporting hive files may also exist. The hive is mounted (loaded into the registry) during sandboxed process initialization. Multiple processes can share the mount, and unload is coordinated when the hive becomes eligible; it may not be immediate after all sandboxed programs end.
 
-The sandboxed hive has the following position and structure within the global structure of the Windows registry.
+With the default registry root, the sandboxed hive has the following position and structure within the global structure of the Windows registry.
 ```
  . HKEY_USERS
  . . KeyRootPath
@@ -64,23 +64,23 @@ The sandboxed hive has the following position and structure within the global st
  . . . . current
 ```
 
-The [KeyRootPath](KeyRootPath.md) setting specifies a path to the root of a particular sandbox. If omitted, it defaults to _HKEY_USERS\Sandbox_(user name)_(sandbox name)_. For example, if the user joe is using the sandbox DefaultBox, the default [KeyRootPath](KeyRootPath.md) is _HKEY_USERS\Sandbox_joe_DefaultBox_.
+The [KeyRootPath](KeyRootPath.md) setting specifies the registry location where the hive is mounted, not its backing filename. If no effective value is configured, it defaults to _HKEY_USERS\Sandbox_(user name)_(sandbox name)_. For example, if the user joe is using the sandbox DefaultBox, the default [KeyRootPath](KeyRootPath.md) is _HKEY_USERS\Sandbox_joe_DefaultBox_.
 
 As sandboxed programs create new registry keys or modify existing keys, Sandboxie redirects these operations to act on paths that lead into the sandbox. If the sandboxed program was trying to create the key _HKEY_LOCAL_MACHINE\Software\NewKey_, it will be redirected to create instead _([KeyRootPath](KeyRootPath.md))\machine\Software\NewKey_.
 
 If the sandboxed program was trying to create the key _HKEY_CURRENT_USER\Software\NewKey_, it will be redirected to create _([KeyRootPath](KeyRootPath.md))\user\current\Software\NewKey_.
 
-With the sandboxed registry, the rules for redirection are simpler than for sandboxed files:
+For normal registry virtualization, the main mappings are:
 
 - A registry key created or modified below the HKEY_LOCAL_MACHINE tree will be redirected below the sandboxed _machine_ key.
 
 - A registry key created or modified below the HKEY_CURRENT_USER tree will be redirected below the sandboxed _user\current_ key.
 
-- A registry key created or modified below the HKEY_CLASSES_ROOT tree will be redirected below the sandboxed _user\current_classes_ key.
+- HKEY_CLASSES_ROOT is Windows' Classes view, not one independent uniform Sandboxie root. Its machine/per-user merge and Sandboxie's sandbox-side Classes mapping are separate relationships.
 
-Note that the sandboxed _user\current\software\classes_ key is a symbolic link to the _user\current_classes_ key which means and the keys are effectively synonyms and share the same content in the sandboxed Windows registry.
+Sandbox customization can create a symbolic link from _user\current\software\classes_ to _user\current_classes_. Where that link is created, the two names refer to the same sandbox-side content.
 
-As with files, access to a key which has a copy in the sandboxed registry will be redirected to use the copy in the sandbox. Read-only access to a key which does not have a copy in the sandboxed registry will be permitted to access the key outside the sandbox. This behavior can be affected with the registry-related settings [OpenKeyPath](OpenKeyPath.md), [ReadKeyPath](ReadKeyPath.md), and [ClosedKeyPath](ClosedKeyPath.md).
+A normal read-only open of an existing host-only key can use the host key without first creating a sandbox counterpart. When sandbox state exists, selected key/value queries and enumeration can merge it with eligible host state; a sandbox key is not necessarily a complete copy that fully shadows the host key. This behavior can be affected with the registry-related settings [OpenKeyPath](OpenKeyPath.md), [ReadKeyPath](ReadKeyPath.md), and [ClosedKeyPath](ClosedKeyPath.md). See [Registry Virtualization](RegistryVirtualization.md) for the merge, deletion, access-mode, and lifecycle boundaries.
 
 ### Inter-Process Objects
 

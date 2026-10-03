@@ -692,6 +692,8 @@
 
 [Recovery Settings](RecoverySettings.md)
 
+[Registry Virtualization](RegistryVirtualization.md)
+
 [Replicate Token](ReplicateToken.md)
 
 [Resource Access](ResourceAccess.md)
