@@ -11,7 +11,7 @@ Without an effective global value, the workaround is off. A value only in an ind
 
 ## Scope
 
-When enabled, Sandboxie's driver denies Registry key open/create requests if the key name supplied to the callback contains `CLSID\{0002DF01-0000-0000-C000-000000000046}` and the caller is not tracked as a sandboxed process by this driver path. The comparison is case-insensitive and matches a substring, so a supplied subkey path can match too. It does not guarantee coverage of every equivalent way to access the Registry key.
+When enabled, Sandboxie's driver denies Registry key open/create requests if the key name supplied to the callback contains `CLSID\{0002DF01-0000-0000-C000-000000000046}` and the caller is not tracked as a sandboxed process by this driver path. The comparison is case-insensitive and matches a substring, so a supplied subkey path can match too. It does not guarantee coverage of every equivalent way to access the Registry key. On Windows 10 Creators Update and later, requests originating from kernel mode are not subject to this check.
 
 The denial applies only when the caller's executable basename exactly matches one of these names, ignoring case:
 
