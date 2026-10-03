@@ -318,6 +318,8 @@
 
 [File Trace](FileTrace.md)
 
+[File Virtualization and Identity](FileVirtualization.md)
+
 [Files And Folders View](FilesAndFoldersView.md)
 
 [Firefox Tips](FirefoxTips.md)
