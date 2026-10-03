@@ -84,6 +84,8 @@
 
 ~~[Block Fake Input](BlockFakeInput.md)~~ (removed since Sandboxie v4.xx)
 
+[Block IE Embedding](BlockIEEmbedding.md)
+
 [Block Interfere Power](BlockInterferePower.md)
 
 [Block Interference Control](BlockInterferenceControl.md)
