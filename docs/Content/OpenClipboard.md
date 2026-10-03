@@ -15,7 +15,7 @@ This is a box-wide Boolean setting. Its effective value can also come from enabl
 
 In the standard hooked path, `OpenClipboard=n` denies `GetClipboardData`, `SetClipboardData`, and `EmptyClipboard`. The hooked `OpenClipboard` and `CloseClipboard` calls are not themselves denied by this setting. Applications should not rely on one particular Windows error code for a denied data operation.
 
-Sandboxie's normal [Job Object](JobObjects.md) independently restricts clipboard reads. It does not apply the corresponding Job Object write restriction. When clipboard access is allowed by this setting, Sandboxie's GUI service can assist a hooked clipboard read that fails through the direct Windows path. The service checks the effective `OpenClipboard` value before returning data. These layers should not be confused with one another.
+Sandboxie's normal [Job Object](JobObjects.md) independently restricts clipboard reads. It does not apply the corresponding Job Object write restriction. When clipboard access is allowed by this setting, Sandboxie's GUI service can assist a hooked clipboard read that fails through the direct Windows path. For standard data reads, the service rechecks the effective `OpenClipboard` value before returning data. The separate metafile route relies on the clipboard hook's check. These layers should not be confused with one another.
 
 The data-operation hooks consult the setting when each operation occurs. After a configuration reload, a changed value can affect subsequent operations in already-running processes that have those hooks installed. Hook installation and Job Object participation are determined as processes start; changing related settings does not retroactively install hooks or reassign an existing process.
 
