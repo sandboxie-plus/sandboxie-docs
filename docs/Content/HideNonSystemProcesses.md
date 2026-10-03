@@ -10,7 +10,10 @@ _HideNonSystemProcesses_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md
    HideNonSystemProcesses=y
 ```
 
-With `HideNonSystemProcesses=y`, Sandboxie removes many entries not associated with a sandbox from its filtered native process-list results. The implementation has exceptions for certain system and service SID prefixes when that metadata is available, but this does not guarantee that every system or service process remains listed.
+With `HideNonSystemProcesses=y`, Sandboxie removes many entries not associated with a sandbox from its filtered native process-list results.
+
+> [!CAUTION]
+> The system and service SID exceptions do not protect entries without a sandbox association, because the query API used by sandboxed callers does not return a SID for those targets. Legitimate system or service processes may therefore also be hidden.
 
 The setting does not prevent discovery through every mechanism or deny access to a process by known PID. WMI is a separate path that may expose process information; SandMan provides a separate WMI-blocking option, without making this setting a general WMI filter.
 
