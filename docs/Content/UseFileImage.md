@@ -27,7 +27,7 @@ UseFileImage=y
 
 The service reads effective configuration, including applicable templates and global fallback, with a consumer fallback of `n`. SandMan's normal checkbox reads the direct box value instead. Direct per-box configuration is the supported and clearest workflow; an inherited/global value can reach the service even when the checkbox does not represent that effective state. Do not configure image backing globally as a substitute for configuring individual boxes.
 
-Do not configure both `UseFileImage` and [UseRamDisk](UseRamDisk.md). SandMan treats them as alternative storage choices. If both nevertheless become effective, the current service path selects RAM-disk backing rather than reporting a configuration conflict; its entitlement check still observes the image flag.
+Do not configure both `UseFileImage` and [UseRamDisk](UseRamDisk.md). SandMan treats them as alternative storage choices. If both nevertheless become effective and a new backing selection is needed, the current service path selects RAM-disk backing rather than reporting a configuration conflict; its entitlement check still observes the image flag.
 
 > [!WARNING]
 > The ordinary Options workflow is intended for an empty box. Enabling `UseFileImage` does not copy existing directory-backed files, `RegHive`, or snapshot metadata into an image or convert the old root in place. Disabling it does not extract image contents back into directory storage. Handle existing data separately; transfer/import/export is a different workflow.
