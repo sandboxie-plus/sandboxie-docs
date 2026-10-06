@@ -18,11 +18,11 @@ When a program prefix is used, current setting metadata requires the drive or de
 
 Normally, Sandboxie migrates an existing host file only when a sandboxed program requests an operation that needs a sandbox copy. If the file matches _CopyAlways_, Sandboxie selects a full-content migration before considering [CopyLimitKb](CopyLimitKb.md). The configured size threshold and the large-file prompt are therefore bypassed for the matching migration; [CopyLimitSilent](CopyLimitSilent.md) has no effect on it.
 
-If _CopyAlways_ is absent or no entry matches, Sandboxie uses another matching migration rule or its normal size-based decision. When rules overlap, [DontCopy](DontCopy.md) takes priority over _CopyAlways_, and _CopyAlways_ takes priority over [CopyEmpty](CopyEmpty.md). [CopyNewer](CopyNewer.md) is separate: it can refresh an existing sandbox copy, whereas _CopyAlways_ selects how the initial migration is performed.
+If _CopyAlways_ is absent or no entry matches, Sandboxie uses another matching migration rule or its normal size-based decision. When rules overlap, [DontCopy](DontCopy.md) takes priority over _CopyAlways_, and _CopyAlways_ takes priority over [CopyEmpty](CopyEmpty.md). [CopyNewer](CopyNewer.md) is separate: it triggers a refresh of an existing sandbox copy. _CopyAlways_ does not itself trigger that refresh, but a matching rule can select full-content migration inside it before the normal size limit and prompt.
 
 Please note the following limitations:
 
-- The rule is consulted for an existing regular host file only when its contents would otherwise be migrated. It does not refresh an existing sandbox copy and does not govern new files, directories, or create/overwrite operations that do not copy host contents.
+- The rule is consulted for an existing regular host file only when its contents would otherwise be migrated. It does not itself trigger a refresh of an existing sandbox copy and does not govern new files, directories, or create/overwrite operations that do not copy host contents.
 - The rule overrides the migration-size decision, but it cannot guarantee that inaccessible host contents can be read. The rule does not bypass host-file access restrictions. If Sandboxie cannot access the source file as required for migration, the migration may fail or proceed without copying its contents.
 - The host file is not modified; subsequent writes are made to the sandbox copy.
 
