@@ -13,7 +13,7 @@ NoSecurityIsolation=y
 NoSecurityFiltering=y
 ```
 
-Both settings default to `n`. `NoSecurityFiltering` has its combined effect only while `NoSecurityIsolation=y` is active. It has no effect by itself in a standard-isolation sandbox.
+Both settings have a consumer fallback of `n`. The combined effect of `NoSecurityFiltering` requires the process to be in the driver's Application Compartment state, normally selected by `NoSecurityIsolation=y`. It has no combined effect on a process that remains in standard-isolation mode. See the [unsupported DynData fallback](NoSecurityIsolation.md#unsupported-dyndata-fallback) for an exceptional way the driver can enter that state.
 
 ## What it disables
 

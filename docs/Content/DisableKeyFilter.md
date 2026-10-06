@@ -1,6 +1,6 @@
 # Disable Key Filter
 
-_DisableKeyFilter_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md) available since v0.9.0 / 5.51.0. This setting disables the registry filtering mechanism, allowing sandboxed processes to bypass registry access restrictions and directly modify the host system registry.
+_DisableKeyFilter_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md) available since v0.9.0 / 5.51.0. It disables selected enforcement in Sandboxie's per-process driver Registry-key filtering layer (SbieDrv), not the separate Registry virtualization implemented by SbieDll.
 
 ## Usage
 
@@ -18,25 +18,42 @@ DisableKeyFilter=<y/n>
 
 Where:
 
-- `y` disables registry filtering completely.
-- `n` (default) maintains normal registry filtering behavior.
+- `y` bypasses the corresponding per-process driver Registry-key policy checks.
+- `n` is the consumer fallback and keeps those checks unless the combined `NoSecurityFiltering` condition below disables them.
+
+## Behavior and boundaries
+
+The Registry callback remains registered. For ordinary sandboxed open/create requests, the process flag skips its normal driver path-policy enforcement. Other Registry handling, process initialization, and sandbox-hive setup remain separate; this setting does not disable the hive or remove every Registry check.
+
+SbieDll Registry initialization and hooks can remain active, including logical-to-sandbox path mapping, sandbox Registry hierarchy creation, supported merged views, and resource-rule matching. See [Registry Virtualization](RegistryVirtualization.md) for that separate layer.
+
+Open and Read modes can select direct native host paths. Read's write restriction depends on driver enforcement. Closed can still be matched initially by SbieDll, and Write / Box Only can still influence covered virtualization paths. However, compatibility fallbacks mean that an initial Closed denial is not a promise of final denial with the driver filter disabled. Retained DLL virtualization and rule matching do not provide equivalent independent security enforcement.
+
+The setting does not itself grant Registry permissions, elevate the process, or remove token restrictions. Native operations remain subject to applicable Windows security checks and can still fail; successful host Registry writes or key creation/opening are not guaranteed.
 
 ## Security Implications
 
 > [!WARNING]
-> This setting disables driver-level enforcement of registry access restrictions. Malicious software can potentially bypass these protections through various techniques including code injection, API hooking, or direct system calls, making this setting unsuitable for untrusted applications.
+> Disabling this independent driver enforcement layer substantially weakens protection. Use it only for trusted applications with a specific compatibility requirement, not for untrusted software. Continued DLL virtualization is not a substitute for the disabled enforcement.
+
+## Configuration scope
+
+The driver reads an effective box Boolean: enabled templates and `[GlobalSettings]` fallback can contribute. If no effective value is configured, the consumer fallback is `n`. This consumer does not support program/image, ProcessGroup, or negated selectors.
+
+## Applying changes
+
+The effective filter state is stored for each sandboxed process during process creation. Configuration reload does not rewrite this state for existing processes.
+
+Start new affected processes after changing the effective value; restart the affected sandboxed process tree when testing the change consistently. A SandMan, service, driver, or Windows restart is not normally required for this setting.
 
 ## Related Settings
 
 ### Master Override
 
-`DisableKeyFilter` is automatically enabled when:
-- **[NoSecurityFiltering](NoSecurityFiltering.md)** is set in Application Compartment mode[^1].
+When [No Security Filtering](NoSecurityFiltering.md) is effective for a process in [Application Compartment](NoSecurityIsolation.md) mode, the driver enables the same Registry-key filter-disable state even if `DisableKeyFilter=n`. This changes runtime state; it does not add `DisableKeyFilter=y` to the configuration. `NoSecurityIsolation=y` alone does not disable this filter.
 
 ### Alternative Granular Controls
 
-- **[DisableFileFilter](DisableFileFilter.md)**: Disables only file system filtering.
-- **[DisableObjectFilter](DisableObjectFilter.md)**: Disables only object filtering.
-- **[NoSecurityFiltering](NoSecurityFiltering.md)**: Disables all filtering in Application Compartment mode.
-
-[^1]: Registry filter control in `process.c`: The setting `proc->disable_key_flt = no_filtering || Conf_Get_Boolean(proc->box->name, L"DisableKeyFilter", 0, FALSE)` allows DisableKeyFilter to completely bypass registry filtering either independently or as part of NoSecurityFiltering in Application Compartment mode.
+- **[DisableFileFilter](DisableFileFilter.md)**: Relaxes per-process driver file filtering.
+- **[DisableObjectFilter](DisableObjectFilter.md)**: Relaxes the separate process/thread object-filter policy.
+- **[NoSecurityFiltering](NoSecurityFiltering.md)**: Enables the file, Registry-key, and object-filter disable states for Application Compartment processes.
