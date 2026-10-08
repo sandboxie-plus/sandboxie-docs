@@ -32,7 +32,7 @@ Root protection applies to the mounted root path. It is not a universal data-flo
 
 [ConfidentialBox](../Content/ConfidentialBox.md) is an independent runtime setting. It restricts unsandboxed host processes from obtaining handles to sandboxed processes and threads, subject to documented operational exceptions. `DenyHostAccess` supplies per-program allow or deny rules for the same protection path.
 
-The **Black Box** preset combines encrypted backing storage with `ConfidentialBox=y`. Enabling **Encrypt sandbox content** on an existing sandbox does not, by itself, enable every confidential-box or image-protection setting.
+The New Box Wizard's **Black Box** option combines encrypted backing storage with `ConfidentialBox=y` while retaining the selected base box type. Enabling **Encrypt sandbox content** on an existing sandbox does not, by itself, enable every confidential-box or image-protection setting.
 
 [ProtectHostImages](../Content/ProtectHostImages.md) is another independent feature. It restricts sandboxed processes whose executable comes from the host from loading executable images from the sandbox. It does not encrypt storage or control host process handles.
 
@@ -40,7 +40,7 @@ The **Black Box** preset combines encrypted backing storage with `ConfidentialBo
 
 Configure encrypted storage under:
 
-**Sandbox Options > General Options > File Options**
+**Sandbox Options > File Options > File Options**
 
 The relevant controls are:
 
