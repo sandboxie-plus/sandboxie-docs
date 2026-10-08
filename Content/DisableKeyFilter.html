@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="DisableKeyFilter is a sandbox setting in Sandboxie Ini available since v0.9.0 / 5.51.0. This setting disables the registry filtering mechanism, allowing sandboxed processes to bypass registry access restrictions and directly modify the host system registry.">
+        <meta name="description" content="DisableKeyFilter is a sandbox setting in Sandboxie Ini available since v0.9.0 / 5.51.0. It disables selected enforcement in Sandboxie&#x27;s per-process driver Registry-key filtering layer (SbieDrv), not the separate Registry virtualization implemented by SbieDll.">
       
       
       
@@ -5585,7 +5585,7 @@
 
 
 <h1 id="disable-key-filter">Disable Key Filter<a class="headerlink" href="#disable-key-filter" title="Permanent link"></a></h1>
-<p><em>DisableKeyFilter</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a> available since v0.9.0 / 5.51.0. This setting disables the registry filtering mechanism, allowing sandboxed processes to bypass registry access restrictions and directly modify the host system registry.</p>
+<p><em>DisableKeyFilter</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a> available since v0.9.0 / 5.51.0. It disables selected enforcement in Sandboxie's per-process driver Registry-key filtering layer (SbieDrv), not the separate Registry virtualization implemented by SbieDll.</p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
@@ -5596,32 +5596,33 @@
 </span></code></pre></div>
 <p>Where:</p>
 <ul>
-<li><code>y</code> disables registry filtering completely.</li>
-<li><code>n</code> (default) maintains normal registry filtering behavior.</li>
+<li><code>y</code> bypasses the corresponding per-process driver Registry-key policy checks.</li>
+<li><code>n</code> is the consumer fallback and keeps those checks unless the combined <code>NoSecurityFiltering</code> condition below disables them.</li>
 </ul>
+<h2 id="behavior-and-boundaries">Behavior and boundaries<a class="headerlink" href="#behavior-and-boundaries" title="Permanent link"></a></h2>
+<p>The Registry callback remains registered. For ordinary sandboxed open/create requests, the process flag skips its normal driver path-policy enforcement. Other Registry handling, process initialization, and sandbox-hive setup remain separate; this setting does not disable the hive or remove every Registry check.</p>
+<p>SbieDll Registry initialization and hooks can remain active, including logical-to-sandbox path mapping, sandbox Registry hierarchy creation, supported merged views, and resource-rule matching. See <a href="RegistryVirtualization.html">Registry Virtualization</a> for that separate layer.</p>
+<p>Open and Read modes can select direct native host paths. Read's write restriction depends on driver enforcement. Closed can still be matched initially by SbieDll, and Write / Box Only can still influence covered virtualization paths. However, compatibility fallbacks mean that an initial Closed denial is not a promise of final denial with the driver filter disabled. Retained DLL virtualization and rule matching do not provide equivalent independent security enforcement.</p>
+<p>The setting does not itself grant Registry permissions, elevate the process, or remove token restrictions. Native operations remain subject to applicable Windows security checks and can still fail; successful host Registry writes or key creation/opening are not guaranteed.</p>
 <h2 id="security-implications">Security Implications<a class="headerlink" href="#security-implications" title="Permanent link"></a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>This setting disables driver-level enforcement of registry access restrictions. Malicious software can potentially bypass these protections through various techniques including code injection, API hooking, or direct system calls, making this setting unsuitable for untrusted applications.</p>
+<p>Disabling this independent driver enforcement layer substantially weakens protection. Use it only for trusted applications with a specific compatibility requirement, not for untrusted software. Continued DLL virtualization is not a substitute for the disabled enforcement.</p>
 </div>
+<h2 id="configuration-scope">Configuration scope<a class="headerlink" href="#configuration-scope" title="Permanent link"></a></h2>
+<p>The driver reads an effective box Boolean: enabled templates and <code>[GlobalSettings]</code> fallback can contribute. If no effective value is configured, the consumer fallback is <code>n</code>. This consumer does not support program/image, ProcessGroup, or negated selectors.</p>
+<h2 id="applying-changes">Applying changes<a class="headerlink" href="#applying-changes" title="Permanent link"></a></h2>
+<p>The effective filter state is stored for each sandboxed process during process creation. Configuration reload does not rewrite this state for existing processes.</p>
+<p>Start new affected processes after changing the effective value; restart the affected sandboxed process tree when testing the change consistently. A SandMan, service, driver, or Windows restart is not normally required for this setting.</p>
 <h2 id="related-settings">Related Settings<a class="headerlink" href="#related-settings" title="Permanent link"></a></h2>
 <h3 id="master-override">Master Override<a class="headerlink" href="#master-override" title="Permanent link"></a></h3>
-<p><code>DisableKeyFilter</code> is automatically enabled when:
-- <strong><a href="NoSecurityFiltering.html">NoSecurityFiltering</a></strong> is set in Application Compartment mode<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
+<p>When <a href="NoSecurityFiltering.html">No Security Filtering</a> is effective for a process in <a href="NoSecurityIsolation.html">Application Compartment</a> mode, the driver enables the same Registry-key filter-disable state even if <code>DisableKeyFilter=n</code>. This changes runtime state; it does not add <code>DisableKeyFilter=y</code> to the configuration. <code>NoSecurityIsolation=y</code> alone does not disable this filter.</p>
 <h3 id="alternative-granular-controls">Alternative Granular Controls<a class="headerlink" href="#alternative-granular-controls" title="Permanent link"></a></h3>
 <ul>
-<li><strong><a href="DisableFileFilter.html">DisableFileFilter</a></strong>: Disables only file system filtering.</li>
-<li><strong><a href="DisableObjectFilter.html">DisableObjectFilter</a></strong>: Disables only object filtering.</li>
-<li><strong><a href="NoSecurityFiltering.html">NoSecurityFiltering</a></strong>: Disables all filtering in Application Compartment mode.</li>
+<li><strong><a href="DisableFileFilter.html">DisableFileFilter</a></strong>: Relaxes per-process driver file filtering.</li>
+<li><strong><a href="DisableObjectFilter.html">DisableObjectFilter</a></strong>: Relaxes the separate process/thread object-filter policy.</li>
+<li><strong><a href="NoSecurityFiltering.html">NoSecurityFiltering</a></strong>: Enables the file, Registry-key, and object-filter disable states for Application Compartment processes.</li>
 </ul>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:1">
-<p>Registry filter control in <code>process.c</code>: The setting <code>proc-&gt;disable_key_flt = no_filtering || Conf_Get_Boolean(proc-&gt;box-&gt;name, L"DisableKeyFilter", 0, FALSE)</code> allows DisableKeyFilter to completely bypass registry filtering either independently or as part of NoSecurityFiltering in Application Compartment mode.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div>
 
 
 

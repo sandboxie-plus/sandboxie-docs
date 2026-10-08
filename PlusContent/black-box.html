@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Black Box is the SandMan preset that combines two separate protections:">
+        <meta name="description" content="Black Box is the New Box Wizard option that combines two separate protections while retaining the selected base box type:">
       
       
       
@@ -5585,12 +5585,14 @@
 
 
 <h1 id="black-box">Black Box<a class="headerlink" href="#black-box" title="Permanent link"></a></h1>
-<p><strong>Black Box</strong> is the SandMan preset that combines two separate protections:</p>
+<p><strong>Black Box</strong> is the New Box Wizard option that combines two separate protections while retaining the selected base box type:</p>
 <ul>
 <li><a href="BoxEncryption.html">Encrypted sandbox storage</a>, which places the sandbox root and registry hive in an encrypted disk image.</li>
 <li><a href="../Content/ConfidentialBox.html">Confidential Box</a>, which restricts unsandboxed host processes from obtaining handles to sandboxed processes and threads.</li>
 </ul>
-<p>The preset configures <code>UseFileImage=y</code> and <code>ConfidentialBox=y</code>. These settings remain separate mechanisms: encryption primarily protects the backing storage while it is unmounted, whereas confidential-box filtering acts while sandboxed processes are running.</p>
+<p>In the normal New Box Wizard workflow, selecting <strong>Encrypt Box content and set Confidential</strong> adds <code>UseFileImage=y</code> and <code>ConfidentialBox=y</code> to the base configuration. These settings remain separate mechanisms: encryption primarily protects the backing storage while it is unmounted, whereas confidential-box filtering acts while sandboxed processes are running.</p>
+<p>The base can be Standard, <a href="security-mode.html">Security Hardened</a>, or <a href="compartment-mode.html">Application Compartment</a>, each with or without <a href="privacy-mode.html">Data Protection</a>. After creation, <strong>Box Type Preset:</strong> selects among these six base combinations; encryption and Confidential Box are configured independently.</p>
+<p>SandMan can display the combined encrypted/confidential presentation independently of the underlying base mode, including for an existing box configured with both settings. The wizard still chooses the border color from the selected base type, rather than inherently changing it to black. Colors and icons are not enforcement guarantees; see <a href="../Content/BoxPresentation.html">Box Presentation</a>.</p>
 <p>Additional controls, including mounted-root protection, <a href="../Content/ProtectAdminOnly.html">ProtectAdminOnly</a>, <code>DenyHostAccess</code> exceptions, and <a href="../Content/ProtectHostImages.html">ProtectHostImages</a>, have their own scope and defaults.</p>
 <p>Black Box does not mean that every communication or data-transfer path is blocked. Normal Sandboxie file, registry, IPC, network, clipboard, GUI, and other policies continue to determine which operations are permitted while the box is running.</p>
 

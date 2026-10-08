@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="PromptForFileMigration is a sandbox setting in Sandboxie Ini. It specifies whether Sandboxie will prompt for large file migration. For more information, see SBIE2102.">
+        <meta name="description" content="PromptForFileMigration is a sandbox setting in Sandboxie Ini. It controls whether Sandboxie requests an interactive decision when the normal content-migration decision reaches or exceeds a finite CopyLimitKb threshold and no explicit migration rule has already selected a mode. For more information, see SBIE2102.">
       
       
       
@@ -5585,15 +5585,20 @@
 
 
 <h1 id="prompt-for-file-migration">Prompt For File Migration<a class="headerlink" href="#prompt-for-file-migration" title="Permanent link"></a></h1>
-<p>PromptForFileMigration is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. It specifies whether Sandboxie will prompt for large file migration. For more information, see <a href="../SBIE2102/">SBIE2102</a>.</p>
+<p>PromptForFileMigration is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. It controls whether Sandboxie requests an interactive decision when the normal content-migration decision reaches or exceeds a finite <a href="../CopyLimitKb/">CopyLimitKb</a> threshold and no explicit migration rule has already selected a mode. For more information, see <a href="../SBIE2102/">SBIE2102</a>.</p>
+<p>The consumer fallback is <code>y</code> when no effective value is configured. An effective value can also come from applicable enabled templates or <code>[GlobalSettings]</code> fallback.</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">PromptForFileMigration</span><span class="o">=</span><span class="s">n</span>
 </span></code></pre></div>
-<p>Specifying <em>n</em> indicates sandbox will not prompt user for file migration (the access will be read-only).</p>
-<p>Related Sandboxie Plus setting: Sandbox Options &gt; File Options &gt; File Migration &gt; Prompt user for large file migration</p>
+<p>Specifying <em>n</em> disables the interactive request. With prompting enabled, SandMan can display the request, but an available interactive consumer and a usable reply are not guaranteed. An affirmative answer selects full-content migration for that attempt, not guaranteed copy success. A negative answer, disabled prompting, or no usable reply selects the non-copy path.</p>
+<p>For the initial migration-dependent open, <a href="../CopyBlockDenyWrite/">CopyBlockDenyWrite</a> then determines denial versus a host-open retry with write and delete access removed. The retry can itself fail; disabling prompting does not guarantee read-only access. An explicit <strong>No</strong> reply does not produce SBIE2102 from this decision path; <a href="../CopyLimitSilent/">CopyLimitSilent</a> controls that message when no usable reply is returned.</p>
+<p>SandMan offers <strong>Remember for this process</strong>. A remembered answer applies to later migration requests for that process, not just the same file. It is process-local UI state, not a permanent INI exception or a change to <em>CopyLimitKb</em>.</p>
+<p>Related Sandboxie Plus setting: Sandbox Options &gt; General Options &gt; File Migration &gt; <strong>Prompt user for large file migration</strong>. Sandboxie Control Classic does not provide the equivalent interactive migration-prompt consumer.</p>
+<h2 id="applying-changes">Applying changes<a class="headerlink" href="#applying-changes" title="Permanent link"></a></h2>
+<p>Unlike the cached size limit and silent flag, this setting is queried at each qualifying oversized migration decision. After effective configuration is reloaded, later decisions in an already-running process can use the changed value. A request already in progress is not changed retroactively.</p>
 <p>Related <a href="../SandboxieIni/">Sandboxie Ini</a> setting: <a href="../CopyLimitKb/">CopyLimitKb</a>, <a href="../CopyLimitSilent/">CopyLimitSilent</a></p>
 
 

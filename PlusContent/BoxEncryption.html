@@ -5601,11 +5601,11 @@
 <p>Root protection applies to the mounted root path. It is not a universal data-flow control and does not prevent a sandboxed application from using other channels that its sandbox policy permits.</p>
 <h2 id="confidential-box-protection">Confidential-box protection<a class="headerlink" href="#confidential-box-protection" title="Permanent link"></a></h2>
 <p><a href="../Content/ConfidentialBox.html">ConfidentialBox</a> is an independent runtime setting. It restricts unsandboxed host processes from obtaining handles to sandboxed processes and threads, subject to documented operational exceptions. <code>DenyHostAccess</code> supplies per-program allow or deny rules for the same protection path.</p>
-<p>The <strong>Black Box</strong> preset combines encrypted backing storage with <code>ConfidentialBox=y</code>. Enabling <strong>Encrypt sandbox content</strong> on an existing sandbox does not, by itself, enable every confidential-box or image-protection setting.</p>
+<p>The New Box Wizard's <strong>Black Box</strong> option combines encrypted backing storage with <code>ConfidentialBox=y</code> while retaining the selected base box type. Enabling <strong>Encrypt sandbox content</strong> on an existing sandbox does not, by itself, enable every confidential-box or image-protection setting.</p>
 <p><a href="../Content/ProtectHostImages.html">ProtectHostImages</a> is another independent feature. It restricts sandboxed processes whose executable comes from the host from loading executable images from the sandbox. It does not encrypt storage or control host process handles.</p>
 <h2 id="sandman-configuration">SandMan configuration<a class="headerlink" href="#sandman-configuration" title="Permanent link"></a></h2>
 <p>Configure encrypted storage under:</p>
-<p><strong>Sandbox Options &gt; General Options &gt; File Options</strong></p>
+<p><strong>Sandbox Options &gt; File Options &gt; File Options</strong></p>
 <p>The relevant controls are:</p>
 <ul>
 <li><strong>Encrypt sandbox content</strong> — stores the box root in an encrypted disk image.</li>

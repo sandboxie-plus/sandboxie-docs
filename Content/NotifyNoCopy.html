@@ -5594,12 +5594,13 @@
 <p>This is a <a href="YesOrNoSettings.html">Yes Or No Setting</a>, not a path list. It applies to the sandbox in which it is configured (or to sandboxes that inherit it from <code>[GlobalSettings]</code>) and does not accept a program-name prefix. When the setting is absent or set to <code>n</code>, these notifications are disabled.</p>
 <p>When enabled, Sandboxie issues a message after an explicit file migration rule matches:</p>
 <ul>
-<li>SBIE2113 when <a href="CopyEmpty.html">CopyEmpty</a> creates a sandbox copy without the host file contents.</li>
-<li>SBIE2114 when <a href="DontCopy.html">DontCopy</a> prevents migration and <a href="CopyBlockDenyWrite.html">CopyBlockDenyWrite</a> makes the open fail with access denied.</li>
-<li>SBIE2115 when <em>DontCopy</em> prevents migration and Sandboxie retries the host file open after removing write and delete access.</li>
+<li>SBIE2113 when <a href="CopyEmpty.html">CopyEmpty</a> selects a copy without the host file contents.</li>
+<li>SBIE2114 when <a href="DontCopy.html">DontCopy</a> selects non-copy with <a href="CopyBlockDenyWrite.html">CopyBlockDenyWrite</a> enabled, the deny-write mode for initial migration.</li>
+<li>SBIE2115 when <em>DontCopy</em> selects non-copy with deny-write disabled, the reduced-access retry mode for initial migration.</li>
 </ul>
 <p>The message includes the file name, sandbox name, and host file size. It is generated when the migration code selects the matching <em>CopyEmpty</em> or <em>DontCopy</em> rule, not merely when a sandboxed program reads the file.</p>
-<p><em>NotifyNoCopy</em> does not report successful <a href="CopyAlways.html">CopyAlways</a> migrations, <a href="CopyNewer.html">CopyNewer</a> refreshes, ordinary access to an existing sandbox copy, or general low-level copy failures. It also does not report a file rejected only by the <a href="CopyLimitKb.html">CopyLimitKb</a> size decision. Size-limit message SBIE2102 is controlled separately by <a href="CopyLimitSilent.html">CopyLimitSilent</a>.</p>
+<p>There is no dedicated <em>NotifyNoCopy</em> message for <a href="CopyNewer.html">CopyNewer</a>. However, its refresh migration can select <em>CopyEmpty</em> or <em>DontCopy</em> and emit the corresponding notification. These messages describe the selected migration mode, not proof of completed copying or the eventual open result. During a refresh, a non-copy result can leave the existing sandbox copy available rather than deny its open or retry against the host.</p>
+<p><em>NotifyNoCopy</em> does not report successful <a href="CopyAlways.html">CopyAlways</a> migrations, ordinary access to an existing sandbox copy without such a refresh, or general low-level copy failures. It also does not report a file rejected only by the <a href="CopyLimitKb.html">CopyLimitKb</a> size decision. Size-limit message SBIE2102 is controlled separately by <a href="CopyLimitSilent.html">CopyLimitSilent</a>.</p>
 <p>In SandMan, open Sandbox Options &gt; General Options &gt; File Migration and select <strong>Issue message 2113/2114/2115 when a file is not fully migrated</strong>.</p>
 <p>Related <a href="SandboxieIni.html">Sandboxie Ini</a> settings: <a href="CopyEmpty.html">CopyEmpty</a>, <a href="DontCopy.html">DontCopy</a>, <a href="CopyBlockDenyWrite.html">CopyBlockDenyWrite</a>, <a href="CopyLimitKb.html">CopyLimitKb</a>, <a href="CopyLimitSilent.html">CopyLimitSilent</a>. See also <a href="FileMigrationSettings.html">File Migration Settings</a>.</p>
 

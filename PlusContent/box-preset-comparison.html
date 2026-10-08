@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Sandboxie Plus offers a bunch of different box configuration presets.">
+        <meta name="description" content="Sandboxie Plus offers six base box types and an optional encrypted/confidential combination.">
       
       
       
@@ -72,6 +72,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#encrypted-and-confidential-option" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -5581,80 +5586,84 @@
 
   <h1>Box preset comparison</h1>
 
-<p>Sandboxie Plus offers a bunch of different box configuration presets.</p>
+<p>Sandboxie Plus offers six base box types and an optional encrypted/confidential combination.</p>
 <p>A sandbox typically isolates your host system from processes running within the box, it prevents them from making permanent changes to other programs and data in your computer. The level of isolation impacts your <a href="security-mode.html">security</a> as well as the <a href="compartment-mode.html">compatibility</a> with applications.
 Sandboxie Plus can <a href="privacy-mode.html">protect your personal data</a> from being accessed by processes running under its supervision.</p>
-<p>Sandboxie Plus can also be used to <a href="black-box.html">protect confidential data</a> by creating an <a href="BoxEncryption.html">encrypted sandbox</a> and restricting access to the root folder for processes running within the sandbox.</p>
+<p>Sandboxie Plus can also combine <a href="BoxEncryption.html">encrypted sandbox storage</a> with <a href="../Content/ConfidentialBox.html">Confidential Box</a> protection, which restricts relevant unsandboxed host-process access to sandboxed process and thread handles. <a href="BoxEncryption.html#root-protection-while-mounted">Mounted-root protection</a> is a separate filesystem protection option. See <a href="black-box.html">Black Box</a> for the combined wizard option.</p>
+<p>The table shows the ordinary configuration of the six base types. <strong>Application Compartment</strong> identifies that mode, not a general compatibility rating. Colors and icons are presentation aids, not guarantees about a box's effective settings.</p>
 <table>
 <thead>
 <tr>
-<th>Box Preset</th>
+<th>Box Type</th>
 <th><a href="security-mode.html">Security Hardened</a></th>
 <th><a href="privacy-mode.html">Data Protection</a></th>
-<th><a href="compartment-mode.html">Compatibility</a></th>
-<th><a href="BoxEncryption.html">Encrypted</a></th>
-<th><a href="black-box.html">Confidential</a></th>
+<th><a href="compartment-mode.html">Application Compartment</a></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><img alt="" src="../Media/sandbox-r-full.png" /> Red Box</td>
+<td><img alt="" src="../Media/sandbox-r-full.png" /> Red Box — Security Hardened Sandbox with Data Protection</td>
 <td><img alt="Green Color" src="https://placeholder.antonshell.me/img?width=15&amp;color_bg=green&amp;text=+" /> YES</td>
 <td><img alt="Green Color" src="https://placeholder.antonshell.me/img?width=15&amp;color_bg=green&amp;text=+" /> YES</td>
-<td><img alt="Red Color" src="https://placeholder.antonshell.me/img?width=15&amp;color_bg=FF0000&amp;text=+" /> NO</td>
-<td><img alt="Red Color" src="https://placeholder.antonshell.me/img?width=15&amp;color_bg=FF0000&amp;text=+" /> NO</td>
 <td><img alt="Red Color" src="https://placeholder.antonshell.me/img?width=15&amp;color_bg=FF0000&amp;text=+" /> NO</td>
 </tr>
 <tr>
-<td><img alt="" src="../Media/sandbox-o-full.png" /> Orange Box</td>
-<td><img alt="Green Color" src="https://placeholder.antonshell.me/img?width=15&amp;color_bg=green&amp;text=+" /> YES</td>
-<td><img alt="Red Color" src="https://placeholder.antonshell.me/img?width=15&amp;color_bg=FF0000&amp;text=+" /> NO</td>
-<td><img alt="Red Color" src="https://placeholder.antonshell.me/img?width=15&amp;color_bg=FF0000&amp;text=+" /> NO</td>
-<td><img alt="Red Color" src="https://placeholder.antonshell.me/img?width=15&amp;color_bg=FF0000&amp;text=+" /> NO</td>
-<td><img alt="Red Color" src="https://placeholder.antonshell.me/img?width=15&amp;color_bg=FF0000&amp;text=+" /> NO</td>
-</tr>
-<tr>
-<td><img alt="" src="../Media/sandbox-b-full.png" /> Blue Box</td>
-<td><img alt="Red Color" src="https://placeholder.antonshell.me/img?width=15&amp;color_bg=FF0000&amp;text=+" /> NO</td>
-<td><img alt="Green Color" src="https://placeholder.antonshell.me/img?width=15&amp;color_bg=green&amp;text=+" /> YES</td>
-<td><img alt="Red Color" src="https://placeholder.antonshell.me/img?width=15&amp;color_bg=FF0000&amp;text=+" /> NO</td>
-<td><img alt="Red Color" src="https://placeholder.antonshell.me/img?width=15&amp;color_bg=FF0000&amp;text=+" /> NO</td>
-<td><img alt="Red Color" src="https://placeholder.antonshell.me/img?width=15&amp;color_bg=FF0000&amp;text=+" /> NO</td>
-</tr>
-<tr>
-<td><img alt="" src="../Media/sandbox-y-full-e1684328804872.png" /> Yellow Box</td>
-<td><img alt="Red Color" src="https://placeholder.antonshell.me/img?width=15&amp;color_bg=FF0000&amp;text=+" /> NO</td>
-<td><img alt="Red Color" src="https://placeholder.antonshell.me/img?width=15&amp;color_bg=FF0000&amp;text=+" /> NO</td>
-<td><img alt="Red Color" src="https://placeholder.antonshell.me/img?width=15&amp;color_bg=FF0000&amp;text=+" /> NO</td>
-<td><img alt="Red Color" src="https://placeholder.antonshell.me/img?width=15&amp;color_bg=FF0000&amp;text=+" /> NO</td>
-<td><img alt="Red Color" src="https://placeholder.antonshell.me/img?width=15&amp;color_bg=FF0000&amp;text=+" /> NO</td>
-</tr>
-<tr>
-<td><img alt="" src="../Media/sandbox-c-full.png" /> Cyan Box</td>
-<td><img alt="Red Color" src="https://placeholder.antonshell.me/img?width=15&amp;color_bg=FF0000&amp;text=+" /> NO</td>
-<td><img alt="Green Color" src="https://placeholder.antonshell.me/img?width=15&amp;color_bg=green&amp;text=+" /> YES</td>
+<td><img alt="" src="../Media/sandbox-o-full.png" /> Orange Box — Security Hardened Sandbox</td>
 <td><img alt="Green Color" src="https://placeholder.antonshell.me/img?width=15&amp;color_bg=green&amp;text=+" /> YES</td>
 <td><img alt="Red Color" src="https://placeholder.antonshell.me/img?width=15&amp;color_bg=FF0000&amp;text=+" /> NO</td>
 <td><img alt="Red Color" src="https://placeholder.antonshell.me/img?width=15&amp;color_bg=FF0000&amp;text=+" /> NO</td>
 </tr>
 <tr>
-<td><img alt="" src="../Media/sandbox-g-full.png" /> Green Box</td>
-<td><img alt="Red Color" src="https://placeholder.antonshell.me/img?width=15&amp;color_bg=FF0000&amp;text=+" /> NO</td>
+<td><img alt="" src="../Media/sandbox-b-full.png" /> Blue Box — Sandbox with Data Protection</td>
 <td><img alt="Red Color" src="https://placeholder.antonshell.me/img?width=15&amp;color_bg=FF0000&amp;text=+" /> NO</td>
 <td><img alt="Green Color" src="https://placeholder.antonshell.me/img?width=15&amp;color_bg=green&amp;text=+" /> YES</td>
+<td><img alt="Red Color" src="https://placeholder.antonshell.me/img?width=15&amp;color_bg=FF0000&amp;text=+" /> NO</td>
+</tr>
+<tr>
+<td><img alt="" src="../Media/sandbox-y-full-e1684328804872.png" /> Yellow Box — Standard Sandbox</td>
+<td><img alt="Red Color" src="https://placeholder.antonshell.me/img?width=15&amp;color_bg=FF0000&amp;text=+" /> NO</td>
 <td><img alt="Red Color" src="https://placeholder.antonshell.me/img?width=15&amp;color_bg=FF0000&amp;text=+" /> NO</td>
 <td><img alt="Red Color" src="https://placeholder.antonshell.me/img?width=15&amp;color_bg=FF0000&amp;text=+" /> NO</td>
 </tr>
 <tr>
-<td><img alt="" src="../Media/sandbox-k-full.png" /> Black Box</td>
-<td><img alt="Red Color" src="https://placeholder.antonshell.me/img?width=15&amp;color_bg=FF0000&amp;text=+" /> NO</td>
+<td><img alt="" src="../Media/sandbox-c-full.png" /> Cyan Box — Application Compartment Box with Data Protection</td>
 <td><img alt="Red Color" src="https://placeholder.antonshell.me/img?width=15&amp;color_bg=FF0000&amp;text=+" /> NO</td>
 <td><img alt="Green Color" src="https://placeholder.antonshell.me/img?width=15&amp;color_bg=green&amp;text=+" /> YES</td>
 <td><img alt="Green Color" src="https://placeholder.antonshell.me/img?width=15&amp;color_bg=green&amp;text=+" /> YES</td>
+</tr>
+<tr>
+<td><img alt="" src="../Media/sandbox-g-full.png" /> Green Box — Application Compartment Box</td>
+<td><img alt="Red Color" src="https://placeholder.antonshell.me/img?width=15&amp;color_bg=FF0000&amp;text=+" /> NO</td>
+<td><img alt="Red Color" src="https://placeholder.antonshell.me/img?width=15&amp;color_bg=FF0000&amp;text=+" /> NO</td>
 <td><img alt="Green Color" src="https://placeholder.antonshell.me/img?width=15&amp;color_bg=green&amp;text=+" /> YES</td>
 </tr>
 </tbody>
 </table>
+<h2 id="encrypted-and-confidential-option">Encrypted and confidential option<a class="headerlink" href="#encrypted-and-confidential-option" title="Permanent link"></a></h2>
+<p>The New Box Wizard's <strong>Encrypt Box content and set Confidential</strong> option can be combined with any of the six base types. In the normal wizard workflow, it adds <code>UseFileImage=y</code> and <code>ConfidentialBox=y</code> while retaining the selected base configuration.</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Black Box option</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="BoxEncryption.html">Encrypted Storage</a></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><a href="../Content/ConfidentialBox.html">Confidential Process Protection</a></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Security / Data Protection / Application Compartment mode</td>
+<td>Retained from the selected base type</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Black Box type icon" src="../Media/sandbox-k-full.png" /> SandMan can display this dark icon for the combined encrypted/confidential presentation. It does not identify one fixed base mode or imply a black border. See <a href="../Content/BoxPresentation.html">Box Presentation</a> for presentation settings.</p>
 
 
 

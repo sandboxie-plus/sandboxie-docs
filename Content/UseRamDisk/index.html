@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="UseRamDisk is a sandbox setting in Sandboxie Ini (introduced in v1.11.0 / 5.66.0) that replaces the standard file system storage with a RAM-based virtual disk as the sandbox root directory.">
+        <meta name="description" content="UseRamDisk is a sandbox setting in Sandboxie Ini (introduced in v1.11.0 / 5.66.0) that changes the physical backing beneath the sandbox&#x27;s normal file root to a RAM-backed virtual disk. Sandboxie&#x27;s logical file and Registry virtualization layers remain in place above that storage.">
       
       
       
@@ -5585,14 +5585,14 @@
 
 
 <h1 id="use-ram-disk">Use Ram Disk<a class="headerlink" href="#use-ram-disk" title="Permanent link"></a></h1>
-<p><em>UseRamDisk</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a> (introduced in v1.11.0 / 5.66.0) that replaces the standard file system storage with a RAM-based virtual disk as the sandbox root directory.</p>
+<p><em>UseRamDisk</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a> (introduced in v1.11.0 / 5.66.0) that changes the physical backing beneath the sandbox's normal file root to a RAM-backed virtual disk. Sandboxie's logical file and Registry virtualization layers remain in place above that storage.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Configure this setting on a per-sandbox basis. Applying it globally will force all sandboxes to use RAM disks, which may break existing sandboxes that rely on standard file system storage or cause compatibility issues with non-volatile sandbox configurations.</p>
+<p>Configure this setting for the intended sandbox. Applicable templates and <code>[GlobalSettings]</code> fallback can also enable it, affecting boxes without a direct override. Do not use a global value as a substitute for choosing backing for individual boxes.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This setting requires an active <a href="https://sandboxie-plus.com/supporter-certificate/">supporter certificate</a>.</p>
+<p>An applicable active <a href="https://sandboxie-plus.com/supporter-certificate/">Support Certificate</a> is required.</p>
 </div>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link"></a></h2>
 <ul>
@@ -5601,7 +5601,10 @@
 <p><img alt="ImDisk Install" src="../../Media/UseRamDisk1.png" /></p>
 </li>
 <li>
-<p>Configure the <a href="../RamDiskSizeKb/">RamDiskSizeKb</a> setting to define the RAM disk's size in kilobytes. Choose a value that aligns with your system's available memory and the needs of the applications you plan to run sandboxed.</p>
+<p>The ImDisk/ImBox runtime components must be operational; an installation record alone does not guarantee that the backing can be acquired.</p>
+</li>
+<li>
+<p>Configure <a href="../RamDiskSizeKb/">RamDiskSizeKb</a> to define the requested shared backing capacity in KiB. Account for both filesystem space and system memory resources needed by the intended workloads.</p>
 </li>
 <li>
 <p>(Optional) Use the <a href="../RamDiskLetter/">RamDiskLetter</a> setting to assign a specific drive letter for easier access to the RAM disk.</p>
@@ -5612,58 +5615,40 @@
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">UseRamDisk</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>When this setting is enabled, the Sandboxie service creates a virtual disk entirely in system RAM. The RAM disk is mounted through the mount manager<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> using the ImDisk virtual disk driver. All file I/O operations within the sandbox are redirected to the RAM disk rather than creating files directly on the host file system or persistent storage.</p>
-<p>The RAM disk provides extremely fast file operations but is volatile - all data is lost when the RAM disk is unmounted or the system is restarted. This makes it ideal for temporary operations, testing, or malware analysis where persistence is not required.</p>
+<p>The service reads the effective box Boolean with a consumer fallback of <code>n</code>. Effective values can come from the box, applicable enabled templates, or <code>[GlobalSettings]</code> fallback. SandMan's checkbox reads and writes the direct box value, not every possible inherited effective value.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The normal SandMan storage selection is intended for an empty box. Enabling RAM backing does not migrate existing directory-backed content, and disabling it does not automatically export RAM-backed content to directory storage. Preserve wanted data separately before changing backing.</p>
+</div>
+<p>Do not configure both <code>UseRamDisk</code> and <a href="../UseFileImage/">UseFileImage</a>. SandMan presents them as alternative storage choices. If both nevertheless become effective and a new backing selection is needed, the service selects RAM backing; its certificate check still observes the image flag. An existing usable mount is not universally replaced merely by changing the flags.</p>
+<h2 id="storage-and-shared-capacity">Storage and shared capacity<a class="headerlink" href="#storage-and-shared-capacity" title="Permanent link"></a></h2>
+<p>The service creates or reuses one shared RAM-disk backend through ImBox and ImDisk. For RAM-backed boxes, the service uses a box-name directory on that shared volume, and all such boxes share its filesystem capacity; space consumed by one box reduces the space available there to others. This shared backing is not an additional isolation or access-control boundary.</p>
+<p>The normal <a href="../FileRootPath/">FileRootPath</a> becomes a junction to the box directory on the RAM disk. Root-contained state, including ordinary sandbox files, the sandbox Registry hive, and snapshot state stored beneath that root, uses this backing. Normal resource-access rules can still direct operations to permitted host paths. <code>Sandboxie.ini</code>, recovered/exported files outside the root, and other host-side effects are not automatically RAM-backed. See <a href="../SandboxRootsVolumeLayout/">Sandbox Roots and Volume Layout</a> for root contents and layout.</p>
+<h2 id="volatility-and-preserving-data">Volatility and preserving data<a class="headerlink" href="#volatility-and-preserving-data" title="Permanent link"></a></h2>
+<p>Content stored only on the shared backend is volatile: it is not backed by a persistent RAM image and is lost when that backend is actually destroyed. Do not rely on RAM-only content surviving a normal reboot. Preserve wanted data by recovering or exporting it to persistent storage beforehand. Snapshots on the same RAM volume are not a durable independent backup.</p>
+<p>Ordinary process exit, one box closing, a box-root release, a configuration reload, or closing SandMan does not itself establish that the shared backend has been destroyed. Service shutdown attempts cleanup, but restarting the service is not a guarantee of successful destruction or recreation.</p>
 <h2 id="sandman-gui">SandMan GUI<a class="headerlink" href="#sandman-gui" title="Permanent link"></a></h2>
 <p>The RAM disk setting can be enabled through:</p>
 <ol>
 <li>Right-click sandbox &gt; <code>Sandbox Options</code>.</li>
-<li>Navigate to <code>File Options</code> tab.</li>
+<li>Navigate to <code>General Options &gt; File Options</code>.</li>
 <li>
 <p>Enable the <code>Store the sandbox content in a Ram Disk</code> setting.</p>
 <p><img alt="Ram Disk Enable" src="../../Media/UseRamDisk2.png" /></p>
 </li>
 </ol>
-<h2 id="technical-implementation">Technical Implementation<a class="headerlink" href="#technical-implementation" title="Permanent link"></a></h2>
-<p>RAM disk mounting is handled by the service which verifies driver capabilities and available system memory before attempting to mount the virtual disk<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>. The RAM disk I/O operations are managed by the <code>VirtualMemoryIO</code> class<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup> which interfaces with the ImDisk driver<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>.</p>
-<p>If insufficient RAM is available or mounting fails, the sandbox will not start and an error is logged.</p>
-<h2 id="technical-notes">Technical Notes<a class="headerlink" href="#technical-notes" title="Permanent link"></a></h2>
-<ul>
-<li>Requires ImDisk driver support for virtual memory operations<sup id="fnref2:4"><a class="footnote-ref" href="#fn:4">4</a></sup>.</li>
-<li>Mutually exclusive with <a href="../UseFileImage/">UseFileImage</a>.</li>
-<li>All data is volatile and lost when the RAM disk is unmounted.</li>
-<li>RAM usage is allocated from system memory pool using <code>VirtualMemoryIO</code> class<sup id="fnref2:3"><a class="footnote-ref" href="#fn:3">3</a></sup>.</li>
-<li>No encryption or password protection available.</li>
-<li>No backup/restore functionality - data is inherently temporary.</li>
-<li>Performance significantly faster than file-based storage.</li>
-<li>Maximum size limited by available system RAM, defined by <code>RamDiskSizeKb</code>.</li>
-</ul>
+<p>The control is normally enabled for an empty box when ImDisk is ready. The service's runtime checks remain separate from the checkbox's availability and certificate decoration.</p>
+<h2 id="memory-and-failure-considerations">Memory and failure considerations<a class="headerlink" href="#memory-and-failure-considerations" title="Permanent link"></a></h2>
+<p>RAM-disk capacity is the virtual backing capacity. Memory for data is committed progressively as the backing is populated, rather than allocating the entire configured capacity as permanently resident physical RAM. Windows manages this committed virtual memory; do not assume that paging, page-file use, or host-storage I/O is excluded.</p>
+<p>If required RAM backing cannot be acquired during sandbox initialization, an error is logged and that startup path cannot complete; it does not fall back to the ordinary directory root. Later allocation or resource failures are different: do not rely on clean transactional rollback or a predictable application-visible error. Monitor system memory resources as well as free space on the shared volume.</p>
+<p>RAM backing is not the persistent encrypted <code>.box</code> / user-password workflow provided by <a href="../UseFileImage/">UseFileImage</a>. Its volatility does not guarantee forensic erasure or protection of operating-system artifacts.</p>
 <h2 id="performance-considerations">Performance Considerations<a class="headerlink" href="#performance-considerations" title="Permanent link"></a></h2>
 <ul>
-<li>Ideal for temporary operations, testing, or malware analysis.</li>
-<li>Reduces disk I/O and wear on SSDs.</li>
-<li>May cause system instability if RAM disk size exceeds available memory.</li>
-<li>Monitor system memory usage when using large RAM disks.</li>
-<li>Perfect for scenarios where data persistence is not needed.</li>
+<li>Temporary file workloads and testing are possible uses when persistence is not required.</li>
+<li>Performance depends on the workload and memory pressure; RAM backing is not a guarantee of faster operation or reduced SSD wear.</li>
+<li>The configured capacity is not an immediate physical-memory reservation. Leave sufficient system resources for sandboxed and host applications.</li>
 </ul>
 <p>Related <a href="../SandboxieIni/">Sandboxie Ini</a>, <a href="../RamDiskSizeKb/">RamDiskSizeKb</a>, <a href="../RamDiskLetter/">RamDiskLetter</a>, <a href="../UseFileImage/">UseFileImage</a>, <a href="../FileRootPath/">FileRootPath</a></p>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:1">
-<p><code>MountManager::AcquireBoxRoot</code> in <code>Sandboxie/core/svc/MountManager.cpp</code> - handles RAM disk mounting process.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-<li id="fn:2">
-<p>Driver capability checks performed in <code>MountManager::AcquireBoxRoot</code> before mounting virtual disks.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
-</li>
-<li id="fn:3">
-<p>RAM disk I/O operations handled by <code>VirtualMemoryIO</code> class in <code>SandboxieTools/ImBox/VirtualMemoryIO.cpp</code>.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
-</li>
-<li id="fn:4">
-<p>ImDisk driver headers and definitions in <code>SandboxieTools/ImDisk/inc/imdisk.h</code>.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div>
 
 
 

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="RamDiskSizeKb is a global setting in Sandboxie Ini (introduced in v1.11.0 / 5.66.0) that specifies the size of the RAM disk to be created for use by sandboxes that have the UseRamDisk setting enabled. This setting is defined in kilobytes and determines the maximum amount of system RAM that can be allocated for the RAM disk.">
+        <meta name="description" content="RamDiskSizeKb is a global setting in Sandboxie Ini (introduced in v1.11.0 / 5.66.0) that specifies the requested capacity, in KiB, of the shared RAM-disk backing used by sandboxes with UseRamDisk enabled. It is not a per-box quota or an immediate allocation of that much physical RAM.">
       
       
       
@@ -5585,12 +5585,12 @@
 
 
 <h1 id="ram-disk-size-kb">Ram Disk Size Kb<a class="headerlink" href="#ram-disk-size-kb" title="Permanent link"></a></h1>
-<p><em>RamDiskSizeKb</em> is a global setting in <a href="SandboxieIni.html">Sandboxie Ini</a> (introduced in v1.11.0 / 5.66.0) that specifies the size of the RAM disk to be created for use by sandboxes that have the <a href="UseRamDisk.html">UseRamDisk</a> setting enabled. This setting is defined in kilobytes and determines the maximum amount of system RAM that can be allocated for the RAM disk.</p>
+<p><em>RamDiskSizeKb</em> is a global setting in <a href="SandboxieIni.html">Sandboxie Ini</a> (introduced in v1.11.0 / 5.66.0) that specifies the requested capacity, in KiB, of the shared RAM-disk backing used by sandboxes with <a href="UseRamDisk.html">UseRamDisk</a> enabled. It is not a per-box quota or an immediate allocation of that much physical RAM.</p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h2>
 <p>To set the <code>RamDiskSizeKb</code>, add the following line to the Sandboxie configuration file under the <code>[GlobalSettings]</code> section:</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[GlobalSettings]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># Example for a 2 GB RAM disk</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># Example for a 2 GiB RAM disk</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="na">RamDiskSizeKb</span><span class="o">=</span><span class="s">2097152</span>
 </span></code></pre></div>
 <h2 id="sandman-gui">SandMan GUI<a class="headerlink" href="#sandman-gui" title="Permanent link"></a></h2>
@@ -5599,46 +5599,42 @@
 <li>Open the <code>Global Settings</code> window in the SandMan interface.</li>
 <li>Navigate to <code>Add-Ons Manager</code> &gt; <code>Add-On Configuration</code> tab.</li>
 <li>
-<p>Enable the <code>Enable Ram Disk creation</code> setting and set a value for the RAM disk size.</p>
+<p>Enable <code>Enable Ram Disk creation</code> and enter the capacity in the <code>RAM Limit</code> field.</p>
 <p><img alt="Ram Disk Creation" src="../Media/UseRamDisk3.png" /></p>
 </li>
 </ol>
+<p>When enabled with an empty size field, SandMan suggests <code>2097152</code> KiB (2 GiB). This is a UI-suggested value, not the service fallback or an immediate memory reservation. The controls read and write direct global values; effective configuration may also include applicable templates.</p>
 <h2 id="important-notes">Important Notes<a class="headerlink" href="#important-notes" title="Permanent link"></a></h2>
 <ul>
 <li>
-<p><strong>Single RAM Disk</strong>: Only one RAM disk will be created and used among all sandboxes that have the <code>UseRamDisk</code> setting enabled. This means that the specified size will be shared across all sandboxes utilizing RAM disks.</p>
+<p><strong>Shared Capacity</strong>: RAM-backed boxes use one shared backend. Space consumed by one box reduces available filesystem space there for others; this setting does not configure an independent capacity for each box.</p>
 </li>
 <li>
-<p><strong>Memory Management</strong>: Ensure that the specified size does not exceed the available system memory. Allocating too much memory for the RAM disk can lead to system instability or prevent other applications from functioning properly. If the specified size exceeds available RAM, the RAM disk may fail to mount, and an error will be logged.</p>
+<p><strong>Creation Minimum</strong>: New backend creation requires at least <code>102400</code> KiB (100 MiB). The service's absent-value fallback is <code>0</code>; missing or zero effective values, and values below the threshold, do not proceed to normal new creation. Exactly <code>102400</code> passes this minimum check, but does not guarantee successful creation.</p>
 </li>
 <li>
-<p><strong>Volatile Storage</strong>: The RAM disk is volatile, meaning all data stored in it will be lost when the RAM disk is unmounted or the system is restarted. It is ideal for temporary operations where data persistence is not required.</p>
+<p><strong>Capacity versus Memory</strong>: Configured backing capacity, current committed memory, physical residency, and usable NTFS free space are different quantities. Data memory is committed progressively, subject to Windows commit availability. Filesystem and backing overhead also reduce usable space; the configured value is not a promise of that much free file space.</p>
 </li>
 <li>
-<p><strong>Configuration Requirement</strong>: Before enabling <code>UseRamDisk</code> in individual sandboxes, ensure that the <code>RamDiskSizeKb</code> setting is configured appropriately in the global settings.</p>
+<p><strong>Volatile Storage</strong>: Content stored only on the shared backend is lost when that backend is actually destroyed. Preserve wanted data to persistent storage beforehand; a snapshot on the same RAM volume is not a durable independent backup.</p>
 </li>
 <li>
-<p><strong>Drive Letter Assignment</strong>: The drive letter for the RAM disk can be assigned using the <code>RamDiskLetter</code> setting.</p>
+<p><strong>Drive Letter Assignment</strong>: <a href="RamDiskLetter.html">RamDiskLetter</a> optionally assigns a visible drive letter when the backend is created.</p>
 </li>
 </ul>
+<h2 id="applying-changes">Applying changes<a class="headerlink" href="#applying-changes" title="Permanent link"></a></h2>
+<p>The service consults the effective global size when a new shared backend must be created. Changing this setting or reloading configuration does not resize an existing RAM disk. An existing backend can be reused even if the current size setting is missing or zero.</p>
+<p>A changed size is used only when the previous shared RAM backend has actually been removed and a later acquisition creates a new one. Closing applications or SandMan, or merely restarting the service, does not guarantee that recreation. Preserve wanted volatile content before backend destruction.</p>
 <h2 id="performance-considerations">Performance Considerations<a class="headerlink" href="#performance-considerations" title="Permanent link"></a></h2>
 <ul>
-<li>
-<p><strong>Speed</strong>: RAM disks provide significantly faster read and write speeds compared to traditional disk storage, making them suitable for high-performance applications and testing environments.</p>
-</li>
-<li>
-<p><strong>Resource Monitoring</strong>: Monitor system memory usage when using RAM disks to avoid exceeding available memory and causing system performance issues. </p>
-</li>
-<li>
-<p><strong>Application Suitability</strong>: Consider using RAM disks for applications that require high-speed data access, such as development environments, testing frameworks, or temporary file storage.</p>
-</li>
+<li>Monitor system memory resources and shared filesystem free space. Progressive allocation does not eliminate memory-pressure failures.</li>
+<li>Temporary file storage, development workloads, and testing are possible uses. Performance depends on the workload and memory pressure, rather than a universal speed advantage over persistent storage.</li>
 </ul>
 <h2 id="related-settings">Related Settings<a class="headerlink" href="#related-settings" title="Permanent link"></a></h2>
 <ul>
 <li><a href="UseRamDisk.html">UseRamDisk</a> - Enables the use of a RAM disk for individual sandboxes.</li>
-<li><a href="RamDiskLetter.html">RamDiskLetter</a> - Specifies the drive letter for the RAM disk.</li>
+<li><a href="RamDiskLetter.html">RamDiskLetter</a> - Optionally specifies the drive letter for a newly created RAM disk.</li>
 </ul>
-<p>By configuring the <code>RamDiskSizeKb</code> setting, users can optimize their Sandboxie environment for performance while ensuring efficient memory usage across all sandboxes that utilize RAM disks.</p>
 
 
 

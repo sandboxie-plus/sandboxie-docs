@@ -5586,6 +5586,7 @@
 
 <h1 id="copy-limit-silent">Copy Limit Silent<a class="headerlink" href="#copy-limit-silent" title="Permanent link"></a></h1>
 <p><em>CopyLimitSilent</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>. It is typically specified as <em>CopyLimitSilent=y</em> (see <a href="YesOrNoSettings.html">Yes Or No Settings</a>), and indicates that Sandboxie should not issue alert message <a href="SBIE2102.html">SBIE2102</a>.</p>
+<p>The consumer fallback is <code>n</code> when no effective value is configured. Applicable templates and <code>[GlobalSettings]</code> can supply an effective value.</p>
 <p>Usage:</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
@@ -5593,7 +5594,10 @@
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">CopyLimitSilent</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>Related <a href="SandboxieIni.html">Sandboxie Ini</a> setting: <a href="CopyLimitKb.html">CopyLimitKb</a>.</p>
+<p>When no explicit migration rule applies and a finite <a href="CopyLimitKb.html">CopyLimitKb</a> threshold is reached or exceeded, SBIE2102 is issued only if no usable prompt reply is returned and this setting is not enabled. This includes disabled prompting, an unavailable interactive consumer, or a timeout. An affirmative reply selects migration without SBIE2102; an explicit negative reply selects non-copy without SBIE2102 from this decision path.</p>
+<p>This setting changes the message, not the migration decision. It does not disable the <a href="PromptForFileMigration.html">large-file prompt</a>, control <a href="NotifyNoCopy.html">NotifyNoCopy</a> messages SBIE2113/2114/2115, or suppress every migration or prompt-transport error.</p>
+<p>The flag is cached during process initialization. Start new affected sandboxed processes after changing it.</p>
+<p>Related <a href="SandboxieIni.html">Sandboxie Ini</a> settings: <a href="CopyLimitKb.html">CopyLimitKb</a>, <a href="PromptForFileMigration.html">PromptForFileMigration</a>.</p>
 
 
 

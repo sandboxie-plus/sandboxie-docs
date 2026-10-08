@@ -5593,13 +5593,15 @@
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">CopyNewer</span><span class="o">=</span><span class="s">C:\Data\*.txt</span>
 </span></code></pre></div>
-<p>Normally, once a file has been copied into the sandbox (see <a href="../FileMigrationSettings/">File Migration Settings</a>), a sandboxed program keeps using that copy even if the original file on the host is changed later. When a file path matches a <em>CopyNewer</em> pattern, Sandboxie compares the last-write time of the host file with the sandboxed copy each time the file is opened; if the host file is newer, a fresh copy is migrated into the sandbox before the open completes.</p>
+<p>Normally, once a file has been copied into the sandbox (see <a href="../FileMigrationSettings/">File Migration Settings</a>), a sandboxed program keeps using that copy even if the original file on the host is changed later. When a file path matches a <em>CopyNewer</em> pattern, Sandboxie compares the last-write time of the host file with the sandboxed copy on eligible opens; if the host file is newer, a refresh is attempted before the open completes.</p>
+<p>The refresh migration uses the same migration rules, size limit, prompt behavior, and notifications as initial content migration. A matching <a href="../DontCopy/">DontCopy</a> rule can prevent the refresh, <a href="../CopyAlways/">CopyAlways</a> can select full-content migration before the size limit and prompt, and <a href="../CopyEmpty/">CopyEmpty</a> can select an empty replacement. These rules do not themselves trigger the refresh. <a href="../CopyBlockDenyWrite/">CopyBlockDenyWrite</a> can affect the refresh migration's result, but a failed refresh does not necessarily deny the subsequent open of the existing sandbox copy.</p>
 <p>Please note the following limitations:</p>
 <ul>
 <li>It only applies to regular files that already have a copy inside the sandbox, when they are opened normally.</li>
-<li>It does not apply to the initial migration of a file, to directories, to write-only opens, to deleted files, or to create/overwrite operations.</li>
+<li>It does not apply to the initial migration of a file, to directories, to deleted files, or to create/overwrite operations. Refresh is also skipped for a write-only resource-path mode, such as <a href="../WriteFilePath/">WriteFilePath</a>; this is not simply a test of the application's requested access.</li>
 <li>Pattern matching is case-insensitive and is applied to the host (true) file path.</li>
 <li>If a refresh is already in progress or fails, the existing sandbox copy remains available to the program.</li>
+<li>A successful refresh is not necessarily a full-content replacement: a migration rule or a source-access fallback can result in empty contents.</li>
 </ul>
 <p>Copy rules, including rules of type "Copy newer", can be managed in SandMan under Sandbox Options &gt; General Options &gt; File Migration.</p>
 <p>Related <a href="../SandboxieIni/">Sandboxie Ini</a> settings: <a href="../CopyLimitKb/">CopyLimitKb</a>, <a href="../CopyLimitSilent/">CopyLimitSilent</a>. See also <a href="../FileMigrationSettings/">File Migration Settings</a>.</p>

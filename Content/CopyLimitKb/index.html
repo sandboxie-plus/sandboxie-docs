@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="CopyLimitKb is a sandbox setting in Sandboxie Ini. Existing files that are modified by sandboxed programs have to be copied into the sandbox first. This setting specifies the file size limit for this copy operation. Files larger than the limit will not be copied into the sandbox, and cannot be modified by sandboxd programs. The limit is specified in units of kilobytes (1 kilobyte = 1024 bytes).">
+        <meta name="description" content="CopyLimitKb is a sandbox setting in Sandboxie Ini. It controls the normal size decision when Sandboxie needs to copy the contents of an existing host file into the sandbox. The limit is specified in units of kilobytes (1 kilobyte = 1024 bytes).">
       
       
       
@@ -5585,7 +5585,7 @@
 
 
 <h1 id="copy-limit-kb">Copy Limit Kb<a class="headerlink" href="#copy-limit-kb" title="Permanent link"></a></h1>
-<p><em>CopyLimitKb</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. Existing files that are modified by sandboxed programs have to be copied into the sandbox first. This setting specifies the file size limit for this copy operation. Files larger than the limit will not be copied into the sandbox, and cannot be modified by sandboxd programs. The limit is specified in units of kilobytes (1 kilobyte = 1024 bytes).</p>
+<p><em>CopyLimitKb</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. It controls the normal size decision when Sandboxie needs to copy the contents of an existing host file into the sandbox. The limit is specified in units of kilobytes (1 kilobyte = 1024 bytes).</p>
 <p>For more information, see <a href="../SBIE2102/">SBIE2102</a>.</p>
 <p>Usage:</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
@@ -5594,9 +5594,22 @@
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">CopyLimitKb</span><span class="o">=</span><span class="s">128000</span>
 </span></code></pre></div>
-<p>This example specifies that only files smaller than (approx.) 128MB will be copied into the sandbox <em>DefaultBox</em>, when needed. Files larger than this limit can only be read, not updated, by sandboxed programs.</p>
-<p>The default setting is 49152 kilobytes, or 48 megabytes. Setting <em>CopyLimitKb</em> to some value for one sandbox does not change the default value for other sandboxes.</p>
-<p>The size limit and alert message can be configured in <a href="../FileMigrationSettings/">SandboxSettings &gt; File Migration</a>.</p>
+<p>This example sets the threshold for <em>DefaultBox</em> to 128000 KiB, or 125 MiB. When no overriding migration rule applies, a file strictly smaller than that threshold is selected for full-content migration. A file exactly at the threshold, or larger, enters the large-file prompt/non-copy decision.</p>
+<p>Use <code>CopyLimitKb=-1</code> to disable the normal size threshold. Otherwise, use a sensible positive integer value.</p>
+<h2 id="migration-decision">Migration decision<a class="headerlink" href="#migration-decision" title="Permanent link"></a></h2>
+<p>Matching <a href="../DontCopy/">DontCopy</a>, <a href="../CopyAlways/">CopyAlways</a>, and <a href="../CopyEmpty/">CopyEmpty</a> rules are evaluated before the size decision, in that priority order. When none matches and a finite threshold is reached or exceeded, <a href="../PromptForFileMigration/">PromptForFileMigration</a> allows SandMan to ask whether to migrate the file. An affirmative reply selects full-content migration for that attempt; it does not guarantee that the source can be read or the copy completed.</p>
+<p>If migration is not approved, <a href="../CopyBlockDenyWrite/">CopyBlockDenyWrite</a> controls the initial migration-dependent open: <code>y</code> denies it; otherwise Sandboxie retries host access after removing write and delete access. That retry can still fail because of the remaining request parameters or host permissions.</p>
+<p>The threshold does not govern all file access. New files, ordinary access to an existing sandbox copy, direct access through <a href="../OpenFilePath/">OpenFilePath</a>, and operations that do not copy host contents follow separate paths. <a href="../CopyNewer/">CopyNewer</a> can initiate a refresh of an existing sandbox copy; its migration attempt can use this size decision.</p>
+<h2 id="effective-value-and-ui-fallbacks">Effective value and UI fallbacks<a class="headerlink" href="#effective-value-and-ui-fallbacks" title="Permanent link"></a></h2>
+<p>The initialized runtime consumer fallback is <code>-1</code>: if no effective value is configured, the normal size threshold is disabled. An effective value can come from the sandbox, applicable enabled templates, or <code>[GlobalSettings]</code> fallback. Setting a direct value for one sandbox does not change other sandboxes' values.</p>
+<p>The interfaces have different display fallbacks:</p>
+<ul>
+<li><strong>SandMan:</strong> 81920 KiB (80 MiB), read from the direct box setting. When the enabled size field contains <code>81920</code>, saving removes the direct <code>CopyLimitKb</code> entry rather than writing that number. Applicable inherited configuration, or the runtime <code>-1</code> fallback, can then become effective. An unchecked limit checkbox writes <code>-1</code>.</li>
+<li><strong>Sandboxie Control Classic:</strong> 49152 KiB (48 MiB), its own File Migration UI/accessor fallback. This is not the current runtime consumer fallback.</li>
+</ul>
+<p>Neither displayed fallback establishes a universal Sandboxie size limit. The size limit and alert message can be configured in <a href="../FileMigrationSettings/">Sandbox Settings &gt; File Migration</a>.</p>
+<h2 id="applying-changes">Applying changes<a class="headerlink" href="#applying-changes" title="Permanent link"></a></h2>
+<p>The limit is cached when the sandboxed process initializes its file subsystem. Start new affected sandboxed processes after changing it; reloading configuration does not replace the cached limit in an already initialized process.</p>
 <p>Related <a href="../SandboxieIni/">Sandboxie Ini</a> setting: <a href="../CopyLimitSilent/">CopyLimitSilent</a></p>
 
 

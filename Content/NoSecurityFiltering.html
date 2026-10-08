@@ -5595,7 +5595,7 @@
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">NoSecurityIsolation</span><span class="o">=</span><span class="s">y</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">NoSecurityFiltering</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>Both settings default to <code>n</code>. <code>NoSecurityFiltering</code> has its combined effect only while <code>NoSecurityIsolation=y</code> is active. It has no effect by itself in a standard-isolation sandbox.</p>
+<p>Both settings have a consumer fallback of <code>n</code>. The combined effect of <code>NoSecurityFiltering</code> requires the process to be in the driver's Application Compartment state, normally selected by <code>NoSecurityIsolation=y</code>. It has no combined effect on a process that remains in standard-isolation mode. See the <a href="NoSecurityIsolation.html#unsupported-dyndata-fallback">unsupported DynData fallback</a> for an exceptional way the driver can enter that state.</p>
 <h2 id="what-it-disables">What it disables<a class="headerlink" href="#what-it-disables" title="Permanent link"></a></h2>
 <p>With both settings enabled, the driver sets the same three internal filter-disable states controlled individually by:</p>
 <ul>
