@@ -1,6 +1,6 @@
 # Ram Disk Letter
 
-_RamDiskLetter_ is a global setting in [Sandboxie Ini](SandboxieIni.md) (introduced in v1.11.1 / 5.66.1) that specifies the drive letter to be assigned to the RAM disk created for use by sandboxes that have the [UseRamDisk](UseRamDisk.md) setting enabled. This setting allows users to define a specific drive letter for easier access to the RAM disk.
+_RamDiskLetter_ is a global creation-time setting in [Sandboxie Ini](SandboxieIni.md) (introduced in v1.11.1 / 5.66.1) that optionally assigns a visible drive letter to the shared RAM-disk backend used by sandboxes with [UseRamDisk](UseRamDisk.md) enabled. It is not a separate drive-letter assignment for each box.
 
 ## Usage
 
@@ -23,21 +23,25 @@ The RAM disk letter setting can be selected through:
 
     ![Ram Disk Letter](../Media/UseRamDisk3.png)
 
+SandMan reads and writes the direct global value; effective configuration may also include applicable templates. It writes the canonical form shown above, such as `R:\`.
+
 ## Important Notes
 
-- **Single Drive Letter**: Only one drive letter can be assigned to the RAM disk, and it will be used across all sandboxes that utilize the RAM disk feature.
+- **Shared Drive Letter**: The configured letter refers to the shared RAM volume, not to an individual sandbox. A visible letter does not add an isolation or access-control boundary.
 
-- **Available Drive Letters**: Ensure that the specified drive letter is not already in use by another drive or partition on the system. If the drive letter is already assigned, the RAM disk may fail to mount, and an error will be logged.
+- **Optional Mapping**: Without an effective configured letter, the normal creation path still obtains a temporary free letter for creation/formatting and then attempts to remove that mapping. The sandbox can use its root junction without retaining a visible drive letter. A temporary free letter must still be available.
 
-- **Configuration Requirement**: The `RamDiskLetter` setting should be configured before enabling `UseRamDisk` in individual sandboxes to ensure proper assignment.
+- **Available Drive Letters**: Use an unoccupied letter in the canonical `R:\` form. If an explicitly configured letter is invalid or already occupied during creation, that path does not automatically choose another letter and cannot proceed with the requested mount.
 
-## Performance Considerations
+## Applying changes
 
-- **Ease of Access**: Assigning a specific drive letter to the RAM disk can simplify access for applications and users, making it easier to reference the RAM disk in file paths.
+Configure the desired letter before the shared RAM backend is newly created. Changing or clearing this setting, or reloading configuration, does not change the letter of an existing backend. A new value is used only when a later acquisition creates a new backend, not merely because a box is reopened. Preserve wanted volatile content before destroying the shared backend.
+
+## Ease of access
+
+Assigning a specific drive letter can make the RAM volume easier to browse and reference in file paths. It remains optional for normal sandbox operation.
 
 ## Related Settings
 
-- [RamDiskSizeKb](RamDiskSizeKb.md) - Specifies the size of the RAM disk.
+- [RamDiskSizeKb](RamDiskSizeKb.md) - Specifies the requested capacity of the shared RAM disk.
 - [UseRamDisk](UseRamDisk.md) - Enables the use of a RAM disk for individual sandboxes.
-
-By configuring the `RamDiskLetter` setting, users can enhance their Sandboxie experience by providing a consistent and easily accessible drive letter for the RAM disk.

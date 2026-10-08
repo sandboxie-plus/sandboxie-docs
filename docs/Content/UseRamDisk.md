@@ -1,12 +1,12 @@
 # Use Ram Disk
 
-_UseRamDisk_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md) (introduced in v1.11.0 / 5.66.0) that replaces the standard file system storage with a RAM-based virtual disk as the sandbox root directory.
+_UseRamDisk_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md) (introduced in v1.11.0 / 5.66.0) that changes the physical backing beneath the sandbox's normal file root to a RAM-backed virtual disk. Sandboxie's logical file and Registry virtualization layers remain in place above that storage.
 
 > [!WARNING]
-> Configure this setting on a per-sandbox basis. Applying it globally will force all sandboxes to use RAM disks, which may break existing sandboxes that rely on standard file system storage or cause compatibility issues with non-volatile sandbox configurations.
+> Configure this setting for the intended sandbox. Applicable templates and `[GlobalSettings]` fallback can also enable it, affecting boxes without a direct override. Do not use a global value as a substitute for choosing backing for individual boxes.
 
 > [!NOTE]
-> This setting requires an active [supporter certificate](https://sandboxie-plus.com/supporter-certificate/).
+> An applicable active [Support Certificate](https://sandboxie-plus.com/supporter-certificate/) is required.
 
 ## Prerequisites
 
@@ -14,7 +14,9 @@ _UseRamDisk_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md) (introduce
 
     ![ImDisk Install](../Media/UseRamDisk1.png)
 
-- Configure the [RamDiskSizeKb](RamDiskSizeKb.md) setting to define the RAM disk's size in kilobytes. Choose a value that aligns with your system's available memory and the needs of the applications you plan to run sandboxed.
+- The ImDisk/ImBox runtime components must be operational; an installation record alone does not guarantee that the backing can be acquired.
+
+- Configure [RamDiskSizeKb](RamDiskSizeKb.md) to define the requested shared backing capacity in KiB. Account for both filesystem space and system memory resources needed by the intended workloads.
 
 - (Optional) Use the [RamDiskLetter](RamDiskLetter.md) setting to assign a specific drive letter for easier access to the RAM disk.
 
@@ -26,48 +28,49 @@ _UseRamDisk_ is a sandbox setting in [Sandboxie Ini](SandboxieIni.md) (introduce
 UseRamDisk=y
 ```
 
-When this setting is enabled, the Sandboxie service creates a virtual disk entirely in system RAM. The RAM disk is mounted through the mount manager[^1] using the ImDisk virtual disk driver. All file I/O operations within the sandbox are redirected to the RAM disk rather than creating files directly on the host file system or persistent storage.
+The service reads the effective box Boolean with a consumer fallback of `n`. Effective values can come from the box, applicable enabled templates, or `[GlobalSettings]` fallback. SandMan's checkbox reads and writes the direct box value, not every possible inherited effective value.
 
-The RAM disk provides extremely fast file operations but is volatile - all data is lost when the RAM disk is unmounted or the system is restarted. This makes it ideal for temporary operations, testing, or malware analysis where persistence is not required.
+> [!WARNING]
+> The normal SandMan storage selection is intended for an empty box. Enabling RAM backing does not migrate existing directory-backed content, and disabling it does not automatically export RAM-backed content to directory storage. Preserve wanted data separately before changing backing.
+
+Do not configure both `UseRamDisk` and [UseFileImage](UseFileImage.md). SandMan presents them as alternative storage choices. If both nevertheless become effective and a new backing selection is needed, the service selects RAM backing; its certificate check still observes the image flag. An existing usable mount is not universally replaced merely by changing the flags.
+
+## Storage and shared capacity
+
+The service creates or reuses one shared RAM-disk backend through ImBox and ImDisk. For RAM-backed boxes, the service uses a box-name directory on that shared volume, and all such boxes share its filesystem capacity; space consumed by one box reduces the space available there to others. This shared backing is not an additional isolation or access-control boundary.
+
+The normal [FileRootPath](FileRootPath.md) becomes a junction to the box directory on the RAM disk. Root-contained state, including ordinary sandbox files, the sandbox Registry hive, and snapshot state stored beneath that root, uses this backing. Normal resource-access rules can still direct operations to permitted host paths. `Sandboxie.ini`, recovered/exported files outside the root, and other host-side effects are not automatically RAM-backed. See [Sandbox Roots and Volume Layout](SandboxRootsVolumeLayout.md) for root contents and layout.
+
+## Volatility and preserving data
+
+Content stored only on the shared backend is volatile: it is not backed by a persistent RAM image and is lost when that backend is actually destroyed. Do not rely on RAM-only content surviving a normal reboot. Preserve wanted data by recovering or exporting it to persistent storage beforehand. Snapshots on the same RAM volume are not a durable independent backup.
+
+Ordinary process exit, one box closing, a box-root release, a configuration reload, or closing SandMan does not itself establish that the shared backend has been destroyed. Service shutdown attempts cleanup, but restarting the service is not a guarantee of successful destruction or recreation.
 
 ## SandMan GUI
 
 The RAM disk setting can be enabled through:
 
 1. Right-click sandbox > `Sandbox Options`.
-2. Navigate to `File Options` tab.
+2. Navigate to `General Options > File Options`.
 3. Enable the `Store the sandbox content in a Ram Disk` setting.
 
     ![Ram Disk Enable](../Media/UseRamDisk2.png)
 
-## Technical Implementation
+The control is normally enabled for an empty box when ImDisk is ready. The service's runtime checks remain separate from the checkbox's availability and certificate decoration.
 
-RAM disk mounting is handled by the service which verifies driver capabilities and available system memory before attempting to mount the virtual disk[^2]. The RAM disk I/O operations are managed by the `VirtualMemoryIO` class[^3] which interfaces with the ImDisk driver[^4].
+## Memory and failure considerations
 
-If insufficient RAM is available or mounting fails, the sandbox will not start and an error is logged.
+RAM-disk capacity is the virtual backing capacity. Memory for data is committed progressively as the backing is populated, rather than allocating the entire configured capacity as permanently resident physical RAM. Windows manages this committed virtual memory; do not assume that paging, page-file use, or host-storage I/O is excluded.
 
-## Technical Notes
+If required RAM backing cannot be acquired during sandbox initialization, an error is logged and that startup path cannot complete; it does not fall back to the ordinary directory root. Later allocation or resource failures are different: do not rely on clean transactional rollback or a predictable application-visible error. Monitor system memory resources as well as free space on the shared volume.
 
-- Requires ImDisk driver support for virtual memory operations[^4].
-- Mutually exclusive with [UseFileImage](UseFileImage.md).
-- All data is volatile and lost when the RAM disk is unmounted.
-- RAM usage is allocated from system memory pool using `VirtualMemoryIO` class[^3].
-- No encryption or password protection available.
-- No backup/restore functionality - data is inherently temporary.
-- Performance significantly faster than file-based storage.
-- Maximum size limited by available system RAM, defined by `RamDiskSizeKb`.
+RAM backing is not the persistent encrypted `.box` / user-password workflow provided by [UseFileImage](UseFileImage.md). Its volatility does not guarantee forensic erasure or protection of operating-system artifacts.
 
 ## Performance Considerations
 
-- Ideal for temporary operations, testing, or malware analysis.
-- Reduces disk I/O and wear on SSDs.
-- May cause system instability if RAM disk size exceeds available memory.
-- Monitor system memory usage when using large RAM disks.
-- Perfect for scenarios where data persistence is not needed.
-
-[^1]: `MountManager::AcquireBoxRoot` in `Sandboxie/core/svc/MountManager.cpp` - handles RAM disk mounting process.
-[^2]: Driver capability checks performed in `MountManager::AcquireBoxRoot` before mounting virtual disks.
-[^3]: RAM disk I/O operations handled by `VirtualMemoryIO` class in `SandboxieTools/ImBox/VirtualMemoryIO.cpp`.
-[^4]: ImDisk driver headers and definitions in `SandboxieTools/ImDisk/inc/imdisk.h`.
+- Temporary file workloads and testing are possible uses when persistence is not required.
+- Performance depends on the workload and memory pressure; RAM backing is not a guarantee of faster operation or reduced SSD wear.
+- The configured capacity is not an immediate physical-memory reservation. Leave sufficient system resources for sandboxed and host applications.
 
 Related [Sandboxie Ini](SandboxieIni.md), [RamDiskSizeKb](RamDiskSizeKb.md), [RamDiskLetter](RamDiskLetter.md), [UseFileImage](UseFileImage.md), [FileRootPath](FileRootPath.md)
