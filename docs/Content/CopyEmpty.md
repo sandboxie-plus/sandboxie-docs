@@ -24,8 +24,9 @@ If _CopyEmpty_ is absent or no entry matches, Sandboxie uses another matching mi
 
 Please note the following limitations:
 
-- _CopyEmpty_ is consulted only when the contents of an existing regular host file would normally be migrated on a non-destructive open.
-- It does not affect directories, files created only inside the sandbox, an already existing sandbox copy, or overwrite/delete/create operations for which Sandboxie does not copy the host contents.
+- _CopyEmpty_ is consulted when the contents of an existing regular host file would normally be migrated, including migration attempted during a [CopyNewer](CopyNewer.md) refresh.
+- It does not itself trigger a refresh of an existing sandbox copy. When _CopyNewer_ initiates one, a matching _CopyEmpty_ rule can select an empty replacement.
+- It does not affect directories, files created only inside the sandbox, or overwrite/delete/create operations for which Sandboxie does not copy the host contents.
 - Sandboxie must still be able to open the host object and query its file information. Failures at that stage can make the migration fail instead of producing an empty copy.
 
 Copy rules can be managed in SandMan under Sandbox Options > General Options > File Migration. Choose **Copy empty** for this rule type.
