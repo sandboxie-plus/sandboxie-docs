@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="提示文件迁移是 Sandboxie Ini 中的一项沙盒设置。它指定 Sandboxie 是否会提示进行大文件迁移。更多信息参见 SBIE2102。">
+        <meta name="description" content="PromptForFileMigration 是 Sandboxie Ini 中的一项沙盒设置。在启用大小限制的情况下，若需要迁移内容的文件达到或超过 CopyLimitKb 设置的阈值，且尚无显式迁移规则选定处理方式，此选项决定 Sandboxie 是否请求用户作出选择。更多信息参见 SBIE2102。">
       
       
       
@@ -5585,16 +5585,21 @@
 
 
 <h1 id="_1">提示文件迁移<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
-<p>提示文件迁移是 <a href="../SandboxieIni/">Sandboxie Ini</a> 中的一项沙盒设置。它指定 Sandboxie 是否会提示进行大文件迁移。更多信息参见 <a href="../SBIE2102/">SBIE2102</a>。</p>
+<p><em>PromptForFileMigration</em> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 中的一项沙盒设置。在启用大小限制的情况下，若需要迁移内容的文件达到或超过 <a href="../CopyLimitKb/">CopyLimitKb</a> 设置的阈值，且尚无显式迁移规则选定处理方式，此选项决定 Sandboxie 是否请求用户作出选择。更多信息参见 <a href="../SBIE2102/">SBIE2102</a>。</p>
+<p>未找到生效的配置值时，运行时默认使用 <code>y</code>。生效值也可能来自适用且已启用的模板，或 <code>[GlobalSettings]</code> 中的默认设置。</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">PromptForFileMigration</span><span class="o">=</span><span class="s">n</span>
 </span></code></pre></div>
-<p>指定 <em>n</em> 表示沙盒不会提示用户进行文件迁移（访问将是只读的）。</p>
-<p>相关 Sandboxie Plus 设置：沙盒选项 &gt; 文件选项 &gt; 文件迁移 &gt; 提示用户进行大文件迁移</p>
-<p>相关 <a href="../SandboxieIni/">Sandboxie Ini</a> 设置项：<a href="../CopyLimitKb/">复制限制 Kb</a>、<a href="../CopyLimitSilent/">复制限制静默</a></p>
+<p>指定 <em>n</em> 会禁用交互式请求。启用提示后，SandMan 可以显示请求，但不保证有程序处理该请求或返回有效答复。同意迁移后会尝试复制完整内容，但不保证复制成功。拒绝迁移、禁用提示或未收到有效答复时，均不复制文件内容。</p>
+<p>对于依赖初次迁移的文件打开操作，<a href="../CopyBlockDenyWrite/">CopyBlockDenyWrite</a> 决定是拒绝打开，还是移除写入和删除权限后重试打开宿主机文件。重试本身也可能失败，因此禁用提示并不保证能够以只读方式访问。用户明确选择“否”时，不会通过此路径产生 SBIE2102；未收到有效答复时，该消息由 <a href="../CopyLimitSilent/">CopyLimitSilent</a> 控制。</p>
+<p>SandMan 提供“记住对此进程的选择”选项。记住的答复适用于该进程后续的迁移请求，不限于同一个文件。该选择仅由界面为此进程保存，不会成为永久的 INI 例外规则，也不会改变 <em>CopyLimitKb</em>。</p>
+<p>相关 Sandboxie Plus 设置：沙盒选项 &gt; 常规选项 &gt; 文件迁移 &gt; <strong>询问用户是否迁移大文件</strong>。Sandboxie Control Classic 不提供同等的交互式迁移提示功能。</p>
+<h2 id="_2">使更改生效<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
+<p>与缓存的大小限制和静默标志不同，每次符合条件的大文件迁移判断都会查询此设置。重新加载生效配置后，已运行进程的后续判断也能使用新值，但不会改变已在处理中的请求。</p>
+<p>相关 <a href="../SandboxieIni/">Sandboxie Ini</a> 设置项：<a href="../CopyLimitKb/">CopyLimitKb</a>、<a href="../CopyLimitSilent/">CopyLimitSilent</a></p>
 
 
 
