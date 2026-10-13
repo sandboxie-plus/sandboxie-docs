@@ -10,6 +10,8 @@
 
 * * *
 
+<div id="快速恢复"></div>
+
 ### 快速恢复
 
 [沙盒管理器](SandboxieControl.md) > [沙盒设置](SandboxSettings.md) > 恢复 > 快速恢复：
@@ -27,6 +29,8 @@
 相关 [Sandboxie Ini](SandboxieIni.md) 设置项：[恢复文件夹](RecoverFolder.md)。
 
 * * *
+
+<div id="即时恢复"></div>
 
 ### 即时恢复
 

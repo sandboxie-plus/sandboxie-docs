@@ -32,7 +32,7 @@ FuncSkipHook=PStoreCreateInstance
 
 ## 行为
 
-- 辅助函数 `SbieDll_FuncSkipHook` 查询 `FuncSkipHook` 条目的配置。对每条配置条目，它在配置的宽字符字符串与被钩住的 ASCII 函数名之间执行前缀比较。如果配置的字符串在匹配函数名开头字符时耗尽，则认为该函数匹配并跳过钩子。
+- 辅助函数 `SbieDll_FuncSkipHook` 查询 `FuncSkipHook` 条目的配置。对每条配置条目，它在配置的宽字符字符串与被钩住的 ASCII 函数名之间执行前缀比较。如果配置的字符串在匹配函数名开头字符时耗尽，则认为该函数匹配并跳过钩子。[^1]
 - 为提高效率，如果首次查询未找到任何 `FuncSkipHook` 条目，后续调用将完全跳过此检查。
 
 ## 技术说明

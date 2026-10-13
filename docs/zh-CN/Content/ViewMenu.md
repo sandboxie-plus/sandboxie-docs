@@ -2,13 +2,19 @@
 
 ![](../Media/ViewMenu.png)
 
+<div id="程序"></div>
+
 ## 程序
 
 程序命令选择 [程序视图](ProgramsView.md)，该视图显示每个沙盒中运行的程序。这是默认视图。
 
+<div id="文件和文件夹"></div>
+
 ## 文件和文件夹
 
 文件和文件夹命令选择 [文件和文件夹视图](FilesAndFoldersView.md)，该视图显示每个沙盒中的文件和文件夹。
+
+<div id="上下文菜单"></div>
 
 ## 上下文菜单
 

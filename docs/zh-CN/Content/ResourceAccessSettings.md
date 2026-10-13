@@ -18,6 +18,8 @@
 
 * * *
 
+<div id="一般信息"></div>
+
 ### 一般信息
 
 资源访问组中的每个设置页通常具有以下特征：
@@ -46,6 +48,8 @@
 
 * * *
 
+<div id="文件访问"></div>
+
 ### 文件访问
 
 [沙盒管理器](SandboxieControl.md) > [沙盒设置](SandboxSettings.md) > 资源访问 > 文件访问
@@ -53,6 +57,8 @@
 此类别管理以下类型的资源：文件、文件夹、驱动器和其他设备。
 
 关于编辑资源以及将资源与特定程序关联的更多信息，请参阅上面的 [一般信息](ResourceAccessSettings.md#一般信息)。
+
+<div id="文件访问-直接访问"></div>
 
 #### 文件访问 > 直接访问
 
@@ -62,17 +68,23 @@
 
 相关 [Sandboxie Ini](SandboxieIni.md) 设置项：[开放文件路径](OpenFilePath.md)
 
+<div id="文件访问-完全访问"></div>
+
 #### 文件访问 > 完全访问
 
 与 _直接访问_ 类似，但始终适用，即使沙盒化程序本身位于沙盒中。为获得更好的保护，建议只要可能就使用 _直接访问_ 而非 _完全访问_。
 
 相关 [Sandboxie Ini](SandboxieIni.md) 设置项：[开放管道路径](OpenPipePath.md)
 
+<div id="文件访问-只读访问"></div>
+
 #### 文件访问 > 只读访问
 
 此访问模式排除沙盒化对文件（或文件夹）资源的影响，同时允许程序读取（但不能修改）真实资源。
 
 相关 [Sandboxie Ini](SandboxieIni.md) 设置项：[只读文件路径](ReadFilePath.md)
+
+<div id="文件访问-只写访问"></div>
 
 #### 文件访问 > 只写访问
 
@@ -81,6 +93,8 @@
 此设置只能有效地用于文件夹。如果选择文件，效果与阻止访问设置相同（见下文）。
 
 相关 [Sandboxie Ini](SandboxieIni.md) 设置项：[只写文件路径](WriteFilePath.md)
+
+<div id="文件访问-阻止访问"></div>
 
 #### 文件访问 > 阻止访问
 
@@ -98,11 +112,15 @@
 
 关于编辑资源以及将资源与特定程序关联的更多信息，请参阅上面的 [一般信息](ResourceAccessSettings.md#一般信息)。
 
+<div id="注册表访问-直接访问"></div>
+
 #### 注册表访问 > 直接访问
 
 允许直接访问注册表项资源。注意：当程序本身位于沙盒中时，_直接访问_ 例外不适用。这在上面的文件访问类别中有更详细的描述。另请注意，与文件访问类别不同，注册表项没有 _完全访问_ 访问模式。
 
 相关 [Sandboxie Ini](SandboxieIni.md) 设置项：[开放注册表路径](OpenKeyPath.md)
+
+<div id="注册表访问-只读访问"></div>
 
 #### 注册表访问 > 只读访问
 
@@ -110,11 +128,15 @@
 
 相关 [Sandboxie Ini](SandboxieIni.md) 设置项：[读取注册表项路径](ReadKeyPath.md)
 
+<div id="注册表访问-只写访问"></div>
+
 #### 注册表访问 > 只写访问
 
 此访问模式隐藏所选注册表项中位于沙盒外的所有注册表数据。但是，沙盒中的程序可以在沙盒内相应位置创建新的注册表数据。
 
 相关 [Sandboxie Ini](SandboxieIni.md) 设置项：[写入注册表项路径](WriteKeyPath.md)
+
+<div id="注册表访问-阻止访问"></div>
 
 #### 注册表访问 > 阻止访问
 
@@ -132,11 +154,15 @@
 
 关于编辑资源以及将资源与特定程序关联的更多信息，请参阅上面的 [一般信息](ResourceAccessSettings.md#一般信息)。
 
+<div id="ipc-访问-直接访问"></div>
+
 #### IPC 访问 > 直接访问
 
 允许直接访问 IPC 对象资源。注意：与文件访问和注册表访问类别不同，IPC 对象的 _直接访问_ 例外始终适用于所有沙盒化程序。
 
 相关 [Sandboxie Ini](SandboxieIni.md) 设置项：[开放 IPC 路径](OpenIpcPath.md)
+
+<div id="ipc-访问-阻止访问"></div>
 
 #### IPC 访问 > 阻止访问
 
@@ -159,6 +185,8 @@
 相关 [Sandboxie Ini](SandboxieIni.md) 设置项：[开放窗口类](OpenWinClass.md)
 
 * * *
+
+<div id="com-访问"></div>
 
 ### COM 访问
 

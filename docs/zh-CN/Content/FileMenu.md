@@ -6,6 +6,8 @@
 
 * * *
 
+<div id="终止所有程序"></div>
+
 ### 终止所有程序
 
 [沙盒管理器](SandboxieControl.md) > [文件菜单](FileMenu.md) > 终止所有程序
@@ -19,6 +21,8 @@ _终止所有程序_ 命令立即停止所有沙盒中运行的全部程序。�
 另请参阅：[托盘图标菜单](TrayIconMenu.md) 中的 [终止所有程序](TrayIconMenu.md#终止所有程序)。
 
 * * *
+
+<div id="禁用强制程序"></div>
 
 ### 禁用强制程序
 
@@ -43,6 +47,8 @@ _禁用强制程序_ 切换命令会临时禁用或重新启用强制沙盒化�
 
 * * *
 
+<div id="以-uac-管理员身份运行"></div>
+
 ### 以 UAC 管理员身份运行
 
 [沙盒管理器](SandboxieControl.md) > [文件菜单](FileMenu.md) > 以 UAC 管理员身份运行
@@ -54,6 +60,8 @@ _以 UAC 管理员身份运行_ 切换命令指示 Sandboxie 在启动任何程�
 另请参阅：[托盘图标菜单](TrayIconMenu.md) 中的 [以 UAC 管理员身份运行](TrayIconMenu.md#以-uac-管理员身份运行)。
 
 * * *
+
+<div id="窗口是否在沙盒中"></div>
 
 ### 窗口是否在沙盒中？
 

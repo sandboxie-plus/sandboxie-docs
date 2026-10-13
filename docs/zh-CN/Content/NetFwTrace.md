@@ -1,0 +1,3 @@
+# NetFwTrace
+
+参见 [NetFwTrace 的英文说明](https://sandboxie-plus.github.io/sandboxie-docs/Content/SandboxieTrace.html#netfwtrace)。

@@ -64,6 +64,8 @@
 
 Sandboxie Plus 不仅可以在未沙盒化的进程启动时发出警告，还可以完全阻止它们启动。
 
+<div id="外壳集成"></div>
+
 ## 外壳集成
 
 ![](../Media/Migration/10.png)
