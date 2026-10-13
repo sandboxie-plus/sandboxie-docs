@@ -145,7 +145,7 @@ class PrepareDocsTests(unittest.TestCase):
         with redirect_stderr(errors):
             result = main(["--repo", str(self.repo), "--output", str(self.output)])
         self.assertEqual(result, 2)
-        self.assertIn("output already exists", errors.getvalue())
+        self.assertTrue("output already exists" in errors.getvalue(), errors.getvalue())
 
 
 if __name__ == "__main__":
