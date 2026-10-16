@@ -145,7 +145,7 @@ For ordinary updates, `/passwd:secret` or `/passwd=secret` supplies a configurat
 
 `/drv` is not the normal persistent update route. It mutates driver-resident configuration directly, without the ordinary service-side INI edit, file save, or configuration reload.
 
-The driver rejects sandboxed callers and accepts the registered service process or a recognized session-leader context. `/passwd` does not authorize `/drv`: the direct-driver API receives no configuration password, and generic administrator elevation alone should not be assumed sufficient.
+The driver rejects sandboxed callers and accepts requests from SbieSvc itself or from a process recognized by the driver as a registered session leader. Authorization checks the calling process's PID: merely running a leader agent or launching SbieIni.exe from it does not grant SbieIni.exe that identity. SbieIni.exe does not register itself as a session leader. `/passwd` does not authorize `/drv`: the direct-driver API receives no configuration password, and administrator elevation alone is insufficient.
 
 Driver-only changes are not written to Sandboxie.ini and must not be relied on as durable configuration across reloads or driver lifecycle changes. Do not assume either that every change survives or that every change disappears on every reload.
 
