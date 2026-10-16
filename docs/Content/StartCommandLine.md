@@ -199,7 +199,7 @@ The delete operation occurs in two phases:
 
 *   Phase 2 enumerates eligible boxes and searches for pending-deletion directories renamed as described above. It prepares their contents before executing the deletion command:
     *   Attempts to remove directory reparse points, such as junctions.
-    *   Clears selected read-only, hidden, and system attributes; this does not universally rewrite ACLs or make every file accessible.
+    *   Attempts to clear selected read-only, hidden, and system attributes; this does not universally rewrite ACLs or make every file accessible.
     *   Renames problematic names or long paths to facilitate deletion.
     *   More than one box's pending directories may be processed; `/box:` does not limit this phase to only that box.
     *   By default, the standard system command RMDIR is used to delete the renamed sandbox folder.
