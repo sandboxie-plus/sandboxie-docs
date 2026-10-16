@@ -153,7 +153,7 @@ Current limitations:
 
 - `/drv insert` has append semantics, unlike ordinary `insert`.
 - Do not use `/drv` with no-value `set` deletion forms, including `""`; use the ordinary persistent route for setting or section deletion.
-- Changing resident configuration is not a universal live reload. Whether an already-running sandboxed process observes a changed setting depends on that setting's consumer and lifecycle.
+- For authorized callers, `/drv set <section> * <value>` removes the entire driver-resident section even when a non-empty value follows. This does not remove the section from Sandboxie.ini.
 
 ### Exit codes and verification
 
