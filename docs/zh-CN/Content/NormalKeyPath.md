@@ -11,15 +11,7 @@ _NormalKeyPath_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一项沙盒设置。
    .
    .
    [DefaultBox]
-   NormalIpcPath=*BaseNamedObjects*\__ComCatalogCache__
-   NormalIpcPath=*BaseNamedObjects*\ComPlusCOMRegTable
-   NormalIpcPath=*BaseNamedObjects*\RotHintTable
-   NormalIpcPath=*BaseNamedObjects*\{A3BD3259-3E4F-428a-84C8-F0463A9D3EB5}
-   NormalIpcPath=*BaseNamedObjects*\{A64C7F33-DA35-459b-96CA-63B51FB0CDB9}
-   NormalIpcPath=\RPC Control\actkernel
-   NormalIpcPath=\RPC Control\epmapper
-   NormalIpcPath=\RPC Control\OLE*
-   NormalIpcPath=\RPC Control\LRPC*
+   NormalKeyPath=HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize\*
 ```
 
 相关 Sandboxie Plus 设置：沙盒选项 > 资源访问 > 注册表 > 添加注册表项 > 访问列 > 标准
