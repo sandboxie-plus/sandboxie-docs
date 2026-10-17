@@ -14,6 +14,8 @@
 
 如果问题仍然存在，尤其是那些在旧版 Sandboxie 上正常工作的应用程序，请通过在 [GitHub 仓库](https://github.com/sandboxie-plus/Sandboxie/issues) 上发帖告知我们详细信息。
 
+<div id="microsoft-store-应用"></div>
+
 ### Microsoft Store 应用
 
 问题：Microsoft Store 应用无法在 Sandboxie 经典版和 Sandboxie Plus 中运行。

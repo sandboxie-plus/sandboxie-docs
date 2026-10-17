@@ -32,6 +32,8 @@
 
 * * *
 
+<div id="收藏夹"></div>
+
 #### 收藏夹
 
 *   设置：允许直接访问 Internet Explorer 收藏夹
@@ -73,6 +75,8 @@ Internet Explorer 通过一个在浏览器之外运行的组件定期检查其�
 **底线：** 如果你使用 Internet Explorer 订阅源，建议选中此设置。
 
 * * *
+
+<div id="在沙盒外保存"></div>
 
 #### 在沙盒外保存
 

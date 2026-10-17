@@ -8,6 +8,8 @@
 
 在这里配置 Sandboxie 在何时以及如何删除沙盒。
 
+<div id="调用方式"></div>
+
 ## 调用方式
 
 [沙盒管理器](SandboxieControl.md) > [沙盒设置](SandboxSettings.md) > 删除 > 调用方式：
@@ -25,6 +27,8 @@
 只要第二个复选框处于勾选状态，即使你显式提出请求，Sandboxie 也不会对沙盒发起任何删除操作。重要提示：这并不能保护沙盒免于被其他程序删除。
 
 相关 [Sandboxie Ini](SandboxieIni.md) 设置项：[自动删除](AutoDelete.md)、[从不删除](NeverDelete.md)、[删除命令](DeleteCommand.md)。
+
+<div id="命令"></div>
 
 ## 命令
 

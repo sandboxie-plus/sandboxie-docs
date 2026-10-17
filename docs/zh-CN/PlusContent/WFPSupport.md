@@ -2,9 +2,13 @@
 
 **Sandboxie Plus v0.9.3** 引入了一种独特的网络连接管理方法，不仅实现了基于 Windows 过滤平台（WFP）的 **内核模式**（使用驱动程序）“按沙盒”防火墙，还实现了基于规则的 **用户模式** 出站数据包过滤器。
 
+<div id="enabling-wfp"></div>
+
 ### WFP 实现
 
 要启用 WFP 功能，请在配置文件 **[Sandboxie Ini](../Content/SandboxieIni.md)** 的 `[GlobalSettings]` 部分添加 `NetworkEnableWFP=y`，并 **重启计算机或重新加载驱动程序** 以使更改生效。WFP 过滤 **同时适用于入站和出站** 流量。
+
+<div id="allownetworkaccess"></div>
 
 - 要全局启用阻止功能，请在 `[GlobalSettings]` 部分添加 `AllowNetworkAccess=n`。
 - 要为某个沙盒（如 DefaultBox）启用 WFP 阻止功能，请在 `[DefaultBox]` 部分添加 `AllowNetworkAccess=n`。
