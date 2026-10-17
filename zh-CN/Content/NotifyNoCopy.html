@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="NotifyNoCopy is a sandbox setting in Sandboxie Ini, available since Sandboxie Plus 1.7.0. It enables messages for migration rules that deliberately omit some or all of a host file&#x27;s contents.">
+        <meta name="description" content="NotifyNoCopy 是 Sandboxie Ini 中的一项沙盒设置，自 Sandboxie Plus 1.7.0 起可用。它用于在迁移规则选择不复制宿主机文件的部分或全部内容时发出消息。">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>Notify No Copy - Sandboxie 文档</title>
+        <title>不复制通知 - Sandboxie 文档</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#notify-no-copy" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Notify No Copy
+              不复制通知
             
           </span>
         </div>
@@ -5584,25 +5584,25 @@
   
 
 
-<h1 id="notify-no-copy">Notify No Copy<a class="headerlink" href="#notify-no-copy" title="Permanent link"></a></h1>
-<p><em>NotifyNoCopy</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>, available since Sandboxie Plus 1.7.0. It enables messages for migration rules that deliberately omit some or all of a host file's contents.</p>
-<p>Usage:</p>
+<h1 id="_1">不复制通知<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<p><em>NotifyNoCopy</em> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 中的一项沙盒设置，自 Sandboxie Plus 1.7.0 起可用。它用于在迁移规则选择不复制宿主机文件的部分或全部内容时发出消息。</p>
+<p>用法：</p>
 <p><code>NotifyNoCopy=y|n</code></p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">NotifyNoCopy</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>This is a <a href="YesOrNoSettings.html">Yes Or No Setting</a>, not a path list. It applies to the sandbox in which it is configured (or to sandboxes that inherit it from <code>[GlobalSettings]</code>) and does not accept a program-name prefix. When the setting is absent or set to <code>n</code>, these notifications are disabled.</p>
-<p>When enabled, Sandboxie issues a message after an explicit file migration rule matches:</p>
+<p>此项是<a href="YesOrNoSettings.html">是或否设置</a>，不是路径列表。它适用于配置了此项的沙盒，或从 <code>[GlobalSettings]</code> 继承此项的沙盒，不接受程序名称前缀。未设置此项或设为 <code>n</code> 时，这些通知默认禁用。</p>
+<p>启用后，Sandboxie 会在显式文件迁移规则匹配时发出消息：</p>
 <ul>
-<li>SBIE2113 when <a href="CopyEmpty.html">CopyEmpty</a> selects a copy without the host file contents.</li>
-<li>SBIE2114 when <a href="DontCopy.html">DontCopy</a> selects non-copy with <a href="CopyBlockDenyWrite.html">CopyBlockDenyWrite</a> enabled, the deny-write mode for initial migration.</li>
-<li>SBIE2115 when <em>DontCopy</em> selects non-copy with deny-write disabled, the reduced-access retry mode for initial migration.</li>
+<li><a href="CopyEmpty.html">CopyEmpty</a> 选择创建不含宿主机文件内容的副本时，发出 SBIE2113。</li>
+<li><a href="DontCopy.html">DontCopy</a> 选择不复制，且启用了 <a href="CopyBlockDenyWrite.html">CopyBlockDenyWrite</a> 时，发出 SBIE2114；这对应初次迁移时的拒绝写入模式。</li>
+<li><em>DontCopy</em> 选择不复制，且未启用拒绝写入时，发出 SBIE2115；这对应初次迁移时移除写入和删除权限后重试打开的模式。</li>
 </ul>
-<p>The message includes the file name, sandbox name, and host file size. It is generated when the migration code selects the matching <em>CopyEmpty</em> or <em>DontCopy</em> rule, not merely when a sandboxed program reads the file.</p>
-<p>There is no dedicated <em>NotifyNoCopy</em> message for <a href="CopyNewer.html">CopyNewer</a>. However, its refresh migration can select <em>CopyEmpty</em> or <em>DontCopy</em> and emit the corresponding notification. These messages describe the selected migration mode, not proof of completed copying or the eventual open result. During a refresh, a non-copy result can leave the existing sandbox copy available rather than deny its open or retry against the host.</p>
-<p><em>NotifyNoCopy</em> does not report successful <a href="CopyAlways.html">CopyAlways</a> migrations, ordinary access to an existing sandbox copy without such a refresh, or general low-level copy failures. It also does not report a file rejected only by the <a href="CopyLimitKb.html">CopyLimitKb</a> size decision. Size-limit message SBIE2102 is controlled separately by <a href="CopyLimitSilent.html">CopyLimitSilent</a>.</p>
-<p>In SandMan, open Sandbox Options &gt; General Options &gt; File Migration and select <strong>Issue message 2113/2114/2115 when a file is not fully migrated</strong>.</p>
-<p>Related <a href="SandboxieIni.html">Sandboxie Ini</a> settings: <a href="CopyEmpty.html">CopyEmpty</a>, <a href="DontCopy.html">DontCopy</a>, <a href="CopyBlockDenyWrite.html">CopyBlockDenyWrite</a>, <a href="CopyLimitKb.html">CopyLimitKb</a>, <a href="CopyLimitSilent.html">CopyLimitSilent</a>. See also <a href="FileMigrationSettings.html">File Migration Settings</a>.</p>
+<p>消息包含文件名、沙盒名称和宿主机文件大小。它在迁移代码选中匹配的 <em>CopyEmpty</em> 或 <em>DontCopy</em> 规则时产生，不会仅因沙盒内程序读取文件而产生。</p>
+<p><a href="CopyNewer.html">CopyNewer</a> 没有专用的 <em>NotifyNoCopy</em> 消息。不过，它发起的刷新迁移也可能选中 <em>CopyEmpty</em> 或 <em>DontCopy</em>，从而发出相应通知。这些消息描述的是选中的迁移模式，不能证明复制已完成，也不代表最终的文件打开结果。刷新时，即使选择不复制，已有的沙盒副本仍可能可供程序使用，不一定会拒绝打开或重试访问宿主机文件。</p>
+<p><em>NotifyNoCopy</em> 不报告成功的 <a href="CopyAlways.html">CopyAlways</a> 迁移、未触发此类刷新的已有沙盒副本访问，也不报告一般的底层复制失败。它同样不报告仅因 <a href="CopyLimitKb.html">CopyLimitKb</a> 大小判断而被拒绝迁移的文件。大小限制消息 SBIE2102 由 <a href="CopyLimitSilent.html">CopyLimitSilent</a> 单独控制。</p>
+<p>在 SandMan 中，打开“沙盒选项 &gt; 常规选项 &gt; 文件迁移”，勾选<strong>当一个文件没有被完全迁移时，提示问题代码: SBIE2113 / SBIE2114 / SBIE2115</strong>。</p>
+<p>相关 <a href="SandboxieIni.html">Sandboxie Ini</a> 设置项：<a href="CopyEmpty.html">CopyEmpty</a>、<a href="DontCopy.html">DontCopy</a>、<a href="CopyBlockDenyWrite.html">CopyBlockDenyWrite</a>、<a href="CopyLimitKb.html">CopyLimitKb</a>、<a href="CopyLimitSilent.html">CopyLimitSilent</a>。另请参阅<a href="FileMigrationSettings.html">文件迁移设置</a>。</p>
 
 
 

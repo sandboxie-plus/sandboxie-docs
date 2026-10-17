@@ -6,12 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="InjectDll is a sandbox setting in Sandboxie Ini. It tells Sandboxie to &quot;inject&quot; a DLL into every program in the sandbox. &quot;Inject&quot; means the DLL is loaded into the process. For example:
-   .
-   .
-   .
-   [DefaultBox]
-   InjectDll=c:\Program Files\Sandboxie Utilities\Sample.dll">
+        <meta name="description" content="InjectDll is a sandbox setting in Sandboxie Ini that loads an additional DLL during the startup of an eligible sandboxed x86 process. &quot;Inject&quot; means loading the DLL into that process; it does not guarantee that every sandboxed program reaches the required loading stage. For example:">
       
       
       
@@ -5590,36 +5585,92 @@
 
 
 <h1 id="inject-dll">Inject Dll<a class="headerlink" href="#inject-dll" title="Permanent link"></a></h1>
-<p><em>InjectDll</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. It tells Sandboxie to "inject" a DLL into every program in the sandbox. "Inject" means the DLL is loaded into the process. For example:
+<p><em>InjectDll</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a> that loads an additional DLL during the startup of an eligible sandboxed x86 process. "Inject" means loading the DLL into that process; it does not guarantee that every sandboxed program reaches the required loading stage. For example:</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">InjectDll</span><span class="o">=</span><span class="s">c:\Program Files\Sandboxie Utilities\Sample.dll</span>
-</span></code></pre></div></p>
-<p>You should specify a full path to the DLL. If the DLL file itself resides within the sandbox, specify the full path inside the sandbox.</p>
-<p><strong>Note:</strong> The InjectDll setting specifies 32-bit DLLs, and will be ignored in a 64-bit process on 64-bit Windows. Use the <a href="../InjectDll64/">InjectDll64</a> setting to specify 64-bit DLLs.</p>
-<hr />
-<p>The order of DLLs loaded into the sandboxed program is thus:</p>
+</span></code></pre></div>
+<h2 id="architecture-selection">Architecture selection<a class="headerlink" href="#architecture-selection" title="Permanent link"></a></h2>
+<p>The applicable SbieDll build selects one setting list, not the Windows architecture alone. There is no fallback to another architecture's list. Use a DLL compatible with the target process:</p>
+<table>
+<thead>
+<tr>
+<th>Execution context</th>
+<th>Setting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x86</td>
+<td><code>InjectDll</code></td>
+</tr>
+<tr>
+<td>x86 on x64 Windows</td>
+<td><code>InjectDll</code></td>
+</tr>
+<tr>
+<td>Native x64</td>
+<td><code>InjectDll64</code></td>
+</tr>
+<tr>
+<td>Native ARM64</td>
+<td><code>InjectDllARM64</code></td>
+</tr>
+<tr>
+<td>x86 emulation on ARM64</td>
+<td><code>InjectDll</code></td>
+</tr>
+<tr>
+<td>x64 on ARM64 using Sandboxie's ARM64EC-specific build</td>
+<td><code>InjectDll64</code></td>
+</tr>
+</tbody>
+</table>
+<p>Use <a href="../InjectDll64/">InjectDll64</a> for the x64 path; native ARM64 uses <code>InjectDllARM64</code>. The x64-on-ARM64 mapping describes the inspected source/build model, not independently runtime-tested compatibility with arbitrary ARM64EC DLLs. See the <a href="https://github.com/sandboxie-plus/Sandboxie/blob/43b629be6c17628e6298befccfec279774895ba5/Sandboxie/core/dll/ldr_init.c#L34-L60">setting selection</a> and <a href="https://github.com/sandboxie-plus/Sandboxie/blob/43b629be6c17628e6298befccfec279774895ba5/Sandboxie/Sandbox64ec.props#L14-L18">ARM64EC build definitions</a>.</p>
+<h2 id="configuration-and-dll-paths">Configuration and DLL paths<a class="headerlink" href="#configuration-and-dll-paths" title="Permanent link"></a></h2>
+<p>Entries come from the effective configuration associated with the sandboxed process. Direct sandbox values, applicable enabled templates, and <code>GlobalSettings</code> values can participate. Repeat the setting for multiple DLLs. The <a href="https://github.com/sandboxie-plus/Sandboxie/blob/43b629be6c17628e6298befccfec279774895ba5/Sandboxie/core/dll/sbieapi.h#L371-L372">configuration query</a> disables variable expansion, not templates or global fallback; the <a href="https://github.com/sandboxie-plus/Sandboxie/blob/43b629be6c17628e6298befccfec279774895ba5/Sandboxie/core/drv/conf.c#L1505-L1567">driver lookup</a> supplies the effective values.</p>
+<p>Each value is a DLL path. This consumer does not interpret executable-name prefixes, ProcessGroup, or wildcard or negated process selectors.</p>
+<p>You should specify a full path to the DLL. If the DLL file itself resides within the sandbox, specify the full path inside the sandbox. The file must be accessible in the target process context, have a compatible architecture, and satisfy applicable image-mapping restrictions. Configuring its path does not guarantee successful loading.</p>
+<p>An installation-relative form begins with a backslash:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">InjectDll</span><span class="o">=</span><span class="s">\Extensions\Example.dll</span>
+</span></code></pre></div>
+<p>The loader prefixes this form with the Sandboxie installation directory when the combined path fits its length check. It is not a generic filesystem-root path. UNC-style or native paths beginning with backslashes should not be assumed to retain their original meaning.</p>
+<p>The <a href="https://github.com/sandboxie-plus/Sandboxie/blob/43b629be6c17628e6298befccfec279774895ba5/Sandboxie/core/dll/ldr_init.c#L178-L274">extra-DLL loader</a> requires a <code>.dll</code> suffix, case-insensitively, and skips strings containing literal <code>..</code> anywhere. It does not expand configuration variables or perform general path canonicalization. Some other relative strings reach the native loader, but this is not a verified arbitrary relative-path search contract; do not rely on bare or relative DLL names.</p>
+<h2 id="startup-and-multiple-dlls">Startup and multiple DLLs<a class="headerlink" href="#startup-and-multiple-dlls" title="Permanent link"></a></h2>
+<p>The current startup path loads configured DLLs after normal initialization of <a href="https://learn.microsoft.com/en-us/windows/win32/dlls/load-time-dynamic-linking">statically imported DLLs</a> and before the original executable entrypoint. Remaining Sandboxie entrypoint initialization follows the configured loads and callbacks. This replaces the old fixed system-DLL ordering; it is not a guarantee of the order of every Windows DLL. See the <a href="https://github.com/sandboxie-plus/Sandboxie/blob/43b629be6c17628e6298befccfec279774895ba5/Sandboxie/core/dll/ldr_init.c#L736-L910">entrypoint path</a>.</p>
+<p>SbieDll must reach this startup path, install the executable-entrypoint interception, and the process must reach that entrypoint. A zero executable entrypoint prevents this interception path; early exits or initialization failures can also prevent configured loading.</p>
+<p>Entries are processed sequentially in their effective enumeration order: query the value, validate its string, attempt native loading, and invoke an optional callback after a successful load before proceeding to the next entry. Dependencies, callbacks, and other loader activity can cause additional DLL loads, so the explicit list does not establish a total module-loading order.</p>
+<p>The consumer does not sort or deduplicate entries. Duplicate entries can cause repeated load attempts and callback lookup; they do not guarantee repeated Windows <code>DLL_PROCESS_ATTACH</code> notifications. Loading is not transactional and provides no automatic rollback.</p>
+<h2 id="optional-injectdllmain-callback">Optional InjectDllMain callback<a class="headerlink" href="#optional-injectdllmain-callback" title="Permanent link"></a></h2>
+<p>After a successful load, Sandboxie first looks for <code>InjectDllMain</code>, then <code>_InjectDllMain@8</code> if the first lookup supplies no address. A callback is optional: a DLL without a matching export can remain loaded. Declare the callback in your code:</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kr">__declspec</span><span class="p">(</span><span class="n">dllexport</span><span class="p">)</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="kr">__stdcall</span><span class="w"> </span><span class="n">InjectDllMain</span><span class="p">(</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="n">HINSTANCE</span><span class="w"> </span><span class="n">hSbieDll</span><span class="p">,</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="n">ULONG_PTR</span><span class="w"> </span><span class="n">UnusedParameter</span><span class="p">);</span>
+</span></code></pre></div>
+<p>The callback is synchronous. Its first argument is the loaded SbieDll module handle, not the injected DLL's handle; its second argument is zero. The loader does not consume a return value. A successful DLL load alone does not prove that a callback was found or executed successfully.</p>
+<p>Use appropriate C linkage (<code>extern "C"</code>) for a C++ implementation and verify the actual exported names and ABI. x86 <code>__stdcall</code> decoration matters; other architectures and toolchains can use different conventions. Use the intended export names rather than relying on permissive matching details in the <a href="https://github.com/sandboxie-plus/Sandboxie/blob/43b629be6c17628e6298befccfec279774895ba5/Sandboxie/core/dll/ldr.c#L1288-L1341">current lookup</a>.</p>
+<p>It is recommended to use <code>hSbieDll</code> when resolving SbieDll entrypoints: the supplied handle identifies the instance without assuming its filename. <code>LoadLibrary</code> or <code>GetModuleHandle</code> can also locate SbieDll by name when appropriate, but should not be assumed universally equivalent to the supplied handle. This callback is distinct from the separate <code>SbieDll_RegisterDllCallback</code> API.</p>
+<h2 id="sandman-and-classic-configuration">SandMan and Classic configuration<a class="headerlink" href="#sandman-and-classic-configuration" title="Permanent link"></a></h2>
+<p>In <strong>Sandbox Options &gt; Various Options &gt; Dlls &amp; Extensions</strong>, SandMan manages DLL mappings supplied by installed add-ons, not arbitrary custom DLL paths. Add-ons can supply x86, x64, and, in a native ARM64 SandMan build, ARM64 mappings.</p>
+<p>Checked, partially checked, and unchecked states reflect matches in the direct box lists for recognized add-on architecture mappings. Partial state is not an inheritance indicator. The panel does not display the full effective template/global configuration, so an unchecked add-on does not prove that no inherited DLL entry applies.</p>
+<p>Changing an add-on's state can remove or replace direct entries with a matching DLL suffix, including manually configured paths to another copy with that suffix. Entries without that suffix match are preserved. See the <a href="https://github.com/sandboxie-plus/Sandboxie/blob/43b629be6c17628e6298befccfec279774895ba5/SandboxiePlus/SandMan/Windows/OptionsAdvanced.cpp#L237-L286">panel loading</a> and <a href="https://github.com/sandboxie-plus/Sandboxie/blob/43b629be6c17628e6298befccfec279774895ba5/SandboxiePlus/SandMan/Windows/OptionsAdvanced.cpp#L509-L546">saving</a> code.</p>
+<p>For arbitrary custom paths, edit <a href="../SandboxieIni/">Sandboxie Ini</a> manually; SandMan also provides <strong>Edit ini Section &gt; Edit ini</strong>. <a href="../SandboxieControl/">Sandboxie Control</a> Classic does not provide the equivalent add-on panel. Its <strong>Configure &gt; Edit Configuration</strong> workflow opens the INI editor and can reload configuration after the editor exits.</p>
+<h2 id="applying-changes">Applying changes<a class="headerlink" href="#applying-changes" title="Permanent link"></a></h2>
+<p>Save/reload configuration as required by the editing workflow, then restart affected sandboxed applications to apply a changed DLL list reliably. Newly started eligible processes can use the updated effective entries. No service, driver, or Windows restart is inherently required solely for an ordinary list change.</p>
+<p>Already initialized processes do not automatically reenumerate the list, and removing an entry does not automatically unload a DLL already loaded into them. A process created before reload but not yet at its startup query may still see the updated values.</p>
+<h2 id="failures-and-trust">Failures and trust<a class="headerlink" href="#failures-and-trust" title="Permanent link"></a></h2>
 <ul>
-<li>Ntdll.dll</li>
-<li>KernelBase.dll (on Windows 7 and later)</li>
-<li>Kernel32.dll</li>
-<li>SbieDll.dll (on 64-bit Windows, this can be either the 64-bit SbieDll or the 32-bit SbieDll)</li>
-<li><em>InjectDlls</em> (loaded in the order specified in Sandboxie.ini)</li>
-<li>Optionally, ShimEng (or AppHelp on Windows 7 and later) and related DLLs</li>
-<li>All <a href="https://msdn.microsoft.com/en-us/library/ms684184(VS.85).aspx">statically-linked</a> DLLs</li>
+<li>Missing effective entries mean no extra DLLs from these settings. Oversized values can be skipped, while other configuration-query failures can stop enumeration.</li>
+<li>A wrong extension or literal <code>..</code> causes that entry to be skipped; later entries can still be processed.</li>
+<li>Ordinary native load failure, such as a missing, inaccessible, or incompatible DLL, does not invoke its callback and normally allows the next entry to be attempted. Applicable image-mapping policy can also deny loading.</li>
+<li>A missing callback is not a load failure. Callback faults have no demonstrated local exception-isolation barrier and can interrupt subsequent loading or startup. Early initialization or entrypoint-interception failures can prevent this path entirely.</li>
 </ul>
-<p>The behavior described above applies to Sandboxie version 3.46 and later. Earlier versions of Sandboxie implemented a different behavior which is described below:</p>
-<p>The injected DLL is loaded into the sandboxed process (or program) after all the statically-linked DLLs are loaded and initialized, but before the program itself begins to execute at its entry point.</p>
-<hr />
-<p>If the DLL exports the symbol <strong>InjectDllMain</strong> or <strong>InjectDllMain@8</strong>, Sandboxie will call this procedure after the DLL is loaded, and pass the address of the SbieDll module. Declare InjectDllMain in your code:
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">   </span><span class="na">__declspec(dllexport) void __stdcall InjectDllMain(</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">      </span><span class="na">HINSTANCE hSbieDll, ULONG_PTR UnusedParameter);</span>
-</span></code></pre></div></p>
-<p>It is recommended to use the <strong>hSbieDll</strong> parameter as the module instance handle for SbieDll.Dll, instead of relying on GetModuleHandle("SbieDll.dll"). This makes it possible for the injected DLL to interact with SbieDll.dll regardless of the actual name used for SbieDll.dll. However, using LoadLibrary or GetModuleHandle to look up SbieDll by name is also fine.</p>
-<hr />
-<p>At this time, this setting cannot be manipulated from <a href="../SandboxieControl/">Sandboxie Control</a>. You have to manually edit it into <a href="../SandboxieIni/">Sandboxie Ini</a>.</p>
+<p>Ordinary load-failure continuation is not a guarantee for allocation failures, callback faults, or startup failures. These settings provide no universal recovery or retry mechanism, and failures can be diagnosed by other Windows or Sandboxie components.</p>
+<p>Load only trusted, architecture-compatible DLLs and protect their storage from unintended modification. A DLL in a writable sandbox location can be changed before a later process loads it. Ordinary injected code runs inside the target sandboxed process under its existing identity and restrictions; loading it does not independently grant unrestricted host privileges or bypass applicable file and image-mapping policy.</p>
+<p><a href="../HostInjection/">Host Injection</a> is a separate path with different target identity, path restrictions, and initialization behavior. Do not use its <code>HostInjectDll*</code> examples as ordinary <code>InjectDll*</code> guidance.</p>
 <p>See also: <a href="../InjectDll64/">InjectDll64</a>, <a href="../SBIEDLLAPI/">SBIE DLL API</a>, <a href="../StartCommandLine/">Start Command Line</a>.</p>
 
 

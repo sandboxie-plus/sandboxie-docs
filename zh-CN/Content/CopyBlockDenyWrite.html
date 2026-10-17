@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="CopyBlockDenyWrite is a sandbox setting in Sandboxie Ini, available since Sandboxie Plus 0.6.5. It controls what happens to an open that needs file migration when Sandboxie has decided not to copy the host file.">
+        <meta name="description" content="CopyBlockDenyWrite 是 Sandboxie Ini 中的一项沙盒设置，自 Sandboxie Plus 0.6.5 起可用。当 Sandboxie 决定不复制宿主机文件时，此设置控制依赖文件迁移的打开操作如何处理。">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>Copy Block Deny Write - Sandboxie 文档</title>
+        <title>不复制时拒绝写入 - Sandboxie 文档</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#copy-block-deny-write" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Copy Block Deny Write
+              不复制时拒绝写入
             
           </span>
         </div>
@@ -5584,20 +5584,20 @@
   
 
 
-<h1 id="copy-block-deny-write">Copy Block Deny Write<a class="headerlink" href="#copy-block-deny-write" title="Permanent link"></a></h1>
-<p><em>CopyBlockDenyWrite</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>, available since Sandboxie Plus 0.6.5. It controls what happens to an open that needs file migration when Sandboxie has decided not to copy the host file.</p>
-<p>Usage:</p>
+<h1 id="_1">不复制时拒绝写入<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<p><em>CopyBlockDenyWrite</em> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 中的一项沙盒设置，自 Sandboxie Plus 0.6.5 起可用。当 Sandboxie 决定不复制宿主机文件时，此设置控制依赖文件迁移的打开操作如何处理。</p>
+<p>用法：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">CopyBlockDenyWrite</span><span class="o">=</span><span class="s">y</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">CopyBlockDenyWrite</span><span class="o">=</span><span class="s">viewer.exe,n</span>
 </span></code></pre></div>
-<p>The syntax is <code>CopyBlockDenyWrite=[program,]y|n</code>. The optional <a href="ProgramNamePrefix.html">Program Name Prefix</a> makes the value apply only to that executable. Multiple entries can provide values for different programs, but this is a yes-or-no setting rather than a path list.</p>
-<p>For initial migration, when set to <code>y</code>, an open that requires a sandbox copy fails with access denied if the migration decision is <strong>do not copy</strong>. When absent or set to <code>n</code>, Sandboxie instead removes write and delete rights from the request and retries the open against the host file. A read-capable request may therefore succeed as read-only; a request that cannot be satisfied after those rights are removed may still fail.</p>
-<p>The <strong>do not copy</strong> decision can come from a matching <a href="DontCopy.html">DontCopy</a> rule or from the normal size decision controlled by <a href="CopyLimitKb.html">CopyLimitKb</a>, including when a large-file prompt is unavailable or declined. This setting does not itself choose files or prevent successful migrations.</p>
-<p>Matching <a href="CopyAlways.html">CopyAlways</a> and <a href="CopyEmpty.html">CopyEmpty</a> rules select copy modes instead, so <em>CopyBlockDenyWrite</em> does not act on those outcomes. When <a href="CopyNewer.html">CopyNewer</a> initiates a refresh, this setting can affect the refresh migration's result. A failed refresh does not necessarily deny the subsequent open of the already-existing sandbox copy.</p>
-<p><a href="CopyLimitSilent.html">CopyLimitSilent</a> only controls message SBIE2102 for a size-based refusal; it does not change the migration decision. For an explicit <em>DontCopy</em> rule, enabling <a href="NotifyNoCopy.html">NotifyNoCopy</a> produces SBIE2114 when this setting is <code>y</code>, or SBIE2115 when it is <code>n</code>. These messages describe the selected mode, not the final result of opening an existing copy after a refresh attempt.</p>
-<p>In SandMan, open Sandbox Options &gt; General Options &gt; File Migration. The checkbox is phrased in the opposite direction: <strong>When a file cannot be migrated, open it in read-only mode instead</strong>. Clearing that checkbox enables <code>CopyBlockDenyWrite=y</code>.</p>
-<p>Related <a href="SandboxieIni.html">Sandboxie Ini</a> settings: <a href="DontCopy.html">DontCopy</a>, <a href="CopyAlways.html">CopyAlways</a>, <a href="CopyEmpty.html">CopyEmpty</a>, <a href="CopyLimitKb.html">CopyLimitKb</a>, <a href="CopyLimitSilent.html">CopyLimitSilent</a>, <a href="NotifyNoCopy.html">NotifyNoCopy</a>. See also <a href="FileMigrationSettings.html">File Migration Settings</a>.</p>
+<p>语法为 <code>CopyBlockDenyWrite=[program,]y|n</code>。可选的<a href="ProgramNamePrefix.html">程序名称前缀</a>可将该值限定为仅适用于指定的可执行文件。可以通过多条配置为不同程序设置不同的值，但此项是“是或否”设置，不是路径列表。</p>
+<p>对于初次迁移，若设为 <code>y</code>，当迁移判断选择<strong>不复制</strong>时，需要沙盒副本的文件打开操作将返回“拒绝访问”。未设置此项或设为 <code>n</code> 时，Sandboxie 会移除请求中的写入和删除权限，然后重试打开宿主机文件。因此，包含读取权限的请求可能以只读方式成功打开文件；若移除这些权限后仍无法满足请求，打开操作仍可能失败。</p>
+<p><strong>不复制</strong>的决定可能来自匹配的 <a href="DontCopy.html">DontCopy</a> 规则，也可能来自 <a href="CopyLimitKb.html">CopyLimitKb</a> 控制的常规大小判断，包括大文件提示无法获得答复或用户拒绝迁移的情况。此设置本身不会选择文件，也不会阻止原本能够成功的迁移。</p>
+<p>匹配的 <a href="CopyAlways.html">CopyAlways</a> 和 <a href="CopyEmpty.html">CopyEmpty</a> 规则会选择相应的复制模式，<em>CopyBlockDenyWrite</em> 不作用于这些结果。当 <a href="CopyNewer.html">CopyNewer</a> 发起刷新时，此设置可能影响刷新迁移的结果。刷新失败不一定会阻止随后打开已有的沙盒副本。</p>
+<p><a href="CopyLimitSilent.html">CopyLimitSilent</a> 仅控制因大小限制而拒绝迁移时的 SBIE2102 消息，不改变迁移决定。对于显式 <em>DontCopy</em> 规则，启用 <a href="NotifyNoCopy.html">NotifyNoCopy</a> 后，此设置为 <code>y</code> 时会产生 SBIE2114，为 <code>n</code> 时会产生 SBIE2115。这些消息描述的是选中的模式，不代表刷新尝试后打开已有副本的最终结果。</p>
+<p>在 SandMan 中，打开“沙盒选项 &gt; 常规选项 &gt; 文件迁移”。复选框的表述方向与此设置相反：<strong>当一个文件不能被迁移时，尝试以只读模式打开它</strong>。取消勾选该项会启用 <code>CopyBlockDenyWrite=y</code>。</p>
+<p>相关 <a href="SandboxieIni.html">Sandboxie Ini</a> 设置项：<a href="DontCopy.html">DontCopy</a>、<a href="CopyAlways.html">CopyAlways</a>、<a href="CopyEmpty.html">CopyEmpty</a>、<a href="CopyLimitKb.html">CopyLimitKb</a>、<a href="CopyLimitSilent.html">CopyLimitSilent</a>、<a href="NotifyNoCopy.html">NotifyNoCopy</a>。另请参阅<a href="FileMigrationSettings.html">文件迁移设置</a>。</p>
 
 
 

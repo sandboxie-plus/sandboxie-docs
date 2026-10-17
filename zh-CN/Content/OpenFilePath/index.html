@@ -5597,8 +5597,8 @@
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">   </span><span class="na">OpenFilePath</span><span class="o">=</span><span class="s">iexplore.exe,%Favorites%</span>
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">   </span><span class="na">OpenFilePath</span><span class="o">=</span><span class="s">msimn.exe,*.eml</span>
 </span></code></pre></div></p>
-<p>查看这些示例时请记住：Sandboxie 会在值的末尾添加一个_星号通配符_，<em>除非值中任何位置已出现星号</em>。例如，<em>C:\Downloads_ 变成 _C:\Downloads*</em>，而 <em>*.eml</em> 保持不变。</p>
-<p><em>星号通配符_用于指定带有可变、未知部分的模式。例如，_a.eml</em> 只匹配这一个文件，而 <em>*.eml</em> 匹配 <em>a.eml</em>、<em>test.eml</em>、<em>important message.eml</em> 等等。但请注意，两种形式都不匹配 <em>a.txt</em>。</p>
+<p>查看这些示例时请记住：Sandboxie 会在值的末尾添加一个_星号通配符_，<em>除非值中任何位置已出现星号</em>。例如，_C:\Downloads_ 变成 <em>C:\Downloads*</em>，而 <em>*.eml</em> 保持不变。</p>
+<p>_星号通配符_用于指定带有可变、未知部分的模式。例如，<em>a.eml</em> 只匹配这一个文件，而 <em>*.eml</em> 匹配 <em>a.eml</em>、<em>test.eml</em>、<em>important message.eml</em> 等等。但请注意，两种形式都不匹配 <em>a.txt</em>。</p>
 <p>第一个示例设置指定：在 <em>C:\Downloads</em> 文件夹（及其下任何文件夹）中创建的任何文件（或文件夹）都不会被沙盒化。注意末尾的反斜杠很重要，因为会在字符串末尾放置一个星号。</p>
 <p>第二个示例展示如何使用通配符免除 <em>*.eml</em> 文件的沙盒化，无论它们在哪里创建。<em>.eml</em> 文件通常由 Outlook 和 Outlook Express 在消息被显式保存到磁盘时创建。</p>
 <p>第三个示例设置指定：当前用户帐户的收藏夹文件夹应被免除。这意味着新的收藏夹快捷方式将被添加到沙盒外。此示例使用了程序名称前缀，因此该设置只适用于 Internet Explorer 程序 <em>iexplore.exe</em>。</p>

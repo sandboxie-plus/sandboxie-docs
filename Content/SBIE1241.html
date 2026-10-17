@@ -2621,6 +2621,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SBIE1241
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="SBIE1241.html" class="md-nav__link md-nav__link--active">
         
   
@@ -2637,6 +2655,47 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#diagnostic-stages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagnostic stages
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -5606,10 +5665,78 @@
 <p><strong>Message:</strong> SBIE1241 Cannot mount registry hive: <em>[xxxxxxxx / yy]</em></p>
 <p><strong>Logged To:</strong> <a href="PopupMessageLog.html">Popup Message Log</a>.</p>
 <p><strong>Explanation:</strong></p>
-<p>When a sandboxed program starts, Sandboxie may need to prepare the sandboxed registry for that sandbox. Sandboxie will load the <a href="http://en.wikipedia.org/wiki/Windows_Registry#Hives">registry hive file</a> into the system. This error message indicates a problem has occurred and the registry hive file was not loaded.</p>
-<p>If yy is 11, the <a href="KeyRootPath.html">KeyRootPath</a> setting may be improperly set, causing more than one sandbox to use the same registry location (or registry key).</p>
-<p>If yy is 22, the registry hive file may be corrupt, or the drive containing the registry hive file (and its associated sandbox) may be full.</p>
-<p>If yy is 33, the <a href="FileRootPath.html">FileRootPath</a> setting may be improperly set, causing more than one sandbox to use the same registry hive file.</p>
+<p>When a sandboxed program starts, Sandboxie may need to prepare the sandboxed registry for that sandbox. The <a href="http://en.wikipedia.org/wiki/Windows_Registry#Hives">registry hive file</a>, <code>RegHive</code>, resides beneath the resolved sandbox file root (see <a href="FileRootPath.html">FileRootPath</a> for its configuration and fallback behavior). It is mounted at the Registry destination determined by <a href="KeyRootPath.html">KeyRootPath</a>. Existing mounted hives can be shared and reused by subsequent sandboxed processes; a new process does not necessarily load the hive again.</p>
+<p>SBIE1241 reports a failure during hive initialization, mount-association verification, or related security handling. It does not necessarily mean the hive was never loaded. Hive mounting is separate from the logical Registry view described in <a href="RegistryVirtualization.html">Registry Virtualization</a>.<sup id="fnref:mount"><a class="footnote-ref" href="#fn:mount">1</a></sup></p>
+<p>In the message, <code>xxxxxxxx</code> is a hexadecimal NTSTATUS value and <code>yy</code> is a hexadecimal diagnostic stage. Displayed <code>11</code> means <code>0x11</code>, not decimal 11. Leading zeros are formatting padding. Interpret the two fields together: NTSTATUS is not a decimal Win32 error and is not automatically equivalent to <code>GetLastError()</code>. Stage numbers identify failure points, not chronological steps.<sup id="fnref:format"><a class="footnote-ref" href="#fn:format">2</a></sup></p>
+<p>These diagnostics originate in the shared driver used by Sandboxie Classic and Sandboxie Plus. The Popup Message Log link above describes the Classic interface; Sandboxie Plus's SandMan presents the same diagnostic family through its message and notification handling.</p>
+<h2 id="diagnostic-stages">Diagnostic stages<a class="headerlink" href="#diagnostic-stages" title="Permanent link"></a></h2>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x11</code></td>
+<td>An existing mount association uses the same Registry destination but a different hive-file path, and still has active references. Reports <code>STATUS_CANNOT_LOAD_REGISTRY_FILE</code> (<code>C0000218</code>).</td>
+</tr>
+<tr>
+<td><code>0x22</code></td>
+<td>The ordinary native hive-loading operation, <code>ZwLoadKey</code>, failed. Its returned NTSTATUS is preserved.</td>
+</tr>
+<tr>
+<td><code>0x23</code></td>
+<td>The alternate system-thread mounting workflow failed. It can be selected for certain app-package-associated processes after a destination-open failure. Failure can occur before or during loading, or afterward while opening or securing the mounted key.</td>
+</tr>
+<tr>
+<td><code>0x33</code></td>
+<td>The Registry destination already exists, but verifying its hive association failed. This includes opening or querying the system hivelist, allocating query storage, or detecting a different backing hive-file path. The mismatch reports <code>STATUS_OBJECT_NAME_COLLISION</code>; other inspection failures retain their own status.</td>
+</tr>
+<tr>
+<td><code>0x41</code></td>
+<td>Opening the process token failed before ordinary hive loading. The native NTSTATUS is preserved.</td>
+</tr>
+<tr>
+<td><code>0x42</code></td>
+<td>Retrieving the original token default discretionary access-control list (DACL) failed. Reports generic <code>STATUS_UNSUCCESSFUL</code> (<code>C0000001</code>), not necessarily the underlying query error.</td>
+</tr>
+<tr>
+<td><code>0x43</code></td>
+<td>Applying the temporary token default DACL failed. The native NTSTATUS is preserved; ordinary hive loading has not yet been attempted.</td>
+</tr>
+<tr>
+<td><code>0x44</code></td>
+<td>Restoring the original token default DACL failed after the native load attempt. The restoration status is preserved, even if loading succeeded.</td>
+</tr>
+</tbody>
+</table>
+<p>Stages <code>0x23</code> and <code>0x44</code> can occur after successful native loading. For <code>0x44</code> following load success, a service notification has already been attempted, but this does not confirm delivery or successful service processing. Do not assume that failed initialization rolled back a successful load.<sup id="fnref2:mount"><a class="footnote-ref" href="#fn:mount">1</a></sup></p>
+<p>Not every hive-initialization failure emits SBIE1241. Earlier path or storage preparation, memory allocation, or mount-record and Registry-root length checks can fail separately. A failed hive mount during process initialization can also produce <code>SBIE1231</code> with initialization subcode <code>A3</code>; this is separate from the SBIE1241 stage.<sup id="fnref:startup"><a class="footnote-ref" href="#fn:startup">3</a></sup></p>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link"></a></h2>
+<p>Save the complete message, including the full NTSTATUS and stage, the affected sandbox name, application/process context, and nearby Sandboxie messages. The log message does not always identify the initiating application or sandbox directly.</p>
+<ul>
+<li>For stages <code>0x11</code> and <code>0x33</code>, check the effective <code>KeyRootPath</code> and <code>FileRootPath</code>, recent changes to either path, and whether other processes still use the affected box or mount association. Check for overlapping destinations between boxes. An association conflict involves one Registry destination and a different hive-file path, not necessarily invalid setting syntax.</li>
+<li>For stages <code>0x22</code> and <code>0x23</code>, interpret the NTSTATUS in the actual loading and storage context. Corrupt or invalid hive data and a full drive remain possible causes, but path/accessibility problems, unavailable storage, and other native failures are also possible. Consider image-backed or RAM-backed storage prerequisites when applicable.</li>
+<li>For stages <code>0x41</code>-<code>0x44</code>, preserve related token or security diagnostics. <a href="SBIE1222.html">SBIE1222</a> may provide additional token-query context; <code>SBIE1231</code> concerns process initialization, while <a href="SBIE2208.html">SBIE2208</a> concerns hive unloading. These are separate diagnostics, not interchangeable errors.</li>
+</ul>
+<p>Stopping affected processes can help when investigating shared mount state, but restarting one application does not necessarily clear an active association. Configuration reload does not guarantee immediate remounting of an active hive.</p>
+<p>Do not delete, rename, or reset <code>RegHive</code> as a default fix. Before any operation that could modify or remove sandbox data, arrange appropriate backup and preservation measures. Avoid blindly changing Registry ACLs, taking ownership, disabling security restrictions, or treating reinstallation as a universal remedy.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:mount">
+<p><a href="https://github.com/sandboxie-plus/Sandboxie/blob/0863e12a68b7d7d452be1d90eb4f1960aaba6751/Sandboxie/core/drv/key.c#L629-L1255">Current hive-mount implementation</a>.&#160;<a class="footnote-backref" href="#fnref:mount" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:mount" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:format">
+<p><a href="https://github.com/sandboxie-plus/Sandboxie/blob/0863e12a68b7d7d452be1d90eb4f1960aaba6751/Sandboxie/core/drv/log.c#L229-L275">Status formatting</a>.&#160;<a class="footnote-backref" href="#fnref:format" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:startup">
+<p><a href="https://github.com/sandboxie-plus/Sandboxie/blob/0863e12a68b7d7d452be1d90eb4f1960aaba6751/Sandboxie/core/drv/process.c#L1697-L1752">Process initialization failure handling</a>.&#160;<a class="footnote-backref" href="#fnref:startup" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
 
 

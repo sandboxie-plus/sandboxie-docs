@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="CopyAlways is a sandbox setting in Sandboxie Ini, available since Sandboxie Plus 0.6.5. It specifies host-file path patterns that must be migrated with their contents when a sandboxed program needs a sandbox copy.">
+        <meta name="description" content="CopyAlways 是 Sandboxie Ini 中的一项沙盒设置，自 Sandboxie Plus 0.6.5 起可用。它指定宿主机文件的路径模式：当沙盒内的程序需要沙盒副本时，匹配的文件应连同内容一起迁移。">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>Copy Always - Sandboxie 文档</title>
+        <title>始终复制 - Sandboxie 文档</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#copy-always" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Copy Always
+              始终复制
             
           </span>
         </div>
@@ -5584,26 +5584,26 @@
   
 
 
-<h1 id="copy-always">Copy Always<a class="headerlink" href="#copy-always" title="Permanent link"></a></h1>
-<p><em>CopyAlways</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>, available since Sandboxie Plus 0.6.5. It specifies host-file path patterns that must be migrated with their contents when a sandboxed program needs a sandbox copy.</p>
-<p>Usage:</p>
+<h1 id="_1">始终复制<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<p><em>CopyAlways</em> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 中的一项沙盒设置，自 Sandboxie Plus 0.6.5 起可用。它指定宿主机文件的路径模式：当沙盒内的程序需要沙盒副本时，匹配的文件应连同内容一起迁移。</p>
+<p>用法：</p>
 <p><code>CopyAlways=[program,]pattern</code></p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">CopyAlways</span><span class="o">=</span><span class="s">C:\Data\Reference\*.db</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">CopyAlways</span><span class="o">=</span><span class="s">reporter.exe,*\Reports\*.csv</span>
 </span></code></pre></div>
-<p>Each <em>CopyAlways</em> entry is one rule, and the setting may be repeated. The optional prefix before the comma limits a rule to that program; see <a href="ProgramNamePrefix.html">Program Name Prefix</a>. Paths use the same pattern form as <a href="OpenFilePath.html">OpenFilePath</a>. Matching is case-insensitive and is performed against the host (true) file path. <code>*</code> matches any sequence of characters, including path separators, and <code>?</code> matches one character.</p>
-<p>When a program prefix is used, current setting metadata requires the drive or device portion of a path to be represented by a wildcard, for example <code>*\Reports\*.csv</code>. Do not use a fixed drive path such as <code>C:\Reports\*.csv</code> or rely on an <a href="ExpandableVariables.html">expandable variable</a> that becomes a full path in a program-specific rule.</p>
-<p>Normally, Sandboxie migrates an existing host file only when a sandboxed program requests an operation that needs a sandbox copy. If the file matches <em>CopyAlways</em>, Sandboxie selects a full-content migration before considering <a href="CopyLimitKb.html">CopyLimitKb</a>. The configured size threshold and the large-file prompt are therefore bypassed for the matching migration; <a href="CopyLimitSilent.html">CopyLimitSilent</a> has no effect on it.</p>
-<p>If <em>CopyAlways</em> is absent or no entry matches, Sandboxie uses another matching migration rule or its normal size-based decision. When rules overlap, <a href="DontCopy.html">DontCopy</a> takes priority over <em>CopyAlways</em>, and <em>CopyAlways</em> takes priority over <a href="CopyEmpty.html">CopyEmpty</a>. <a href="CopyNewer.html">CopyNewer</a> is separate: it triggers a refresh of an existing sandbox copy. <em>CopyAlways</em> does not itself trigger that refresh, but a matching rule can select full-content migration inside it before the normal size limit and prompt.</p>
-<p>Please note the following limitations:</p>
+<p>每条 <em>CopyAlways</em> 配置对应一条规则，可重复添加。逗号前的可选前缀用于将规则限定到指定程序，参见<a href="ProgramNamePrefix.html">程序名称前缀</a>。路径模式的格式与 <a href="OpenFilePath.html">OpenFilePath</a> 相同。匹配不区分大小写，以宿主机文件的真实路径为准。<code>*</code> 匹配任意长度的字符序列，包括路径分隔符；<code>?</code> 匹配单个字符。</p>
+<p>使用程序名称前缀时，当前设置定义要求将路径中的驱动器或设备部分写成通配符，例如 <code>*\Reports\*.csv</code>。在限定程序的规则中，不要使用 <code>C:\Reports\*.csv</code> 这样的固定驱动器路径，也不要依赖会展开为完整路径的<a href="ExpandableVariables.html">可展开变量</a>。</p>
+<p>通常，只有沙盒内的程序请求的操作需要沙盒副本时，Sandboxie 才会迁移已有的宿主机文件。如果文件匹配 <em>CopyAlways</em>，Sandboxie 会在检查 <a href="CopyLimitKb.html">CopyLimitKb</a> 之前选择迁移完整内容。因此，匹配的迁移不受所设大小阈值的限制，也不会触发大文件提示；<a href="CopyLimitSilent.html">CopyLimitSilent</a> 对它没有影响。</p>
+<p>未配置 <em>CopyAlways</em> 或没有匹配项时，Sandboxie 会采用其他匹配的迁移规则，或按常规大小判断决定如何处理。规则重叠时，<a href="DontCopy.html">DontCopy</a> 优先于 <em>CopyAlways</em>，<em>CopyAlways</em> 优先于 <a href="CopyEmpty.html">CopyEmpty</a>。<a href="CopyNewer.html">CopyNewer</a> 单独处理已有沙盒副本的刷新。<em>CopyAlways</em> 本身不会触发刷新，但刷新过程中若匹配此规则，会在常规大小限制和提示判断之前选择迁移完整内容。</p>
+<p>请注意以下限制：</p>
 <ul>
-<li>The rule is consulted for an existing regular host file only when its contents would otherwise be migrated. It does not itself trigger a refresh of an existing sandbox copy and does not govern new files, directories, or create/overwrite operations that do not copy host contents.</li>
-<li>The rule overrides the migration-size decision, but it cannot guarantee that inaccessible host contents can be read. The rule does not bypass host-file access restrictions. If Sandboxie cannot access the source file as required for migration, the migration may fail or proceed without copying its contents.</li>
-<li>The host file is not modified; subsequent writes are made to the sandbox copy.</li>
+<li>只有已有的普通宿主机文件需要迁移内容时，才会检查此规则。它本身不会触发已有沙盒副本的刷新，也不控制新建文件、目录，以及无需复制宿主机文件内容的创建或覆盖操作。</li>
+<li>此规则可覆盖迁移大小判断，但无法保证读取不可访问的宿主机文件内容，也不会绕过宿主机文件的访问限制。如果 Sandboxie 无法按迁移要求访问源文件，迁移可能失败，也可能继续进行但不复制文件内容。</li>
+<li>宿主机文件不会被修改，后续写入会作用于沙盒副本。</li>
 </ul>
-<p>Copy rules can be managed in SandMan under Sandbox Options &gt; General Options &gt; File Migration. Choose <strong>Always copy</strong> for this rule type.</p>
-<p>Related <a href="SandboxieIni.html">Sandboxie Ini</a> settings: <a href="DontCopy.html">DontCopy</a>, <a href="CopyEmpty.html">CopyEmpty</a>, <a href="CopyNewer.html">CopyNewer</a>, <a href="CopyLimitKb.html">CopyLimitKb</a>, <a href="CopyLimitSilent.html">CopyLimitSilent</a>. See also <a href="FileMigrationSettings.html">File Migration Settings</a>.</p>
+<p>可以在 SandMan 的沙盒选项 &gt; 常规选项 &gt; 文件迁移中管理复制规则。此规则类型对应<strong>始终复制</strong>。</p>
+<p>相关 <a href="SandboxieIni.html">Sandboxie Ini</a> 设置项：<a href="DontCopy.html">DontCopy</a>、<a href="CopyEmpty.html">CopyEmpty</a>、<a href="CopyNewer.html">CopyNewer</a>、<a href="CopyLimitKb.html">CopyLimitKb</a>、<a href="CopyLimitSilent.html">CopyLimitSilent</a>。另请参阅<a href="FileMigrationSettings.html">文件迁移设置</a>。</p>
 
 
 

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="SbieIni.exe is a small command-line utility for querying and updating the Sandboxie configuration file Sandboxie.ini. This page documents common invocation forms, examples for automation, and implementation references for maintainers.">
+        <meta name="description" content="SbieIni.exe is a small command-line utility for inspecting and changing Sandboxie configuration. Queries read the configuration currently held by the driver. Ordinary updates edit Sandboxie.ini through the service and attempt to reload it; /drv is a separate advanced direct-driver update route.">
       
       
       
@@ -949,10 +949,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#delete-remove-a-value-line-that-exactly-matches-the-supplied-value" class="md-nav__link">
+  <a href="#delete-remove-matching-value-lines" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Delete — remove a value line that exactly matches the supplied value
+        Delete — remove matching value lines
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#password-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Password handling
       
     </span>
   </a>
@@ -972,6 +983,45 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Advanced and automation notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#direct-driver-updates-drv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Direct-driver updates (/drv)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exit-codes-and-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exit codes and verification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cmd-parsing-and-concurrent-edits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CMD parsing and concurrent edits
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -5789,86 +5839,150 @@
 
 
 <h1 id="sbieini-command-line">SbieIni Command Line<a class="headerlink" href="#sbieini-command-line" title="Permanent link"></a></h1>
-<p>SbieIni.exe is a small command-line utility for querying and updating the Sandboxie configuration file <a href="SandboxieIni.html">Sandboxie.ini</a>. This page documents common invocation forms, examples for automation, and implementation references for maintainers.</p>
+<p>SbieIni.exe is a small command-line utility for inspecting and changing Sandboxie configuration. Queries read the configuration currently held by the driver. Ordinary updates edit <a href="SandboxieIni.html">Sandboxie.ini</a> through the service and attempt to reload it; <code>/drv</code> is a separate advanced direct-driver update route.</p>
 <h2 id="quick-start">Quick start<a class="headerlink" href="#quick-start" title="Permanent link"></a></h2>
 <div class="language-batch highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>SbieIni.exe queryex DefaultBox RecoverFolder
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>SbieIni.exe set DefaultBox RecoverFolder <span class="nv">%Desktop%</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>SbieIni.exe set DefaultBox RecoverFolder <span class="s2">"C:\Recovery"</span>
 </span></code></pre></div>
+<p>To store the literal Sandboxie variable <code>%Desktop%</code> from a <strong>batch file</strong>, double the percent signs:</p>
+<div class="language-batch highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>SbieIni.exe set DefaultBox RecoverFolder <span class="s2">"</span><span class="se">%%</span><span class="s2">Desktop</span><span class="se">%%</span><span class="s2">"</span>
+</span></code></pre></div>
+<p>CMD expands its own <code>%VAR%</code> expressions before SbieIni.exe receives them; the doubled-percent example above is specifically batch-file syntax.</p>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h2>
-<p>SbieIni.exe supports two primary workflows:</p>
+<p>SbieIni.exe supports three distinct workflows:</p>
 <ul>
-<li>Querying configuration values (read-only)</li>
-<li>Updating the configuration (<code>set</code>, <code>append</code>, <code>insert</code>, <code>delete</code>)</li>
+<li>Querying driver-resident configuration (read-only).</li>
+<li>Updating persistent configuration through the service (<code>set</code>, <code>append</code>, <code>insert</code>, <code>delete</code>), followed by save and driver-reload attempts.</li>
+<li>Updating driver-resident configuration directly with <code>/drv</code>, without the ordinary INI save or reload.</li>
 </ul>
 <h2 id="invocation-summary">Invocation summary<a class="headerlink" href="#invocation-summary" title="Permanent link"></a></h2>
 <p>Basic forms:</p>
-<div class="language-batch highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>SbieIni.exe query    <span class="p">&lt;</span>section<span class="p">&gt;</span> [setting]
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>SbieIni.exe queryex  [/expand] [/boxes] <span class="p">&lt;</span>section<span class="p">&gt;</span> [setting]
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>SbieIni.exe set<span class="p">|</span>append<span class="p">|</span>insert<span class="p">|</span>delete [/passwd:********] [/drv] <span class="p">&lt;</span>section<span class="p">&gt;</span> &lt;setting<span class="p">&gt;</span> &lt;value&gt;
+<div class="language-batch highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>SbieIni.exe query    [/expand] [/boxes] <span class="p">&lt;</span>section<span class="p">&gt;</span> [setting]
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>SbieIni.exe queryex  [/expand] [/boxes] <span class="p">&lt;</span>section<span class="p">&gt;</span> [setting]
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>SbieIni.exe set [/passwd:********] <span class="p">&lt;</span>section<span class="p">&gt;</span> &lt;setting<span class="p">&gt;</span> [value]
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>SbieIni.exe append<span class="p">|</span>insert<span class="p">|</span>delete [/passwd:********] <span class="p">&lt;</span>section<span class="p">&gt;</span> &lt;setting<span class="p">&gt;</span> &lt;value&gt;
 </span></code></pre></div>
 <p>Notes:</p>
 <ul>
 <li><code>queryex</code> is shorthand for <code>query /expand</code>.</li>
-<li><code>/boxes</code> lists only enabled sandboxes.</li>
-<li><code>/passwd:</code> supplies a config password; if empty the utility will prompt interactively.</li>
-<li><code>/drv</code> routes updates through the driver/service API; without <code>/drv</code> the DLL helper path is used.</li>
+<li><code>/boxes</code> filters section listing to enabled sandboxes available to the current user, not boxes with running processes.</li>
+<li><code>/passwd:</code> supplies a configuration password for ordinary updates; an empty option value opens an interactive prompt.</li>
+<li>Use omitted-value <code>set</code> only for ordinary persistent deletion. <code>append</code>, <code>insert</code>, and <code>delete</code> require a non-empty value.</li>
+<li><code>/drv</code> is an advanced update option with different authorization, persistence, and deletion limitations; see below.</li>
 </ul>
 <h2 id="querying-configuration-read-only">Querying configuration (read-only)<a class="headerlink" href="#querying-configuration-read-only" title="Permanent link"></a></h2>
-<p>Purpose: inspect sections and settings.</p>
+<p>Queries inspect the driver's resident configuration, not the physical INI file. Output can therefore differ from the file, including after driver-only changes.</p>
+<p>Value queries exclude template-derived values, but retain fallback to matching direct values from <code>GlobalSettings</code>. For repeated settings, direct values in the requested section can be followed by direct global values. The output is neither a complete effective configuration nor necessarily limited to direct values in the named section.</p>
 <p>How to list sections:</p>
-<div class="language-batch highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>SbieIni.exe query *
+<div class="language-batch highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>SbieIni.exe query *
 </span></code></pre></div>
+<p>This prints <code>GlobalSettings</code> explicitly and then enumerates eligible non-template-origin sections in resident configuration; it is not a sandbox-only list. To list only enabled sandboxes available to the current user:</p>
+<div class="language-batch highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>SbieIni.exe query /boxes *
+</span></code></pre></div>
+<p>No running sandboxed process is required for a box to appear.</p>
 <p>How to list settings in a section:</p>
-<div class="language-batch highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>SbieIni.exe query DefaultBox *
+<div class="language-batch highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>SbieIni.exe query DefaultBox *
 </span></code></pre></div>
+<p>This lists distinct setting names directly represented in that section under the template-excluding lookup. It does not enumerate global fallback names: a globally configured value may be queryable even when its setting name is absent from this list. Omitting the setting also lists setting names.</p>
 <p>How to get the value(s) for a setting:</p>
-<div class="language-batch highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>SbieIni.exe query DefaultBox RecoverFolder
+<div class="language-batch highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>SbieIni.exe query DefaultBox RecoverFolder
 </span></code></pre></div>
 <p>How to expand variables to paths:</p>
-<div class="language-batch highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>SbieIni.exe queryex DefaultBox RecoverFolder
+<div class="language-batch highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>SbieIni.exe queryex DefaultBox RecoverFolder
 </span></code></pre></div>
+<p><code>queryex</code> and <code>query /expand</code> use Sandboxie's configuration expansion context, not merely the CLI process's environment. Expanded output then undergoes an NT-to-DOS path translation attempt; not every string becomes a DOS filesystem path. Expansion does not change template exclusion or global fallback.</p>
+<p>For syntactically accepted queries, exit code <code>0</code> does not prove that a value was found. Empty output can mean absence, the end of enumeration, or a lower-level query, expansion, or buffer-processing failure.</p>
 <h2 id="update-operations-set-append-insert-delete">Update operations (set / append / insert / delete)<a class="headerlink" href="#update-operations-set-append-insert-delete" title="Permanent link"></a></h2>
-<p>Purpose: modify configuration contents.</p>
+<p>Without <code>/drv</code>, these commands edit the service's writable INI model, attempt to save Sandboxie.ini, and attempt to reload the driver's configuration. This is the normal persistent workflow, not an atomic transaction. Save or reload can fail, and the CLI does not reliably report every failure through its exit status.</p>
+<p>These operations edit the named section, not the source definitions of inherited templates. Whether running processes observe changes depends on each setting's consumer and lifecycle.</p>
 <h3 id="set-replace-existing-lines-of-a-setting-or-remove-them-if-no-value-supplied">Set — replace existing lines of a setting (or remove them if no value supplied)<a class="headerlink" href="#set-replace-existing-lines-of-a-setting-or-remove-them-if-no-value-supplied" title="Permanent link"></a></h3>
-<div class="language-batch highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>SbieIni.exe set <span class="p">&lt;</span>section<span class="p">&gt;</span> &lt;setting<span class="p">&gt;</span> &lt;value&gt;
+<div class="language-batch highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>SbieIni.exe set <span class="p">&lt;</span>section<span class="p">&gt;</span> &lt;setting<span class="p">&gt;</span> [value]
 </span></code></pre></div>
+<p><code>set</code> removes the setting's existing entries and writes the replacement. Omitting the value removes the setting instead. An empty quoted token (<code>""</code>) is also treated as an omitted value by the CLI parser.</p>
+<p>To remove an entire configuration section through the ordinary persistent route:</p>
+<div class="language-batch highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>SbieIni.exe set BoxName * <span class="s2">""</span>
+</span></code></pre></div>
+<p>Use this with extreme caution: it removes the section's configuration, not the sandbox's stored contents. Do not use this deletion form with <code>/drv</code>.</p>
 <h3 id="append-add-a-new-value-line-after-existing-entries">Append — add a new value line after existing entries<a class="headerlink" href="#append-add-a-new-value-line-after-existing-entries" title="Permanent link"></a></h3>
-<div class="language-batch highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>SbieIni.exe append <span class="p">&lt;</span>section<span class="p">&gt;</span> &lt;setting<span class="p">&gt;</span> &lt;value&gt;
+<div class="language-batch highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>SbieIni.exe append <span class="p">&lt;</span>section<span class="p">&gt;</span> &lt;setting<span class="p">&gt;</span> &lt;value&gt;
 </span></code></pre></div>
+<p>The new value is added after the existing entries for that same setting. If the setting does not exist, it is added to the section. Duplicate values are permitted; this does not necessarily append to the end of the section or file.</p>
 <h3 id="insert-add-a-new-value-line-before-existing-entries">Insert — add a new value line before existing entries<a class="headerlink" href="#insert-add-a-new-value-line-before-existing-entries" title="Permanent link"></a></h3>
-<p>Note: in some builds <code>insert</code> may behave like <code>append</code>; test if order matters.</p>
-<div class="language-batch highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>SbieIni.exe insert <span class="p">&lt;</span>section<span class="p">&gt;</span> &lt;setting<span class="p">&gt;</span> &lt;value&gt;
+<div class="language-batch highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>SbieIni.exe insert <span class="p">&lt;</span>section<span class="p">&gt;</span> &lt;setting<span class="p">&gt;</span> &lt;value&gt;
 </span></code></pre></div>
-<h3 id="delete-remove-a-value-line-that-exactly-matches-the-supplied-value">Delete — remove a value line that exactly matches the supplied value<a class="headerlink" href="#delete-remove-a-value-line-that-exactly-matches-the-supplied-value" title="Permanent link"></a></h3>
-<div class="language-batch highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>SbieIni.exe delete <span class="p">&lt;</span>section<span class="p">&gt;</span> &lt;setting<span class="p">&gt;</span> &lt;value&gt;
+<p>Ordinary <code>insert</code> adds the value before the existing entries for that setting. With <code>/drv</code>, <code>insert</code> currently has append semantics instead.</p>
+<h3 id="delete-remove-matching-value-lines">Delete — remove matching value lines<a class="headerlink" href="#delete-remove-matching-value-lines" title="Permanent link"></a></h3>
+<div class="language-batch highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>SbieIni.exe delete <span class="p">&lt;</span>section<span class="p">&gt;</span> &lt;setting<span class="p">&gt;</span> &lt;value&gt;
 </span></code></pre></div>
+<p>This removes all entries for the setting whose complete value matches the supplied value case-insensitively. It does not use wildcards. If the setting does not exist or no value matches, deletion is a no-op in the writable model.</p>
+<h3 id="password-handling">Password handling<a class="headerlink" href="#password-handling" title="Permanent link"></a></h3>
+<p>For ordinary updates, <code>/passwd:secret</code> or <code>/passwd=secret</code> supplies a configuration password. <code>/passwd</code>, <code>/passwd:</code>, or <code>/passwd=</code> opens an interactive prompt. Pressing Escape cancels before issuing an update, but still returns exit code <code>0</code>; do not use interactive prompting for unattended automation.</p>
 <h2 id="advanced-and-automation-notes">Advanced and automation notes<a class="headerlink" href="#advanced-and-automation-notes" title="Permanent link"></a></h2>
+<h3 id="direct-driver-updates-drv">Direct-driver updates (<code>/drv</code>)<a class="headerlink" href="#direct-driver-updates-drv" title="Permanent link"></a></h3>
+<p><code>/drv</code> is not the normal persistent update route. It mutates driver-resident configuration directly, without the ordinary service-side INI edit, file save, or configuration reload.</p>
+<p>The driver rejects sandboxed callers and accepts requests from SbieSvc itself or from a process recognized by the driver as a registered session leader. Authorization checks the calling process's PID: merely running a leader agent or launching SbieIni.exe from it does not grant SbieIni.exe that identity. SbieIni.exe does not register itself as a session leader. <code>/passwd</code> does not authorize <code>/drv</code>: the direct-driver API receives no configuration password, and administrator elevation alone is insufficient.</p>
+<p>Driver-only changes are not written to Sandboxie.ini and must not be relied on as durable configuration across reloads or driver lifecycle changes. Do not assume either that every change survives or that every change disappears on every reload.</p>
+<p>Current limitations:</p>
 <ul>
-<li>To delete an entire box: <code>SbieIni.exe set BoxName * ""</code> (removes all lines for that section). Use with extreme caution.</li>
-<li>Batch files: escape percent variables as <code>%%VAR%%</code>.</li>
-<li>If values include spaces, wrap them in double-quotes.</li>
-<li>Avoid running updates while <code>Sandboxie.ini</code> is open/locked by another process.</li>
-<li>For driver-level updates or automation where immediate driver state is required, use <code>/drv</code> (service/driver must be available and caller needs necessary privileges).</li>
+<li><code>/drv insert</code> has append semantics, unlike ordinary <code>insert</code>.</li>
+<li>Do not use <code>/drv</code> with no-value <code>set</code> deletion forms, including <code>""</code>; use the ordinary persistent route for setting or section deletion.</li>
+<li>For authorized callers, <code>/drv set &lt;section&gt; * &lt;value&gt;</code> removes the entire driver-resident section even when a non-empty value follows. This does not remove the section from Sandboxie.ini.</li>
+</ul>
+<h3 id="exit-codes-and-verification">Exit codes and verification<a class="headerlink" href="#exit-codes-and-verification" title="Permanent link"></a></h3>
+<p>The CLI's own handling uses these exit codes:</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Meaning and limitation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>1</code></td>
+<td>Syntax or usage error.</td>
+</tr>
+<tr>
+<td><code>2</code></td>
+<td>An update reported a wrong configuration password.</td>
+</tr>
+<tr>
+<td><code>0</code></td>
+<td>Not proof of success: accepted queries, password-prompt cancellation, and many other update failures can return this code.</td>
+</tr>
+</tbody>
+</table>
+<p>Process-start or loading failures can occur outside this handling. Do not rely solely on <code>ERRORLEVEL 0</code> to verify an update. A normal <code>query</code> can check the driver's lookup afterward, but that readback does not independently prove disk persistence. Conversely, inspecting the physical INI does not establish the complete effective runtime configuration.</p>
+<h3 id="cmd-parsing-and-concurrent-edits">CMD parsing and concurrent edits<a class="headerlink" href="#cmd-parsing-and-concurrent-edits" title="Permanent link"></a></h3>
+<ul>
+<li>Wrap values containing spaces in double-quotes.</li>
+<li>In batch files, double percent signs to pass a literal Sandboxie variable, as shown in Quick start.</li>
+<li><code>""</code> becomes an omitted positional value, not a distinct empty-string argument.</li>
+<li>After quote removal, a token beginning with <code>/</code> is treated as an option, not a positional value. Quoting alone does not make such a token usable as a setting value.</li>
+<li>Conflicting file locks or concurrent writers can interfere with persistence; avoid editing the INI concurrently with scripted updates.</li>
 </ul>
 <h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link"></a></h2>
-<div class="language-batch highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>SbieIni.exe query * <span class="p">|</span> sort <span class="p">&gt;</span> Sections.txt
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>SbieIni.exe query DefaultBox RecoverFolder
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>SbieIni.exe queryex DefaultBox RecoverFolder
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>SbieIni.exe append DefaultBox Template RoboForm
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>SbieIni.exe set DefaultBox AutoRecover n
-</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>SbieIni.exe delete DefaultBox RecoverFolder <span class="s2">"C:\Old\Path"</span>
+<div class="language-batch highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>SbieIni.exe query * <span class="p">|</span> sort <span class="p">&gt;</span> Sections.txt
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>SbieIni.exe query DefaultBox RecoverFolder
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>SbieIni.exe queryex DefaultBox RecoverFolder
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>SbieIni.exe append DefaultBox Template RoboForm
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>SbieIni.exe set DefaultBox AutoRecover n
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>SbieIni.exe delete DefaultBox RecoverFolder <span class="s2">"C:\Old\Path"</span>
 </span></code></pre></div>
 <h2 id="implementation-and-references">Implementation and references<a class="headerlink" href="#implementation-and-references" title="Permanent link"></a></h2>
-<p>The authoritative behavior lives in the <code>apps/ini</code> sources. Key implementation points:</p>
+<p>The authoritative behavior is defined by the CLI and its active consumers. Key implementation points in the Sandboxie source repository:</p>
 <ul>
 <li><code>apps/ini/cmd.c</code> — argument parsing helpers.</li>
 <li><code>apps/ini/query.c</code> — query implementation and SBIEDLL query helpers.</li>
 <li><code>apps/ini/update.c</code> — update verbs, <code>/passwd</code> prompt, <code>/drv</code> vs DLL path.</li>
 <li><code>apps/ini/main.c</code> — program entry and usage handling.</li>
+<li><code>core/dll/callsvc.c</code> / <code>core/dll/sbieapi.c</code> — service-update helper and driver API wrappers.</li>
+<li><code>core/svc/sbieiniserver.cpp</code> — ordinary configuration edits, save, and reload handling.</li>
+<li><code>core/drv/conf.c</code> — resident configuration queries and direct-driver updates.</li>
 </ul>
 <h2 id="forumsource-note">Forum/source note<a class="headerlink" href="#forumsource-note" title="Permanent link"></a></h2>
-<p>Some usage examples and operational notes were informed by community forum discussion <a href="https://sandboxie-website-archive.github.io/www.sandboxie.com/old-forums/viewtopica6bca6bc.html#p126947">archived</a>.</p>
+<p>Some usage examples and operational notes were informed by community forum discussion <a href="https://sandboxie-website-archive.github.io/www.sandboxie.com/old-forums/viewtopica6bca6bc.html#p126947">archived</a>. This is historical context, not authority for current behavior.</p>
 
 
 

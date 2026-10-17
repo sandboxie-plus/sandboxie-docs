@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="CopyEmpty is a sandbox setting in Sandboxie Ini, available since Sandboxie Plus 0.6.5. It specifies host-file path patterns for which Sandboxie creates a zero-length sandbox copy instead of copying the host file contents during file migration.">
+        <meta name="description" content="CopyEmpty 是 Sandboxie Ini 中的一项沙盒设置，自 Sandboxie Plus 0.6.5 起可用。它指定宿主机文件的路径模式：迁移匹配文件时，Sandboxie 会在沙盒中创建长度为零的副本，不复制宿主机文件的内容。">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>Copy Empty - Sandboxie 文档</title>
+        <title>复制空的副本 - Sandboxie 文档</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#copy-empty" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Copy Empty
+              复制空的副本
             
           </span>
         </div>
@@ -5584,28 +5584,28 @@
   
 
 
-<h1 id="copy-empty">Copy Empty<a class="headerlink" href="#copy-empty" title="Permanent link"></a></h1>
-<p><em>CopyEmpty</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>, available since Sandboxie Plus 0.6.5. It specifies host-file path patterns for which Sandboxie creates a zero-length sandbox copy instead of copying the host file contents during file migration.</p>
-<p>Usage:</p>
+<h1 id="_1">复制空的副本<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<p><em>CopyEmpty</em> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 中的一项沙盒设置，自 Sandboxie Plus 0.6.5 起可用。它指定宿主机文件的路径模式：迁移匹配文件时，Sandboxie 会在沙盒中创建长度为零的副本，不复制宿主机文件的内容。</p>
+<p>用法：</p>
 <p><code>CopyEmpty=[program,]pattern</code></p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">CopyEmpty</span><span class="o">=</span><span class="s">*\Cache\*.log</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">CopyEmpty</span><span class="o">=</span><span class="s">indexer.exe,*\SearchData\*.db</span>
 </span></code></pre></div>
-<p>Each <em>CopyEmpty</em> entry is one rule, and the setting may be repeated. The optional prefix before the comma limits a rule to that program; see <a href="../ProgramNamePrefix/">Program Name Prefix</a>. Paths use the same pattern form as <a href="../OpenFilePath/">OpenFilePath</a>. Matching is case-insensitive and is performed against the host (true) file path. <code>*</code> matches any sequence of characters, including path separators, and <code>?</code> matches one character.</p>
-<p>When a program prefix is used, current setting metadata requires the drive or device portion of a path to be represented by a wildcard, for example <code>*\Cache\*.log</code>. Do not use a fixed drive path such as <code>C:\Cache\*.log</code> or rely on an <a href="../ExpandableVariables/">expandable variable</a> that becomes a full path in a program-specific rule.</p>
-<p>When a matching existing regular file needs to be migrated, Sandboxie opens the host file to obtain its file information, creates the corresponding sandbox file, and sets the content length to zero. The host file remains unchanged. The sandboxed program can then work with the empty sandbox copy and write new content to it.</p>
-<p>The rule is selected before <a href="../CopyLimitKb/">CopyLimitKb</a>, so it creates an empty copy regardless of the host file's size. <a href="../CopyLimitSilent/">CopyLimitSilent</a> does not affect this rule. If <a href="../NotifyNoCopy/">NotifyNoCopy</a> is enabled, the migration attempt produces message SBIE2113 to report that the contents were discarded.</p>
-<p>If <em>CopyEmpty</em> is absent or no entry matches, Sandboxie uses another matching migration rule or its normal size-based decision. When rules overlap, <a href="../DontCopy/">DontCopy</a> takes priority over <a href="../CopyAlways/">CopyAlways</a>, and <em>CopyAlways</em> takes priority over <em>CopyEmpty</em>. <a href="../CopyNewer/">CopyNewer</a> is evaluated separately for an existing sandbox copy; it does not change how the initial empty copy is selected.</p>
-<p>Please note the following limitations:</p>
+<p>每条 <em>CopyEmpty</em> 配置对应一条规则，可重复添加。逗号前的可选前缀用于将规则限定到指定程序，参见<a href="../ProgramNamePrefix/">程序名称前缀</a>。路径模式的格式与 <a href="../OpenFilePath/">OpenFilePath</a> 相同。匹配不区分大小写，以宿主机文件的真实路径为准。<code>*</code> 匹配任意长度的字符序列，包括路径分隔符；<code>?</code> 匹配单个字符。</p>
+<p>使用程序名称前缀时，当前设置定义要求将路径中的驱动器或设备部分写成通配符，例如 <code>*\Cache\*.log</code>。在限定程序的规则中，不要使用 <code>C:\Cache\*.log</code> 这样的固定驱动器路径，也不要依赖会展开为完整路径的<a href="../ExpandableVariables/">可展开变量</a>。</p>
+<p>已有的普通文件需要迁移且匹配此规则时，Sandboxie 会打开宿主机文件以获取文件信息，创建对应的沙盒文件，并将内容长度设为零。宿主机文件保持不变。随后，沙盒内的程序可以使用这个空副本，并向其中写入新内容。</p>
+<p>此规则在 <a href="../CopyLimitKb/">CopyLimitKb</a> 之前选定，因此创建空副本不受宿主机文件大小的限制。<a href="../CopyLimitSilent/">CopyLimitSilent</a> 不影响此规则。若启用了 <a href="../NotifyNoCopy/">NotifyNoCopy</a>，此次迁移尝试会产生 SBIE2113 消息，报告未复制文件内容。</p>
+<p>未配置 <em>CopyEmpty</em> 或没有匹配项时，Sandboxie 会采用其他匹配的迁移规则，或按常规大小判断决定如何处理。规则重叠时，<a href="../DontCopy/">DontCopy</a> 优先于 <a href="../CopyAlways/">CopyAlways</a>，<em>CopyAlways</em> 优先于 <em>CopyEmpty</em>。<a href="../CopyNewer/">CopyNewer</a> 针对已有沙盒副本单独判断，不改变初次迁移时选择空副本的方式。</p>
+<p>请注意以下限制：</p>
 <ul>
-<li><em>CopyEmpty</em> is consulted when the contents of an existing regular host file would normally be migrated, including migration attempted during a <a href="../CopyNewer/">CopyNewer</a> refresh.</li>
-<li>It does not itself trigger a refresh of an existing sandbox copy. When <em>CopyNewer</em> initiates one, a matching <em>CopyEmpty</em> rule can select an empty replacement.</li>
-<li>It does not affect directories, files created only inside the sandbox, or overwrite/delete/create operations for which Sandboxie does not copy the host contents.</li>
-<li>Sandboxie must still be able to open the host object and query its file information. Failures at that stage can make the migration fail instead of producing an empty copy.</li>
+<li>已有的普通宿主机文件原本需要迁移内容时，会检查 <em>CopyEmpty</em>，包括 <a href="../CopyNewer/">CopyNewer</a> 刷新期间尝试的迁移。</li>
+<li>此规则本身不会触发已有沙盒副本的刷新。<em>CopyNewer</em> 触发刷新后，匹配的 <em>CopyEmpty</em> 规则可以选择用空副本替换已有副本。</li>
+<li>此规则不影响目录、仅在沙盒内创建的文件，以及 Sandboxie 无需复制宿主机文件内容的覆盖、删除或创建操作。</li>
+<li>Sandboxie 仍需能够打开宿主机上的对象并查询其文件信息。如果这一步失败，迁移可能失败，而不会生成空副本。</li>
 </ul>
-<p>Copy rules can be managed in SandMan under Sandbox Options &gt; General Options &gt; File Migration. Choose <strong>Copy empty</strong> for this rule type.</p>
-<p>Related <a href="../SandboxieIni/">Sandboxie Ini</a> settings: <a href="../CopyAlways/">CopyAlways</a>, <a href="../DontCopy/">DontCopy</a>, <a href="../CopyNewer/">CopyNewer</a>, <a href="../NotifyNoCopy/">NotifyNoCopy</a>, <a href="../CopyLimitKb/">CopyLimitKb</a>. See also <a href="../FileMigrationSettings/">File Migration Settings</a>.</p>
+<p>可以在 SandMan 的沙盒选项 &gt; 常规选项 &gt; 文件迁移中管理复制规则。此规则类型对应<strong>复制空的副本</strong>。</p>
+<p>相关 <a href="../SandboxieIni/">Sandboxie Ini</a> 设置项：<a href="../CopyAlways/">CopyAlways</a>、<a href="../DontCopy/">DontCopy</a>、<a href="../CopyNewer/">CopyNewer</a>、<a href="../NotifyNoCopy/">NotifyNoCopy</a>、<a href="../CopyLimitKb/">CopyLimitKb</a>。另请参阅<a href="../FileMigrationSettings/">文件迁移设置</a>。</p>
 
 
 

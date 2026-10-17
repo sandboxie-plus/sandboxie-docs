@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="DontCopy is a sandbox setting in Sandboxie Ini, available since Sandboxie Plus 0.6.5. It specifies host-file path patterns whose contents must not be migrated into the sandbox.">
+        <meta name="description" content="DontCopy 是 Sandboxie Ini 中的一项沙盒设置，自 Sandboxie Plus 0.6.5 起可用。它指定宿主机文件的路径模式，匹配文件的内容不会迁移到沙盒中。">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>Don't Copy - Sandboxie 文档</title>
+        <title>不要复制 - Sandboxie 文档</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#dont-copy" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Don't Copy
+              不要复制
             
           </span>
         </div>
@@ -5584,28 +5584,28 @@
   
 
 
-<h1 id="dont-copy">Don't Copy<a class="headerlink" href="#dont-copy" title="Permanent link"></a></h1>
-<p><em>DontCopy</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>, available since Sandboxie Plus 0.6.5. It specifies host-file path patterns whose contents must not be migrated into the sandbox.</p>
-<p>Usage:</p>
+<h1 id="_1">不要复制<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<p><em>DontCopy</em> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 中的一项沙盒设置，自 Sandboxie Plus 0.6.5 起可用。它指定宿主机文件的路径模式，匹配文件的内容不会迁移到沙盒中。</p>
+<p>用法：</p>
 <p><code>DontCopy=[program,]pattern</code></p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">DontCopy</span><span class="o">=</span><span class="s">*.iso</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">DontCopy</span><span class="o">=</span><span class="s">media-player.exe,*\Media\*.mkv</span>
 </span></code></pre></div>
-<p>Each <em>DontCopy</em> entry is one rule, and the setting may be repeated. The optional prefix before the comma limits a rule to that program; see <a href="../ProgramNamePrefix/">Program Name Prefix</a>. Paths use the same pattern form as <a href="../OpenFilePath/">OpenFilePath</a>. Matching is case-insensitive and is performed against the host (true) file path. <code>*</code> matches any sequence of characters, including path separators, and <code>?</code> matches one character.</p>
-<p>When a program prefix is used, current setting metadata requires the drive or device portion of a path to be represented by a wildcard, for example <code>*\Media\*.mkv</code>. Do not use a fixed drive path such as <code>D:\Media\*.mkv</code> or rely on an <a href="../ExpandableVariables/">expandable variable</a> that becomes a full path in a program-specific rule.</p>
-<p>Ordinary read-only access to a host file does not require migration and continues to use the host file. The rule matters when a sandboxed program requests an operation for which Sandboxie would normally migrate the existing file so that it can be changed in the sandbox. For a matching file during initial migration, Sandboxie does not create that content copy:</p>
+<p>每条 <em>DontCopy</em> 配置对应一条规则，可重复添加。逗号前的可选前缀用于将规则限定到指定程序，参见<a href="../ProgramNamePrefix/">程序名称前缀</a>。路径模式的格式与 <a href="../OpenFilePath/">OpenFilePath</a> 相同。匹配不区分大小写，以宿主机文件的真实路径为准。<code>*</code> 匹配任意长度的字符序列，包括路径分隔符；<code>?</code> 匹配单个字符。</p>
+<p>使用程序名称前缀时，当前设置定义要求将路径中的驱动器或设备部分写成通配符，例如 <code>*\Media\*.mkv</code>。在限定程序的规则中，不要使用 <code>D:\Media\*.mkv</code> 这样的固定驱动器路径，也不要依赖会展开为完整路径的<a href="../ExpandableVariables/">可展开变量</a>。</p>
+<p>普通的只读访问不需要迁移，会继续使用宿主机文件。当沙盒内的程序请求某项操作，Sandboxie 原本需要将已有文件迁移到沙盒中供其修改时，此规则才会参与判断。初次迁移时若文件匹配规则，Sandboxie 不会创建包含宿主机文件内容的副本：</p>
 <ul>
-<li>With <a href="../CopyBlockDenyWrite/">CopyBlockDenyWrite</a> absent or set to <code>n</code>, Sandboxie removes write and delete rights from the request and retries the open against the host file. A read-capable request can therefore succeed as read-only. A write-only request, an incompatible create disposition, or host permissions may still make the open fail.</li>
-<li>With <em>CopyBlockDenyWrite=y</em> for the program, the migration-dependent open fails with access denied instead.</li>
+<li>未配置 <a href="../CopyBlockDenyWrite/">CopyBlockDenyWrite</a> 或设为 <code>n</code> 时，Sandboxie 会从请求中移除写入和删除权限，然后重试打开宿主机文件。因此，包含读取权限的请求可能以只读方式成功打开。若请求仅包含写入权限、创建或打开方式不兼容，或受宿主机权限限制，打开操作仍可能失败。</li>
+<li>若为该程序设置了 <em>CopyBlockDenyWrite=y</em>，则此次依赖迁移的打开操作会返回“拒绝访问”。</li>
 </ul>
-<p><em>DontCopy</em> is not direct-access permission like <a href="../OpenFilePath/">OpenFilePath</a>: it never permits the sandboxed program to write to the host file. An existing sandbox copy normally bypasses initial migration, but when <a href="../CopyNewer/">CopyNewer</a> initiates a refresh, the refresh migration can evaluate <em>DontCopy</em>. A matching rule can prevent that refresh while the existing sandbox copy remains available; it does not remove or replace that copy.</p>
-<p>If <em>DontCopy</em> is absent or no entry matches, it does not suppress migration; Sandboxie uses another matching migration rule or its normal size-based decision.</p>
-<p><em>DontCopy</em> is evaluated before <a href="../CopyLimitKb/">CopyLimitKb</a>, so the file size and <a href="../CopyLimitSilent/">CopyLimitSilent</a> do not change the selected rule. It also has priority over matching <a href="../CopyAlways/">CopyAlways</a> and <a href="../CopyEmpty/">CopyEmpty</a> entries. <a href="../CopyNewer/">CopyNewer</a> concerns an already existing sandbox copy and is not part of this initial migration decision.</p>
-<p>Please note that the rule is consulted only for an existing regular host file when its contents would otherwise be migrated. It does not govern directories, new files, or create/overwrite/delete operations for which Sandboxie does not need to copy the host contents.</p>
-<p>If <a href="../NotifyNoCopy/">NotifyNoCopy</a> is enabled, a matching migration attempt produces SBIE2115 for the reduced-access mode or SBIE2114 for the deny-write mode. During a refresh, these messages describe the migration decision, not necessarily the result of opening the existing sandbox copy.</p>
-<p>Copy rules can be managed in SandMan under Sandbox Options &gt; General Options &gt; File Migration. Choose <strong>Don't copy</strong> for this rule type.</p>
-<p>Related <a href="../SandboxieIni/">Sandboxie Ini</a> settings: <a href="../CopyAlways/">CopyAlways</a>, <a href="../CopyEmpty/">CopyEmpty</a>, <a href="../CopyNewer/">CopyNewer</a>, <a href="../CopyBlockDenyWrite/">CopyBlockDenyWrite</a>, <a href="../NotifyNoCopy/">NotifyNoCopy</a>. See also <a href="../FileMigrationSettings/">File Migration Settings</a>.</p>
+<p><em>DontCopy</em> 不会授予 <a href="../OpenFilePath/">OpenFilePath</a> 那样的直接访问权限，绝不会允许沙盒内的程序写入宿主机文件。已有沙盒副本通常无需初次迁移，但 <a href="../CopyNewer/">CopyNewer</a> 触发刷新时，刷新中的迁移仍可能检查 <em>DontCopy</em>。匹配的规则可以阻止刷新，同时保留已有沙盒副本供程序使用；它不会删除或替换该副本。</p>
+<p>未配置 <em>DontCopy</em> 或没有匹配项时，此规则不会阻止迁移；Sandboxie 会采用其他匹配的迁移规则，或按常规大小判断决定如何处理。</p>
+<p><em>DontCopy</em> 在 <a href="../CopyLimitKb/">CopyLimitKb</a> 之前判断，因此文件大小和 <a href="../CopyLimitSilent/">CopyLimitSilent</a> 不会改变此规则的处理结果。它也优先于匹配的 <a href="../CopyAlways/">CopyAlways</a> 和 <a href="../CopyEmpty/">CopyEmpty</a> 规则。<a href="../CopyNewer/">CopyNewer</a> 针对已有的沙盒副本，不参与初次迁移方式的选择。</p>
+<p>请注意，只有已有的普通宿主机文件原本需要迁移内容时，才会检查此规则。它不控制目录、新建文件，以及无需复制宿主机文件内容的创建、覆盖或删除操作。</p>
+<p>启用 <a href="../NotifyNoCopy/">NotifyNoCopy</a> 后，迁移尝试若匹配此规则，移除写入和删除权限后重试的模式会产生 SBIE2115，拒绝写入模式会产生 SBIE2114。刷新期间，这些消息描述的是迁移决定，不一定代表已有沙盒副本最终能否打开。</p>
+<p>可以在 SandMan 的沙盒选项 &gt; 常规选项 &gt; 文件迁移中管理复制规则。此规则类型对应<strong>不要复制</strong>。</p>
+<p>相关 <a href="../SandboxieIni/">Sandboxie Ini</a> 设置项：<a href="../CopyAlways/">CopyAlways</a>、<a href="../CopyEmpty/">CopyEmpty</a>、<a href="../CopyNewer/">CopyNewer</a>、<a href="../CopyBlockDenyWrite/">CopyBlockDenyWrite</a>、<a href="../NotifyNoCopy/">NotifyNoCopy</a>。另请参阅<a href="../FileMigrationSettings/">文件迁移设置</a>。</p>
 
 
 

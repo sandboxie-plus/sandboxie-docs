@@ -5593,15 +5593,17 @@
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">CopyNewer</span><span class="o">=</span><span class="s">C:\Data\*.txt</span>
 </span></code></pre></div>
-<p>通常，一旦文件被复制到沙盒中（参见 <a href="../FileMigrationSettings/">文件迁移设置</a>），沙盒化程序会继续使用该副本，即使宿主上的原始文件后来被更改。当文件路径匹配 <em>CopyNewer</em> 模式时，Sandboxie 会在每次打开文件时比较宿主文件的最后写入时间与沙盒副本；如果宿主文件较新，在打开完成前会把新副本迁移到沙盒中。</p>
+<p>通常，一旦文件被复制到沙盒中（参见 <a href="../FileMigrationSettings/">文件迁移设置</a>），沙盒化程序会继续使用该副本，即使宿主上的原始文件后来被更改。当文件路径匹配 <em>CopyNewer</em> 模式时，Sandboxie 会在符合条件的打开操作中比较宿主文件与沙盒副本的最后写入时间；如果宿主文件较新，会在完成打开操作前尝试刷新副本。</p>
+<p>刷新时的迁移使用与初次内容迁移相同的规则、大小限制、提示行为和通知机制。匹配的 <a href="../DontCopy/">DontCopy</a> 规则可阻止刷新；<a href="../CopyAlways/">CopyAlways</a> 可在进行大小判断和提示前选择完整内容迁移；<a href="../CopyEmpty/">CopyEmpty</a> 可选择用空副本替换。上述规则本身不会触发刷新。<a href="../CopyBlockDenyWrite/">CopyBlockDenyWrite</a> 可影响本次刷新迁移的结果，但刷新失败不一定会导致随后打开已有沙盒副本的操作被拒绝。</p>
 <p>请注意以下限制：</p>
 <ul>
 <li>只适用于已在沙盒内有副本的常规文件正常打开时。</li>
-<li>不适用于文件的初始迁移、目录、只写打开、已删除文件或创建/覆盖操作。</li>
+<li>不适用于文件的初始迁移、目录、已删除文件或创建/覆盖操作。对于 <a href="../WriteFilePath/">WriteFilePath</a> 等只写资源路径模式，也会跳过刷新；这里并非仅根据应用程序请求的访问权限来判断。</li>
 <li>模式匹配不区分大小写，应用于宿主（真实）文件路径。</li>
 <li>如果刷新已在进行中或失败，现有沙盒副本仍可供程序使用。</li>
+<li>刷新成功并不一定表示已复制完整内容：迁移规则或源文件访问的回退处理都可能使副本内容为空。</li>
 </ul>
-<p>复制规则（包括"复制较新文件"类型规则）可以在沙盒管理器的沙盒选项 &gt; 常规选项 &gt; 文件迁移下管理。</p>
+<p>复制规则（包括“复制较新的版本”类型规则）可以在 SandMan 的沙盒选项 &gt; 常规选项 &gt; 文件迁移下管理。</p>
 <p>相关 <a href="../SandboxieIni/">Sandboxie Ini</a> 设置项：<a href="../CopyLimitKb/">复制限制 Kb</a>、<a href="../CopyLimitSilent/">复制限制静默</a>。另请参阅 <a href="../FileMigrationSettings/">文件迁移设置</a>。</p>
 
 

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="在 Sandboxie 中，各种 资源访问设置 只适用于在 Sandboxie 之外安装的程序，以免被沙盒化程序更改其 exe 名称而绕过。">
+        <meta name="description" content="资源访问设置 控制沙盒化程序如何访问资源。部分规则会区分发起请求的程序是从沙盒外还是沙盒内加载可执行文件。">
       
       
       
@@ -5585,14 +5585,14 @@
 
 
 <h1 id="_1">资源访问<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
-<p>在 Sandboxie 中，各种 <a href="ResourceAccessSettings.html">资源访问设置</a> 只适用于在 Sandboxie 之外安装的程序，以免被沙盒化程序更改其 exe 名称而绕过。</p>
-<p>下表显示哪些设置适用于哪些安装位置。</p>
+<p><a href="ResourceAccessSettings.html">资源访问设置</a> 控制沙盒化程序如何访问资源。部分规则会区分发起请求的程序是从沙盒外还是沙盒内加载可执行文件。</p>
+<p>下表两列均指在 Sandboxie 中运行的程序。“是”表示规则可以适用于可执行文件位于该位置的程序，并不表示允许访问。程序选择条件、<a href="../PlusContent/RuleSpecificity.html">规则优先级</a>以及其他安全限制仍会影响最终结果。</p>
 <table>
 <thead>
 <tr>
-<th></th>
-<th>外部</th>
-<th>内部</th>
+<th>设置</th>
+<th>可执行文件位于沙盒外</th>
+<th>可执行文件位于沙盒内</th>
 </tr>
 </thead>
 <tbody>
@@ -5628,17 +5628,17 @@
 </tr>
 <tr>
 <td><a href="NormalFilePath.html">标准文件路径</a></td>
-<td>只读</td>
+<td>是</td>
 <td>是</td>
 </tr>
 <tr>
 <td><a href="NormalIpcPath.html">标准 IPC 路径</a></td>
-<td>只读</td>
+<td>是</td>
 <td>是</td>
 </tr>
 <tr>
 <td><a href="NormalKeyPath.html">标准注册表路径</a></td>
-<td>只读</td>
+<td>是</td>
 <td>是</td>
 </tr>
 <tr>
@@ -5654,7 +5654,7 @@
 <tr>
 <td><a href="OpenFilePath.html">开放文件路径</a></td>
 <td>是</td>
-<td>否</td>
+<td>默认不适用</td>
 </tr>
 <tr>
 <td><a href="OpenIpcPath.html">开放 IPC 路径</a></td>
@@ -5664,7 +5664,7 @@
 <tr>
 <td><a href="OpenKeyPath.html">开放注册表路径</a></td>
 <td>是</td>
-<td>否</td>
+<td>默认不适用</td>
 </tr>
 <tr>
 <td><a href="OpenPipePath.html">开放管道路径</a></td>
@@ -5678,32 +5678,34 @@
 </tr>
 <tr>
 <td><a href="ReadFilePath.html">只读文件路径</a></td>
-<td>只读</td>
-<td>否</td>
+<td>是</td>
+<td>是</td>
 </tr>
 <tr>
 <td><a href="ReadIpcPath.html">读取 IPC 路径</a></td>
-<td>只读</td>
-<td>否</td>
+<td>是</td>
+<td>是</td>
 </tr>
 <tr>
 <td><a href="ReadKeyPath.html">读取注册表项路径</a></td>
-<td>只读</td>
-<td>否</td>
+<td>是</td>
+<td>是</td>
 </tr>
 <tr>
 <td><a href="WriteFilePath.html">只写文件路径</a></td>
-<td>否</td>
+<td>是</td>
 <td>是</td>
 </tr>
 <tr>
 <td><a href="WriteKeyPath.html">写入注册表项路径</a></td>
-<td>否</td>
+<td>是</td>
 <td>是</td>
 </tr>
 </tbody>
 </table>
-<p><del>注意：所有 <code>Close...=!&lt;program&gt;,...</code> 都只排除沙盒外的程序。</del></p>
+<p>表中的“默认不适用”指普通 <code>OpenFilePath</code> 和 <code>OpenKeyPath</code> 规则默认不适用于从沙盒内加载可执行文件的程序。设置 <code>DontOpenForBoxed=n</code> 或使用<a href="NoSecurityIsolation.html">应用隔间</a>模式均可取消这一限制。<code>OpenPipePath</code> 和 <code>OpenConfPath</code> 不受此限制。</p>
+<p>此处的 <code>ReadIpcPath</code> 指其 <code>$:...</code> 目标进程规则。这些规则允许对另一个进程进行有限的读取访问，所用策略独立于常规命名 IPC 对象的匹配；详见<a href="ReadIpcPath.html">读取 IPC 路径</a>。</p>
+<p>启用 <code>AlwaysCloseForBoxed</code> 时（应用隔间模式之外的默认行为），<code>ClosedFilePath</code>、<code>ClosedKeyPath</code> 或 <code>ClosedIpcPath</code> 中的排除式程序选择条件（如 <code>!program.exe</code>）不会豁免从沙盒内加载可执行文件的程序。设置 <code>AlwaysCloseForBoxed=n</code> 可恢复正常的程序匹配行为。对于带排除式程序选择条件的 <code>ClosedIpcPath</code> 条目，Sandboxie 自身组件另有豁免。</p>
 
 
 

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="UseOriginalACLs is a sandbox setting in Sandboxie Ini available since v1.15.0 / 5.70.0. This setting preserves the original Access Control Lists (ACLs) on files and folders when they are copied or created within the sandbox, rather than applying Sandboxie&#x27;s default security descriptor. When enabled, files maintain their original security permissions while adding the current user to the ACL with full access rights.">
+        <meta name="description" content="UseOriginalACLs is a sandbox setting in Sandboxie Ini available since v1.15.0 / 5.70.0. It changes security-descriptor handling for selected sandboxed file and directory creation and migration paths. Depending on the operation, Sandboxie can reuse security attributes supplied by the application or attempt to obtain security information from an existing source object.">
       
       
       
@@ -5585,59 +5585,78 @@
 
 
 <h1 id="use-original-acls">Use Original ACLs<a class="headerlink" href="#use-original-acls" title="Permanent link"></a></h1>
-<p><em>UseOriginalACLs</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a> available since v1.15.0 / 5.70.0. This setting preserves the original Access Control Lists (ACLs) on files and folders when they are copied or created within the sandbox, rather than applying Sandboxie's default security descriptor. When enabled, files maintain their original security permissions while adding the current user to the ACL with full access rights.</p>
+<p><em>UseOriginalACLs</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a> available since v1.15.0 / 5.70.0. It changes security-descriptor handling for selected sandboxed file and directory creation and migration paths. Depending on the operation, Sandboxie can reuse security attributes supplied by the application or attempt to obtain security information from an existing source object.</p>
+<p>The option is intended for compatibility with applications that depend on particular filesystem security attributes. When a suitable descriptor is available, Sandboxie attempts to add an allow Access Control Entry (ACE) for the process user. This does not guarantee that the final descriptor or effective access matches the original.</p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">UseOriginalACLs</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
+<p>The runtime fallback is <code>n</code>: when no effective value is configured, the option is disabled. The sandboxed process's effective configuration can include direct box settings, applicable enabled templates, and <code>GlobalSettings</code> fallback. A direct box value can override an inherited enabling value:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="na">UseOriginalACLs</span><span class="o">=</span><span class="s">n</span>
+</span></code></pre></div>
+<h2 id="sandman-ui">SandMan UI<a class="headerlink" href="#sandman-ui" title="Permanent link"></a></h2>
+<p>In <strong>Sandbox Options &gt; Security Options &gt; Security Hardening &gt; File ACLs</strong>, the checkbox is <strong>Use original Access Control Entries for boxed Files and Folders (for MSIServer enable exemptions)</strong>.</p>
+<p>The checkbox reads the direct box setting, not necessarily an effective value inherited from a template or <code>GlobalSettings</code>. Checking it normally writes <code>UseOriginalACLs=y</code>; unchecking removes ordinary direct values rather than writing <code>n</code>, so an inherited <code>y</code> can remain active.</p>
+<p>A manually configured direct <code>UseOriginalACLs=n</code> can override inheritance, but a later settings save with the checkbox unchecked can remove that direct value. When using inherited configuration, distinguish the checkbox's direct setting from the effective runtime value.</p>
 <h2 id="technical-details">Technical Details<a class="headerlink" href="#technical-details" title="Permanent link"></a></h2>
-<p>When <code>UseOriginalACLs=y</code> is set, Sandboxie modifies its file operation behavior in several key areas:</p>
+<p>The enabled option does not select one universal descriptor-copying mechanism:</p>
 <ol>
 <li>
-<p><strong>File Creation</strong>: Instead of using the standard <code>Secure_NormalSD</code> security descriptor, the system duplicates the security descriptor from the original file location and adds the current user with full access rights<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
+<p><strong>New files and explicit new directories</strong>: The ordinary sandbox-copy creation path duplicates the descriptor supplied through the application's creation request, then attempts the process-user ACE adjustment. It does not automatically query a corresponding host file or directory. If no descriptor is supplied, or duplication produces no descriptor, this enabled branch passes <code>NULL</code> rather than substituting <code>Secure_NormalSD</code>; native Windows default and inheritance processing can apply. With the option disabled, the examined branch selects <code>Secure_NormalSD</code>. Open paths, devices, and special cases can follow different handling<sup id="fnref3:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
 </li>
 <li>
-<p><strong>Directory Creation</strong>: When creating directories, the system queries the security descriptor of the source directory and applies it to the sandbox copy while ensuring the current user has access<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</p>
+<p><strong>Intermediate directories</strong>: While constructing the sandbox copy path, Sandboxie attempts to open the corresponding source directories and query their security information. After a successful query, it attempts the process-user ACE adjustment and supplies the resulting descriptor to the destination operation. These branches can use <code>Secure_NormalSD</code> if the source cannot be opened or no usable queried descriptor is obtained. This fallback is specific to intermediate-directory creation, not every ACL-handling path<sup id="fnref4:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</p>
 </li>
 <li>
-<p><strong>File Copying</strong>: During file copy operations, both regular files and reparse points (symbolic links, junction points) preserve their original security descriptors<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>.</p>
+<p><strong>Migrated files and directories</strong>: Existing source objects use a source security query rather than the independent new-object descriptor path. The queried descriptor is adjusted when possible and supplied during destination creation. File contents and security handling are separate decisions: a migration policy can produce an empty copy, and directory migration through this helper is not a recursive copy of all children. An enabled security-query failure can abort the migration helper instead of falling back to <code>Secure_NormalSD</code>; the outer file-operation wrapper can apply additional retry behavior, so this does not establish one final application-visible error<sup id="fnref4:3"><a class="footnote-ref" href="#fn:3">3</a></sup>.</p>
+</li>
+<li>
+<p><strong>Reparse points</strong>: A separate migration path handles reparse data and security information in separate operations. Its security query can use a reopened true-path handle, so copying the reparse data does not guarantee preservation of the link object's own permissions. Complete descriptor preservation and identical handling of every symbolic-link, junction, or other reparse type are not guaranteed<sup id="fnref5:3"><a class="footnote-ref" href="#fn:3">3</a></sup>.</p>
 </li>
 </ol>
+<p>The examined source-object queries request DACL, SACL, and group information, but not the original owner. SACL retrieval is conditional: the security-query hook can retry without SACL information after selected access-denied failures, but not for every failure or path. Application-supplied descriptors follow a different path and can contain owner information. Supplying a descriptor also does not guarantee identical persisted permissions, because Windows security-descriptor assignment and inheritance rules still apply<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup><sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup><sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>.</p>
 <h2 id="security-implications">Security Implications<a class="headerlink" href="#security-implications" title="Permanent link"></a></h2>
 <ul>
-<li><strong>Enhanced Compatibility</strong>: Applications that rely on specific ACL configurations will function correctly within the sandbox</li>
-<li><strong>MSI Installer Support</strong>: Particularly beneficial for MSI installers that require specific ACL permissions (hence the UI note about MSIServer exemptions)</li>
-<li><strong>User Access Guarantee</strong>: The current user is always added to the ACL with <code>GENERIC_ALL</code> permissions, ensuring sandbox functionality is maintained<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></li>
+<li><strong>Compatibility</strong>: The option may help applications that depend on particular filesystem ACLs or security descriptors, but does not guarantee successful creation or access.</li>
+<li><strong>MSI Installer Support</strong>: The UI recommends considering <a href="MsiInstallerExemptions.html">Msi Installer Exemptions</a> for MSIServer compatibility. The settings have independent consumers; neither is a functional prerequisite for the other, and neither guarantees that every installer will work.</li>
+<li><strong>Process-user access</strong>: Sandboxie attempts to append an allow ACE requesting <code>GENERIC_ALL</code>. Existing deny entries are not deliberately removed. Effective access can still depend on those entries, access-token restrictions, integrity policy, privileges, and Windows object-security and inheritance rules<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>.</li>
+<li><strong>Isolation boundaries</strong>: This option changes selected filesystem security descriptors. It does not replace Sandboxie's isolation mechanisms and should not be treated as an isolation-hardening guarantee.</li>
 </ul>
 <h2 id="implementation-notes">Implementation Notes<a class="headerlink" href="#implementation-notes" title="Permanent link"></a></h2>
-<p>The setting is controlled by the global variable <code>Secure_CopyACLs</code> which is initialized during DLL startup<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>. When active, the system:</p>
+<p><code>Secure_Init</code> reads the effective setting into <code>Secure_CopyACLs</code>, process-local SbieDll state, during initialization. It is not a live global toggle and is not reevaluated for every filesystem operation<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>.</p>
 <ul>
-<li>Queries source file security descriptors using <code>DACL_SECURITY_INFORMATION | SACL_SECURITY_INFORMATION | GROUP_SECURITY_INFORMATION</code>.</li>
-<li>Duplicates the security descriptor to self-relative format if necessary.</li>
-<li>Adds an Access Control Entry (ACE) for the current user with inheritance flags <code>CONTAINER_INHERIT_ACE | OBJECT_INHERIT_ACE | INHERITED_ACE</code>.</li>
+<li><code>Secure_NormalSD</code> is Sandboxie's constructed normal descriptor, not a descriptor queried from the source object.</li>
+<li><code>File_DuplicateSecurityDescriptor</code> validates and duplicates a supplied descriptor, converting it to self-relative format when necessary; duplication itself does not add ACEs<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</li>
+<li><code>File_CreatePath</code>, also reached through <code>File_CreateBoxedPath</code>, attempts source-directory queries in both of its directory-creation loops. <code>File_MigrateFile</code> and <code>File_MigrateJunction</code> have their separate migration contracts<sup id="fnref2:2"><a class="footnote-ref" href="#fn:2">2</a></sup><sup id="fnref2:3"><a class="footnote-ref" href="#fn:3">3</a></sup>.</li>
+<li>Those source queries request <code>DACL_SECURITY_INFORMATION | SACL_SECURITY_INFORMATION | GROUP_SECURITY_INFORMATION</code>; <code>OWNER_SECURITY_INFORMATION</code> is not included<sup id="fnref3:2"><a class="footnote-ref" href="#fn:2">2</a></sup><sup id="fnref3:3"><a class="footnote-ref" href="#fn:3">3</a></sup>.</li>
+<li><code>File_AddCurrentUserToSD</code> attempts to append an allow ACE for Sandboxie's recorded process-user SID with <code>GENERIC_ALL</code> and flags <code>CONTAINER_INHERIT_ACE | OBJECT_INHERIT_ACE | INHERITED_ACE</code>. It requires a usable DACL and SID, can fail, and its examined callers do not check the return status. The helper copies existing ACEs when possible, without explicit canonical reordering or duplicate-ACE suppression. Neither successful adjustment nor exact persisted ACE ordering is guaranteed<sup id="fnref2:4"><a class="footnote-ref" href="#fn:4">4</a></sup>.</li>
 </ul>
+<p>Saving and reloading configuration does not refresh this cached value in already initialized sandboxed processes. Restart affected sandboxed processes after changing the effective setting; this setting does not inherently require a Windows reboot or Sandboxie service restart<sup id="fnref2:5"><a class="footnote-ref" href="#fn:5">5</a></sup>.</p>
+<p>Changing the option does not retroactively rewrite existing sandbox files or directories, change previously copied descriptors, or automatically remigrate content. Restarting processes does not repair historical ACLs.</p>
 <h2 id="related-settings">Related Settings<a class="headerlink" href="#related-settings" title="Permanent link"></a></h2>
 <ul>
-<li><a href="MsiInstallerExemptions.html">MsiInstallerExemptions</a> - Often used together for MSI installer compatibility</li>
+<li><a href="MsiInstallerExemptions.html">MsiInstallerExemptions</a> - Separate service-token compatibility guidance for MSI installers.</li>
 </ul>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p>File creation logic in <code>file.c</code>: When <code>Secure_CopyACLs</code> is true, <code>File_DuplicateSecurityDescriptor</code> duplicates the original security descriptor and <code>File_AddCurrentUserToSD</code> adds the current user with full permissions.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>Ordinary creation in <a href="https://github.com/sandboxie-plus/Sandboxie/blob/05becaf9a58116dbb427476f5e3120ae77e65e78/Sandboxie/core/dll/file.c">file.c</a>: <code>File_NtCreateFileImpl</code> uses <code>ObjectAttributes-&gt;SecurityDescriptor</code>, supplied by the caller. <code>File_DuplicateSecurityDescriptor</code> duplicates that descriptor rather than querying a filesystem path.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>Directory creation in <code>file.c</code>: The system opens the source directory with <code>FILE_READ_ATTRIBUTES</code>, queries its security descriptor, and applies it to the new directory after adding current user access.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>Intermediate directories in <a href="https://github.com/sandboxie-plus/Sandboxie/blob/05becaf9a58116dbb427476f5e3120ae77e65e78/Sandboxie/core/dll/file.c">file.c</a>: both <code>File_CreatePath</code> loops attempt source-directory security queries and select <code>Secure_NormalSD</code> when no descriptor remains. The query uses <code>Secure_NtQuerySecurityObject</code> in <a href="https://github.com/sandboxie-plus/Sandboxie/blob/05becaf9a58116dbb427476f5e3120ae77e65e78/Sandboxie/core/dll/secure.c">secure.c</a>, which can retry selected queries without SACL information.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref4:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p>File copy operations in <code>file_copy.c</code>: Both regular file copying and reparse point copying preserve original ACLs by querying the source security descriptor with <code>NtQuerySecurityObject</code>.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>Migration in <a href="https://github.com/sandboxie-plus/Sandboxie/blob/05becaf9a58116dbb427476f5e3120ae77e65e78/Sandboxie/core/dll/file_copy.c">file_copy.c</a>: <code>File_MigrateFile</code> handles files and directories; <code>File_MigrateJunction</code> separately handles reparse data. Both query selected source security information when enabled, omit owner information, and can return a security-query failure rather than substitute the normal descriptor.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:3" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:3" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref4:3" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref5:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
-<p>ACL modification in <code>file.c</code>: <code>RtlAddAccessAllowedAceEx</code> adds the current user with <code>GENERIC_ALL</code> permissions and inheritance flags <code>CONTAINER_INHERIT_ACE | OBJECT_INHERIT_ACE | INHERITED_ACE</code>.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p>ACL adjustment in <a href="https://github.com/sandboxie-plus/Sandboxie/blob/05becaf9a58116dbb427476f5e3120ae77e65e78/Sandboxie/core/dll/file.c">file.c</a>: <code>File_AddCurrentUserToSD</code> attempts the allow-ACE addition; its status is ignored by the examined creation and migration callers. An allow entry does not guarantee <a href="https://learn.microsoft.com/en-us/windows/win32/secauthz/how-dacls-control-access-to-an-object">effective Windows access</a>, and <a href="https://learn.microsoft.com/en-us/windows/win32/secauthz/security-descriptors-for-new-objects">creation-time descriptor processing</a> can affect the final ACL.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 <li id="fn:5">
-<p>Initialization in <code>secure.c</code>: <code>Secure_CopyACLs = SbieApi_QueryConfBool(NULL, L"UseOriginalACLs", FALSE)</code> sets the global variable during DLL initialization.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+<p>Initialization in <a href="https://github.com/sandboxie-plus/Sandboxie/blob/05becaf9a58116dbb427476f5e3120ae77e65e78/Sandboxie/core/dll/secure.c">secure.c</a>: <code>Secure_Init</code> initializes <code>Secure_CopyACLs</code> through <code>SbieApi_QueryConfBool(NULL, L"UseOriginalACLs", FALSE)</code>. The configuration API resolves this NULL section through the sandboxed process's box context; the cached flag is process-local.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

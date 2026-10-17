@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="EnableEFS is a sandbox setting in Sandboxie Ini available since v1.15.0 / 5.70.0. It allows sandboxed processes to access files protected by the Windows Encrypting File System (EFS).">
+        <meta name="description" content="EnableEFS is a sandbox setting in Sandboxie Ini available since v1.15.0 / 5.70.0. It allows selected EFS-related file-open requests outside Application Compartment mode to retry through Sandboxie&#x27;s session-user file proxy after a native access-denied result. The retry remains subject to certificate capability, file-policy checks, and Windows filesystem authorization.">
       
       
       
@@ -5585,87 +5585,97 @@
 
 
 <h1 id="enable-efs">Enable EFS<a class="headerlink" href="#enable-efs" title="Permanent link"></a></h1>
-<p><em>EnableEFS</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a> available since v1.15.0 / 5.70.0. It allows sandboxed processes to access files protected by the Windows Encrypting File System (EFS).</p>
+<p><em>EnableEFS</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a> available since v1.15.0 / 5.70.0. It allows selected EFS-related file-open requests outside Application Compartment mode to retry through Sandboxie's session-user file proxy after a native access-denied result. The retry remains subject to certificate capability, file-policy checks, and Windows filesystem authorization.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This setting requires an active advanced <a href="https://sandboxie-plus.com/supporter-certificate/">supporter certificate</a><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
+<p>The proxy retry requires a currently applicable active advanced <a href="https://sandboxie-plus.com/supporter-certificate/">supporter certificate</a> with the encryption capability<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. This is separate from the Windows EFS credentials needed to decrypt a file.</p>
 </div>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">EnableEFS</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
+<p>The consumer fallback is disabled: if no effective value enables <code>EnableEFS</code>, this additional retry is not enabled. Effective configuration can come from the box, applicable enabled templates, or <code>GlobalSettings</code> fallback. A direct box value takes precedence over inherited values; <code>EnableEFS=n</code> explicitly overrides an inherited enabling value. The DLL resolves the setting for its calling process's box, and the worker checks the named box resolved from the caller. This is a box boolean, not a program-qualified setting.</p>
+<p>The DLL queries the setting during eligible operations, and the worker rechecks it for each proxy request. After configuration reload, later eligible requests can use the changed value without inherently requiring a sandboxed application, SbieSvc, SbieDrv, or Windows restart. Existing handles are not automatically revoked, and changing the setting does not establish cancellation of already-submitted work. File-policy lists have their own reload lifecycle, and certificate-state refresh is separate from ordinary configuration reload.</p>
 <h2 id="enabling-via-sandboxie-manager-gui">Enabling via Sandboxie Manager GUI<a class="headerlink" href="#enabling-via-sandboxie-manager-gui" title="Permanent link"></a></h2>
 <p>You can enable the setting from the Sandboxie Manager (also known as SandMan) for a specific sandbox (or the DefaultBox) using the following steps:</p>
 <ol>
 <li>Open SandMan.</li>
 <li>Right-click the sandbox you want to configure, and choose "Sandbox Options".</li>
-<li>In the settings dialog, select the "File Options" category on the left.</li>
-<li>Switch to the "File Options" tab group (top tabs) and scroll to the "Disk/File access" section.</li>
+<li>In the settings dialog, select the "General Options" category on the left.</li>
+<li>Switch to the "File Options" tab and scroll to the "Disk/File access" section.</li>
 <li>Check the option labeled "Allow sandboxed processes to open files protected by EFS".</li>
 <li>Click "Apply" or "OK" to save the setting.</li>
 </ol>
-<p>This mirrors the <code>EnableEFS=y</code> setting in the box section of <a href="../SandboxieIni/">Sandboxie.Ini</a> but is more convenient when configuring a single sandbox via the GUI.</p>
+<p>The checkbox reads the direct box setting, not necessarily the inherited effective configuration. Checking normally writes <code>EnableEFS=y</code>; unchecking removes ordinary direct values rather than writing <code>n</code>, so an inherited <code>y</code> may remain effective. A direct <code>EnableEFS=n</code> can override that inheritance, but a later save with the checkbox unchecked can remove that direct <code>n</code> too.</p>
+<p>SandMan displays an advanced-certificate badge when the encryption capability is unavailable; the badge does not itself disable the checkbox or bypass runtime checks. The checkbox is disabled in <a href="../NoSecurityIsolation/">Application Compartment</a> mode, where the ordinary DLL EFS retry is excluded.</p>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h2>
-<p>The Encrypting File System (EFS) is a Windows feature that provides file system-level encryption. By default, Sandboxie blocks access to EFS-encrypted files and folders from within sandboxed processes to maintain security isolation. The <code>EnableEFS</code> setting allows you to override this restriction when needed.</p>
+<p>The Encrypting File System (EFS) is a Windows feature that provides filesystem-level encryption. <code>EnableEFS</code> controls an additional compatibility retry, not a blanket rule denying every EFS access when disabled. Native access depends on the selected Sandboxie file-routing path, Windows rights and EFS credentials, filesystem and sharing conditions, and applicable Sandboxie restrictions.</p>
+<p>The setting does not supply EFS private keys, proxy every encrypted-file operation, or guarantee successful access. A Sandboxie supporter certificate authorizes the proxy feature; it is not a Windows EFS decryption credential.</p>
 <h2 id="how-it-works">How It Works<a class="headerlink" href="#how-it-works" title="Permanent link"></a></h2>
-<p>When <code>EnableEFS</code> is enabled:</p>
+<p>For a selected true-file open that reaches the EFS retry path:</p>
 <ol>
-<li><strong>EFS Detection</strong>: Sandboxie detects when a sandboxed process attempts to access an EFS-encrypted file or folder<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></li>
-<li><strong>Certificate Verification</strong>: The system verifies that a valid advanced supporter certificate with encryption features is present<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></li>
-<li><strong>Proxy Access</strong>: Instead of blocking the access, Sandboxie uses a proxy mechanism to handle the file operation outside the sandbox<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></li>
-<li><strong>Handle Duplication</strong>: The file handle is created in the UserServer service and then duplicated back into the sandboxed process<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup></li>
+<li><strong>Native Attempt</strong>: Sandboxie first attempts the native open. Only an original <code>STATUS_ACCESS_DENIED</code> result in non-compartment mode, with effective <code>EnableEFS</code> enabled, proceeds to the EFS check<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</li>
+<li><strong>EFS Detection</strong>: The DLL checks <code>FILE_ATTRIBUTE_ENCRYPTED</code> on the selected target or, in certain missing-target cases, its parent. This parent check is not limited exclusively to file-creation requests. Detection alone does not establish authorization, decryption, or a usable handle<sup id="fnref2:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</li>
+<li><strong>Proxy Request</strong>: If detection succeeds and reports EFS, the DLL submits the request to a session-specific UserServer worker<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>.</li>
+<li><strong>Worker Authorization</strong>: The worker validates the caller and Windows session, rechecks effective <code>EnableEFS</code>, verifies certificate capability, and checks device-path and process file-policy eligibility<sup id="fnref2:3"><a class="footnote-ref" href="#fn:3">3</a></sup><sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup>.</li>
+<li><strong>Opening and Transfer</strong>: The worker attempts to open the requested object with the supplied parameters and transfer a handle to the sandboxed caller. SbieSvc coordinates the worker, but the open uses the Windows session-user token rather than the main service's SYSTEM token; it is not necessarily the caller's restricted token. Windows authorization still applies, and a worker-side open does not guarantee a usable transferred handle<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>.</li>
 </ol>
+<p>A successful native open does not need this retry, and other native failures do not trigger this branch. Non-EFS detection or failed attribute retrieval can prevent dispatch. Other routing paths, including ordinary sandbox-copy creation, need not use this helper.</p>
 <h2 id="security-considerations">Security Considerations<a class="headerlink" href="#security-considerations" title="Permanent link"></a></h2>
 <ul>
-<li><strong>Reduced Isolation</strong>: Enabling EFS access reduces the security isolation of the sandbox, as it allows direct access to encrypted files that would normally be blocked</li>
-<li><strong>Path Validation</strong>: The proxy service validates that the requested file path matches configured access rules before allowing the operation<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup></li>
-<li><strong>Write Access Control</strong>: Write operations to EFS files are subject to additional validation based on the sandbox's file access configuration<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup></li>
+<li><strong>Direct-Object Access</strong>: Proxy access can expose a handle to the underlying object instead of creating a sandbox copy. If a writable handle to a host file is permitted, writes through that handle can affect the host file directly. This does not disable all sandbox isolation: worker checks, Windows permissions, handle rights, and other Sandboxie operation-specific controls remain relevant<sup id="fnref2:5"><a class="footnote-ref" href="#fn:5">5</a></sup>.</li>
+<li><strong>Path Validation</strong>: Proxy requests are subject to additional checks against the caller's process-specific file-policy lists, including Rule Specificity when enabled. A winning closed-path classification rejects proxy authorization. Proxy authorization should not be assumed to reproduce every normal file-routing behavior<sup id="fnref2:6"><a class="footnote-ref" href="#fn:6">6</a></sup>.</li>
+<li><strong>Write Access Control</strong>: Read-classified and write-classified requests have different authorization requirements. Access bits, creation dispositions other than <code>FILE_OPEN</code>, and delete-on-close can make a request write-capable, even without an intended change to existing contents. Write-capable requests require the proxy's open-path authorization; <code>EnableEFS=y</code> does not permit unrestricted writes<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup>.</li>
 </ul>
+<p>Do not broaden <code>OpenFilePath</code> permissions merely to enable EFS. Passing proxy authorization still does not guarantee Windows access or handle delivery.</p>
 <h2 id="certificate-requirements">Certificate Requirements<a class="headerlink" href="#certificate-requirements" title="Permanent link"></a></h2>
-<p>This feature requires an advanced supporter certificate that includes the encryption feature flag (<code>opt_enc</code>)<sup id="fnref:8"><a class="footnote-ref" href="#fn:8">8</a></sup>. Without this certificate, attempts to use EFS will result in error message <code>SBIE6004</code>.</p>
+<p>The runtime requires a successful certificate-state query and an active certificate with the encryption capability (<code>opt_enc</code>)<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup><sup id="fnref:8"><a class="footnote-ref" href="#fn:8">8</a></sup>. The project's UI calls this an active advanced supporter certificate; the worker enforces the capability flags rather than relying on that label alone. A generic supporter certificate without the required capability is insufficient.</p>
+<p>Installation, nominal certificate level, or expiration date alone does not establish current acceptance. This capability is also associated with other encryption/protection features, whose runtime behavior is separate. It does not replace Windows EFS credentials.</p>
 <h2 id="related-messages">Related Messages<a class="headerlink" href="#related-messages" title="Permanent link"></a></h2>
 <ul>
-<li><a href="../SBIE2225/">SBIE2225</a> - "An attempt was made to access an EFS file" - Warning logged when EFS access fails<sup id="fnref:9"><a class="footnote-ref" href="#fn:9">9</a></sup></li>
-<li><a href="../SBIE6004/">SBIE6004</a> - Certificate requirement error when advanced supporter certificate is not present</li>
+<li><a href="../SBIE2225/">SBIE2225</a> - "An attempt was made to access an EFS file" - Can report EFS detection during non-compartment file routing without an enabled setting or proxy attempt, or a failed eligible proxy retry. The message alone does not prove the final operation failed; it can coexist with certificate or transport diagnostics<sup id="fnref:9"><a class="footnote-ref" href="#fn:9">9</a></sup>.</li>
+<li><a href="../SBIE6004/">SBIE6004</a> - In the EFS worker, certificate-state retrieval failure or an unavailable active encryption capability causes this diagnostic and immediate rejection of that proxy request<sup id="fnref3:3"><a class="footnote-ref" href="#fn:3">3</a></sup>. It is not emitted for every native EFS access, and this worker check does not itself schedule five-minute process termination. Separate driver feature-enforcement paths can use the same message with different consequences.</li>
 </ul>
 <h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link"></a></h2>
 <ul>
-<li>Only works with files on hard disk volumes (paths starting with <code>\Device\HarddiskVolume</code>)<sup id="fnref:10"><a class="footnote-ref" href="#fn:10">10</a></sup>.</li>
-<li>Subject to the sandbox's file <a href="../ResourceAccess/">resource access rules</a> (<code>OpenFilePath</code>, <code>ClosedFilePath</code>, etc.).</li>
+<li>The worker accepts native paths with the case-insensitive prefix <code>\Device\HarddiskVolume</code>. This is a path-form restriction, not proof of a physical disk type, EFS-capable filesystem, available keys, or usable access. Normal network/UNC paths do not qualify merely by being mapped to a drive letter<sup id="fnref:10"><a class="footnote-ref" href="#fn:10">10</a></sup>.</li>
+<li>Proxying remains subject to the sandbox's file <a href="../ResourceAccess/">resource access rules</a> and the worker's additional authorization checks; it is not a universal copy-on-write path or a substitute for Windows authorization.</li>
+<li>Application Compartment skips this ordinary retry; that does not guarantee either success or denial of native EFS access.</li>
+<li>Unsupported object-attribute forms, caller/session or policy rejection, native open failures, handle-transfer problems, and transport errors or timeouts can prevent access. Different response layers mean there is no single guaranteed application-visible Windows error for every proxy failure<sup id="fnref2:4"><a class="footnote-ref" href="#fn:4">4</a></sup><sup id="fnref3:5"><a class="footnote-ref" href="#fn:5">5</a></sup>.</li>
 </ul>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p>Certificate verification is performed in <code>UserServer::OpenFile()</code> method checking for <code>CertInfo.active &amp;&amp; CertInfo.opt_enc</code>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p><a href="https://github.com/sandboxie-plus/Sandboxie/blob/43b629be6c17628e6298befccfec279774895ba5/Sandboxie/core/svc/UserServer.cpp#L641-L652"><code>UserServer::OpenFile()</code></a> rechecks effective enablement and requires <code>CertInfo.active &amp;&amp; CertInfo.opt_enc</code> after successful state retrieval.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>EFS file detection occurs in <code>File_NtCreateFile12()</code> by checking if <code>(FileType &amp; TYPE_EFS) != 0</code> where <code>TYPE_EFS</code> is defined as <code>FILE_ATTRIBUTE_ENCRYPTED</code>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p><a href="https://github.com/sandboxie-plus/Sandboxie/blob/43b629be6c17628e6298befccfec279774895ba5/Sandboxie/core/dll/file.c#L5016-L5077"><code>File_GetFileType()</code></a> identifies <code>FILE_ATTRIBUTE_ENCRYPTED</code>. <a href="https://github.com/sandboxie-plus/Sandboxie/blob/43b629be6c17628e6298befccfec279774895ba5/Sandboxie/core/dll/file.c#L4624-L4690"><code>File_NtCreateTrueFile()</code></a> implements the native-first retry and conditional parent check; <code>File_NtCreateFileImpl()</code> also uses EFS detection during routing.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p>The certificate check validates both that a certificate is active and has the encryption option flag set: <code>!(CertInfo.active &amp;&amp; CertInfo.opt_enc)</code>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>The <a href="https://github.com/sandboxie-plus/Sandboxie/blob/43b629be6c17628e6298befccfec279774895ba5/Sandboxie/core/drv/api.c#L1246-L1255">driver state query</a> supplies certificate state. The <a href="https://github.com/sandboxie-plus/Sandboxie/blob/43b629be6c17628e6298befccfec279774895ba5/Sandboxie/core/svc/UserServer.cpp#L648-L652">worker check</a> logs SBIE6004 and rejects the request if retrieval fails or active encryption capability is absent.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:3" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
-<p>EFS proxy mechanism is implemented through <code>File_NtCreateFileProxy()</code> which sends requests to the UserServer service via <code>SbieDll_CallProxySvr()</code>&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p><a href="https://github.com/sandboxie-plus/Sandboxie/blob/43b629be6c17628e6298befccfec279774895ba5/Sandboxie/core/dll/file.c#L4726-L4798"><code>File_NtCreateFileProxy()</code></a> constructs the request and handles the reply. <a href="https://github.com/sandboxie-plus/Sandboxie/blob/43b629be6c17628e6298befccfec279774895ba5/Sandboxie/core/dll/callsvc.c#L800-L864"><code>SbieDll_CallProxySvr()</code></a> handles transport, rejection, and timeout results.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 <li id="fn:5">
-<p>Handle duplication is performed in the UserServer using <code>DuplicateHandle()</code> to transfer the file handle from the service process to the sandboxed process&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+<p><a href="https://github.com/sandboxie-plus/Sandboxie/blob/43b629be6c17628e6298befccfec279774895ba5/Sandboxie/core/svc/UserServer.cpp#L181-L246"><code>UserServer::StartWorker()</code></a> obtains and duplicates the session-user token to create the worker. <a href="https://github.com/sandboxie-plus/Sandboxie/blob/43b629be6c17628e6298befccfec279774895ba5/Sandboxie/core/svc/UserServer.cpp#L720-L759"><code>UserServer::OpenFile()</code></a> opens the submitted native object and attempts handle transfer to the caller.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:5" title="Jump back to footnote 5 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 <li id="fn:6">
-<p>Path validation in UserServer checks that the path starts with <code>\Device\HarddiskVolume</code> and validates against file access rules using <code>SbieDll_MatchPathImpl()</code>&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+<p>The <a href="https://github.com/sandboxie-plus/Sandboxie/blob/43b629be6c17628e6298befccfec279774895ba5/Sandboxie/core/svc/UserServer.cpp#L660-L714">worker policy path</a> checks the device prefix, acquires process path lists, and applies additional authorization using <a href="https://github.com/sandboxie-plus/Sandboxie/blob/43b629be6c17628e6298befccfec279774895ba5/Sandboxie/core/dll/dllpath.c#L506-L595"><code>SbieDll_MatchPathImpl()</code></a>.&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
 </li>
 <li id="fn:7">
-<p>Write access validation checks for write-related access flags, creation dispositions other than <code>FILE_OPEN</code>, and the <code>FILE_DELETE_ON_CLOSE</code> option&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+<p><a href="https://github.com/sandboxie-plus/Sandboxie/blob/43b629be6c17628e6298befccfec279774895ba5/Sandboxie/core/svc/UserServer.cpp#L663-L714">Write classification and authorization</a> consider the access mask, disposition, and <code>FILE_DELETE_ON_CLOSE</code>, then require open-path authorization for write-capable requests and reject closed/write classifications.&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
 </li>
 <li id="fn:8">
-<p>The encryption feature flag <code>opt_enc</code> is defined in the certificate verification structure as part of Box Encryption and Box Protection features&#160;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 8 in the text">&#8617;</a></p>
+<p><a href="https://github.com/sandboxie-plus/Sandboxie/blob/43b629be6c17628e6298befccfec279774895ba5/Sandboxie/core/drv/verify.h#L24-L44"><code>SCertInfo</code></a> defines <code>opt_enc</code> for EFS and other encryption/protection features. <a href="https://github.com/sandboxie-plus/Sandboxie/blob/43b629be6c17628e6298befccfec279774895ba5/Sandboxie/core/drv/verify.c#L982-L1085">Certificate validation</a> establishes capability and activity rather than a simple expiration-date test.&#160;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 8 in the text">&#8617;</a></p>
 </li>
 <li id="fn:9">
-<p>Error logging occurs when <code>File_NtCreateFileProxy()</code> fails with <code>SbieApi_Log(2225, TruePath)</code>&#160;<a class="footnote-backref" href="#fnref:9" title="Jump back to footnote 9 in the text">&#8617;</a></p>
+<p>SBIE2225 is emitted at the <a href="https://github.com/sandboxie-plus/Sandboxie/blob/43b629be6c17628e6298befccfec279774895ba5/Sandboxie/core/dll/file.c#L3862-L3865"><code>File_NtCreateFileImpl()</code> detection site</a> and the <a href="https://github.com/sandboxie-plus/Sandboxie/blob/43b629be6c17628e6298befccfec279774895ba5/Sandboxie/core/dll/file.c#L4672-L4685"><code>File_NtCreateTrueFile()</code> retry-failure site</a>.&#160;<a class="footnote-backref" href="#fnref:9" title="Jump back to footnote 9 in the text">&#8617;</a></p>
 </li>
 <li id="fn:10">
-<p>Device path restriction implemented by checking <code>_wcsnicmp(path_buff, L"\\Device\\HarddiskVolume", 22) != 0</code> in UserServer&#160;<a class="footnote-backref" href="#fnref:10" title="Jump back to footnote 10 in the text">&#8617;</a></p>
+<p>The <a href="https://github.com/sandboxie-plus/Sandboxie/blob/43b629be6c17628e6298befccfec279774895ba5/Sandboxie/core/svc/UserServer.cpp#L660-L661">device-prefix check</a> accepts the <code>\Device\HarddiskVolume</code> name prefix; it does not independently verify filesystem encryption capability.&#160;<a class="footnote-backref" href="#fnref:10" title="Jump back to footnote 10 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

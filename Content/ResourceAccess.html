@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="In Sandboxie, various Resource Access Settings apply only to programs installed outside of Sandboxie, as not to be bypassed by sandboxed programs changing their exe name.">
+        <meta name="description" content="Resource Access Settings control how sandboxed programs access resources. Some rules distinguish whether the requesting program&#x27;s executable file is loaded from outside or inside the sandbox.">
       
       
       
@@ -5585,14 +5585,14 @@
 
 
 <h1 id="resource-access">Resource Access<a class="headerlink" href="#resource-access" title="Permanent link"></a></h1>
-<p>In Sandboxie, various <a href="ResourceAccessSettings.html">Resource Access Settings</a> apply only to programs installed outside of Sandboxie, as not to be bypassed by sandboxed programs changing their exe name.</p>
-<p>The following table shows which settings apply to what installation locations.</p>
+<p><a href="ResourceAccessSettings.html">Resource Access Settings</a> control how sandboxed programs access resources. Some rules distinguish whether the requesting program's executable file is loaded from outside or inside the sandbox.</p>
+<p>Both columns below describe programs running under Sandboxie. "Yes" means that a rule is eligible to apply to a program at that executable location, not that access is allowed. Program selectors, <a href="../PlusContent/RuleSpecificity.html">rule precedence</a>, and other security restrictions still affect the result.</p>
 <table>
 <thead>
 <tr>
-<th></th>
-<th>Outside</th>
-<th>Inside</th>
+<th>Setting</th>
+<th>Executable outside the sandbox</th>
+<th>Executable inside the sandbox</th>
 </tr>
 </thead>
 <tbody>
@@ -5628,17 +5628,17 @@
 </tr>
 <tr>
 <td><a href="NormalFilePath.html">NormalFilePath</a></td>
-<td>Read-only</td>
+<td>Yes</td>
 <td>Yes</td>
 </tr>
 <tr>
 <td><a href="NormalIpcPath.html">NormalIpcPath</a></td>
-<td>Read-only</td>
+<td>Yes</td>
 <td>Yes</td>
 </tr>
 <tr>
 <td><a href="NormalKeyPath.html">NormalKeyPath</a></td>
-<td>Read-only</td>
+<td>Yes</td>
 <td>Yes</td>
 </tr>
 <tr>
@@ -5654,7 +5654,7 @@
 <tr>
 <td><a href="OpenFilePath.html">OpenFilePath</a></td>
 <td>Yes</td>
-<td>No</td>
+<td>No by default</td>
 </tr>
 <tr>
 <td><a href="OpenIpcPath.html">OpenIpcPath</a></td>
@@ -5664,7 +5664,7 @@
 <tr>
 <td><a href="OpenKeyPath.html">OpenKeyPath</a></td>
 <td>Yes</td>
-<td>No</td>
+<td>No by default</td>
 </tr>
 <tr>
 <td><a href="OpenPipePath.html">OpenPipePath</a></td>
@@ -5678,32 +5678,34 @@
 </tr>
 <tr>
 <td><a href="ReadFilePath.html">ReadFilePath</a></td>
-<td>Read-only</td>
-<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
 </tr>
 <tr>
 <td><a href="ReadIpcPath.html">ReadIpcPath</a></td>
-<td>Read-only</td>
-<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
 </tr>
 <tr>
 <td><a href="ReadKeyPath.html">ReadKeyPath</a></td>
-<td>Read-only</td>
-<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
 </tr>
 <tr>
 <td><a href="WriteFilePath.html">WriteFilePath</a></td>
-<td>No</td>
+<td>Yes</td>
 <td>Yes</td>
 </tr>
 <tr>
 <td><a href="WriteKeyPath.html">WriteKeyPath</a></td>
-<td>No</td>
+<td>Yes</td>
 <td>Yes</td>
 </tr>
 </tbody>
 </table>
-<p><del>Note that all <code>Close...=!&lt;program&gt;,...</code> excludes only programs from outside the sandbox.</del></p>
+<p>The "No by default" entries describe the exclusion of ordinary <code>OpenFilePath</code> and <code>OpenKeyPath</code> rules for executables loaded from inside the sandbox. <code>DontOpenForBoxed=n</code> disables this exclusion, as does <a href="NoSecurityIsolation.html">Application Compartment</a> mode. <code>OpenPipePath</code> and <code>OpenConfPath</code> are not subject to this exclusion.</p>
+<p><code>ReadIpcPath</code> refers here to its <code>$:...</code> target-process rules. These permit limited read access to another process and use a separate policy from generic named IPC-object matching; see <a href="ReadIpcPath.html">Read IPC Path</a>.</p>
+<p>When <code>AlwaysCloseForBoxed</code> is active (the default outside Application Compartment mode), a negated program selector such as <code>!program.exe</code> on <code>ClosedFilePath</code>, <code>ClosedKeyPath</code>, or <code>ClosedIpcPath</code> does not exempt an executable loaded from inside the sandbox. Setting <code>AlwaysCloseForBoxed=n</code> restores normal selector matching. Sandboxie components have an additional exception for negated <code>ClosedIpcPath</code> entries.</p>
 
 
 
