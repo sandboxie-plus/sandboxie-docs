@@ -1,6 +1,4 @@
-# Documentation checks
-
-## Simplified Chinese terminology check
+# Simplified Chinese terminology check
 
 Use **沙盒** for Sandboxie containers in Simplified Chinese. The community
 [poll](https://github.com/sandboxie-plus/Sandboxie/discussions/5546) and
@@ -40,40 +38,3 @@ commit, and ensure both revisions and their common history are available locally
 Exit codes are 0 for success (including warnings only), 1 for deprecated term
 errors and 2 for a check that could not be completed. CI uses `--github-actions`
 to report the affected files and lines.
-
-## Build and check published links
-
-The pull request build and publishing use the same language preparation, URL
-layout, and rendered-link check. They fill missing Simplified Chinese pages from
-English, build both directory and `.html` URLs, and keep the published `/zh-CN/`
-language prefix.
-The source checkout is not modified. The build directory must be a new directory
-outside the repository; existing output is never overwritten by preparation.
-
-With Python 3.10 or later, PowerShell 7, and `requirements.txt` installed, run
-these commands from the repository root:
-
-```sh
-python tools/prepare_docs.py --repo . --output ../sandboxie-docs-preview
-pwsh -File tools/build_docs.ps1 -BuildRoot ../sandboxie-docs-preview
-python tools/check_site_links.py --site ../sandboxie-docs-preview/site
-python -m unittest discover -s tools -p 'test_*.py'
-```
-
-The link checker checks links and images in rendered `<article>` content,
-including local files, section fragments, and URLs under the published site
-`https://sandboxie-plus.github.io/sandboxie-docs/`. It reports every broken
-reference and does not access the network. Navigation links and external URLs
-are outside its scope; the existing Lychee workflow handles external links.
-Use `--site-url` for another site address or `--base-path` to override its path
-prefix. Root-relative and same-host absolute URLs outside that prefix are
-treated as external references. Exit codes are 0 for success, 1 for broken
-references, and 2 when the check cannot finish, including an empty or unreadable
-site.
-
-For translated headings, keep published anchors stable. An explicit alias such
-as `<div id="程序警报"></div>` immediately before the matching heading preserves
-the heading's existing generated ID while supporting that incoming fragment.
-Do not attach an anchor to an unrelated section merely to pass the check. When
-the required section has not been translated, label the reference as English
-and link to the corresponding English section instead.

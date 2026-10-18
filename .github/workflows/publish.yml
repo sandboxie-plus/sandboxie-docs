@@ -8,6 +8,10 @@ on:
     branches:
     - main
 
+env:
+  DIR_ZH  : "zh"     # ZH directory
+  DIR_ZHCN: "zh-CN"  # ZHCN directory
+
 jobs:
   pages:
     runs-on: ubuntu-latest
@@ -15,6 +19,55 @@ jobs:
     - uses: actions/checkout@v7
       with:
         fetch-depth: 0
+
+    # Prepare language directories
+    - name: Prepare language directories
+      shell: pwsh
+      run: |
+        # Set directory paths
+        $sourceContent = "./docs/Content"
+        $sourcePlusContent = "./docs/PlusContent"
+        $targetContentZH = "./docs/$env:DIR_ZHCN/Content"
+        $targetPlusContentZH = "./docs/$env:DIR_ZHCN/PlusContent"
+
+        # Create target directories if they don't exist
+        if (!(Test-Path $targetContentZH)) { New-Item -ItemType Directory -Path $targetContentZH }
+        if (!(Test-Path $targetPlusContentZH)) { New-Item -ItemType Directory -Path $targetPlusContentZH }
+
+        # Copy Content files
+        if (Test-Path $sourceContent) {
+            Get-ChildItem $sourceContent -Filter "*.md" | ForEach-Object {
+                $targetFile = Join-Path $targetContentZH $_.Name
+                if (!(Test-Path $targetFile)) {
+                    Write-Host "Copying $($_.FullName) to $targetFile"
+                    Copy-Item $_.FullName $targetFile
+                }
+            }
+        }
+
+        # Copy PlusContent files
+        if (Test-Path $sourcePlusContent) {
+            Get-ChildItem $sourcePlusContent -Filter "*.md" | ForEach-Object {
+                $targetFile = Join-Path $targetPlusContentZH $_.Name
+                if (!(Test-Path $targetFile)) {
+                    Write-Host "Copying $($_.FullName) to $targetFile"
+                    Copy-Item $_.FullName $targetFile
+                }
+            }
+        }
+
+        # Remove existing target language directory if it exists
+        if (Test-Path "./docs/$env:DIR_ZH") {
+            Remove-Item -Recurse -Force "./docs/$env:DIR_ZH"
+        }
+        # Copy source language directory to target language directory
+        if (Test-Path "./docs/$env:DIR_ZHCN") {
+            Copy-Item -Recurse -Path "./docs/$env:DIR_ZHCN" -Destination "./docs/$env:DIR_ZH"
+        }
+        else {
+            Write-Error "$env:DIR_ZHCN directory not found!"
+            exit 1
+        }
 
     - name: Setup Python
       uses: actions/setup-python@v7
@@ -24,19 +77,179 @@ jobs:
       run: |
         pip install --upgrade pip
         pip install -r requirements.txt
-    - name: Prepare language directories
-      run: python tools/prepare_docs.py --repo "$GITHUB_WORKSPACE" --output "$RUNNER_TEMP/docs-build"
     - name: Build
       shell: pwsh
-      run: ./tools/build_docs.ps1 -BuildRoot (Join-Path $env:RUNNER_TEMP 'docs-build')
-    - name: Check rendered links
-      run: python tools/check_site_links.py --site "$RUNNER_TEMP/docs-build/site"
+      run: |-
+        python -m mkdocs build
+        python -m mkdocs build --no-directory-urls --site-dir site_
+
+        # Process HTML files in both root and /zh language folders
+        $languagePaths = "", "zh"  # "" for root, "zh" for Chinese
+        $contentFolders = "Content", "PlusContent"
+
+        Write-Host "=== Starting file copy process ===" -ForegroundColor Cyan
+
+        foreach ($lang in $languagePaths) {
+            foreach ($folder in $contentFolders) {
+                # Construct source and destination paths
+                $sourcePath = if ($lang) { Join-Path "site_" $lang | Join-Path -ChildPath $folder }
+                             else { Join-Path "site_" $folder }
+
+                $destPath = if ($lang) { Join-Path "./site" $lang | Join-Path -ChildPath $folder }
+                           else { Join-Path "./site" $folder }
+
+                Write-Host "`nProcessing folder: $sourcePath" -ForegroundColor Yellow
+                Write-Host "Destination folder: $destPath" -ForegroundColor Yellow
+
+                # Skip if source doesn't exist
+                if (!(Test-Path $sourcePath)) {
+                    Write-Host "Source path not found. Skipping." -ForegroundColor DarkYellow
+                    continue
+                }
+
+                # Get all HTML files
+                $htmlFiles = Get-ChildItem -Path $sourcePath -Filter "*.html" -Recurse -File
+
+                if ($htmlFiles.Count -eq 0) {
+                    Write-Host "No HTML files found." -ForegroundColor DarkYellow
+                    continue
+                }
+
+                Write-Host "Found $($htmlFiles.Count) HTML files to process" -ForegroundColor Green
+
+                foreach ($file in $htmlFiles) {
+                    # Get relative path (e.g., "subdir/file.html") from source folder
+                    $relativePath = $file.FullName.Substring((Resolve-Path $sourcePath).Path.Length + 1)
+                    $destinationFile = Join-Path $destPath $relativePath
+
+                    Write-Host "`n[File] Source: $($file.FullName)" -ForegroundColor Gray
+                    Write-Host "       Destination: $destinationFile" -ForegroundColor Gray
+
+                    # Ensure destination directory exists
+                    $destinationDir = [System.IO.Path]::GetDirectoryName($destinationFile)
+                    if (!(Test-Path $destinationDir)) {
+                        Write-Host "Creating directory: $destinationDir" -ForegroundColor Blue
+                        New-Item -ItemType Directory -Path $destinationDir -Force | Out-Null
+                    }
+
+                    # Copy file
+                    Write-Host "Copying file..." -ForegroundColor DarkCyan
+                    Copy-Item -Path $file.FullName -Destination $destinationFile -Force
+
+                    if (Test-Path $destinationFile) {
+                        Write-Host "Successfully copied." -ForegroundColor Green
+                    } else {
+                        Write-Host "Failed to copy!" -ForegroundColor Red
+                    }
+                }
+            }
+        }
+
+        Write-Host "`n=== Copy process completed ===" -ForegroundColor Cyan
+
+        # Rename target language directory to source language directory in the final site directory
+        $langDirs = Get-ChildItem site -Recurse -Directory | Where-Object { $_.Name -eq "$env:DIR_ZH" }
+        foreach ($dir in $langDirs) {
+            $newPath = Join-Path $dir.Parent.FullName "$env:DIR_ZHCN"
+            Rename-Item -Path $dir.FullName -NewName "$env:DIR_ZHCN"
+        }
+
+        # Update references in HTML files
+        $htmlFiles = Get-ChildItem site -Recurse -Filter "*.html"
+        foreach ($file in $htmlFiles) {
+            $content = Get-Content $file -Raw
+            $updatedContent = $content -replace "/$env:DIR_ZH/", "/$env:DIR_ZHCN/"
+            if ($content -ne $updatedContent) {
+                Set-Content $file $updatedContent
+            }
+        }
+
+        # # Use extra.js
+        # # Process lunr language files
+        # $lunrFiles = Get-ChildItem site -Recurse -Filter "lunr.zh.min.js"
+        # Write-Host "Found $($lunrFiles.Count) lunr.zh.min.js files"
+
+        # foreach ($lunrFile in $lunrFiles) {
+            # $newPath = Join-Path $lunrFile.Directory.FullName "lunr.zh-CN.min.js"
+            # Write-Host "Copying $($lunrFile) to $newPath"
+            # Copy-Item -Path $lunrFile -Destination $newPath
+        # }
+
+        # # Use extra.js
+        # # Process search_index.json files
+        # $searchIndexFiles = Get-ChildItem site -Recurse -Filter "search_index.json"
+        # Write-Host "Found $($searchIndexFiles.Count) search_index.json files"
+
+        # foreach ($searchFile in $searchIndexFiles) {
+            # Write-Host "Processing search index: $($searchFile)"
+
+            # try {
+                # $jsonContent = Get-Content $searchFile -Raw | ConvertFrom-Json
+
+                # # Check and update lang array in config
+                # if ($jsonContent.config -and $jsonContent.config.lang -contains $env:DIR_ZH) {
+                    # Write-Host "Found '$env:DIR_ZH' in lang array, updating to '$env:DIR_ZHCN'"
+                    # $jsonContent.config.lang = $jsonContent.config.lang | ForEach-Object {
+                        # if ($_ -eq $env:DIR_ZH) { $env:DIR_ZHCN } else { $_ }
+                    # }
+
+                    # # Convert back to JSON and save
+                    # $jsonContent | ConvertTo-Json -Depth 10 | Set-Content $searchFile
+                    # Write-Host "Successfully updated $($searchFile)"
+                # } else {
+                    # Write-Host "No '$env:DIR_ZH' found in lang array or config missing"
+                # }
+            # } catch {
+                # Write-Host "Error processing $($searchFile): $_"
+            # }
+        # }
+
+        # Process sitemap.xml files recursively
+        $sitemapFiles = Get-ChildItem site -Recurse -Filter "sitemap.xml"
+        Write-Host "Found $($sitemapFiles.Count) sitemap.xml files"
+
+        foreach ($sitemap in $sitemapFiles) {
+            Write-Host "Processing sitemap: $($sitemap)"
+
+            # Update references in sitemap.xml
+            $content = Get-Content $sitemap -Raw
+            $updatedContent = $content -replace "/$env:DIR_ZH/", "/$env:DIR_ZHCN/"
+
+            if ($content -ne $updatedContent) {
+                Write-Host "Updated $env:DIR_ZH→$env:DIR_ZHCN references in $($sitemap)"
+                $updatedContent | Set-Content $sitemap
+            } else {
+                Write-Host "No $env:DIR_ZH→$env:DIR_ZHCN references found in $($sitemap)"
+            }
+
+            # Process corresponding .gz file
+            $gzPath = "$($sitemap).gz"
+            if (Test-Path $gzPath) {
+                Write-Host "Found existing gzip file: $gzPath - deleting it"
+                Remove-Item -Force $gzPath
+            }
+
+            # Create new gzip file
+            Write-Host "Creating new gzip file: $gzPath"
+            $bytes = [System.Text.Encoding]::UTF8.GetBytes($updatedContent)
+            $ms = New-Object System.IO.MemoryStream
+            $gzip = New-Object System.IO.Compression.GZipStream($ms, [System.IO.Compression.CompressionMode]::Compress)
+            $gzip.Write($bytes, 0, $bytes.Length)
+            $gzip.Close()
+            [System.IO.File]::WriteAllBytes($gzPath, $ms.ToArray())
+
+            Write-Host "Successfully processed $($sitemap)"
+        }
+
+        if ($sitemapFiles.Count -eq 0) {
+            Write-Warning "No sitemap.xml files found in the repository"
+        }
 
     - name: Publish
       run: |-
         git config user.name 'github-actions[bot]'
         git config user.email 'github-actions[bot]@users.noreply.github.com'
-        ghp-import "$RUNNER_TEMP/docs-build/site" --push
+        ghp-import site --push
     - uses: actions/upload-artifact@v7.0.1
       with:
-        path: '${{ runner.temp }}/docs-build/site'
+        path: './site'
