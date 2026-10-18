@@ -1,148 +1,256 @@
 # Sandboxie 跟踪
 
-### Sandboxie 经典版请参阅 [资源访问监视器](ResourceAccessMonitor.md)。
+Sandboxie 提供了若干相互独立的追踪机制，用于排查兼容性和隔离规则问题。它们的输出会被收集到一个按会话共享的监控缓冲区中，可通过以下界面查看：
 
-### Sandboxie Plus 请参阅 [跟踪日志](../PlusContent/TraceLog.md)。
+* Sandboxie Plus 中的[跟踪日志](../PlusContent/TraceLog.md)；
+* Sandboxie Control 经典版中的[资源访问监视器](ResourceAccessMonitor.md)。
 
----
+打开任一查看器都会激活监控使用者。它**不会自动启用**下文描述的每个详细追踪选项。不做任何额外设置时可以获得一些基线资源活动；而 `ApiTrace`、`HookTrace`、`DebugTrace`、`ErrorTrace` 等选项会添加专用或更高数据量的诊断。
 
-### 概述
+没有监控使用者处于活动状态时，共享监控缓冲区不会被维护，其消息也不会保留供以后显示。显式启用的追踪选项即使在查看器关闭时，仍可能安装钩子或在进程侧执行诊断工作。
 
-在某些情况下，程序可能无法在沙盒内正常运行，因为它需要访问默认受 Sandboxie 保护的某个系统资源，而对该资源的访问被拒绝。
+监控与[日志消息事件](LogMessageEvents.md)相互独立，后者会把选定的 Sandboxie 消息发送到 Windows 事件日志。崩溃转储和进程启动暂停属于[崩溃与调试器诊断](CrashAndDebuggerDiagnostics.md)的范畴。
 
-注意：在这种情况下，沙盒化程序并不是在创建资源本身；相反，它期望该资源已经可用于访问和使用。
+## 资源访问追踪
 
-跟踪显示访问尝试，使识别哪些正常运行所需的资源被阻止变得相对容易。
+资源追踪设置有助于识别可能解释沙盒应用失败的文件、注册表、IPC 及相关操作。在具体设置支持的情况下，驱动资源过滤器使用以下实用取值：
 
-### 启用跟踪
+| 取值 | 含义 |
+| ----- | ------- |
+| `A` | 成功或被允许的操作 |
+| `D` | 失败或被拒绝的操作 |
+| `I` | 被忽略设备的操作（在支持的情况下） |
+| `*` | 广泛追踪 |
 
-跟踪可以通过不同的 [Sandboxie Ini](SandboxieIni.md) 设置激活：
+支持 `AD` 之类的组合；使用该过滤器的设置也接受 `ad` 之类的小写组合。这些字母并非由每个追踪选项统一实现。
 
-*   **FileTrace** 记录对文件、文件夹和文件系统卷的访问；
-*   **KeyTrace** 记录对注册表项（但不包括项内的值）的访问；
-*   **PipeTrace** 记录对用于进程间通信的命名管道和邮槽对象的访问；
-*   **IpcTrace** 记录对其他用于进程间通信的对象的访问，也记录一个进程对另一个进程的访问尝试；
-*   **GuiTrace** 记录窗口到窗口的通信；
-*   **ClsidTrace** 记录 COM 通信；
-*   **NetFwTrace** 跟踪防火墙组件的操作（自版本 0.9.0 / 5.51.0 起）；
-*   **LogAPI** 库用于获取额外跟踪输出（更多信息参见 [此主题](https://forum.xanasoft.com/threads/how-to-get-malawre-trace-in-sandboxie.143/)）。
+### FileTrace
 
-每个设置接受一系列指定记录内容的字符。字符 _a_ 记录被允许的请求；字符 _d_ 记录被拒绝的请求。对于 **FileTrace** 和 **PipeTrace** 设置，字符 _i_ 记录因访问被 Sandboxie 忽略的设备（如 CD-ROM）而被允许的请求。
+在资源模式下，`FileTrace` 记录文件、目录、卷和设备活动：
 
-设置 **PipeTrace**、**IpcTrace** 和 **GuiTrace** 与本页讨论更相关。**FileTrace** 和 **KeyTrace** 通常无法提供沙盒化程序为何出故障的洞察。
-
-因此，通常通过在 [Sandboxie Ini](SandboxieIni.md) 中做如下更改来启用跟踪：
-```
-   [GlobalSettings]
-   IpcTrace=ad
-   PipeTrace=ad
-   GuiTrace=ad
+```ini
+FileTrace=A
+FileTrace=D
+FileTrace=AD
+FileTrace=I
+FileTrace=*
 ```
 
-然后使用 Sandboxie 重新加载配置：
-* **配置** 菜单 -> **重新加载配置**（Sandboxie 经典版）
-* **选项** 菜单 -> **重新加载 ini 文件**（Sandboxie Plus）
+`A` 选择成功或被允许的活动，`D` 选择失败或被拒绝的活动，`I` 选择被忽略的设备类。`*` 请求广泛的文件资源追踪。
 
-跟踪选项可以按沙盒设置，这样只有你需要的沙盒才会生成跟踪日志。
+同一个遗留设置名还有一项独立的 SbieDll 文件 API 追踪用途：
 
-你还可以通过添加 ```TraceBufferPages=2560``` 调整缓冲区大小，它会扩大十倍。
-
-### 查看 **NetFwTrace**、**IpcTrace** 和 **PipeTrace** 的跟踪
-
-自版本 0.9.0 / 5.51.0 起，新增了选项 `NetFwTrace=*` 用于跟踪防火墙组件的操作。请注意，驱动程序只记录到内核调试输出，你可以用 [DbgView.exe](https://docs.microsoft.com/en-us/sysinternals/downloads/debugview) 查看。
-
-在 Windows Vista 及更高版本上，系统调试器日志的输出默认禁用。[这篇博客文章](https://web.archive.org/web/20080731211018/http://blogs.msdn.com:80/doronh/archive/2006/11/14/where-did-my-debug-output-go-in-vista.aspx) 和 [这个主题](https://web.archive.org/web/20230324011501/https://stackoverflow.com/questions/65015739/outputdebugstring-not-showing-message-in-debugview-windows-10-x64) 解释了如何启用它。
-
-以下跟踪将以下列格式显示输出。（假设启用了 **IpcTrace** 和 **PipeTrace**。）
+```ini
+FileTrace=y
+FileTrace=program.exe,y
 ```
-...
-(001404) SBIE (FA) 00120116.01.00000000 \Device\NamedPipe\ShimViewer
-...
-(001404) SBIE (IA) 001F0001 \ThemeApiPort
-...
-(001404) SBIE (PD) 00000040 001136
-(001404) SBIE (PA) 00020400 001136
-...
-(001404) SBIE (FA) 00000001.0F.FFFFFFFF \Device\Afd\Endpoint
-(001404) SBIE (FA) 00000001.0F.FFFFFFFF \Device\Afd
-...
-(001404) SBIE (ID) 001F0001 \RPC Control\protected_storage
-...
+
+这种形式会添加详细的文件 API 调用记录，并可限定到某个可执行文件。请把资源过滤器形式和映像限定的布尔形式视为同一遗留名的两种不同诊断用途，而非一种组合语法。
+
+### KeyTrace、PipeTrace 与 IpcTrace
+
+这些设置支持“允许/成功”和“拒绝/失败”资源过滤器：
+
+```ini
+KeyTrace=AD
+PipeTrace=AD
+IpcTrace=AD
 ```
-格式如下：
 
-```(pid) SBIE (ca) (access) (resource)```
+* `KeyTrace` 记录注册表键操作。
+* `PipeTrace` 记录命名管道和邮件槽操作。
+* `IpcTrace` 记录对其他 IPC 对象和进程间操作的访问。
 
-- `pid` 标识尝试访问的进程；
-- `c` 表示资源的 Sandboxie 类别——稍后详细介绍；
-- `a` 表示访问是被允许（A）还是被拒绝（D）；
-- `access` 表示对对象请求的访问，通常不有趣也不重要；
-- `resource` 标识想要访问的资源；在进程到进程访问的情况下，其中 _ca_ 为 (PA) 或 (PD)，资源名称是被访问进程的进程 id。
+`I` 对这些设置目前没有实际作用。
 
-一些示例：
+### GuiTrace
 
-```(001404) SBIE (IA) 001F0001 \ThemeApiPort```
+`GuiTrace` 是一个遗留设置。它直接的 GUI 追踪实现属于旧版 Windows XP 时代的 Win32k 钩子路径；现代受支持的 Windows 版本不通过此选项提供等效实现。GUI 和窗口类相关事件仍可能通过其他监控机制出现，但在 Windows 10 或 Windows 11 上启用 `GuiTrace` 不应指望重现历史上的 GUI 追踪。
 
-这里发出请求的进程是进程 id 1404，它被允许访问名为 _ThemeApiPort_ 的资源。资源类别是 I，因此这是一个进程间对象。访问被允许，因为默认情况下 Sandboxie 允许这一特定访问。
+### ClsidTrace
 
-```(001404) SBIE (ID) 001F0001 \RPC Control\protected_storage```
+`ClsidTrace` 添加详细的 COM 操作记录。当前运行时将显式的非空遗留值视为启用，而不是把 `A`、`D`、`I` 解释为资源过滤器。请使用 SandMan 中的复选框（如果有），或移除显式条目以手动关闭手工配置的追踪。
 
-这里对资源 _protected_storage_ 的访问被拒绝。默认情况下 Sandboxie 不允许此访问；不过 OpenProtectedStorage 设置会改变此行为。
+### NetFwTrace
 
-```(001404) SBIE (FA) 00000001.0F.FFFFFFFF \Device\Afd\Endpoint```
+`NetFwTrace` 在当前设置元数据中被标记为已禁用。仅存留有限的用户态网络诊断残余，旧的 WFP/防火墙日志路径并不是一个可用的、完整的防火墙追踪器。SandMan 中**可能仍可见“网络防火墙”追踪复选框**，但不应把它当作通用的 WFP 数据包或防火墙决策记录器。请移除显式条目，而不要依赖 `NetFwTrace=n` 作为手动禁用形式。
 
-这里对资源 _Endpoint_ 的访问被允许。资源类别是 F，因此这是一个命名管道或邮槽资源。访问默认被允许，因为 _\Device\Afd_ 前缀命名了互联网访问所需的资源。
+## 排查被拒资源
 
-### 查看 **GuiTrace** 条目
+**被拒绝的追踪记录本身并不意味应该放行。** 许多被拒操作是预期之内且无害的。只有当事件与应用失败存在合理关联时才测试配置变更，并优先使用最窄的资源专用规则。开放主机资源会降低沙盒隔离强度。
 
-启用 **GuiTrace** 时，跟踪还会产生如下条目：
+用资源类型确定相关的配置族：
+
+| 追踪资源 | 相关访问设置 |
+| -------------- | ----------------------- |
+| 文件、目录、卷和设备 | [打开文件路径](OpenFilePath.md)、[封闭文件路径](ClosedFilePath.md)、[只读文件路径](ReadFilePath.md) |
+| 注册表键 | [打开键路径](OpenKeyPath.md)、[封闭键路径](ClosedKeyPath.md)、[只读键路径](ReadKeyPath.md) |
+| 命名管道和邮件槽 | [打开管道路径](OpenPipePath.md) |
+| IPC 和进程间对象 | [打开 IPC 路径](OpenIpcPath.md)、[封闭 IPC 路径](ClosedIpcPath.md) |
+| GUI 和窗口类访问 | [打开窗口类](OpenWinClass.md) |
+| COM 类 | [打开 Clsid](OpenClsid.md)、[封闭 Clsid 路径](ClosedClsidPath.md) |
+
+例如，如果在可复现的失败时刻反复出现针对 `\BaseNamedObjects\Xyzzy` 的 IPC 拒绝事件，且有明确理由测试对该对象的访问：
+
+```ini
+[DefaultBox]
+OpenIpcPath=\BaseNamedObjects\Xyzzy
 ```
-...
-(001404) SBIE (GA) WinHook 0002 on tid=001484 pid=001960
-(001404) SBIE (GA) AccHook on tid=000000 pid=000000
-...
-(001404) SBIE (GD) PostMessage 01224 (04C8) to hwnd=00050060 pid=001324 DDEMLMom
-(001404) SBIE (GD) SendMessage 49376 (C0E0) to hwnd=00010014 pid=000804 #32769
-...
-(001404) SBIE (GD) SendInput
-(001404) SBIE (GA) SendInput
+
+一个实用的测试流程是：
+
+1. 在跟踪日志处于活动状态时复现问题。
+2. 在失败附近定位一个拒绝事件并确定其资源类型。
+3. 判断该事件是否合理地解释了失败。
+4. 如果是，临时添加最窄的相应规则。
+5. 按需重新加载或应用配置，重启受影响的应用程序，并复现测试。
+6. 对比行为；如果没有解决问题则移除该规则。
+
+不要把宽泛的 `Open*` 通配符当作通用排查手段。某个追踪类别并不能机械地决定就需要某一条特定的访问规则。
+
+## API 调用追踪
+
+### ApiTrace
+
+`ApiTrace` 记录经过 Sandboxie 通用 SbieDll 钩子机制的调用：
+
+```ini
+ApiTrace=y
+ApiTrace=program.exe,y
 ```
-这些条目有几种格式。(GA) 或 (GD) 之后的第一个词标识条目的类型。
 
-当第一个词是 _WinHook_ 或 _AccHook_ 时，条目指示钩子的安装。对 (GA) 条目允许其安装，对 (GD) 条目拒绝其安装。_WinHook_ 是标准 Windows 钩子，后跟钩子类型（参见 [MSDN 中的 SetWindowsHookEx](https://www.google.com/search?hl=en&q=setwindowshookex+msdn)）。_AccHook_ 是辅助功能钩子（参见 [MSDN 中的 SetWinEventHook](https://www.google.com/search?hl=en&q=setwineventhook+msdn)）。
+它能感知映像名，但不会追踪应用使用的每个 Windows API。输出在监控中表现为 API 调用记录。由于此选项数据量大且侵入性强，请仅在排查期间启用，并在更改后重启受影响的进程。
 
-两个条目都标识钩子将被安装到的线程号（tid）和进程号（pid）。
+### ApiTraceDll
 
-当第一个词是 _PostMessage_、_SendMessage_ 或 _ThrdMessage_ 时，条目显示被拒绝的窗口通信。随后的两个数字指示窗口消息号（十进制和十六进制）。条目还指示目标窗口的窗口句柄（hwnd）、拥有此窗口的进程号（pid），最后是该窗口的内部窗口类名。
+`ApiTraceDll` 扩展 `ApiTrace`，为选定模块中的命名导出添加仅追踪用的钩子。支持多个条目：
 
-### 分析跟踪
+```ini
+ApiTraceDll=kernel32.dll
+ApiTraceDll=user32.dll
+```
 
-使用跟踪的目的通常是识别导致沙盒化程序无法正常运行的资源。
+请使用模块基名而非完整路径。模块匹配不区分大小写。并非每个导出都保证可追踪。
 
-例如，考虑以下跟踪记录：
+### ApiSkipTrace
 
-```(001404) SBIE (ID) 001F0001 \BaseNamedObjects\Xyzzy```
+`ApiSkipTrace` 排除匹配的函数名前缀，主要针对通过 `ApiTraceDll` 申请的额外导出覆盖：
 
-这显示对某个 _Xyzzy_ 资源的访问被拒绝。Sandboxie 不认识此资源，默认情况下它拒绝访问未知资源。
+```ini
+ApiSkipTrace=Nt
+```
 
-如果沙盒化程序在此记录出现在跟踪中后不久开始出故障（它可能锁死、突然结束，或只是抱怨某事），那么有理由认为该程序期望此资源可访问。
+支持多个条目。前缀匹配区分大小写。它不是 Sandboxie 常规钩子的通用抑制规则。
 
-下一步是为该资源添加 [OpenIpcPath](OpenIpcPath.md) 设置：
+安装诊断（而非调用记录）请参阅[钩子追踪](HookTrace.md)。
 
-```OpenIpcPath=\BaseNamedObjects\Xyzzy```
+## 系统调用与内部追踪
 
-此设置告诉 Sandboxie 不应阻止对 _Xyzzy_ 资源的访问。
+### CallTrace
 
-然后重新加载 Sandboxie 配置，清除跟踪显示的旧内容，并重新启动沙盒化程序。如果程序现在运行得更好，_Xyzzy_ 确实是问题资源。
+`CallTrace` 是驱动系统调用追踪，而非通用的 Windows API 追踪：
 
-但如果程序仍然失败，可以再次检查跟踪日志以查找更晚（或可能更早）的失败访问尝试。
+```ini
+CallTrace=A
+CallTrace=D
+CallTrace=AD
+CallTrace=*
+```
 
-### 资源类别
+`A` 广泛记录到达追踪路径的被拦截调用，`D` 额外记录返回非成功 NTSTATUS 的调用。这些字母不应被解释为通用的“允许/拒绝”分类。SandMan 的**「系统调用追踪」**复选框会写入 `CallTrace=*`。
 
-跟踪记录显示对象的 Sandboxie 资源类别。这指示需要哪个 OpenXxxPath 设置来允许访问该对象。
+### CallTraceEx
 
-*   当资源类别是 F（如 (FA) 或 (FD)）时，相关设置是 [开放文件路径](OpenFilePath.md) 和 [封闭文件路径](ClosedFilePath.md)。
-*   当资源类别是 K（如 (KA) 或 (KD)）时，相关设置是 [开放注册表路径](OpenKeyPath.md) 和 [封禁注册表项路径](ClosedKeyPath.md)。
-*   当资源类别是 I（如 (IA) 或 (ID)）时，相关设置是 [开放 IPC 路径](OpenIpcPath.md) 和 [封禁 IPC 路径](ClosedIpcPath.md)。
-*   当资源类别是 G（如 (GA) 或 (GD)）时，相关设置是 [开放窗口类](OpenWinClass.md)。
-*   对于 ClsidTrace 显示的 COM 对象，相关设置是 [开放 Clsid](OpenClsid.md)。
+`CallTraceEx` 请求一种独立的、基于 Windows 进程插桩回调的高级系统调用追踪机制。当前任何配置的非空值都会请求它。它面向现代 Windows，在所有架构和配置上并非都受支持，也没有专用的 SandMan 复选框。
+
+### SbieTrace
+
+`SbieTrace` 为 SbieDll 与其他 Sandboxie 核心组件之间的交互启用选定诊断。其输出表现为 Debug 类记录。它不是完整的内部执行追踪。
+
+### DebugTrace
+
+`DebugTrace` 将应用的 `OutputDebugString` 输出捕获进监控，同时保留应用正常的调试输出调用。不应把它当作对任意长字符串的无损捕获。
+
+### ErrorTrace
+
+`ErrorTrace` 记录通过当前钩子路径观察到的非零 Win32 last-error 赋值。它可能非常嘈杂，且不覆盖每个 Windows 错误或每个 NTSTATUS。
+
+## DNS 追踪
+
+`DnsTrace` 记录 Sandboxie DNS 兼容与过滤层所拦截的 Winsock 服务查找路径。它能显示请求名称、IPv4 和 IPv6 结果、查找错误或完成情况，以及在配置了 `NetworkDnsFilter` 时受其影响的响应。
+
+它不追踪每个 DNS API、不捕获 DNS 数据包，也不覆盖使用自有直接解析器的应用。被查询的主机名和返回的地址可能出现在跟踪日志中——分享追踪输出前请先审阅。`DnsTrace` 不会启用 `NetworkDnsFilter`。
+
+当前运行时将显式的非空遗留值视为启用。请使用 SandMan 中的控件（如果有），或移除该条目以手动关闭，而不要依赖 `DnsTrace=n`。
+
+`DnsTrace` 引入于 Sandboxie Plus 1.14.0 和 Sandboxie Classic 5.69.0。
+
+## 栈追踪
+
+`MonitorStackTrace` 是一个实际上全局生效的监控选项，默认禁用。如果在监控缓冲区创建之前启用，通过通用监控路径的记录会附带栈地址：
+
+```ini
+[GlobalSettings]
+MonitorStackTrace=y
+```
+
+并非每个诊断源都保证包含栈信息，且栈可能不完整或包含无法解析符号的帧。SandMan 异步解析符号，并可能使用或安装 DbgHelp 和符号支持。栈采集和符号解析带来诊断开销，符号下载可能涉及网络访问。
+
+SandMan 通过跟踪日志中的**「显示栈追踪」**暴露此设置。更改它不会重建活动中的监控缓冲区。为可靠地启用或停用：
+
+1. 更改**「显示栈追踪」**。
+2. 停止跟踪日志。
+3. 重新启动跟踪日志。
+
+通常不需要重启服务或驱动。`MonitorStackTrace` 引入于 Sandboxie Plus 1.9.6 和 Sandboxie Classic 5.64.6。
+
+## 监控缓冲区大小
+
+`TraceBufferPages` 控制共享追踪/监控缓冲区的分配大小。当前配置的默认值为 `256`，该值在监控启动时读取：
+
+```ini
+[GlobalSettings]
+TraceBufferPages=2560
+```
+
+此示例请求更大的缓冲区，不代表有文档依据的字节或 MiB 换算。更大的值可以减少溢出，代价是占用更多内存。如果缓冲区无法接受更多记录，事件可能被丢弃，Sandboxie 也会报告监控缓冲区溢出。
+
+在监控活动期间更改该设置不会调整当前缓冲区。更改后请停止并重新启动跟踪日志或资源访问监视器。
+
+## 相关监控控制
+
+`DisableResourceMonitor=y` 会抑制受影响沙盒或进程的大量常规用户态和资源监控提交。它不保证每个显式启用的驱动追踪都被抑制。
+
+`MonitorAdminOnly` 将共享监控的激活限制为管理员，对监控控制检查而言实际上是全局生效的。参见[仅监控管理员](MonitorAdminOnly.md)。
+
+## SandMan 配置
+
+通过**「视图(V)」→「跟踪日志记录」**打开实时查看器。每沙盒的追踪控件位于**「沙盒选项 → 高级选项 → 追踪」**，目前包括：
+
+* 禁用资源监控；
+* 系统调用、文件、管道、注册表键、IPC、GUI、COM 类、网络防火墙和 DNS 追踪；
+* 钩子、API、调试输出和错误追踪。
+
+没有专用控件的高级设置包括 `ApiTraceDll`、`ApiSkipTrace`、`CallTraceEx`、`SbieTrace` 和 `TraceBufferPages`。`MonitorStackTrace` 由跟踪日志中的**「显示栈追踪」**控制，而不是由每沙盒的追踪复选框组控制。
+
+## 应用更改
+
+许多追踪设置由每个沙盒进程初始化或缓存。更改后请重启受影响的进程。影响共享监控缓冲区的选项（包括 `MonitorStackTrace` 和 `TraceBufferPages`）需要停止并重新启动监控，以创建新的缓冲区。
+
+即使没有打开查看器，显式启用的追踪选项也可能安装钩子或执行进程侧工作。活动监控的开销取决于启用的诊断项和事件量。
+
+## 版本历史
+
+* `ApiTrace`、`ApiTraceDll` 和 `ApiSkipTrace` 在 v1.13.0 时加入设置元数据。
+* `DnsTrace` 引入于 Sandboxie Plus 1.14.0 和 Sandboxie Classic 5.69.0。
+* `CallTraceEx` 在 v1.14.3 中加入。
+* `HookTrace` 引入于 Sandboxie Plus 1.15.5 和 Sandboxie Classic 5.70.5。
+
+## 相关页面
+
+- [跟踪日志](../PlusContent/TraceLog.md)
+- [实战追踪指南](../PlusContent/tracing-in-practice.md)
+- [资源访问监视器](ResourceAccessMonitor.md)
+- [钩子追踪](HookTrace.md)
+- [崩溃与调试器诊断](CrashAndDebuggerDiagnostics.md)
+- [Sandboxie Ini](SandboxieIni.md)

@@ -4,6 +4,8 @@ The Trace Log displays resource access and other diagnostic records from sandbox
 
 **Important:** Please consider to use the Trace Log before opening a new issue.
 
+For a hands-on workflow — which trace settings are active today, how to confirm records are actually being captured, and how to read the log to find missing access rules — see [Tracing in practice](tracing-in-practice.md).
+
 ![](../Media/TraceLog.png)
 
 ## Using the Trace Log
