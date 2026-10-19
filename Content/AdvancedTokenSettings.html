@@ -5682,13 +5682,26 @@
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="na">ReplicateToken</span><span class="o">=</span><span class="s">n</span>
 </span></code></pre></div>
 <p><em>ReplicateToken</em> defaults to <code>n</code> and applies specifically to the modern <code>Token_CreateToken</code> reconstruction path. It creates a new token while preserving substantially more properties from the source token; it does not simply duplicate the original token object.</p>
-<p>The reconstructed token preserves or reuses the source token user, groups, privileges, token type, impersonation level, authentication ID, expiration, owner, primary group, default DACL, token source, device groups, and token security attributes. It also avoids several normal transformations, including Sandboxie or Anonymous token-user substitution, conversion of groups to deny-only, normal privilege reduction, and normal addition of the <em>SandboxieAll</em> group.</p>
+<p>The reconstructed token preserves or reuses the source token user, groups, privileges, token type, impersonation level, authentication ID, expiration, owner, primary group, default DACL, and token source. It also avoids several normal transformations, including Sandboxie or Anonymous token-user substitution, conversion of groups to deny-only, normal privilege reduction, and normal addition of the <em>SandboxieAll</em> group.</p>
+<p><em>ReplicateToken</em> additionally enables optional device-group retrieval and token security-attribute copying, regardless of explicit <code>CopyDeviceGroups=n</code> or <code>CopyTokenAttributes=n</code> values. Neither optional operation guarantees successful preservation; see the following sections for their separate behavior and limitations.</p>
 <p>The source token passed to this stage may already have undergone preliminary filtering unless <em>UnfilteredToken</em> is also enabled. <em>ReplicateToken</em> therefore does not necessarily restore groups or privileges removed earlier.</p>
 <p>The implementation does not explicitly copy every token information class. Research did not establish explicit copying of <code>TokenRestrictedSids</code>, <code>TokenOrigin</code>, <code>TokenSessionId</code>, or AppContainer capabilities. <em>ReplicateToken</em> reconstructs the sandbox token while preserving substantially more properties of its source token; it should not be treated as an exact clone of every token field.</p>
-<h2 id="copytokenattributes">CopyTokenAttributes<a class="headerlink" href="#copytokenattributes" title="Permanent link"></a></h2>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="na">CopyTokenAttributes</span><span class="o">=</span><span class="s">y</span>
+<h2 id="copydevicegroups">CopyDeviceGroups<a class="headerlink" href="#copydevicegroups" title="Permanent link"></a></h2>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="na">CopyDeviceGroups</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="na">CopyTokenAttributes</span><span class="o">=</span><span class="s">n</span>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="na">CopyDeviceGroups</span><span class="o">=</span><span class="s">n</span>
+</span></code></pre></div>
+<p><em>CopyDeviceGroups</em> requests preservation of the source token's <code>TokenDeviceGroups</code> during modern token reconstruction. Its consumer fallback is <code>n</code> when no effective value is configured. It is a box-wide Boolean setting: applicable enabled templates and <code>GlobalSettings</code> fallback can contribute to the effective configuration, but executable-specific selectors are not supported.</p>
+<p>It applies to the modern reconstruction described under <a href="#token-processing-stages">Token processing stages</a>, not legacy filtering or the duplication selected by <em>UnrestrictedToken</em>. An explicit <code>UseCreateToken=y</code> is not required: the modern path can also be selected by <em>SandboxieAllGroup</em> or when the legacy filter is unavailable. Enabling <em>CopyDeviceGroups</em> does not itself select that path.</p>
+<p><em>ReplicateToken</em> enables the device-group copy decision even when <code>CopyDeviceGroups=n</code> is explicitly configured. These settings are not aliases: <em>CopyDeviceGroups</em> requests only this optional field, not the broader preservation performed by <em>ReplicateToken</em>.</p>
+<p>Retrieval is best effort. Sandboxie needs a usable source-token handle and must successfully query and allocate space for the device-group information. If the handle is unavailable, allocation fails, or the queries cannot retrieve the information, construction can continue without it.</p>
+<p>Transfer also depends on the available token constructor. The extended <code>ZwCreateTokenEx</code> path accepts device groups; the older <code>ZwCreateToken</code> fallback does not. A failure of the extended constructor does not automatically trigger a retry without device groups. Enabling the setting therefore does not guarantee preservation on every supported system.</p>
+<p>Device groups are distinct from ordinary token groups (<code>TokenGroups</code>), token security attributes (<code>TokenSecurityAttributes</code>), and AppContainer capabilities. They are not a list of hardware devices. This setting does not control ordinary group membership or deny-only conversion, <em>SandboxieAll</em> group insertion, user SID substitution, integrity reduction, privilege reduction, or the separate <em>CopyTokenAttributes</em> operation.</p>
+<p>Preserving device-group information does not itself restore administrator privileges, change device ACLs, disable Sandboxie device restrictions or file and Registry virtualization, bypass other security controls, or grant unrestricted host-device access. It does not guarantee application compatibility.</p>
+<h2 id="copytokenattributes">CopyTokenAttributes<a class="headerlink" href="#copytokenattributes" title="Permanent link"></a></h2>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="na">CopyTokenAttributes</span><span class="o">=</span><span class="s">y</span>
+</span></code></pre></div>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="na">CopyTokenAttributes</span><span class="o">=</span><span class="s">n</span>
 </span></code></pre></div>
 <p><em>CopyTokenAttributes</em> applies to the modern <code>Token_CreateToken</code> path and refers specifically to <code>TokenSecurityAttributes</code>. Sandboxie reads these security attributes from the source token and adds them to the newly created token. The setting does not copy every token information class and does not mean that AppContainer capabilities are copied.</p>
 <p>There is an important difference between the metadata and current runtime defaults:</p>
@@ -5699,24 +5712,24 @@
 <p>As a result, token security attributes are copied by default on that path in the current implementation. Setting <code>CopyTokenAttributes=n</code> explicitly disables this optional copy. Enabling <em>ReplicateToken</em> forces the copy behavior regardless of the explicit <em>CopyTokenAttributes</em> value.</p>
 <p>Attribute copying occurs after the new token is created and is best effort. Failure while querying, allocating, or applying <code>TokenSecurityAttributes</code> does not invalidate an otherwise successfully created token.</p>
 <h2 id="keeptokenintegrity">KeepTokenIntegrity<a class="headerlink" href="#keeptokenintegrity" title="Permanent link"></a></h2>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="na">KeepTokenIntegrity</span><span class="o">=</span><span class="s">y</span>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="na">KeepTokenIntegrity</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="na">KeepTokenIntegrity</span><span class="o">=</span><span class="s">n</span>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="na">KeepTokenIntegrity</span><span class="o">=</span><span class="s">n</span>
 </span></code></pre></div>
 <p><em>KeepTokenIntegrity</em> defaults to <code>n</code>. Sandboxie normally replaces the source integrity SID with a lowered sandbox integrity level. Enabling this setting preserves the source token's integrity level instead, so a token that begins at High integrity can remain at High integrity.</p>
 <p>Integrity level, group membership, and privileges are separate token properties. <em>KeepTokenIntegrity</em> preserves the source integrity level; token groups and privileges are filtered independently. It does not undo <em>DropAdminRights</em> and does not change the compatibility behavior of <a href="FakeAdminRights.html"><code>FakeAdminRights</code></a>.</p>
 <p>Enabling this setting makes <em>NoUntrustedToken</em> irrelevant. It is also redundant when normal primary-token replacement is bypassed by <em>NoSecurityIsolation</em>.</p>
 <h2 id="keepusergroup">KeepUserGroup<a class="headerlink" href="#keepusergroup" title="Permanent link"></a></h2>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="na">KeepUserGroup</span><span class="o">=</span><span class="s">y</span>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="na">KeepUserGroup</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="na">KeepUserGroup</span><span class="o">=</span><span class="s">n</span>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="na">KeepUserGroup</span><span class="o">=</span><span class="s">n</span>
 </span></code></pre></div>
 <p><em>KeepUserGroup</em> defaults to <code>n</code>. Here, "user group" means the token group entry whose SID matches the token's <code>TokenUser</code>. It does not specifically mean <code>BUILTIN\Users</code>, the <em>SandboxieAll</em> group, or the logon SID.</p>
 <p>During normal group restriction, Sandboxie can disable groups or convert them to deny-only. With <em>KeepUserGroup</em> enabled, the group matching the token user SID is preserved instead of receiving that normal treatment. The <code>TokenUser</code> identity itself can still be substituted later by the normal Anonymous Logon or Sandboxie SID path.</p>
 <h2 id="unstrippedtoken">UnstrippedToken<a class="headerlink" href="#unstrippedtoken" title="Permanent link"></a></h2>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="na">UnstrippedToken</span><span class="o">=</span><span class="s">y</span>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="na">UnstrippedToken</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="na">UnstrippedToken</span><span class="o">=</span><span class="s">n</span>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="na">UnstrippedToken</span><span class="o">=</span><span class="s">n</span>
 </span></code></pre></div>
 <p><em>UnstrippedToken</em> defaults to <code>n</code>. It skips selected stripping operations, but the exact preserved properties depend on the token-construction path.</p>
 <h3 id="modern-token-construction-path">Modern token-construction path<a class="headerlink" href="#modern-token-construction-path" title="Permanent link"></a></h3>
@@ -5730,6 +5743,7 @@
 <ul>
 <li><em>NoUntrustedToken</em></li>
 <li><em>ReplicateToken</em></li>
+<li><em>CopyDeviceGroups</em></li>
 <li><em>CopyTokenAttributes</em></li>
 <li><em>UnfilteredToken</em></li>
 <li><em>UnrestrictedToken</em></li>
@@ -5744,14 +5758,16 @@
 <h2 id="sandman-configuration">SandMan configuration<a class="headerlink" href="#sandman-configuration" title="Permanent link"></a></h2>
 <p>Among the settings on this page, only <em>NoUntrustedToken</em> has a dedicated current SandMan control:</p>
 <p><strong>Sandbox Options &gt; Security Options &gt; Advanced Security &gt; Use LOW integrity token instead of UNTRUSTED (reduces isolation)</strong></p>
-<p>The remaining settings are advanced manual <a href="SandboxieIni.html"><code>Sandboxie.ini</code></a> options.</p>
+<p>The remaining settings are advanced manual <a href="SandboxieIni.html"><code>Sandboxie.ini</code></a> options. For <em>CopyDeviceGroups</em>, use <strong>Sandbox Options &gt; Edit ini Section &gt; Edit ini</strong>; there is no dedicated checkbox.</p>
 <h2 id="sandboxie-plus-and-classic">Sandboxie Plus and Classic<a class="headerlink" href="#sandboxie-plus-and-classic" title="Permanent link"></a></h2>
-<p>Token processing is implemented in shared Sandboxie components. SandMan exposes the <em>NoUntrustedToken</em> control, while the other settings on this page use manual configuration. Current source does not contain equivalent dedicated Sandboxie Control Classic controls, but compatible manual INI settings can be consumed by the shared runtime where applicable.</p>
+<p>Token processing is implemented in shared Sandboxie components. SandMan exposes the <em>NoUntrustedToken</em> control, while the other settings on this page use manual configuration. Current source does not contain equivalent dedicated Sandboxie Control Classic controls, but compatible manual INI settings can be consumed by the shared runtime where applicable. Classic provides manual editing through <strong>Configure &gt; Edit Configuration</strong>.</p>
 <h2 id="applying-configuration-changes">Applying configuration changes<a class="headerlink" href="#applying-configuration-changes" title="Permanent link"></a></h2>
 <p>These settings are primarily consulted while Sandboxie prepares, filters, or creates a process token. Changing them does not retroactively rebuild an already assigned primary token. Restart affected sandboxed processes after changing the settings; recreating the sandboxed process tree provides consistent behavior. A SandMan, service, or driver restart is not normally required.</p>
 <p><em>UnfilteredToken</em> is also consulted during relevant later impersonation-token handling, but this does not remove the need to restart processes when changing primary-token policy.</p>
+<p>The <em>CopyDeviceGroups</em> decision is evaluated when modern token construction is reached, including relevant later impersonation-token handling; it is not a separate process-start-only cache. A later configuration read does not rebuild an existing primary token.</p>
 <h2 id="failure-behavior">Failure behavior<a class="headerlink" href="#failure-behavior" title="Permanent link"></a></h2>
 <p>Essential token-filtering, construction, or assignment failures cause process initialization to fail rather than deliberately falling back to a less-restricted host token. Exact errors depend on the failed operation.</p>
+<p>Optional <em>CopyDeviceGroups</em> retrieval failures are different: an unavailable source-token handle, failed information queries, or allocation failure can leave construction to continue without the optional device-group information. This does not guarantee that token creation or assignment will succeed, and a constructor failure does not automatically trigger a retry without device groups.</p>
 <p>The optional <em>CopyTokenAttributes</em> step is different: failure to copy <code>TokenSecurityAttributes</code> does not invalidate an otherwise successfully created token.</p>
 <h2 id="version-history">Version history<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
 <ul>
@@ -5759,6 +5775,7 @@
 <li><em>KeepTokenIntegrity</em> dates to Sandboxie Plus 0.3.0 / Classic 5.42.</li>
 <li><em>KeepUserGroup</em> and <em>UnstrippedToken</em> date to Sandboxie Plus 1.0.6 / Classic 5.55.6.</li>
 <li>The setting metadata records <em>NoUntrustedToken</em>, <em>ReplicateToken</em>, and <em>CopyTokenAttributes</em> as added in Sandboxie Plus 1.14.1.</li>
+<li><em>CopyDeviceGroups</em> was introduced in Sandboxie Plus 1.17.0 / Classic 5.72.0.</li>
 <li>The dedicated <em>NoUntrustedToken</em> SandMan control was documented in the Sandboxie Plus 1.17.0 / Classic 5.72.0-era changes.</li>
 </ul>
 <h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>

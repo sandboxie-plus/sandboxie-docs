@@ -5591,8 +5591,8 @@
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">UseChangeSpeed</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p><code>UseChangeSpeed=y</code> is required for the six speed factors to have an effect. If <code>UseChangeSpeed</code> is absent or disabled, Sandboxie does not install the process-speed hooks when a sandboxed process initializes.</p>
-<p>Use positive decimal integer factors. A value of <code>1</code> is neutral and leaves that factor unchanged.</p>
+<p><code>UseChangeSpeed=y</code> enables installation of the applicable timing hooks during their initialization. Its runtime fallback is disabled (<code>n</code>). A value can come from the sandbox section, applicable enabled templates, or <code>[GlobalSettings]</code>; absence from the direct sandbox section does not necessarily disable the feature. When no effective value enables it, the corresponding hooks are not installed.</p>
+<p>Use small positive decimal integer factors. All six factors have a consumer fallback of <code>1</code>, the normal neutral value. Ordinary literal <code>0</code> values also resolve to that fallback; <code>AddSleepSpeed=0</code> is not an instruction to skip sleep calls, and zero should not be used to disable the feature.</p>
 <h2 id="affected-apis">Affected APIs<a class="headerlink" href="#affected-apis" title="Permanent link"></a></h2>
 <p>The settings apply only to the API groups listed below.</p>
 <h3 id="tick-and-clock-functions">Tick and Clock Functions<a class="headerlink" href="#tick-and-clock-functions" title="Permanent link"></a></h3>
@@ -5603,16 +5603,18 @@
 <li><code>QueryUnbiasedInterruptTime</code></li>
 <li><code>QueryPerformanceCounter</code></li>
 </ul>
-<p>For normal positive values, the effective clock-speed relationship is approximately <code>AddTickSpeed / LowTickSpeed</code>. <code>AddTickSpeed</code> makes the affected clocks progress faster, while <code>LowTickSpeed</code> makes them progress slower.</p>
+<p>For small positive values within arithmetic limits, most listed clocks scale approximately by <code>AddTickSpeed / LowTickSpeed</code>, but their calculations differ. <code>GetTickCount</code> scales elapsed values relative to a native reference captured when its hook is installed. <code>GetTickCount64</code> and <code>QueryPerformanceCounter</code> scale absolute native values. The feature does not install a corresponding <code>QueryPerformanceFrequency</code> hook.</p>
+<p>In the current implementation, <code>QueryUnbiasedInterruptTime</code> divides the integer factors before scaling its result. Unlike the other listed clocks, fractional ratios below one can therefore produce zero rather than a proportionally slower clock; a ratio such as <code>3/2</code> is truncated to <code>1</code>. This is a current implementation limitation, not a consistent fractional-scaling contract. See the <a href="https://github.com/sandboxie-plus/Sandboxie/blob/31ba1e5c1aaaf3c98248a8994aecc9d016b7a310/Sandboxie/core/dll/kernel.c#L326-L401">current clock wrappers</a>.</p>
 <p>These functions represent elapsed or performance-counter time, not the system date and time. The affected timing sources are adjusted independently and should not be treated as a single precise virtual clock. Applications that compare different Windows timing sources may observe differences.</p>
 <h3 id="sleep-functions">Sleep Functions<a class="headerlink" href="#sleep-functions" title="Permanent link"></a></h3>
-<p><code>AddSleepSpeed</code> and <code>LowSleepSpeed</code> control the requested duration passed through Sandboxie's <code>SleepEx</code> hook. Sandboxie's implementation relies on normal <code>Sleep</code> calls reaching this <code>SleepEx</code> path on Windows; it does not install a separate <code>Sleep</code> hook.</p>
-<p>For normal positive values, the effective duration relationship is approximately <code>LowSleepSpeed / AddSleepSpeed</code>. Shorter delays allow execution to progress faster. For example:</p>
+<p><code>AddSleepSpeed</code> and <code>LowSleepSpeed</code> control the requested duration passed through Sandboxie's <code>SleepEx</code> hook. Sandboxie does not install a separate <code>Sleep</code> hook: ordinary <code>Sleep</code> calls are affected only where their actual Windows execution path reaches the intercepted <code>SleepEx</code> implementation.</p>
+<p>For ordinary positive values within arithmetic limits, the forwarded duration is approximately <code>requested duration * LowSleepSpeed / AddSleepSpeed</code>. Shorter requested delays can allow execution to progress faster. With the other factor left at <code>1</code>:</p>
 <ul>
-<li><code>AddSleepSpeed=2</code> changes a requested 1000 ms sleep to approximately 500 ms.</li>
-<li><code>LowSleepSpeed=2</code> changes a requested 1000 ms sleep to approximately 2000 ms.</li>
+<li><code>AddSleepSpeed=2</code> forwards a requested 1000 ms sleep as 500 ms.</li>
+<li><code>LowSleepSpeed=2</code> forwards a requested 1000 ms sleep as 2000 ms.</li>
 </ul>
-<p>This does not modify synchronization waits such as <code>WaitForSingleObject</code>. Very small transformed durations remain subject to normal Windows scheduling and timer-resolution behavior.</p>
+<p>These are requested intervals, not guarantees of exact elapsed time. The conversion multiplies in 32-bit unsigned arithmetic before division: large values can overflow, very small results can truncate to zero, and arbitrary scaling need not preserve special timeout values such as <code>INFINITE</code>.</p>
+<p>This does not modify synchronization waits such as <code>WaitForSingleObject</code>. Actual elapsed time remains subject to normal Windows scheduling, timer-resolution behavior, and alertable sleep semantics.</p>
 <h3 id="timer-functions">Timer Functions<a class="headerlink" href="#timer-functions" title="Permanent link"></a></h3>
 <p><code>AddTimerSpeed</code> and <code>LowTimerSpeed</code> control:</p>
 <ul>
@@ -5620,13 +5622,13 @@
 <li><code>timeGetTime</code></li>
 <li><code>timeSetEvent</code></li>
 </ul>
-<p>In the current implementation, <code>timeGetTime</code> belongs to the Timer factor group, not the Tick factor group.</p>
-<p>For supported timer intervals, the effective duration relationship is approximately <code>LowTimerSpeed / AddTimerSpeed</code>. The <code>timeGetTime</code> clock uses the corresponding <code>AddTimerSpeed / LowTimerSpeed</code> relationship. Therefore:</p>
+<p>In the current implementation, <code>timeGetTime</code> belongs to the Timer factor group, not the Tick factor group. It adjusts a returned clock value using its own native reference captured when its hook is installed, separate from <code>GetTickCount</code>; it does not change timer intervals.</p>
+<p>For ordinary positive factors within arithmetic limits, <code>SetTimer</code> and <code>timeSetEvent</code> adjust requested intervals approximately by <code>LowTimerSpeed / AddTimerSpeed</code>. The <code>timeGetTime</code> clock uses the corresponding <code>AddTimerSpeed / LowTimerSpeed</code> relationship. With the other factor at <code>1</code>:</p>
 <ul>
-<li><code>AddTimerSpeed=2</code> approximately halves supported timer intervals and makes <code>timeGetTime</code> progress approximately twice as fast.</li>
-<li><code>LowTimerSpeed=2</code> approximately doubles supported timer intervals and makes <code>timeGetTime</code> progress approximately half as fast.</li>
+<li><code>AddTimerSpeed=2</code> approximately halves requested timer intervals and makes <code>timeGetTime</code> progress approximately twice as fast.</li>
+<li><code>LowTimerSpeed=2</code> approximately doubles requested timer intervals and makes <code>timeGetTime</code> progress approximately half as fast.</li>
 </ul>
-<p>Windows timer minimums, resolution, message processing, and scheduling still apply, so actual callback or message delivery times may differ from the calculated interval.</p>
+<p>The interval wrappers use 64-bit intermediate arithmetic, then convert back to the native interval type; large transformed values can narrow or wrap. Windows timer minimums, supported ranges, resolution, message processing, and scheduling still apply, so actual callback or message delivery times may differ from the calculated interval. Timer-hook installation also has additional GUI conditions described under Runtime Scope.</p>
 <h2 id="factor-comparison">Factor Comparison<a class="headerlink" href="#factor-comparison" title="Permanent link"></a></h2>
 <table>
 <thead>
@@ -5640,35 +5642,36 @@
 <tr>
 <td><code>AddTickSpeed</code></td>
 <td>Supported tick/clock sources</td>
-<td>About 2x faster</td>
+<td>About 2x faster, subject to clock limitations above</td>
 </tr>
 <tr>
 <td><code>LowTickSpeed</code></td>
 <td>Supported tick/clock sources</td>
-<td>About 2x slower</td>
+<td>About 2x slower, except <code>QueryUnbiasedInterruptTime</code>, which produces zero</td>
 </tr>
 <tr>
 <td><code>AddSleepSpeed</code></td>
-<td><code>SleepEx</code> duration</td>
-<td>1000 ms becomes about 500 ms</td>
+<td><code>SleepEx</code> requested duration</td>
+<td>1000 ms forwarded as 500 ms</td>
 </tr>
 <tr>
 <td><code>LowSleepSpeed</code></td>
-<td><code>SleepEx</code> duration</td>
-<td>1000 ms becomes about 2000 ms</td>
+<td><code>SleepEx</code> requested duration</td>
+<td>1000 ms forwarded as 2000 ms</td>
 </tr>
 <tr>
 <td><code>AddTimerSpeed</code></td>
 <td>Supported timer APIs</td>
-<td>Intervals about halved; <code>timeGetTime</code> faster</td>
+<td>Requested intervals about halved; <code>timeGetTime</code> faster</td>
 </tr>
 <tr>
 <td><code>LowTimerSpeed</code></td>
 <td>Supported timer APIs</td>
-<td>Intervals about doubled; <code>timeGetTime</code> slower</td>
+<td>Requested intervals about doubled; <code>timeGetTime</code> slower</td>
 </tr>
 </tbody>
 </table>
+<p>The other factor in each pair is assumed to be <code>1</code>. These are request conversions or approximate clock relationships, subject to the limitations described above.</p>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">UseChangeSpeed</span><span class="o">=</span><span class="s">y</span>
@@ -5676,11 +5679,11 @@
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="na">AddSleepSpeed</span><span class="o">=</span><span class="s">2</span>
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="na">AddTimerSpeed</span><span class="o">=</span><span class="s">2</span>
 </span></code></pre></div>
-<p>This configuration generally causes:</p>
+<p>With the applicable hooks installed and values within arithmetic limits, this configuration generally causes:</p>
 <ul>
-<li>the supported tick and clock sources to progress approximately twice as fast;</li>
-<li>a requested 1000 ms sleep to become approximately 500 ms;</li>
-<li>supported timer intervals to be reduced approximately by half;</li>
+<li>the affected tick and clock sources to progress approximately twice as fast, without making them one consistent clock;</li>
+<li>a requested 1000 ms sleep to be forwarded as 500 ms;</li>
+<li>requested timer intervals to be reduced approximately by half;</li>
 <li><code>timeGetTime</code> to progress approximately twice as fast.</li>
 </ul>
 <h2 id="combining-add-and-low-factors">Combining Add and Low Factors<a class="headerlink" href="#combining-add-and-low-factors" title="Permanent link"></a></h2>
@@ -5690,21 +5693,23 @@
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="na">AddTickSpeed</span><span class="o">=</span><span class="s">2</span>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="na">LowTickSpeed</span><span class="o">=</span><span class="s">3</span>
 </span></code></pre></div>
-<p>For normal clock transformations, this produces an effective ratio of approximately <code>2/3</code>. Tick, Sleep, and Timer factors are independent, so changing one group does not automatically configure the others.</p>
+<p>Within arithmetic limits, this applies approximately <code>2/3</code> scaling to <code>GetTickCount</code>, <code>GetTickCount64</code>, and <code>QueryPerformanceCounter</code>, using their different reference points. <code>QueryUnbiasedInterruptTime</code> instead divides <code>2</code> by <code>3</code> first and produces zero. Add and Low values therefore combine according to the intercepted API, not one uniform formula. Tick, Sleep, and Timer factor groups remain independent, so changing one group does not automatically configure the others.</p>
 <h2 id="runtime-scope">Runtime Scope<a class="headerlink" href="#runtime-scope" title="Permanent link"></a></h2>
-<p>The hooks run inside each sandboxed process through Sandboxie's injected DLL. Each sandboxed process receives the hooks when it initializes; this is not a system-wide change to the Windows clock. SandMan and the Sandboxie services are not normally affected.</p>
-<p><code>UseChangeSpeed</code> determines whether the hooks are installed during process initialization. Changing it after a process has started does not retroactively install or remove hooks in that process. The individual numeric factors are read by the hooked paths, so a configuration change may affect a process that already has the hooks installed.</p>
+<p>The applicable hooks run inside sandboxed processes through Sandboxie's injected DLL. Installation depends on effective configuration, the initialization path, API/module availability, successful hooking, and applicable hook-suppression settings; not every process receives every hook. This is not a system-wide change to the Windows clock. SandMan and the Sandboxie services are not normally affected in unsandboxed operation.</p>
+<p>The Timer hooks additionally depend on GUI initialization. Their installation block is skipped in Application Compartment and with effective <code>NoSandboxieDesktop=y</code>; the Tick/Clock and <code>SleepEx</code> hooks do not share this GUI condition.</p>
+<p><code>UseChangeSpeed</code> is read by the relevant initializer. Reloading configuration does not replay completed initializers or retroactively install or remove timing hooks. Restart affected sandboxed applications to reliably change hook installation. A GUI initializer that has not yet run may read a newly effective value later; that is deferred initialization, not reinstallation caused by reload.</p>
+<p>All six numeric factors are queried during the corresponding hook invocations, so successfully reloaded values can affect installed hooks. Factor pairs are read separately, updates are not atomic across timing sources, and retained initialization references mean changes can cause clock discontinuities. Interval changes apply to subsequent intercepted calls; changing the factors alone does not reprogram existing timers. Saving a file alone does not establish successful configuration reload. Ordinary updates do not inherently require restarting Sandboxie services, the driver, or Windows.</p>
 <h2 id="intended-use">Intended Use<a class="headerlink" href="#intended-use" title="Permanent link"></a></h2>
-<p>The feature is intended for scenarios such as reducing fixed application delays during analysis or testing and modifying logical speed for compatible single-player applications or games. Compatibility depends on which Windows timing mechanisms an application uses.</p>
+<p>The feature is intended for scenarios such as reducing fixed application delays during analysis or testing and modifying logical speed for compatible single-player applications or games. Compatibility depends on which Windows timing mechanisms an application uses. It does not accelerate CPU execution or increase processor frequency, and it does not guarantee faster application execution or game compatibility.</p>
 <h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link"></a></h2>
 <ul>
 <li>The feature does not intercept every Windows time source or wait mechanism. System wall-clock APIs, <code>NtQuerySystemTime</code>, <code>NtDelayExecution</code>, synchronization waits, waitable timers, timer queues, and threadpool timers are not covered.</li>
 <li>Because only selected APIs are adjusted, applications that compare multiple timing sources may observe inconsistent elapsed times.</li>
 <li>Synchronization waits are not generally shortened or extended by the Sleep factors.</li>
 <li>Changing timing behavior can affect application logic, responsiveness, media handling, or timeout assumptions.</li>
-<li>Large factors and very small resulting intervals can produce unusual behavior because Windows timer resolution and application assumptions still apply.</li>
+<li>Use small positive integer factors. Integer rounding, arithmetic limits, native timer constraints, and application timing assumptions can produce unexpected results, especially with large factors or very short intervals. Equal Add/Low factors are not universally protected against intermediate overflow.</li>
 </ul>
-<p>There is currently no dedicated graphical control for these settings. Configure them through the sandbox INI editor.</p>
+<p>There is currently no dedicated graphical control for these settings. In SandMan, use <strong>Sandbox Options &gt; Edit ini Section &gt; Edit ini</strong>. In Sandboxie Control Classic, use <strong>Configure &gt; Edit Configuration</strong>. Plus and Classic share the relevant runtime code where applicable; manual configuration does not guarantee hook installation or a particular timing result.</p>
 <p>Related: <a href="../SandboxieIni/">Sandboxie Ini</a>.</p>
 
 
