@@ -1,0 +1,3 @@
+# KeepBroadGroupsInAppContainerToken
+
+参见 [KeepBroadGroupsInAppContainerToken](AppContainerTokens.md#keepbroadgroupsinappcontainertoken)。

@@ -12,6 +12,8 @@
 
 [允许后台打印程序打印到文件](AllowSpoolerPrintToFile.md)
 
+[AppContainer 令牌兼容性](AppContainerTokens.md)
+
 [外观设置](AppearanceSettings.md)
 
 [应用程序设置](ApplicationsSettings.md)
@@ -144,6 +146,8 @@
 
 [撤销管理员权限](DropAdminRights.md)
 
+[DropAppContainerToken](DropAppContainerToken.md)
+
 [丢弃子进程令牌](DropChildProcessToken.md)
 
 ### E
@@ -165,6 +169,8 @@
 ### F
 
 [模拟管理员权限](FakeAdminRights.md)
+
+[FakeAppContainerToken](FakeAppContainerToken.md)
 
 [常见问题-电子邮件](FAQEmail.md)
 
@@ -268,6 +274,8 @@
 
 ### K
 
+[KeepBroadGroupsInAppContainerToken](KeepBroadGroupsInAppContainerToken.md)
+
 [注册表根路径](KeyRootPath.md)
 
 [已知冲突](KnownConflicts.md)
@@ -299,6 +307,8 @@
 [网络适配器 MAC](NetworkAdapterMAC.md)
 
 [网络 DNS 过滤](NetworkDnsFilter.md)
+
+[NeutralizeLowBoxToken](NeutralizeLowBoxToken.md)
 
 [从不删除](NeverDelete.md)
 
@@ -777,6 +787,8 @@
 [托盘图标菜单](TrayIconMenu.md)
 
 ### U
+
+[UnRestrictAppContainerToken](UnRestrictAppContainerToken.md)
 
 [使用技巧](UsageTips.md)
 

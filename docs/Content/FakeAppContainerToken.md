@@ -1,3 +1,3 @@
 # FakeAppContainerToken
 
-See [FakeAppContainerToken: historical setting](AppContainerTokens.md#fakeappcontainertoken-historical-setting)
+See [FakeAppContainerToken](AppContainerTokens.md#fakeappcontainertoken)
