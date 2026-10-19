@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Sandboxie Plus lets you run programs in isolated sandboxes on Windows, enhancing security and privacy by containing changes from the rest of the system.">
+        <meta name="description" content="ConfidentialBox 是 Sandboxie Ini 中的一项沙盒设置，用于为沙盒内运行的进程和线程提供额外保护。">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>加密沙盒 - Sandboxie 文档</title>
+        <title>保密沙盒 - Sandboxie 文档</title>
       
     
     
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              加密沙盒
+              保密沙盒
             
           </span>
         </div>
@@ -570,7 +570,7 @@
   <span class="md-ellipsis">
     
   
-    沙盒菜单
+    SandboxMenu
   
 
     
@@ -5584,23 +5584,72 @@
   
 
 
-<h1 id="_1">加密沙盒<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
-<p><em>ConfidentialBox</em> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 中的一项沙盒设置。</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">ConfidentialBox</span><span class="o">=</span><span class="s">y</span>
+<h1 id="_1">保密沙盒<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<p><em>ConfidentialBox</em> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 中的一项沙盒设置，用于为沙盒内运行的进程和线程提供额外保护。</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">ConfidentialBox</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>使用“ConfidentialBox=y”选项可防止宿主进程读取访问隔离进程。</p>
-<p><strong>技术细节</strong></p>
-<p>更多信息参见 <a href="../PlusContent/BoxEncryption.html">沙盒加密</a> 和 <a href="../PlusContent/box-preset-comparison.html">沙盒类型比较</a>。</p>
+<p>此设置默认关闭，需要当前有效且支持此功能的支持者证书。</p>
+<h2 id="_2">保护范围<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
+<p>启用 <code>ConfidentialBox=y</code> 后，沙盒外宿主机进程创建或复制指向沙盒内进程、线程的句柄时，驱动会检查其请求的访问权限。检查涵盖只读和查询权限，不限于可修改或控制目标的权限。</p>
+<p>此保护仅作用于进程和线程句柄。它不会加密文件、保护已挂载的沙盒根目录，也不会自动限制网络、剪贴板、图形界面、IPC 等获准使用的数据传输通道。若需要加密底层存储，请参阅<a href="../PlusContent/BoxEncryption.html">加密沙盒</a>。</p>
+<p>Sandboxie 为管理或运行沙盒所需的组件及 Windows 进程保留了例外，包括 SbieSvc 和 Start、某些核心或受保护的 Windows 进程、目标初始化期间启动它的进程，以及符合条件的 SandMan 或 Sandboxie Control 会话主进程（session leader）。<a href="ProtectAdminOnly.html">ProtectAdminOnly</a> 决定会话主进程的例外是否要求管理员权限。</p>
+<h2 id="denyhostaccess">DenyHostAccess<a class="headerlink" href="#denyhostaccess" title="Permanent link"></a></h2>
+<p><code>DenyHostAccess</code> 为同一进程和线程保护机制提供按程序设置的规则，可独立于 <code>ConfidentialBox</code> 使用。</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">DenyHostAccess</span><span class="o">=</span><span class="s">monitor.exe,y</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="na">DenyHostAccess</span><span class="o">=</span><span class="s">audiodg.exe,n</span>
+</span></code></pre></div>
+<p>通用语法：</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">DenyHostAccess</span><span class="o">=</span><span class="s">[host-program-or-group,]y|n</span>
+</span></code></pre></div>
+<ul>
+<li><code>y</code> 对匹配的沙盒外宿主机程序施加访问限制，同时保留上述为正常运行所需的例外。</li>
+<li><code>n</code> 让匹配的程序免于此项保护检查，但不会授予 Windows 或其他检查所拒绝的权限。</li>
+<li>不指定程序前缀时，该值作为整个沙盒的默认值。因此，<code>DenyHostAccess=y</code> 等同于默认拒绝规则。</li>
+<li>程序选择条件遵循 Sandboxie 的<a href="ProgramNamePrefix.html">程序名称匹配</a>规则，支持通配符，也可以引用已配置的进程组。</li>
+</ul>
+<p>未启用 <code>ConfidentialBox</code> 时，只有宿主机进程请求的权限超出 Sandboxie 通常允许的权限子集，才会检查 <code>DenyHostAccess</code>。进程句柄和线程句柄的允许权限子集不同；若请求的权限全部在对应子集内，则不会触发此项限制。</p>
+<p>在对象过滤路径中，匹配的拒绝规则会限制创建或复制句柄时请求的访问掩码，而非直接拒绝整个操作。操作成功时，所得句柄也可能没有任何可用的访问权限。独立的 Windows 访问检查或受保护进程限制仍可能导致操作失败。</p>
+<p>启用 <code>ConfidentialBox</code> 后，同一检查还会涵盖只读和查询请求，且对宿主机程序默认拒绝访问。显式设置 <code>DenyHostAccess=program.exe,n</code> 可添加兼容性例外。内置的 <strong>Less Confidential Box</strong> 模板目前就为 <code>audiodg.exe</code> 配置了此类例外。</p>
+<p>上述为正常运行所需的例外仍然适用。<code>DenyHostAccess</code> 不是通用文件系统规则，也不会阻止指定程序与沙盒进行所有形式的交互。</p>
+<h2 id="_3">相关设置<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
+<ul>
+<li><a href="../PlusContent/BoxEncryption.html">加密沙盒</a>保护沙盒的底层存储，并可添加挂载后的根目录保护；它与 <code>ConfidentialBox</code> 相互独立。</li>
+<li><a href="ProtectAdminOnly.html">ProtectAdminOnly</a> 控制会话主进程访问受保护进程，以及访问启用根目录保护的已挂载加密根目录时所适用的例外。</li>
+<li><a href="ProtectHostImages.html">ProtectHostImages</a> 限制某些沙盒进程加载可执行映像，是独立的保护机制。</li>
+</ul>
+<h2 id="sandman">SandMan 设置<a class="headerlink" href="#sandman" title="Permanent link"></a></h2>
+<p>控件位置：</p>
+<p><strong>沙盒选项 &gt; 安全选项 &gt; 沙盒保护</strong></p>
+<ul>
+<li>选中“阻止沙盒外程序访问沙盒内进程”会写入 <code>ConfidentialBox=y</code>。</li>
+<li>“允许有用的 Windows 进程访问受保护的进程”会启用 <strong>Less Confidential Box</strong> 兼容性模板。</li>
+<li>宿主机进程列表中的“允许进程”和“阻止进程”操作会写入 <code>DenyHostAccess</code> 条目。</li>
+<li>“当沙盒根目录受到保护时，沙盒管理器需要以管理员身份运行才能访问这些文件”控制 <code>ProtectAdminOnly</code>。</li>
+</ul>
+<p>界面中的宿主机进程编辑器接受程序名称。更复杂的程序组或通配符规则可以手动配置。</p>
+<h2 id="_4">使更改生效<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
+<p><code>ConfidentialBox</code> 在各沙盒进程初始化时记录，因此修改后需要重新启动相关沙盒进程树。配置重新加载后，宿主机访问检查会查询 <code>DenyHostAccess</code>，以及 <code>ProtectAdminOnly</code> 中与进程访问有关的部分。</p>
+<h2 id="_5">版本历史<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
+<p><code>ConfidentialBox</code> 和 <code>DenyHostAccess</code> 自 Sandboxie Plus 1.3.3 / Classic 5.58.3 引入。加密沙盒镜像则在之后的 Sandboxie Plus 1.11.0 / Classic 5.66.0 中加入。</p>
+<h2 id="_6">相关页面<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
+<ul>
+<li><a href="../PlusContent/black-box.html">黑色沙盒</a></li>
+<li><a href="../PlusContent/BoxEncryption.html">加密沙盒</a></li>
+<li><a href="ProtectAdminOnly.html">仅允许管理员访问</a></li>
+<li><a href="ProtectHostImages.html">保护宿主机映像</a></li>
+<li><a href="../PlusContent/box-preset-comparison.html">沙盒预设比较</a></li>
+</ul>
 
 
 
 
 
 
+
+  
+  
 
 
 

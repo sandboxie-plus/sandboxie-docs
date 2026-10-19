@@ -570,7 +570,7 @@
   <span class="md-ellipsis">
     
   
-    沙盒菜单
+    SandboxMenu
   
 
     
@@ -5592,6 +5592,8 @@
 <p>点击 <em>隐藏</em> 按钮表示你不想再收到此消息。如果消息包含信息详情，<em>隐藏</em> 按钮只会结合该特定详情隐藏消息。</p>
 <p>例如，上面显示的 <a href="../SBIE1304/">SBIE1304</a> 消息带有详情 <em>osk.exe</em>。在这种情况下，<em>隐藏</em> 按钮将隐藏 <a href="../SBIE1304/">SBIE1304</a> 针对 <em>osk.exe</em> 的未来出现。如果 <a href="../SBIE1304/">SBIE1304</a> 因其他程序名称而发出，它仍会显示。</p>
 <p>点击 <em>关闭</em> 按钮关闭窗口。</p>
+<div id="将消息记录到文件"></div>
+
 <h2 id="_1">将消息记录到文件<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
 <p>可以通过注册表中的简单配置，把_来自 Sandboxie 的消息_记录到文件：
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\SbieSvc" /t REG_SZ /v LogFile /d "2;C</span><span class="o">:</span><span class="s">\Windows\System32\LogFiles\Sandboxie.log" /f</span>

@@ -570,7 +570,7 @@
   <span class="md-ellipsis">
     
   
-    沙盒菜单
+    SandboxMenu
   
 
     
@@ -5617,7 +5617,7 @@
 <h2 id="_5">支持的类别<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
 <ul>
 <li><strong>chrome</strong>：基于 Chromium 的浏览器和 Electron 应用程序</li>
-<li><strong>firefox</strong>：Mozilla Firefox 及相关浏览器  </li>
+<li><strong>firefox</strong>：Mozilla Firefox 及相关浏览器</li>
 <li><strong>thunderbird</strong>：Mozilla Thunderbird 邮件客户端</li>
 <li><strong>browser</strong>：不基于 Chrome 或 Firefox 的其他网页浏览器</li>
 <li><strong>mail</strong>：Thunderbird 以外的邮件客户端</li>
@@ -5627,7 +5627,7 @@
 <p>Sandboxie 在 <code>Template_SpecialImages</code> 模板中包含大量默认映射：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Chromium 系浏览器</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">SpecialImage</span><span class="o">=</span><span class="s">chrome,chrome.exe</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="na">SpecialImage</span><span class="o">=</span><span class="s">chrome,msedge.exe</span><span class="w">  </span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="na">SpecialImage</span><span class="o">=</span><span class="s">chrome,msedge.exe</span>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="na">SpecialImage</span><span class="o">=</span><span class="s">chrome,brave.exe</span>
 </span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="na">SpecialImage</span><span class="o">=</span><span class="s">chrome,vivaldi.exe</span>
 </span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="na">SpecialImage</span><span class="o">=</span><span class="s">chrome,opera.exe</span>
@@ -5659,12 +5659,12 @@
 <p><strong>邮件客户端</strong>：接收适当的文件系统访问权限和针对邮件数据库操作的专门处理。</p>
 </li>
 <li>
-<p><strong>插件容器</strong>：其进程令牌被丢弃以防权限提升，并接收专门的受限令牌处理<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup>。</p>
+<p><strong>插件容器</strong>：创建子进程时，Sandboxie 会清除其提供的 <code>hToken</code> 参数；这不会移除插件容器进程自身的令牌，子进程最终使用的令牌仍取决于后续处理<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup>。</p>
 </li>
 </ul>
 <p><strong>安全影响</strong></p>
 <ul>
-<li><strong>权限管理</strong>：被分类为插件容器或某些浏览器类型的应用程序，其安全令牌会被自动限制或完全丢弃</li>
+<li><strong>权限管理</strong>：插件容器和部分浏览器分类会影响创建子进程时传入的令牌参数；后续的令牌限制仍取决于沙盒模式和相关设置。</li>
 <li><strong>子进程处理</strong>：浏览器应用程序对其沙盒子进程接收专门处理，防止令牌继承问题</li>
 <li><strong>文件系统访问</strong>：每个类别接收与其功能相称的定制文件系统访问权限</li>
 <li><strong>图形界面隔离</strong>：浏览器和邮件应用程序通过专门的窗口站处理获得增强的图形界面隔离</li>
@@ -5701,7 +5701,7 @@
 <h2 id="_10">相关设置<a class="headerlink" href="#_10" title="Permanent link"></a></h2>
 <ul>
 <li><a href="CustomChromiumFlags.html">自定义 Chromium 启动参数</a> - 自动适用于分类为 <code>chrome</code> 的应用程序</li>
-<li><a href="DropChildProcessToken.html">丢弃子进程令牌</a> - 影响插件容器和某些浏览器类型的行为</li>
+<li><a href="DropChildProcessToken.html">丢弃子进程令牌</a> - 控制调用进程在创建子进程时是否清除其提供的令牌参数，不改变调用进程自身的令牌。</li>
 </ul>
 <p>相关 Sandboxie Plus 设置：不在界面中直接暴露（自动使用模板定义的默认值）</p>
 <div class="footnote">
@@ -5723,7 +5723,7 @@
 <p><code>guienum.c</code> 和 <code>proc.c</code> 中的 Firefox 特定优化：Firefox 应用程序在 Windows 10+ 上接收专门的 D3D11 图形处理、对 contentproc 子进程的自定义沙盒进程令牌管理，以及为更好兼容性定制的图形界面窗口站行为。&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 <li id="fn:6">
-<p><code>proc.c</code> 中的插件容器限制：分类为 <code>DLL_IMAGE_PLUGIN_CONTAINER</code> 的应用程序在进程创建期间自动完全丢弃其安全令牌以防权限提升，Adobe Reader 和其他沙盒化插件系统也是如此。&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+<p>在 <code>proc.c</code> 的 <code>Proc_CreateProcessInternalW</code> 中，若调用进程被识别为 <code>DLL_IMAGE_PLUGIN_CONTAINER</code> 或 <code>DLL_IMAGE_ACROBAT_READER</code>，就会把创建子进程时使用的 <code>hToken</code> 参数设为 <code>NULL</code>。该操作不修改调用进程的现有令牌；后续是否替换子进程的主令牌，仍取决于沙盒模式和相关设置。&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
 </li>
 <li id="fn:7">
 <p><code>dllmain.c</code> 中的配置查询机制：系统使用递增的索引值调用 <code>SbieApi_QueryConfAsIs(NULL, L"SpecialImage", index, buf, 90 * sizeof(WCHAR))</code> 检索所有 SpecialImage 条目，解析每个以逗号分隔的值对，直到不再有条目。&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>

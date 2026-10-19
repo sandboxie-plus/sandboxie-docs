@@ -570,7 +570,7 @@
   <span class="md-ellipsis">
     
   
-    沙盒菜单
+    SandboxMenu
   
 
     
@@ -5586,8 +5586,12 @@
 
 <h1 id="wfpwindows">WFP（Windows 过滤平台）支持<a class="headerlink" href="#wfpwindows" title="Permanent link"></a></h1>
 <p><strong>Sandboxie Plus v0.9.3</strong> 引入了一种独特的网络连接管理方法，不仅实现了基于 Windows 过滤平台（WFP）的 <strong>内核模式</strong>（使用驱动程序）“按沙盒”防火墙，还实现了基于规则的 <strong>用户模式</strong> 出站数据包过滤器。</p>
+<div id="enabling-wfp"></div>
+
 <h3 id="wfp">WFP 实现<a class="headerlink" href="#wfp" title="Permanent link"></a></h3>
 <p>要启用 WFP 功能，请在配置文件 <strong><a href="../../Content/SandboxieIni/">Sandboxie Ini</a></strong> 的 <code>[GlobalSettings]</code> 部分添加 <code>NetworkEnableWFP=y</code>，并 <strong>重启计算机或重新加载驱动程序</strong> 以使更改生效。WFP 过滤 <strong>同时适用于入站和出站</strong> 流量。</p>
+<div id="allownetworkaccess"></div>
+
 <ul>
 <li>要全局启用阻止功能，请在 <code>[GlobalSettings]</code> 部分添加 <code>AllowNetworkAccess=n</code>。</li>
 <li>要为某个沙盒（如 DefaultBox）启用 WFP 阻止功能，请在 <code>[DefaultBox]</code> 部分添加 <code>AllowNetworkAccess=n</code>。</li>

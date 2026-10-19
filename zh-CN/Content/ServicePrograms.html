@@ -574,7 +574,7 @@
   <span class="md-ellipsis">
     
   
-    沙盒菜单
+    SandboxMenu
   
 
     
@@ -5720,6 +5720,8 @@
 <p>由于沙盒的隔离，在 Sandboxie 下运行的程序不允许访问这些系统服务程序。相反，Sandboxie 提供自己的服务程序，它们与请求服务的程序运行在同一个沙盒中。</p>
 <p>Sandboxie 服务程序按需启动。如果在任何给定时刻下列服务程序有未在运行的，这不是错误或问题。</p>
 <hr />
+<div id="远程过程调用-rpc"></div>
+
 <h3 id="rpc">远程过程调用（RPC）<a class="headerlink" href="#rpc" title="Permanent link"></a></h3>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span><span class="na">程序名称：SandboxieRpcSs.exe</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="na">服务名称：rpcss</span>
@@ -5727,6 +5729,8 @@
 <p>组件对象模型（COM）主服务。此服务向沙盒中的应用程序提供广泛的服务，包括一个应用程序启动另一个应用程序的机制。根据你沙盒化运行的程序，此服务可能需要也可能不需要启动。</p>
 <p>此服务与 <em>DCOM 服务器进程启动器</em>（见下文）一起，使其他服务程序得以在沙盒中启动。</p>
 <hr />
+<div id="dcom-服务器进程启动器"></div>
+
 <h3 id="dcom">DCOM 服务器进程启动器<a class="headerlink" href="#dcom" title="Permanent link"></a></h3>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">    </span><span class="na">程序名称：SandboxieDcomLaunch.exe</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="na">服务名称：dcomlaunch</span>

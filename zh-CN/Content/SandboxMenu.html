@@ -31,7 +31,7 @@
     
     
       
-        <title>沙盒菜单 - Sandboxie 文档</title>
+        <title>SandboxMenu - Sandboxie 文档</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              沙盒菜单
+              SandboxMenu
             
           </span>
         </div>
@@ -587,7 +587,7 @@
   <span class="md-ellipsis">
     
   
-    沙盒菜单
+    SandboxMenu
   
 
     
@@ -605,7 +605,7 @@
   <span class="md-ellipsis">
     
   
-    沙盒菜单
+    SandboxMenu
   
 
     
@@ -5694,10 +5694,14 @@
   
 
 
+<div id="沙盒菜单"></div>
+
 <h1 id="_1">沙盒菜单<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
 <p><a href="SandboxieControl.html">沙盒管理器</a> &gt; 沙盒菜单</p>
 <p><img alt="" src="../Media/SandboxMenu.png" /></p>
 <hr />
+<div id="沙盒子菜单"></div>
+
 <h3 id="_2">沙盒子菜单<a class="headerlink" href="#_2" title="Permanent link"></a></h3>
 <p>每个已定义的沙盒都会出现一个或多个子菜单。默认配置只包含一个名为 <em>DefaultBox</em> 的沙盒，但可以使用 <a href="SandboxMenu.html#创建新沙盒">创建新沙盒</a> 命令添加更多沙盒。每个子菜单包含以下命令：</p>
 <ul>
@@ -5718,9 +5722,13 @@
 </ul>
 <p>除 <em>重命名沙盒</em> 和 <em>移除沙盒</em> 外，这些命令也出现在 <a href="TrayIconMenu.html">托盘图标菜单</a> 中。</p>
 <hr />
+<div id="创建新沙盒"></div>
+
 <h3 id="_3">创建新沙盒<a class="headerlink" href="#_3" title="Permanent link"></a></h3>
 <p><em>创建新沙盒</em> 命令在 Sandboxie 中定义一个新沙盒。会显示一个对话框，要求输入新沙盒的名称。名称可以是数字和字母的任意组合，最大长度为 32 个字符。通过组合框按钮可以指定某个现有沙盒，其设置将被复制到新沙盒中。如果未选择这样的现有沙盒，新沙盒最初将具有一组默认设置。沙盒创建后，可用 <a href="SandboxSettings.html">沙盒设置</a> 窗口更改沙盒设置。</p>
 <hr />
+<div id="设置容器文件夹"></div>
+
 <h3 id="_4">设置容器文件夹<a class="headerlink" href="#_4" title="Permanent link"></a></h3>
 <p><em>设置容器文件夹</em> 命令选择将包含所有其他沙盒的容器（或主、父）文件夹。默认位置是 <strong>X:\Sandbox\%USER%\%SANDBOX%</strong>，其中 <strong>X:</strong> 代表安装 Windows 的驱动器，通常为 <strong>C:</strong>。</p>
 <p>特殊变量 <strong>%SANDBOX%</strong> 会被替换为沙盒的名称。</p>
@@ -5732,6 +5740,8 @@
 <p>一旦定义了任何组，<a href="SandboxieControl.html">沙盒管理器</a> 主 <a href="ProgramsView.html">程序视图</a> 将包含一个组合框按钮，可用于限制显示的沙盒列表。</p>
 <p>相关 <a href="SandboxieIni.html">Sandboxie Ini</a> 设置项：BoxDisplayOrder。</p>
 <hr />
+<div id="显示隐藏的沙盒"></div>
+
 <h3 id="_6">显示隐藏的沙盒<a class="headerlink" href="#_6" title="Permanent link"></a></h3>
 <p>只有某些沙盒对当前用户帐户不可见或不可用时，<em>显示隐藏的沙盒</em> 命令才会出现在菜单中。可以使用 <a href="SandboxSettings.html">沙盒设置</a> 窗口中的 <a href="UserAccountsSettings.html">用户帐户设置</a> 设置页，将沙盒限制为仅供特定用户帐户使用。<em>显示隐藏的沙盒</em> 命令可以恢复对当前用户帐户不可用的沙盒的可见性。</p>
 <hr />

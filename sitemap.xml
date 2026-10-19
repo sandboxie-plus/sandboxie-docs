@@ -1450,6 +1450,13 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/JobObjects/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/KeepBroadGroupsInAppContainerToken/</loc>
+        <lastmod>2026-10-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/KeepBroadGroupsInAppContainerToken/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/KeepBroadGroupsInAppContainerToken/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/KeepTokenIntegrity/</loc>
         <lastmod>2026-10-19</lastmod>
         <changefreq>daily</changefreq>
@@ -1637,6 +1644,13 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NetworkUseProxy/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NetworkUseProxy/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/NeutralizeLowBoxToken/</loc>
+        <lastmod>2026-10-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NeutralizeLowBoxToken/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NeutralizeLowBoxToken/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/Content/NeverDelete/</loc>
@@ -5734,6 +5748,13 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/JobObjects/"/>
     </url>
     <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/KeepBroadGroupsInAppContainerToken/</loc>
+        <lastmod>2026-10-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/KeepBroadGroupsInAppContainerToken/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/KeepBroadGroupsInAppContainerToken/"/>
+    </url>
+    <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/KeepTokenIntegrity/</loc>
         <lastmod>2026-10-19</lastmod>
         <changefreq>daily</changefreq>
@@ -5921,6 +5942,13 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NetworkUseProxy/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NetworkUseProxy/"/>
+    </url>
+    <url>
+        <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NeutralizeLowBoxToken/</loc>
+        <lastmod>2026-10-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NeutralizeLowBoxToken/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sandboxie-plus.github.io/sandboxie-docs/Content/NeutralizeLowBoxToken/"/>
     </url>
     <url>
         <loc>https://sandboxie-plus.github.io/sandboxie-docs/zh-CN/Content/NeverDelete/</loc>

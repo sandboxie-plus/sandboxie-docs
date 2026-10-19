@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="受保护存储（以下简称 PStore）是 Windows 7 及之前版本中可用的一小块内存空间，由系统安全组件管理，可供应用程序使用。需要存储密码等敏感信息的应用程序可以使用 PStore，而不必自行实现加密和保护这些信息的方法。">
+        <meta name="description" content="Windows 受保护存储（PStore）是一种旧版接口，应用程序可通过 PStoreCreateInstance 和 IPStore API 存储密码等需要保护的用户数据。它与开放凭据中介绍的 Windows 凭据 API（WinCred）不同，不能将二者视为现代 Windows 密码存储的不同名称。">
       
       
       
@@ -570,7 +570,7 @@
   <span class="md-ellipsis">
     
   
-    沙盒菜单
+    SandboxMenu
   
 
     
@@ -5585,13 +5585,21 @@
 
 
 <h1 id="_1">受保护存储<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
-<p>受保护存储（以下简称 PStore）是 Windows 7 及之前版本中可用的一小块内存空间，由系统安全组件管理，可供应用程序使用。需要存储密码等敏感信息的应用程序可以使用 PStore，而不必自行实现加密和保护这些信息的方法。</p>
-<p>请注意，一个用户账户的 PStore 内存不能被另一个用户账户访问；但在同一用户账户中运行的所有程序都可以查看和更改任何其他应用程序存入该内存存储区的信息。</p>
-<p>最佳应用示例是 Internet Explorer 6 版本，它使用 PStore 存储自动完成历史记录（如 Google 搜索框中的内容）和 Web 表单中的密码。</p>
-<p>（请注意，Internet Explorer 7 版本仍然会加密这些信息，但不再使用 PStore 来实现这一点。据推测，这是为了向其他程序（很可能是同一用户账户中可能运行的间谍软件）隐藏敏感信息而做出的努力。）</p>
-<p>Sandboxie 可以为沙盒化应用程序提供自己的 PStore 实现。这是默认设置，除非在 <a href="ApplicationsSettings.html#web-浏览器">沙盒设置 &gt; 应用程序 &gt; 网页浏览器</a> 中进行了更改。</p>
-<p>Sandboxie 的 PStore 存储在<strong>沙盒化</strong>的_Windows_文件夹中的_SbiePst.dat_文件中。</p>
-<p>Sandboxie 对 PStore 的实现使用的加密方法比系统安全组件使用的方法<strong>弱得多</strong>。但是，存入 Sandboxie PStore 的信息可能会随着沙盒的删除过程很快消失。</p>
+<p>Windows 受保护存储（PStore）是一种旧版接口，应用程序可通过 <code>PStoreCreateInstance</code> 和 <code>IPStore</code> API 存储密码等需要保护的用户数据。它与<a href="OpenCredentials.html">开放凭据</a>中介绍的 Windows 凭据 API（WinCred）不同，不能将二者视为现代 Windows 密码存储的不同名称。</p>
+<p>在普通沙盒中，Sandboxie 通常会用自己的 <code>IPStoreImpl</code> 兼容实现替代 <code>PStoreCreateInstance</code>。本地修改的数据存放在沙盒内的存储文件中。当前代码默认在 Windows 目录下构造 <code>SbiePst.dat</code> 文件名，但文件名可在构建时覆盖，实际物理位置也取决于沙盒文件虚拟化，因此不能依赖固定的宿主路径。此实现旨在兼容使用旧版 PStore 接口的应用程序，并不保证隔离所有 Windows 凭据机制。</p>
+<p>PStore 读取在本地没有相应记录时，也可以通过 Sandboxie 服务查询原生 PStore；枚举同样可以结合原生提供程序返回的结果。因此，使用本地存储文件并不意味着只能读取沙盒内的数据。实际结果取决于原生提供程序是否可用及其访问检查。</p>
+<p>Sandboxie 默认的 WinCred 兼容层也使用此 PStore 实现存储被拦截的凭据修改。WinCred 的读取和枚举路径仍可查询 Windows 原生凭据存储。有关这一边界，参见<a href="OpenCredentials.html">开放凭据</a>。</p>
+<div id="data-visibility-and-protection"></div>
+
+<h2 id="_2">数据可见性与保护<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
+<p>Sandboxie 的替代实现使用沙盒化 Windows 路径中的一个共用存储文件，而不是为每个应用程序建立独立的 PStore 文件。能否访问该文件仍取决于沙盒和宿主权限，因此不能据此推断不同 Windows 用户账户之间的数据可见性。</p>
+<p>当前文件格式对存储的数据块施加的是简单的可逆变换，而非强加密。应将含有 PStore 条目的沙盒数据视为敏感数据。只要存储文件仍位于沙盒内，删除沙盒内容也会删除这些本地条目；这不会删除宿主凭据，也不会删除通过已开放宿主路径存储的数据。</p>
+<div id="opening-the-system-implementation"></div>
+
+<h2 id="_3">开放系统实现<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
+<p>选择<a href="OpenProtectedStorage.html">开放受保护的存储</a>模板，可添加相关系统端点的开放规则。当受保护存储 IPC 端点的有效策略为开放时，Sandboxie 会跳过其替代 PStore 钩子以及用户模式下的 WinCred 钩子。旧的 <code>OpenProtectedStorage=y</code> 布尔设置不是当前的配置方法。</p>
+<p><a href="../PlusContent/compartment-mode.html">应用隔间</a>模式也会跳过 Sandboxie 的替代 PStore 钩子。WinCred 钩子有独立的检查，因此不能将应用隔间模式本身描述为自动启用 <code>OpenCredentials</code>。</p>
+<p>这些兼容性选项并不涵盖沙盒化应用程序存储或访问敏感信息的所有方式。不受支持的 PStore 方法参见 <a href="SBIE2205.html">SBIE2205</a>；Sandboxie 凭据后端存储初始化失败的问题参见 <a href="SBIE2213.html">SBIE2213</a>。</p>
 
 
 

@@ -570,7 +570,7 @@
   <span class="md-ellipsis">
     
   
-    沙盒菜单
+    SandboxMenu
   
 
     
@@ -5598,6 +5598,8 @@
 </ul>
 <p>配置更改不适用于在更改配置时已在沙盒中运行的程序。为简单起见，建议在没有程序在沙盒中运行时进行配置更改。</p>
 <hr />
+<div id="一般信息"></div>
+
 <h3 id="_3">一般信息<a class="headerlink" href="#_3" title="Permanent link"></a></h3>
 <p>资源访问组中的每个设置页通常具有以下特征：</p>
 <p><img alt="" src="../Media/ResourceAccessGeneral.png" /></p>
@@ -5634,24 +5636,36 @@
 </li>
 </ul>
 <hr />
+<div id="文件访问"></div>
+
 <h3 id="_4">文件访问<a class="headerlink" href="#_4" title="Permanent link"></a></h3>
 <p><a href="SandboxieControl.html">沙盒管理器</a> &gt; <a href="SandboxSettings.html">沙盒设置</a> &gt; 资源访问 &gt; 文件访问</p>
 <p>此类别管理以下类型的资源：文件、文件夹、驱动器和其他设备。</p>
 <p>关于编辑资源以及将资源与特定程序关联的更多信息，请参阅上面的 <a href="ResourceAccessSettings.html#一般信息">一般信息</a>。</p>
+<div id="文件访问-直接访问"></div>
+
 <h4 id="_5">文件访问 &gt; 直接访问<a class="headerlink" href="#_5" title="Permanent link"></a></h4>
 <p>允许直接访问某个文件或文件夹，绕过 Sandboxie 的监管。例如，如果添加文件夹 <strong>C:\Downloads</strong>，那么在 Sandboxie 下运行的程序将能够在该文件夹中创建或更新文件。</p>
 <p>注意：当程序本身位于沙盒中时，<em>直接访问</em> 例外不适用。例如，假设你允许直接访问 <strong>C:\Downloads</strong> 文件夹，然后继续向沙盒中安装一个新的网页浏览器。这个新的沙盒化浏览器将_无法_直接访问 <strong>C:\Downloads</strong> 文件夹。</p>
 <p>相关 <a href="SandboxieIni.html">Sandboxie Ini</a> 设置项：<a href="OpenFilePath.html">开放文件路径</a></p>
+<div id="文件访问-完全访问"></div>
+
 <h4 id="_6">文件访问 &gt; 完全访问<a class="headerlink" href="#_6" title="Permanent link"></a></h4>
 <p>与 <em>直接访问</em> 类似，但始终适用，即使沙盒化程序本身位于沙盒中。为获得更好的保护，建议只要可能就使用 <em>直接访问</em> 而非 <em>完全访问</em>。</p>
 <p>相关 <a href="SandboxieIni.html">Sandboxie Ini</a> 设置项：<a href="OpenPipePath.html">开放管道路径</a></p>
+<div id="文件访问-只读访问"></div>
+
 <h4 id="_7">文件访问 &gt; 只读访问<a class="headerlink" href="#_7" title="Permanent link"></a></h4>
 <p>此访问模式排除沙盒化对文件（或文件夹）资源的影响，同时允许程序读取（但不能修改）真实资源。</p>
 <p>相关 <a href="SandboxieIni.html">Sandboxie Ini</a> 设置项：<a href="ReadFilePath.html">只读文件路径</a></p>
+<div id="文件访问-只写访问"></div>
+
 <h4 id="_8">文件访问 &gt; 只写访问<a class="headerlink" href="#_8" title="Permanent link"></a></h4>
 <p>此访问模式隐藏所选文件夹中位于沙盒外的所有文件和文件夹。但是，沙盒中的程序可以在沙盒内相应文件夹中创建新文件。</p>
 <p>此设置只能有效地用于文件夹。如果选择文件，效果与阻止访问设置相同（见下文）。</p>
 <p>相关 <a href="SandboxieIni.html">Sandboxie Ini</a> 设置项：<a href="WriteFilePath.html">只写文件路径</a></p>
+<div id="文件访问-阻止访问"></div>
+
 <h4 id="_9">文件访问 &gt; 阻止访问<a class="headerlink" href="#_9" title="Permanent link"></a></h4>
 <p>拒绝对该资源的所有访问，例如对包含敏感数据的文件夹。未启用<a href="../PlusContent/RuleSpecificity.html">规则特异性</a>时，匹配的 <em>阻止访问</em> 规则按传统顺序优先于其他文件访问模式。启用规则特异性后，冲突由路径特异性和进程匹配规则共同决定，因此更具体且适用的规则可能优先。</p>
 <p>相关 <a href="SandboxieIni.html">Sandboxie Ini</a> 设置项：<a href="ClosedFilePath.html">封闭文件路径</a></p>
@@ -5660,15 +5674,23 @@
 <p><a href="SandboxieControl.html">沙盒管理器</a> &gt; <a href="SandboxSettings.html">沙盒设置</a> &gt; 资源访问 &gt; 注册表访问</p>
 <p>此类别管理注册表项资源。注册表是 Windows 提供的一种机制，供程序存储配置和设置。</p>
 <p>关于编辑资源以及将资源与特定程序关联的更多信息，请参阅上面的 <a href="ResourceAccessSettings.html#一般信息">一般信息</a>。</p>
+<div id="注册表访问-直接访问"></div>
+
 <h4 id="_11">注册表访问 &gt; 直接访问<a class="headerlink" href="#_11" title="Permanent link"></a></h4>
 <p>允许直接访问注册表项资源。注意：当程序本身位于沙盒中时，<em>直接访问</em> 例外不适用。这在上面的文件访问类别中有更详细的描述。另请注意，与文件访问类别不同，注册表项没有 <em>完全访问</em> 访问模式。</p>
 <p>相关 <a href="SandboxieIni.html">Sandboxie Ini</a> 设置项：<a href="OpenKeyPath.html">开放注册表路径</a></p>
+<div id="注册表访问-只读访问"></div>
+
 <h4 id="_12">注册表访问 &gt; 只读访问<a class="headerlink" href="#_12" title="Permanent link"></a></h4>
 <p>此访问模式排除沙盒化对注册表项资源的影响，同时允许程序读取（但不能修改）真实资源。</p>
 <p>相关 <a href="SandboxieIni.html">Sandboxie Ini</a> 设置项：<a href="ReadKeyPath.html">读取注册表项路径</a></p>
+<div id="注册表访问-只写访问"></div>
+
 <h4 id="_13">注册表访问 &gt; 只写访问<a class="headerlink" href="#_13" title="Permanent link"></a></h4>
 <p>此访问模式隐藏所选注册表项中位于沙盒外的所有注册表数据。但是，沙盒中的程序可以在沙盒内相应位置创建新的注册表数据。</p>
 <p>相关 <a href="SandboxieIni.html">Sandboxie Ini</a> 设置项：<a href="WriteKeyPath.html">写入注册表项路径</a></p>
+<div id="注册表访问-阻止访问"></div>
+
 <h4 id="_14">注册表访问 &gt; 阻止访问<a class="headerlink" href="#_14" title="Permanent link"></a></h4>
 <p>拒绝对该注册表项资源的所有访问，例如对包含 Windows 策略设置的项。未启用<a href="../PlusContent/RuleSpecificity.html">规则特异性</a>时，匹配的 <em>阻止访问</em> 规则按传统顺序优先于其他注册表访问模式。启用规则特异性后，更具体且适用的规则可能优先。</p>
 <p>相关 <a href="SandboxieIni.html">Sandboxie Ini</a> 设置项：<a href="ClosedKeyPath.html">封禁注册表项路径</a></p>
@@ -5677,9 +5699,13 @@
 <p><a href="SandboxieControl.html">沙盒管理器</a> &gt; <a href="SandboxSettings.html">沙盒设置</a> &gt; 资源访问 &gt; IPC 访问</p>
 <p>此类别管理对 NT IPC 对象的例外。这些资源由系统中运行的程序创建，作为协调操作或以其他方式通信的手段。</p>
 <p>关于编辑资源以及将资源与特定程序关联的更多信息，请参阅上面的 <a href="ResourceAccessSettings.html#一般信息">一般信息</a>。</p>
+<div id="ipc-访问-直接访问"></div>
+
 <h4 id="ipc_1">IPC 访问 &gt; 直接访问<a class="headerlink" href="#ipc_1" title="Permanent link"></a></h4>
 <p>允许直接访问 IPC 对象资源。注意：与文件访问和注册表访问类别不同，IPC 对象的 <em>直接访问</em> 例外始终适用于所有沙盒化程序。</p>
 <p>相关 <a href="SandboxieIni.html">Sandboxie Ini</a> 设置项：<a href="OpenIpcPath.html">开放 IPC 路径</a></p>
+<div id="ipc-访问-阻止访问"></div>
+
 <h4 id="ipc_2">IPC 访问 &gt; 阻止访问<a class="headerlink" href="#ipc_2" title="Permanent link"></a></h4>
 <p>拒绝对该 IPC 对象资源的所有访问。常规 IPC 对象匹配会比较 Closed、Normal 和 Open 规则。未启用<a href="../PlusContent/RuleSpecificity.html">规则特异性</a>时，匹配的 <em>阻止访问</em> 规则按传统顺序优先。启用规则特异性后，更具体且适用的 Normal 或 Open IPC 规则可能优先。独立的 <code>ReadIpcPath=$:...</code> 目标进程访问策略不参与这种常规 IPC 比较。</p>
 <p>此设置可用于覆盖 Sandboxie 中默认的 <em>IPC 访问 &gt; 直接访问</em> 设置并阻止访问。例如，默认情况下 Sandboxie 允许沙盒化程序访问音频设备。要覆盖此行为并切断沙盒化程序的音频输出，请为 <strong>\RPC Control\AudioSrv</strong> 添加例外。</p>
@@ -5691,6 +5717,8 @@
 <p>关于编辑资源以及将资源与特定程序关联的更多信息，请参阅上面的 <a href="ResourceAccessSettings.html#一般信息">一般信息</a>。</p>
 <p>相关 <a href="SandboxieIni.html">Sandboxie Ini</a> 设置项：<a href="OpenWinClass.html">开放窗口类</a></p>
 <hr />
+<div id="com-访问"></div>
+
 <h3 id="com">COM 访问<a class="headerlink" href="#com" title="Permanent link"></a></h3>
 <p><a href="SandboxieControl.html">沙盒管理器</a> &gt; <a href="SandboxSettings.html">沙盒设置</a> &gt; 资源访问 &gt; COM 访问</p>
 <p>此类别管理对 COM 类的例外。这些资源代表用作协调操作或以其他方式通信手段的对象。你可以指定存在于沙盒外的 COM 对象的 COM 类标识符，这些对象应可供沙盒化程序访问。</p>

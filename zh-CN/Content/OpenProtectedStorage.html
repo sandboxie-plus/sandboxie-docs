@@ -6,12 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="OpenProtectedStorage 是 Sandboxie Ini 中的一项沙盒设置。通常指定为 OpenProtectedStorage=y（参见 是/否设置），表示 Sandboxie 不应在沙盒中隔离 受保护的存储。例如：
-   .
-   .
-   .
-   [DefaultBox]
-   OpenProtectedStorage=y">
+        <meta name="description" content="当前，若要开放宿主的旧版 Windows 受保护存储（PStore）端点，应为沙盒选择 Sandboxie 的 Open Protected Storage 模板：">
       
       
       
@@ -575,7 +570,7 @@
   <span class="md-ellipsis">
     
   
-    沙盒菜单
+    SandboxMenu
   
 
     
@@ -5590,16 +5585,27 @@
 
 
 <h1 id="_1">开放受保护的存储<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
-<p><em>OpenProtectedStorage</em> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 中的一项沙盒设置。通常指定为 <em>OpenProtectedStorage=y</em>（参见 <a href="YesOrNoSettings.html">是/否设置</a>），表示 Sandboxie 不应在沙盒中隔离 <a href="ProtectedStorage.html">受保护的存储</a>。例如：
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="na">.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">   </span><span class="k">[DefaultBox]</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">   </span><span class="na">OpenProtectedStorage</span><span class="o">=</span><span class="s">y</span>
-</span></code></pre></div></p>
-<p>表示在 DefaultBox 沙盒中运行的程序将更新全局系统的 <a href="ProtectedStorage.html">受保护的存储</a>，而不是其沙盒化实例。</p>
-<p>相关 Sandboxie Plus 设置：沙盒选项 &gt; 应用程序模板 &gt; 模板 &gt; 开放受保护的存储</p>
-<p>相关 <a href="SandboxieControl.html">沙盒管理器</a> 设置：<a href="ApplicationsSettings.html#web-浏览器">沙盒设置 &gt; 应用程序 &gt; Web 浏览器</a> 中的 <em>在沙盒外保存：搜索字符串和已调用命令的历史记录</em></p>
+<p>当前，若要开放宿主的旧版 Windows <a href="ProtectedStorage.html">受保护存储</a>（PStore）端点，应为沙盒选择 Sandboxie 的 <strong>Open Protected Storage</strong> 模板：</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">Template</span><span class="o">=</span><span class="s">OpenProtectedStorage</span>
+</span></code></pre></div>
+<p>旧的 <code>OpenProtectedStorage=y</code> 布尔设置仍保留在设置元数据中，也可能出现在旧配置里，但它<strong>不是</strong>当前的配置方法。Sandboxie Plus 1.8.0 / Classic 5.63.0 已用此模板替代该设置。旧配置迁移可以将此布尔设置转换为模板选择；当前源码中的旧驱动端读取逻辑已被注释掉。无需修改随附模板来启用此选项。</p>
+<div id="what-the-template-does"></div>
+
+<h2 id="_2">模板的作用<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
+<p>随附模板包含以下系统路径开放规则：</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">OpenFilePath</span><span class="o">=</span><span class="s">|\Device\NamedPipe\protected_storage</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">OpenIpcPath</span><span class="o">=</span><span class="s">*\BaseNamedObjects*\PS_SERVICE_STARTED</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="na">OpenIpcPath</span><span class="o">=</span><span class="s">\RPC Control\protected_storage</span>
+</span></code></pre></div>
+<p>在普通沙盒中，Sandboxie 通常会挂钩 <code>PStoreCreateInstance</code>，提供自己的 <code>IPStoreImpl</code> 兼容实现。当有效 IPC 策略开放了 <code>\RPC Control\protected_storage</code> 时，PStore 初始化会跳过此钩子。模板中的开放规则生效后，就可通过此机制使用原生 PStore，而非 Sandboxie 的替代实现。随附模板中历史遗留的 <code>FuncSkipHook=PStoreCreateInstance</code> 行已被注释掉，不是生效的规则。</p>
+<p>同一端点检查会在读取 <a href="OpenCredentials.html">开放凭据</a> 设置之前执行。当该端点实际处于开放状态时，Sandboxie 也会跳过用户模式下的 WinCred 钩子，相关凭据 API 调用可直接使用原生实现。单独设置 <code>OpenCredentials=y</code> 则会保留独立的 PStore 钩子。PStore 和 Windows 凭据 API 在此处有关联，但它们并不是同一种机制。</p>
+<div id="sandman-and-scope"></div>
+
+<h2 id="sandman">SandMan 设置与适用范围<a class="headerlink" href="#sandman" title="Permanent link"></a></h2>
+<p>SandMan 通过 <strong>沙盒选项 &gt; 常规选项 &gt; 限制选项 &gt; 其它限制 &gt; 开放“系统保护的存储”权限</strong> 提供此模板选项。选中后，独立的 <strong>开放 Windows 凭据存储访问权限（用户模式）</strong> 复选框会显示为已勾选且禁用。SandMan 保存的是模板选择，而不是 <code>OpenProtectedStorage=y</code>，也不会自动保存 <code>OpenCredentials=y</code>。</p>
+<p>在<a href="../PlusContent/compartment-mode.html">应用隔间</a>模式中，Sandboxie 已经会跳过其替代 PStore 钩子。但仅凭这一点，无法判断独立的 WinCred 钩子是否安装；WinCred 自身的端点检查和 <code>OpenCredentials</code> 检查仍然有效。</p>
+<p>钩子是否安装取决于沙盒化进程中相关模块初始化时的配置。更改模板后，应重启受影响的沙盒化应用程序及其子进程。通常无需仅为这些用户模式钩子重启 Windows、驱动程序或服务。</p>
 
 
 
