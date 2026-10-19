@@ -10,6 +10,8 @@
 
 * * *
 
+<div id="web-浏览器"></div>
+
 ### Web 浏览器
 
 [沙盒管理器](SandboxieControl.md) > [沙盒设置](SandboxSettings.md) > 应用程序 > Web 浏览器
@@ -47,6 +49,8 @@ Internet Explorer 设置页上的两个特殊设置：
 
 * * *
 
+<div id="邮件阅读器"></div>
+
 #### 邮件阅读器
 
 [沙盒管理器](SandboxieControl.md) > [沙盒设置](SandboxSettings.md) > 应用程序 > 邮件阅读器
@@ -83,6 +87,8 @@ Internet Explorer 设置页上的两个特殊设置：
 
 * * *
 
+<div id="其他"></div>
+
 ### <a name="misc" id="misc"></a>其他
 
 以下设置页用于按主题分类启用第三方软件的配置。其中有面向 PDF 和打印软件、密码和安全软件、桌面实用工具及其他杂项程序和设置的设置页。
@@ -92,6 +98,8 @@ Internet Explorer 设置页上的两个特殊设置：
 选择（高亮）所需配置并点击 _添加_ 按钮，即可为当前沙盒启用。在某些情况下，你还需要指定第三方软件使用的数据文件的位置。使用 [应用程序 > 文件夹](ApplicationsSettings.md#文件夹) 设置页指定备用位置。
 
 * * *
+
+<div id="local"></div>
 
 #### 本地
 
@@ -104,6 +112,8 @@ Internet Explorer 设置页上的两个特殊设置：
 关于设计你自己的应用程序配置包（或模板）的更多信息，请查阅 Sandboxie 安装文件夹中的 _Templates.ini_ 文件。
 
 * * *
+
+<div id="文件夹"></div>
 
 #### 文件夹
 

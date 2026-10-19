@@ -13,6 +13,9 @@
 
 * * *
 
+<div id="internet-access"></div>
+<div id="互联网访问"></div>
+
 ### 互联网访问
 
 [沙盒管理器](SandboxieControl.md) > [沙盒设置](SandboxSettings.md) > 限制 > 互联网访问
@@ -37,6 +40,8 @@ _访问被拒绝时发出消息 [SBIE1307](SBIE1307.md)_：当程序因该设置
 
 * * *
 
+<div id="启动-运行访问"></div>
+
 ### 启动/运行访问
 
 [沙盒管理器](SandboxieControl.md) > [沙盒设置](SandboxSettings.md) > 限制 > 启动/运行访问
@@ -59,6 +64,8 @@ _访问被拒绝时发出消息 [SBIE1308](SBIE1308.md)_：当程序因该设置
 
 * * *
 
+<div id="放弃权限"></div>
+
 ### 放弃权限
 
 [沙盒管理器](SandboxieControl.md) > [沙盒设置](SandboxSettings.md) > 限制 > 放弃权限
@@ -74,6 +81,8 @@ _访问被拒绝时发出消息 [SBIE1308](SBIE1308.md)_：当程序因该设置
 相关 [Sandboxie Ini](SandboxieIni.md) 设置项：[撤销管理员权限](DropAdminRights.md)。
 
 * * *
+
+<div id="低级访问-已移除"></div>
 
 ### 低级访问 - 已移除
 
@@ -101,6 +110,9 @@ _访问被拒绝时发出消息 [SBIE1308](SBIE1308.md)_：当程序因该设置
     *   另请参阅消息 [SBIE1309](SBIE1309.md)。
 
 * * *
+
+<div id="从-sandboxie-v4-及更高版本开始-硬件访问功能已被移除"></div>
+<div id="硬件访问-已移除"></div>
 
 ### 硬件访问 - 已移除
 

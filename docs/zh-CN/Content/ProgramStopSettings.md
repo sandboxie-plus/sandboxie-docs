@@ -10,6 +10,8 @@
 
 * * *
 
+<div id="残留程序"></div>
+
 ### 残留程序
 
 [沙盒管理器](SandboxieControl.md) > [沙盒设置](SandboxSettings.md) > 程序停止 > 残留程序
@@ -31,6 +33,8 @@
 相关 [Sandboxie Ini](SandboxieIni.md) 设置项：[驻留进程](LingerProcess.md)。
 
 * * *
+
+<div id="主导程序"></div>
 
 ### 主导程序
 

@@ -12,6 +12,8 @@
 
 * * *
 
+<div id="页面-1"></div>
+
 ### 页面 1
 
 ![](../Media/ProgramSettingsPage1.png)
@@ -49,6 +51,8 @@
     *   另请参阅[沙盒设置 > 程序停止 > 主导程序](ProgramStopSettings.md#主导程序)。
 
 * * *
+
+<div id="页面-2"></div>
 
 ### 页面 2
 

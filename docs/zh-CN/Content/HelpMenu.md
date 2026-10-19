@@ -14,6 +14,8 @@
 
 * * *
 
+<div id="入门教程-网页版"></div>
+
 ### 入门教程（网页版）
 
 [沙盒管理器](SandboxieControl.md) > [帮助菜单](HelpMenu.md) > 入门教程（网页版）

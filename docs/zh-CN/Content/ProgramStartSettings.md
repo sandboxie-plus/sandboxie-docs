@@ -10,6 +10,8 @@
 
 * * *
 
+<div id="强制文件夹"></div>
+
 ### 强制文件夹
 
 [沙盒管理器](SandboxieControl.md) > [沙盒设置](SandboxSettings.md) > 程序启动 > 强制文件夹
@@ -33,6 +35,8 @@
 相关 [Sandboxie Ini](SandboxieIni.md) 设置项：[强制文件夹](ForceFolder.md)。
 
 * * *
+
+<div id="强制程序"></div>
 
 ### 强制程序
 
