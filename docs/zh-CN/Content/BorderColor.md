@@ -1,29 +1,91 @@
 # 边框颜色
 
-_BorderColor_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一项沙盒设置。它控制 Sandboxie 是否在活动的前台窗口周围显示彩色边框（如果该窗口属于沙盒化应用程序）。
+_BorderColor_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一项沙盒设置。它控制 SandMan 在适用的沙盒窗口周围显示的彩色边框，以及可选的沙盒名称标签。边框仅用作视觉指示；它不会改变应用窗口的大小或位置，也不会改变沙盒的隔离行为。
 
-用法：
+## 语法
 
+当前格式为：
+
+```ini
+BorderColor=#十六进制颜色代码,边框模式,边框宽度,边框不透明度,标签模式[,标签字号]
 ```
-   .
-   .
-   .
-   [DefaultBox]
-   BorderColor=#00FFFF,ttl,6
-   BorderColor=#00FFFF,off,6
-   BorderColor=#00FFFF,on,6
+
+例如：
+
+```ini
+[DefaultBox]
+BorderColor=#00FFFF,ttl,6,192,in,6
 ```
-其默认值为 _"#00FFFF,ttl,6"_。该数字表示所绘制边框的默认像素宽度，可以省略。
 
-如果 _BorderColor_ 以 _",off,6"_ 结尾，Sandboxie 不绘制边框，而在旧版本中它是 _",n"_。
+颜色以六位十六进制数值指定，采用 #BBGGRR 顺序：蓝、绿，然后红。
 
-颜色以类似 HTML 的 RGB 颜色表示法指定：
+* 井号前缀后跟六位十六进制数字。
+* 前两位十六进制数字表示蓝色的分量。
+* 接下来的两位十六进制数字表示绿色的分量。
+* 最后两位十六进制数字表示红色的分量。
 
-*   井号前缀后跟一个恰好 6 位长的十六进制（基数为 16）数字。
-*   前两位十六进制数字表示颜色的红色分量。
-*   接下来的两位十六进制数字表示颜色的绿色分量。
-*   最后两位十六进制数字表示颜色的蓝色分量。
+其余字段的含义如下：
 
-当 [沙盒管理器](SandboxieControl.md) 未运行时，不会绘制边框。
+| 字段 | 取值与行为 |
+| --- | --- |
+| `border_mode` | 选择何时以及在何处显示边框。参见[边框模式](#边框模式)。 |
+| `border_width` | 边框宽度（像素）。当前默认值为 `6`。 |
+| `border_color_alpha` | 边框不透明度（alpha），取值 `0` 到 `255`。当前默认值以及无效取值时的回退值均为 `192`。 |
+| `label_mode` | `no` 隐藏标签，`out` 将其置于边框上方，`in` 将其置于边框内部。 |
+| `label_font_size` | 标签字号的可选参考值。省略或无效时，使用边框宽度。 |
 
-相关 [沙盒管理器](SandboxieControl.md) 设置：[沙盒设置 > 外观](AppearanceSettings.md)
+## 边框模式
+
+SandMan 当前提供的主要模式如下：
+
+| INI 模式 | SandMan 标签 | 行为 |
+| --- | --- | --- |
+| `off` | **禁用边框** | 不显示边框。 |
+| `ttl` | **仅在标题栏获取焦点时显示** | 按标题栏焦点行为显示边框。 |
+| `on` | **始终显示（仅聚焦的窗口）** | 为聚焦的适用窗口显示边框。 |
+| `all` | **为本沙盒中的所有窗口显示** | 为沙盒中所有适用窗口显示边框。 |
+
+`ttloutside`、`onoutside` 和 `alloutside` 变体使用对应的模式，但将边框绘制在应用框架之外。SandMan 在选择器中以 **（窗口外侧）** 标识这些条目。
+
+运行时还接受 `ttllbl`、`onlbl` 和 `alllbl`。这些仅标签形式在没有彩色边框框的情况下显示沙盒名称或别名。仅标签模式使用非外部的放置方式；该模式不保留 `outside` 后缀。
+
+## 标签位置
+
+`label_mode` 字段对应以下 SandMan 选项：
+
+| INI 取值 | SandMan 标签 |
+| --- | --- |
+| `no` | **不在边框中显示** |
+| `out` | **显示在边框上方** |
+| `in` | **显示在边框中** |
+
+显示的文本可能受 [Box Alias](BoxAlias.md) 中描述的沙盒别名和全局别名显示设置的影响。
+
+## BorderInsideMaximized
+
+_BorderInsideMaximized_ 控制外侧边框或外置标签在最大化或排列（贴靠）窗口中的放置方式。默认启用。
+
+启用时，如果外部放置会超出应用框架，SandMan 会将该叠加层绘制在此类窗口的内部。这只改变边框叠加层的位置；不会改变应用窗口的大小或位置。
+
+要禁用自动的内部放置：
+
+```ini
+[DefaultBox]
+BorderInsideMaximized=n
+```
+
+设置元数据将 _BorderInsideMaximized_ 列为在 v1.18.1 中加入，而该功能则是在 Sandboxie Plus 1.18.2 / Classic 5.73.2 的发布说明中描述的。
+
+## SandMan 界面
+
+当前控件位于：
+
+**沙盒选项 > 常规选项 > 沙盒选项 > 外观**
+
+该区域提供边框模式、颜色、宽度、不透明度、标签位置、仅标签选项和标签字号等控件。对于外部模式，**最大化或贴靠时显示在窗口内侧** 启用 _BorderInsideMaximized_。其工具提示说明：会被屏幕边缘裁剪的外部边框，改为绘制在最大化或贴靠窗口的内部。
+
+当前的 Sandboxie Plus 边框是 SandMan 叠加层。外观的更改通常不需要重启沙盒中的应用，不过 SandMan 必须处于运行状态才能显示其叠加层。
+
+## Sandboxie Control 经典界面
+
+Sandboxie Control 经典版在 [沙盒设置 > 外观](AppearanceSettings.md) 下提供其既有的边框控件。可用的经典控件可能与当前的 SandMan 模式和选项不同；特别是不要假定每种较新的 SandMan 模式都在历史经典界面中提供。
