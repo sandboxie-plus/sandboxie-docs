@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Processes started under Sandboxie&#x27;s supervision are created with a very restricted user token, such that they basically don&#x27;t have the right to access almost anything. In this state, they would be pretty much useless and would crash right away.">
+        <meta name="description" content="Processes in normal security-isolation boxes generally run with heavily restricted Windows primary tokens. This limits what they can access under Windows security checks, while Sandboxie&#x27;s other mechanisms provide the virtualization and compatibility behavior needed by applications. The exact token handling depends on configuration; Application Compartment mode bypasses normal primary-token replacement.">
       
       
       
@@ -5585,12 +5585,12 @@
 
 
 <h1 id="isolation-mechanism">Isolation Mechanism<a class="headerlink" href="#isolation-mechanism" title="Permanent link"></a></h1>
-<p>Processes started under Sandboxie's supervision are created with a very restricted user token, such that they basically don't have the right to access almost anything. In this state, they would be pretty much useless and would crash right away.</p>
+<p>Processes in normal security-isolation boxes generally run with heavily restricted Windows primary tokens. This limits what they can access under Windows security checks, while Sandboxie's other mechanisms provide the virtualization and compatibility behavior needed by applications. The exact token handling depends on configuration; Application Compartment mode bypasses normal primary-token replacement.</p>
 <p>Sandboxie supports multiple token-construction and filtering paths. The normal current path constructs a new, heavily restricted primary token, while a historical filtering path remains available and uses implementation-specific Windows kernel handling. See <a href="AccessTokenIsolation.html">Access Token Isolation</a> and the <a href="TokenMagic.html">token internals</a> for details.</p>
-<p>In a next step, Sandboxie tries to repair that by redirecting selected native syscall stubs through its SbieDrv driver. The driver then evaluates the calls and enforces the sandboxing rules, for example, no write access outside the sandbox and no read access to closed resources.</p>
+<p>Sandboxie also intercepts selected native syscall stubs and routes those calls through SbieDrv. For applicable mediated operations, the driver can use the retained source-token or thread-token context while processing the call. Independent driver filters enforce resource-access restrictions according to the effective policy, including configured direct-access exceptions. Native Windows permissions remain applicable.</p>
 <p>If an application bypasses a patched user-mode syscall stub by issuing a direct syscall, it does not recover Sandboxie's retained source-token context. The call normally continues under the sandbox token and remains subject to applicable Windows access checks and independent Sandboxie enforcement.</p>
 <p>Not all functionality can be restored this way, so Sandboxie also hooks a myriad of other functions in standard Windows DLLs, providing workarounds and redirects through the helper service SbieSvc, although sometimes it opts for disabling some functionality outright.</p>
-<p>The file system and registry virtualization is implemented on the user level in SbieDll, which is responsible for combining the data from the real system with the ones from the sandbox and for properly redirecting all access attempts. If that mechanism is improperly bypassed, it results in an access denied error.</p>
+<p>File-system and Registry virtualization is implemented primarily in user mode by SbieDll. It maps supported operations to sandbox-backed storage and combines eligible host and sandbox data in merged views. Virtualization is distinct from driver-enforced restrictions and native Windows authorization: if a virtualization path is unavailable or bypassed, the result depends on the operation, effective token, resource rules, and remaining enforcement. Neither access denial nor successful host access is guaranteed.</p>
 
 
 
