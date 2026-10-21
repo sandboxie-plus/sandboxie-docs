@@ -81,9 +81,11 @@ Related [Sandboxie Ini](SandboxieIni.md) settings: [ReadFilePath](ReadFilePath.m
 
 #### File Access > Write-Only Access
 
-This access mode hides all files and folders which are located within the selected folder outside the sandbox. However, programs in the sandbox can create new files within the corresponding folder in the sandbox.
+This access mode normally hides host-side contents from ordinary file opens at the selected path while allowing files and folders to be created in the corresponding sandbox location, subject to creation and access checks.
 
-This setting can only be used effectively on folders. If a file is selected, the effect is the same as the Blocked Access setting (see below).
+Write-Only Access applies to files as well as folders. Unlike _Blocked Access_, which closes both host and sandbox-copy access, a selected _Write-Only Access_ rule normally closes the host side while permitting the sandbox-copy side. Existing sandbox copies can remain readable when the operation and granted handle rights permit it.
+
+This does not guarantee that an operation succeeds; the result depends on the effective rule, existing sandbox-copy state, requested operation and access rights, creation conditions, Windows permissions, and applicable virtualization and enforcement paths.
 
 Related [Sandboxie Ini](SandboxieIni.md) settings: [WriteFilePath](WriteFilePath.md)
 

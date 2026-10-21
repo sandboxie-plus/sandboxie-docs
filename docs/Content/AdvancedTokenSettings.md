@@ -123,11 +123,37 @@ ReplicateToken=n
 
 *ReplicateToken* defaults to `n` and applies specifically to the modern `Token_CreateToken` reconstruction path. It creates a new token while preserving substantially more properties from the source token; it does not simply duplicate the original token object.
 
-The reconstructed token preserves or reuses the source token user, groups, privileges, token type, impersonation level, authentication ID, expiration, owner, primary group, default DACL, token source, device groups, and token security attributes. It also avoids several normal transformations, including Sandboxie or Anonymous token-user substitution, conversion of groups to deny-only, normal privilege reduction, and normal addition of the *SandboxieAll* group.
+The reconstructed token preserves or reuses the source token user, groups, privileges, token type, impersonation level, authentication ID, expiration, owner, primary group, default DACL, and token source. It also avoids several normal transformations, including Sandboxie or Anonymous token-user substitution, conversion of groups to deny-only, normal privilege reduction, and normal addition of the *SandboxieAll* group.
+
+*ReplicateToken* additionally enables optional device-group retrieval and token security-attribute copying, regardless of explicit `CopyDeviceGroups=n` or `CopyTokenAttributes=n` values. Neither optional operation guarantees successful preservation; see the following sections for their separate behavior and limitations.
 
 The source token passed to this stage may already have undergone preliminary filtering unless *UnfilteredToken* is also enabled. *ReplicateToken* therefore does not necessarily restore groups or privileges removed earlier.
 
 The implementation does not explicitly copy every token information class. Research did not establish explicit copying of `TokenRestrictedSids`, `TokenOrigin`, `TokenSessionId`, or AppContainer capabilities. *ReplicateToken* reconstructs the sandbox token while preserving substantially more properties of its source token; it should not be treated as an exact clone of every token field.
+
+## CopyDeviceGroups
+
+```ini
+CopyDeviceGroups=y
+```
+
+```ini
+CopyDeviceGroups=n
+```
+
+*CopyDeviceGroups* requests preservation of the source token's `TokenDeviceGroups` during modern token reconstruction. Its consumer fallback is `n` when no effective value is configured. It is a box-wide Boolean setting: applicable enabled templates and `GlobalSettings` fallback can contribute to the effective configuration, but executable-specific selectors are not supported.
+
+It applies to the modern reconstruction described under [Token processing stages](#token-processing-stages), not legacy filtering or the duplication selected by *UnrestrictedToken*. An explicit `UseCreateToken=y` is not required: the modern path can also be selected by *SandboxieAllGroup* or when the legacy filter is unavailable. Enabling *CopyDeviceGroups* does not itself select that path.
+
+*ReplicateToken* enables the device-group copy decision even when `CopyDeviceGroups=n` is explicitly configured. These settings are not aliases: *CopyDeviceGroups* requests only this optional field, not the broader preservation performed by *ReplicateToken*.
+
+Retrieval is best effort. Sandboxie needs a usable source-token handle and must successfully query and allocate space for the device-group information. If the handle is unavailable, allocation fails, or the queries cannot retrieve the information, construction can continue without it.
+
+Transfer also depends on the available token constructor. The extended `ZwCreateTokenEx` path accepts device groups; the older `ZwCreateToken` fallback does not. A failure of the extended constructor does not automatically trigger a retry without device groups. Enabling the setting therefore does not guarantee preservation on every supported system.
+
+Device groups are distinct from ordinary token groups (`TokenGroups`), token security attributes (`TokenSecurityAttributes`), and AppContainer capabilities. They are not a list of hardware devices. This setting does not control ordinary group membership or deny-only conversion, *SandboxieAll* group insertion, user SID substitution, integrity reduction, privilege reduction, or the separate *CopyTokenAttributes* operation.
+
+Preserving device-group information does not itself restore administrator privileges, change device ACLs, disable Sandboxie device restrictions or file and Registry virtualization, bypass other security controls, or grant unrestricted host-device access. It does not guarantee application compatibility.
 
 ## CopyTokenAttributes
 
@@ -210,6 +236,7 @@ When [`NoSecurityIsolation=y`](NoSecurityIsolation.md), Sandboxie normally bypas
 
 - *NoUntrustedToken*
 - *ReplicateToken*
+- *CopyDeviceGroups*
 - *CopyTokenAttributes*
 - *UnfilteredToken*
 - *UnrestrictedToken*
@@ -231,11 +258,11 @@ Among the settings on this page, only *NoUntrustedToken* has a dedicated current
 
 **Sandbox Options > Security Options > Advanced Security > Use LOW integrity token instead of UNTRUSTED (reduces isolation)**
 
-The remaining settings are advanced manual [`Sandboxie.ini`](SandboxieIni.md) options.
+The remaining settings are advanced manual [`Sandboxie.ini`](SandboxieIni.md) options. For *CopyDeviceGroups*, use **Sandbox Options > Edit ini Section > Edit ini**; there is no dedicated checkbox.
 
 ## Sandboxie Plus and Classic
 
-Token processing is implemented in shared Sandboxie components. SandMan exposes the *NoUntrustedToken* control, while the other settings on this page use manual configuration. Current source does not contain equivalent dedicated Sandboxie Control Classic controls, but compatible manual INI settings can be consumed by the shared runtime where applicable.
+Token processing is implemented in shared Sandboxie components. SandMan exposes the *NoUntrustedToken* control, while the other settings on this page use manual configuration. Current source does not contain equivalent dedicated Sandboxie Control Classic controls, but compatible manual INI settings can be consumed by the shared runtime where applicable. Classic provides manual editing through **Configure > Edit Configuration**.
 
 ## Applying configuration changes
 
@@ -243,9 +270,13 @@ These settings are primarily consulted while Sandboxie prepares, filters, or cre
 
 *UnfilteredToken* is also consulted during relevant later impersonation-token handling, but this does not remove the need to restart processes when changing primary-token policy.
 
+The *CopyDeviceGroups* decision is evaluated when modern token construction is reached, including relevant later impersonation-token handling; it is not a separate process-start-only cache. A later configuration read does not rebuild an existing primary token.
+
 ## Failure behavior
 
 Essential token-filtering, construction, or assignment failures cause process initialization to fail rather than deliberately falling back to a less-restricted host token. Exact errors depend on the failed operation.
+
+Optional *CopyDeviceGroups* retrieval failures are different: an unavailable source-token handle, failed information queries, or allocation failure can leave construction to continue without the optional device-group information. This does not guarantee that token creation or assignment will succeed, and a constructor failure does not automatically trigger a retry without device groups.
 
 The optional *CopyTokenAttributes* step is different: failure to copy `TokenSecurityAttributes` does not invalidate an otherwise successfully created token.
 
@@ -255,6 +286,7 @@ The optional *CopyTokenAttributes* step is different: failure to copy `TokenSecu
 - *KeepTokenIntegrity* dates to Sandboxie Plus 0.3.0 / Classic 5.42.
 - *KeepUserGroup* and *UnstrippedToken* date to Sandboxie Plus 1.0.6 / Classic 5.55.6.
 - The setting metadata records *NoUntrustedToken*, *ReplicateToken*, and *CopyTokenAttributes* as added in Sandboxie Plus 1.14.1.
+- *CopyDeviceGroups* was introduced in Sandboxie Plus 1.17.0 / Classic 5.72.0.
 - The dedicated *NoUntrustedToken* SandMan control was documented in the Sandboxie Plus 1.17.0 / Classic 5.72.0-era changes.
 
 ## Related pages

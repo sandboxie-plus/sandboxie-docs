@@ -11,7 +11,7 @@ The older `OpenProtectedStorage=y` Boolean remains in setting metadata and may a
 
 ## What the template does
 
-The shipped template opens these system paths:
+The shipped template contains these system-path opening rules:
 
 ```ini
 OpenFilePath=|\Device\NamedPipe\protected_storage
@@ -19,9 +19,9 @@ OpenIpcPath=*\BaseNamedObjects*\PS_SERVICE_STARTED
 OpenIpcPath=\RPC Control\protected_storage
 ```
 
-In an ordinary sandbox, Sandboxie normally hooks `PStoreCreateInstance` and supplies its own `IPStoreImpl` compatibility implementation. When the effective IPC policy opens `\RPC Control\protected_storage`, Sandboxie's PStore initialization skips that hook. The template opens that endpoint, allowing the native PStore path instead of Sandboxie's replacement through this mechanism. The historical `FuncSkipHook=PStoreCreateInstance` line in the shipped template is commented out, not an active rule.
+In an ordinary sandbox, Sandboxie normally hooks `PStoreCreateInstance` and supplies its own `IPStoreImpl` compatibility implementation. When the effective IPC policy opens `\RPC Control\protected_storage`, Sandboxie's PStore initialization skips that hook. When the template's open rule is effective, it allows the native PStore path instead of Sandboxie's replacement through this mechanism. The historical `FuncSkipHook=PStoreCreateInstance` line in the shipped template is commented out, not an active rule.
 
-The same endpoint check runs before Sandboxie's [Open Credentials](OpenCredentials.md) setting is checked. With this template selected, Sandboxie also skips its user-mode WinCred hooks; supported native credential API calls can pass through. By contrast, `OpenCredentials=y` alone leaves the separate PStore hook in place. PStore and the Windows Credential APIs are related here but are not the same facility.
+The same endpoint check runs before Sandboxie's [Open Credentials](OpenCredentials.md) setting is checked. When that endpoint is effectively open, Sandboxie also skips its user-mode WinCred hooks; supported native credential API calls can pass through. By contrast, `OpenCredentials=y` alone leaves the separate PStore hook in place. PStore and the Windows Credential APIs are related here but are not the same facility.
 
 ## SandMan and scope
 

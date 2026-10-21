@@ -2,7 +2,9 @@
 
 Windows Protected Storage (PStore) is a legacy interface that let applications store user data intended to be protected, such as passwords or other sensitive values, through `PStoreCreateInstance` and the `IPStore` API. It is distinct from the Windows Credential APIs (WinCred) described in [Open Credentials](OpenCredentials.md). These facilities should not be treated as interchangeable names for a modern Windows password store.
 
-In an ordinary sandbox, Sandboxie normally replaces `PStoreCreateInstance` with its own `IPStoreImpl` compatibility implementation. Its data uses sandbox-local backing storage. Current code constructs a `SbiePst.dat` filename under the Windows directory by default, but a build-time filename override is possible and sandbox file virtualization determines the physical location; do not rely on a fixed host path. This implementation provides compatibility for applications using the legacy PStore interface, not an assurance that all Windows credential mechanisms are isolated.
+In an ordinary sandbox, Sandboxie normally replaces `PStoreCreateInstance` with its own `IPStoreImpl` compatibility implementation. Its local modifications use sandbox-local backing storage. Current code constructs a `SbiePst.dat` filename under the Windows directory by default, but a build-time filename override is possible and sandbox file virtualization determines the physical location; do not rely on a fixed host path. This implementation provides compatibility for applications using the legacy PStore interface, not an assurance that all Windows credential mechanisms are isolated.
+
+PStore reads can also query native PStore through Sandboxie's service when no corresponding local record exists, and enumeration can include results from the native provider. A local backing file therefore does not imply sandbox-only reads. Actual results depend on native-provider availability and access checks.
 
 Sandboxie's default WinCred compatibility layer also uses this PStore implementation as backing storage for intercepted credential modifications. Its read and enumeration paths can still consult the native Windows credential store. See [Open Credentials](OpenCredentials.md) for that important boundary.
 
@@ -14,7 +16,7 @@ The current file format applies a simple reversible transformation to stored blo
 
 ## Opening the system implementation
 
-Select the [Open Protected Storage](OpenProtectedStorage.md) template to open the relevant system endpoints. The open protected-storage IPC path causes Sandboxie to skip its replacement PStore hook and also its user-mode WinCred hooks. The old `OpenProtectedStorage=y` Boolean is not the current method.
+Select the [Open Protected Storage](OpenProtectedStorage.md) template to add rules opening the relevant system endpoints. An effective Open policy for the protected-storage IPC endpoint causes Sandboxie to skip its replacement PStore hook and also its user-mode WinCred hooks. The old `OpenProtectedStorage=y` Boolean is not the current method.
 
 [Application Compartment](../PlusContent/compartment-mode.md) also skips Sandboxie's PStore replacement hook. The WinCred hooks have separate checks, so compartment mode alone should not be described as automatically enabling `OpenCredentials`.
 

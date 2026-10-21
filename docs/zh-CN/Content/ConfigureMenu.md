@@ -6,6 +6,8 @@
 
 * * *
 
+<div id="程序警报"></div>
+
 ### 程序警报
 
 _程序警报_ 命令会打开如下窗口，可在特定程序于沙盒外启动时，配置 Sandboxie 发出 [SBIE1301](SBIE1301.md) 消息。
@@ -23,6 +25,8 @@ _程序警报_ 命令会打开如下窗口，可在特定程序于沙盒外启�
 相关 [Sandboxie Ini](SandboxieIni.md) 设置项：[警报进程](AlertProcess.md)。
 
 * * *
+
+<div id="windows-shell-集成"></div>
 
 ### Windows Shell 集成
 
@@ -80,6 +84,8 @@ _隐藏所有提示_ 命令指示 Sandboxie 将所有复选框视为已勾选，
 
 * * *
 
+<div id="锁定配置"></div>
+
 ### 锁定配置
 
 ![](../Media/LockConfiguration.png)
@@ -97,6 +103,8 @@ _隐藏所有提示_ 命令指示 Sandboxie 将所有复选框视为已勾选，
 注意：[Sandboxie Ini](SandboxieIni.md) 配置文件通常位于 _Windows_ 文件夹，非特权用户帐户无法修改。若在启用用户帐户控制（UAC）的 Windows 上使用，修改 Sandboxie.ini 前可能需要提升至管理员帐户。
 
 * * *
+
+<div id="重新加载配置"></div>
 
 ### 重新加载配置
 

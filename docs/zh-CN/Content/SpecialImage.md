@@ -36,7 +36,7 @@ SpecialImage=<类别>,<可执行文件>
 ## 支持的类别
 
 - **chrome**：基于 Chromium 的浏览器和 Electron 应用程序
-- **firefox**：Mozilla Firefox 及相关浏览器  
+- **firefox**：Mozilla Firefox 及相关浏览器
 - **thunderbird**：Mozilla Thunderbird 邮件客户端
 - **browser**：不基于 Chrome 或 Firefox 的其他网页浏览器
 - **mail**：Thunderbird 以外的邮件客户端
@@ -49,7 +49,7 @@ Sandboxie 在 `Template_SpecialImages` 模板中包含大量默认映射：
 ```ini
 # Chromium 系浏览器
 SpecialImage=chrome,chrome.exe
-SpecialImage=chrome,msedge.exe  
+SpecialImage=chrome,msedge.exe
 SpecialImage=chrome,brave.exe
 SpecialImage=chrome,vivaldi.exe
 SpecialImage=chrome,opera.exe
@@ -78,11 +78,11 @@ SpecialImage=chrome,steam.exe
 
 - **邮件客户端**：接收适当的文件系统访问权限和针对邮件数据库操作的专门处理。
 
-- **插件容器**：其进程令牌被丢弃以防权限提升，并接收专门的受限令牌处理[^6]。
+- **插件容器**：创建子进程时，Sandboxie 会清除其提供的 `hToken` 参数；这不会移除插件容器进程自身的令牌，子进程最终使用的令牌仍取决于后续处理[^6]。
 
 **安全影响**
 
-- **权限管理**：被分类为插件容器或某些浏览器类型的应用程序，其安全令牌会被自动限制或完全丢弃
+- **权限管理**：插件容器和部分浏览器分类会影响创建子进程时传入的令牌参数；后续的令牌限制仍取决于沙盒模式和相关设置。
 - **子进程处理**：浏览器应用程序对其沙盒子进程接收专门处理，防止令牌继承问题
 - **文件系统访问**：每个类别接收与其功能相称的定制文件系统访问权限
 - **图形界面隔离**：浏览器和邮件应用程序通过专门的窗口站处理获得增强的图形界面隔离
@@ -119,7 +119,7 @@ SpecialImage=chrome,steam.exe
 ## 相关设置
 
 - [自定义 Chromium 启动参数](CustomChromiumFlags.md) - 自动适用于分类为 `chrome` 的应用程序
-- [丢弃子进程令牌](DropChildProcessToken.md) - 影响插件容器和某些浏览器类型的行为
+- [丢弃子进程令牌](DropChildProcessToken.md) - 控制调用进程在创建子进程时是否清除其提供的令牌参数，不改变调用进程自身的令牌。
 
 相关 Sandboxie Plus 设置：不在界面中直接暴露（自动使用模板定义的默认值）
 
@@ -133,6 +133,6 @@ SpecialImage=chrome,steam.exe
 
 [^5]: `guienum.c` 和 `proc.c` 中的 Firefox 特定优化：Firefox 应用程序在 Windows 10+ 上接收专门的 D3D11 图形处理、对 contentproc 子进程的自定义沙盒进程令牌管理，以及为更好兼容性定制的图形界面窗口站行为。
 
-[^6]: `proc.c` 中的插件容器限制：分类为 `DLL_IMAGE_PLUGIN_CONTAINER` 的应用程序在进程创建期间自动完全丢弃其安全令牌以防权限提升，Adobe Reader 和其他沙盒化插件系统也是如此。
+[^6]: 在 `proc.c` 的 `Proc_CreateProcessInternalW` 中，若调用进程被识别为 `DLL_IMAGE_PLUGIN_CONTAINER` 或 `DLL_IMAGE_ACROBAT_READER`，就会把创建子进程时使用的 `hToken` 参数设为 `NULL`。该操作不修改调用进程的现有令牌；后续是否替换子进程的主令牌，仍取决于沙盒模式和相关设置。
 
 [^7]: `dllmain.c` 中的配置查询机制：系统使用递增的索引值调用 `SbieApi_QueryConfAsIs(NULL, L"SpecialImage", index, buf, 90 * sizeof(WCHAR))` 检索所有 SpecialImage 条目，解析每个以逗号分隔的值对，直到不再有条目。

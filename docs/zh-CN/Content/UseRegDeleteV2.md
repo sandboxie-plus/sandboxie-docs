@@ -1,0 +1,3 @@
+# UseRegDeleteV2
+
+参见 [UseRegDeleteV2 的英文说明](https://sandboxie-plus.github.io/sandboxie-docs/Content/Delete-V2.html#raw-settings-and-sandmans-paired-scheme)。

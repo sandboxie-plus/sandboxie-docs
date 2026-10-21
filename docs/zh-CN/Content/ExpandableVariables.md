@@ -31,6 +31,8 @@ RecoverFolder=C:\Users\joe\Documents\Song_Lyrics
 | temp <br> tmp | Windows 临时文件文件夹的位置，如注册表项中所定义： <br> HKEY_CURRENT_USER\Environment。 <br> 示例：C:\Windows\Temp |
 | Personal <br> AppData <br> Local AppData <br> Favorites <br> 等 | Windows 资源管理器所知的用户帐户和系统文件夹的位置。更多信息参见 [个人文件夹](ShellFolders.md)。 |
 
+<div id="template-variables"></div>
+
 ### 模板变量
 
 全局模板是 Sandboxie 安装的一部分，位于 Sandboxie 安装文件夹中的 _Templates.ini_ 文件中。可以在 [Sandboxie Ini](SandboxieIni.md) 中添加额外的本地模板。任何模板都可以引用 _%Tmpl.SomeVariableName%_ 形式的模板变量。这些变量名不是 Sandboxie 核心内置的。它们必须在 _Templates.ini_ 或 _Sandboxie.ini_ 的 [TemplateSettings] 节中定义。
