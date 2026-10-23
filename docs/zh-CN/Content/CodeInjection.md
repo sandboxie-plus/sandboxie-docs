@@ -75,4 +75,4 @@ SbieDll.dll hook 入口点 `Dll_Ordinal1` 首先从作为第一个参数传入�
 
 ##### Ldr_Inject_Entry
 
-该函数首先通过 `SbieDll!Ldr_Inject_SaveBytes` 恢复原入口点函数的初始内容，并将调用者返回地址改为指向入口点起始处，这样一旦返回即可正式执行真实入口点。然后函数判断 `bHostInject` 是否为 0，若为 0，则先调用 `SbieDll!Ldr_LoadInjectDlls`，然后调用 `SbieDll!Dll_InitExeEntry` 完成最后的初始化步骤。若 `bHostInject != 0`，则仅调用 `SbieDll!Ldr_LoadInjectDlls`，该函数会检查 [Sandboxie.ini](SandboxieIni.md) 的 [注入 Dll](InjectDll.md) 或 [注入 Dll64](InjectDll64.md) 配置项，如配置有其他需要加载的 dll，则一并加载。
+该函数首先通过 `SbieDll!Ldr_Inject_SaveBytes` 恢复原入口点函数的初始内容，并将调用者返回地址改为指向入口点起始处，这样一旦返回即可正式执行真实入口点。然后函数判断 `bHostInject` 是否为 0，若为 0，则先调用 `SbieDll!Ldr_LoadInjectDlls`，然后调用 `SbieDll!Dll_InitExeEntry` 完成最后的初始化步骤。若 `bHostInject != 0`，则仅调用 `SbieDll!Ldr_LoadInjectDlls`，该函数会检查 [Sandboxie.ini](SandboxieIni.md) 的 [注入 Dll](InjectDll.md) 或 [注入 Dll64](InjectDll64.md) 配置项，如配置有其他需要加载的 dll，则一并加载。在宿主模式下，则改为选择 `HostInjectDll`、`HostInjectDll64` 或 `HostInjectDllARM64`。宿主进程的相关语义参见 [宿主注入](HostInjection.md)。
