@@ -248,6 +248,16 @@
 
 [Hook 跟踪](HookTrace.md)
 
+[宿主注入 Dll](HostInjectDll.md)
+
+[宿主注入 Dll ARM64](HostInjectDllARM64.md)
+
+[宿主注入 Dll64](HostInjectDll64.md)
+
+[宿主注入进程](HostInjectProcess.md)
+
+[宿主注入](HostInjection.md)
+
 [工作原理](HowitWorks.md)
 
 [如何使用 WinDbg](HowToUseWinDbg.md)
