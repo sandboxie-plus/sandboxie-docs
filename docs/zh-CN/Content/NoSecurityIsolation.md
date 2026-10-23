@@ -63,6 +63,18 @@ NoSecurityIsolation=<y/n>
 - 减少与依赖权限的应用程序的冲突。
 - 更好地支持复杂软件和开发工具。
 
+## 命名对象命名空间选项
+
+应用程序隔离模式默认继续使用 Sandboxie 的命名内核对象重定向和 NT 目录对象命名空间处理。高级配置可以使用 `UseAlternateIpcNaming=y` 改变 Sandboxie 重定向的命名对象的命名策略，而不是使用常规的独立目录对象命名空间。
+
+`UseAlternateIpcNaming` 专门面向应用程序隔离沙盒。它不会重命名每一个 IPC 协议，也不会禁用每一个 IPC 控制项。详见 [Nt 命名空间隔离](NtNamespaceIsolation.md)。
+
+## 不支持的 DynData 回退
+
+当兼容的 DynData 不可用时，当前驱动代码可以将受影响的进程强制置入降级隔离的应用程序隔离状态，并发出警告 `MSG_1207`[^11]。这会改变驱动的进程状态；它不会向沙盒配置写入 `NoSecurityIsolation=y`。
+
+换言之：在不受支持的新版 Windows 构建上，沙盒可能未经配置即进入应用程序隔离状态。此时看到的是警告消息和进程状态的改变，而不是配置中出现了新的设置。
+
 ## 安全影响
 
 > [!IMPORTANT]
@@ -87,6 +99,14 @@ NoSecurityIsolation=<y/n>
 - `ProcessNumberLimit`
 - `ProcessMemoryLimit`
 - `TotalMemoryLimit`
+
+## SandMan 配置
+
+应用程序隔离可以在 SandMan 中作为沙盒类型选择。对应的高级设置位于：
+
+**沙盒选项 > 安全选项 > 安全隔离**
+
+该复选框的标签是**「禁用安全隔离」**。当前的 SandMan 沙盒类型选择器调用预设**「应用程序隔离」**，而新建沙盒向导称其为**「应用程序隔离沙盒」**。SandMan 将此模式视为支持者功能。
 
 ## 使用场景与故障排除
 
