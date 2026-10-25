@@ -2,6 +2,12 @@
 
 ### A
 
+[加快休眠速度](AddSleepSpeed.md)
+
+[加快滴答速度](AddTickSpeed.md)
+
+[加快计时器速度](AddTimerSpeed.md)
+
 [高级主题](AdvancedTopics.md)
 
 [警报文件夹](AlertFolder.md)
@@ -292,6 +298,12 @@
 
 [日志消息事件](LogMessageEvents.md)
 
+[减慢休眠速度](LowSleepSpeed.md)
+
+[减慢滴答速度](LowTickSpeed.md)
+
+[减慢计时器速度](LowTimerSpeed.md)
+
 ### M
 
 [网络标记沙盒](MarkOfTheWebBox.md)
@@ -377,6 +389,8 @@
 ~~[进程数量限制 1](ProcessLimit1.md)~~（自 Sandboxie v0.7.1 / 5.48.5 起移除）
 
 ~~[进程数量限制 2](ProcessLimit2.md)~~（自 Sandboxie v0.7.1 / 5.48.5 起移除）
+
+[进程速度设置](ProcessSpeedSettings.md)
 
 [程序名称前缀](ProgramNamePrefix.md)
 
@@ -795,6 +809,8 @@
 [USB 沙盒化](../PlusContent/USBSandboxing.md)
 
 [对快速恢复使用自动恢复忽略](UseAutoRecoverIgnoreForQuick.md)
+
+[使用速度更改](UseChangeSpeed.md)
 
 [使用文件映像](UseFileImage.md)
 
