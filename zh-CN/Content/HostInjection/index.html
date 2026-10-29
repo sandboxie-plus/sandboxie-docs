@@ -27,7 +27,7 @@
     
     
       
-        <title>Host Injection - Sandboxie 文档</title>
+        <title>宿主注入 - Sandboxie 文档</title>
       
     
     
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Host Injection
+              宿主注入
             
           </span>
         </div>
@@ -5584,91 +5584,91 @@
   
 
 
-<h1 id="host-injection">Host Injection<a class="headerlink" href="#host-injection" title="Permanent link"></a></h1>
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h2>
-<p>Host injection lets Sandboxie load a trusted compatibility DLL into a selected host process without turning that process into a normally sandboxed process.</p>
-<p>Normal Sandboxie injection loads SbieDll into a process that is becoming sandboxed, then performs the initialization needed for file, registry, IPC, network, GUI, and other sandbox controls. For a process selected by <code>HostInjectProcess</code>, Sandboxie reuses the low-level SbieDll bootstrap but enters a loader-only host-injection path. The target keeps its existing process identity and token, remains outside normal sandbox process isolation, and loads the configured <code>HostInjectDll*</code> entries.</p>
-<p>The related injection mechanisms have different targets and purposes:</p>
+<h1 id="host-injection">宿主注入<a class="headerlink" href="#host-injection" title="Permanent link"></a></h1>
+<h2 id="overview">概述<a class="headerlink" href="#overview" title="Permanent link"></a></h2>
+<p>宿主注入使 Sandboxie 能够将受信任的兼容性 DLL 加载到选定的宿主进程中，而不会把该进程变成普通的沙盒化进程。</p>
+<p>普通的 Sandboxie 注入会把 SbieDll 加载到即将被沙盒化的进程中，然后执行文件、注册表、IPC、网络、GUI 及其他沙盒控制所需的初始化。对于由 <code>HostInjectProcess</code> 选中的进程，Sandboxie 会复用 SbieDll 的底层引导过程，但进入一条仅负责加载的宿主注入路径。目标进程保留其原有的进程身份和令牌，仍处于普通沙盒进程隔离之外，并加载所配置的 <code>HostInjectDll*</code> 条目。</p>
+<p>相关的几种注入机制，其目标和用途各不相同：</p>
 <table>
 <thead>
 <tr>
-<th>Mechanism</th>
-<th>Target</th>
-<th>Runtime context</th>
-<th>Purpose</th>
+<th>机制</th>
+<th>目标</th>
+<th>运行时上下文</th>
+<th>用途</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Normal SbieDll injection</td>
-<td>A process being sandboxed</td>
-<td>Normal Sandboxie initialization</td>
-<td>Installs the Sandboxie runtime and its isolation hooks</td>
+<td>普通 SbieDll 注入</td>
+<td>正在被沙盒化的进程</td>
+<td>普通 Sandboxie 初始化</td>
+<td>安装 Sandboxie 运行时及其隔离钩子</td>
 </tr>
 <tr>
 <td><code>InjectDll*</code></td>
-<td>A normal sandboxed process</td>
-<td>The sandboxed process's token and restrictions</td>
-<td>Loads an additional configured DLL</td>
+<td>普通沙盒化进程</td>
+<td>沙盒化进程的令牌和限制</td>
+<td>加载额外配置的 DLL</td>
 </tr>
 <tr>
-<td><code>HostInjectProcess</code> with <code>HostInjectDll*</code></td>
-<td>A selected external host process</td>
-<td>The host process's existing identity</td>
-<td>Loads a trusted compatibility DLL without applying normal sandbox initialization</td>
+<td><code>HostInjectProcess</code> 配合 <code>HostInjectDll*</code></td>
+<td>选定的外部宿主进程</td>
+<td>宿主进程原有的身份</td>
+<td>加载受信任的兼容性 DLL，不执行普通沙盒初始化</td>
 </tr>
 <tr>
 <td><code>SboxHostDll.dll</code></td>
-<td>The Office Click-to-Run host target</td>
-<td>Host-injection context</td>
-<td>Provides the current Office token-compatibility behavior</td>
+<td>Office 即点即用（Click-to-Run）宿主目标</td>
+<td>宿主注入上下文</td>
+<td>提供当前的 Office 令牌兼容性行为</td>
 </tr>
 </tbody>
 </table>
-<p>Sharing part of the loader does not make these mechanisms equivalent.</p>
-<h2 id="host-injected-processes">Host-injected processes<a class="headerlink" href="#host-injected-processes" title="Permanent link"></a></h2>
-<p>A host-injected process remains an external host process. This path does not add it to the normal Sandboxie Job Object, expose it as a normal sandboxed process, or initialize the normal file, registry, IPC, network, GUI, and thread handling used by sandboxed programs. Its primary token is not replaced by the reduced sandbox token.</p>
-<p>Sandboxie associates the process with an effective configuration so it can select the relevant host-injection DLL entries. This internal association is not a normal sandbox identity. If a process is selected by a normal sandbox or force rule, it is handled as a sandboxed process instead; host-injection matching applies only when the process has not already been assigned to the normal sandbox execution path.</p>
+<p>共用加载器的一部分，并不意味着这些机制彼此等价。</p>
+<h2 id="host-injected-processes">宿主注入进程<a class="headerlink" href="#host-injected-processes" title="Permanent link"></a></h2>
+<p>被宿主注入的进程仍然是外部宿主进程。这条路径不会将其加入常规的 Sandboxie 作业对象，不会将其呈现为普通沙盒化进程，也不会初始化沙盒化程序所使用的文件、注册表、IPC、网络、GUI 和线程处理。它的主令牌不会被替换为降权后的沙盒令牌（reduced sandbox token）。</p>
+<p>Sandboxie 会把该进程关联到一份有效配置，以便选出相应的宿主注入 DLL 条目。这种内部关联并不是普通的沙盒身份。如果某个进程已被普通沙盒规则或强制规则选中，它会被当作沙盒化进程处理；只有当进程尚未被分配到普通沙盒执行路径时，宿主注入匹配才会生效。</p>
 <h2 id="hostinjectprocess"><code>HostInjectProcess</code><a class="headerlink" href="#hostinjectprocess" title="Permanent link"></a></h2>
-<p>The setting accepts an executable-name pattern and an optional Windows service name:</p>
+<p>此设置接受一个可执行文件名模式，以及一个可选的 Windows 服务名：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">HostInjectProcess</span><span class="o">=</span><span class="s">program.exe</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">HostInjectProcess</span><span class="o">=</span><span class="s">program.exe|ServiceName</span>
 </span></code></pre></div>
-<p>The executable portion is matched case-insensitively against the base image name, not a full path. Sandboxie's normal pattern wildcards can be used, and multiple entries can be configured.</p>
-<p>The optional value after <code>|</code> is the service name used for service lifecycle and restart handling. It is not an alternative process selector and does not participate in the driver's executable match. A service name without an executable pattern is therefore not useful configuration.</p>
-<p>Host-injection settings can enter a box's effective configuration through normal configuration and template inheritance. If multiple enabled boxes provide a matching rule, the process is associated with one matching configuration; Sandboxie does not merge host-DLL lists from several boxes. Avoid competing matches in multiple boxes. <code>GlobalSettings</code> may participate through normal configuration fallback, but it does not itself become the process's sandbox.</p>
-<h2 id="host-injection-flow">Host injection flow<a class="headerlink" href="#host-injection-flow" title="Permanent link"></a></h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>host process starts
+<p>可执行文件部分与映像的基本名称（而不是完整路径）进行不区分大小写的匹配。可以使用 Sandboxie 的常规通配符，也可以配置多个条目。</p>
+<p><code>|</code> 之后的可选值是用于服务生命周期和重启处理的服务名。它不是另一种进程选择方式，也不参与驱动程序对可执行文件的匹配。因此，只写服务名而不带可执行文件模式的配置不会起作用。</p>
+<p>宿主注入设置可以通过常规配置和模板继承纳入某个沙盒的有效配置。如果多个已启用的沙盒都提供了匹配的规则，该进程只会关联到其中一份匹配的配置；Sandboxie 不会合并多个沙盒的宿主 DLL 列表。请避免在多个沙盒中出现相互竞争的匹配。<code>GlobalSettings</code> 可以通过常规的配置回退参与进来，但它本身不会成为该进程所属的沙盒。</p>
+<h2 id="host-injection-flow">宿主注入流程<a class="headerlink" href="#host-injection-flow" title="Permanent link"></a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>宿主进程启动
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>        |
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>        v
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>normal sandbox and force rules are evaluated
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>评估普通沙盒规则和强制规则
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>        |
 </span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>        v
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>HostInjectProcess matches the executable
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>HostInjectProcess 匹配可执行文件
 </span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>        |
 </span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>        v
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>Sandboxie marks the process for host injection
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>Sandboxie 将该进程标记为待进行宿主注入
 </span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>        |
 </span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>        v
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>SbieSvc performs the low-level SbieDll bootstrap
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>SbieSvc 执行 SbieDll 的底层引导
 </span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>        |
 </span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>        v
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>SbieDll enters host-injection loader mode
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>SbieDll 进入宿主注入加载器模式
 </span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>        |
 </span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>        v
-</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>matching HostInjectDll* entries are loaded
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>加载匹配的 HostInjectDll* 条目
 </span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>        |
 </span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>        v
-</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>host compatibility DLL initializes
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>宿主兼容性 DLL 完成初始化
 </span></code></pre></div>
-<p>The driver evaluates the process-start configuration and coordinates the host-injection decision. SbieSvc carries out the process-injection request. SbieDll then runs its minimal host loader rather than the full sandbox initialization, and the loaded host DLL supplies the application-specific compatibility behavior.</p>
-<h2 id="hostinjectdll-architecture-variants"><code>HostInjectDll</code> architecture variants<a class="headerlink" href="#hostinjectdll-architecture-variants" title="Permanent link"></a></h2>
-<p>Use the setting that matches the target process architecture:</p>
+<p>驱动程序评估进程启动时的配置，并协调宿主注入的决策。SbieSvc 执行进程注入请求。随后 SbieDll 运行的是精简的宿主加载器，而非完整的沙盒初始化，再由所加载的宿主 DLL 提供针对具体应用程序的兼容性行为。</p>
+<h2 id="hostinjectdll-architecture-variants"><code>HostInjectDll</code> 的架构变体<a class="headerlink" href="#hostinjectdll-architecture-variants" title="Permanent link"></a></h2>
+<p>请使用与目标进程架构相匹配的设置：</p>
 <table>
 <thead>
 <tr>
-<th>Target process architecture</th>
-<th>Setting</th>
+<th>目标进程架构</th>
+<th>设置</th>
 </tr>
 </thead>
 <tbody>
@@ -5681,68 +5681,68 @@
 <td><code>HostInjectDll64</code></td>
 </tr>
 <tr>
-<td>Native ARM64</td>
+<td>原生 ARM64</td>
 <td><code>HostInjectDllARM64</code></td>
 </tr>
 </tbody>
 </table>
-<p>The target process and corresponding SbieDll architecture select the list; the operating system architecture alone does not. Entries are repeatable, are loaded in configuration order, and are not generically deduplicated. This mapping should not be read as a guarantee of full ARM64EC or CHPE compatibility.</p>
-<p>After loading a configured DLL, Sandboxie checks for an optional <code>InjectDllMain</code> export or the applicable decorated form. When present, the callback receives access to the SbieDll instance or context used by the injection mechanism. The export is optional for a configured DLL; <code>SboxHostDll.dll</code> uses it for initialization. See <a href="../SBIEDLLAPI/">SBIE DLL API</a> for the existing public callback guidance.</p>
-<h2 id="dll-path-requirements">DLL path requirements<a class="headerlink" href="#dll-path-requirements" title="Permanent link"></a></h2>
-<p>Current host-injection entries use a leading backslash to resolve the DLL relative to the Sandboxie installation directory:</p>
+<p>决定使用哪个列表的是目标进程的架构以及与之对应的 SbieDll 架构；单凭操作系统架构并不能决定。这些条目可以重复配置，按配置顺序加载，且不会被统一去重。此对应关系不应被理解为对 ARM64EC 或 CHPE 的完全兼容保证。</p>
+<p>加载某个已配置的 DLL 后，Sandboxie 会检查是否存在可选的 <code>InjectDllMain</code> 导出（或相应的修饰名形式）。如果存在，该回调可以访问注入机制所使用的 SbieDll 实例或上下文。对已配置的 DLL 来说，这个导出是可选的；<code>SboxHostDll.dll</code> 使用它来完成初始化。现有的公开回调说明请参阅 <a href="../SBIEDLLAPI/">SBIE DLL API</a>。</p>
+<h2 id="dll-path-requirements">DLL 路径要求<a class="headerlink" href="#dll-path-requirements" title="Permanent link"></a></h2>
+<p>当前的宿主注入条目以反斜杠开头，表示 DLL 路径相对于 Sandboxie 安装目录解析：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">HostInjectDll</span><span class="o">=</span><span class="s">\SboxHostDll.dll</span>
 </span></code></pre></div>
-<p>The same form applies to the other architecture-specific settings. The current host loader rejects arbitrary absolute paths, entries containing <code>..</code>, and entries that do not identify a <code>.dll</code>. Ordinary relative paths should not be used as public <code>HostInjectDll*</code> syntax.</p>
-<h2 id="relationship-to-injectdll">Relationship to <code>InjectDll</code><a class="headerlink" href="#relationship-to-injectdll" title="Permanent link"></a></h2>
-<p><a href="../InjectDll/"><code>InjectDll</code></a> and <a href="../InjectDll64/"><code>InjectDll64</code></a> load additional DLLs into normal sandboxed processes. Those DLLs run under the process's effective sandbox token and Sandboxie restrictions, and their accepted path forms differ from host injection.</p>
-<p><code>HostInjectDll*</code> instead loads a DLL into an external process selected by <code>HostInjectProcess</code>. The process retains its existing identity and does not enter the normal sandbox path. The current host loader accepts only the Sandboxie-installation-relative form described above.</p>
-<p>SandMan has no dedicated editor for <code>HostInjectProcess</code> or <code>HostInjectDll*</code>; they are normally supplied by a compatibility template or manual INI configuration. <strong>Sandbox Options &gt; Advanced Options &gt; Dlls &amp;&amp; Extensions</strong> manages supported <code>InjectDll*</code> add-on entries, not host-injection settings.</p>
-<h2 id="microsoft-office-click-to-run">Microsoft Office Click-to-Run<a class="headerlink" href="#microsoft-office-click-to-run" title="Permanent link"></a></h2>
-<p>The current shipped configuration uses host injection for Microsoft Office Click-to-Run compatibility:</p>
+<p>其他特定架构的设置也使用相同的形式。当前的宿主加载器会拒绝任意绝对路径、包含 <code>..</code> 的条目，以及不指向 <code>.dll</code> 文件的条目。不应将普通相对路径当作公开的 <code>HostInjectDll*</code> 语法使用。</p>
+<h2 id="relationship-to-injectdll">与 <code>InjectDll</code> 的关系<a class="headerlink" href="#relationship-to-injectdll" title="Permanent link"></a></h2>
+<p><a href="../InjectDll/"><code>InjectDll</code></a> 和 <a href="../InjectDll64/"><code>InjectDll64</code></a> 会把额外的 DLL 加载到普通沙盒化进程中。这些 DLL 在进程的有效沙盒令牌和 Sandboxie 限制下运行，其可接受的路径形式也与宿主注入不同。</p>
+<p><code>HostInjectDll*</code> 则是把 DLL 加载到由 <code>HostInjectProcess</code> 选中的外部进程中。该进程保留其原有身份，不会进入普通沙盒路径。当前的宿主加载器只接受上文所述的、相对于 Sandboxie 安装目录的路径形式。</p>
+<p>SandMan 没有专门用于编辑 <code>HostInjectProcess</code> 或 <code>HostInjectDll*</code> 的界面；它们通常由兼容性模板或手动 INI 配置提供。<strong>沙盒选项 &gt; 高级选项 &gt; Dll &amp;&amp; 扩展</strong> 管理的是受支持的 <code>InjectDll*</code> 附加组件条目，而不是宿主注入设置。</p>
+<h2 id="microsoft-office-click-to-run">Microsoft Office 即点即用<a class="headerlink" href="#microsoft-office-click-to-run" title="Permanent link"></a></h2>
+<p>当前随附的配置使用宿主注入来实现 Microsoft Office 即点即用（Click-to-Run）的兼容性：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">HostInjectDll</span><span class="o">=</span><span class="s">\SboxHostDll.dll</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">HostInjectDll64</span><span class="o">=</span><span class="s">\SboxHostDll.dll</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="na">HostInjectDllARM64</span><span class="o">=</span><span class="s">\SboxHostDll.dll</span>
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="na">HostInjectProcess</span><span class="o">=</span><span class="s">OfficeClicktoRun.exe|ClickToRunSvc</span>
 </span></code></pre></div>
-<p>Here, <code>OfficeClicktoRun.exe</code> selects the process, <code>ClickToRunSvc</code> identifies the Windows service for lifecycle handling, and the setting for the target architecture loads <code>SboxHostDll.dll</code>. The Office compatibility template also supplies related IPC rules for Click-to-Run and App-V communication.</p>
-<p>The compatibility template is detected separately through the presence of the <code>ClickToRunSvc</code> service. Template detection or activation supplies the configuration; runtime matching still uses the <code>OfficeClicktoRun.exe</code> executable pattern.</p>
-<p>In the current shipped configuration, Microsoft Office Click-to-Run is the only built-in production use of <code>HostInjectProcess</code> and <code>SboxHostDll.dll</code> found in the repository. The settings provide infrastructure that can support other trusted compatibility components, but <code>SboxHostDll.dll</code> itself is not a general-purpose host-redirection or virtualization subsystem.</p>
+<p>其中，<code>OfficeClicktoRun.exe</code> 用于选中进程，<code>ClickToRunSvc</code> 指明用于生命周期处理的 Windows 服务，而与目标架构对应的设置负责加载 <code>SboxHostDll.dll</code>。Office 兼容性模板还提供了即点即用与 App-V 通信所需的相关 IPC 规则。</p>
+<p>兼容性模板是否适用，是通过检测 <code>ClickToRunSvc</code> 服务是否存在来单独判断的。模板检测或启用负责提供配置；运行时的匹配仍然使用 <code>OfficeClicktoRun.exe</code> 可执行文件模式。</p>
+<p>在当前随附的配置中，Microsoft Office 即点即用是仓库里唯一一项内置的、在生产中实际使用 <code>HostInjectProcess</code> 和 <code>SboxHostDll.dll</code> 的用途。这些设置提供的基础设施可以支持其他受信任的兼容性组件，但 <code>SboxHostDll.dll</code> 本身并不是通用的宿主重定向或虚拟化子系统。</p>
 <h3 id="sboxhostdlldll"><code>SboxHostDll.dll</code><a class="headerlink" href="#sboxhostdlldll" title="Permanent link"></a></h3>
-<p><code>SboxHostDll.dll</code> verifies that it is running in the intended Office Click-to-Run executable context, initializes through <code>InjectDllMain</code>, and installs its Office compatibility hook. It does not provide Sandboxie's file, registry, environment, process, COM, RPC, or App-V virtualization.</p>
-<h3 id="token-compatibility">Token compatibility<a class="headerlink" href="#token-compatibility" title="Permanent link"></a></h3>
-<p>The current DLL hooks <code>OpenProcessToken</code> for an identity-compatibility case between Office Click-to-Run and sandboxed Office processes.</p>
-<p>When Office Click-to-Run requests a token for a valid sandboxed process whose token uses Sandboxie's Anonymous Logon or Sandboxie-specific identity, the DLL looks for a corresponding host-side process with the same logon SID. If it finds one, it can return that host token instead. If no suitable replacement is found, the result from the original API call is retained.</p>
-<h2 id="service-and-process-lifecycle">Service and process lifecycle<a class="headerlink" href="#service-and-process-lifecycle" title="Permanent link"></a></h2>
-<p>For targets that are Windows services, Sandboxie includes synchronization logic that can restart a configured service when host injection becomes active or its process selection changes. The service name after <code>|</code> exists for this SCM lifecycle handling.</p>
-<p>Only Windows services participate in that automatic synchronization. An ordinary host process that is already running is not retroactively injected. Changes only to the <code>HostInjectDll*</code> list can also require a manual restart because service synchronization primarily detects whether SbieDll is present.</p>
-<p>After changing <code>HostInjectProcess</code> or <code>HostInjectDll*</code>, restart the affected target process. Sandboxie can synchronize configured Windows services, but manually restarting the affected service is the most reliable way to ensure a changed host-DLL list is applied. A system reboot is not normally required.</p>
-<h2 id="security-considerations">Security considerations<a class="headerlink" href="#security-considerations" title="Permanent link"></a></h2>
-<p>Configure only trusted DLLs supplied with Sandboxie or deliberately installed by an administrator. A host-injected DLL executes inside the target process with that process's existing identity and privileges; the normal reduced sandbox token is not applied to the target through this path.</p>
-<p>Host injection does not grant <code>SYSTEM</code>, elevate the target by itself, bypass Windows service security, or represent a sandbox escape. It is a deliberate compatibility mechanism for loading trusted code into a selected external process. Protected Process and PPL restrictions are not bypassed, so a target that Sandboxie cannot normally open or manipulate may not be injectable.</p>
-<p><code>ProtectHostImages</code> is a separate image-protection feature. It prevents boxed DLLs or images from being mapped into certain sandboxed processes whose executable image comes from the host; it does not control <code>HostInjectDll*</code>. <code>NotifyImageLoadDenied</code> likewise belongs to that image-protection mechanism.</p>
-<h2 id="failure-behavior">Failure behavior<a class="headerlink" href="#failure-behavior" title="Permanent link"></a></h2>
-<p>Failure of the service-side process injection can produce a Sandboxie injection error such as <code>SBIE2335</code>. Invalid host-DLL entries may be skipped, and a missing DLL or one built for the wrong architecture may fail to load. There is no single guaranteed recovery outcome for every target and injection stage: the target may continue or fail according to where the error occurs.</p>
-<p>For the Office token hook, failure to find a suitable host-side replacement retains the original <code>OpenProcessToken</code> result.</p>
-<h2 id="sandboxie-plus-and-classic">Sandboxie Plus and Classic<a class="headerlink" href="#sandboxie-plus-and-classic" title="Permanent link"></a></h2>
-<p>The driver, SbieSvc, SbieDll, and SboxHostDll are shared runtime components. SandMan provides the current Plus UI for compatibility templates and supported <code>InjectDll*</code> add-on entries, but it has no dedicated host-injection editor. Sandboxie Control Classic can also consume compatible templates and manual INI configuration through the shared runtime; the user interfaces are not identical.</p>
-<h2 id="applying-configuration-changes">Applying configuration changes<a class="headerlink" href="#applying-configuration-changes" title="Permanent link"></a></h2>
-<p>Host-injection selection occurs when a target process starts, and the selected DLLs are loaded during that startup path. Restart affected processes after changing the settings. For a service target, manually restart the service when practical to ensure both process-selection and DLL-list changes take effect. Restarting SandMan, SbieSvc, the driver, or Windows is not normally necessary solely for a configuration change.</p>
-<h2 id="version-history">Version history<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
+<p><code>SboxHostDll.dll</code> 会验证自己是否运行在预期的 Office 即点即用可执行文件上下文中，通过 <code>InjectDllMain</code> 完成初始化，并安装其 Office 兼容性钩子。它不提供 Sandboxie 的文件、注册表、环境、进程、COM、RPC 或 App-V 虚拟化。</p>
+<h3 id="token-compatibility">令牌兼容性<a class="headerlink" href="#token-compatibility" title="Permanent link"></a></h3>
+<p>当前的 DLL 挂钩了 <code>OpenProcessToken</code>，用于处理 Office 即点即用与沙盒化 Office 进程之间的一种身份兼容性情形。</p>
+<p>当 Office 即点即用为某个有效的沙盒化进程请求令牌，而该进程的令牌使用的是 Sandboxie 的匿名登录（Anonymous Logon）身份或 Sandboxie 专用身份时，该 DLL 会查找具有相同登录 SID 的对应宿主侧进程。如果找到，就可以改为返回该宿主令牌。如果找不到合适的替代令牌，则保留原始 API 调用的结果。</p>
+<h2 id="service-and-process-lifecycle">服务与进程生命周期<a class="headerlink" href="#service-and-process-lifecycle" title="Permanent link"></a></h2>
+<p>对于以 Windows 服务形式运行的目标，Sandboxie 内置了同步逻辑：当宿主注入开始生效、或该服务的进程选择发生变化时，可以重启所配置的服务。<code>|</code> 之后的服务名正是为这种 SCM 生命周期处理而存在的。</p>
+<p>只有 Windows 服务会参与这种自动同步。已经在运行的普通宿主进程不会被追溯注入。如果只修改了 <code>HostInjectDll*</code> 列表，也可能需要手动重启，因为服务同步主要检测的是 SbieDll 是否存在。</p>
+<p>修改 <code>HostInjectProcess</code> 或 <code>HostInjectDll*</code> 后，请重启受影响的目标进程。Sandboxie 可以同步已配置的 Windows 服务，但要确保修改后的宿主 DLL 列表生效，最可靠的方法是手动重启受影响的服务。通常不需要重启系统。</p>
+<h2 id="security-considerations">安全注意事项<a class="headerlink" href="#security-considerations" title="Permanent link"></a></h2>
+<p>只应配置随 Sandboxie 提供、或由管理员有意安装的受信任 DLL。被宿主注入的 DLL 会在目标进程内部、以该进程原有的身份和权限执行；通过这条路径，目标进程不会被施加常规的降权后沙盒令牌。</p>
+<p>宿主注入不会授予 <code>SYSTEM</code> 权限，不会自行提升目标进程的权限，也不会绕过 Windows 服务安全机制，更不构成沙盒逃逸。它是一种有意为之的兼容性机制，用于把受信任的代码加载到选定的外部进程中。受保护进程（Protected Process）和 PPL 的限制不会被绕过，因此 Sandboxie 通常无法打开或操作的目标，可能也无法被注入。</p>
+<p><code>ProtectHostImages</code> 是一项独立的映像保护功能。它可以阻止沙盒内的 DLL 或映像被映射进某些沙盒化进程，这类进程的可执行映像来自宿主；该功能并不控制 <code>HostInjectDll*</code>。<code>NotifyImageLoadDenied</code> 同样属于该映像保护机制。</p>
+<h2 id="failure-behavior">失败时的行为<a class="headerlink" href="#failure-behavior" title="Permanent link"></a></h2>
+<p>服务侧（SbieSvc）的进程注入失败时，可能会产生 Sandboxie 注入错误，例如 <code>SBIE2335</code>。无效的宿主 DLL 条目可能会被跳过，缺失的 DLL 或架构不匹配的 DLL 可能加载失败。并不存在适用于所有目标和所有注入阶段的统一恢复结果：目标进程可能继续运行，也可能失败，取决于错误发生的位置。</p>
+<p>对于 Office 令牌钩子，如果找不到合适的宿主侧替代令牌，会保留原始的 <code>OpenProcessToken</code> 结果。</p>
+<h2 id="sandboxie-plus-and-classic">Sandboxie Plus 与 Classic<a class="headerlink" href="#sandboxie-plus-and-classic" title="Permanent link"></a></h2>
+<p>驱动程序、SbieSvc、SbieDll 和 SboxHostDll 是共享的运行时组件。SandMan 目前的 Plus 界面可用于管理兼容性模板和受支持的 <code>InjectDll*</code> 附加组件条目，但没有专门的宿主注入编辑界面。Sandboxie Control（Classic）也可以通过共享的运行时使用兼容的模板和手动 INI 配置；两者的用户界面并不完全相同。</p>
+<h2 id="applying-configuration-changes">应用配置更改<a class="headerlink" href="#applying-configuration-changes" title="Permanent link"></a></h2>
+<p>宿主注入的选择发生在目标进程启动时，所选的 DLL 也在这一启动过程中加载。修改设置后，请重启受影响的进程。对于服务类目标，在条件允许时请手动重启该服务，以确保进程选择和 DLL 列表的更改都能生效。仅仅修改配置，通常不需要重启 SandMan、SbieSvc、驱动程序或 Windows。</p>
+<h2 id="version-history">版本历史<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
 <ul>
-<li>Host injection, <code>HostInjectProcess</code>, <code>HostInjectDll*</code>, and the Office <code>SboxHostDll.dll</code> implementation were already present in the initial public 5.40 source release. Their exact earlier proprietary introduction version is not established.</li>
-<li>Sandboxie Plus 0.7.2 / Classic 5.49.0 tightened <code>HostInjectDll</code> path restrictions so arbitrary absolute host paths were not accepted and host DLLs remained under the Sandboxie installation directory.</li>
-<li>Sandboxie Plus 1.2.0 / Classic 5.57.0 extended the SboxHostDll token compatibility behavior for Sandboxie-specific SIDs.</li>
-<li>Sandboxie Plus 1.5.0 added ARM64 <code>InjectDll</code> and <code>HostInjectDll</code> support.</li>
-<li>Sandboxie Plus 1.15.9 / Classic 5.70.9 added further protection against path traversal using <code>..</code>.</li>
-<li>Sandboxie Plus 1.15.10 / Classic 5.70.10 changed validation of injected-DLL entries.</li>
-<li>Sandboxie Plus 1.15.11 / Classic 5.70.11 fixed SboxHostDll injection into <code>OfficeClickToRun.exe</code>.</li>
-<li>Sandboxie Plus 1.16.9 / Classic 5.71.9 improved Office Click-to-Run and duplicate-hook reliability.</li>
+<li>宿主注入、<code>HostInjectProcess</code>、<code>HostInjectDll*</code> 以及 Office 的 <code>SboxHostDll.dll</code> 实现，在最初公开的 5.40 版源代码中就已存在。它们具体是在更早的哪个闭源版本中引入的，目前尚无定论。</li>
+<li>Sandboxie Plus 0.7.2 / Classic 5.49.0 收紧了 <code>HostInjectDll</code> 的路径限制，不再接受任意的宿主绝对路径，宿主 DLL 必须位于 Sandboxie 安装目录下。</li>
+<li>Sandboxie Plus 1.2.0 / Classic 5.57.0 将 SboxHostDll 的令牌兼容性行为扩展到 Sandboxie 专用 SID。</li>
+<li>Sandboxie Plus 1.5.0 增加了 ARM64 的 <code>InjectDll</code> 和 <code>HostInjectDll</code> 支持。</li>
+<li>Sandboxie Plus 1.15.9 / Classic 5.70.9 进一步加强了对使用 <code>..</code> 的路径遍历的防护。</li>
+<li>Sandboxie Plus 1.15.10 / Classic 5.70.10 更改了注入 DLL 条目的验证方式。</li>
+<li>Sandboxie Plus 1.15.11 / Classic 5.70.11 修复了 SboxHostDll 注入 <code>OfficeClickToRun.exe</code> 的问题。</li>
+<li>Sandboxie Plus 1.16.9 / Classic 5.71.9 提升了 Office 即点即用和重复挂钩的可靠性。</li>
 </ul>
-<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
+<h2 id="related-pages">相关页面<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
 <ul>
-<li><a href="../CodeInjection/">Code Injection</a></li>
-<li><a href="../InjectDll/">Inject Dll</a></li>
-<li><a href="../InjectDll64/">Inject Dll 64</a></li>
+<li><a href="../CodeInjection/">代码注入</a></li>
+<li><a href="../InjectDll/">注入 Dll</a></li>
+<li><a href="../InjectDll64/">注入 Dll64</a></li>
 <li><a href="../SBIEDLLAPI/">SBIE DLL API</a></li>
 <li><a href="../SandboxieIni/">Sandboxie Ini</a></li>
 </ul>

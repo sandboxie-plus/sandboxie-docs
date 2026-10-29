@@ -5620,6 +5620,7 @@
 <p>建议使用 <strong>hSbieDll</strong> 参数作为 SbieDll.Dll 的模块实例句柄，而不是依赖 GetModuleHandle("SbieDll.dll")。这使得注入的 DLL 无论 SbieDll.dll 实际使用什么名称，都能与之交互。不过，使用 LoadLibrary 或 GetModuleHandle 按名称查找 SbieDll 也是可以的。</p>
 <hr />
 <p>目前，此设置无法从 <a href="../SandboxieControl/">沙盒管理器</a> 操作。你必须手动把它编辑进 <a href="../SandboxieIni/">Sandboxie Ini</a>。</p>
+<p><a href="../HostInjection/">宿主注入</a> 是另一条独立路径，目标身份、路径限制和初始化行为都不相同。不要把其中的 <code>HostInjectDll*</code> 示例当作普通 <code>InjectDll*</code> 的使用说明。</p>
 <p>另请参阅：<a href="../InjectDll64/">注入 Dll64</a>、<a href="../SBIEDLLAPI/">SBIE DLL API</a>、<a href="../StartCommandLine/">启动命令行</a>。</p>
 
 
