@@ -43,4 +43,6 @@ _InjectDll_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一项沙盒设置。它�
 
 目前，此设置无法从 [沙盒管理器](SandboxieControl.md) 操作。你必须手动把它编辑进 [Sandboxie Ini](SandboxieIni.md)。
 
+[宿主注入](HostInjection.md) 是另一条独立路径，目标身份、路径限制和初始化行为都不相同。不要把其中的 `HostInjectDll*` 示例当作普通 `InjectDll*` 的使用说明。
+
 另请参阅：[注入 Dll64](InjectDll64.md)、[SBIE DLL API](SBIEDLLAPI.md)、[启动命令行](StartCommandLine.md)。
