@@ -12,6 +12,8 @@
 
 [高级主题](AdvancedTopics.md)
 
+[高级令牌设置](AdvancedTokenSettings.md)
+
 [警报文件夹](AlertFolder.md)
 
 [警报进程](AlertProcess.md)
@@ -119,6 +121,8 @@
 [复制限制静默](CopyLimitSilent.md)
 
 [复制较新文件](CopyNewer.md)
+
+[复制令牌属性](CopyTokenAttributes.md)
 
 [覆盖沙盒窗口](CoverBoxedWindows.md)
 
@@ -312,6 +316,10 @@
 
 [KeepBroadGroupsInAppContainerToken](KeepBroadGroupsInAppContainerToken.md)
 
+[保持令牌完整性](KeepTokenIntegrity.md)
+
+[保留用户组](KeepUserGroup.md)
+
 [注册表根路径](KeyRootPath.md)
 
 [已知冲突](KnownConflicts.md)
@@ -365,6 +373,8 @@
 [无安全过滤](NoSecurityFiltering.md)
 
 [无安全隔离](NoSecurityIsolation.md)
+
+[不使用不可信令牌](NoUntrustedToken.md)
 
 [标准文件路径](NormalFilePath.md)
 
@@ -487,6 +497,8 @@
 [恢复设置](RecoverySettings.md)
 
 [注册表虚拟化](RegistryVirtualization.md)
+
+[复制令牌](ReplicateToken.md)
 
 [资源访问](ResourceAccess.md)
 
