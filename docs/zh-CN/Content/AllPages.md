@@ -26,6 +26,8 @@
 
 [使用现代沙盒管理器界面申请支持者证书](../PlusContent/applying-supporter-certificate.md)
 
+[Win32 系统调用审批](ApproveWin32SysCall.md)
+
 [自动删除](AutoDelete.md)
 
 [自动执行](AutoExec.md)
@@ -114,6 +116,8 @@
 
 [覆盖沙盒窗口](CoverBoxedWindows.md)
 
+[CPU 亲和性掩码](CpuAffinityMask.md)
+
 [自定义 Chromium 启动参数](CustomChromiumFlags.md)
 
 [自定义区域设置/语言 ID](CustomLCID.md)
@@ -156,6 +160,8 @@
 
 [丢弃子进程令牌](DropChildProcessToken.md)
 
+[降低 ConHost 完整性](DropConHostIntegrity.md)
+
 ### E
 
 [仅管理员可编辑](EditAdminOnly.md)
@@ -163,6 +169,8 @@
 [编辑密码](EditPassword.md)
 
 [邮件防护](EmailProtection.md)
+
+[EnableWin32kHooks](EnableWin32kHooks.md)
 
 [启用](Enabled.md)
 
@@ -229,6 +237,8 @@
 [入门指南第三部分](GettingStartedPartThree.md)
 
 [入门指南第二部分](GettingStartedPartTwo.md)
+
+[GuiTrace](GuiTrace.md)
 
 ### H
 
@@ -328,11 +338,15 @@
 
 [网络适配器 MAC](NetworkAdapterMAC.md)
 
+[网络访问](NetworkAccess.md)
+
 [网络 DNS 过滤](NetworkDnsFilter.md)
 
 [NeutralizeLowBoxToken](NeutralizeLowBoxToken.md)
 
 [从不删除](NeverDelete.md)
+
+[NoAddProcessToJob](NoAddProcessToJob.md)
 
 [不重命名窗口类](NoRenameWinClass.md)
 
@@ -845,6 +859,8 @@
 ### V
 
 [视图菜单](ViewMenu.md)
+
+[WaitForDebuggerSilent](WaitForDebuggerSilent.md)
 
 ### W
 
