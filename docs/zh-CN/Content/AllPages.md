@@ -64,7 +64,11 @@
 
 [加密沙盒](../PlusContent/BoxEncryption.md)
 
+[沙盒分组](BoxGrouping.md)
+
 [标题栏中的沙盒名称](BoxNameTitle.md)
+
+[沙盒展示与操作](BoxPresentation.md)
 
 [沙盒预设对比](../PlusContent/box-preset-comparison.md)
 
@@ -401,6 +405,8 @@
 ~~[进程数量限制 2](ProcessLimit2.md)~~（自 Sandboxie v0.7.1 / 5.48.5 起移除）
 
 [进程速度设置](ProcessSpeedSettings.md)
+
+[程序强制控制](ProgramForcingControls.md)
 
 [程序名称前缀](ProgramNamePrefix.md)
 
