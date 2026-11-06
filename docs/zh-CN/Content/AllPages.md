@@ -130,6 +130,8 @@
 
 [删除 V2](Delete-V2.md)
 
+[已弃用的令牌变通处理](DeprecatedTokenHacks.md)
+
 [已弃用/过时/已移除的 Sandboxie INI 设置](DeprecatedSandboxieIniSettings.md)
 
 [描述](Description.md)
@@ -794,6 +796,8 @@
 
 [启动服务](StartService.md)
 
+[剥离 SYSTEM 权限](StripSystemPrivileges.md)
+
 [支持者证书](../PlusContent/supporter-certificate.md)
 
 [系统事件日志](SystemEventLog.md)
@@ -813,6 +817,14 @@
 ### U
 
 [UnRestrictAppContainerToken](UnRestrictAppContainerToken.md)
+
+[未过滤的令牌](UnfilteredToken.md)
+
+[不受限的 SCM](UnrestrictedSCM.md)
+
+[不受限的令牌](UnrestrictedToken.md)
+
+[未剥离的令牌](UnstrippedToken.md)
 
 [使用技巧](UsageTips.md)
 
