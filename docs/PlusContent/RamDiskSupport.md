@@ -2,32 +2,34 @@
 
 ## RAM Disk Support
 
-By seamlessly interfacing with the [ImDisk Driver](../PlusContent/imdisk.md), Sandboxie Plus introduces a transformative way to allocate a portion of your system RAM for dynamic RAM Disks. This mechanism revolutionizes the speed and efficiency of your sandboxes, while also conferring distinct privacy advantages.
+Sandboxie Plus can store sandbox contents on a RAM-backed virtual disk through ImBox and the [ImDisk Driver](../PlusContent/imdisk.md). Sandboxes using RAM backing share one volume, with a separate directory for each box.
 
 ## Performance Amplification
 
-The hallmark benefit of RAM Disk Support is the remarkable performance boost it offers. Sandboxes configured with a RAM Disk can harness the lightning-fast data access and processing capabilities of your system's RAM. This means that operations within the sandbox occur at unprecedented speeds, without the constraints of traditional storage mediums.
+RAM-backed storage can benefit some temporary-file workloads. Performance depends on the workload and system memory pressure; it does not guarantee faster operation than persistent storage.
 
 ## Privacy Enhancement
 
-Beyond the performance gains, RAM Disk Support lends an added layer of privacy to your sandboxing endeavors. Data stored in a RAM Disk is inherently volatile – once the system is powered off or the sandbox is closed, the data vanishes. This ephemeral nature of a RAM Disk significantly reduces the potential for data leaks, as there's no persistent storage where sensitive information could inadvertently reside.
+Content stored only on the shared RAM disk is volatile and is lost when that backend is actually destroyed. Ending sandboxed processes, closing one sandbox, or closing SandMan does not itself establish that the shared RAM disk has been destroyed. Recover or export wanted files to persistent storage beforehand; do not rely on RAM-only content surviving a reboot.
+
+Volatility does not guarantee that data cannot reach a page file or other persistent storage, and it is not a guarantee of secure erasure.
 
 ## Integrating RAM Disk Support: Step by Step
 
-To fully embrace the potential of RAM Disk Support, follow these straightforward steps:
+For prerequisites and detailed storage behavior, see [Use Ram Disk](../Content/UseRamDisk.md).
 
 ### Updating Sandbox Configuration:
 
-Open the **[Sandboxie Ini](../Content/SandboxieIni.md)** configuration file for the sandbox you wish to enhance. To enable the RAM Disk for this sandbox, include the following line within the respective sandbox's section:
+Add the following line to the intended sandbox's section in **[Sandboxie Ini](../Content/SandboxieIni.md)**:
 
     UseRamDisk=y
 
 ### Configuring Global Settings:
 
-To enable RAM Disk Support across all your sandboxes, navigate to the [GlobalSettings] section within the **[Sandboxie Ini](../Content/SandboxieIni.md)** file. Allocate the appropriate memory for the RAM Disk by adding this line:
+In the `[GlobalSettings]` section of **[Sandboxie Ini](../Content/SandboxieIni.md)**, set the requested capacity of the shared RAM disk:
 
     RamDiskSizeKb=2097152
 
-This value designates the maximum size of the RAM Disk in Kilobytes. For optimal results, allocate at least 1GB of RAM to the RAM Disk.
+This example requests 2097152 KiB (2 GiB). It sets the shared capacity used when a new backend is created; it does not automatically enable RAM backing for every sandbox or resize an existing RAM disk. See [Ram Disk Size Kb](../Content/RamDiskSizeKb.md) for creation limits and applying changes.
 
-A key point to remember is the dynamic allocation of memory by RAM Disk Support. Unlike conventional storage, memory is utilized on-demand, ensuring optimal resource management. This intelligent allocation means you can allocate up to half of your system's physical RAM without encountering issues.
+Data memory is committed progressively as the backing is populated. The configured capacity is not an immediate reservation of that much physical RAM. Choose it according to the intended workloads and available system resources, leaving room for Windows and applications. Monitor both system memory and free space on the shared volume; allocating half of physical RAM is not universally safe.
