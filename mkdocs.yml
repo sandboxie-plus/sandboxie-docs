@@ -136,6 +136,22 @@ plugins:
             Sandboxie Plus: Sandboxie Plus
             Advanced Topics: 高级主题
             SBIE Messages: SBIE 消息
+            All Pages (A-Z): '所有页面（A-Z）'
+            Box Management: '沙盒管理'
+            Box Grouping: '沙盒分组'
+            Box Presets: '沙盒预设'
+            Storage and Recovery: '存储与恢复'
+            Networking: '网络'
+            Isolation and Virtualization: '隔离与虚拟化'
+            Forcing and Breakout: '强制沙盒运行与沙盒外运行'
+            Networking and Services: '网络与服务'
+            Diagnostics: '诊断'
+            Configuration Architecture: '配置架构'
+            Technical Aspects: '技术细节'
+            Token Compatibility: '令牌兼容性'
+            System Calls and Hooks: '系统调用与钩子'
+            Loader and Architecture Compatibility: '加载器与架构兼容性'
+            Runtime Objects and Processes: '运行时对象与进程'
         # Turkish
         - locale: tr
           name: Türkçe
@@ -150,6 +166,22 @@ plugins:
             Sandboxie Plus: Sandboxie Plus
             Advanced Topics: İleri Seviye Konular
             SBIE Messages: SBIE Mesajları
+            All Pages (A-Z): 'Tüm Sayfalar (A-Z)'
+            Box Management: 'Korumalı Alan Yönetimi'
+            Box Grouping: 'Korumalı Alan Gruplandırma'
+            Box Presets: 'Korumalı Alan Ön Ayarları'
+            Storage and Recovery: 'Depolama ve Kurtarma'
+            Networking: 'Ağ'
+            Isolation and Virtualization: 'Yalıtım ve Sanallaştırma'
+            Forcing and Breakout: 'Zorunlu ve Korumalı Alan Dışı Çalıştırma'
+            Networking and Services: 'Ağ ve Hizmetler'
+            Diagnostics: 'Tanılama'
+            Configuration Architecture: 'Yapılandırma Mimarisi'
+            Technical Aspects: 'Teknik Ayrıntılar'
+            Token Compatibility: 'Erişim Belirteci Uyumluluğu'
+            System Calls and Hooks: 'Sistem Çağrıları ve Kancalar'
+            Loader and Architecture Compatibility: 'Yükleyici ve Mimari Uyumluluğu'
+            Runtime Objects and Processes: 'Çalışma Zamanı Nesneleri ve İşlemler'
         # German
         - locale: de
           name: Deutsch
@@ -164,6 +196,22 @@ plugins:
             Sandboxie Plus: Sandboxie Plus
             Advanced Topics: Fortgeschrittene Themen
             SBIE Messages: SBIE-Nachrichten
+            All Pages (A-Z): 'Alle Seiten (A-Z)'
+            Box Management: 'Sandbox-Verwaltung'
+            Box Grouping: 'Sandbox-Gruppierung'
+            Box Presets: 'Sandbox-Voreinstellungen'
+            Storage and Recovery: 'Datenspeicherung und Wiederherstellung'
+            Networking: 'Netzwerk'
+            Isolation and Virtualization: 'Isolation und Virtualisierung'
+            Forcing and Breakout: 'Erzwingen und Ausführung außerhalb der Sandbox'
+            Networking and Services: 'Netzwerk und Dienste'
+            Diagnostics: 'Diagnose'
+            Configuration Architecture: 'Konfigurationsarchitektur'
+            Technical Aspects: 'Technische Aspekte'
+            Token Compatibility: 'Token-Kompatibilität'
+            System Calls and Hooks: 'Systemaufrufe und Hooks'
+            Loader and Architecture Compatibility: 'Loader- und Architekturkompatibilität'
+            Runtime Objects and Processes: 'Laufzeitobjekte und Prozesse'
         # Arabic
         - locale: ar
           name: العَرَبِيَّة
@@ -178,6 +226,22 @@ plugins:
             Sandboxie Plus: Sandboxie Plus
             Advanced Topics: Advanced Topics
             SBIE Messages: SBIE Messages
+            All Pages (A-Z): 'جميع الصفحات (A-Z)'
+            Box Management: 'إدارة البيئات المعزولة'
+            Box Grouping: 'تجميع البيئات المعزولة'
+            Box Presets: 'الإعدادات المسبقة للبيئات المعزولة'
+            Storage and Recovery: 'التخزين والاسترداد'
+            Networking: 'الشبكات'
+            Isolation and Virtualization: 'العزل والمحاكاة الافتراضية'
+            Forcing and Breakout: 'التشغيل الإلزامي والتشغيل خارج البيئة المعزولة'
+            Networking and Services: 'الشبكات والخدمات'
+            Diagnostics: 'التشخيص'
+            Configuration Architecture: 'بنية الإعدادات'
+            Technical Aspects: 'الجوانب التقنية'
+            Token Compatibility: 'توافق رموز الوصول'
+            System Calls and Hooks: 'استدعاءات النظام والخطافات'
+            Loader and Architecture Compatibility: 'توافق أداة التحميل والمعمارية'
+            Runtime Objects and Processes: 'كائنات وقت التشغيل والعمليات'
         # Chinese (Taiwanese)
         - locale: zh-TW
           name: 简体中文
@@ -192,6 +256,22 @@ plugins:
             Sandboxie Plus: Sandboxie Plus
             Advanced Topics: Advanced Topics
             SBIE Messages: SBIE Messages
+            All Pages (A-Z): '所有頁面（A-Z）'
+            Box Management: '沙盒管理'
+            Box Grouping: '沙盒分組'
+            Box Presets: '沙盒預設'
+            Storage and Recovery: '儲存與復原'
+            Networking: '網路'
+            Isolation and Virtualization: '隔離與虛擬化'
+            Forcing and Breakout: '強制沙盒執行與沙盒外執行'
+            Networking and Services: '網路與服務'
+            Diagnostics: '診斷'
+            Configuration Architecture: '設定架構'
+            Technical Aspects: '技術細節'
+            Token Compatibility: '權杖相容性'
+            System Calls and Hooks: '系統呼叫與攔截掛鉤'
+            Loader and Architecture Compatibility: '載入器與架構相容性'
+            Runtime Objects and Processes: '執行階段物件與處理程序'
         # Dutch
         - locale: nl
           name: Nederlands
@@ -206,6 +286,22 @@ plugins:
             Sandboxie Plus: Sandboxie Plus
             Advanced Topics: Advanced Topics
             SBIE Messages: SBIE Messages
+            All Pages (A-Z): 'Alle pagina''s (A-Z)'
+            Box Management: 'Sandboxbeheer'
+            Box Grouping: 'Sandboxgroepering'
+            Box Presets: 'Sandboxvoorinstellingen'
+            Storage and Recovery: 'Opslag en herstel'
+            Networking: 'Netwerk'
+            Isolation and Virtualization: 'Isolatie en virtualisatie'
+            Forcing and Breakout: 'Gedwongen uitvoering en uitvoering buiten de sandbox'
+            Networking and Services: 'Netwerk en services'
+            Diagnostics: 'Diagnostiek'
+            Configuration Architecture: 'Configuratiearchitectuur'
+            Technical Aspects: 'Technische aspecten'
+            Token Compatibility: 'Tokencompatibiliteit'
+            System Calls and Hooks: 'Systeemaanroepen en hooks'
+            Loader and Architecture Compatibility: 'Loader- en architectuurcompatibiliteit'
+            Runtime Objects and Processes: 'Runtimeobjecten en processen'
         # French
         - locale: fr
           name: Français
@@ -220,6 +316,22 @@ plugins:
             Sandboxie Plus: Sandboxie Plus
             Advanced Topics: Advanced Topics
             SBIE Messages: SBIE Messages
+            All Pages (A-Z): 'Toutes les pages (A-Z)'
+            Box Management: 'Gestion des bacs à sable'
+            Box Grouping: 'Regroupement des bacs à sable'
+            Box Presets: 'Préréglages des bacs à sable'
+            Storage and Recovery: 'Stockage et récupération'
+            Networking: 'Réseau'
+            Isolation and Virtualization: 'Isolation et virtualisation'
+            Forcing and Breakout: 'Exécution forcée et hors bac à sable'
+            Networking and Services: 'Réseau et services'
+            Diagnostics: 'Diagnostic'
+            Configuration Architecture: 'Architecture de configuration'
+            Technical Aspects: 'Aspects techniques'
+            Token Compatibility: 'Compatibilité des jetons'
+            System Calls and Hooks: 'Appels système et hooks'
+            Loader and Architecture Compatibility: 'Compatibilité du chargeur et de l''architecture'
+            Runtime Objects and Processes: 'Objets et processus d''exécution'
         # Hungarian
         - locale: hu
           name: magyar
@@ -234,6 +346,22 @@ plugins:
             Sandboxie Plus: Sandboxie Plus
             Advanced Topics: Advanced Topics
             SBIE Messages: SBIE Messages
+            All Pages (A-Z): 'Összes oldal (A-Z)'
+            Box Management: 'Homokozók kezelése'
+            Box Grouping: 'Homokozók csoportosítása'
+            Box Presets: 'Homokozó-előbeállítások'
+            Storage and Recovery: 'Tárolás és helyreállítás'
+            Networking: 'Hálózat'
+            Isolation and Virtualization: 'Elkülönítés és virtualizáció'
+            Forcing and Breakout: 'Kényszerített és homokozón kívüli futtatás'
+            Networking and Services: 'Hálózat és szolgáltatások'
+            Diagnostics: 'Diagnosztika'
+            Configuration Architecture: 'Konfigurációs architektúra'
+            Technical Aspects: 'Technikai részletek'
+            Token Compatibility: 'Tokenkompatibilitás'
+            System Calls and Hooks: 'Rendszerhívások és hookok'
+            Loader and Architecture Compatibility: 'Betöltő- és architektúrakompatibilitás'
+            Runtime Objects and Processes: 'Futásidejű objektumok és folyamatok'
         # Indonesian
         - locale: id
           name: Indonesia
@@ -248,6 +376,22 @@ plugins:
             Sandboxie Plus: Sandboxie Plus
             Advanced Topics: Advanced Topics
             SBIE Messages: SBIE Messages
+            All Pages (A-Z): 'Semua Halaman (A-Z)'
+            Box Management: 'Pengelolaan Sandbox'
+            Box Grouping: 'Pengelompokan Sandbox'
+            Box Presets: 'Prasetel Sandbox'
+            Storage and Recovery: 'Penyimpanan dan Pemulihan'
+            Networking: 'Jaringan'
+            Isolation and Virtualization: 'Isolasi dan Virtualisasi'
+            Forcing and Breakout: 'Eksekusi Paksa dan di Luar Sandbox'
+            Networking and Services: 'Jaringan dan Layanan'
+            Diagnostics: 'Diagnostik'
+            Configuration Architecture: 'Arsitektur Konfigurasi'
+            Technical Aspects: 'Aspek Teknis'
+            Token Compatibility: 'Kompatibilitas Token'
+            System Calls and Hooks: 'Panggilan Sistem dan Hook'
+            Loader and Architecture Compatibility: 'Kompatibilitas Pemuat dan Arsitektur'
+            Runtime Objects and Processes: 'Objek dan Proses Waktu Jalan'
         # Italian
         - locale: it
           name: Italiano
@@ -262,6 +406,22 @@ plugins:
             Sandboxie Plus: Sandboxie Plus
             Advanced Topics: Advanced Topics
             SBIE Messages: SBIE Messages
+            All Pages (A-Z): 'Tutte le pagine (A-Z)'
+            Box Management: 'Gestione delle sandbox'
+            Box Grouping: 'Raggruppamento delle sandbox'
+            Box Presets: 'Preimpostazioni delle sandbox'
+            Storage and Recovery: 'Archiviazione e recupero'
+            Networking: 'Rete'
+            Isolation and Virtualization: 'Isolamento e virtualizzazione'
+            Forcing and Breakout: 'Esecuzione forzata e fuori dalla sandbox'
+            Networking and Services: 'Rete e servizi'
+            Diagnostics: 'Diagnostica'
+            Configuration Architecture: 'Architettura della configurazione'
+            Technical Aspects: 'Aspetti tecnici'
+            Token Compatibility: 'Compatibilità dei token'
+            System Calls and Hooks: 'Chiamate di sistema e hook'
+            Loader and Architecture Compatibility: 'Compatibilità del caricatore e dell''architettura'
+            Runtime Objects and Processes: 'Oggetti e processi in fase di esecuzione'
         # Japanese
         - locale: ja
           name: 日本語
@@ -276,6 +436,22 @@ plugins:
             Sandboxie Plus: Sandboxie Plus
             Advanced Topics: Advanced Topics
             SBIE Messages: SBIE Messages
+            All Pages (A-Z): 'すべてのページ (A-Z)'
+            Box Management: 'サンドボックス管理'
+            Box Grouping: 'サンドボックスのグループ化'
+            Box Presets: 'サンドボックスのプリセット'
+            Storage and Recovery: 'ストレージと復元'
+            Networking: 'ネットワーク'
+            Isolation and Virtualization: '分離と仮想化'
+            Forcing and Breakout: '強制実行とサンドボックス外実行'
+            Networking and Services: 'ネットワークとサービス'
+            Diagnostics: '診断'
+            Configuration Architecture: '設定アーキテクチャ'
+            Technical Aspects: '技術的な詳細'
+            Token Compatibility: 'トークンの互換性'
+            System Calls and Hooks: 'システムコールとフック'
+            Loader and Architecture Compatibility: 'ローダーとアーキテクチャの互換性'
+            Runtime Objects and Processes: '実行時オブジェクトとプロセス'
         # Korean
         - locale: ko
           name: 한국어
@@ -290,6 +466,22 @@ plugins:
             Sandboxie Plus: Sandboxie Plus
             Advanced Topics: Advanced Topics
             SBIE Messages: SBIE Messages
+            All Pages (A-Z): '모든 페이지 (A-Z)'
+            Box Management: '샌드박스 관리'
+            Box Grouping: '샌드박스 그룹화'
+            Box Presets: '샌드박스 사전 설정'
+            Storage and Recovery: '저장소 및 복구'
+            Networking: '네트워크'
+            Isolation and Virtualization: '격리 및 가상화'
+            Forcing and Breakout: '강제 실행 및 샌드박스 외부 실행'
+            Networking and Services: '네트워크 및 서비스'
+            Diagnostics: '진단'
+            Configuration Architecture: '구성 아키텍처'
+            Technical Aspects: '기술적 세부 사항'
+            Token Compatibility: '토큰 호환성'
+            System Calls and Hooks: '시스템 호출 및 후크'
+            Loader and Architecture Compatibility: '로더 및 아키텍처 호환성'
+            Runtime Objects and Processes: '런타임 개체 및 프로세스'
         # Polish
         - locale: pl
           name: Polski
@@ -304,6 +496,22 @@ plugins:
             Sandboxie Plus: Sandboxie Plus
             Advanced Topics: Advanced Topics
             SBIE Messages: SBIE Messages
+            All Pages (A-Z): 'Wszystkie strony (A-Z)'
+            Box Management: 'Zarządzanie piaskownicami'
+            Box Grouping: 'Grupowanie piaskownic'
+            Box Presets: 'Ustawienia wstępne piaskownic'
+            Storage and Recovery: 'Przechowywanie i odzyskiwanie'
+            Networking: 'Sieć'
+            Isolation and Virtualization: 'Izolacja i wirtualizacja'
+            Forcing and Breakout: 'Wymuszone uruchamianie i uruchamianie poza piaskownicą'
+            Networking and Services: 'Sieć i usługi'
+            Diagnostics: 'Diagnostyka'
+            Configuration Architecture: 'Architektura konfiguracji'
+            Technical Aspects: 'Aspekty techniczne'
+            Token Compatibility: 'Zgodność tokenów'
+            System Calls and Hooks: 'Wywołania systemowe i hooki'
+            Loader and Architecture Compatibility: 'Zgodność modułu ładującego i architektury'
+            Runtime Objects and Processes: 'Obiekty i procesy w czasie wykonywania'
         # Portuguese
         - locale: pt
           name: português europeu
@@ -318,6 +526,22 @@ plugins:
             Sandboxie Plus: Sandboxie Plus
             Advanced Topics: Advanced Topics
             SBIE Messages: SBIE Messages
+            All Pages (A-Z): 'Todas as páginas (A-Z)'
+            Box Management: 'Gestão de sandboxes'
+            Box Grouping: 'Agrupamento de sandboxes'
+            Box Presets: 'Predefinições de sandboxes'
+            Storage and Recovery: 'Armazenamento e recuperação'
+            Networking: 'Rede'
+            Isolation and Virtualization: 'Isolamento e virtualização'
+            Forcing and Breakout: 'Execução forçada e fora da sandbox'
+            Networking and Services: 'Rede e serviços'
+            Diagnostics: 'Diagnóstico'
+            Configuration Architecture: 'Arquitetura da configuração'
+            Technical Aspects: 'Aspetos técnicos'
+            Token Compatibility: 'Compatibilidade de tokens'
+            System Calls and Hooks: 'Chamadas de sistema e hooks'
+            Loader and Architecture Compatibility: 'Compatibilidade do carregador e da arquitetura'
+            Runtime Objects and Processes: 'Objetos e processos em tempo de execução'
         # Portuguese (Brasilian)
         - locale: pt-BR
           name: português
@@ -332,6 +556,22 @@ plugins:
             Sandboxie Plus: Sandboxie Plus
             Advanced Topics: Advanced Topics
             SBIE Messages: SBIE Messages
+            All Pages (A-Z): 'Todas as páginas (A-Z)'
+            Box Management: 'Gerenciamento de sandboxes'
+            Box Grouping: 'Agrupamento de sandboxes'
+            Box Presets: 'Predefinições de sandboxes'
+            Storage and Recovery: 'Armazenamento e recuperação'
+            Networking: 'Rede'
+            Isolation and Virtualization: 'Isolamento e virtualização'
+            Forcing and Breakout: 'Execução forçada e fora da sandbox'
+            Networking and Services: 'Rede e serviços'
+            Diagnostics: 'Diagnóstico'
+            Configuration Architecture: 'Arquitetura da configuração'
+            Technical Aspects: 'Aspectos técnicos'
+            Token Compatibility: 'Compatibilidade de tokens'
+            System Calls and Hooks: 'Chamadas de sistema e hooks'
+            Loader and Architecture Compatibility: 'Compatibilidade do carregador e da arquitetura'
+            Runtime Objects and Processes: 'Objetos e processos em tempo de execução'
         # Russian
         - locale: ru
           name: Русский
@@ -346,6 +586,22 @@ plugins:
             Sandboxie Plus: Sandboxie Plus
             Advanced Topics: Advanced Topics
             SBIE Messages: SBIE Messages
+            All Pages (A-Z): 'Все страницы (A-Z)'
+            Box Management: 'Управление песочницами'
+            Box Grouping: 'Группировка песочниц'
+            Box Presets: 'Предустановки песочниц'
+            Storage and Recovery: 'Хранение и восстановление'
+            Networking: 'Сеть'
+            Isolation and Virtualization: 'Изоляция и виртуализация'
+            Forcing and Breakout: 'Принудительный запуск и запуск вне песочницы'
+            Networking and Services: 'Сеть и службы'
+            Diagnostics: 'Диагностика'
+            Configuration Architecture: 'Архитектура конфигурации'
+            Technical Aspects: 'Технические аспекты'
+            Token Compatibility: 'Совместимость токенов'
+            System Calls and Hooks: 'Системные вызовы и перехватчики'
+            Loader and Architecture Compatibility: 'Совместимость загрузчика и архитектуры'
+            Runtime Objects and Processes: 'Объекты и процессы времени выполнения'
         # Spanish
         - locale: es
           name: español de España
@@ -360,6 +616,22 @@ plugins:
             Sandboxie Plus: Sandboxie Plus
             Advanced Topics: Advanced Topics
             SBIE Messages: SBIE Messages
+            All Pages (A-Z): 'Todas las páginas (A-Z)'
+            Box Management: 'Gestión de entornos aislados'
+            Box Grouping: 'Agrupación de entornos aislados'
+            Box Presets: 'Preajustes de entornos aislados'
+            Storage and Recovery: 'Almacenamiento y recuperación'
+            Networking: 'Red'
+            Isolation and Virtualization: 'Aislamiento y virtualización'
+            Forcing and Breakout: 'Ejecución forzada y fuera del entorno aislado'
+            Networking and Services: 'Red y servicios'
+            Diagnostics: 'Diagnóstico'
+            Configuration Architecture: 'Arquitectura de configuración'
+            Technical Aspects: 'Aspectos técnicos'
+            Token Compatibility: 'Compatibilidad de tokens'
+            System Calls and Hooks: 'Llamadas al sistema y hooks'
+            Loader and Architecture Compatibility: 'Compatibilidad del cargador y de la arquitectura'
+            Runtime Objects and Processes: 'Objetos y procesos en tiempo de ejecución'
         # Swedish
         - locale: sv
           name: Svenska
@@ -374,6 +646,22 @@ plugins:
             Sandboxie Plus: Sandboxie Plus
             Advanced Topics: Advanced Topics
             SBIE Messages: SBIE Messages
+            All Pages (A-Z): 'Alla sidor (A-Z)'
+            Box Management: 'Sandlådehantering'
+            Box Grouping: 'Gruppering av sandlådor'
+            Box Presets: 'Förinställningar för sandlådor'
+            Storage and Recovery: 'Lagring och återställning'
+            Networking: 'Nätverk'
+            Isolation and Virtualization: 'Isolering och virtualisering'
+            Forcing and Breakout: 'Tvingad körning och körning utanför sandlådan'
+            Networking and Services: 'Nätverk och tjänster'
+            Diagnostics: 'Diagnostik'
+            Configuration Architecture: 'Konfigurationsarkitektur'
+            Technical Aspects: 'Tekniska aspekter'
+            Token Compatibility: 'Tokenkompatibilitet'
+            System Calls and Hooks: 'Systemanrop och hookar'
+            Loader and Architecture Compatibility: 'Kompatibilitet för inläsare och arkitektur'
+            Runtime Objects and Processes: 'Körtidsobjekt och processer'
         # Ukrainian
         - locale: uk
           name: українська
@@ -388,6 +676,22 @@ plugins:
             Sandboxie Plus: Sandboxie Plus
             Advanced Topics: Advanced Topics
             SBIE Messages: SBIE Messages
+            All Pages (A-Z): 'Усі сторінки (A-Z)'
+            Box Management: 'Керування пісочницями'
+            Box Grouping: 'Групування пісочниць'
+            Box Presets: 'Попередні налаштування пісочниць'
+            Storage and Recovery: 'Зберігання та відновлення'
+            Networking: 'Мережа'
+            Isolation and Virtualization: 'Ізоляція та віртуалізація'
+            Forcing and Breakout: 'Примусовий запуск і запуск поза пісочницею'
+            Networking and Services: 'Мережа та служби'
+            Diagnostics: 'Діагностика'
+            Configuration Architecture: 'Архітектура конфігурації'
+            Technical Aspects: 'Технічні аспекти'
+            Token Compatibility: 'Сумісність токенів'
+            System Calls and Hooks: 'Системні виклики та перехоплювачі'
+            Loader and Architecture Compatibility: 'Сумісність завантажувача й архітектури'
+            Runtime Objects and Processes: 'Об''єкти та процеси часу виконання'
         # Vietnamese
         - locale: vi
           name: Tiếng Việt
@@ -402,6 +706,22 @@ plugins:
             Sandboxie Plus: Sandboxie Plus
             Advanced Topics: Advanced Topics
             SBIE Messages: SBIE Messages
+            All Pages (A-Z): 'Tất cả các trang (A-Z)'
+            Box Management: 'Quản lý hộp cát'
+            Box Grouping: 'Phân nhóm hộp cát'
+            Box Presets: 'Cấu hình sẵn cho hộp cát'
+            Storage and Recovery: 'Lưu trữ và khôi phục'
+            Networking: 'Mạng'
+            Isolation and Virtualization: 'Cách ly và ảo hóa'
+            Forcing and Breakout: 'Chạy bắt buộc và chạy ngoài hộp cát'
+            Networking and Services: 'Mạng và dịch vụ'
+            Diagnostics: 'Chẩn đoán'
+            Configuration Architecture: 'Kiến trúc cấu hình'
+            Technical Aspects: 'Khía cạnh kỹ thuật'
+            Token Compatibility: 'Khả năng tương thích token'
+            System Calls and Hooks: 'Lời gọi hệ thống và hook'
+            Loader and Architecture Compatibility: 'Khả năng tương thích bộ nạp và kiến trúc'
+            Runtime Objects and Processes: 'Đối tượng và tiến trình lúc chạy'
         # default language should be at the bottom
         # English
         - locale: en
