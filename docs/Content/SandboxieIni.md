@@ -55,16 +55,16 @@ The file is UNICODE-encoded, which means each character is composed of two bytes
 
 ## Settings
 
+Use the [All Pages index](AllPages.md) to find individual settings and their documented scope.
+
 ### Global Settings:
 
-* Listed in the navigation bar on the right under the heading Global Settings.
 * Settings apply to the general operation of Sandboxie, not to any particular sandbox.
 * Global settings must be placed in the GlobalSettings section, and cannot be overridden by also including them in a sandbox section.
 * Sandbox settings may appear in the GlobalSettings section, and can be overridden by also including them in a sandbox section.
 
 ### Sandbox Settings:
 
-* Listed in the navigation bar on the right under the heading Sandbox Settings.
 * Settings apply to a particular sandbox when specified in the associated sandbox section.
 * Settings apply to all sandboxes when specified in the [GlobalSettings] section.
 * Settings in the sandbox section override corresponding settings from [GlobalSettings].

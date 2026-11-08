@@ -80,6 +80,8 @@
 
 [Bind Adapter IP](BindAdapterIP.md)
 
+[Black Box](../PlusContent/black-box.md)
+
 ~~[Block Drivers](BlockDrivers.md)~~ (removed since Sandboxie v4.xx)
 
 ~~[Block Fake Input](BlockFakeInput.md)~~ (removed since Sandboxie v4.xx)
@@ -1216,6 +1218,8 @@
 [Use Rule Specificity](UseRuleSpecificity.md)
 
 [Use Sandboxie UAC](UseSandboxieUAC.md)
+
+[Use Sbie Desk Hack](UseSbieDeskHack.md)
 
 [Use Sbie Window Station](UseSbieWndStation.md)
 

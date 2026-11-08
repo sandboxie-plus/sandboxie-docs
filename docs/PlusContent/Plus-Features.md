@@ -96,3 +96,13 @@ Some more features (**) are available to participants of the [Sandboxie-Insider]
  - Support ARM64 natively
  - Support emulated x86
  - Support emulated x64 (ARM64EC)
+
+## Management and workflow guides
+
+- [Box Presentation and Actions](../Content/BoxPresentation.md)
+- [Box Grouping](../Content/BoxGrouping.md)
+- [SandMan Triggers](../Content/SandManTriggers.md)
+- [File Recovery Architecture](../Content/RecoveryArchitecture.md)
+- [Sandbox Deletion and Removal Lifecycle](../Content/SandboxRemoval.md)
+- [Box Preset Comparison](box-preset-comparison.md)
+- [Black Box](black-box.md)

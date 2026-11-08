@@ -4,7 +4,7 @@ Sandboxie messages may be issued to the [System Event Log](SystemEventLog.md) or
 
 Some messages are informational and notify of a common, or in some cases special, event that has occurred. Other messages indicate an error condition.
 
-To consult the documentation for a particular message, please use the navigation frame on the right.
+To find a particular message, use the list on this page or the SBIE Messages section in the site navigation.
 
 Some messages display details which include NT status codes, denoted in the help pages as _ntstatus_. For a list of common NT status codes, please consult [Nt Status Codes](NtStatusCodes.md).
 

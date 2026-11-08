@@ -559,22 +559,62 @@ nav:
     - Content/StartCommandLine.md
     - Content/SbieIniCommandLine.md
   - Content/SandboxieIni.md
+  - Content/FrequentlyAskedQuestions.md
+  - All Pages (A-Z): Content/AllPages.md
 - Content/KnownConflicts.md
 - Sandboxie Plus:
   - Content/PlusMigrationGuide.md
   - PlusContent/Plus-Features.md
+  - Box Management:
+    - Content/BoxPresentation.md
+    - Box Grouping: Content/BoxGrouping.md
+    - Content/SandManTriggers.md
+  - Box Presets:
+    - PlusContent/box-preset-comparison.md
+    - PlusContent/security-mode.md
+    - PlusContent/privacy-mode.md
+    - PlusContent/compartment-mode.md
+    - PlusContent/black-box.md
+  - Storage and Recovery:
+    - PlusContent/BoxSnapshots.md
+    - PlusContent/BoxEncryption.md
+    - PlusContent/RamDiskSupport.md
+    - Content/RecoveryArchitecture.md
+    - Content/SandboxRemoval.md
+  - Networking:
+    - PlusContent/DNSFilter.md
+    - PlusContent/ProxySupport.md
+    - PlusContent/WFPSupport.md
 - Advanced Topics:
   - Content/AdvancedTopics.md
-  - Content/SandboxHierarchy.md
-  - Content/PrivacyConcerns.md
-  - Content/ServicePrograms.md
-  - Content/ResourceAccessMonitor.md
-  - PlusContent/TraceLog.md
-  - Content/HowToUseWinDbg.md
-  # Get-ChildItem .\docs\Content\SBIE* | %{"      - Content/$($_.BaseName).md"} | Set-Clipboard
+  - Isolation and Virtualization:
+    - Content/SandboxHierarchy.md
+    - Content/PrivacyConcerns.md
+    - Content/AccessTokenIsolation.md
+    - Content/FileVirtualization.md
+    - Content/RegistryVirtualization.md
+    - Content/SandboxRootsVolumeLayout.md
+  - Forcing and Breakout:
+    - Content/ProgramForcingControls.md
+    - Content/BreakoutExecution.md
+    - Content/ProcessGroup.md
+  - Networking and Services:
+    - Content/ServicePrograms.md
+    - Content/NetworkAccess.md
+    - Content/RpcCompatibility.md
+    - Content/SystemEndpoints.md
+    - Content/SandboxedServices.md
+  - Diagnostics:
+    - Content/ResourceAccessMonitor.md
+    - PlusContent/TraceLog.md
+    - Content/HowToUseWinDbg.md
+    - Content/CrashAndDebuggerDiagnostics.md
+    - Content/NotificationSettings.md
+  - Configuration Architecture:
+    - Content/TemplateArchitecture.md
+  # Get-ChildItem .\docs\Content\SBIE[0-9]*.md | %{"      - Content/$($_.BaseName).md"} | Set-Clipboard
   - SBIE Messages:
     - Content/SBIEMessages.md
-    - Content/SBIEDLLAPI.md
     - Content/SBIE1101.md
     - Content/SBIE1102.md
     - Content/SBIE1103.md
@@ -713,4 +753,24 @@ nav:
     - Content/SBIE9302.md
     - Content/SBIE9304.md
     - Content/SBIE9305.md
-- Content/TechnicalAspects.md
+- Technical Aspects:
+  - Content/TechnicalAspects.md
+  - Content/IsolationMechanism.md
+  - Content/CodeInjection.md
+  - Content/SBIEDLLAPI.md
+  - Token Compatibility:
+    - Content/AdvancedTokenSettings.md
+    - Content/AppContainerTokens.md
+  - System Calls and Hooks:
+    - Content/SyscallSettings.md
+    - Content/Win32kHooks.md
+  - Loader and Architecture Compatibility:
+    - Content/HookAndLoaderCompatibility.md
+    - Content/AdvancedLoaderCompatibility.md
+    - Content/Arm64ChpeCompatibility.md
+    - Content/HostInjection.md
+  - Runtime Objects and Processes:
+    - Content/ObjectLookupCompatibility.md
+    - Content/SandboxDesktop.md
+    - Content/JobObjects.md
+    - Content/ProcessSpeedSettings.md
