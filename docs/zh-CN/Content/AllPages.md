@@ -196,6 +196,8 @@
 
 [文件根路径](FileRootPath.md)
 
+[文件虚拟化与标识](FileVirtualization.md)
+
 [文件和文件夹视图](FilesAndFoldersView.md)
 
 [Firefox 技巧](FirefoxTips.md)
@@ -461,6 +463,8 @@
 [恢复文件夹](RecoverFolder.md)
 
 [恢复设置](RecoverySettings.md)
+
+[注册表虚拟化](RegistryVirtualization.md)
 
 [资源访问](ResourceAccess.md)
 
