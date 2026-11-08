@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Sandboxie permits some IPC and RPC communication with Windows system services while applying specialized message-level filters to sensitive endpoints. The settings on this page disable one of those endpoint-specific filters when required for compatibility.">
+        <meta name="description" content="Sandboxie 允许与 Windows 系统服务进行部分 IPC 和 RPC 通信，同时对敏感端点施加专门的消息级过滤。本页的设置用于在兼容性需要时禁用其中某一项端点专属过滤器。">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>System Endpoints - Sandboxie 文档</title>
+        <title>系统端点 - Sandboxie 文档</title>
       
     
     
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              System Endpoints
+              系统端点
             
           </span>
         </div>
@@ -5584,156 +5584,156 @@
   
 
 
-<h1 id="system-endpoints">System Endpoints<a class="headerlink" href="#system-endpoints" title="Permanent link"></a></h1>
-<p>Sandboxie permits some IPC and RPC communication with Windows system services while applying specialized message-level filters to sensitive endpoints. The settings on this page disable one of those endpoint-specific filters when required for compatibility.</p>
-<p>They do not generically open LSA, SAM, or WPAD. Generic IPC reachability, normal Windows access checks, and unrelated Sandboxie restrictions remain separate.</p>
-<p>Typical configuration is:</p>
+<h1 id="system-endpoints">系统端点<a class="headerlink" href="#system-endpoints" title="Permanent link"></a></h1>
+<p>Sandboxie 允许与 Windows 系统服务进行部分 IPC 和 RPC 通信，同时对敏感端点施加专门的消息级过滤。本页的设置用于在兼容性需要时禁用其中某一项端点专属过滤器。</p>
+<p>它们并不会通用地开放 LSA、SAM 或 WPAD。通用的 IPC 可达性、Windows 正常的访问检查，以及 Sandboxie 的其他无关限制，仍然各自独立。</p>
+<p>典型配置为：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">OpenLsaEndpoint</span><span class="o">=</span><span class="s">y</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">OpenSamEndpoint</span><span class="o">=</span><span class="s">y</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">OpenWPADEndpoint</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>All three settings are box-wide Boolean options, default to disabled, and are not executable-qualified. They can be inherited through the normal effective Sandboxie configuration, including templates.</p>
-<h2 id="ipc-reachability-and-endpoint-filtering">IPC reachability and endpoint filtering<a class="headerlink" href="#ipc-reachability-and-endpoint-filtering" title="Permanent link"></a></h2>
-<p>Sandboxie handles generic IPC reachability and endpoint-specific request filtering as separate layers:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sandboxed process
+<p>这三个设置都是沙盒范围的布尔选项，默认禁用，且不按可执行文件限定。它们可以通过常规的有效 Sandboxie 配置（包括模板）继承。</p>
+<h2 id="ipc-reachability-and-endpoint-filtering">IPC 可达性与端点过滤<a class="headerlink" href="#ipc-reachability-and-endpoint-filtering" title="Permanent link"></a></h2>
+<p>Sandboxie 把通用的 IPC 可达性与端点专属的请求过滤作为两个独立的层来处理：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>沙盒化进程
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>       |
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>       v
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>generic IPC path/object policy
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>通用 IPC 路径/对象策略
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>       |
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>       +-- denied -&gt; connection fails
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>       +-- 被拒绝 -&gt; 连接失败
 </span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>       |
 </span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>       v
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>endpoint reachable
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>端点可达
 </span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>       |
 </span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>       v
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>endpoint-specific operation filter
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>端点专属操作过滤器
 </span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>       |
 </span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>       v
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>request allowed or denied
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>请求被允许或被拒绝
 </span></code></pre></div>
-<p><a href="OpenIpcPath.html">Open IPC Path</a> can make an IPC object reachable, while <a href="ClosedIpcPath.html">Closed IPC Path</a> can deny reachability. The <code>Open...Endpoint</code> settings documented here affect the later, specialized operation filter. Opening an IPC path does not inherently remove that filter, and an endpoint setting does not inherently make a closed IPC object reachable.</p>
+<p><a href="OpenIpcPath.html">开放 IPC 路径</a> 可以让某个 IPC 对象变得可达，而 <a href="ClosedIpcPath.html">封禁 IPC 路径</a> 可以拒绝可达性。本页记录的 <code>Open...Endpoint</code> 设置影响的是更靠后的、专门的操作过滤器。开放 IPC 路径并不会自动移除该过滤器，端点设置也不会自动让一个被封闭的 IPC 对象变得可达。</p>
 <h2 id="openlsaendpoint">OpenLsaEndpoint<a class="headerlink" href="#openlsaendpoint" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">OpenLsaEndpoint</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>The default is <code>n</code> (disabled).</p>
-<p>Sandboxie handles the following fixed endpoint directly in SbieDrv:</p>
+<p>默认值为 <code>n</code>（禁用）。</p>
+<p>Sandboxie 在 SbieDrv 中直接处理以下固定端点：</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>\RPC Control\LSARPC_ENDPOINT
 </span></code></pre></div>
-<p>By default, Sandboxie applies a deny-list to selected sensitive LSA RPC operations. The filter covers operations that modify policy or security state, auditing configuration, accounts and trusted domains, account rights and privileges, quotas and system-access state, and private-data state. It does not universally block LSA queries or enumerations.</p>
-<p><code>OpenLsaEndpoint</code> disables Sandboxie's specialized filter for sensitive operations on <code>LSARPC_ENDPOINT</code>. It does not grant unrestricted access to LSA or disable normal Windows access checks.</p>
-<h3 id="security-history">Security history<a class="headerlink" href="#security-history" title="Permanent link"></a></h3>
-<p>The LSA endpoint filter was introduced in Sandboxie Plus 0.5.4 / Classic 5.46.0 in response to the issue later tracked as security issue ID-8 / CVE-2019-13502. The filter remains enabled by default; <code>OpenLsaEndpoint=y</code> is a compatibility relaxation for software that requires an operation the filter would otherwise deny.</p>
+<p>默认情况下，Sandboxie 对选定的敏感 LSA RPC 操作施加拒绝列表。该过滤器涵盖修改策略或安全状态、审核配置、帐户与受信任域、帐户权限与特权、配额与系统访问状态，以及私有数据状态的操作。它并不会一概阻止 LSA 查询或枚举。</p>
+<p><code>OpenLsaEndpoint</code> 会禁用 Sandboxie 针对 <code>LSARPC_ENDPOINT</code> 上敏感操作的专门过滤器。它不会授予对 LSA 的不受限制的访问权限，也不会禁用 Windows 正常的访问检查。</p>
+<h3 id="security-history">安全背景<a class="headerlink" href="#security-history" title="Permanent link"></a></h3>
+<p>LSA 端点过滤器在 Sandboxie Plus 0.5.4 / Classic 5.46.0 中引入，用于应对后来被追踪为安全议题 ID-8 / CVE-2019-13502 的问题。该过滤器仍然默认启用；<code>OpenLsaEndpoint=y</code> 是为需要执行会被该过滤器拒绝的操作的软件提供的兼容性放宽。</p>
 <h2 id="opensamendpoint">OpenSamEndpoint<a class="headerlink" href="#opensamendpoint" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="na">OpenSamEndpoint</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>The default is <code>n</code> (disabled).</p>
-<p>Sandboxie also handles this fixed endpoint directly in SbieDrv:</p>
+<p>默认值为 <code>n</code>（禁用）。</p>
+<p>Sandboxie 同样在 SbieDrv 中直接处理以下固定端点：</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>\RPC Control\samss lpc
 </span></code></pre></div>
-<p>The normal SAM request filter covers sensitive mutation categories such as user and account creation or deletion, group and alias changes, membership changes, password changes, account attributes and policies, and security changes. It does not mean that every SAM request is denied.</p>
-<p><code>OpenSamEndpoint</code> disables Sandboxie's SAM endpoint request filter. It does not by itself expose all SAM data, bypass Windows access checks, or provide host credentials.</p>
-<p>The filter and its compatibility setting were introduced in Sandboxie Plus 0.7.0 / Classic 5.48.0 after a security issue involving elevated sandboxed processes modifying account or password state.</p>
-<h3 id="chromium-elevation-services">Chromium elevation services<a class="headerlink" href="#chromium-elevation-services" title="Permanent link"></a></h3>
-<p>The current Chromium elevation compatibility template combines settings in this pattern:</p>
+<p>常规的 SAM 请求过滤器涵盖敏感的变更类别，例如用户与帐户的创建或删除、组与别名更改、成员关系更改、密码更改、帐户属性与策略，以及安全更改。这并不意味着所有 SAM 请求都会被拒绝。</p>
+<p><code>OpenSamEndpoint</code> 会禁用 Sandboxie 的 SAM 端点请求过滤器。它本身不会暴露全部 SAM 数据、不会绕过 Windows 访问检查，也不提供宿主凭据。</p>
+<p>该过滤器及其兼容性设置在 Sandboxie Plus 0.7.0 / Classic 5.48.0 中引入，起因是一起涉及提权后的沙盒化进程修改帐户或密码状态的安全问题。</p>
+<h3 id="chromium-elevation-services">Chromium 提权服务<a class="headerlink" href="#chromium-elevation-services" title="Permanent link"></a></h3>
+<p>当前的 Chromium 提权兼容性模板按以下模式组合这些设置：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="na">SandboxService</span><span class="o">=</span><span class="s">&lt;service&gt;</span>
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="na">RunServiceAsSystem</span><span class="o">=</span><span class="s">&lt;service&gt;</span>
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="na">OpenSamEndpoint</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p><code>SandboxService</code> places the elevation service in Sandboxie's sandboxed-service model, <code>RunServiceAsSystem</code> supplies the required source identity for that service, and <code>OpenSamEndpoint</code> removes the SAM filter required by the compatibility flow. <code>OpenSamEndpoint</code> alone does not implement DPAPI compatibility or grant access to host credentials. See <a href="SandboxedServices.html">Sandboxed Services</a>.</p>
+<p><code>SandboxService</code> 把提权服务纳入 Sandboxie 的沙盒化服务模型，<code>RunServiceAsSystem</code> 为该服务提供所需的源身份，<code>OpenSamEndpoint</code> 则移除该兼容性流程所需的 SAM 过滤器。仅设置 <code>OpenSamEndpoint</code> 并不会实现 DPAPI 兼容性，也不会授予对宿主凭据的访问权限。参见 <a href="SandboxedServices.html">沙盒化服务</a>。</p>
 <h2 id="openwpadendpoint">OpenWPADEndpoint<a class="headerlink" href="#openwpadendpoint" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="na">OpenWPADEndpoint</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>The default is <code>n</code> (disabled). The setting was introduced in Sandboxie Plus 1.15.0 / Classic 5.70.0.</p>
-<p>This setting concerns the dynamic RPC endpoint associated with Windows Web Proxy Auto-Discovery and <code>WinHttpAutoProxySvc</code>. Unlike the fixed LSA and SAM endpoints, the WPAD endpoint is discovered and registered at runtime:</p>
+<p>默认值为 <code>n</code>（禁用）。该设置于 Sandboxie Plus 1.15.0 / Classic 5.70.0 引入。</p>
+<p>此设置涉及与 Windows Web 代理自动发现及 <code>WinHttpAutoProxySvc</code> 关联的动态 RPC 端点。与固定的 LSA 和 SAM 端点不同，WPAD 端点是在运行时发现并注册的：</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>SbieDll
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>  |
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>  v
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>requests dynamic RPC endpoint resolution
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>请求动态 RPC 端点解析
 </span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>  |
 </span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>  v
 </span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>SbieSvc / EpMapperServer
 </span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>  |
 </span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>  v
-</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>resolves the WPAD service endpoint
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>解析 WPAD 服务端点
 </span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>  |
 </span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>  v
-</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>registers endpoint + filter with SbieDrv
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>向 SbieDrv 注册端点 + 过滤器
 </span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>  |
 </span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>  v
-</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>driver applies the message filter
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>驱动程序应用消息过滤器
 </span></code></pre></div>
-<p>Sandboxie normally registers this endpoint with a filter for selected sensitive operations related to proxy configuration, policy, and credentials. With <code>OpenWPADEndpoint=y</code>, the endpoint is registered without that specialized filter.</p>
-<p><code>OpenWPADEndpoint</code> therefore allows WPAD operations that Sandboxie would otherwise filter. It does not provide unrestricted network, proxy, WinHTTP, or Internet access.</p>
-<h2 id="fixed-and-dynamic-implementations">Fixed and dynamic implementations<a class="headerlink" href="#fixed-and-dynamic-implementations" title="Permanent link"></a></h2>
-<p>The settings have conceptually similar effects but use different implementation paths:</p>
+<p>Sandboxie 通常会为该端点注册一个过滤器，用于处理与代理配置、策略和凭据相关的选定敏感操作。设置 <code>OpenWPADEndpoint=y</code> 后，该端点会在不附带这一专门过滤器的情况下注册。</p>
+<p>因此，<code>OpenWPADEndpoint</code> 允许那些原本会被 Sandboxie 过滤的 WPAD 操作。它不会提供不受限制的网络、代理、WinHTTP 或 Internet 访问权限。</p>
+<h2 id="fixed-and-dynamic-implementations">固定实现与动态实现<a class="headerlink" href="#fixed-and-dynamic-implementations" title="Permanent link"></a></h2>
+<p>这些设置的效果在概念上相似，但使用不同的实现路径：</p>
 <table>
 <thead>
 <tr>
-<th>Setting</th>
-<th>Endpoint handling</th>
-<th>Effect when enabled</th>
+<th>设置</th>
+<th>端点处理方式</th>
+<th>启用后的效果</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>OpenLsaEndpoint</code></td>
-<td>Fixed endpoint filtered directly in SbieDrv</td>
-<td>Skips the specialized LSA operation filter</td>
+<td>在 SbieDrv 中直接过滤的固定端点</td>
+<td>跳过专门的 LSA 操作过滤器</td>
 </tr>
 <tr>
 <td><code>OpenSamEndpoint</code></td>
-<td>Fixed endpoint filtered directly in SbieDrv</td>
-<td>Skips the specialized SAM request filter</td>
+<td>在 SbieDrv 中直接过滤的固定端点</td>
+<td>跳过专门的 SAM 请求过滤器</td>
 </tr>
 <tr>
 <td><code>OpenWPADEndpoint</code></td>
-<td>Dynamic endpoint resolved through SbieDll and SbieSvc, then registered with SbieDrv</td>
-<td>Registers WPAD without its specialized message filter</td>
+<td>由 SbieDll 与 SbieSvc 解析、再注册到 SbieDrv 的动态端点</td>
+<td>在不附带专门消息过滤器的情况下注册 WPAD</td>
 </tr>
 </tbody>
 </table>
-<h2 id="blockpassword-relationship">BlockPassword relationship<a class="headerlink" href="#blockpassword-relationship" title="Permanent link"></a></h2>
-<p><a href="BlockPassword.html"><code>BlockPassword</code></a> controls a separate legacy LSA authentication and password-related filter. Current runtime still consults it, although it was superseded for the modern password-change compatibility case by <code>OpenSamEndpoint</code>. It is not an alias for <code>OpenLsaEndpoint</code> or <code>OpenSamEndpoint</code>. <code>OpenLsaSSPI</code> has not been confirmed as a current INI setting.</p>
-<h2 id="sandman-configuration">SandMan configuration<a class="headerlink" href="#sandman-configuration" title="Permanent link"></a></h2>
-<p>The controls are under <strong>Sandbox Options &gt; General Options &gt; Isolation</strong>:</p>
+<h2 id="blockpassword-relationship">与 BlockPassword 的关系<a class="headerlink" href="#blockpassword-relationship" title="Permanent link"></a></h2>
+<p><a href="BlockPassword.html"><code>BlockPassword</code></a> 控制的是另一项遗留的 LSA 身份验证与密码相关过滤器。当前运行时仍会查询它，尽管在现代的密码更改兼容性场景中，它已被 <code>OpenSamEndpoint</code> 取代。它不是 <code>OpenLsaEndpoint</code> 或 <code>OpenSamEndpoint</code> 的别名。<code>OpenLsaSSPI</code> 尚未被确认为当前的 INI 设置。</p>
+<h2 id="sandman-configuration">SandMan 配置<a class="headerlink" href="#sandman-configuration" title="Permanent link"></a></h2>
+<p>这些控件位于 <strong>沙盒选项 &gt; 常规选项 &gt; 隔离</strong>：</p>
 <table>
 <thead>
 <tr>
-<th>Setting</th>
-<th>Current label</th>
+<th>设置</th>
+<th>当前标签</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>OpenLsaEndpoint</code></td>
-<td>Open access to Windows Local Security Authority</td>
+<td>开放 Windows 本地安全验证 (LSA) 的访问权限</td>
 </tr>
 <tr>
 <td><code>OpenSamEndpoint</code></td>
-<td>Open access to Windows Security Account Manager</td>
+<td>开放 Windows 安全帐户管理器 (SAM) 的访问权限</td>
 </tr>
 <tr>
 <td><code>OpenWPADEndpoint</code></td>
-<td>Open access to Proxy Configurations</td>
+<td>打开对代理配置的访问权限</td>
 </tr>
 </tbody>
 </table>
-<p>The labels are broader than the exact operation-filter behavior described on this page. The controls load unchecked by default, write <code>y</code> when enabled, and remove the explicit key when disabled. They are disabled when <code>NoSecurityIsolation</code> / Application Compartment behavior is active. This UI state should not be interpreted as a guarantee that every endpoint path is unrestricted in that mode.</p>
-<p>These controls are not currently offered by the New Box Wizard.</p>
-<h2 id="applying-changes">Applying changes<a class="headerlink" href="#applying-changes" title="Permanent link"></a></h2>
-<p>The LSA and SAM settings are cached during IPC initialization for a sandboxed process. Restart affected sandboxed processes, or recreate the sandboxed process tree, after changing them.</p>
-<p>Configure <code>OpenWPADEndpoint</code> before starting affected applications. Restarting the affected sandboxed process tree is recommended after changing it. The dynamic endpoint is resolved and registered separately, and its current caching behavior should not be treated as a guarantee that restarting only one application always rebuilds the global endpoint-filter state.</p>
-<p>A SandMan, SbieSvc, or driver restart is not universally required by these settings.</p>
-<h2 id="failure-behavior">Failure behavior<a class="headerlink" href="#failure-behavior" title="Permanent link"></a></h2>
-<p>LSA and SAM operations selected by their normal specialized filters are denied. If WPAD endpoint resolution or registration fails, the corresponding RPC or binding operation can fail; no unrestricted fallback has been established. Generic IPC policy can also deny communication before endpoint-specific filtering is reached. The observable error depends on the failed layer, so one error code does not describe every case.</p>
-<h2 id="sandboxie-plus-and-classic">Sandboxie Plus and Classic<a class="headerlink" href="#sandboxie-plus-and-classic" title="Permanent link"></a></h2>
-<p>Runtime support is implemented in shared Sandboxie components. SandMan provides the controls described above, and compatible manual settings can be consumed by the shared runtime. This does not imply that Sandboxie Control Classic provides equivalent current controls.</p>
-<h2 id="version-history">Version history<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
+<p>这些标签比本页描述的精确操作过滤行为更宽泛。控件默认处于未勾选状态，启用时写入 <code>y</code>，禁用时移除该显式键。当 <code>NoSecurityIsolation</code> / 应用隔间行为生效时，这些控件会被禁用。这一界面状态不应被理解为在该模式下每条端点路径都不受限制的保证。</p>
+<p>这些控件目前未在新沙盒向导中提供。</p>
+<h2 id="applying-changes">应用更改<a class="headerlink" href="#applying-changes" title="Permanent link"></a></h2>
+<p>LSA 和 SAM 设置会在沙盒化进程的 IPC 初始化期间被缓存。更改后，请重启受影响的沙盒化进程，或重建沙盒化的进程树。</p>
+<p>请在启动受影响的应用程序之前配置 <code>OpenWPADEndpoint</code>。更改后建议重启受影响的沙盒化进程树。动态端点是单独解析和注册的，其当前的缓存行为不应被理解为“仅重启某一个应用程序就必定重建全局端点过滤状态”的保证。</p>
+<p>这些设置并不普遍要求重启 SandMan、SbieSvc 或驱动程序。</p>
+<h2 id="failure-behavior">失败时的行为<a class="headerlink" href="#failure-behavior" title="Permanent link"></a></h2>
+<p>被其常规专门过滤器选中的 LSA 和 SAM 操作会被拒绝。如果 WPAD 端点解析或注册失败，相应的 RPC 或绑定操作可能失败；目前没有确立不受限制的回退路径。通用的 IPC 策略也可能在到达端点专属过滤之前就拒绝通信。可观察到的错误取决于失败的层级，因此单一错误码无法描述所有情况。</p>
+<h2 id="sandboxie-plus-and-classic">Sandboxie Plus 与 Classic<a class="headerlink" href="#sandboxie-plus-and-classic" title="Permanent link"></a></h2>
+<p>运行时支持由共享的 Sandboxie 组件实现。SandMan 提供上文所述的控件，兼容的手动设置也可以被共享运行时读取。这并不意味着 Sandboxie Control（Classic）提供等效的当前控件。</p>
+<h2 id="version-history">版本历史<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
 <table>
 <thead>
 <tr>
-<th>Setting</th>
-<th>Introduced</th>
+<th>设置</th>
+<th>引入版本</th>
 </tr>
 </thead>
 <tbody>
@@ -5751,13 +5751,13 @@
 </tr>
 </tbody>
 </table>
-<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
+<h2 id="related-pages">相关页面<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
 <ul>
-<li><a href="RpcCompatibility.html">RPC Compatibility</a></li>
-<li><a href="OpenIpcPath.html">Open IPC Path</a></li>
-<li><a href="ClosedIpcPath.html">Closed IPC Path</a></li>
-<li><a href="BlockPassword.html">Block Password</a></li>
-<li><a href="SandboxedServices.html">Sandboxed Services</a></li>
+<li><a href="RpcCompatibility.html">RPC 兼容性</a></li>
+<li><a href="OpenIpcPath.html">开放 IPC 路径</a></li>
+<li><a href="ClosedIpcPath.html">封禁 IPC 路径</a></li>
+<li><a href="BlockPassword.html">阻止密码更改</a></li>
+<li><a href="SandboxedServices.html">沙盒化服务</a></li>
 <li><a href="SandboxieIni.html">Sandboxie Ini</a></li>
 </ul>
 

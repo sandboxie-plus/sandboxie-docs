@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Automatic forcing determines how a new process start is handled when a program would otherwise start outside a sandbox. The driver makes the core selection in Process_GetForcedStartBox(). Configured force rules, global program alerts, and the temporary Pause Forcing Programs state serve different purposes; none is a general switch for all Sandboxie isolation.">
+        <meta name="description" content="自动强制决定：当某程序本会在沙盒之外启动时，一次 新进程启动 应如何处理。驱动在 Process_GetForcedStartBox() 中完成核心选择。已配置的强制规则、全局程序警报与临时的 暂停强制沙盒化程序规则 状态各有用途；它们都不是覆盖 Sandboxie 全部隔离的总开关。">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>Program Forcing Controls - Sandboxie 文档</title>
+        <title>程序强制控制 - Sandboxie 文档</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#program-forcing-controls" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Program Forcing Controls
+              程序强制控制
             
           </span>
         </div>
@@ -5584,78 +5584,82 @@
   
 
 
-<h1 id="program-forcing-controls">Program Forcing Controls<a class="headerlink" href="#program-forcing-controls" title="Permanent link"></a></h1>
-<p>Automatic forcing determines how a <strong>new process start</strong> is handled when a program would otherwise start outside a sandbox. The driver makes the core selection in <code>Process_GetForcedStartBox()</code>. Configured force rules, global program alerts, and the temporary <strong>Pause Forcing Programs</strong> state serve different purposes; none is a general switch for all Sandboxie isolation.</p>
-<h2 id="how-a-start-is-evaluated">How a start is evaluated<a class="headerlink" href="#how-a-start-is-evaluated" title="Permanent link"></a></h2>
-<p>Sandboxie considers whether a process is already associated with a sandbox path, then evaluates configured force rules for boxes enabled for the current user and session. Each box can contribute <a href="../ForceFolder/">Force Folder</a>, <a href="../ForceProcess/">Force Process</a>, and <a href="../ForceChildren/">Force Children</a> rules; there is no single global destination box. <a href="../DisableForceRules/">Disable Force Rules</a> excludes a box from the force data built for those rules.</p>
-<p>For normal configured rules, the existing detailed order is: executable-directory <code>ForceFolder</code> → <code>ForceProcess</code> / configured <code>ForceChildren</code> → working-directory <code>ForceFolder</code> → document-argument <code>ForceFolder</code>. The linked setting pages cover matching syntax and exceptions.</p>
-<p>If normal forcing has not selected a box, the driver checks global <code>AlertFolder</code> and then <code>AlertProcess</code> entries. An ordinary alert-list match reports or denies an unsandboxed start; it does <strong>not</strong> select a sandbox. Other independent paths, including Mark-of-the-Web forcing, may be evaluated later. A successful normal force selection does not also pass through this ordinary alert-list branch.</p>
+<h1 id="_1">程序强制控制<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<p>自动强制决定：当某程序本会在沙盒之外启动时，一次 <strong>新进程启动</strong> 应如何处理。驱动在 <code>Process_GetForcedStartBox()</code> 中完成核心选择。已配置的强制规则、全局程序警报与临时的 <strong>暂停强制沙盒化程序规则</strong> 状态各有用途；它们都不是覆盖 Sandboxie 全部隔离的总开关。</p>
+<h2 id="_2">一次启动是如何被求值的<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
+<p>Sandboxie 先判断进程是否已关联到某个沙盒路径，然后针对为当前用户和会话启用的沙盒，求值已配置的强制规则。每个沙盒都可以贡献 <a href="../ForceFolder/">强制文件夹</a>、<a href="../ForceProcess/">强制进程</a> 与 <a href="../ForceChildren/">强制子进程</a> 规则；不存在单一的全局目标沙盒。<a href="../DisableForceRules/">禁用强制规则</a> 会把某个沙盒排除在为这些规则构建的强制数据之外。</p>
+<p>对于常规配置规则，现有详细顺序是：可执行文件所在目录的 <code>ForceFolder</code> → <code>ForceProcess</code> / 已配置的 <code>ForceChildren</code> → 工作目录的 <code>ForceFolder</code> → 文档参数的 <code>ForceFolder</code>。各链接的设置页面涵盖了匹配语法与例外。</p>
+<p>如果常规强制没有选中沙盒，驱动会检查全局的 <code>AlertFolder</code>，然后再检查 <code>AlertProcess</code> 条目。普通的警报列表匹配只会报告或拒绝一次未沙盒化的启动，它 <strong>不会</strong> 选择沙盒。其他独立路径，包括网络标记（Mark-of-the-Web）强制，可能在稍后被求值。一次成功的常规强制选择不会同时走这条普通警报列表分支。</p>
 <table>
 <thead>
 <tr>
-<th>Mechanism</th>
-<th>Scope</th>
-<th>Persistence</th>
-<th>Effect on new starts</th>
+<th>机制</th>
+<th>作用范围</th>
+<th>持久性</th>
+<th>对新启动的影响</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>DisableForceRules=y</code></td>
-<td>One box</td>
-<td>Configuration</td>
-<td>Excludes that box from normal force-data participation.</td>
+<td>单个沙盒</td>
+<td>配置</td>
+<td>使该沙盒不参与常规强制数据。</td>
 </tr>
 <tr>
-<td><strong>Pause Forcing Programs</strong></td>
-<td>Windows session</td>
-<td>Temporary, timed state</td>
-<td>Skips assignment for a matching normal force rule while active.</td>
+<td><strong>暂停强制沙盒化程序规则</strong></td>
+<td>Windows 会话</td>
+<td>临时的计时状态</td>
+<td>生效期间跳过匹配的常规强制规则的分派。</td>
 </tr>
 <tr>
 <td><code>AlertFolder</code> / <code>AlertProcess</code></td>
-<td>Global</td>
-<td>Configuration</td>
-<td>Matches starts outside sandboxes for notification or denial; does not select a box.</td>
+<td>全局</td>
+<td>配置</td>
+<td>匹配沙盒之外的启动，用于通知或拒绝；不选择沙盒。</td>
 </tr>
 <tr>
 <td><code>StartRunAlertDenied=y</code></td>
-<td>Global</td>
-<td>Configuration</td>
-<td>Makes normal alert-list matches deny the start.</td>
+<td>全局</td>
+<td>配置</td>
+<td>使常规警报列表的匹配项拒绝启动。</td>
 </tr>
 <tr>
 <td><code>AllowForceSystem=y</code></td>
-<td>Global</td>
-<td>Configuration</td>
-<td>Removes a default identity-based exclusion from the main force/alert evaluation; a rule must still match.</td>
+<td>全局</td>
+<td>配置</td>
+<td>从主强制/警报求值中移除基于身份的默认排除；仍需规则匹配。</td>
 </tr>
 </tbody>
 </table>
-<p>These mechanisms are not substitutes for one another. SandMan may also retain unchecked individual force entries as disabled UI entries; those are neither active forcing rules nor the same as <code>DisableForceRules</code> or the session pause.</p>
-<h2 id="global-program-alerts-and-blocking">Global program alerts and blocking<a class="headerlink" href="#global-program-alerts-and-blocking" title="Permanent link"></a></h2>
-<p><code>AlertFolder</code> and <code>AlertProcess</code> are global lists under <code>[GlobalSettings]</code>, not per-box destination rules:</p>
+<p>这些机制不能相互替代。SandMan 还可能把未勾选的单条强制条目保留为禁用的界面项；它们既不是生效的强制规则，也不等同于 <code>DisableForceRules</code> 或会话暂停。</p>
+<div id="global-program-alerts-and-blocking"></div>
+
+<h2 id="_3">全局程序警报与阻止<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
+<p><code>AlertFolder</code> 与 <code>AlertProcess</code> 是 <code>[GlobalSettings]</code> 下的全局列表，不是逐沙盒的目标规则：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[GlobalSettings]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">AlertFolder</span><span class="o">=</span><span class="s">C:\Example</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">AlertProcess</span><span class="o">=</span><span class="s">example.exe</span>
 </span></code></pre></div>
-<p><a href="../AlertFolder/">Alert Folder</a> tests the executable's own path/directory at process start. Unlike <code>ForceFolder</code>, it does not inspect the working directory or document argument for its alert match. Ordinary folder entries match recursively under that folder; wildcard entries use pattern matching. <a href="../AlertProcess/">Alert Process</a> matches ordinary entries as image names; an entry containing <code>*</code> is treated as a case-insensitive pattern against the normalized executable path. Neither list watches arbitrary file access or activity after launch.</p>
-<p>By default, <code>StartRunAlertDenied=n</code>: a normal alert-list match can generate <a href="../SBIE1301/">SBIE1301</a> without this mechanism blocking the start. With <code>StartRunAlertDenied=y</code>, a normal alert-list match instead denies the start. <code>AlertStartRunAccessDenied</code> defaults to <code>y</code> and controls whether that denial reports <a href="../SBIE1308/">SBIE1308</a>; it does not control the denial itself. This global alert policy is separate from a sandbox's <strong>Start/Run Access</strong> restrictions.</p>
-<p>SandMan exposes the lists under <strong>Global Settings &gt; Program Control &gt; Program Alerts</strong>, with <strong>Add Program</strong> and <strong>Add Folder</strong>. <strong>Prevent the listed programs from starting on this system</strong> maps to <code>StartRunAlertDenied</code>; <strong>Issue message 1308 when a program fails to start</strong> maps to <code>AlertStartRunAccessDenied</code> for this global path.</p>
-<h2 id="temporary-pause-and-persistent-per-box-disabling">Temporary pause and persistent per-box disabling<a class="headerlink" href="#temporary-pause-and-persistent-per-box-disabling" title="Permanent link"></a></h2>
-<p>SandMan's <strong>Pause Forcing Programs</strong> menu action prompts for a duration when starting a pause. The toolbar and hotkey actions do not prompt. The driver stores the pause timestamp for the relevant Windows session; it does not set <code>DisableForceRules=y</code> on boxes or suspend already-running processes. A matching <code>ForceFolder</code>, <code>ForceProcess</code>, or <code>ForceChildren</code> rule is skipped for a new launch while the pause is effective.</p>
-<p>A skipped force match retains its paused-force status: <code>StartRunAlertDenied</code> does <strong>not</strong> turn that match into a blocked start. If <code>NotifyForceProcessDisabled=y</code>, it can instead generate SBIE1301. If no force rule matched, the ordinary <code>AlertFolder</code> / <code>AlertProcess</code> checks still run and may block under <code>StartRunAlertDenied=y</code>. Pausing forcing does not disable the global alert/block list.</p>
-<p><a href="../ForceDisableSeconds/">Force Disable Seconds</a> controls the pause duration. The menu prompt initially offers the configured value, or 60 seconds when the setting is absent; toolbar and hotkey actions use the configured value or the driver's 10-second fallback. A configured global <code>ForceDisableSeconds=0</code> makes the timed pause ineffective; zero does not mean an indefinite pause or permanently disable forcing. The API only saves a supplied duration when it is positive, so entering zero in the menu does not necessarily write a zero-valued INI setting. The pause state remains temporary even if a positive duration is saved as configuration.</p>
-<p><a href="../ForceDisableAdminOnly/">Force Disable Admin Only</a> defaults to <code>n</code>. With global <code>ForceDisableAdminOnly=y</code>, the pause API is restricted to Administrator accounts; it does not always require an elevated administrator token. SandMan labels this <strong>Only Administrator user accounts can use Pause Forcing Programs command</strong>. The underlying driver also verifies that the control caller is trusted.</p>
-<h2 id="system-service-identities">System service identities<a class="headerlink" href="#system-service-identities" title="Permanent link"></a></h2>
-<p><code>AllowForceSystem</code> is an advanced, manual global Boolean that defaults to <code>n</code>. The default guard skips the main force-rule, alert-rule, and Mark-of-the-Web evaluation for target processes running as <code>S-1-5-18</code> (LocalSystem), <code>S-1-5-19</code> (LocalService), or <code>S-1-5-20</code> (NetworkService). A process with one of these identities whose parent is identified as DcomLaunch is an explicit compatibility exception to this guard; this does not generalize to every SYSTEM-parented process.</p>
+<p><a href="../AlertFolder/">警报文件夹</a> 在进程启动时检验可执行文件自身的路径/目录。与 <code>ForceFolder</code> 不同，它不会为警报匹配去检查工作目录或文档参数。普通的文件夹条目会递归匹配该文件夹下的内容；通配符条目使用模式匹配。<a href="../AlertProcess/">警报进程</a> 把普通条目当作映像名匹配；包含 <code>*</code> 的条目会作为大小写不敏感的模式，去匹配规范化后的可执行文件路径。这两个列表都不监视启动之后的任意文件访问或活动。</p>
+<p>默认情况下 <code>StartRunAlertDenied=n</code>：常规警报列表的匹配可以产生 <a href="../SBIE1301/">SBIE1301</a>，而不会因此机制阻止启动。设 <code>StartRunAlertDenied=y</code> 后，常规警报列表的匹配会改为拒绝启动。<code>AlertStartRunAccessDenied</code> 默认是 <code>y</code>，它控制的是该拒绝是否报告 <a href="../SBIE1308/">SBIE1308</a>，并不控制拒绝本身。这套全局警报策略与沙盒的 <strong>启动/运行访问</strong> 限制是分开的。</p>
+<p>SandMan 在 <strong>全局设置 &gt; 程序控制 &gt; 程序警报</strong> 下提供这些列表，配套 <strong>添加程序</strong> 与 <strong>添加文件夹</strong>。<strong>阻止下列程序在此系统中启动</strong> 对应 <code>StartRunAlertDenied</code>；<strong>程序启动失败时，提示问题代码 SBIE1308</strong> 对应这条全局路径上的 <code>AlertStartRunAccessDenied</code>。</p>
+<h2 id="_4">临时暂停与持久的逐沙盒禁用<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
+<p>SandMan 的 <strong>暂停强制沙盒化程序规则</strong> 菜单动作在开始暂停时会询问时长。工具栏与热键动作不会询问。驱动为该 Windows 会话保存暂停时间戳；它不会在沙盒上设置 <code>DisableForceRules=y</code>，也不会挂起已在运行的进程。暂停生效期间，匹配的 <code>ForceFolder</code>、<code>ForceProcess</code> 或 <code>ForceChildren</code> 规则在新启动时会被跳过。</p>
+<p>被跳过的强制匹配会保留其“已暂停的强制”状态：<code>StartRunAlertDenied</code> <strong>不会</strong> 把该匹配变成被阻止的启动。若 <code>NotifyForceProcessDisabled=y</code>，则可能改为产生 SBIE1301。若没有任何强制规则匹配，普通的 <code>AlertFolder</code> / <code>AlertProcess</code> 检查仍会执行，并可能在 <code>StartRunAlertDenied=y</code> 下阻止启动。暂停强制不会禁用全局警报/阻止列表。</p>
+<p><a href="../ForceDisableSeconds/">强制禁用等待秒数</a> 控制暂停时长。菜单提示最初提供配置值，缺少该设置时为 60 秒；工具栏与热键动作使用配置值，或驱动的 10 秒回退值。已配置的全局 <code>ForceDisableSeconds=0</code> 会使定时暂停失效；零不表示无限期暂停，也不表示永久禁用强制。API 只在时长为正数时才保存所给时长，因此在菜单中输入零不一定写入零值的 INI 设置。即使把正的时长保存为配置，暂停状态仍然是临时的。</p>
+<p><a href="../ForceDisableAdminOnly/">仅限管理员强制禁用</a> 默认是 <code>n</code>。设全局 <code>ForceDisableAdminOnly=y</code> 后，暂停 API 仅限于管理员账户；它并不总是要求已提升的管理员令牌。SandMan 对该项标注为 <strong>仅管理员用户可「停用强制沙盒化程序规则」</strong>。底层驱动还会校验控制调用方是否可信。</p>
+<div id="system-service-identities"></div>
+
+<h2 id="_5">系统服务身份<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
+<p><code>AllowForceSystem</code> 是一个高级的手工全局布尔值，默认是 <code>n</code>。默认防护会跳过主强制规则、警报规则与网络标记求值，条件是目标进程以 <code>S-1-5-18</code>（LocalSystem）、<code>S-1-5-19</code>（LocalService）或 <code>S-1-5-20</code>（NetworkService）身份运行。以这些身份运行、且父进程被识别为 DcomLaunch 的进程，是对该防护的显式兼容例外；这不能推广到所有以 SYSTEM 为父进程的场景。</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[GlobalSettings]</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">AllowForceSystem</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>Enabling it permits those identities to participate in normal evaluation; it does not automatically force every service or change other processing outside this gate. The setting was added in Sandboxie Plus 1.16.0 / Classic 5.71.0. No dedicated current SandMan control was identified for it.</p>
-<h2 id="notifications-lifecycle-and-limits">Notifications, lifecycle, and limits<a class="headerlink" href="#notifications-lifecycle-and-limits" title="Permanent link"></a></h2>
-<p>In the same global <strong>Program Alerts</strong> area, <strong>Issue message 1301 when forced processes has been disabled</strong> maps to <code>NotifyForceProcessDisabled</code>, and <strong>Issue message 1321 when a process has been forced into a sandbox</strong> maps to <code>NotifyForceProcessEnabled</code>. Both default to <code>n</code>. The first reports a skipped force match during a temporary pause; the second reports successful forced assignment. Neither notification setting enables, disables, or pauses forcing. See <a href="../NotificationSettings/">Notification Settings</a>.</p>
-<p>Force and alert configuration affects subsequent process-start decisions after configuration is applied or reloaded. The session pause is live driver state and expires according to its duration. These controls do not retroactively move, terminate, or suspend processes; disable file or registry isolation or Sandboxie itself; replace sandbox Start/Run restrictions; or grant elevation. A Windows reboot is not normally required solely for these controls.</p>
+<p>启用后，这些身份可以参与常规求值；它不会自动强制每个服务，也不会改变这道门之外的其他处理。该设置自 Sandboxie Plus 1.16.0 / Classic 5.71.0 起引入。未找到针对它的专门 SandMan 控件。</p>
+<h2 id="_6">通知、生命周期与限制<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
+<p>在同一个全局 <strong>程序警报</strong> 区域中，<strong>当强制沙盒化进程被禁止时，提示问题代码 SBIE1301</strong> 对应 <code>NotifyForceProcessDisabled</code>，<strong>当进程被强制进入沙盒时，提示问题代码 SBIE1321</strong> 对应 <code>NotifyForceProcessEnabled</code>。两者默认均为 <code>n</code>。前者在临时暂停期间报告被跳过的强制匹配；后者报告成功的强制分派。两个通知设置都不会启用、禁用或暂停强制。参见 <a href="../NotificationSettings/">通知设置</a>。</p>
+<p>强制与警报配置在应用或重新加载配置之后，影响后续的进程启动决策。会话暂停是驱动的实时状态，按其时长过期。这些控件不会追溯性地移动、终止或挂起进程；不会禁用文件或注册表隔离或 Sandboxie 本身；不会取代沙盒的启动/运行限制；也不会授予提升。通常不必仅为这些控件重启 Windows。</p>
 
 
 

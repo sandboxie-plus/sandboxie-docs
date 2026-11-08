@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Sandboxie&#x27;s normal filesystem virtualization presents a logical file path while the file&#x27;s contents and metadata can come from different backing layers. A useful conceptual lookup order is:">
+        <meta name="description" content="Sandboxie 的常规文件系统虚拟化会呈现一个逻辑文件路径，而文件的内容与元数据可能来自不同的后备层。一个有用的概念性查找顺序是：">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>File Virtualization and Identity - Sandboxie 文档</title>
+        <title>文件虚拟化与标识 - Sandboxie 文档</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#file-virtualization-and-identity" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              File Virtualization and Identity
+              文件虚拟化与标识
             
           </span>
         </div>
@@ -5584,96 +5584,96 @@
   
 
 
-<h1 id="file-virtualization-and-identity">File Virtualization and Identity<a class="headerlink" href="#file-virtualization-and-identity" title="Permanent link"></a></h1>
-<p>Sandboxie's normal filesystem virtualization presents a logical file path while the file's contents and metadata can come from different backing layers. A useful conceptual lookup order is:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>live sandbox state
+<h1 id="_1">文件虚拟化与标识<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<p>Sandboxie 的常规文件系统虚拟化会呈现一个逻辑文件路径，而文件的内容与元数据可能来自不同的后备层。一个有用的概念性查找顺序是：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>实时沙盒状态
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    |
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    v
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>active snapshot
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>活动快照
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    |
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    v
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>parent snapshots
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>父快照
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    |
 </span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    v
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>host or other resolved backing
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>宿主或其他已解析的后备
 </span></code></pre></div>
-<p>Deletion and relocation state can suppress or redirect lower layers. Access rules can replace normal merged virtualization with another mode, and not every Windows API follows an identical path. This is a lookup model, not an invariant physical directory layout.</p>
-<h2 id="logical-paths-and-sandbox-storage">Logical paths and sandbox storage<a class="headerlink" href="#logical-paths-and-sandbox-storage" title="Permanent link"></a></h2>
-<p>A sandboxed application normally continues using its logical path, while files created or migrated into the live sandbox are physically stored under the effective file-container root. The logical file and its sandbox representation can therefore reside on different volumes. See <a href="../SandboxRootsVolumeLayout/">Sandbox Roots and Volume Layout</a> and <a href="../FileRootPath/">File Root Path</a> for storage configuration.</p>
-<p>Selected intercepted file-name and final-path queries translate sandbox-backed handles back toward the application's logical path. This does not guarantee that every API hides the physical sandbox path.</p>
-<h2 id="reading-creating-and-modifying-files">Reading, creating, and modifying files<a class="headerlink" href="#reading-creating-and-modifying-files" title="Permanent link"></a></h2>
-<p>When no live sandbox representation shadows the path, an eligible read-only open can use the resolved backing object directly without first copying it into the live sandbox. That backing can be a host file, a snapshot, or another resolved or relocated source. Access mode, deletion state, snapshots, and compatibility paths can change the outcome; not every read uses this direct path.</p>
-<p>An operation requiring mutable sandbox-local state generally needs a live representation. For an existing backing file, Sandboxie may migrate information into that representation before completing the operation. For a new logical file with no visible lower backing, the normal virtualized path creates the object in sandbox storage rather than creating the corresponding host file.</p>
-<p>Once a usable live representation exists, it normally shadows the corresponding lower-layer object for ordinary virtualized access. The live file supplies its own contents and metadata for the relevant operation; Sandboxie does not merge its bytes with those of the lower file. Metadata-query fallback behavior is not identical across all APIs.</p>
-<h2 id="migration-decisions">Migration decisions<a class="headerlink" href="#migration-decisions" title="Permanent link"></a></h2>
-<p>Migration is not always a full-content copy. Depending on the operation and policy, Sandboxie may create a copy containing the existing data, a representation without the previous contents, metadata or directory state, or specialized reparse-point state. For example:</p>
+<p>删除与重定位状态可以抑制或重定向较低层。访问规则可以把常规的合并虚拟化替换为另一种模式，并且并非每个 Windows API 都走同一条路径。这是一套查找模型，不是固定不变的物理目录布局。</p>
+<h2 id="_2">逻辑路径与沙盒存储<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
+<p>沙盒中的应用程序通常继续使用其逻辑路径，而创建或迁移进实时沙盒的文件，实际存储在生效的文件容器根之下。因此逻辑文件与其沙盒表示可能位于不同的卷上。有关存储配置参见 <a href="../SandboxRootsVolumeLayout/">沙盒根与卷布局</a> 与 <a href="../FileRootPath/">文件根路径</a>。</p>
+<p>选定的被拦截文件名查询与最终路径查询，会把由沙盒支撑的句柄转换回应用程序的逻辑路径。这并不保证每个 API 都隐藏物理沙盒路径。</p>
+<h2 id="_3">读取、创建与修改文件<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
+<p>当没有实时沙盒表示遮蔽该路径时，符合条件的只读打开可以直接使用已解析的后备对象，而不必先把它复制进实时沙盒。该后备可以是宿主文件、快照，或其他已解析或已重定位的来源。访问模式、删除状态、快照与兼容性路径都可能改变结果；并非每次读取都走这条直接路径。</p>
+<p>需要沙盒本地可变状态的操作通常需要一个实时表示。对于已存在的后备文件，Sandboxie 可能在完成操作之前把信息迁移进该表示。对于没有可见低层后备的新逻辑文件，常规的虚拟化路径会在沙盒存储中创建对象，而不是创建对应的宿主文件。</p>
+<p>一旦存在可用的实时表示，常规虚拟化访问通常由它遮蔽对应的低层对象。实时文件为相关操作提供自己的内容与元数据；Sandboxie 不会把它的字节与低层文件的字节合并。元数据查询的回退行为并非在所有 API 上都一致。</p>
+<h2 id="_4">迁移决策<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
+<p>迁移并不总是完整内容的复制。取决于操作与策略，Sandboxie 可能创建一个包含既有数据的副本、一个不含先前内容的表示、元数据或目录状态，或专门的重解析点状态。例如：</p>
 <ul>
-<li>An ordinary modification can require copying existing contents.</li>
-<li>An overwrite can preserve metadata without first preserving the old contents.</li>
-<li>A delete-only open with delete-on-close can avoid copying file contents.</li>
-<li>Creating a directory representation does not recursively copy its children.</li>
+<li>普通的修改可能要求复制既有内容。</li>
+<li>覆盖操作可以保留元数据而不先保留旧内容。</li>
+<li>仅删除、并在关闭时删除的打开可以避免复制文件内容。</li>
+<li>创建目录表示不会递归复制其子项。</li>
 </ul>
-<p>Streams and reparse points have specialized handling; this model is not a promise that every object type is copied identically.</p>
-<p>When full-content migration is being considered, migration rules and the current size/prompt policy determine whether Sandboxie copies the contents, creates an empty representation, declines migration, or follows the applicable fallback. <a href="../FileMigrationSettings/">File Migration Settings</a> covers configuration; <a href="../CopyAlways/">Copy Always</a>, <a href="../CopyEmpty/">Copy Empty</a>, and <a href="../DontCopy/">Don't Copy</a> describe the individual migration rules. <a href="../CopyNewer/">Copy Newer</a> is a separate refresh mechanism for an existing live copy.</p>
-<p>When Sandboxie declines a requested content migration, <a href="../CopyBlockDenyWrite/">Copy Block Deny Write</a> determines whether that path is denied or Sandboxie can retry the resolved backing with write/delete capabilities removed. The reduced-access retry can still fail, and the backing may be a snapshot or relocated source rather than the current host file. This refusal handling is not a fallback for every migration error.</p>
-<p>Creating the representation or migrating data can fail. Native permissions and sharing behavior remain relevant, and migration is not a universal transaction that rolls back every intermediate filesystem change after a failure.</p>
-<h2 id="merged-view-deletion-and-snapshots">Merged view, deletion, and snapshots<a class="headerlink" href="#merged-view-deletion-and-snapshots" title="Permanent link"></a></h2>
-<p>Directory enumeration can combine entries from live sandbox state, snapshot layers, and the host/backing layer. For the same logical name, the upper visible layer normally wins. Deletion state can suppress an entry that still physically exists below it. The resulting merged view lets an application use one logical namespace even though storage is distributed.</p>
-<p>Deleting an existing host-backed file inside a normally virtualized sandbox does not require deleting the host object. Sandboxie records sandbox-side state that makes the lower object appear absent in the sandboxed view. V1 and V2 store that state differently; see <a href="../Delete-V2/">Virtualization Scheme V1 and V2</a>. This does not promise identical deletion visibility through every metadata API.</p>
-<p>With <a href="../../PlusContent/BoxSnapshots/">Box Snapshots</a>, live changes sit above the active snapshot, and its parent snapshots can supply older backing. The host or other resolved backing is reached only when higher visible state does not supply or suppress the logical object. Modifying a snapshot-backed object can create or migrate a new live representation. Snapshot management and cleanup workflows are documented on the snapshot page.</p>
-<h2 id="effective-file-access-modes">Effective file-access modes<a class="headerlink" href="#effective-file-access-modes" title="Permanent link"></a></h2>
+<p>流与重解析点有专门处理；这套模型并不承诺每种对象类型都以相同方式复制。</p>
+<p>当考虑完整内容迁移时，迁移规则与当前的大小/提示策略决定 Sandboxie 是复制内容、创建空表示、拒绝迁移，还是走适用的回退。<a href="../FileMigrationSettings/">文件迁移设置</a> 涵盖配置；<a href="../CopyAlways/">始终复制</a>、<a href="../CopyEmpty/">复制空的副本</a> 与 <a href="../DontCopy/">不要复制</a> 描述各条迁移规则。<a href="../CopyNewer/">复制较新文件</a> 是针对既有实时副本的独立刷新机制。</p>
+<p>当 Sandboxie 拒绝所请求的内容迁移时，<a href="../CopyBlockDenyWrite/">复制阻止拒绝写入</a> 决定该路径是被拒绝，还是 Sandboxie 可以去掉写/删除能力后重试已解析的后备。降权重试仍可能失败，且后备可能是快照或已重定位的来源，而不是当前的宿主文件。这种拒绝处理不是所有迁移错误的回退。</p>
+<p>创建表示或迁移数据都可能失败。原生权限与共享行为仍然相关，迁移也不是一个能把失败后每一次中间文件系统更改都回滚的通用事务。</p>
+<h2 id="_5">合并视图、删除与快照<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
+<p>目录枚举可以合并来自实时沙盒状态、快照层与宿主/后备层的条目。对于同一逻辑名称，通常由上层可见层获胜。删除状态可以抑制在其下方仍物理存在的条目。由此得到的合并视图让应用程序在存储分散的情况下仍使用单一逻辑命名空间。</p>
+<p>在常规虚拟化的沙盒中删除一个由宿主支撑的既有文件，并不需要删除宿主对象。Sandboxie 会记录沙盒侧状态，使该低层对象在沙盒视图中表现为不存在。V1 与 V2 以不同方式存储该状态，参见 <a href="../Delete-V2/">虚拟化方案 V1 与 V2</a>。这并不承诺通过每个元数据 API 看到的删除可见性都一致。</p>
+<p>使用 <a href="../../PlusContent/BoxSnapshots/">沙盒快照</a> 时，实时更改位于活动快照之上，其父快照可以提供更旧的后备。只有当更高层的可见状态既不提供也不抑制该逻辑对象时，才会触及宿主或其他已解析的后备。修改由快照支撑的对象可能创建或迁移出一个新的实时表示。快照管理与清理工作流记录在快照页面。</p>
+<h2 id="_6">生效的文件访问模式<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
 <table>
 <thead>
 <tr>
-<th>Effective mode</th>
-<th>Architectural result</th>
+<th>生效模式</th>
+<th>架构结果</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="../NormalFilePath/">Normal</a></td>
-<td>Use normal merged virtualization: lower backing can be read and mutable state is kept sandbox-side.</td>
+<td><a href="../NormalFilePath/">标准</a></td>
+<td>使用常规合并虚拟化：低层后备可被读取，可变状态保留在沙盒侧。</td>
 </tr>
 <tr>
-<td><a href="../OpenFilePath/">Open</a></td>
-<td>Access the true/host path directly instead of normal copy virtualization for the matching operation.</td>
+<td><a href="../OpenFilePath/">开放</a></td>
+<td>对匹配的操作直接访问真实/宿主路径，而不用常规复制虚拟化。</td>
 </tr>
 <tr>
-<td><a href="../ClosedFilePath/">Closed</a></td>
-<td>Deny the matching logical access before the ordinary copy path.</td>
+<td><a href="../ClosedFilePath/">封闭</a></td>
+<td>在常规复制路径之前拒绝匹配的逻辑访问。</td>
 </tr>
 <tr>
-<td><a href="../ReadFilePath/">Read</a></td>
-<td>Use direct true-path access for the read-oriented mode while applicable write enforcement remains separate.</td>
+<td><a href="../ReadFilePath/">只读</a></td>
+<td>面向读取的模式使用直接真实路径访问，适用的写入强制执行另行处理。</td>
 </tr>
 <tr>
-<td><a href="../WriteFilePath/">Write</a></td>
-<td>Hide ordinary lower backing data and operate on the sandbox/copy side.</td>
+<td><a href="../WriteFilePath/">只写</a></td>
+<td>隐藏常规的低层后备数据，在沙盒/复制侧操作。</td>
 </tr>
 </tbody>
 </table>
-<p>These are high-level effects after the effective rule has been selected. Rule precedence and nested exceptions are documented separately in <a href="../../PlusContent/RuleSpecificity/">Rule Specificity</a>. Closed access should not be interpreted as making every possible metadata query invisible, and these modes do not grant or bypass Windows ACL permissions.</p>
-<p>Virtualization decides where logical state is read or stored. Sandboxie's access policy determines permitted operations and whether normal virtualization applies. Windows/filesystem permissions govern native access to the physical objects. Copy-on-write alone is not a complete security boundary.</p>
-<h2 id="file-identity-and-file-ids">File identity and File IDs<a class="headerlink" href="#file-identity-and-file-ids" title="Permanent link"></a></h2>
-<p>A file presented on one logical volume can physically reside in sandbox storage on another. Returning raw physical File IDs everywhere can make identity and open-by-ID behavior inconsistent with that namespace. Sandboxie therefore adjusts IDs in selected query paths and has inverse handling for supported open-by-ID cases. This is compatibility and identity handling, not permission enforcement, encryption, or anonymization.</p>
-<h3 id="query-coverage-and-backing-identity">Query coverage and backing identity<a class="headerlink" href="#query-coverage-and-backing-identity" title="Permanent link"></a></h3>
-<p>File ID virtualization is partial and API-dependent. Selected handle-based, name-based, and merged-directory query paths can adjust IDs as part of the virtualized view, but coverage is not uniform across every Windows information class or enumeration path. Current handling recognizes File-ID-bearing forms including <code>FileInternalInformation</code>, <code>FileAllInformation</code>, <code>FileIdInformation</code>, <code>FileStatInformation</code>, <code>FileStatLxInformation</code>, and <code>FileStatBasicInformation</code>; this list is not a guarantee that every query API accepts every form.</p>
-<p>In the covered handle-query path, a direct host handle normally retains its native File ID, while a live or snapshot-backed boxed handle can receive Sandboxie's adjusted identity. A newly created sandbox-only file derives its identity from its own physical filesystem object; Sandboxie does not assign it a globally synthetic path-based ID. Migration does not promise to retain the host file's previous ID.</p>
-<p>Directory-enumeration IDs should not be assumed identical to those returned by every handle- or name-based query. Current enumeration paths provide no universal cross-API identity guarantee: neither all host entries remaining native nor all entries being transformed is a safe assumption.</p>
-<h3 id="stability-and-open-by-id">Stability and open by ID<a class="headerlink" href="#stability-and-open-by-id" title="Permanent link"></a></h3>
-<p>The transformation is deterministic for the underlying ID, but Sandboxie does not allocate a separate persistent synthetic identifier for each logical path. Do not rely on identity remaining stable across recreation, migration or CopyNewer replacement, snapshot switching, moving or recreating sandbox storage, recovery to the host, or filesystem changes. Restarting a process, SandMan, or the service does not itself introduce a new random identity seed in this mechanism.</p>
-<p>For the supported open-by-ID path, Sandboxie can retry identity resolution and convert the result back into a logical path, after which ordinary sandbox path/rule handling applies. This does not bypass file rules or Windows access checks, or guarantee reopening the same physical snapshot layer originally queried.</p>
-<p>Current handling does not establish universal 128-bit File ID round-trip semantics across every filesystem and query family, particularly where the higher portion of an identifier is significant. Applications should not assume all File ID APIs expose one fully synthetic, mutually interchangeable identity.</p>
-<h3 id="volume-information">Volume information<a class="headerlink" href="#volume-information" title="Permanent link"></a></h3>
-<p>File-ID adjustment and volume information are separate mechanisms. Some file metadata can still reflect the physical backing volume, while selected volume queries may be redirected toward the logical drive. Sandboxie does not provide a completely synthetic filesystem volume identity.</p>
-<h2 id="applying-configuration-changes-and-lifecycle">Applying configuration changes and lifecycle<a class="headerlink" href="#applying-configuration-changes-and-lifecycle" title="Permanent link"></a></h2>
-<p>Live migrated or created filesystem state persists in sandbox storage until changed, deleted, or reset through the relevant workflow. Deletion and snapshot state are also persistent sandbox state, subject to their own mechanisms.</p>
-<p>Migration rules and limits are initialized and cached for sandboxed processes. Restart affected sandboxed processes after changing those settings to ensure the new values are used; this does not mean every migration-related decision is cached. An existing open handle continues referring to the object it already opened, rather than being retargeted by a configuration change. File ID transformation itself does not require a SandMan restart.</p>
-<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
+<p>这些是选定生效规则之后的高层效果。规则优先级与嵌套例外另见 <a href="../../PlusContent/RuleSpecificity/">规则特异性</a>。不应把封闭访问理解为让每一种可能的元数据查询都不可见，这些模式也不会授予或绕过 Windows ACL 权限。</p>
+<p>虚拟化决定逻辑状态从哪里读取或存放。Sandboxie 的访问策略决定允许的操作以及是否适用常规虚拟化。Windows/文件系统权限管辖对物理对象的原生访问。仅靠写时复制并不构成完整的安全边界。</p>
+<h2 id="file-id">文件标识与 File ID<a class="headerlink" href="#file-id" title="Permanent link"></a></h2>
+<p>在一个逻辑卷上呈现的文件，可能物理存放在另一个卷上的沙盒存储中。在所有地方都返回原始物理 File ID，会让标识与按 ID 打开的行为与该命名空间不一致。因此 Sandboxie 在选定的查询路径中调整 ID，并对受支持的按 ID 打开情形做反向处理。这属于兼容性与标识处理，不是权限强制、加密或匿名化。</p>
+<h3 id="_7">查询覆盖范围与后备标识<a class="headerlink" href="#_7" title="Permanent link"></a></h3>
+<p>File ID 虚拟化是局部的、取决于 API 的。选定的基于句柄、基于名称与合并目录的查询路径可以在虚拟化视图中调整 ID，但覆盖范围并不在所有 Windows 信息类或枚举路径上一致。当前处理识别带 File ID 的形式，包括 <code>FileInternalInformation</code>、<code>FileAllInformation</code>、<code>FileIdInformation</code>、<code>FileStatInformation</code>、<code>FileStatLxInformation</code> 与 <code>FileStatBasicInformation</code>；该列表并不保证每个查询 API 都接受每种形式。</p>
+<p>在已覆盖的句柄查询路径中，直接的宿主句柄通常保留其原生 File ID，而由实时或快照支撑的沙盒句柄可能获得 Sandboxie 调整后的标识。新建的、仅存在于沙盒的文件，其标识来自它自己的物理文件系统对象；Sandboxie 不会为它分配全局合成的、基于路径的 ID。迁移不承诺保留宿主文件先前的 ID。</p>
+<p>不应假定目录枚举得到的 ID 与每个基于句柄或基于名称的查询返回的 ID 相同。当前枚举路径不提供通用的跨 API 标识保证：既不能假定所有宿主条目都保持原生，也不能假定所有条目都被转换。</p>
+<h3 id="id">稳定性与按 ID 打开<a class="headerlink" href="#id" title="Permanent link"></a></h3>
+<p>该转换对底层 ID 是确定性的，但 Sandboxie 不会为每个逻辑路径分配单独的持久合成标识。不要依赖标识在重建、迁移或 CopyNewer 替换、切换快照、移动或重建沙盒存储、恢复到宿主，或文件系统更改之后保持稳定。重启进程、SandMan 或服务本身，并不会在该机制中引入新的随机标识种子。</p>
+<p>对于受支持的按 ID 打开路径，Sandboxie 可以重试标识解析并把结果转换回逻辑路径，之后适用常规的沙盒路径/规则处理。这不会绕过文件规则或 Windows 访问检查，也不保证重新打开最初查询的同一个物理快照层。</p>
+<p>当前处理并未在所有文件系统与查询族上建立通用的 128 位 File ID 往返语义，尤其在标识的高位部分具有重要意义时。应用程序不应假定所有 File ID API 都暴露同一个完全合成的、可互相替换的标识。</p>
+<h3 id="_8">卷信息<a class="headerlink" href="#_8" title="Permanent link"></a></h3>
+<p>File ID 调整与卷信息是彼此独立的机制。某些文件元数据仍可能反映物理后备卷，而选定的卷查询可能被重定向到逻辑驱动器。Sandboxie 不提供完全合成的文件系统卷标识。</p>
+<h2 id="_9">应用配置更改与生命周期<a class="headerlink" href="#_9" title="Permanent link"></a></h2>
+<p>实时迁移或创建的文件系统状态会保留在沙盒存储中，直到被更改、删除或通过相关工作流重置。删除与快照状态同样是持久的沙盒状态，遵循各自的机制。</p>
+<p>迁移规则与限制会在沙盒进程初始化时载入并缓存。更改这些设置后请重启受影响的沙盒进程以确保使用新值；这并不意味着与迁移相关的每个决策都被缓存。已打开的句柄继续指向它已经打开的对象，而不会被配置更改重新定向。File ID 转换本身不需要重启 SandMan。</p>
+<h2 id="_10">相关页面<a class="headerlink" href="#_10" title="Permanent link"></a></h2>
 <ul>
-<li><a href="../UseFileImage/">Use File Image</a>: image-backed storage changes the physical backing of sandbox file storage, not the logical backing-versus-live virtualization model described here.</li>
-<li><a href="../RecoveryArchitecture/">File Recovery Architecture</a>: recovery is a separate host-side operation that moves a physical sandbox representation to a host destination. It does not grant the sandboxed process direct host-write permission or promise File ID preservation.</li>
-<li><a href="../NoSecurityIsolation/">No Security Isolation</a> and <a href="../../PlusContent/compartment-mode/">Application Compartment</a>: this mode changes important isolation/filtering behavior but does not globally remove SbieDll file virtualization.</li>
+<li><a href="../UseFileImage/">使用文件映像</a>：由映像支撑的存储改变的是沙盒文件存储的物理后备，而不是这里描述的逻辑后备与实时虚拟化模型。</li>
+<li><a href="../RecoveryArchitecture/">文件恢复架构</a>：恢复是一项独立的宿主侧操作，它把物理沙盒表示移动到宿主目标位置。它不会授予沙盒进程直接写宿主的能力，也不承诺保留 File ID。</li>
+<li><a href="../NoSecurityIsolation/">无安全隔离</a> 与 <a href="../../PlusContent/compartment-mode/">隔离模式</a>：该模式会改变重要的隔离/过滤行为，但不会全局移除 SbieDll 的文件虚拟化。</li>
 </ul>
 
 

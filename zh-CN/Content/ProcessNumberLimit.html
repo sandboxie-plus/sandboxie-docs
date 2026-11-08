@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="ProcessNumberLimit is a sandbox setting in Sandboxie Ini available since Sandboxie Plus v1.14.0. It uses a Windows Job Object to limit the number of active processes associated with the Job Object for the sandbox and session.">
+        <meta name="description" content="ProcessNumberLimit 是 Sandboxie Ini 中的一项沙盒设置，自 Sandboxie Plus v1.14.0 起可用。它使用 Windows 作业对象来限制该沙盒和会话对应的作业对象所关联的活动进程数。">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>Process Number Limit - Sandboxie 文档</title>
+        <title>进程数限制 - Sandboxie 文档</title>
       
     
     
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Process Number Limit
+              进程数限制
             
           </span>
         </div>
@@ -5584,24 +5584,24 @@
   
 
 
-<h1 id="process-number-limit">Process Number Limit<a class="headerlink" href="#process-number-limit" title="Permanent link"></a></h1>
-<p><em>ProcessNumberLimit</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a> available since Sandboxie Plus v1.14.0. It uses a Windows Job Object to limit the number of active processes associated with the Job Object for the sandbox and session.</p>
-<p>Syntax:</p>
+<h1 id="process-number-limit">进程数限制<a class="headerlink" href="#process-number-limit" title="Permanent link"></a></h1>
+<p><em>ProcessNumberLimit</em> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 中的一项沙盒设置，自 Sandboxie Plus v1.14.0 起可用。它使用 Windows 作业对象来限制该沙盒和会话对应的作业对象所关联的活动进程数。</p>
+<p>语法：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">ProcessNumberLimit</span><span class="o">=</span><span class="s">&lt;process_count&gt;</span>
 </span></code></pre></div>
-<p>Example:</p>
+<p>示例：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">ProcessNumberLimit</span><span class="o">=</span><span class="s">50</span>
 </span></code></pre></div>
-<p>In this example, up to 50 associated processes may be active at the same time. A process that would exceed the limit cannot proceed with normal sandboxed startup. Processes that are already associated remain running.</p>
-<p><em>ProcessNumberLimit</em> uses the Windows Job Object active-process limit. It does not provide a dedicated Sandboxie notification when the limit is reached. If <em>ProcessNumberLimit</em> is not configured, this specific Job Object process-count limit is not applied.</p>
+<p>在此示例中，最多可有 50 个关联进程同时处于活动状态。将要超出限制的进程无法继续执行正常的沙盒化启动。已经关联的进程会继续运行。</p>
+<p><em>ProcessNumberLimit</em> 使用 Windows 作业对象的活动进程数限制。达到限制时，Sandboxie 不会提供专门的通知。如果未配置 <em>ProcessNumberLimit</em>，则不应用此特定的作业对象进程数限制。</p>
 <div class="admonition warning">
 <p class="admonition-title">Important</p>
-<p>These limits only apply to processes that are assigned to Sandboxie's Job Object. Job Object assignment is skipped for affected processes when <code>NoAddProcessToJob=y</code>, <code>NoSecurityIsolation=y</code>, or <code>OpenWinClass=*</code> applies. <code>AllowBoxedJobs=y</code> does not disable these limits.</p>
+<p>这些限制仅适用于被分配到 Sandboxie 作业对象的进程。当适用 <code>NoAddProcessToJob=y</code>、<code>NoSecurityIsolation=y</code> 或 <code>OpenWinClass=*</code> 时，受影响进程会跳过作业对象分配。<code>AllowBoxedJobs=y</code> 不会禁用这些限制。</p>
 </div>
-<p>The limits are configured when Sandboxie creates the Job Object. If the sandbox and session already have an active Job Object with running associated processes, changes may not take effect until that Job Object is no longer in use and a new one is created.</p>
-<p><em>ProcessNumberLimit</em> is separate from <a href="ProcessLimit.html">ProcessLimit</a>. <em>ProcessLimit</em> is enforced by Sandboxie's process initialization logic, while <em>ProcessNumberLimit</em> uses the Windows Job Object active-process limit.</p>
-<p>Related <a href="SandboxieIni.html">Sandboxie Ini</a> settings: <a href="TotalMemoryLimit.html">TotalMemoryLimit</a>, <a href="ProcessMemoryLimit.html">ProcessMemoryLimit</a></p>
+<p>这些限制在 Sandboxie 创建作业对象时配置。如果该沙盒和会话已有一个活动中的作业对象，其中有正在运行的关联进程，则更改可能要到该作业对象不再使用并创建新作业对象后才会生效。</p>
+<p><em>ProcessNumberLimit</em> 与 <a href="ProcessLimit.html">进程数量限制</a> 是两项独立的设置。<em>ProcessLimit</em> 由 Sandboxie 的进程初始化逻辑强制执行，而 <em>ProcessNumberLimit</em> 使用 Windows 作业对象的活动进程数限制。</p>
+<p>相关 <a href="SandboxieIni.html">Sandboxie Ini</a> 设置：<a href="TotalMemoryLimit.html">总内存限制</a>、<a href="ProcessMemoryLimit.html">进程内存限制</a></p>
 
 
 

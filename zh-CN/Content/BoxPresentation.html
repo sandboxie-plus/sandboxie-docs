@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="BoxIcon, CustomColor, DblClickAction, and PinToTray are per-box SandMan presentation and interaction settings. They share a configuration surface but have different purposes: icon presentation, color preservation during preset changes, double-click actions, and tray-list filtering. They are not sandbox-isolation controls, and a box&#x27;s color or icon is not proof of its security preset.">
+        <meta name="description" content="BoxIcon、CustomColor、DblClickAction 与 PinToTray 是 SandMan 的逐沙盒展示与交互设置。它们共用同一个配置面，但用途各不相同：图标展示、切换预设时保留颜色、双击动作、托盘列表过滤。它们都不是沙盒隔离控制项，沙盒的颜色或图标也不能作为其安全预设的证明。">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>Box Presentation and Actions - Sandboxie 文档</title>
+        <title>沙盒展示与操作 - Sandboxie 文档</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#box-presentation-and-actions" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Box Presentation and Actions
+              沙盒展示与操作
             
           </span>
         </div>
@@ -5584,126 +5584,126 @@
   
 
 
-<h1 id="box-presentation-and-actions">Box Presentation and Actions<a class="headerlink" href="#box-presentation-and-actions" title="Permanent link"></a></h1>
-<p><code>BoxIcon</code>, <code>CustomColor</code>, <code>DblClickAction</code>, and <code>PinToTray</code> are per-box SandMan presentation and interaction settings. They share a configuration surface but have different purposes: icon presentation, color preservation during preset changes, double-click actions, and tray-list filtering. They are not sandbox-isolation controls, and a box's color or icon is not proof of its security preset.</p>
-<p>The current SandMan consumers read these values directly from the sandbox section. They do not request <code>GlobalSettings</code> fallback, enabled-template inheritance, or expanded effective-policy lookup, and do not support process/image or ProcessGroup selectors for these settings. A value present only in a template or <code>GlobalSettings</code> is not used here. A workflow that copies a value into the sandbox section creates a direct value that these consumers can use; this limitation does not apply to Sandboxie's configuration system generally.</p>
-<p>The current Sandboxie Control Classic code has no dedicated consumers or equivalent controls for these four setting names. Their presence in an INI file does not provide the same Classic UI behavior.</p>
-<h2 id="custom-box-icons">Custom box icons<a class="headerlink" href="#custom-box-icons" title="Permanent link"></a></h2>
-<p><code>BoxIcon</code> can specify a Windows icon resource as <code>path,index</code>:</p>
+<h1 id="_1">沙盒展示与操作<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<p><code>BoxIcon</code>、<code>CustomColor</code>、<code>DblClickAction</code> 与 <code>PinToTray</code> 是 SandMan 的逐沙盒展示与交互设置。它们共用同一个配置面，但用途各不相同：图标展示、切换预设时保留颜色、双击动作、托盘列表过滤。它们都不是沙盒隔离控制项，沙盒的颜色或图标也不能作为其安全预设的证明。</p>
+<p>SandMan 当前的读取方直接从沙盒节读取这些值。它们不会请求 <code>GlobalSettings</code> 回退、已启用模板的继承或展开后的有效策略查询，也不支持针对这些设置的进程/映像或 ProcessGroup 选择器。仅存在于模板或 <code>GlobalSettings</code> 中的值在这里不会被使用。把值复制进沙盒节的工作流会生成一个直接值，这些读取方就能使用；这一限制并不适用于 Sandboxie 配置系统的整体。</p>
+<p>当前 Sandboxie Control Classic 代码没有为这四个设置名提供专门的读取方或等效控件。它们出现在 INI 文件中并不会带来相同的 Classic 界面行为。</p>
+<h2 id="_2">自定义沙盒图标<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
+<p><code>BoxIcon</code> 可以用 <code>path,index</code> 形式指定 Windows 图标资源：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[ExampleBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">BoxIcon</span><span class="o">=</span><span class="s">C:\Windows\System32\shell32.dll,0</span>
 </span></code></pre></div>
-<p>Alternatively, configure an absolute image path manually:</p>
+<p>也可以手动配置绝对图片路径：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[ExampleBox]</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">BoxIcon</span><span class="o">=</span><span class="s">C:\Icons\box.png</span>
 </span></code></pre></div>
-<p>Direct images use Qt image handling; supported formats depend on the image support available in the build. <code>BoxIcon</code> is used in SandMan's main sandbox list/tree, Run Sandboxed box picker, Sandbox Options preview, and system-tray box list/menu, subject to the relevant icon-display preferences.</p>
-<p>Custom icons, color-generated icons, box-type icons, and status overlays are separate presentation layers. If a custom icon cannot be loaded, fallback behavior differs by surface. The tray can try the target icon of a non-built-in <code>DblClickAction</code> before using the normal color/type icon; the main sandbox tree does not use that same fallback. An icon choice does not change the box type, security preset, or runtime enforcement.</p>
-<p>Under <strong>Sandbox Options &gt; General Options &gt; Box Options &gt; Appearance</strong>, open the color button's menu and select <strong>Custom icon</strong>. The icon picker stores a Windows resource selection as <code>path,index</code>; it is not a dedicated image-path editor. The color reset control resets the color, not <code>BoxIcon</code>.</p>
-<h2 id="keeping-a-custom-color">Keeping a custom color<a class="headerlink" href="#keeping-a-custom-color" title="Permanent link"></a></h2>
+<p>直接使用图片时走 Qt 的图片处理，支持的格式取决于该构建中可用的图片支持。<code>BoxIcon</code> 会用在 SandMan 的主沙盒列表/树、在沙盒中运行时的沙盒选择器、沙盒选项预览，以及系统托盘的沙盒列表/菜单中，具体受相关图标显示偏好约束。</p>
+<p>自定义图标、按颜色生成的图标、沙盒类型图标与状态叠加层是彼此独立的展示层。如果自定义图标无法加载，回退行为会因界面位置而异。托盘在回退到常规的颜色/类型图标之前，会先尝试非内置 <code>DblClickAction</code> 的目标图标；主沙盒树不使用同样的回退。图标选择不会改变沙盒类型、安全预设或运行时执行策略。</p>
+<p>在 <strong>沙盒选项 &gt; 常规选项 &gt; 沙盒选项 &gt; 外观</strong> 下，打开颜色按钮的菜单并选择 <strong>自定义图标</strong>。图标选择器把 Windows 资源选择结果存为 <code>path,index</code>，它不是一个专门的图片路径编辑器。颜色重置控件重置的是颜色，不是 <code>BoxIcon</code>。</p>
+<h2 id="_3">保留自定义颜色<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[ExampleBox]</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">CustomColor</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p><code>CustomColor</code> does not define a color. The actual color remains in <a href="BorderColor.html"><code>BorderColor</code></a>. <code>CustomColor=y</code> tells SandMan to preserve that color when changing <strong>Box Type Preset</strong>. Without the flag, changing the preset can apply the newly selected preset's color. A custom <code>BorderColor</code> can still be used without this flag; the flag concerns preservation during preset changes.</p>
-<p>This setting does not enable the border, contain RGB values, or control border width or opacity. It also does not preserve the old security/isolation preset: changing <strong>Box Type Preset</strong> still changes the applicable preset controls even when the color is retained.</p>
-<p>There is no checkbox labelled <code>CustomColor</code>. The color controls under <strong>Sandbox Options &gt; General Options &gt; Box Options &gt; Appearance</strong> manage its state. Selecting or adjusting a custom color records <code>CustomColor=y</code> when applied; resetting to the preset color removes the flag when applied. With no direct value, the consumer's fallback is disabled.</p>
-<h2 id="double-click-actions">Double-click actions<a class="headerlink" href="#double-click-actions" title="Permanent link"></a></h2>
-<p><code>DblClickAction</code> selects the action for an applicable double-click on a sandbox:</p>
+<p><code>CustomColor</code> 不定义颜色。实际颜色仍然保存在 <a href="BorderColor.html"><code>BorderColor</code></a> 中。<code>CustomColor=y</code> 告诉 SandMan 在更改 <strong>沙盒类型预设配置</strong> 时保留该颜色。没有这个标志时，更改预设可能套用新选中预设的颜色。即使没有这个标志，自定义的 <code>BorderColor</code> 仍然可用；这个标志管的是切换预设时的保留行为。</p>
+<p>此设置不会启用边框、不含 RGB 值，也不控制边框宽度或透明度。它同样不会保留旧的安全/隔离预设：即使颜色被保留，更改 <strong>沙盒类型预设配置</strong> 仍会更改适用的预设控件。</p>
+<p>没有名为 <code>CustomColor</code> 的复选框。<strong>沙盒选项 &gt; 常规选项 &gt; 沙盒选项 &gt; 外观</strong> 下的颜色控件管理它的状态。选择或调整自定义颜色并在应用后，会记录 <code>CustomColor=y</code>；重置为预设颜色并在应用后，会移除该标志。没有直接值时，读取方的回退处于禁用状态。</p>
+<h2 id="_4">双击动作<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
+<p><code>DblClickAction</code> 选择在沙盒上发生适用的双击时执行的动作：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">[ExampleBox]</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">DblClickAction</span><span class="o">=</span><span class="s">!browse</span>
 </span></code></pre></div>
-<p>Under <strong>Sandbox Options &gt; General Options &gt; Box Options &gt; Double click action:</strong>, the editable selector provides:</p>
+<p>在 <strong>沙盒选项 &gt; 常规选项 &gt; 沙盒选项 &gt; 双击动作：</strong> 下，可编辑的选择器提供：</p>
 <table>
 <thead>
 <tr>
-<th>Value</th>
-<th>SandMan label</th>
-<th>Action</th>
+<th>值</th>
+<th>SandMan 标签</th>
+<th>动作</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>!options</code></td>
-<td><strong>Open Box Options</strong></td>
-<td>Opens Sandbox Options.</td>
+<td><strong>打开沙盒选项</strong></td>
+<td>打开沙盒选项。</td>
 </tr>
 <tr>
 <td><code>!browse</code></td>
-<td><strong>Browse Content</strong></td>
-<td>Opens SandMan's sandbox-content browser.</td>
+<td><strong>浏览内容</strong></td>
+<td>打开 SandMan 的沙盒内容浏览器。</td>
 </tr>
 <tr>
 <td><code>!recovery</code></td>
-<td><strong>Start File Recovery</strong></td>
-<td>Opens the file-recovery window and scans; it does not enable Immediate Recovery.</td>
+<td><strong>开始恢复文件</strong></td>
+<td>打开文件恢复窗口并扫描；它不会启用即时恢复。</td>
 </tr>
 <tr>
 <td><code>!run</code></td>
-<td><strong>Show Run Dialog</strong></td>
-<td>Opens the Run Sandboxed dialog through <code>Start.exe</code>.</td>
+<td><strong>显示运行对话框</strong></td>
+<td>通过 <code>Start.exe</code> 打开“在沙盒中运行”对话框。</td>
 </tr>
 </tbody>
 </table>
-<p>An absent or empty value opens Sandbox Options. Selecting <strong>Open Box Options</strong> normally removes <code>DblClickAction</code> rather than storing <code>!options</code>. An unknown value beginning with <code>!</code> also opens Sandbox Options. <strong>Ctrl + double-click</strong> opens Sandbox Options regardless of the configured action.</p>
-<p>A non-empty value that does not begin with <code>!</code> is command text forwarded to <code>Start.exe</code> for that sandbox, for example:</p>
+<p>缺少值或值为空时，打开沙盒选项。选择 <strong>打开沙盒选项</strong> 通常会移除 <code>DblClickAction</code>，而不是存储 <code>!options</code>。以 <code>!</code> 开头的未知值同样会打开沙盒选项。<strong>Ctrl + 双击</strong> 无论配置了什么动作都会打开沙盒选项。</p>
+<p>非空且不以 <code>!</code> 开头的值是命令文本，会被转交给该沙盒的 <code>Start.exe</code>，例如：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">[ExampleBox]</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="na">DblClickAction</span><span class="o">=</span><span class="s">"C:\Tools\example.exe"</span><span class="w"> </span><span class="na">--example</span>
 </span></code></pre></div>
-<p>This is not a <a href="RunCommand.html"><code>RunCommand</code></a> name, Run Menu caption, or program alias. The dispatcher does not resolve it against Run Menu entries, and the current selector does not automatically list those entries. It is not an unrestricted shell-language parser; do not assume pipelines or redirection are interpreted.</p>
-<p>Invalid custom command text still causes a launch attempt, not an automatic fallback to Sandbox Options. Downstream launch errors can occur, and the configured value is not automatically deleted on failure. Changing the action in the interface can also update the custom-icon selection; review it before applying changes.</p>
-<h2 id="pinning-boxes-to-the-tray">Pinning boxes to the tray<a class="headerlink" href="#pinning-boxes-to-the-tray" title="Permanent link"></a></h2>
+<p>这不是 <a href="RunCommand.html"><code>RunCommand</code></a> 名称、运行菜单标题或程序别名。分派器不会把它与运行菜单条目做解析，当前选择器也不会自动列出这些条目。它不是无限制的 shell 语言解析器；不要假设管道或重定向会被解释。</p>
+<p>无效的自定义命令文本仍会导致一次启动尝试，而不是自动回退到沙盒选项。下游可能发生启动错误，且失败时配置值不会被自动删除。在界面中更改动作也可能同时更新自定义图标的选择；应用更改前请先核对。</p>
+<h2 id="_5">把沙盒固定到托盘<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">[ExampleBox]</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="na">PinToTray</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p><code>PinToTray</code> marks the box as pinned for SandMan's tray-list filters. With no direct value, its consumer and checkbox fall back to unpinned. It does not create a separate notification-area icon for the sandbox.</p>
-<p>The checkbox is under <strong>Sandbox Options &gt; General Options &gt; Box Options</strong>, labelled <strong>Always show this sandbox in the systray list (Pinned)</strong>. Checking it writes a direct <code>PinToTray=y</code>; unchecking it normally removes the direct scalar value. It does not display an inherited template/global value.</p>
-<p>The SandMan preference <code>Options/SysTrayFilter</code> is configured under <strong>Global Settings &gt; Shell Integration &gt; System Tray &gt; Show boxes in tray list:</strong>. It is a manager preference, not a <code>GlobalSettings</code> value inherited by these box consumers. Its absent-value fallback is <strong>All Boxes</strong>.</p>
+<p><code>PinToTray</code> 把沙盒标记为固定，供 SandMan 的托盘列表过滤器使用。没有直接值时，它的读取方与复选框都回退为未固定。它不会为该沙盒额外创建一个通知区域图标。</p>
+<p>复选框位于 <strong>沙盒选项 &gt; 常规选项 &gt; 沙盒选项</strong>，标签为 <strong>固定住此沙盒，以便总是在系统托盘列表显示</strong>。勾选会写入直接的 <code>PinToTray=y</code>；取消勾选通常会移除该直接标量值。它不会显示继承来的模板/全局值。</p>
+<p>SandMan 的偏好项 <code>Options/SysTrayFilter</code> 在 <strong>全局设置 &gt; 系统集成 &gt; 任务栏托盘 &gt; 沙盒列表显示：</strong> 下配置。它是管理器偏好，不是由这些沙盒读取方继承的 <code>GlobalSettings</code> 值。其缺值回退为 <strong>所有沙盒</strong>。</p>
 <table>
 <thead>
 <tr>
-<th>Tray mode</th>
-<th>Inactive, not pinned</th>
-<th>Active, not pinned</th>
-<th>Pinned</th>
+<th>托盘模式</th>
+<th>非活动且未固定</th>
+<th>活动但未固定</th>
+<th>已固定</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>All Boxes</td>
-<td>shown</td>
-<td>shown</td>
-<td>shown</td>
+<td>所有沙盒</td>
+<td>显示</td>
+<td>显示</td>
+<td>显示</td>
 </tr>
 <tr>
-<td>Active + Pinned</td>
-<td>hidden</td>
-<td>shown</td>
-<td>shown</td>
+<td>激活或已固定的沙盒</td>
+<td>隐藏</td>
+<td>显示</td>
+<td>显示</td>
 </tr>
 <tr>
-<td>Pinned Only</td>
-<td>hidden</td>
-<td>hidden</td>
-<td>shown</td>
+<td>仅已固定的沙盒</td>
+<td>隐藏</td>
+<td>隐藏</td>
+<td>显示</td>
 </tr>
 </tbody>
 </table>
-<p>This assumes the box is otherwise enabled and available. Pinning does not force a disabled or unavailable box into the tray list; the checkbox's "Always" wording does not bypass those conditions.</p>
-<h2 id="applying-changes">Applying changes<a class="headerlink" href="#applying-changes" title="Permanent link"></a></h2>
-<p>Apply changes in SandMan, or reload the configuration after editing it externally. These settings do not require restarting sandboxed applications.</p>
+<p>上表假定该沙盒本身已启用且可用。固定不会把被禁用或不可用的沙盒强行放进托盘列表；复选框里的“总是”字样不会绕过这些条件。</p>
+<h2 id="_6">应用更改<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
+<p>在 SandMan 中应用更改，或在外部编辑后重新加载配置。这些设置不需要重启沙盒中的应用程序。</p>
 <ul>
-<li>Changed <code>BoxIcon</code> values can appear when SandMan reloads/rebuilds the relevant presentation surface. Loaded icons are cached: replacing an external icon file without changing its configured path/string can leave the old icon visible. Restarting SandMan forces its icon caches to be rebuilt.</li>
-<li>Reopen Sandbox Options after external changes to <code>CustomColor</code> or the other settings so its controls reflect the new direct values. Color preservation applies when changing the preset in that interface.</li>
-<li><code>DblClickAction</code> is read for each applicable sandbox double-click; the next gesture after applying/reloading the configuration can use the new action. Icon caching is separate from action dispatch.</li>
-<li><code>PinToTray</code> is evaluated when the tray list/menu is rebuilt. Reopen it after applying/reloading changes; no SandMan restart is normally needed for pinning.</li>
+<li>更改后的 <code>BoxIcon</code> 值会在 SandMan 重新加载/重建相关展示面时出现。已加载的图标会被缓存：仅替换外部图标文件而不更改其配置路径/字符串，可能仍显示旧图标。重启 SandMan 会强制重建其图标缓存。</li>
+<li>外部更改 <code>CustomColor</code> 或其他设置后，请重新打开沙盒选项，以便其控件反映新的直接值。在该界面中切换预设时才会应用颜色保留。</li>
+<li>每次对适用沙盒双击时都会读取 <code>DblClickAction</code>；应用/重新加载配置后的下一次手势即可使用新动作。图标缓存与动作分派相互独立。</li>
+<li><code>PinToTray</code> 在重建托盘列表/菜单时求值。应用/重新加载后重新打开它；固定通常不需要重启 SandMan。</li>
 </ul>
-<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
+<h2 id="_7">相关页面<a class="headerlink" href="#_7" title="Permanent link"></a></h2>
 <ul>
-<li><a href="BorderColor.html">Border Color</a></li>
-<li><a href="BoxAlias.html">Box Alias</a></li>
+<li><a href="BorderColor.html">边框颜色</a></li>
+<li><a href="BoxAlias.html">沙盒别名</a></li>
 <li><a href="RunCommand.html">RunCommand</a></li>
-<li><a href="RecoveryArchitecture.html">File Recovery Architecture</a></li>
-<li><a href="../PlusContent/box-preset-comparison.html">Box Preset Comparison</a></li>
+<li><a href="RecoveryArchitecture.html">文件恢复架构</a></li>
+<li><a href="../PlusContent/box-preset-comparison.html">沙盒预设对比</a></li>
 </ul>
 
 

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="StripSystemPrivileges controls privilege removal from SYSTEM-source tokens created through specific SbieSvc service and RpcSs paths:">
+        <meta name="description" content="StripSystemPrivileges 控制从通过特定 SbieSvc 服务路径和 RpcSs 路径创建的 SYSTEM 源令牌中移除权限的行为：">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>Strip System Privileges - Sandboxie 文档</title>
+        <title>剥离 SYSTEM 权限 - Sandboxie 文档</title>
       
     
     
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Strip System Privileges
+              剥离 SYSTEM 权限
             
           </span>
         </div>
@@ -5584,52 +5584,52 @@
   
 
 
-<h1 id="strip-system-privileges">Strip System Privileges<a class="headerlink" href="#strip-system-privileges" title="Permanent link"></a></h1>
-<p><em>StripSystemPrivileges</em> controls privilege removal from SYSTEM-source tokens created through specific SbieSvc service and RpcSs paths:</p>
+<h1 id="strip-system-privileges">剥离 SYSTEM 权限<a class="headerlink" href="#strip-system-privileges" title="Permanent link"></a></h1>
+<p><em>StripSystemPrivileges</em> 控制从通过特定 SbieSvc 服务路径和 RpcSs 路径创建的 SYSTEM 源令牌中移除权限的行为：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">StripSystemPrivileges</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>The default is <code>y</code>, which is the protective behavior.</p>
+<p>默认值为 <code>y</code>，即具有保护作用的行为。</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p><code>StripSystemPrivileges=n</code> restores the older, less-restricted behavior for affected SYSTEM-token paths and is not recommended.</p>
+<p><code>StripSystemPrivileges=n</code> 会为受影响的 SYSTEM 令牌路径恢复较早的、限制较少的行为，不建议这样做。</p>
 </div>
-<h2 id="privileges-removed">Privileges removed<a class="headerlink" href="#privileges-removed" title="Permanent link"></a></h2>
-<p>When enabled on an affected path, Sandboxie removes these privileges from the newly duplicated token:</p>
+<h2 id="privileges-removed">移除的权限<a class="headerlink" href="#privileges-removed" title="Permanent link"></a></h2>
+<p>在受影响的路径上启用时，Sandboxie 会从新复制的令牌中移除以下权限：</p>
 <ul>
 <li><code>SeTcbPrivilege</code></li>
 <li><code>SeCreateTokenPrivilege</code></li>
 </ul>
-<p>Sandboxie uses the Windows <code>SE_PRIVILEGE_REMOVED</code> operation. The privileges are removed from that token rather than merely disabled, so they cannot simply be re-enabled on the same token. <code>SeAssignPrimaryTokenPrivilege</code> is not removed by the current helper.</p>
-<h2 id="runtime-scope">Runtime scope<a class="headerlink" href="#runtime-scope" title="Permanent link"></a></h2>
-<p>The current implementation applies this setting when SbieSvc creates:</p>
+<p>Sandboxie 使用 Windows 的 <code>SE_PRIVILEGE_REMOVED</code> 操作。这些权限会从该令牌中移除，而不只是被禁用，因此无法简单地在同一令牌上重新启用它们。当前的辅助实现不会移除 <code>SeAssignPrimaryTokenPrivilege</code>。</p>
+<h2 id="runtime-scope">运行时范围<a class="headerlink" href="#runtime-scope" title="Permanent link"></a></h2>
+<p>当前的实现在 SbieSvc 创建以下令牌时应用此设置：</p>
 <ul>
-<li>a SYSTEM-source token for a sandboxed service selected to run as SYSTEM;</li>
-<li>a SYSTEM-source token for the relevant sandboxed RpcSs process-server path.</li>
+<li>为选定以 SYSTEM 身份运行的沙盒化服务创建的 SYSTEM 源令牌；</li>
+<li>为相关的沙盒化 RpcSs 进程服务器路径创建的 SYSTEM 源令牌。</li>
 </ul>
-<p>It does not apply to ordinary user-token service launches and should not be described as a global privilege filter for every sandboxed process or every SYSTEM process.</p>
-<p>If token duplication, adjustment, or the required privilege-removal operation fails, the affected launch or token request fails rather than intentionally continuing with an unstripped SYSTEM token.</p>
-<h2 id="configuration-scope">Configuration scope<a class="headerlink" href="#configuration-scope" title="Permanent link"></a></h2>
-<p><em>StripSystemPrivileges</em> is a box-wide Boolean setting. Normal template and global fallback can contribute its effective value when the box does not provide an overriding value. It is consulted when an affected token is created, so changing it does not modify tokens already assigned to running processes. Restart the affected sandboxed service or process after changing it.</p>
+<p>它不适用于普通的用户令牌服务启动，也不应被描述为对每个沙盒化进程或每个 SYSTEM 进程都生效的全局权限过滤器。</p>
+<p>如果令牌复制、调整或所需的权限移除操作失败，受影响的启动或令牌请求会失败，而不会故意以未经剥离的 SYSTEM 令牌继续执行。</p>
+<h2 id="configuration-scope">配置范围<a class="headerlink" href="#configuration-scope" title="Permanent link"></a></h2>
+<p><em>StripSystemPrivileges</em> 是一项沙盒级布尔设置。当沙盒未提供覆盖值时，适用的模板和全局设置回退值可以参与构成其生效值。系统会在创建受影响的令牌时查询此设置，因此更改它不会修改已分配给运行中进程的令牌。更改后请重启受影响的沙盒化服务或进程。</p>
 <h2 id="sandman">SandMan<a class="headerlink" href="#sandman" title="Permanent link"></a></h2>
-<p>Open <strong>Sandbox Options &gt; Security Options &gt; Advanced Security</strong> and use:</p>
+<p>打开<strong>沙盒选项 &gt; 安全选项 &gt; 高级安全</strong>，使用：</p>
 <blockquote>
-<p>Drop critical privileges from processes running with a SYSTEM token</p>
+<p>撤销以系统令牌运行中的程序的关键特权</p>
 </blockquote>
-<p>The checkbox directly represents the protective setting:</p>
+<p>该复选框直接表示此项保护性设置：</p>
 <ul>
-<li>checked: privilege removal is enabled, which is the default;</li>
-<li>unchecked: SandMan writes <code>StripSystemPrivileges=n</code>.</li>
+<li>选中：已启用权限移除，这也是默认行为；</li>
+<li>未选中：SandMan 会写入 <code>StripSystemPrivileges=n</code>。</li>
 </ul>
-<h2 id="relationship-to-session-0-startup">Relationship to Session 0 startup<a class="headerlink" href="#relationship-to-session-0-startup" title="Permanent link"></a></h2>
-<p><a href="../StartSystemBox/">Start System Box</a> uses a different startup path. A box being started in Session 0 with SYSTEM identity does not, by itself, cause that token to pass through the <em>StripSystemPrivileges</em> helper documented here.</p>
-<h2 id="version-history">Version history<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
-<p><em>StripSystemPrivileges</em> was introduced in Sandboxie Plus 0.5.4 / Classic 5.46.0 as part of the fix for Security Issue ID-4.</p>
-<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
+<h2 id="relationship-to-session-0-startup">与会话 0 启动的关系<a class="headerlink" href="#relationship-to-session-0-startup" title="Permanent link"></a></h2>
+<p><a href="../StartSystemBox/">Start System Box</a> 使用不同的启动路径。在会话 0 中以 SYSTEM 身份启动的沙盒，本身并不会使该令牌经过本文档介绍的 <em>StripSystemPrivileges</em> 辅助函数。</p>
+<h2 id="version-history">版本历史<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
+<p><em>StripSystemPrivileges</em> 在 Sandboxie Plus 0.5.4 / Classic 5.46.0 中引入，是 Security Issue ID-4 修复的一部分。</p>
+<h2 id="related-pages">相关页面<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
 <ul>
 <li><a href="../SandboxedServices/">Sandboxed Services</a></li>
 <li><a href="../StartSystemBox/">Start System Box</a></li>
-<li><a href="../DropAdminRights/">Drop Admin Rights</a></li>
+<li><a href="../DropAdminRights/">撤销管理员权限</a></li>
 <li><a href="../SandboxieIni/">Sandboxie Ini</a></li>
 </ul>
 

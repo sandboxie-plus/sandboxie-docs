@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="DropConHostIntegrity is a console-compatibility setting. It makes Sandboxie attempt to lower the integrity level of the external conhost.exe associated with a console created through Sandboxie&#x27;s console proxy.">
+        <meta name="description" content="DropConHostIntegrity 是一个控制台兼容性设置。它让 Sandboxie 尝试降低通过 Sandboxie 控制台代理创建的控制台所关联的外部 conhost.exe 的完整性级别。">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>Drop ConHost Integrity - Sandboxie 文档</title>
+        <title>降低 ConHost 完整性 - Sandboxie 文档</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#drop-conhost-integrity" class="md-skip">
+        <a href="#conhost" class="md-skip">
           跳转至
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Drop ConHost Integrity
+              降低 ConHost 完整性
             
           </span>
         </div>
@@ -5584,34 +5584,34 @@
   
 
 
-<h1 id="drop-conhost-integrity">Drop ConHost Integrity<a class="headerlink" href="#drop-conhost-integrity" title="Permanent link"></a></h1>
-<p><em>DropConHostIntegrity</em> is a console-compatibility setting. It makes Sandboxie attempt to lower the integrity level of the external <code>conhost.exe</code> associated with a console created through Sandboxie's console proxy.</p>
+<h1 id="conhost">降低 ConHost 完整性<a class="headerlink" href="#conhost" title="Permanent link"></a></h1>
+<p><em>DropConHostIntegrity</em> 是一个控制台兼容性设置。它让 Sandboxie 尝试降低通过 Sandboxie 控制台代理创建的控制台所关联的外部 <code>conhost.exe</code> 的完整性级别。</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">DropConHostIntegrity</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>The default is <code>n</code>. This is a box-wide Boolean setting; normal template and <code>GlobalSettings</code> inheritance can contribute its effective value.</p>
-<h2 id="runtime-behavior">Runtime behavior<a class="headerlink" href="#runtime-behavior" title="Permanent link"></a></h2>
-<p>When Sandboxie's console proxy is used, an SbieSvc helper creates a console and Windows starts the associated <code>conhost.exe</code> outside the sandbox. The sandboxed process then attaches to that console and the helper exits.</p>
-<p>With <code>DropConHostIntegrity=y</code>, the helper identifies its associated console-host process, opens that process token, and attempts to set its mandatory integrity level to <strong>Untrusted</strong>. This changes the integrity label of that proxy-created console host; it does not sandbox <code>conhost.exe</code> or change the token of the sandboxed application.</p>
-<p>The adjustment is best effort. If Sandboxie cannot identify the console host, open the process or its token, or apply the new integrity label, console creation continues without treating that adjustment failure as fatal.</p>
-<h2 id="why-it-exists">Why it exists<a class="headerlink" href="#why-it-exists" title="Permanent link"></a></h2>
-<p>This setting was introduced for console applications that could not perform some console-buffer operations when an Untrusted sandboxed process was attached to a console host at a higher integrity level. Reported symptoms included PowerShell errors and Node.js interactive-console failures. Lowering the associated console host to Untrusted resolved the reported mismatch, but not every console failure has this cause and behavior can vary between Windows versions. See <a href="https://github.com/sandboxie-plus/Sandboxie/issues/678">Sandboxie issue #678</a> for the original report.</p>
-<h2 id="scope-and-limitations">Scope and limitations<a class="headerlink" href="#scope-and-limitations" title="Permanent link"></a></h2>
-<p><code>DropConHostIntegrity</code> is not a global policy for every <code>conhost.exe</code> process. It is consulted when the Sandboxie console helper successfully creates a proxy console, and it targets only the console host associated with that helper-created console.</p>
-<p>The setting does not control every terminal architecture. In particular, its implementation does not establish general coverage for Windows Terminal, pseudoconsole (ConPTY), or console hosts created outside Sandboxie's proxy path.</p>
-<h2 id="relationship-to-nosandboxieconsole">Relationship to NoSandboxieConsole<a class="headerlink" href="#relationship-to-nosandboxieconsole" title="Permanent link"></a></h2>
-<p><a href="../NoSandboxieConsole/">No Sandboxie Console</a> bypasses Sandboxie's custom console-redirection and proxy path. <code>DropConHostIntegrity</code> applies inside that proxy path, so it should not be expected to modify a console host created through the <code>NoSandboxieConsole</code> path.</p>
-<h2 id="sandman-configuration">SandMan configuration<a class="headerlink" href="#sandman-configuration" title="Permanent link"></a></h2>
-<p>In SandMan, open:</p>
-<p><strong>Sandbox Options &gt; Security Options &gt; Advanced Security</strong></p>
-<p>The checkbox is labeled <strong>Drop ConHost.exe Process Integrity Level</strong>. Selecting it writes <code>DropConHostIntegrity=y</code>; clearing it removes the sandbox’s explicit value. The setting then falls back to any inherited template or <code>[GlobalSettings]</code> value, or to the default <code>n</code> if none is configured.</p>
-<h2 id="applying-changes">Applying changes<a class="headerlink" href="#applying-changes" title="Permanent link"></a></h2>
-<p>The value is consulted when a new proxy console is created. Changing it does not relabel an existing console host. Restart the affected sandboxed console application so that an applicable console can be created with the new setting. A SandMan, service, or driver restart is not normally required.</p>
-<h2 id="version-history">Version history<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
-<p><code>DropConHostIntegrity</code> was introduced in Sandboxie Plus 0.7.3 / Classic 5.49.5. The dedicated SandMan checkbox was added in Sandboxie Plus 1.14.7 / Classic 5.69.7.</p>
-<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
+<p>默认值为 <code>n</code>。这是一个盒级布尔设置；常规的模板与 <code>GlobalSettings</code> 继承可以贡献它的生效值。</p>
+<h2 id="_1">运行时行为<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
+<p>使用 Sandboxie 的控制台代理时，由 SbieSvc 的辅助进程创建控制台，Windows 会在沙盒之外启动关联的 <code>conhost.exe</code>。随后沙盒进程附加到该控制台，辅助进程退出。</p>
+<p>启用 <code>DropConHostIntegrity=y</code> 时，辅助进程会识别与之关联的控制台宿主进程，打开该进程的令牌，并尝试把其强制完整性级别设为 <strong>不受信任</strong>。这改变的是该代理所创建控制台宿主的完整性标签；它不会把 <code>conhost.exe</code> 纳入沙盒，也不会改变沙盒应用程序的令牌。</p>
+<p>该调整是尽力而为的。如果 Sandboxie 无法识别控制台宿主、无法打开该进程或其令牌，或无法应用新的完整性标签，控制台创建仍会继续，不会把该调整失败当作致命错误。</p>
+<h2 id="_2">为什么存在<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
+<p>该设置是为那些在更高完整性级别的控制台宿主上附加不受信任的沙盒进程后，无法执行某些控制台缓冲区操作的控制台应用程序引入的。报告的症状包括 PowerShell 报错与 Node.js 交互式控制台失败。把关联的控制台宿主降为不受信任解决了所报告的级别不匹配问题，但并非所有控制台故障都源于此，且不同 Windows 版本上的行为可能不同。原始报告见 <a href="https://github.com/sandboxie-plus/Sandboxie/issues/678">Sandboxie issue #678</a>。</p>
+<h2 id="_3">范围与限制<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
+<p><code>DropConHostIntegrity</code> 不是针对每个 <code>conhost.exe</code> 进程的全局策略。它只在 Sandboxie 控制台辅助进程成功创建代理控制台时被查询，且只针对该辅助进程所创建控制台关联的那个控制台宿主。</p>
+<p>该设置不控制每一种终端架构。特别是其实现并未为 Windows Terminal、伪控制台（ConPTY）或在 Sandboxie 代理路径之外创建的控制台宿主建立通用覆盖。</p>
+<h2 id="nosandboxieconsole">与 NoSandboxieConsole 的关系<a class="headerlink" href="#nosandboxieconsole" title="Permanent link"></a></h2>
+<p><a href="../NoSandboxieConsole/">无 Sandboxie 控制台</a> 会绕过 Sandboxie 自定义的控制台重定向与代理路径。<code>DropConHostIntegrity</code> 在该代理路径内部生效，因此不应指望它能修改通过 <code>NoSandboxieConsole</code> 路径创建的控制台宿主。</p>
+<h2 id="sandman">SandMan 中的配置<a class="headerlink" href="#sandman" title="Permanent link"></a></h2>
+<p>在 SandMan 中打开：</p>
+<p><strong>沙盒选项 &gt; 安全选项 &gt; 高级安全</strong></p>
+<p>复选框标签为 <strong>降低 ConHost.exe 的进程完整级</strong>。勾选会写入 <code>DropConHostIntegrity=y</code>；取消勾选会移除该沙盒的显式值。此后该设置回退到任何继承来的模板或 <code>[GlobalSettings]</code> 值，若都没有配置则回退到默认值 <code>n</code>。</p>
+<h2 id="_4">应用更改<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
+<p>该值在新建代理控制台时被查询。更改它不会为既有的控制台宿主重新打标签。请重启受影响的沙盒控制台应用程序，以便用新设置创建可用的控制台。通常不需要重启 SandMan、服务或驱动。</p>
+<h2 id="_5">版本历史<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
+<p><code>DropConHostIntegrity</code> 在 Sandboxie Plus 0.7.3 / Classic 5.49.5 引入。专门的 SandMan 复选框在 Sandboxie Plus 1.14.7 / Classic 5.69.7 添加。</p>
+<h2 id="_6">相关页面<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
 <ul>
-<li><a href="../NoSandboxieConsole/">No Sandboxie Console</a></li>
+<li><a href="../NoSandboxieConsole/">无 Sandboxie 控制台</a></li>
 <li><a href="../SandboxieIni/">Sandboxie Ini</a></li>
 </ul>
 

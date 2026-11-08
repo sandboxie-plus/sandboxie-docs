@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="CpuAffinityMask is a sandbox setting in Sandboxie Ini, available since Sandboxie Plus 1.13.5. It restricts sandboxed processes to selected logical processors by applying a processor affinity mask as each process initializes.">
+        <meta name="description" content="CpuAffinityMask 是 Sandboxie Ini 中的沙盒设置，自 Sandboxie Plus 1.13.5 起提供。它通过在进程初始化时应用处理器亲和性掩码，把沙盒进程限制在选定的逻辑处理器上运行。">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>CPU Affinity Mask - Sandboxie 文档</title>
+        <title>CPU 亲和性掩码 - Sandboxie 文档</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cpu-affinity-mask" class="md-skip">
+        <a href="#cpu" class="md-skip">
           跳转至
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              CPU Affinity Mask
+              CPU 亲和性掩码
             
           </span>
         </div>
@@ -5584,18 +5584,18 @@
   
 
 
-<h1 id="cpu-affinity-mask">CPU Affinity Mask<a class="headerlink" href="#cpu-affinity-mask" title="Permanent link"></a></h1>
-<p><em>CpuAffinityMask</em> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a>, available since Sandboxie Plus 1.13.5. It restricts sandboxed processes to selected logical processors by applying a processor affinity mask as each process initializes.</p>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h2>
+<h1 id="cpu">CPU 亲和性掩码<a class="headerlink" href="#cpu" title="Permanent link"></a></h1>
+<p><em>CpuAffinityMask</em> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 中的沙盒设置，自 Sandboxie Plus 1.13.5 起提供。它通过在进程初始化时应用处理器亲和性掩码，把沙盒进程限制在选定的逻辑处理器上运行。</p>
+<h2 id="_1">用法<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">CpuAffinityMask</span><span class="o">=</span><span class="s">0x00000003</span>
 </span></code></pre></div>
-<p>The value must be hexadecimal and begin with <code>0x</code> or <code>0X</code>. Each set bit allows the corresponding logical processor. In this example, bits 0 and 1 are set, so sandboxed processes may run on logical processors 0 and 1. Logical processors do not necessarily correspond one-to-one with physical CPU cores.</p>
-<h2 id="current-limitations">Current Limitations<a class="headerlink" href="#current-limitations" title="Permanent link"></a></h2>
-<p>The current Sandboxie implementation supports logical processor indices 0 through 31 only. Bits for logical processors 32 and higher cannot be configured with this setting, including on 64-bit Windows.</p>
-<p>Sandboxie exposes one affinity mask but no processor-group selector, <code>GROUP_AFFINITY</code> setting, or CPU Sets setting. On systems that use multiple Windows processor groups, the mask is therefore subject to Windows' single-group affinity semantics and cannot explicitly select processors in another group.</p>
-<p>If Windows rejects the requested affinity mask, Sandboxie currently does not terminate the process because of that failure. If <em>CpuAffinityMask</em> is not configured, Sandboxie does not apply this setting's processor-affinity restriction.</p>
-<p><em>CpuAffinityMask</em> controls where sandboxed processes may execute. To limit their aggregate processor scheduling capacity, see <a href="../CpuRateLimit/">CPU Rate Limit</a>. The two settings can be used together.</p>
+<p>该值必须是十六进制且以 <code>0x</code> 或 <code>0X</code> 开头。每个置位的比特允许对应的逻辑处理器。上例中第 0、1 位被置位，因此沙盒进程只能在逻辑处理器 0 与 1 上运行。逻辑处理器与物理 CPU 核心不一定一一对应。</p>
+<h2 id="_2">当前限制<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
+<p>当前 Sandboxie 实现只支持逻辑处理器索引 0 到 31。逻辑处理器 32 及以上的位无法通过该设置配置，即使在 64 位 Windows 上也是如此。</p>
+<p>Sandboxie 只暴露一个亲和性掩码，没有处理器组选择器、<code>GROUP_AFFINITY</code> 设置或 CPU Sets 设置。因此在采用多个 Windows 处理器组的系统上，该掩码受 Windows 单组亲和性语义约束，无法显式选择其他组中的处理器。</p>
+<p>如果 Windows 拒绝所请求的亲和性掩码，Sandboxie 目前不会因该失败而终止进程。若未配置 <em>CpuAffinityMask</em>，Sandboxie 不会施加该设置的处理器亲和性限制。</p>
+<p><em>CpuAffinityMask</em> 控制沙盒进程可以在哪里执行。若要限制它们的总体处理器调度能力，参见 <a href="../CpuRateLimit/">CPU 速率限制</a>。两个设置可以一起使用。</p>
 
 
 

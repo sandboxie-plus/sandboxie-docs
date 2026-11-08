@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="TotalMemoryLimit is a sandbox setting in Sandboxie Ini available since Sandboxie Plus v1.14.0. It limits the total committed virtual memory of the processes associated with Sandboxie&#x27;s Windows Job Object for the sandbox and session.">
+        <meta name="description" content="TotalMemoryLimit 是 Sandboxie Ini 中的一项沙盒设置，自 Sandboxie Plus v1.14.0 起可用。它限制该沙盒和会话对应的 Sandboxie Windows 作业对象所关联进程的已提交虚拟内存总量。">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>Total Memory Limit - Sandboxie 文档</title>
+        <title>总内存限制 - Sandboxie 文档</title>
       
     
     
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Total Memory Limit
+              总内存限制
             
           </span>
         </div>
@@ -5584,25 +5584,25 @@
   
 
 
-<h1 id="total-memory-limit">Total Memory Limit<a class="headerlink" href="#total-memory-limit" title="Permanent link"></a></h1>
-<p><em>TotalMemoryLimit</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a> available since Sandboxie Plus v1.14.0. It limits the total committed virtual memory of the processes associated with Sandboxie's Windows Job Object for the sandbox and session.</p>
-<p>The value is specified in bytes and is applied directly as the Job Object's total committed-memory limit. It is not a physical memory or working-set limit.</p>
-<p>Syntax:</p>
+<h1 id="total-memory-limit">总内存限制<a class="headerlink" href="#total-memory-limit" title="Permanent link"></a></h1>
+<p><em>TotalMemoryLimit</em> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 中的一项沙盒设置，自 Sandboxie Plus v1.14.0 起可用。它限制该沙盒和会话对应的 Sandboxie Windows 作业对象所关联进程的已提交虚拟内存总量。</p>
+<p>该值以字节为单位指定，并直接作为作业对象的已提交内存总限制应用。它不是物理内存或工作集限制。</p>
+<p>语法：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">TotalMemoryLimit</span><span class="o">=</span><span class="s">&lt;total_limit_in_byte&gt;</span>
 </span></code></pre></div>
-<p>Example:</p>
+<p>示例：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">TotalMemoryLimit</span><span class="o">=</span><span class="s">1073741824</span>
 </span></code></pre></div>
-<p>In this example, the total committed-memory limit is 1073741824 bytes, or 1 GiB.</p>
-<p>When an additional memory commit would exceed the limit, Windows fails that allocation or commit. Reaching the limit does not by itself automatically terminate all sandboxed processes. What happens next depends on how the affected application handles the allocation failure.</p>
-<p>If <a href="ProcessMemoryLimit.html">ProcessMemoryLimit</a> is also configured, each process remains subject to the per-process limit as well as this total limit. If <em>TotalMemoryLimit</em> is not configured, this specific Job Object memory limit is not applied.</p>
+<p>在此示例中，已提交内存总限制为 1073741824 字节，即 1 GiB。</p>
+<p>当一次新增的内存提交会超出该限制时，Windows 会使该分配或提交失败。达到限制本身不会自动终止所有沙盒化进程。接下来会发生什么取决于受影响的应用程序如何处理该分配失败。</p>
+<p>如果同时配置了 <a href="ProcessMemoryLimit.html">进程内存限制</a>，每个进程除受此总限制约束外，仍受每进程限制约束。如果未配置 <em>TotalMemoryLimit</em>，则不应用此特定的作业对象内存限制。</p>
 <div class="admonition warning">
 <p class="admonition-title">Important</p>
-<p>These limits only apply to processes that are assigned to Sandboxie's Job Object. Job Object assignment is skipped for affected processes when <code>NoAddProcessToJob=y</code>, <code>NoSecurityIsolation=y</code>, or <code>OpenWinClass=*</code> applies. <code>AllowBoxedJobs=y</code> does not disable these limits.</p>
+<p>这些限制仅适用于被分配到 Sandboxie 作业对象的进程。当适用 <code>NoAddProcessToJob=y</code>、<code>NoSecurityIsolation=y</code> 或 <code>OpenWinClass=*</code> 时，受影响进程会跳过作业对象分配。<code>AllowBoxedJobs=y</code> 不会禁用这些限制。</p>
 </div>
-<p>The limits are configured when Sandboxie creates the Job Object. If the sandbox and session already have an active Job Object with running associated processes, changes may not take effect until that Job Object is no longer in use and a new one is created.</p>
-<p>Related <a href="SandboxieIni.html">Sandboxie Ini</a> settings: <a href="ProcessMemoryLimit.html">ProcessMemoryLimit</a>, <a href="ProcessNumberLimit.html">ProcessNumberLimit</a></p>
+<p>这些限制在 Sandboxie 创建作业对象时配置。如果该沙盒和会话已有一个活动中的作业对象，其中有正在运行的关联进程，则更改可能要到该作业对象不再使用并创建新作业对象后才会生效。</p>
+<p>相关 <a href="SandboxieIni.html">Sandboxie Ini</a> 设置：<a href="ProcessMemoryLimit.html">进程内存限制</a>、<a href="ProcessNumberLimit.html">进程数限制</a></p>
 
 
 

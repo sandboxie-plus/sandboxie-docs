@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="ProcessGroup defines a reusable, named set of executable-image selectors. Settings that accept a process-qualified selector can refer to the group instead of repeating each executable name, where the corresponding runtime parser supports process groups.">
+        <meta name="description" content="ProcessGroup 定义一组可重用的命名可执行映像选择器。接受进程限定选择器的设置可以引用该组，而不必重复列出每个可执行文件名，前提是对应的运行时解析器支持进程组。">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>Process Group - Sandboxie 文档</title>
+        <title>进程组 - Sandboxie 文档</title>
       
     
     
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Process Group
+              进程组
             
           </span>
         </div>
@@ -5584,104 +5584,104 @@
   
 
 
-<h1 id="process-group">Process Group<a class="headerlink" href="#process-group" title="Permanent link"></a></h1>
-<p><code>ProcessGroup</code> defines a reusable, named set of executable-image selectors. Settings that accept a process-qualified selector can refer to the group instead of repeating each executable name, where the corresponding runtime parser supports process groups.</p>
-<p>For example:</p>
+<h1 id="process-group">进程组<a class="headerlink" href="#process-group" title="Permanent link"></a></h1>
+<p><code>ProcessGroup</code> 定义一组可重用的命名可执行映像选择器。接受进程限定选择器的设置可以引用该组，而不必重复列出每个可执行文件名，前提是对应的运行时解析器支持进程组。</p>
+<p>例如：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">ProcessGroup</span><span class="o">=</span><span class="s">&lt;Browsers&gt;,firefox.exe,chrome.exe</span>
 </span></code></pre></div>
-<p>This definition alone does not grant or deny access, force programs into a sandbox, start or stop processes, create a Windows process group or Job Object, or otherwise apply a policy. A second setting must use <code>&lt;Browsers&gt;</code> as its process selector before the group affects runtime behavior.</p>
-<p>Both Sandboxie's driver-side and SbieDll user-mode configuration matchers resolve process groups for settings that use those matchers. This does not mean that every Sandboxie setting accepts a process group; check the syntax of the setting that will reference it.</p>
-<h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link"></a></h2>
-<p>The general form is:</p>
+<p>仅凭该定义本身不会授予或拒绝访问、不会将程序强制放入沙盒、不会启动或停止进程、不会创建 Windows 进程组或作业对象，也不会以其他方式应用策略。必须有另一项设置把 <code>&lt;Browsers&gt;</code> 用作其进程选择器，该组才会影响运行时行为。</p>
+<p>Sandboxie 驱动程序侧与 SbieDll 用户态的配置匹配器都会为使用这些匹配器的设置解析进程组。这并不意味着每项 Sandboxie 设置都接受进程组；请查阅将要引用该组的设置的语法。</p>
+<h2 id="syntax">语法<a class="headerlink" href="#syntax" title="Permanent link"></a></h2>
+<p>一般形式为：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">ProcessGroup</span><span class="o">=</span><span class="s">&lt;GroupName&gt;,program1.exe,program2.exe</span>
 </span></code></pre></div>
-<p>The angle brackets are part of the group selector. Current runtime matching recognizes a group reference when the selector begins with <code>&lt;</code>; a bare name such as <code>Browsers</code> is treated as an ordinary image selector rather than as the <code>ProcessGroup</code> named <code>&lt;Browsers&gt;</code>.</p>
-<p>Group names and ordinary executable-image membership matches are case-insensitive. Use executable image names such as <code>firefox.exe</code>, rather than process IDs or full executable paths.</p>
-<p>Some generic configuration matchers can interpret wildcard image patterns, but not every active process-group matching path does so. For configuration that must work consistently across consumers, use literal executable image names and nested group references rather than wildcard members.</p>
-<p>Negation belongs to the process selector in the rule that uses a group, not to the <code>ProcessGroup</code> definition. Where a setting supports a negated process selector:</p>
+<p>尖括号是组选择器的一部分。当前的运行时匹配会在选择器以 <code>&lt;</code> 开头时识别组引用；像 <code>Browsers</code> 这样的裸名称会被视为普通映像选择器，而不是名为 <code>&lt;Browsers&gt;</code> 的 <code>ProcessGroup</code>。</p>
+<p>组名和普通的可执行映像成员匹配均不区分大小写。请使用可执行映像名（如 <code>firefox.exe</code>），不要使用进程 ID 或可执行文件的完整路径。</p>
+<p>某些通用配置匹配器可以解释通配符映像模式，但并非每条活跃的进程组匹配路径都能做到。对于必须在各使用方之间保持一致行为的配置，请使用字面可执行映像名和嵌套组引用，而不要使用通配符成员。</p>
+<p>取反属于使用组的规则中的进程选择器，而不属于 <code>ProcessGroup</code> 定义。在某设置支持取反的进程选择器时：</p>
 <ul>
-<li><code>&lt;Browsers&gt;</code> matches members of the group;</li>
-<li><code>!&lt;Browsers&gt;</code> matches processes that are not members of the group.</li>
+<li><code>&lt;Browsers&gt;</code> 匹配组内成员；</li>
+<li><code>!&lt;Browsers&gt;</code> 匹配不属于该组的进程。</li>
 </ul>
-<p>Do not define the group as <code>ProcessGroup=!&lt;Browsers&gt;,...</code>.</p>
-<h2 id="using-a-group-in-rules">Using a group in rules<a class="headerlink" href="#using-a-group-in-rules" title="Permanent link"></a></h2>
-<p>This resource-access example applies the file rule to the members of <code>&lt;Browsers&gt;</code>:</p>
+<p>不要把组定义为 <code>ProcessGroup=!&lt;Browsers&gt;,...</code>。</p>
+<h2 id="using-a-group-in-rules">在规则中使用组<a class="headerlink" href="#using-a-group-in-rules" title="Permanent link"></a></h2>
+<p>下面这个资源访问示例把文件规则应用于 <code>&lt;Browsers&gt;</code> 的成员：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">ProcessGroup</span><span class="o">=</span><span class="s">&lt;Browsers&gt;,firefox.exe,chrome.exe</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="na">OpenFilePath</span><span class="o">=</span><span class="s">&lt;Browsers&gt;,C:\Shared\*</span>
 </span></code></pre></div>
-<p><code>OpenFilePath</code> is one proven consumer, but it is not the only one. Built-in templates also use process groups with file, registry, IPC, and window-class rules.</p>
-<p>In consumers that use Sandboxie's generic process-match levels, a direct executable or group match has stronger process-match priority than a negated selector, which in turn is stronger than a global or <code>*</code> selector. This is precedence between qualified rules. The order of members inside a <code>ProcessGroup</code> does not make one member take precedence over another.</p>
-<h2 id="nested-groups">Nested groups<a class="headerlink" href="#nested-groups" title="Permanent link"></a></h2>
-<p>A process group can contain another process group:</p>
+<p><code>OpenFilePath</code> 是一个已验证的使用方，但不是唯一的一个。内置模板也在文件、注册表、IPC 和窗口类规则中使用进程组。</p>
+<p>在使用 Sandboxie 通用进程匹配层级的使用方中，直接的可执行文件匹配或组匹配比取反选择器具有更高的进程匹配优先级，而取反选择器又比全局或 <code>*</code> 选择器更强。这是限定规则之间的优先级关系。<code>ProcessGroup</code> 内部成员的顺序不会使某个成员优先于另一个成员。</p>
+<h2 id="nested-groups">嵌套组<a class="headerlink" href="#nested-groups" title="Permanent link"></a></h2>
+<p>一个进程组可以包含另一个进程组：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">ProcessGroup</span><span class="o">=</span><span class="s">&lt;Browsers&gt;,firefox.exe,chrome.exe</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="na">ProcessGroup</span><span class="o">=</span><span class="s">&lt;WebApps&gt;,&lt;Browsers&gt;,electron-app.exe</span>
 </span></code></pre></div>
-<p><code>&lt;WebApps&gt;</code> can therefore match <code>firefox.exe</code>, <code>chrome.exe</code>, and <code>electron-app.exe</code>.</p>
-<p>Nested expansion is deliberately depth-limited in the current runtime. Expansion through cyclic or excessively deep definitions is bounded rather than recursing indefinitely, but such definitions are not useful configurations and should not be relied upon. SandMan allows an existing group to be selected as a member and does not currently prevent direct or indirect cycles.</p>
-<h2 id="repeated-and-inherited-definitions">Repeated and inherited definitions<a class="headerlink" href="#repeated-and-inherited-definitions" title="Permanent link"></a></h2>
-<p>Repeated definitions with the same group name contribute additional members:</p>
+<p>因此 <code>&lt;WebApps&gt;</code> 可以匹配 <code>firefox.exe</code>、<code>chrome.exe</code> 和 <code>electron-app.exe</code>。</p>
+<p>在当前运行时中，嵌套展开的深度被有意限制。对循环定义或过深定义的展开是有界的，不会无限递归，但这类定义并不是有用的配置，不应依赖。SandMan 允许把已有组选为成员，且目前不阻止直接或间接循环。</p>
+<h2 id="repeated-and-inherited-definitions">重复与继承的定义<a class="headerlink" href="#repeated-and-inherited-definitions" title="Permanent link"></a></h2>
+<p>同名的重复定义会贡献额外成员：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="na">ProcessGroup</span><span class="o">=</span><span class="s">&lt;Browsers&gt;,firefox.exe</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="na">ProcessGroup</span><span class="o">=</span><span class="s">&lt;Browsers&gt;,chrome.exe</span>
 </span></code></pre></div>
-<p>The effective group matches either executable. The same runtime behavior applies when same-named definitions come from the box, <code>[GlobalSettings]</code>, or enabled templates: applicable definitions contribute members rather than one definition being selected solely by its source. Consequently:</p>
+<p>生效的组匹配任一可执行文件。当同名定义来自沙盒、<code>[GlobalSettings]</code> 或已启用的模板时，运行时行为相同：适用的定义都会贡献成员，而不是仅按来源选中某一个定义。因此：</p>
 <ul>
-<li><code>[GlobalSettings]</code> can provide groups to sandboxes through normal global configuration lookup;</li>
-<li>enabled templates can contribute groups;</li>
-<li>a box-local definition with the same name does not remove the inherited members at runtime;</li>
-<li>same-named definitions from multiple enabled templates also contribute members.</li>
+<li><code>[GlobalSettings]</code> 可以通过常规的全局配置查找为沙盒提供组；</li>
+<li>已启用的模板可以贡献组；</li>
+<li>同名的沙盒本地定义不会在运行时移除继承而来的成员；</li>
+<li>多个已启用模板中的同名定义同样会贡献成员。</li>
 </ul>
-<p>The current SandMan description says that groups defined for the box overwrite groups defined in templates. That wording does not reflect the current runtime matchers, which inspect all applicable same-named definitions. Avoid reusing a group name across configuration sources when an accidental combined membership would be unclear.</p>
-<h2 id="managing-groups-in-sandman">Managing groups in SandMan<a class="headerlink" href="#managing-groups-in-sandman" title="Permanent link"></a></h2>
-<p>Open <strong>Sandbox Options &gt; Program Groups</strong>. The page provides:</p>
+<p>当前 SandMan 中的说明文字称，为沙盒定义的组会覆盖模板中定义的组。该表述并未反映当前运行时匹配器的行为——匹配器会检查所有适用的同名定义。当意外的合并成员关系会造成歧义时，请避免在不同配置来源之间重用同一个组名。</p>
+<h2 id="managing-groups-in-sandman">在 SandMan 中管理组<a class="headerlink" href="#managing-groups-in-sandman" title="Permanent link"></a></h2>
+<p>打开<strong>沙盒选项 &gt; 程序组</strong>。该页面提供：</p>
 <ul>
-<li><strong>Add Group</strong>;</li>
-<li><strong>Add Program</strong>;</li>
-<li><strong>Remove</strong>;</li>
-<li><strong>Show Templates</strong>.</li>
+<li><strong>添加组</strong>；</li>
+<li><strong>添加程序</strong>；</li>
+<li><strong>移除</strong>；</li>
+<li><strong>显示模板</strong>。</li>
 </ul>
-<p><strong>Add Group</strong> stores the entered name in angle brackets. <strong>Add Program</strong> can select an existing group, displayed as <strong>Group: GroupName</strong>, which creates a nested group reference.</p>
-<p><strong>Show Templates</strong> displays groups from <code>[GlobalSettings]</code> and the box's enabled templates alongside local groups. Template-derived entries are read-only in this view; the page writes only the box's local <code>ProcessGroup</code> entries.</p>
-<p>Renaming a local group in this page changes its definition name, but it is not a global refactoring operation. References to the old name in other process groups or configuration rules are not automatically rewritten. Removing a group likewise removes the selected definition without necessarily removing settings that refer to it. A dangling group selector cannot match through the removed definition, although another applicable definition with the same name may still supply members.</p>
-<h2 id="ui-managed-groups">UI-managed groups<a class="headerlink" href="#ui-managed-groups" title="Permanent link"></a></h2>
-<p>Some higher-level SandMan features maintain <code>ProcessGroup</code> entries internally. Current examples include the program lists used by Internet Access and Start/Run restrictions, with groups such as <code>&lt;InternetAccess&gt;</code>, <code>&lt;StartRunAccess&gt;</code>, and <code>&lt;StartRunAccessDisabled&gt;</code>.</p>
-<p>Editing or removing these entries manually can therefore change what those controls represent. These names are ordinary runtime process groups; their significance comes from the rules and SandMan features that reference them.</p>
-<h2 id="processgroup-vs-boxgrouping">ProcessGroup vs BoxGrouping<a class="headerlink" href="#processgroup-vs-boxgrouping" title="Permanent link"></a></h2>
-<p><code>ProcessGroup</code> and <a href="../BoxGrouping/"><code>BoxGrouping</code></a> serve unrelated purposes.</p>
+<p><strong>添加组</strong>会把输入的名称连同尖括号一起存储。<strong>添加程序</strong>可以选择一个已有的组（显示为<strong>组：GroupName</strong>），从而创建嵌套组引用。</p>
+<p><strong>显示模板</strong>会把来自 <code>[GlobalSettings]</code> 和该沙盒已启用模板的组与本地组一起显示。在此视图中，源自模板的条目是只读的；该页面只写入沙盒本地的 <code>ProcessGroup</code> 条目。</p>
+<p>在此页面中重命名本地组会改变其定义名称，但这不是一次全局重构操作。其他进程组或配置规则中对旧名称的引用不会被自动改写。同样，移除组会删除所选定义，但不一定删除引用它的设置。悬空的组选择器无法通过已删除的定义进行匹配，尽管另一个同名的适用定义仍可能提供成员。</p>
+<h2 id="ui-managed-groups">界面管理的组<a class="headerlink" href="#ui-managed-groups" title="Permanent link"></a></h2>
+<p>某些更高级的 SandMan 功能会在内部维护 <code>ProcessGroup</code> 条目。目前的例子包括 Internet Access 和 Start/Run 限制使用的程序列表，其组包括 <code>&lt;InternetAccess&gt;</code>、<code>&lt;StartRunAccess&gt;</code> 和 <code>&lt;StartRunAccessDisabled&gt;</code>。</p>
+<p>因此，手动编辑或删除这些条目可能会改变这些控件所代表的含义。这些名称是普通的运行时进程组；它们的意义来自引用它们的规则和 SandMan 功能。</p>
+<h2 id="processgroup-vs-boxgrouping">ProcessGroup 与 BoxGrouping<a class="headerlink" href="#processgroup-vs-boxgrouping" title="Permanent link"></a></h2>
+<p><code>ProcessGroup</code> 和 <a href="../BoxGrouping/"><code>BoxGrouping</code></a> 的用途互不相关。</p>
 <table>
 <thead>
 <tr>
-<th>Setting</th>
-<th>Contains</th>
-<th>Scope and effect</th>
+<th>设置</th>
+<th>包含内容</th>
+<th>范围与效果</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>ProcessGroup</code></td>
-<td>Executable-image selectors and nested process groups</td>
-<td>Sandbox, global, or template configuration used by runtime rule matching; referenced as <code>&lt;GroupName&gt;</code></td>
+<td>可执行映像选择器和嵌套进程组</td>
+<td>用于运行时规则匹配的沙盒、全局或模板配置；以 <code>&lt;GroupName&gt;</code> 引用</td>
 </tr>
 <tr>
 <td><code>BoxGrouping</code></td>
-<td>Sandboxes and visual subgroups</td>
-<td>Per-user SandMan hierarchy and ordering metadata; no runtime policy effect</td>
+<td>沙盒和可视子组</td>
+<td>每用户的 SandMan 层级和排序元数据；无运行时策略效果</td>
 </tr>
 </tbody>
 </table>
-<p>Putting two sandboxes in the same <code>BoxGrouping</code> branch does not share their <code>ProcessGroup</code> definitions or make processes in those sandboxes members of a common process group.</p>
-<h2 id="applying-changes">Applying changes<a class="headerlink" href="#applying-changes" title="Permanent link"></a></h2>
-<p>Saving a <code>ProcessGroup</code> change updates the configuration, but when new membership becomes observable depends on the setting that references the group. Dynamically evaluated checks can use the updated definition on subsequent operations, while consumers that build or cache effective rules during process initialization may require the affected sandboxed processes to be restarted. A SandMan, service, or driver restart is not normally required solely to change a process group.</p>
-<h2 id="sandboxie-plus-and-classic">Sandboxie Plus and Classic<a class="headerlink" href="#sandboxie-plus-and-classic" title="Permanent link"></a></h2>
-<p><code>ProcessGroup</code> is a shared runtime configuration mechanism, not a Sandboxie Plus-only feature. SandMan provides the current <strong>Program Groups</strong> page, and Sandboxie Control Classic also contains program-group configuration and selection support. Their interfaces are not identical, but compatible INI definitions are consumed by the shared runtime.</p>
-<h2 id="version-history">Version history<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
-<p>The current settings metadata does not record an <code>AddedVersion</code> for <code>ProcessGroup</code>, so no exact introduction version is established here. Program-group handling predates Sandboxie Plus 0.4.3 / Classic 5.43.7; that release fixed parsing in the SandMan UI rather than introducing the runtime setting. Later SandMan releases also fixed additional program-group UI issues.</p>
-<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
+<p>把两个沙盒放进同一个 <code>BoxGrouping</code> 分支，不会共享它们的 <code>ProcessGroup</code> 定义，也不会使这些沙盒中的进程成为同一个进程组的成员。</p>
+<h2 id="applying-changes">应用更改<a class="headerlink" href="#applying-changes" title="Permanent link"></a></h2>
+<p>保存 <code>ProcessGroup</code> 更改会更新配置，但新成员关系何时变得可观察取决于引用该组的设置。动态求值的检查可以在后续操作中使用更新后的定义，而在进程初始化期间构建或缓存有效规则的使用方则可能需要重启受影响的沙盒化进程。仅为了更改进程组，通常不需要重启 SandMan、服务或驱动程序。</p>
+<h2 id="sandboxie-plus-and-classic">Sandboxie Plus 与 Classic<a class="headerlink" href="#sandboxie-plus-and-classic" title="Permanent link"></a></h2>
+<p><code>ProcessGroup</code> 是一项共享的运行时配置机制，并非 Sandboxie Plus 独有的功能。SandMan 提供了当前的<strong>程序组</strong>页面，Sandboxie Control Classic 也包含程序组的配置和选择支持。两者的界面并不相同，但兼容的 INI 定义由共享的运行时使用。</p>
+<h2 id="version-history">版本历史<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
+<p>当前的设置元数据没有记录 <code>ProcessGroup</code> 的 <code>AddedVersion</code>，因此这里无法确定其确切的引入版本。程序组处理早于 Sandboxie Plus 0.4.3 / Classic 5.43.7；该版本修复的是 SandMan 界面中的解析问题，而不是引入该运行时设置。后来的 SandMan 版本还修复了更多程序组界面问题。</p>
+<h2 id="related-pages">相关页面<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
 <ul>
-<li><a href="../BoxGrouping/">Box Grouping</a> — organizes sandboxes in the SandMan interface</li>
-<li><a href="../SandboxieIni/">Sandboxie Ini</a> — explains Sandboxie configuration sections and editing</li>
+<li><a href="../BoxGrouping/">Box Grouping</a> — 在 SandMan 界面中组织沙盒</li>
+<li><a href="../SandboxieIni/">Sandboxie Ini</a> — 说明 Sandboxie 配置文件的节与编辑方法</li>
 </ul>
 
 

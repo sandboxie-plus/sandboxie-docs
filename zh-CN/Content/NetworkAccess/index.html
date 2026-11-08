@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="NetworkAccess defines program, address, port, and protocol rules for Sandboxie&#x27;s network rule engine. The same rule parser and comparison logic is used by the user-mode Winsock path and, when enabled, the Windows Filtering Platform (WFP) path. Their enforcement coverage differs.">
+        <meta name="description" content="NetworkAccess 为 Sandboxie 的网络规则引擎定义程序、地址、端口与协议规则。用户态的 Winsock 路径与（启用时的）Windows 筛选平台 (WFP) 路径 使用同一套规则解析与比较逻辑，但两者的强制执行覆盖范围不同。">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>Network Access - Sandboxie 文档</title>
+        <title>网络访问 - Sandboxie 文档</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#network-access" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Network Access
+              网络访问
             
           </span>
         </div>
@@ -5584,57 +5584,57 @@
   
 
 
-<h1 id="network-access">Network Access<a class="headerlink" href="#network-access" title="Permanent link"></a></h1>
-<p><code>NetworkAccess</code> defines program, address, port, and protocol rules for Sandboxie's network rule engine. The same rule parser and comparison logic is used by the user-mode Winsock path and, when enabled, the <a href="../../PlusContent/WFPSupport/">Windows Filtering Platform (WFP) path</a>. Their enforcement coverage differs.</p>
-<h2 id="syntax-and-examples">Syntax and examples<a class="headerlink" href="#syntax-and-examples" title="Permanent link"></a></h2>
+<h1 id="_1">网络访问<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<p><code>NetworkAccess</code> 为 Sandboxie 的网络规则引擎定义程序、地址、端口与协议规则。用户态的 Winsock 路径与（启用时的）<a href="../../PlusContent/WFPSupport/">Windows 筛选平台 (WFP) 路径</a> 使用同一套规则解析与比较逻辑，但两者的强制执行覆盖范围不同。</p>
+<h2 id="_2">语法与示例<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">NetworkAccess</span><span class="o">=</span><span class="s">[process,]Allow|Block[</span><span class="c1">;Port=...][;Address=...][;Protocol=...]</span>
 </span></code></pre></div>
-<p>For example:</p>
+<p>例如：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">NetworkAccess</span><span class="o">=</span><span class="s">*,Block</span><span class="c1">;Port=80,443</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="na">NetworkAccess</span><span class="o">=</span><span class="s">chrome.exe,Allow</span><span class="c1">;Port=443;Address=192.0.2.10;Protocol=TCP</span>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="na">NetworkAccess</span><span class="o">=</span><span class="s">&lt;Browsers&gt;,Allow</span><span class="c1">;Port=80,443;Protocol=TCP</span>
 </span></code></pre></div>
-<p>The optional process selector can identify an executable, a matching executable pattern, or a <a href="../ProcessGroup/">process group</a>. Sandboxie's normal <a href="../ProgramNamePrefix/">program-name matching</a> also supports negated selectors. Rules without a process selector apply more broadly than a matching explicit <code>*</code> selector in the rule comparison described below.</p>
-<p>If no <code>NetworkAccess</code> rule matches, the rule engine permits the traffic. To build a default-deny rule set, add a broad applicable block and then narrower allows where needed:</p>
+<p>可选的进程选择器可以标识一个可执行文件、一个匹配的可执行文件模式，或一个<a href="../ProcessGroup/">进程组</a>。Sandboxie 常规的<a href="../ProgramNamePrefix/">程序名匹配</a>也支持取反选择器。在下文描述的规则比较中，不带进程选择器的规则比带显式 <code>*</code> 选择器的匹配规则适用范围更广。</p>
+<p>若没有任何 <code>NetworkAccess</code> 规则匹配，规则引擎会放行该流量。要构建默认拒绝的规则集，先添加一条适用面很广的阻止规则，再在需要处添加更窄的放行规则：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">NetworkAccess</span><span class="o">=</span><span class="s">*,Block</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">NetworkAccess</span><span class="o">=</span><span class="s">chrome.exe,Allow</span><span class="c1">;Port=443</span>
 </span></code></pre></div>
-<p>This rule-engine default is separate from the <code>AllowNetworkAccess</code> gate described in <a href="../../PlusContent/WFPSupport/#allownetworkaccess">WFP Support</a>.</p>
-<h2 id="how-a-matching-rule-is-chosen">How a matching rule is chosen<a class="headerlink" href="#how-a-matching-rule-is-chosen" title="Permanent link"></a></h2>
-<p>For a candidate program and endpoint, Sandboxie strictly compares the first four criteria in this order. A later candidate replaces the current winner when it is better at the first of these criteria that differs:</p>
+<p>该规则引擎默认值与 <a href="../../PlusContent/WFPSupport/#allownetworkaccess">WFP 支持</a>中描述的 <code>AllowNetworkAccess</code> 门是分开的。</p>
+<h2 id="_3">匹配规则是如何选出的<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
+<p>对于候选程序与端点，Sandboxie 严格按下列顺序比较前四个条件。后续候选若在第一个不同的条件上更优，就取代当前的胜出者：</p>
 <table>
 <thead>
 <tr>
-<th>Order</th>
-<th>Criterion</th>
-<th>More specific or preferred match</th>
+<th>顺序</th>
+<th>条件</th>
+<th>更具体或更优先的匹配</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>1</td>
-<td>Process selector</td>
-<td>Matching positive selector, then matching negated selector, then explicit <code>*</code>, then no selector</td>
+<td>进程选择器</td>
+<td>匹配的正向选择器，其次是匹配的取反选择器，再次是显式 <code>*</code>，最后是无选择器</td>
 </tr>
 <tr>
 <td>2</td>
-<td>Combined endpoint</td>
-<td>Both address and port constrained, ahead of rules constraining only one or neither</td>
+<td>组合端点</td>
+<td>同时约束地址与端口的规则，优先于只约束其中一项或都不约束的规则</td>
 </tr>
 <tr>
 <td>3</td>
-<td>Port</td>
-<td>Exact port, then range, then unconstrained</td>
+<td>端口</td>
+<td>精确端口，其次是范围，最后是不约束</td>
 </tr>
 <tr>
 <td>4</td>
-<td>Address</td>
-<td>Exact address, then range, then unconstrained</td>
+<td>地址</td>
+<td>精确地址，其次是范围，最后是不约束</td>
 </tr>
 </tbody>
 </table>
-<p>A matching positive selector includes an executable name, wildcard image pattern, or <code>ProcessGroup</code>; the top category is not limited to exact executable names. The first three examples below are positive selectors. The remaining lines show a negated selector, explicit <code>*</code>, and no selector:</p>
+<p>匹配的正向选择器包括可执行文件名称、通配符映像模式或 <code>ProcessGroup</code>；最上面这一类并不限于精确的可执行文件名。下面前三个示例是正向选择器，其余各行分别展示取反选择器、显式 <code>*</code> 与无选择器：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">NetworkAccess</span><span class="o">=</span><span class="s">chrome.exe,Allow</span><span class="c1">;Port=443</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">NetworkAccess</span><span class="o">=</span><span class="s">chr*.exe,Allow</span><span class="c1">;Port=443</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="na">NetworkAccess</span><span class="o">=</span><span class="s">&lt;Browsers&gt;,Allow</span><span class="c1">;Port=443</span>
@@ -5642,33 +5642,33 @@
 </span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="na">NetworkAccess</span><span class="o">=</span><span class="s">*,Block</span>
 </span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="na">NetworkAccess</span><span class="o">=</span><span class="s">Block</span>
 </span></code></pre></div>
-<p>Process matching is compared first, so a stronger process selector can outrank a rule with more precise address or port constraints. With equivalent process matches, a rule specifying both <code>Address</code> and <code>Port</code> outranks one specifying only either field. After that combined comparison, port specificity is checked before address specificity.</p>
-<p>After the first four criteria tie, the current comparator handles action and protocol asymmetrically. A <code>Block</code> candidate immediately replaces an <code>Allow</code> winner. Otherwise, comparison can continue to protocol specificity, where a specified protocol outranks <code>Any</code>. Consequently, when one otherwise-tied rule favors <code>Block</code> while the other favors a more-specific protocol, rule order can affect the result.</p>
-<p>If the comparator finds no reason to replace the current winner, the existing winner remains. Compatible rules may also be merged internally. <code>NetworkAccess</code> is not a last-rule-wins engine.</p>
-<h2 id="addresses-ports-and-protocols">Addresses, ports, and protocols<a class="headerlink" href="#addresses-ports-and-protocols" title="Permanent link"></a></h2>
-<p><code>Address</code> accepts single IPv4 or IPv6 addresses, address ranges, and comma-separated entries. For example:</p>
+<p>进程匹配最先比较，因此更强的进程选择器可以压过地址或端口约束更精确的规则。在进程匹配等价时，同时指定 <code>Address</code> 与 <code>Port</code> 的规则优先于只指定其中一项的规则。完成该组合比较之后，才先检查端口的具体性，再检查地址的具体性。</p>
+<p>前四个条件打平之后，当前比较器对动作与协议的处理并不对称。<code>Block</code> 候选会立即取代 <code>Allow</code> 胜出者。否则比较会继续进行到协议具体性，其中已指定的协议优先于 <code>Any</code>。因此当两条在其他方面打平的规则分别偏向 <code>Block</code> 与更具体的协议时，规则顺序可能影响结果。</p>
+<p>若比较器找不到取代当前胜出者的理由，既有的胜出者保持不动。兼容的规则也可能在内部被合并。<code>NetworkAccess</code> 不是“最后一条规则获胜”的引擎。</p>
+<h2 id="_4">地址、端口与协议<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
+<p><code>Address</code> 接受单个 IPv4 或 IPv6 地址、地址范围，以及以逗号分隔的多项。例如：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="na">Address</span><span class="o">=</span><span class="s">192.0.2.10</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="na">Address</span><span class="o">=</span><span class="s">192.0.2.10-192.0.2.50</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="na">Address</span><span class="o">=</span><span class="s">2001:db8::10</span>
 </span></code></pre></div>
-<p><code>Port</code> accepts single numeric ports, ranges, and comma-separated sets:</p>
+<p><code>Port</code> 接受单个数字端口、范围，以及以逗号分隔的集合：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="na">Port</span><span class="o">=</span><span class="s">80,443,49152-65535</span>
 </span></code></pre></div>
-<p>The current rule language recognizes <code>Protocol=Any</code>, <code>TCP</code>, <code>UDP</code>, and <code>ICMP</code>; an unqualified rule defaults to <code>Any</code>. It does not define an <code>ICMPv6</code> keyword. The supported address syntax uses addresses and ranges, not CIDR notation; port names such as <code>http</code> are not numeric port values.</p>
-<h2 id="enforcement-paths">Enforcement paths<a class="headerlink" href="#enforcement-paths" title="Permanent link"></a></h2>
-<p>Without WFP enforcement, SbieDll applies <code>NetworkAccess</code> through intercepted user-mode Winsock paths, including important outbound TCP and UDP operations such as <code>connect</code>, <code>WSAConnect</code>, <code>sendto</code>, and <code>WSASendTo</code>. Related receive hooks also participate in this implementation. This is primarily outbound rule enforcement and does not cover every Windows networking path. Code that bypasses or removes the user-mode hooks can bypass this layer.</p>
-<p>With <code>NetworkEnableWFP=y</code>, Sandboxie uses kernel WFP callouts to evaluate the shared rules for tracked sandboxed processes at outbound connect and inbound receive/accept authorization layers. See <a href="../../PlusContent/WFPSupport/">WFP Support</a> for the global switch, process mapping, and lifecycle.</p>
-<p>Although the parser and SandMan editor recognize <code>ICMP</code>, the user-mode hooks focus on Winsock TCP connections and UDP send/receive. ICMP coverage depends on the enforcement path and traffic type; neither this setting nor WFP should be read as a guarantee for every raw or ICMPv6 path.</p>
-<p><code>AllowNetworkAccess=n</code> is a separate, image-aware access gate. Under WFP it can select blanket Internet blocking before normal <code>NetworkAccess</code> rule evaluation. A <code>NetworkAccess=...,Allow</code> rule does not necessarily override that gate. Runtime approvals from <a href="../PromptForInternetAccess/">Prompt For Internet Access</a> can affect the gate for a process instance; they are not persistent <code>NetworkAccess</code> rules. <a href="../BlockLocalLoop/">Block Local Loop</a> is also evaluated separately under WFP.</p>
-<h2 id="sandman-and-version-context">SandMan and version context<a class="headerlink" href="#sandman-and-version-context" title="Permanent link"></a></h2>
-<p>The rule editor is at <strong>Sandbox Options &gt; Network Options &gt; Network Firewall</strong>. Its fields correspond to Program, Action, Protocol, IP/Address, and Port. The <strong>Test Rules</strong> controls offer a partial preview for an entered program, address, port, and protocol; they do not make a network connection. The preview does not handle wildcard or process-group selectors, skips template rules, and may consider disabled rules. Its highlighted result can therefore differ from the rule applied at runtime.</p>
-<p><code>NetworkAccess</code> was introduced in Sandboxie Plus 0.9.0. Rule coverage and update behavior depend on the enforcement path, so restart affected sandboxed applications after changing policy to ensure process-local state is rebuilt consistently. WFP rules can also be refreshed for existing tracked processes through Sandboxie's configuration update path.</p>
-<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
+<p>当前规则语言识别 <code>Protocol=Any</code>、<code>TCP</code>、<code>UDP</code> 与 <code>ICMP</code>；未指定协议的规则默认为 <code>Any</code>。它没有定义 <code>ICMPv6</code> 关键字。支持的地址语法使用地址与范围，不支持 CIDR 记法；<code>http</code> 这类端口名不是数字端口值。</p>
+<h2 id="_5">强制执行路径<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
+<p>在没有 WFP 强制执行时，SbieDll 通过被拦截的用户态 Winsock 路径应用 <code>NetworkAccess</code>，其中包括 <code>connect</code>、<code>WSAConnect</code>、<code>sendto</code> 与 <code>WSASendTo</code> 等重要出站 TCP 与 UDP 操作。相关的接收钩子也参与该实现。这主要是出站规则的强制执行，并不覆盖每一条 Windows 网络路径。绕过或移除用户态钩子的代码可以绕过这一层。</p>
+<p>设 <code>NetworkEnableWFP=y</code> 后，Sandboxie 使用内核 WFP 回调，在出站连接与入站接收/接受授权层，为受跟踪的沙盒进程评估共享规则。全局开关、进程映射与生命周期参见 <a href="../../PlusContent/WFPSupport/">WFP 支持</a>。</p>
+<p>尽管解析器与 SandMan 编辑器都识别 <code>ICMP</code>，用户态钩子聚焦于 Winsock TCP 连接与 UDP 收发。ICMP 覆盖范围取决于强制执行路径与流量类型；无论是本设置还是 WFP，都不应被理解为对每条原始或 ICMPv6 路径的保证。</p>
+<p><code>AllowNetworkAccess=n</code> 是一个独立的映像感知访问门。在 WFP 下，它可以在常规 <code>NetworkAccess</code> 规则求值之前选择整体阻断互联网访问。<code>NetworkAccess=...,Allow</code> 规则不一定能覆盖该门。<a href="../PromptForInternetAccess/">提示互联网访问</a>产生的运行时批准可以影响某个进程实例的该门；它们不是持久的 <code>NetworkAccess</code> 规则。<a href="../BlockLocalLoop/">阻止本地回环</a>在 WFP 下同样单独求值。</p>
+<h2 id="sandman">SandMan 与版本背景<a class="headerlink" href="#sandman" title="Permanent link"></a></h2>
+<p>规则编辑器位于 <strong>沙盒选项 &gt; 网络选项 &gt; 网络防火墙</strong>。其字段对应程序、动作、协议、IP/地址与端口。<strong>测试规则</strong> 控件为输入的程序、地址、端口与协议提供部分预览；它们不会发起网络连接。该预览不处理通配符或进程组选择器，会跳过模板规则，并可能把已禁用的规则计入。因此其高亮结果可能不同于运行时实际应用的规则。</p>
+<p><code>NetworkAccess</code> 在 Sandboxie Plus 0.9.0 引入。规则覆盖与更新行为取决于强制执行路径，因此更改策略后请重启受影响的沙盒应用程序，以确保进程本地状态被一致地重建。WFP 规则也可以通过 Sandboxie 的配置更新路径，为已在跟踪的既有进程刷新。</p>
+<h2 id="_6">相关页面<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
 <ul>
-<li><a href="../../PlusContent/WFPSupport/">WFP Support</a></li>
-<li><a href="../BlockLocalLoop/">Block Local Loop</a></li>
-<li><a href="../PromptForInternetAccess/">Prompt For Internet Access</a></li>
-<li><a href="../ProcessGroup/">Process Group</a></li>
+<li><a href="../../PlusContent/WFPSupport/">WFP 支持</a></li>
+<li><a href="../BlockLocalLoop/">阻止本地回环</a></li>
+<li><a href="../PromptForInternetAccess/">提示互联网访问</a></li>
+<li><a href="../ProcessGroup/">进程组</a></li>
 </ul>
 
 

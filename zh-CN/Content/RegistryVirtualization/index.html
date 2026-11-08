@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Sandboxie does not maintain a complete independent clone of the host Registry. Normal virtualization combines sandbox registry changes with eligible host data, using registry access rules and deletion or relocation state to construct the application&#x27;s view.">
+        <meta name="description" content="Sandboxie 不会维护宿主注册表的完整独立克隆。常规虚拟化把沙盒注册表更改与符合条件的宿主数据组合起来，利用注册表访问规则以及删除或重定位状态，构建应用程序所看到的视图。">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>Registry Virtualization - Sandboxie 文档</title>
+        <title>注册表虚拟化 - Sandboxie 文档</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#registry-virtualization" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Registry Virtualization
+              注册表虚拟化
             
           </span>
         </div>
@@ -5584,133 +5584,133 @@
   
 
 
-<h1 id="registry-virtualization">Registry Virtualization<a class="headerlink" href="#registry-virtualization" title="Permanent link"></a></h1>
-<p>Sandboxie does not maintain a complete independent clone of the host Registry. Normal virtualization combines sandbox registry changes with eligible host data, using registry access rules and deletion or relocation state to construct the application's view.</p>
-<p>SbieDll performs the main logical path mapping and supported merge operations. SbieDrv provides separate Registry filtering and manages the sandbox hive's mount lifecycle together with SbieSvc. SandMan configures these mechanisms; it does not perform application registry merging.</p>
-<h2 id="registry-roots-and-reghive">Registry roots and RegHive<a class="headerlink" href="#registry-roots-and-reghive" title="Permanent link"></a></h2>
-<p>The registry mount location and its backing file are different:</p>
+<h1 id="_1">注册表虚拟化<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<p>Sandboxie 不会维护宿主注册表的完整独立克隆。常规虚拟化把沙盒注册表更改与符合条件的宿主数据组合起来，利用注册表访问规则以及删除或重定位状态，构建应用程序所看到的视图。</p>
+<p>SbieDll 负责主要的逻辑路径映射与受支持的合并操作。SbieDrv 提供独立的注册表过滤，并与 SbieSvc 一起管理沙盒配置单元的挂载生命周期。SandMan 负责配置这些机制；它本身不执行应用程序注册表合并。</p>
+<h2 id="reghive">注册表根与 RegHive<a class="headerlink" href="#reghive" title="Permanent link"></a></h2>
+<p>注册表挂载位置与其后备文件是两件不同的事：</p>
 <table>
 <thead>
 <tr>
-<th>Location</th>
-<th>Purpose</th>
+<th>位置</th>
+<th>用途</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><a href="../KeyRootPath/"><code>KeyRootPath</code></a></td>
-<td>Registry namespace where the sandbox hive is mounted.</td>
+<td>挂载沙盒配置单元的注册表命名空间。</td>
 </tr>
 <tr>
 <td><code>FileRootPath\RegHive</code></td>
-<td>Physical backing file beneath the sandbox file root.</td>
+<td>沙盒文件根之下的物理后备文件。</td>
 </tr>
 </tbody>
 </table>
-<p>Changing either root does not automatically migrate existing sandbox content. See <a href="../SandboxRootsVolumeLayout/">Sandbox Roots and Volume Layout</a> for root configuration and layout.</p>
-<p><a href="../UseFileImage/">Image-backed storage</a> can change the physical storage carrying the sandbox file root and therefore <code>RegHive</code>, but <code>KeyRootPath</code> remains the Registry namespace where the hive is mounted.</p>
-<h2 id="logical-and-sandbox-registry-paths">Logical and sandbox registry paths<a class="headerlink" href="#logical-and-sandbox-registry-paths" title="Permanent link"></a></h2>
-<p>Applications continue to use logical host-style registry names. Sandboxie maps the corresponding sandbox state beneath the mounted hive, for example:</p>
+<p>更改其中任一根本身不会自动迁移既有的沙盒内容。根配置与布局参见 <a href="../SandboxRootsVolumeLayout/">沙盒根与卷布局</a>。</p>
+<p><a href="../UseFileImage/">由映像支撑的存储</a> 可以改变承载沙盒文件根、因而也承载 <code>RegHive</code> 的物理存储，但 <code>KeyRootPath</code> 仍是配置单元被挂载到的注册表命名空间。</p>
+<h2 id="_2">逻辑路径与沙盒注册表路径<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
+<p>应用程序继续使用逻辑的宿主风格注册表名称。Sandboxie 把对应的沙盒状态映射到已挂载的配置单元之下，例如：</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>\REGISTRY\MACHINE\Software\Vendor
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    -&gt; &lt;KeyRootPath&gt;\machine\Software\Vendor
 </span></code></pre></div>
-<p>HKLM corresponds to the sandbox <code>machine</code> branch. For HKCU, the host-side current-user SID corresponds to the sandbox <code>user\current</code> branch. The filesystem's <code>SeparateUserFolders</code> option does not change this registry mapping.</p>
-<p>HKCR is Windows' Classes view, not one independent uniform Sandboxie root. Windows' machine/per-user Classes merge and Sandboxie's sandbox-side Classes mapping are separate relationships. Sandbox customization can link <code>user\current\software\classes</code> to <code>user\current_classes</code> within the sandbox hive.</p>
-<h2 id="reading-and-writing-keys">Reading and writing keys<a class="headerlink" href="#reading-and-writing-keys" title="Permanent link"></a></h2>
-<p>With normal virtualization, a read-only open of an existing host-only key can use the host key without first creating the corresponding sandbox key. A create operation can instead create sandbox-side structure even when its requested access is read-oriented.</p>
-<p>Normal create and writable-open operations can materialize the relevant hierarchy inside the sandbox hive while leaving the host key unchanged. This does not clone all host values, the entire host subtree, or the exact host security descriptor. Host existence can still affect the logical create/open result.</p>
-<p>A value write through a handle initially opened for host reading can be retried through the sandbox writable path when the native write is denied. This is conditional handling, not a promise that every failed operation is retried.</p>
-<h2 id="merged-keys-and-values">Merged keys and values<a class="headerlink" href="#merged-keys-and-values" title="Permanent link"></a></h2>
-<p>A sandbox key can contain only sandbox changes rather than a full copy of its host counterpart:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>logical registry key
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    +-- sandbox hive keys and values
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    +-- eligible host keys and values
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    +-- deletion / relocation state
+<p>HKLM 对应沙盒中的 <code>machine</code> 分支。对于 HKCU，宿主侧的当前用户 SID 对应沙盒中的 <code>user\current</code> 分支。文件系统里的 <code>SeparateUserFolders</code> 选项不会改变这一注册表映射。</p>
+<p>HKCR 是 Windows 的 Classes 视图，并不是一个独立且统一的 Sandboxie 根。Windows 的 machine/每用户 Classes 合并，与 Sandboxie 沙盒侧的 Classes 映射，是两套不同的关系。沙盒自定义可以把沙盒配置单元内的 <code>user\current\software\classes</code> 链接到 <code>user\current_classes</code>。</p>
+<h2 id="_3">读取与写入项<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
+<p>在常规虚拟化下，对仅存在于宿主的既有项的只读打开可以直接使用宿主项，而不必先创建对应的沙盒项。相反，创建操作即使请求的访问是读取导向的，也会创建沙盒侧的结构。</p>
+<p>常规的创建与可写打开操作可以在沙盒配置单元内实体化相关层级，同时让宿主项保持不变。这不会克隆所有宿主值、整个宿主子树或完全相同的宿主安全描述符。宿主是否存在仍可能影响逻辑创建/打开的结果。</p>
+<p>通过最初为读取宿主而打开的句柄写入一个值时，如果原生写入被拒绝，可以改为经沙盒的可写路径重试。这是有条件的处理，并不承诺每个失败的操作都会被重试。</p>
+<h2 id="_4">合并的项与值<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
+<p>沙盒项可以只包含沙盒更改，而不是其宿主对应项的完整副本：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>逻辑注册表项
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    +-- 沙盒配置单元中的项与值
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    +-- 符合条件的宿主项与值
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    +-- 删除 / 重定位状态
 </span></code></pre></div>
-<p>This describes selected supported Registry data operations, not a universal synthetic object used by every Registry API.</p>
+<p>这描述的是受支持的选定注册表数据操作，而不是所有注册表 API 共用的通用合成对象。</p>
 <ul>
-<li>Sandbox-only values are visible in the sandbox view.</li>
-<li>Eligible host-only values remain visible when the selected access mode permits them.</li>
-<li>A same-named sandbox value takes precedence in the merged result.</li>
-<li>Supported subkey enumeration can combine host and sandbox names, coalescing same-named entries.</li>
-<li>Recognized deletion state can suppress host keys or values.</li>
+<li>仅存在于沙盒的值在沙盒视图中可见。</li>
+<li>仅存在于宿主、且符合条件、所选访问模式允许的值，仍然可见。</li>
+<li>合并结果中，同名的沙盒值优先。</li>
+<li>受支持的子项枚举可以合并宿主与沙盒的名称，并合并同名条目。</li>
+<li>可识别的删除状态可以抑制宿主项或值。</li>
 </ul>
-<p>Registry queries are operation- and information-class-dependent. Some return native information from the opened object, some synthesize the logical key name, and selected full/cached information is calculated from the merged view. Enumeration is not one atomic snapshot of both layers, and metadata is not uniform across every API.</p>
-<h2 id="deletion-and-rename-state">Deletion and rename state<a class="headerlink" href="#deletion-and-rename-state" title="Permanent link"></a></h2>
-<p>Registry V1 stores deletion markers inside <code>RegHive</code>, with different markers for keys and values. Registry V2 uses <code>RegPaths.dat</code> below the sandbox file root to record logical key/value deletion and key relocation state alongside the ordinary sandbox registry data. See <a href="../Delete-V2/">Virtualization Scheme V1 and V2</a>.</p>
-<p>Registry V2 provides the path-state/relocation mechanism used by Sandboxie's sandboxed key-rename handling. This is not a guarantee that every rename succeeds or is atomic. V1 lacks that relocation mechanism, but this does not mean every native rename fails.</p>
-<p>Recreating registry content can make new sandbox data visible again, but deletion-state and metadata handling are API-dependent, especially with V2. Do not rely on recreation as an exact restoration of the previous host view.</p>
-<p>Sandbox processes load V2 path-state data and can detect some later changes to <code>RegPaths.dat</code>. These updates should not be treated as transactional, instantly coherent across every process, or durably atomic. The file is sandbox content, not a configuration file intended for manual editing.</p>
-<h2 id="registry-access-modes">Registry access modes<a class="headerlink" href="#registry-access-modes" title="Permanent link"></a></h2>
-<p>The following describes the selected mode for ordinary hooked access:</p>
+<p>注册表查询取决于操作与信息类。有些返回已打开对象的原生信息，有些合成逻辑项名称，还有选定的完整/缓存信息由合并视图计算得出。枚举不是两层的一次原子快照，元数据也并非在每个 API 上都一致。</p>
+<h2 id="_5">删除与重命名状态<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
+<p>注册表 V1 把删除标记存放在 <code>RegHive</code> 内部，项与值使用不同的标记。注册表 V2 使用沙盒文件根下的 <code>RegPaths.dat</code>，在常规沙盒注册表数据之外记录逻辑项/值的删除与项重定位状态。参见 <a href="../Delete-V2/">虚拟化方案 V1 与 V2</a>。</p>
+<p>注册表 V2 提供了 Sandboxie 处理沙盒内项重命名所用的路径状态/重定位机制。这并不保证每次重命名都成功或具有原子性。V1 缺少该重定位机制，但这并不意味着每次原生重命名都会失败。</p>
+<p>重建注册表内容可以让新的沙盒数据重新可见，但删除状态与元数据处理取决于 API，在 V2 下尤其如此。不要把重建当作对先前宿主视图的精确还原。</p>
+<p>沙盒进程会加载 V2 的路径状态数据，并能检测到 <code>RegPaths.dat</code> 的部分后续更改。这些更新不应被视为事务性的、在所有进程间立即一致的或持久原子的。该文件是沙盒内容，不是供手工编辑的配置文件。</p>
+<h2 id="_6">注册表访问模式<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
+<p>以下描述的是普通被挂钩访问所选择的模式：</p>
 <table>
 <thead>
 <tr>
-<th>Effective mode</th>
-<th>High-level behavior</th>
+<th>生效模式</th>
+<th>高层行为</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Normal</td>
-<td>Use normal sandbox registry virtualization and supported merge behavior.</td>
+<td>标准</td>
+<td>使用常规的沙盒注册表虚拟化与受支持的合并行为。</td>
 </tr>
 <tr>
-<td><a href="../OpenKeyPath/">Open</a></td>
-<td>Use the host Registry directly for the selected rule.</td>
+<td><a href="../OpenKeyPath/">开放</a></td>
+<td>对选定的规则直接使用宿主注册表。</td>
 </tr>
 <tr>
-<td><a href="../OpenConfPath/">Open for All</a></td>
-<td>Use the same direct-host model, with eligibility for boxed executables as well.</td>
+<td><a href="../OpenConfPath/">对所有程序开放</a></td>
+<td>使用同样的直连宿主模型，同时把沙盒内可执行文件也纳入适用范围。</td>
 </tr>
 <tr>
-<td><a href="../ClosedKeyPath/">Closed</a></td>
-<td>Deny a new hooked registry open/create when this mode wins.</td>
+<td><a href="../ClosedKeyPath/">封闭</a></td>
+<td>当该模式获胜时，拒绝新的被挂钩注册表打开/创建。</td>
 </tr>
 <tr>
-<td><a href="../ReadKeyPath/">Read</a></td>
-<td>Use the host Registry directly while active Registry filtering normally prevents host modification.</td>
+<td><a href="../ReadKeyPath/">读取</a></td>
+<td>直接使用宿主注册表，同时生效的注册表过滤通常阻止修改宿主。</td>
 </tr>
 <tr>
-<td><a href="../WriteKeyPath/">Write / Box Only</a></td>
-<td>Hide ordinary host data and use sandbox-side Registry state.</td>
+<td><a href="../WriteKeyPath/">只写 / 仅沙盒内</a></td>
+<td>隐藏常规的宿主数据，使用沙盒侧注册表状态。</td>
 </tr>
 <tr>
-<td><a href="../NormalKeyPath/">Normal override</a></td>
-<td>Restore normal virtualization when the Normal rule wins.</td>
+<td><a href="../NormalKeyPath/">标准覆盖</a></td>
+<td>当标准规则获胜时，恢复正常虚拟化。</td>
 </tr>
 </tbody>
 </table>
-<p>The winning mode depends on process selectors and resource-rule matching; see <a href="../../PlusContent/RuleSpecificity/">Rule Specificity</a>.</p>
-<p>Ordinary Open entries are normally subject to the boxed-executable eligibility restriction. Open for All is loaded outside that normal gate, but does not automatically win against another rule or bypass Windows permissions.</p>
-<p>For a new hooked open/create, Closed is checked before the normal sandbox-copy path. A sandbox copy therefore does not automatically exempt that open from Closed. Already-open handles are separate.</p>
-<p>Read selects the direct host path in SbieDll. In a standard sandbox with Registry filtering active, its read-only restriction normally depends on the driver. Disabling relevant filtering changes that enforcement assumption; native Windows permissions still apply.</p>
-<p>Write / Box Only does not mean applications cannot read their sandbox-side data. More-specific accessible descendants can still affect the visible structure according to rule matching.</p>
-<h2 id="wow64-registry-views">WOW64 registry views<a class="headerlink" href="#wow64-registry-views" title="Permanent link"></a></h2>
-<p>Sandboxie resolves the selected Windows 32/64-bit Registry view before constructing the sandbox counterpart. The canonical path can contain <code>Wow6432Node</code>, which can therefore appear in sandbox-side paths where appropriate. Not every Registry location has separate 32-bit and 64-bit storage.</p>
-<h2 id="hive-lifecycle">Hive lifecycle<a class="headerlink" href="#hive-lifecycle" title="Permanent link"></a></h2>
-<p>During sandbox process initialization, Sandboxie prepares or accesses <code>RegHive</code>, mounts it at <code>KeyRootPath</code>, and associates the process with the shared mount. Multiple sandbox processes can share the same hive. References are released as processes end, and unload is coordinated when the hive becomes eligible.</p>
-<p>Unload is not necessarily immediate after the last process exits. Busy state, remaining handles, failures, and lifecycle options can affect it. A corrupt or unloadable hive, a conflicting root/backing association, or storage failures can prevent successful registry initialization or affect later operations. See <a href="../SBIE1241/">SBIE1241</a> for mount diagnostics.</p>
-<p><code>RegHive</code> and available <code>RegPaths.dat</code> participate as sandbox registry data in <a href="../../PlusContent/BoxSnapshots/">snapshot workflows</a>. This is separate from the logical host/sandbox merge used by application registry operations.</p>
-<h2 id="applying-configuration-changes">Applying configuration changes<a class="headerlink" href="#applying-configuration-changes" title="Permanent link"></a></h2>
+<p>获胜的模式取决于进程选择器与资源规则匹配；参见 <a href="../../PlusContent/RuleSpecificity/">规则特异性</a>。</p>
+<p>普通的开放条目通常受“沙盒内可执行文件”资格限制。对所有程序开放会在该常规门之外加载，但它不会自动胜过其他规则，也不会绕过 Windows 权限。</p>
+<p>对于新的被挂钩打开/创建，封闭会在常规沙盒复制路径之前被检查。因此沙盒副本不会自动使该打开免于封闭。已打开的句柄是另外一回事。</p>
+<p>读取在 SbieDll 中选择直连宿主路径。在启用注册表过滤的标准沙盒中，其只读限制通常依赖驱动。禁用相关过滤会改变这一强制执行假设；原生 Windows 权限仍然适用。</p>
+<p>只写 / 仅沙盒内并不意味着应用程序无法读取自己的沙盒侧数据。更具体的可访问后代仍可能依据规则匹配影响可见结构。</p>
+<h2 id="wow64">WOW64 注册表视图<a class="headerlink" href="#wow64" title="Permanent link"></a></h2>
+<p>Sandboxie 在构建沙盒对应项之前，先解析所选的 Windows 32/64 位注册表视图。规范路径可能包含 <code>Wow6432Node</code>，因此在适当的情况下它也会出现在沙盒侧路径中。并非每个注册表位置都有独立的 32 位与 64 位存储。</p>
+<h2 id="_7">配置单元生命周期<a class="headerlink" href="#_7" title="Permanent link"></a></h2>
+<p>在沙盒进程初始化期间，Sandboxie 会准备或访问 <code>RegHive</code>，把它挂载到 <code>KeyRootPath</code>，并把该进程与共享挂载关联。多个沙盒进程可以共享同一个配置单元。随着进程结束，引用被释放；当配置单元符合条件时，会协调卸载。</p>
+<p>卸载不一定在最后一个进程退出后立即发生。忙状态、残留句柄、失败与生命周期选项都会影响它。损坏或无法加载的配置单元、根/后备关联冲突，或存储故障，都可能使注册表初始化失败或影响后续操作。挂载诊断参见 <a href="../SBIE1241/">SBIE1241</a>。</p>
+<p><code>RegHive</code> 与可用的 <code>RegPaths.dat</code> 作为沙盒注册表数据参与<a href="../../PlusContent/BoxSnapshots/">快照工作流</a>。这与应用程序注册表操作所用的逻辑宿主/沙盒合并是分开的。</p>
+<h2 id="_8">应用配置更改<a class="headerlink" href="#_8" title="Permanent link"></a></h2>
 <ul>
-<li>Registry access-rule lists are initialized per process. Restart the affected sandbox process tree to apply rule changes reliably.</li>
-<li><code>UseRegDeleteV2</code> is selected during process initialization. Restart affected processes after changing it; changing the setting is not an in-place conversion of a populated box's deletion state.</li>
-<li><code>KeyRootPath</code> is established as part of the box/mount context. Stop affected box processes before changing it; changing the path does not migrate <code>RegHive</code> or its contents.</li>
-<li><code>RegPaths.dat</code> may be reloaded after detected backing-file changes, without an immediate or bounded synchronization guarantee.</li>
+<li>注册表访问规则列表按进程初始化。请重启受影响的沙盒进程树，以可靠地应用规则更改。</li>
+<li><code>UseRegDeleteV2</code> 在进程初始化时选定。更改后请重启受影响的进程；更改该设置并不是对已填充沙盒删除状态的就地转换。</li>
+<li><code>KeyRootPath</code> 作为沙盒/挂载上下文的一部分建立。更改前请停止受影响的沙盒进程；更改路径不会迁移 <code>RegHive</code> 或其内容。</li>
+<li>检测到后备文件变更后，<code>RegPaths.dat</code> 可能被重新加载，但不提供即时或有界的同步保证。</li>
 </ul>
-<p>Existing registry handles continue to reference the object and access already opened. Configuration changes do not universally retarget or revoke them. A Windows reboot, SandMan restart, or service restart is not a blanket requirement for these changes.</p>
-<h2 id="security-boundaries">Security boundaries<a class="headerlink" href="#security-boundaries" title="Permanent link"></a></h2>
-<p>Registry virtualization determines data presentation and storage. Registry rule selection, SbieDrv filtering, Windows security descriptors, and process-token isolation are separate mechanisms. The merged view is not by itself a complete host-protection boundary, and <code>RegHive</code> does not replace Windows access checks.</p>
-<p><a href="../NoSecurityIsolation/">Application Compartment</a> can retain registry virtualization while changing security isolation. In that mode, <a href="../NoSecurityFiltering/"><code>NoSecurityFiltering</code></a> can disable the driver Registry filter; <code>DisableKeyFilter</code> can also affect that layer. This should not be read as disabling every SbieDll registry hook.</p>
-<p>Open rules deliberately permit direct host Registry access where native permissions allow it. Normal-mode isolation assumptions must not be applied to those direct-access rules or to configurations that disable relevant enforcement.</p>
-<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
+<p>既有的注册表句柄继续引用它已经打开的对象和访问。配置更改不会普遍地重新定向或撤销它们。这些更改并不普遍要求重启 Windows、重启 SandMan 或重启服务。</p>
+<h2 id="_9">安全边界<a class="headerlink" href="#_9" title="Permanent link"></a></h2>
+<p>注册表虚拟化决定数据的呈现与存储。注册表规则选择、SbieDrv 过滤、Windows 安全描述符与进程令牌隔离是彼此独立的机制。合并视图本身并不是完整的宿主保护边界，<code>RegHive</code> 也不取代 Windows 访问检查。</p>
+<p><a href="../NoSecurityIsolation/">应用程序隔离</a> 可以保留注册表虚拟化而改变安全隔离。在该模式下，<a href="../NoSecurityFiltering/"><code>NoSecurityFiltering</code></a> 可以禁用驱动的注册表过滤器；<code>DisableKeyFilter</code> 也可能影响该层。这不应被理解为禁用了所有 SbieDll 注册表挂钩。</p>
+<p>开放规则有意在原生权限允许的地方允许直连宿主注册表。不得把标准模式的隔离假设套用到那些直连访问规则，或套用到禁用相关强制执行的配置上。</p>
+<h2 id="_10">相关页面<a class="headerlink" href="#_10" title="Permanent link"></a></h2>
 <ul>
-<li><a href="../KeyRootPath/">Key Root Path</a> and <a href="../SandboxRootsVolumeLayout/">Sandbox Roots and Volume Layout</a></li>
-<li><a href="../Delete-V2/">Virtualization Scheme V1 and V2</a></li>
-<li><a href="../../PlusContent/RuleSpecificity/">Rule Specificity</a></li>
-<li><a href="../../PlusContent/BoxSnapshots/">Box Snapshots</a></li>
-<li><a href="../UseObjectNameForKeys/">Use Object Name For Keys</a> for registry-name lookup compatibility</li>
+<li><a href="../KeyRootPath/">注册表根路径</a> 与 <a href="../SandboxRootsVolumeLayout/">沙盒根与卷布局</a></li>
+<li><a href="../Delete-V2/">虚拟化方案 V1 与 V2</a></li>
+<li><a href="../../PlusContent/RuleSpecificity/">规则特异性</a></li>
+<li><a href="../../PlusContent/BoxSnapshots/">沙盒快照</a></li>
+<li><a href="../UseObjectNameForKeys/">为注册表项使用对象名称</a> 用于注册表名称查找兼容性</li>
 </ul>
 
 

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="BoxGrouping is a user-settings value available since Sandboxie Plus 1.9.1. It stores the per-user hierarchy used by SandMan to organize sandboxes into visual groups.">
+        <meta name="description" content="BoxGrouping 是自 Sandboxie Plus 1.9.1 起提供的用户设置值。它保存每个用户的层级结构，供 SandMan 把沙盒组织成可视分组。">
       
       
       
@@ -5585,40 +5585,40 @@
 
 
 <h1 id="boxgrouping">BoxGrouping<a class="headerlink" href="#boxgrouping" title="Permanent link"></a></h1>
-<p><code>BoxGrouping</code> is a user-settings value available since Sandboxie Plus 1.9.1. It stores the per-user hierarchy used by SandMan to organize sandboxes into visual groups.</p>
-<p>Box groups are user-interface metadata only. They do not alter sandbox isolation or contents, and sandboxes in the same group do not share settings. Visual nesting does not create configuration inheritance or parent and child sandboxes.</p>
-<h2 id="storage-and-scope">Storage and scope<a class="headerlink" href="#storage-and-scope" title="Permanent link"></a></h2>
-<p><code>BoxGrouping</code> is stored in <a href="../SandboxieIni/">Sandboxie Ini</a>, normally in the active Windows user's section:</p>
+<p><code>BoxGrouping</code> 是自 Sandboxie Plus 1.9.1 起提供的用户设置值。它保存每个用户的层级结构，供 SandMan 把沙盒组织成可视分组。</p>
+<p>沙盒组只是用户界面元数据。它们不会改变沙盒隔离或内容，同一组内的沙盒也不共享设置。可视嵌套不会产生配置继承，也不是父子沙盒关系。</p>
+<h2 id="_1">存储与作用范围<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
+<p><code>BoxGrouping</code> 保存在 <a href="../SandboxieIni/">Sandboxie Ini</a> 中，通常位于当前 Windows 用户的节里：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[UserSettings_12345678]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">BoxGrouping</span><span class="o">=</span><span class="s">:Browsers,DefaultBox</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">BoxGrouping</span><span class="o">=</span><span class="s">Browsers:ChromeBox,Private</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="na">BoxGrouping</span><span class="o">=</span><span class="s">Private:FirefoxBox</span>
 </span></code></pre></div>
-<p>It is not a per-sandbox setting, is not stored under <code>[GlobalSettings]</code>, and does not use template inheritance. Each Windows user normally has a separate <code>[UserSettings_xxxxxxxx]</code> section and may therefore have a different hierarchy. Portable configurations may instead use <code>[UserSettings_Portable]</code>.</p>
-<h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link"></a></h2>
-<p>The general form is:</p>
+<p>它不是逐沙盒设置，不存放在 <code>[GlobalSettings]</code> 下，也不使用模板继承。每个 Windows 用户通常有各自的 <code>[UserSettings_xxxxxxxx]</code> 节，因此可能有不同的层级。便携配置则可能使用 <code>[UserSettings_Portable]</code>。</p>
+<h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
+<p>一般形式为：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">BoxGrouping</span><span class="o">=</span><span class="s">&lt;parent&gt;:&lt;member1&gt;,&lt;member2&gt;,...</span>
 </span></code></pre></div>
-<p>For example:</p>
+<p>例如：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">BoxGrouping</span><span class="o">=</span><span class="s">:Box1,Group1</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">BoxGrouping</span><span class="o">=</span><span class="s">Group1:Box2,SubGroup</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="na">BoxGrouping</span><span class="o">=</span><span class="s">SubGroup:Box3</span>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="na">BoxGrouping</span><span class="o">=</span><span class="s">EmptyGroup:</span>
 </span></code></pre></div>
 <ul>
-<li>The text before the colon is the parent group.</li>
-<li>An empty parent represents the root level.</li>
-<li>Entries after the colon are the parent's immediate children.</li>
-<li>A child is a subgroup when that name also has its own <code>BoxGrouping=&lt;name&gt;:</code> entry.</li>
-<li>Repeated lines for the same parent extend its member list.</li>
-<li>An entry ending with a colon defines an empty named group.</li>
+<li>冒号前的文本是父组。</li>
+<li>空的父组表示根层级。</li>
+<li>冒号后的条目是父组的直接子项。</li>
+<li>若某个名称自身还有 <code>BoxGrouping=&lt;name&gt;:</code> 条目，则它是子组。</li>
+<li>同一父组的重复行会扩展其成员列表。</li>
+<li>以冒号结尾的条目定义一个空的具名组。</li>
 </ul>
-<p>SandMan supports nested groups. This configuration:</p>
+<p>SandMan 支持嵌套分组。以下配置：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">BoxGrouping</span><span class="o">=</span><span class="s">:Browsers,DefaultBox</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">BoxGrouping</span><span class="o">=</span><span class="s">Browsers:ChromeBox,Private</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="na">BoxGrouping</span><span class="o">=</span><span class="s">Private:FirefoxBox</span>
 </span></code></pre></div>
-<p>represents:</p>
+<p>表示：</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Browsers
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>├── ChromeBox
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>└── Private
@@ -5626,61 +5626,61 @@
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
 </span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>DefaultBox
 </span></code></pre></div>
-<p>The nesting is purely organizational. <code>Private</code> does not pass settings or restrictions to <code>FirefoxBox</code>.</p>
-<h2 id="root-level-and-hierarchy-normalization">Root level and hierarchy normalization<a class="headerlink" href="#root-level-and-hierarchy-normalization" title="Permanent link"></a></h2>
-<p>An empty parent key represents the root. For example:</p>
+<p>嵌套纯粹是组织性的。<code>Private</code> 不会向 <code>FirefoxBox</code> 传递设置或限制。</p>
+<h2 id="_3">根层级与层级规范化<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
+<p>空的父键表示根。例如：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="na">BoxGrouping</span><span class="o">=</span><span class="s">:DefaultBox,Browsers</span>
 </span></code></pre></div>
-<p>places both <code>DefaultBox</code> and <code>Browsers</code> at the top level. SandMan may show this destination as <code>[None]</code>; <code>[None]</code> is not a real named group.</p>
-<p>SandMan normalizes the hierarchy into a tree-like structure, where each item is intended to have one parent. The UI prevents moving a group into itself or one of its descendants. Malformed duplicate or cyclic data created by manual editing may be normalized automatically; the exact conflict resolution should not be relied upon.</p>
-<h2 id="ordering">Ordering<a class="headerlink" href="#ordering" title="Permanent link"></a></h2>
-<p><code>BoxGrouping</code> stores the member order used by SandMan's manual ordering mode. Other active sort modes, such as alphabetical or column sorting, may display the same hierarchy in a different order.</p>
-<p>This order is display metadata. It does not control sandbox or program execution order.</p>
-<h2 id="managing-groups-in-sandman">Managing groups in SandMan<a class="headerlink" href="#managing-groups-in-sandman" title="Permanent link"></a></h2>
-<p>SandMan manages groups directly in its main sandbox tree. Relevant operations include:</p>
+<p>把 <code>DefaultBox</code> 和 <code>Browsers</code> 都放在顶层。SandMan 可能把该目标显示为 <code>[None]</code>；<code>[None]</code> 不是真正的具名组。</p>
+<p>SandMan 会把层级规范化为树状结构，其中每个项只应有一个父级。界面会阻止把组移动到自身或其某个后代中。手工编辑产生的畸形重复或循环数据可能被自动规范化；不应依赖确切的冲突解决方式。</p>
+<h2 id="_4">排序<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
+<p><code>BoxGrouping</code> 保存 SandMan 手动排序模式所用的成员顺序。其他生效的排序模式，例如按字母或按列排序，可能以不同顺序显示同一层级。</p>
+<p>该顺序是显示元数据，不控制沙盒或程序的执行顺序。</p>
+<h2 id="sandman">在 SandMan 中管理分组<a class="headerlink" href="#sandman" title="Permanent link"></a></h2>
+<p>SandMan 直接在其主沙盒树中管理分组。相关操作包括：</p>
 <ul>
-<li><strong>Sandbox &gt; Create Box Group</strong>;</li>
-<li>creating a group from the tree or group context menu;</li>
-<li><strong>Move Sandbox</strong> and <strong>Move Group</strong>;</li>
-<li><strong>Move Up</strong> and <strong>Move Down</strong>;</li>
-<li>drag and drop.</li>
+<li><strong>沙盒 &gt; 新建沙盒组</strong>；</li>
+<li>从树或组的上下文菜单创建组；</li>
+<li><strong>移动沙盒</strong> 与 <strong>移动组</strong>；</li>
+<li><strong>上移</strong> 与 <strong>下移</strong>；</li>
+<li>拖放。</li>
 </ul>
-<p>Moving a sandbox changes only its visual location and stored order. It does not move sandbox files, recreate the sandbox, restart its processes, or change runtime policy.</p>
-<h3 id="removing-renaming-and-adding-items">Removing, renaming, and adding items<a class="headerlink" href="#removing-renaming-and-adding-items" title="Permanent link"></a></h3>
-<p>Removing a group does not delete its sandboxes. <strong>Remove Group</strong> removes the organizational node and moves its immediate sandboxes and subgroups to the removed group's parent level. If a top-level group is removed, its contents become top-level items.</p>
-<p>Renaming a sandbox through SandMan updates its group reference. Renaming a group preserves its contents and updates its parent relationship.</p>
-<p>A new sandbox that is not otherwise assigned appears at the root. When creation or import occurs with a target group selected, SandMan can place the sandbox in that group. Duplicating a sandbox currently preserves the source sandbox's group membership.</p>
-<h2 id="tree-expansion-state">Tree expansion state<a class="headerlink" href="#tree-expansion-state" title="Permanent link"></a></h2>
-<p>Expanded and collapsed tree state is not stored in <code>BoxGrouping</code>. SandMan stores it separately as user-interface configuration.</p>
-<p>The current startup behavior can be selected under <strong>Global Settings &gt; Interface Config &gt; User Interface &gt; Group state on start</strong>, with modes including:</p>
+<p>移动沙盒只会改变其可视位置和存储顺序。它不会移动沙盒文件、重建沙盒、重启其进程或更改运行时策略。</p>
+<h3 id="_5">移除、重命名与添加项<a class="headerlink" href="#_5" title="Permanent link"></a></h3>
+<p>移除组不会删除其中的沙盒。<strong>移除组</strong> 只移除组织节点，并把它直属的沙盒与子组移到被移除组的父层级。若移除的是顶层组，其内容成为顶层项。</p>
+<p>通过 SandMan 重命名沙盒会更新它的组引用。重命名组会保留其内容并更新其父级关系。</p>
+<p>未被另行指派的新沙盒出现在根层。创建或导入时若选中了目标组，SandMan 可以把该沙盒放入那个组。复制沙盒目前会保留源沙盒的组成员关系。</p>
+<h2 id="_6">树展开状态<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
+<p>展开与折叠的树状态不存放在 <code>BoxGrouping</code> 中。SandMan 把它作为用户界面配置单独保存。</p>
+<p>当前启动行为可在 <strong>全局设置 &gt; 界面设置 &gt; 用户界面 &gt; 启动时的组状态</strong> 下选择，模式包括：</p>
 <ul>
-<li><strong>Remember previous state</strong>;</li>
-<li><strong>Expand all groups</strong>;</li>
-<li><strong>Collapse all groups</strong>.</li>
+<li><strong>记住上次状态</strong>；</li>
+<li><strong>展开所有组</strong>；</li>
+<li><strong>折叠所有组</strong>。</li>
 </ul>
-<p>In short, <code>BoxGrouping</code> stores membership, hierarchy, and manual sibling order; tree expansion state is separate.</p>
-<h2 id="no-runtime-or-isolation-effect">No runtime or isolation effect<a class="headerlink" href="#no-runtime-or-isolation-effect" title="Permanent link"></a></h2>
-<p><code>BoxGrouping</code> does not affect:</p>
+<p>简言之，<code>BoxGrouping</code> 保存成员关系、层级与手动同级顺序；树展开状态是另外的东西。</p>
+<h2 id="_7">无运行时或隔离影响<a class="headerlink" href="#_7" title="Permanent link"></a></h2>
+<p><code>BoxGrouping</code> 不影响：</p>
 <ul>
-<li>file, registry, or process isolation;</li>
-<li>program-start restrictions;</li>
-<li>resource limits or access rules;</li>
-<li>sandbox contents;</li>
-<li>configuration inheritance;</li>
-<li>execution order.</li>
+<li>文件、注册表或进程隔离；</li>
+<li>程序启动限制；</li>
+<li>资源限制或访问规则；</li>
+<li>沙盒内容；</li>
+<li>配置继承；</li>
+<li>执行顺序。</li>
 </ul>
-<p>Each sandbox remains independently configured regardless of the group in which it appears. Visual hierarchy does not imply policy hierarchy: box groups do not provide group-wide settings, group templates, shared restrictions, or additional isolation.</p>
-<h2 id="manual-editing-and-reload-behavior">Manual editing and reload behavior<a class="headerlink" href="#manual-editing-and-reload-behavior" title="Permanent link"></a></h2>
-<p>SandMan normally manages <code>BoxGrouping</code> automatically. Manual editing is possible, but malformed graphs may be normalized. SandMan must observe or reload the configuration change before the revised hierarchy appears. Sandboxed applications do not need to restart because grouping is UI-only.</p>
-<p>Colons and commas are structural separators in the persisted format. Avoid <code>:</code> in manually created group names, and do not use commas; SandMan's UI rejects group names containing commas. The UI also rejects parentheses and control characters in group names.</p>
-<h2 id="sandboxie-plus-and-classic">Sandboxie Plus and Classic<a class="headerlink" href="#sandboxie-plus-and-classic" title="Permanent link"></a></h2>
-<p>SandMan uses <code>BoxGrouping</code>. Sandboxie Control Classic and the legacy <code>Start.exe</code> box selector continue to use <code>BoxDisplayOrder</code>.</p>
-<p><code>BoxDisplayOrder</code> is a legacy layout format and is marked as superseded by <code>BoxGrouping</code> for the current SandMan layout. SandMan can use the legacy hierarchy as a fallback when no <code>BoxGrouping</code> mapping is available, but Plus and Classic do not continuously synchronize the two formats. Classic still consumes <code>BoxDisplayOrder</code>, so it should not be considered entirely obsolete.</p>
-<p>See the <a href="../SandboxMenu/">Sandbox Menu</a> and <a href="../PlusMigrationGuide/">Sandboxie Plus Migration Guide</a> for the corresponding user-interface workflows.</p>
-<h2 id="export-and-backup-behavior">Export and backup behavior<a class="headerlink" href="#export-and-backup-behavior" title="Permanent link"></a></h2>
-<p><code>BoxGrouping</code> is user-interface configuration and is not intrinsic metadata of an exported sandbox. A normal box-only export and import does not carry the user's grouping hierarchy with the sandbox. A full <code>Sandboxie.ini</code> backup that includes the relevant user-settings section can preserve it.</p>
-<h2 id="version-history">Version history<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
-<p>The current <code>BoxGrouping</code> storage format was introduced in Sandboxie Plus 1.9.1 as part of a rework of box-grouping configuration storage. Grouping functionality itself predates this setting. Later versions added or fixed nested grouping, renaming, drag and drop, tray hierarchy, ordering, and expansion-state persistence.</p>
+<p>无论沙盒出现在哪个组中，每个沙盒仍独立配置。可视层级不意味着策略层级：沙盒组不提供组级设置、组模板、共享限制或额外隔离。</p>
+<h2 id="_8">手动编辑与重载行为<a class="headerlink" href="#_8" title="Permanent link"></a></h2>
+<p>SandMan 通常自动管理 <code>BoxGrouping</code>。可以手动编辑，但畸形的图可能被规范化。在修订后的层级出现之前，SandMan 必须观察到或重新加载该配置变更。沙盒内的应用程序不需要重启，因为分组只是界面层面的。</p>
+<p>冒号和逗号是持久化格式中的结构分隔符。避免在手工创建的组名中使用 <code>:</code>，也不要使用逗号；SandMan 的界面会拒绝包含逗号的组名。界面还会拒绝组名中的括号和控制字符。</p>
+<h2 id="sandboxie-plus-classic">Sandboxie Plus 与 Classic<a class="headerlink" href="#sandboxie-plus-classic" title="Permanent link"></a></h2>
+<p>SandMan 使用 <code>BoxGrouping</code>。Sandboxie Control Classic 与传统的 <code>Start.exe</code> 沙盒选择器继续使用 <code>BoxDisplayOrder</code>。</p>
+<p><code>BoxDisplayOrder</code> 是旧式布局格式，对当前 SandMan 布局而言已被标记为由 <code>BoxGrouping</code> 取代。在没有 <code>BoxGrouping</code> 映射可用时，SandMan 可以使用旧式层级作为回退，但 Plus 与 Classic 不会持续同步这两种格式。Classic 仍会读取 <code>BoxDisplayOrder</code>，因此不应认为它完全过时。</p>
+<p>对应用户界面工作流参见 <a href="../SandboxMenu/">沙盒菜单</a> 与 <a href="../PlusMigrationGuide/">Sandboxie Plus 迁移指南</a>。</p>
+<h2 id="_9">导出与备份行为<a class="headerlink" href="#_9" title="Permanent link"></a></h2>
+<p><code>BoxGrouping</code> 是用户界面配置，不是导出沙盒的固有元数据。只导出沙盒再导入的常规操作不会带上用户的分组层级。包含相应用户设置节的完整 <code>Sandboxie.ini</code> 备份才能保留它。</p>
+<h2 id="_10">版本历史<a class="headerlink" href="#_10" title="Permanent link"></a></h2>
+<p>当前的 <code>BoxGrouping</code> 存储格式在 Sandboxie Plus 1.9.1 引入，属于沙盒分组配置存储的一次重做。分组功能本身早于该设置。后续版本增加或修复了嵌套分组、重命名、拖放、托盘层级、排序与展开状态的持久化。</p>
 
 
 
