@@ -422,11 +422,17 @@
 
 [隐私模式](../PlusContent/privacy-mode.md)
 
+[进程组](ProcessGroup.md)
+
 [进程数量限制](ProcessLimit.md)
 
 ~~[进程数量限制 1](ProcessLimit1.md)~~（自 Sandboxie v0.7.1 / 5.48.5 起移除）
 
 ~~[进程数量限制 2](ProcessLimit2.md)~~（自 Sandboxie v0.7.1 / 5.48.5 起移除）
+
+[进程内存限制](ProcessMemoryLimit.md)
+
+[进程数限制](ProcessNumberLimit.md)
 
 [进程速度设置](ProcessSpeedSettings.md)
 
@@ -855,6 +861,8 @@
 [技术细节](TechnicalAspects.md)
 
 [测试邮件配置](TestEmailConfiguration.md)
+
+[总内存限制](TotalMemoryLimit.md)
 
 [跟踪日志（适用于 Sandboxie Plus）](../PlusContent/TraceLog.md)
 
