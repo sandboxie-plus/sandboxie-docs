@@ -37,6 +37,6 @@ jobs:
         git config user.name 'github-actions[bot]'
         git config user.email 'github-actions[bot]@users.noreply.github.com'
         ghp-import "$RUNNER_TEMP/docs-build/site" --push
-    - uses: actions/upload-artifact@v7.0.1
+    - uses: actions/upload-artifact@v7.0.2
       with:
         path: '${{ runner.temp }}/docs-build/site'
