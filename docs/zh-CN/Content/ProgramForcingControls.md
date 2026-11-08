@@ -20,6 +20,8 @@ Sandboxie 先判断进程是否已关联到某个沙盒路径，然后针对为�
 
 这些机制不能相互替代。SandMan 还可能把未勾选的单条强制条目保留为禁用的界面项；它们既不是生效的强制规则，也不等同于 `DisableForceRules` 或会话暂停。
 
+<div id="global-program-alerts-and-blocking"></div>
+
 ## 全局程序警报与阻止
 
 `AlertFolder` 与 `AlertProcess` 是 `[GlobalSettings]` 下的全局列表，不是逐沙盒的目标规则：
@@ -45,6 +47,8 @@ SandMan 的 **暂停强制沙盒化程序规则** 菜单动作在开始暂停时
 [强制禁用等待秒数](ForceDisableSeconds.md) 控制暂停时长。菜单提示最初提供配置值，缺少该设置时为 60 秒；工具栏与热键动作使用配置值，或驱动的 10 秒回退值。已配置的全局 `ForceDisableSeconds=0` 会使定时暂停失效；零不表示无限期暂停，也不表示永久禁用强制。API 只在时长为正数时才保存所给时长，因此在菜单中输入零不一定写入零值的 INI 设置。即使把正的时长保存为配置，暂停状态仍然是临时的。
 
 [仅限管理员强制禁用](ForceDisableAdminOnly.md) 默认是 `n`。设全局 `ForceDisableAdminOnly=y` 后，暂停 API 仅限于管理员账户；它并不总是要求已提升的管理员令牌。SandMan 对该项标注为 **仅管理员用户可「停用强制沙盒化程序规则」**。底层驱动还会校验控制调用方是否可信。
+
+<div id="system-service-identities"></div>
 
 ## 系统服务身份
 
