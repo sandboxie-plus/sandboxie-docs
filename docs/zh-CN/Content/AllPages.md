@@ -860,7 +860,41 @@
 
 [技术细节](TechnicalAspects.md)
 
+[模板架构](TemplateArchitecture.md)
+
+[拒绝模板](TemplateReject.md)
+
 [测试邮件配置](TestEmailConfiguration.md)
+
+[模板类别](Tmpl.Class.md)
+
+[模板注释](Tmpl.Comment.md)
+
+[模板条目](Tmpl.Entry.md)
+
+[隐藏模板](Tmpl.Hide.md)
+
+[模板扫描](Tmpl.Scan.md)
+
+[扫描文件](Tmpl.ScanFile.md)
+
+[扫描 IPC](Tmpl.ScanIpc.md)
+
+[扫描注册表项](Tmpl.ScanKey.md)
+
+[扫描产品](Tmpl.ScanProduct.md)
+
+[扫描脚本](Tmpl.ScanScript.md)
+
+[扫描服务](Tmpl.ScanService.md)
+
+[扫描窗口类](Tmpl.ScanWinClass.md)
+
+[模板标题](Tmpl.Title.md)
+
+[模板 URL](Tmpl.Url.md)
+
+[模板版本](Tmpl.Version.md)
 
 [总内存限制](TotalMemoryLimit.md)
 
