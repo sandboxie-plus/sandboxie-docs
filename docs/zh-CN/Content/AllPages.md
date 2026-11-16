@@ -10,6 +10,8 @@
 
 [加快计时器速度](AddTimerSpeed.md)
 
+[高级加载器与 SxS 兼容性](AdvancedLoaderCompatibility.md)
+
 [高级主题](AdvancedTopics.md)
 
 [高级令牌设置](AdvancedTokenSettings.md)
@@ -285,6 +287,8 @@
 [隐藏其他沙盒](HideOtherBoxes.md)
 
 [隐藏 Sandboxie 进程](HideSbieProcesses.md)
+
+[钩子与加载器兼容性](HookAndLoaderCompatibility.md)
 
 [Hook 跟踪](HookTrace.md)
 
@@ -989,6 +993,8 @@
 ### W
 
 [WFP（Windows 过滤平台）支持](../PlusContent/WFPSupport.md)
+
+[Win32k 钩子](Win32kHooks.md)
 
 [Windows 8](Windows8.md)
 
