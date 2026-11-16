@@ -1,98 +1,108 @@
-Sandboxie Plus user interface offers a multitude of new functionality which improves security, compatibility and the overall sandboxing experience.
+Sandboxie Plus のユーザー インターフェイスは、セキュリティ、互換性、および全体的なサンドボックス体験を向上させる多数の新機能を提供します。
 
-Some of these features (*) are however only available to users with a [Support Certificate](../PlusContent/supporter-certificate.md) which can be obtained by [contributing to the Sandboxie project](https://github.com/sandboxie-plus/Sandboxie/blob/master/CONTRIBUTING.md) or purchased in our [online shop](https://xanasoft.com/shop/).
+ただし、これらの機能の一部 (*) は、[Sandboxie プロジェクトへの貢献](https://github.com/sandboxie-plus/Sandboxie/blob/master/CONTRIBUTING.md)によって取得できるか、[オンライン ショップ](https://xanasoft.com/shop/)で購入できる[サポート証明書](../PlusContent/supporter-certificate.md)を持つユーザーのみが利用できます。
 
-Some more features (**) are available to participants of the [Sandboxie-Insider](../PlusContent/Sandboxie-Insider.md) program.
+さらに一部の機能 (**) は、[Sandboxie-Insider](../PlusContent/Sandboxie-Insider.md) プログラムの参加者が利用できます。
 
-#### [Rule Specificity](../PlusContent/RuleSpecificity.md) *
- - With this option rules are prioritized based on their specificity (see changelog/docs for details) this way sub paths can be readable/writeable while parent parts are still protected.
-
-
-#### [Security enhanced sandboxes](../PlusContent/security-mode.md) *
- - Restrict syscall elevation to approved known safe / filtered syscalls
- - Limit access to device endpoints to known safe / filtered endpoints
+#### [ルールの特異性](../PlusContent/RuleSpecificity.md) *
+ - このオプションでは、ルールはその特異性に基づいて優先順位が付けられます（詳細は変更履歴/ドキュメントを参照）。これにより、親部分が保護されたまま、サブパスを読み取り/書き込み可能にできます。
 
 
-#### [Privacy enhanced sandboxes](../PlusContent/privacy-mode.md) *
-- With this feature, by applying a preset rule collection, all locations potentially containing personal data can be protected. Applications running in boxes with personal data protection will see an empty PC with no user data on it.
+#### [セキュリティ強化サンドボックス](../PlusContent/security-mode.md) *
+ - システムコールの昇格を、承認された既知の安全/フィルター済みシステムコールに制限します
+ - デバイス エンドポイントへのアクセスを、既知の安全/フィルター済みエンドポイントに制限します
 
 
-#### [Compartment Mode](../PlusContent/compartment-mode.md) *
- - This mode is intended to optimize compatibility at the cost of security, here Sandboxie’s token-based isolation scheme is not used. Isolation is limited to the FS minifilter as well as registry and object callbacks. This has the potential to greatly improve compatibility with various applications.
+#### [プライバシー強化サンドボックス](../PlusContent/privacy-mode.md) *
+- この機能では、プリセット ルール コレクションを適用することにより、個人データを含む可能性のあるすべての場所を保護できます。個人データ保護が有効なボックスで実行されているアプリケーションには、ユーザー データのない空の PC が見えます。
 
 
-#### Virtual Disk Integration **
- - [RamDisk support](../PlusContent/RamDiskSupport.md), available since the latest insider build, allows you to create a virtual disk in your system's memory, using the ImDisk driver, which can speed up file access and increase confidentiality as all box contents will be discarded when the disk is unmounted (manually or automatically on reboot).
- - [Encrypted Box Image support](../PlusContent/BoxEncryption.md) is currently in development and allows you to create encrypted sandboxed environments for an even greater protection of your confidential data. With this feature the box file root is being mounted from an AES-XTS encrypted box image, other ciphers are available as well. Upcoming additions to this root functionality will contain secure box passphrase handling and a driver extension to prevent applications not running in the encrypted sandbox from accessing the sandboxed files.
+#### [コンパートメント モード](../PlusContent/compartment-mode.md) *
+ - このモードは、セキュリティを犠牲にして互換性を最適化することを目的としており、ここでは Sandboxie のトークン ベースの分離スキームは使用されません。分離は FS ミニフィルターならびにレジストリおよびオブジェクト コールバックに限定されます。これにより、さまざまなアプリケーションとの互換性が大幅に向上する可能性があります。
 
 
-#### Enhanced network filtering and redirection **
- - [Proxy injection](../PlusContent/ProxySupport.md) is yet another feature which has been added in the insider builds, it allows to force any application to use a Socks 5 proxy instead of a direct connection.
- - [DNS query logging, filtering and redirection](../PlusContent/DNSFilter.md) feature allows you to block, or redirect DNS queries made by sandboxed programs for selected domains.
+#### 仮想ディスク統合 **
+ - [RAM ディスク サポート](../PlusContent/RamDiskSupport.md)は、最新の Insider ビルド以降で利用可能で、ImDisk ドライバーを使用してシステムのメモリ内に仮想ディスクを作成できます。これによりファイル アクセスが高速化し、ディスクがアンマウントされたとき（手動または再起動時に自動的に）にすべてのボックスの内容が破棄されるため、機密性が向上します。
+ - [暗号化ボックス イメージ サポート](../PlusContent/BoxEncryption.md)は現在開発中で、機密データをさらに強力に保護するための暗号化されたサンドボックス環境を作成できます。この機能では、ボックスのファイル ルートは AES-XTS 暗号化ボックス イメージからマウントされ、他の暗号も利用可能です。このルート機能への今後の追加には、安全なボックス パスフレーズの処理と、暗号化サンドボックスで実行されていないアプリケーションがサンドボックス化されたファイルにアクセスするのを防ぐドライバー拡張が含まれます。
 
 
-#### [WFP (Windows Filtering Platform) support](../PlusContent/WFPSupport.md)
- - With this feature, Sandboxie can be like an application firewall which applies the rules on a per-sandbox basis, allowing the same application access to Internet in one box while blocking it in another.
+#### 強化されたネットワーク フィルタリングとリダイレクト **
+ - [プロキシ インジェクション](../PlusContent/ProxySupport.md)により、該当するアプリケーションはサポートされている Winsock TCP 接続を SOCKS5 プロキシ経由でルーティングできます。
+ - [DNS クエリのログ記録、フィルタリング、およびリダイレクト](../PlusContent/DNSFilter.md)機能により、サンドボックス化されたプログラムが選択したドメインに対して行う DNS クエリをブロックまたはリダイレクトできます。
 
 
-#### Windows 11 context menu integration
+#### [WFP (Windows Filtering Platform) サポート](../PlusContent/WFPSupport.md)
+ - この機能により、Sandboxie はサンドボックスごとにルールを適用するアプリケーション ファイアウォールのように機能し、同じアプリケーションがあるボックスではインターネットにアクセスできる一方で、別のボックスではブロックできます。
 
 
-#### Process/Thread handle filtering (obCallbacks)
- - Using this mechanism greatly improves on isolation of processes and provides enhanced security.
+#### Windows 11 コンテキスト メニュー統合
 
 
-#### Win32 syscall hooking
- - With this feature, Win32 syscalls can get the same treatment as NT syscalls, which helps with graphics and HW acceleration.
+#### プロセス/スレッド ハンドル フィルタリング (obCallbacks)
+ - このメカニズムを使用すると、プロセスの分離が大幅に改善され、セキュリティが強化されます。
 
 
-#### New UI with dark mode and much more
- - Sandboxie-Plus bring an entirely new Qt based UI sandman.exe
- - Customizable per box run menu
- - Global hotkey to terminate all boxes
- - INI section editor for easy configuration of advanced options
- - Box event triggers/scripts
- - Ability to stop selected applications from running globally, regardless of box presets
+#### Win32 システムコール フッキング
+ - この機能により、Win32 システムコールは NT システムコールと同じ扱いを受けることができ、グラフィックスと HW アクセラレーションに役立ちます。
 
 
-#### [Snapshots](../PlusContent/BoxSnapshots.md)
- - Sandboxie-Plus can create box snapshots, with them it is possible to easily revert a box to a defined previous state.
- - Box set to auto delete will auto-revert when available to the last snapshot allowing to benefit from a fresh clean box each time but with some preset configuration
+#### ダーク モードなどを備えた新しい UI
+ - Sandboxie-Plus は、まったく新しい Qt ベースの UI である sandman.exe をもたらします
+ - ボックスごとにカスタマイズ可能な実行メニュー
+ - すべてのボックスを終了するグローバル ホットキー
+ - 詳細オプションを簡単に構成するための INI セクション エディター
+ - ボックス イベントのトリガー/スクリプト
+ - ボックス プリセットに関係なく、選択したアプリケーションがグローバルに実行されるのを停止する機能
 
 
-#### [Enhanced debug/trace monitor](../PlusContent/TraceLog.md)
+#### [スナップショット](../PlusContent/BoxSnapshots.md)
+ - Sandboxie-Plus はボックス スナップショットを作成でき、それらを使用してボックスを定義済みの以前の状態に簡単に戻すことができます。
+ - 自動削除により、SandMan はアクティブなスナップショット状態または選択した既定のスナップショットのいずれかを復元できます。
 
 
-#### Fake admin privileges
- - Allows to make all processes in a box think they have admin permissions and act accordingly, without the potential drawbacks of granting them admin permissions
+#### [強化されたデバッグ/トレース モニター](../PlusContent/TraceLog.md)
 
 
-#### Box size monitor
- - Monitor and list box size in an own column
+#### 偽の管理者権限
+ - 管理者権限を付与する潜在的な欠点なしに、ボックス内のすべてのプロセスに管理者権限があると思わせ、それに応じて動作させることができます
 
 
-#### Start Menu integration
- - Integrate start menu entries from sandboxes into the host start menu
+#### ボックス サイズ モニター
+ - ボックス サイズを専用の列で監視および一覧表示します
 
 
-#### Sandbox SID isolation
- - Instead of using anonymous login SID, it uses custom SIDs per-sandbox like Sandboxie/DefaultBox. This way, processes from separate sandboxes won’t be able accessing each other’s resources.
+#### スタート メニュー統合
+ - サンドボックスのスタート メニュー エントリをホストのスタート メニューに統合します
 
 
-#### [Breakout Process](../Content/BreakoutProcess.md)
- - Allows to specify which applications shall run unsandboxed when launched within the sandbox. A combination of this and ForceProcess allows for a simple priority system.
- - [Document Breakout](../Content/BreakoutDocument.md) is an extension to the already well-known Breakout mechanism to allow to open selected file types saved to an open file path from within the sandbox in an unsandboxed instance of the associated application.  **
+#### サンドボックス SID 分離
+ - 匿名ログイン SID を使用する代わりに、Sandboxie/DefaultBox のようにサンドボックスごとのカスタム SID を使用します。これにより、別々のサンドボックスのプロセスが互いのリソースにアクセスできなくなります。
 
 
-#### [USB drive sandboxing](../PlusContent/USBSandboxing.md) **
-- This feature allows you to automatically sandbox any USB drive that you plug into your computer, which adds an extra layer of protection to your system.
+#### [ブレイクアウト プロセス](../Content/BreakoutProcess.md)
+ - サンドボックス内で起動されたときにサンドボックス外で実行するアプリケーションを指定できます。これと ForceProcess を組み合わせることで、単純な優先順位システムが可能になります。
+ - [ドキュメント ブレイクアウト](../Content/BreakoutDocument.md)は、既知のブレイクアウト メカニズムの拡張であり、開かれたファイル パスに保存された選択したファイル タイプを、関連付けられたアプリケーションのサンドボックス外インスタンスでサンドボックス内から開けるようにします。 **
 
 
-#### EFS Support **
- - Support for EFS (Encrypted File System) protected files.
+#### [USB ドライブのサンドボックス化](../PlusContent/USBSandboxing.md) *
+- 適格な USB バッキング ボリュームに対して強制フォルダー ルールを自動的に維持し、それらの場所から起動されたプログラムを指定されたサンドボックスに強制できるようにします。
 
 
-#### ARM64 support for Windows 11 *
- - Support ARM64 natively
- - Support emulated x86
- - Support emulated x64 (ARM64EC)
+#### EFS サポート **
+ - EFS (Encrypted File System) で保護されたファイルのサポート。
+
+
+#### Windows 11 の ARM64 サポート *
+ - ARM64 をネイティブにサポート
+ - エミュレートされた x86 をサポート
+ - エミュレートされた x64 (ARM64EC) をサポート
+
+## 管理とワークフローのガイド
+
+- [ボックスの表示とアクション](../Content/BoxPresentation.md)
+- [ボックスのグループ化](../Content/BoxGrouping.md)
+- [SandMan トリガー](../Content/SandManTriggers.md)
+- [ファイル復元アーキテクチャ](../Content/RecoveryArchitecture.md)
+- [サンドボックスの削除と除去のライフサイクル](../Content/SandboxRemoval.md)
+- [ボックス プリセットの比較](box-preset-comparison.md)
+- [ブラック ボックス](black-box.md)

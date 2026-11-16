@@ -1,21 +1,23 @@
-# Sandboxie Documentation
+# Sandboxie ドキュメント
 
 [![Markdown links Status](https://github.com/sandboxie-plus/sandboxie-docs/actions/workflows/action.yml/badge.svg)](https://github.com/sandboxie-plus/sandboxie-docs/actions/workflows/action.yml) [![Codespell Status](https://github.com/sandboxie-plus/sandboxie-docs/actions/workflows/codespell.yml/badge.svg)](https://github.com/sandboxie-plus/sandboxie-docs/actions/workflows/codespell.yml) [![Join our Discord Server](https://img.shields.io/badge/Join-Our%20Discord%20Server%20for%20bugs,%20feedback%20and%20more!-blue?style=flat&logo=discord)](https://discord.gg/S4tFu6Enne)
 
-## Introduction
+## はじめに
 
-Sandboxie is a sandbox-based isolation software for Windows that lets you run untrusted applications without worrying about unwanted changes to your files or registry.
+Sandboxie は、Windows 向けのサンドボックスベースの分離ソフトウェアです。信頼できないアプリケーションを、ファイルやレジストリへの意図しない変更を気にすることなく実行できます。
 
-After Sandboxie became [open source](https://news.sophos.com/en-us/2020/04/09/sandboxie-is-now-an-open-source-tool/), it was decided to release the documentation so that it would be easily updated by the community, as opposed to the documentation available at [sandboxie-plus.com](https://sandboxie-plus.com) and other sources.
+Sandboxie が[オープンソース化](https://news.sophos.com/en-us/2020/04/09/sandboxie-is-now-an-open-source-tool/)された後、[sandboxie-plus.com](https://sandboxie-plus.com) やその他の情報源で提供されているドキュメントとは異なり、コミュニティが簡単に更新できるようにドキュメントを公開することが決定されました。
 
-## Documentation Index
+## ドキュメント索引
 
-[All pages (A-Z)](Content/AllPages.md)
+[すべてのページ (A-Z)](Content/AllPages.md)
 
-## Get Sandboxie
+## Sandboxie の入手
 
-[Feature/Edition comparison](Content/FeatureComparison.md) | [System requirements](https://github.com/sandboxie-plus/Sandboxie#sandboxie-plus--classic) | [Download the latest release](https://github.com/sandboxie-plus/Sandboxie/releases/latest)
+[機能/エディションの比較](Content/FeatureComparison.md) | [システム要件](https://github.com/sandboxie-plus/Sandboxie#sandboxie-plus--classic) | [最新リリースをダウンロード](https://github.com/sandboxie-plus/Sandboxie/releases/latest)
 
-## Contribute
+## コントリビュート
 
-If you have development, testing or translation skills, then feel free to check out our [Contribution guidelines](https://github.com/sandboxie-plus/Sandboxie/blob/master/CONTRIBUTING.md).
+開発、テスト、翻訳のスキルをお持ちの方は、ぜひ[コントリビューション ガイドライン](https://github.com/sandboxie-plus/Sandboxie/blob/master/CONTRIBUTING.md)をご覧ください。
+
+ドキュメントの翻訳者は、翻訳を送信する前に[多言語翻訳コントリビューション ガイド](https://github.com/sandboxie-plus/sandboxie-docs/issues/175#issuecomment-2840258519)を確認することをお勧めします。

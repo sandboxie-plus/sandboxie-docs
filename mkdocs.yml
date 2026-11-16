@@ -12,7 +12,6 @@ exclude_docs: |
   /hu/
   /id/
   /it/
-  /ja/
   /ko/
   /nl/
   /pl/
@@ -425,17 +424,17 @@ plugins:
         # Japanese
         - locale: ja
           name: 日本語
-          build: false
+          build: true
           default: false
-          site_name: Sandboxie Documents
+          site_name: Sandboxie ドキュメント
           nav_translations:
-            Home: Home
-            Sandboxie Basics: Sandboxie Basics
+            Home: ホーム
+            Sandboxie Basics: Sandboxie の基本
             Sandboxie Control: Sandboxie Control
-            Command Line Usage: Command Line Usage
+            Command Line Usage: コマンド ラインの使用
             Sandboxie Plus: Sandboxie Plus
-            Advanced Topics: Advanced Topics
-            SBIE Messages: SBIE Messages
+            Advanced Topics: 高度なトピック
+            SBIE Messages: SBIE メッセージ
             All Pages (A-Z): 'すべてのページ (A-Z)'
             Box Management: 'サンドボックス管理'
             Box Grouping: 'サンドボックスのグループ化'
@@ -774,10 +773,10 @@ extra:
     # - name: Italiano
       # link: /sandboxie-docs/it/
       # lang: it
-    # # Japanese
-    # - name: 日本語
-      # link: /sandboxie-docs/ja/
-      # lang: ja
+    # Japanese
+    - name: 日本語
+      link: /sandboxie-docs/ja/
+      lang: ja
     # # Korean
     # - name: 한국어
       # link: /sandboxie-docs/ko/
