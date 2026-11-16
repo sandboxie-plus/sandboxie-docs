@@ -9,6 +9,7 @@
 各 `RunCommand` 行は 1 つのメニュー エントリを定義します。単純な形式は、表示名とコマンド ラインを最初の `|` で分離します:
 
 ```ini
+[DefaultBox]
 RunCommand=Notepad|"C:\Windows\notepad.exe"
 RunCommand=Config\Open win.ini|"C:\Windows\notepad.exe" "C:\Windows\win.ini"
 ```

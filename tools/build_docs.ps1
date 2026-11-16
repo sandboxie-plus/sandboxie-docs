@@ -29,8 +29,8 @@ try {
     python -m mkdocs build --no-directory-urls --site-dir site_
     if ($LASTEXITCODE -ne 0) { throw "MkDocs build failed with exit code $LASTEXITCODE" }
 
-    # Process HTML files in both root and /zh language folders
-    $languagePaths = "", "zh"  # "" for root, "zh" for Chinese
+    # Process HTML files in the root, /zh and /ja language folders
+    $languagePaths = "", "zh", "ja"  # Root, Chinese and Japanese
     $contentFolders = "Content", "PlusContent"
 
     Write-Host "=== Starting file copy process ===" -ForegroundColor Cyan

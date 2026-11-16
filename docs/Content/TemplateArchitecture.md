@@ -115,7 +115,7 @@ SoftwareUpdater=firefox.exe,*\mozilla firefox\updater.exe
 SoftwareUpdater=msedge.exe,*\Microsoft\EdgeUpdate\MicrosoftEdgeUpdate.exe
 ```
 
-`BlockSoftwareUpdaters` is a separate runtime gate, queried with a default of `y`. When the gate is enabled and a child process matches a `SoftwareUpdater` rule, Sandboxie blocks its creation with `ERROR_ACCESS_DENIED` and reports **Blocked start of an updater** to its monitor path. With `BlockSoftwareUpdaters=n`, the default template and its patterns may still be present in effective configuration, but this process-creation blocker does not enforce them.
+`BlockSoftwareUpdaters` is a separate runtime gate, queried with a default of `y`. When the gate is enabled, Sandboxie skips this updater check if the executable of the process creating the child is inside the sandbox or its true image path matches an open file rule. Otherwise, if the child process matches a `SoftwareUpdater` rule, Sandboxie blocks its creation with `ERROR_ACCESS_DENIED` and reports **Blocked start of an updater** to its monitor path. With `BlockSoftwareUpdaters=n`, the default template and its patterns may still be present in effective configuration, but this process-creation blocker does not enforce them.
 
 `BlockSoftwareUpdaters` was introduced in 0.5.5, removed in 1.0.11, and reintroduced in 1.14.4. It is active in the current runtime. This mechanism covers matching updater process creations; it does not guarantee that every software update, installer, or network-based update path is blocked.
 

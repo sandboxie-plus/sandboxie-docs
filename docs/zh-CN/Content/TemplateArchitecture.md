@@ -115,7 +115,7 @@ SoftwareUpdater=firefox.exe,*\mozilla firefox\updater.exe
 SoftwareUpdater=msedge.exe,*\Microsoft\EdgeUpdate\MicrosoftEdgeUpdate.exe
 ```
 
-`BlockSoftwareUpdaters` 是一个独立的运行时开关，其查询默认值为 `y`。当该开关启用且子进程匹配某条 `SoftwareUpdater` 规则时，Sandboxie 会以 `ERROR_ACCESS_DENIED` 阻止其创建，并把 **Blocked start of an updater** 报告到其监控路径。设为 `BlockSoftwareUpdaters=n` 时，该默认模板及其模式仍可能存在于有效配置中，但这一进程创建拦截机制不会强制执行它们。
+`BlockSoftwareUpdaters` 是一个独立的运行时开关，其查询默认值为 `y`。当该开关启用时，如果发起创建的进程所运行的可执行文件位于沙盒内，或其真实映像路径匹配开放文件规则，则不会进行此更新程序拦截。否则，当子进程匹配某条 `SoftwareUpdater` 规则时，Sandboxie 会以 `ERROR_ACCESS_DENIED` 阻止其创建，并把 **Blocked start of an updater** 报告到其监控路径。设为 `BlockSoftwareUpdaters=n` 时，该默认模板及其模式仍可能存在于有效配置中，但这一进程创建拦截机制不会强制执行它们。
 
 `BlockSoftwareUpdaters` 于 0.5.5 引入，1.0.11 中移除，1.14.4 中重新引入。它在当前运行时中处于生效状态。该机制只涵盖匹配的更新程序进程创建；它并不保证所有软件更新、安装程序或基于网络的更新途径都会被阻止。
 
