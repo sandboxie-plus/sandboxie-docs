@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="OpenDevCMApi is a box-wide Boolean setting in Sandboxie Ini. It disables Sandboxie&#x27;s selective filter for certain mutating Windows Device Configuration Manager operations. The default is n.">
+        <meta name="description" content="OpenDevCMApi 是 Sandboxie Ini 中的一项沙盒范围布尔设置。它会禁用 Sandboxie 对某些具有变更效果的 Windows 设备配置管理器操作所施加的选择性过滤器。默认值为 n。">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>Open Device Configuration Manager API - Sandboxie 文档</title>
+        <title>开放设备配置管理器 API - Sandboxie 文档</title>
       
     
     
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Open Device Configuration Manager API
+              开放设备配置管理器 API
             
           </span>
         </div>
@@ -2729,7 +2729,7 @@
   <span class="md-ellipsis">
     
   
-    Template Architecture
+    模板架构
   
 
     
@@ -7644,7 +7644,7 @@
   <span class="md-ellipsis">
     
   
-    Object Lookup Compatibility
+    对象名称查找兼容性
   
 
     
@@ -7790,71 +7790,71 @@
   
 
 
-<h1 id="open-device-configuration-manager-api">Open Device Configuration Manager API<a class="headerlink" href="#open-device-configuration-manager-api" title="Permanent link"></a></h1>
-<p><code>OpenDevCMApi</code> is a box-wide Boolean setting in <a href="../SandboxieIni/">Sandboxie Ini</a>. It disables Sandboxie's selective filter for certain mutating Windows Device Configuration Manager operations. The default is <code>n</code>.</p>
+<h1 id="open-device-configuration-manager-api">开放设备配置管理器 API<a class="headerlink" href="#open-device-configuration-manager-api" title="Permanent link"></a></h1>
+<p><code>OpenDevCMApi</code> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 中的一项沙盒范围布尔设置。它会禁用 Sandboxie 对某些具有变更效果的 Windows 设备配置管理器操作所施加的选择性过滤器。默认值为 <code>n</code>。</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">OpenDevCMApi</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Enabling this setting can allow an elevated sandboxed process to make host hardware-configuration changes that persist after the sandbox is deleted. It does not grant unrestricted access to all hardware, bypass Windows access checks, or disable other Sandboxie resource restrictions.</p>
+<p>启用此设置可能让提权后的沙盒化进程对宿主硬件配置做出更改，且这些更改在沙盒删除后依然存在。它不会授予对所有硬件的不受限访问权限，不会绕过 Windows 访问检查，也不会禁用 Sandboxie 的其他资源限制。</p>
 </div>
-<h2 id="what-is-filtered">What is filtered<a class="headerlink" href="#what-is-filtered" title="Permanent link"></a></h2>
-<p>With the default <code>OpenDevCMApi=n</code>, the Sandboxie driver examines device-control requests directed to the Configuration Manager API endpoint:</p>
+<h2 id="what-is-filtered">过滤的内容<a class="headerlink" href="#what-is-filtered" title="Permanent link"></a></h2>
+<p>在默认的 <code>OpenDevCMApi=n</code> 下，Sandboxie 驱动程序会检查发往配置管理器 API 端点的设备控制请求：</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>\Device\DeviceApi\CMApi
 </span></code></pre></div>
-<p>Selected mutating operations are denied with an access-denied status. The current filter covers categories including:</p>
+<p>选定的变更类操作会以访问被拒绝状态被拒绝。当前过滤器涵盖以下类别：</p>
 <ul>
-<li>changing software-device properties or lifetime;</li>
-<li>registering software-device interfaces and changing their state or properties;</li>
-<li>setting device-node, device-interface, or device-class properties;</li>
-<li>setting device-class or device-node registry properties;</li>
-<li>setting device-node problem state;</li>
-<li>disabling device nodes or requesting removal of a device subtree;</li>
-<li>registering or unregistering device interfaces;</li>
-<li>creating or uninstalling device nodes;</li>
-<li>deleting device-interface, device-node, or device-class keys.</li>
+<li>更改软件设备的属性或生存期；</li>
+<li>注册软件设备接口，以及更改这些接口的状态或属性；</li>
+<li>设置设备节点、设备接口或设备类的属性；</li>
+<li>设置设备类或设备节点的注册表属性；</li>
+<li>设置设备节点的问题状态；</li>
+<li>禁用设备节点，或请求移除某个设备子树；</li>
+<li>注册或注销设备接口；</li>
+<li>创建或卸载设备节点；</li>
+<li>删除设备接口、设备节点或设备类的项。</li>
 </ul>
-<p>This is a selective deny list, not a complete block on the Configuration Manager API. Current query and read operations are generally passed through, including representative operations for enumerating devices or classes, reading properties, querying device-node status or depth, resolving interface aliases, validating device instances, and opening related registry keys. Other operations not selected by the filter also continue to the underlying Windows device-control path.</p>
-<p><code>OpenDevCMApi=y</code> skips this CMApi-specific mutation filter. The underlying operation is still subject to Windows permissions and any independent Sandboxie controls, so the setting does not guarantee that a requested hardware-management operation will succeed. It also does not itself change whether the CMApi device object can be opened.</p>
-<h2 id="why-the-filter-exists">Why the filter exists<a class="headerlink" href="#why-the-filter-exists" title="Permanent link"></a></h2>
-<p>The filter was introduced for Security Issue ID-14 after <a href="https://github.com/sandboxie-plus/Sandboxie/issues/552">issue #552</a> demonstrated that an elevated process could use Device Manager from inside a sandbox to remove host devices. Those changes affected the host and persisted independently of sandbox deletion.</p>
-<p>Use <code>OpenDevCMApi=y</code> only as a compatibility exception for software that genuinely requires one of the filtered device-management operations.</p>
-<h2 id="compatibility">Compatibility<a class="headerlink" href="#compatibility" title="Permanent link"></a></h2>
-<p>Sandboxie Plus 0.7.1 / Classic 5.48.5 refined the filter to fix webcam-access problems while keeping the selected mutation restrictions. Ordinary webcam access should therefore not be assumed to require <code>OpenDevCMApi=y</code>.</p>
-<h2 id="applying-changes">Applying changes<a class="headerlink" href="#applying-changes" title="Permanent link"></a></h2>
-<p>The setting can be specified for a sandbox or inherited through normal template and global configuration resolution. It has no documented executable-qualified syntax.</p>
-<p>The driver caches the effective value when initializing each sandboxed process. Restart affected sandboxed applications, or recreate the sandboxed process tree, after changing the setting. A SandMan, service, or driver restart is not normally required for newly started processes.</p>
-<h2 id="sandman-configuration">SandMan configuration<a class="headerlink" href="#sandman-configuration" title="Permanent link"></a></h2>
-<p>The control is under:</p>
-<p><strong>Sandbox Options &gt; General Options &gt; Isolation &gt; Allow sandboxed programs to manage Hardware/Devices</strong></p>
-<p>The checkbox is clear by default. Selecting it writes <code>OpenDevCMApi=y</code>, which is the less-restricted compatibility state. SandMan disables the control when <strong>No Security Isolation</strong> is selected.</p>
-<h2 id="relationship-to-other-device-features">Relationship to other device features<a class="headerlink" href="#relationship-to-other-device-features" title="Permanent link"></a></h2>
-<p><a href="../BlockRegisterDeviceNotification/"><code>BlockRegisterDeviceNotification</code></a> controls separate user-mode hooks for device-notification registration. It does not enable or disable the CMApi mutation filter.</p>
-<p><a href="../../PlusContent/USBSandboxing/">USB Drive Sandboxing</a> is also independent. That feature is SandMan automation that maintains forced-folder rules for qualifying USB-backed volumes; it does not use <code>OpenDevCMApi</code> to virtualize or control the USB device.</p>
-<h2 id="version-history">Version history<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
+<p>这是一份选择性的拒绝列表，而不是对配置管理器 API 的完整封锁。当前的查询与读取操作一般会被放行，包括用于枚举设备或设备类、读取属性、查询设备节点状态或深度、解析接口别名、校验设备实例以及打开相关注册表项的代表性操作。未被该过滤器选中的其他操作同样会继续进入底层 Windows 设备控制路径。</p>
+<p><code>OpenDevCMApi=y</code> 会跳过这道针对 CMApi 的变更过滤器。底层操作仍受 Windows 权限以及任何独立的 Sandboxie 控制约束，因此该设置并不保证所请求的硬件管理操作一定成功。它本身也不会改变 CMApi 设备对象能否被打开。</p>
+<h2 id="why-the-filter-exists">过滤器存在的原因<a class="headerlink" href="#why-the-filter-exists" title="Permanent link"></a></h2>
+<p>该过滤器是针对安全议题 ID-14 引入的，此前 <a href="https://github.com/sandboxie-plus/Sandboxie/issues/552">issue #552</a> 表明，提权后的进程可以在沙盒内使用设备管理器移除宿主设备。那些更改影响了宿主，并且独立于沙盒删除而持续存在。</p>
+<p>请仅把 <code>OpenDevCMApi=y</code> 当作兼容性例外，用于确实需要某项被过滤的设备管理操作的软件。</p>
+<h2 id="compatibility">兼容性<a class="headerlink" href="#compatibility" title="Permanent link"></a></h2>
+<p>Sandboxie Plus 0.7.1 / Classic 5.48.5 细化了该过滤器，在保留选定变更限制的同时修复了摄像头访问问题。因此，普通的摄像头访问不应被视为需要 <code>OpenDevCMApi=y</code>。</p>
+<h2 id="applying-changes">应用更改<a class="headerlink" href="#applying-changes" title="Permanent link"></a></h2>
+<p>该设置可以为某个沙盒指定，也可以通过常规的模板与全局配置解析继承。它没有已记录在案的可执行文件限定语法。</p>
+<p>驱动程序在初始化每个沙盒化进程时缓存有效值。更改该设置后，请重启受影响的沙盒化应用程序，或重建沙盒化的进程树。新启动的进程通常不需要重启 SandMan、服务或驱动程序。</p>
+<h2 id="sandman-configuration">SandMan 配置<a class="headerlink" href="#sandman-configuration" title="Permanent link"></a></h2>
+<p>该控件位于：</p>
+<p><strong>沙盒选项 &gt; 常规选项 &gt; 隔离 &gt; 允许沙盒内程序管理硬件设备</strong></p>
+<p>该复选框默认未选中。选中它会写入 <code>OpenDevCMApi=y</code>，即限制较少的兼容性状态。当选中 <strong>无安全隔离</strong> 时，SandMan 会禁用该控件。</p>
+<h2 id="relationship-to-other-device-features">与其他设备功能的关系<a class="headerlink" href="#relationship-to-other-device-features" title="Permanent link"></a></h2>
+<p><a href="../BlockRegisterDeviceNotification/"><code>BlockRegisterDeviceNotification</code></a> 控制的是另一组用于设备通知注册的用户态钩子。它不会启用或禁用 CMApi 变更过滤器。</p>
+<p><a href="../../PlusContent/USBSandboxing/">USB 沙盒化</a> 同样是独立的。该功能是 SandMan 的一项自动化：为符合条件的 USB 卷维护强制文件夹规则；它不使用 <code>OpenDevCMApi</code> 来虚拟化或控制 USB 设备。</p>
+<h2 id="version-history">版本历史<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
 <table>
 <thead>
 <tr>
-<th>Change</th>
-<th>Version</th>
+<th>更改</th>
+<th>版本</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>CMApi mutation filter and <code>OpenDevCMApi</code> compatibility setting introduced</td>
+<td>引入 CMApi 变更过滤器与 <code>OpenDevCMApi</code> 兼容性设置</td>
 <td>Sandboxie Plus 0.7.0 / Classic 5.48.0</td>
 </tr>
 <tr>
-<td>Webcam compatibility with the filter enabled improved</td>
+<td>改善启用过滤器后的摄像头兼容性</td>
 <td>Sandboxie Plus 0.7.1 / Classic 5.48.5</td>
 </tr>
 </tbody>
 </table>
-<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
+<h2 id="related-pages">相关页面<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
 <ul>
-<li><a href="../BlockRegisterDeviceNotification/">Block Register Device Notification</a></li>
-<li><a href="../../PlusContent/USBSandboxing/">USB Drive Sandboxing</a></li>
+<li><a href="../BlockRegisterDeviceNotification/">阻止注册设备通知</a></li>
+<li><a href="../../PlusContent/USBSandboxing/">USB 沙盒化</a></li>
 <li><a href="../SandboxieIni/">Sandboxie Ini</a></li>
 </ul>
 

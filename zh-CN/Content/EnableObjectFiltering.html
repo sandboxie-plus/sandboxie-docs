@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="EnableObjectFiltering is a global setting in Sandboxie Ini that controls Sandboxie&#x27;s kernel Object Manager callback layer for process and thread handles. This layer restricts selected access between sandboxed processes and targets outside the same sandbox. It also supports the separate host-to-sandbox protection used by Confidential Box.">
+        <meta name="description" content="EnableObjectFiltering 是 Sandboxie Ini 中的一项全局设置，用于控制 Sandboxie 针对进程与线程句柄的内核对象管理器回调层。该层限制沙盒化进程与同一沙盒之外的目标之间的选定访问。它还支撑 保密沙盒 所使用的另一套宿主到沙盒保护。">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>Enable Object Filtering - Sandboxie 文档</title>
+        <title>启用对象过滤 - Sandboxie 文档</title>
       
     
     
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Enable Object Filtering
+              启用对象过滤
             
           </span>
         </div>
@@ -2729,7 +2729,7 @@
   <span class="md-ellipsis">
     
   
-    Template Architecture
+    模板架构
   
 
     
@@ -7644,7 +7644,7 @@
   <span class="md-ellipsis">
     
   
-    Object Lookup Compatibility
+    对象名称查找兼容性
   
 
     
@@ -7790,112 +7790,112 @@
   
 
 
-<h1 id="enable-object-filtering">Enable Object Filtering<a class="headerlink" href="#enable-object-filtering" title="Permanent link"></a></h1>
-<p><em>EnableObjectFiltering</em> is a global setting in <a href="SandboxieIni.html">Sandboxie Ini</a> that controls Sandboxie's kernel Object Manager callback layer for process and thread handles. This layer restricts selected access between sandboxed processes and targets outside the same sandbox. It also supports the separate host-to-sandbox protection used by <a href="ConfidentialBox.html">Confidential Box</a>.</p>
-<p>Despite the generic setting name, the current callback registration is specifically for process and thread handles. File, registry, IPC namespace, and other object types are handled by separate Sandboxie mechanisms.</p>
-<h2 id="current-default-and-configuration">Current default and configuration<a class="headerlink" href="#current-default-and-configuration" title="Permanent link"></a></h2>
-<p>Object filtering is enabled by default. Users do not need to add an explicit <code>EnableObjectFiltering=y</code> entry for normal operation.</p>
-<p>To disable the global callback layer:</p>
+<h1 id="enable-object-filtering">启用对象过滤<a class="headerlink" href="#enable-object-filtering" title="Permanent link"></a></h1>
+<p><em>EnableObjectFiltering</em> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 中的一项全局设置，用于控制 Sandboxie 针对进程与线程句柄的内核对象管理器回调层。该层限制沙盒化进程与同一沙盒之外的目标之间的选定访问。它还支撑 <a href="ConfidentialBox.html">保密沙盒</a> 所使用的另一套宿主到沙盒保护。</p>
+<p>尽管设置名比较宽泛，当前注册的回调专门针对进程与线程句柄。文件、注册表、IPC 命名空间以及其他对象类型由 Sandboxie 的其他机制处理。</p>
+<h2 id="current-default-and-configuration">当前默认值与配置<a class="headerlink" href="#current-default-and-configuration" title="Permanent link"></a></h2>
+<p>对象过滤默认启用。正常运行无需显式添加 <code>EnableObjectFiltering=y</code> 条目。</p>
+<p>要禁用该全局回调层：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[GlobalSettings]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">EnableObjectFiltering</span><span class="o">=</span><span class="s">n</span>
 </span></code></pre></div>
-<p>The current runtime reads this setting from <code>GlobalSettings</code>; placing it only in an individual sandbox section does not control callback registration for that sandbox.</p>
+<p>当前运行时从 <code>GlobalSettings</code> 读取此设置；只把它放进单个沙盒的配置节，并不会控制该沙盒的回调注册。</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Disabling the global callback layer removes an important process/thread access-control mechanism for every sandbox. Sandboxie's syscall-specific process/thread checks remain in some paths, but they do not provide identical coverage and should not be treated as an equivalent replacement.</p>
+<p>禁用该全局回调层会为所有沙盒移除一项重要的进程/线程访问控制机制。Sandboxie 针对特定系统调用的进程/线程检查在某些路径中仍然保留，但覆盖范围并不相同，不应被视为等效替代。</p>
 </div>
-<h2 id="what-the-callback-filters">What the callback filters<a class="headerlink" href="#what-the-callback-filters" title="Permanent link"></a></h2>
-<p>The current implementation registers Object Manager callbacks for:</p>
+<h2 id="what-the-callback-filters">回调过滤的内容<a class="headerlink" href="#what-the-callback-filters" title="Permanent link"></a></h2>
+<p>当前实现为以下操作注册对象管理器回调：</p>
 <ul>
-<li>process handles;</li>
-<li>thread handles;</li>
-<li>new handle creation;</li>
-<li>handle duplication.</li>
+<li>进程句柄；</li>
+<li>线程句柄；</li>
+<li>新建句柄；</li>
+<li>句柄复制。</li>
 </ul>
-<p>For these operations, Sandboxie can leave the requested access unchanged or reduce it according to the process/thread access policy. In the normal denied path, the requested access mask is reduced to zero. The callback itself permits Windows to continue processing the handle operation, so applications should not rely on one particular Win32 or NT error for every restricted request.</p>
-<p>Operations that create or duplicate a kernel handle are not modified by this callback. This is a property of the handle operation and does not imply that arbitrary user-mode requests can bypass the filter.</p>
-<p>Changes affect future process/thread handle creation and duplication. They do not retroactively reduce rights in an existing handle, add rights to a previously restricted handle, or invalidate an existing handle.</p>
-<h2 id="process-and-thread-access-policy">Process and thread access policy<a class="headerlink" href="#process-and-thread-access-policy" title="Permanent link"></a></h2>
-<p>Process or thread access within the same effective sandbox is normally allowed by this policy. A process in one sandbox targeting a process or thread in another sandbox is treated as outside the sandbox; visibility controls such as <code>HideOtherBoxes</code> are separate from handle-access filtering.</p>
-<p>For outside targets, Sandboxie restricts process and thread rights that can be used to modify or control the target. Process-memory read access is handled separately from write/control access.</p>
-<p>The policy integrates with process-target forms of the IPC resource rules:</p>
+<p>对于这些操作，Sandboxie 可以保持请求的访问权限不变，也可以按进程/线程访问策略削减它。在正常的拒绝路径中，请求的访问掩码会被削减为零。回调本身允许 Windows 继续处理该句柄操作，因此应用程序不应指望每个被限制的请求都返回某一个特定的 Win32 或 NT 错误。</p>
+<p>创建或复制内核句柄的操作不会被该回调修改。这是句柄操作自身的性质，并不意味着任意用户态请求都能绕过该过滤器。</p>
+<p>更改只影响后续的进程/线程句柄创建与复制：它不会追溯削减既有句柄中的权限，不会为先前受限的句柄追加权限，也不会使既有句柄失效。</p>
+<h2 id="process-and-thread-access-policy">进程与线程访问策略<a class="headerlink" href="#process-and-thread-access-policy" title="Permanent link"></a></h2>
+<p>同一有效沙盒内部的进程或线程访问，通常会被该策略允许。一个沙盒中的进程以另一个沙盒中的进程或线程为目标时，会被视为沙盒外；<code>HideOtherBoxes</code> 一类的可见性控制与句柄访问过滤是相互独立的。</p>
+<p>对于沙盒外的目标，Sandboxie 会限制那些可用于修改或控制目标的进程与线程权限。进程内存的读取访问与写入/控制访问分开处理。</p>
+<p>该策略与 IPC 资源规则中针对进程目标的那些形式相配合：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">OpenIpcPath</span><span class="o">=</span><span class="s">$:target.exe</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">ReadIpcPath</span><span class="o">=</span><span class="s">$:target.exe</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="na">ClosedIpcPath</span><span class="o">=</span><span class="s">$:target.exe</span>
 </span></code></pre></div>
-<p>For this use, a matching <code>ClosedIpcPath</code> rule is evaluated before <code>OpenIpcPath</code>, followed by <code>ReadIpcPath</code> where read-only access is applicable. <code>OpenIpcPath</code> can permit otherwise restricted access, <code>ReadIpcPath</code> applies only to the supported read category, and <code>$:*</code> matches every target process. Normal Windows access control still applies after a Sandboxie rule permits a request.</p>
-<p>See <a href="OpenIpcPath.html">Open IPC Path</a>, <a href="ReadIpcPath.html">Read IPC Path</a>, and <a href="ClosedIpcPath.html">Closed IPC Path</a> for the broader resource-rule behavior.</p>
-<h2 id="callback-and-syscall-specific-filtering">Callback and syscall-specific filtering<a class="headerlink" href="#callback-and-syscall-specific-filtering" title="Permanent link"></a></h2>
-<p>Sandboxie currently has two related process/thread filtering layers:</p>
+<p>在这种用法中，匹配的 <code>ClosedIpcPath</code> 规则先于 <code>OpenIpcPath</code> 求值，随后在只读访问适用时轮到 <code>ReadIpcPath</code>。<code>OpenIpcPath</code> 可以放开原本受限的访问，<code>ReadIpcPath</code> 只作用于受支持的读取类别，<code>$:*</code> 则匹配每一个目标进程。Sandboxie 规则放行某个请求之后，Windows 正常的访问控制仍然生效。</p>
+<p>资源规则的更广泛行为参见 <a href="OpenIpcPath.html">开放 IPC 路径</a>、<a href="ReadIpcPath.html">读取 IPC 路径</a> 与 <a href="ClosedIpcPath.html">封禁 IPC 路径</a>。</p>
+<h2 id="callback-and-syscall-specific-filtering">回调过滤与系统调用专属过滤<a class="headerlink" href="#callback-and-syscall-specific-filtering" title="Permanent link"></a></h2>
+<p>Sandboxie 目前有两层相关的进程/线程过滤：</p>
 <ol>
-<li>The global Object Manager callback layer filters supported handle creation and duplication independently of the user-mode API or Sandboxie's syscall-specific check that led to the operation.</li>
-<li>Syscall-specific driver paths retain checks for operations such as opening, enumerating, or duplicating process and thread handles.</li>
+<li>全局对象管理器回调层，独立于用户态 API 或引发该操作的 Sandboxie 系统调用专属检查，对受支持的句柄创建与复制进行过滤。</li>
+<li>系统调用专属的驱动程序路径，保留对打开、枚举或复制进程与线程句柄等操作的检查。</li>
 </ol>
-<p>The layers share policy code but do not have identical coverage. When the global callbacks are active, overlapping syscall paths normally defer to the callback. If the callbacks are not installed, current syscall-specific paths continue to apply their own checks where implemented.</p>
-<p>This distinction means that <code>EnableObjectFiltering=n</code> is not equivalent to the per-sandbox <a href="DisableObjectFilter.html">Disable Object Filter</a> setting.</p>
+<p>两层共用策略代码，但覆盖范围并不相同。全局回调处于活动状态时，重叠的系统调用路径通常会让位于回调。若回调未安装，当前的系统调用专属路径会在已实现之处继续施加自己的检查。</p>
+<p>这一区别意味着 <code>EnableObjectFiltering=n</code> 与按沙盒生效的 <a href="DisableObjectFilter.html">禁用对象过滤器</a> 设置并不等价。</p>
 <table>
 <thead>
 <tr>
-<th>Configuration</th>
-<th>Scope</th>
-<th>Object Manager callbacks</th>
-<th>Effect</th>
+<th>配置</th>
+<th>作用范围</th>
+<th>对象管理器回调</th>
+<th>效果</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Default</td>
-<td>Global</td>
-<td>Installed</td>
-<td>Normal process/thread callback filtering</td>
+<td>默认</td>
+<td>全局</td>
+<td>已安装</td>
+<td>常规的进程/线程回调过滤</td>
 </tr>
 <tr>
 <td><code>EnableObjectFiltering=n</code></td>
-<td>Global</td>
-<td>Not installed</td>
-<td>Removes the callback layer for every sandbox; syscall-specific checks can remain</td>
+<td>全局</td>
+<td>未安装</td>
+<td>为所有沙盒移除回调层；系统调用专属检查可能仍然保留</td>
 </tr>
 <tr>
 <td><code>DisableObjectFilter=y</code></td>
-<td>Affected sandboxed processes</td>
-<td>Still installed</td>
-<td>Relaxes outbound callback filtering for those processes</td>
+<td>受影响的沙盒化进程</td>
+<td>仍然安装</td>
+<td>放宽这些进程的出站回调过滤</td>
 </tr>
 <tr>
-<td>Application Compartment with <code>NoSecurityFiltering=y</code></td>
-<td>Affected compartment processes</td>
-<td>Still globally installed</td>
-<td>Enables the per-process file, registry-key, and object-filter disable states</td>
+<td>带 <code>NoSecurityFiltering=y</code> 的应用隔间</td>
+<td>受影响的应用隔间进程</td>
+<td>仍全局安装</td>
+<td>启用按进程的文件、注册表项与对象过滤禁用状态</td>
 </tr>
 </tbody>
 </table>
-<h2 id="host-to-sandbox-protection">Host-to-sandbox protection<a class="headerlink" href="#host-to-sandbox-protection" title="Permanent link"></a></h2>
-<p>The callback also implements a separate check when an unsandboxed host process requests a handle to a sandboxed process or thread. This path supports settings such as <code>DenyHostAccess</code>, <code>ProtectAdminOnly</code>, and <code>NotifyBoxProtected</code>, as well as the additional process protection of a Confidential Box.</p>
-<p>The host-to-sandbox check is separate from a sandboxed process's outbound filter state. Setting <code>DisableObjectFilter=y</code> in the target sandbox does not by itself disable this protection while the global callback layer remains active. The path retains operational exceptions for Sandboxie and Windows components required to manage or run the sandbox.</p>
-<p>See <a href="ConfidentialBox.html">Confidential Box</a> for the user-facing host-access policy.</p>
-<h2 id="application-compartment">Application Compartment<a class="headerlink" href="#application-compartment" title="Permanent link"></a></h2>
-<p><a href="NoSecurityIsolation.html">Application Compartment</a> mode does not by itself disable the Object Manager callbacks. With <code>NoSecurityIsolation=y</code> and normal filtering, compartment processes can still be subject to this process/thread access policy.</p>
-<p>When <a href="NoSecurityFiltering.html">No Security Filtering</a> is also enabled, new compartment processes receive the corresponding per-process file, registry-key, and object-filter disable states. The callbacks remain registered globally, and other sandboxes remain normally filtered.</p>
-<h2 id="sandman-interface">SandMan interface<a class="headerlink" href="#sandman-interface" title="Permanent link"></a></h2>
-<p>The global control is located at:</p>
-<p><strong>Global Settings &gt; Advanced Config &gt; Sandboxie Config &gt; Activate Kernel Mode Object Filtering</strong></p>
-<p>The checkbox is selected by default. When selected, SandMan normally removes an explicit disabling override and relies on the enabled runtime default. Clearing it writes <code>EnableObjectFiltering=n</code>.</p>
-<p>Saving this global feature setting can register or unregister the callback layer through driver reconfiguration. A Windows reboot or normal driver restart is not ordinarily required.</p>
-<p>If callback registration is required during driver startup but fails, driver initialization fails and Sandboxie logs the registration problem. A failure during later reconfiguration is logged and leaves the callback feature inactive; the exact UI presentation can vary.</p>
-<h2 id="applying-changes">Applying changes<a class="headerlink" href="#applying-changes" title="Permanent link"></a></h2>
-<p>Changing the global setting affects future process/thread handle creation and duplication, including requests made by already-running processes after reconfiguration. It does not alter handles that are already open.</p>
-<p>By contrast, <code>DisableObjectFilter</code> is stored when each sandboxed process is initialized. Restart affected sandboxed processes after changing that setting.</p>
-<h2 id="version-history">Version history<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
-<p>The callback feature was introduced as experimental in Sandboxie Plus 1.0.0 / Classic 5.55.0 and initially required an explicit <code>EnableObjectFiltering=y</code> setting. It became enabled by default in Sandboxie Plus 1.0.16 / Classic 5.55.16.</p>
-<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
+<h2 id="host-to-sandbox-protection">宿主到沙盒的保护<a class="headerlink" href="#host-to-sandbox-protection" title="Permanent link"></a></h2>
+<p>当非沙盒化的宿主进程请求指向某个沙盒化进程或线程的句柄时，该回调还会执行一项独立的检查。这条路径支撑 <code>DenyHostAccess</code>、<code>ProtectAdminOnly</code> 与 <code>NotifyBoxProtected</code> 等设置，也支撑保密沙盒额外的进程保护。</p>
+<p>宿主到沙盒的检查与沙盒化进程的出站过滤状态相互独立。在全局回调层仍然活动时，在目标沙盒中设置 <code>DisableObjectFilter=y</code> 本身并不会禁用这项保护。该路径保留了一些运行层面的例外，供管理或运行沙盒所必需的 Sandboxie 与 Windows 组件使用。</p>
+<p>面向用户的宿主访问策略参见 <a href="ConfidentialBox.html">保密沙盒</a>。</p>
+<h2 id="application-compartment">应用隔间<a class="headerlink" href="#application-compartment" title="Permanent link"></a></h2>
+<p><a href="NoSecurityIsolation.html">应用隔间</a> 模式本身并不会禁用对象管理器回调。在 <code>NoSecurityIsolation=y</code> 且保持常规过滤的情况下，应用隔间进程仍可能受这一进程/线程访问策略约束。</p>
+<p>当同时启用 <a href="NoSecurityFiltering.html">无安全过滤</a> 时，新建的应用隔间进程会获得相应的按进程文件、注册表项与对象过滤禁用状态。回调仍全局注册，其他沙盒仍正常受到过滤。</p>
+<h2 id="sandman-interface">SandMan 界面<a class="headerlink" href="#sandman-interface" title="Permanent link"></a></h2>
+<p>全局控件位于：</p>
+<p><strong>全局设置 &gt; 高级选项 &gt; 沙盒配置 &gt; 激活内核模式的对象过滤器</strong></p>
+<p>该复选框默认处于选中状态。选中时，SandMan 通常会移除显式的禁用覆盖，依赖运行时的默认启用状态。清除它会写入 <code>EnableObjectFiltering=n</code>。</p>
+<p>保存这项全局功能设置可能通过驱动程序重新配置来注册或注销回调层，通常不需要重启 Windows 或常规地重启驱动程序。</p>
+<p>如果在驱动程序启动期间需要注册回调但注册失败，驱动程序初始化会失败，Sandboxie 会记录该注册问题。后续重新配置期间的失败会被记录，并使该回调功能保持未激活状态；具体的界面呈现可能有所不同。</p>
+<h2 id="applying-changes">应用更改<a class="headerlink" href="#applying-changes" title="Permanent link"></a></h2>
+<p>更改该全局设置会影响后续的进程/线程句柄创建与复制，包括已运行进程在重新配置之后发出的请求。它不会改变已经打开的句柄。</p>
+<p>相比之下，<code>DisableObjectFilter</code> 是在每个沙盒化进程初始化时存储的。更改该设置后，请重启受影响的沙盒化进程。</p>
+<h2 id="version-history">版本历史<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
+<p>该回调功能在 Sandboxie Plus 1.0.0 / Classic 5.55.0 中作为实验性功能引入，最初需要显式设置 <code>EnableObjectFiltering=y</code>。自 Sandboxie Plus 1.0.16 / Classic 5.55.16 起，它改为默认启用。</p>
+<h2 id="related-pages">相关页面<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
 <ul>
-<li><a href="DisableObjectFilter.html">Disable Object Filter</a></li>
-<li><a href="NoSecurityFiltering.html">No Security Filtering</a></li>
-<li><a href="NoSecurityIsolation.html">No Security Isolation</a></li>
-<li><a href="ConfidentialBox.html">Confidential Box</a></li>
-<li><a href="OpenIpcPath.html">Open IPC Path</a></li>
-<li><a href="ReadIpcPath.html">Read IPC Path</a></li>
-<li><a href="ClosedIpcPath.html">Closed IPC Path</a></li>
+<li><a href="DisableObjectFilter.html">禁用对象过滤器</a></li>
+<li><a href="NoSecurityFiltering.html">无安全过滤</a></li>
+<li><a href="NoSecurityIsolation.html">无安全隔离</a></li>
+<li><a href="ConfidentialBox.html">保密沙盒</a></li>
+<li><a href="OpenIpcPath.html">开放 IPC 路径</a></li>
+<li><a href="ReadIpcPath.html">读取 IPC 路径</a></li>
+<li><a href="ClosedIpcPath.html">封禁 IPC 路径</a></li>
 <li><a href="SandboxieIni.html">Sandboxie Ini</a></li>
 </ul>
 

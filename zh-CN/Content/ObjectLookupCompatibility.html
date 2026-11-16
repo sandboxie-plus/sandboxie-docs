@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="UseDriverObjLookup and UseObjectNameForKeys are advanced compatibility settings for how Sandboxie obtains names from existing object and registry-key handles. Both are disabled by default. They change name resolution inside Sandboxie, not the rules that grant or deny access to files, registry keys, or named objects.">
+        <meta name="description" content="UseDriverObjLookup 与 UseObjectNameForKeys 是两项高级兼容性设置，用于控制 Sandboxie 如何从既有对象与注册表项句柄取得名称。两者都默认禁用。它们改变的是 Sandboxie 内部的名称解析，而不是那些授予或拒绝对文件、注册表项或命名对象访问的规则。">
       
       
       
@@ -31,7 +31,7 @@
     
     
       
-        <title>Object Lookup Compatibility - Sandboxie 文档</title>
+        <title>对象名称查找兼容性 - Sandboxie 文档</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Object Lookup Compatibility
+              对象名称查找兼容性
             
           </span>
         </div>
@@ -2733,7 +2733,7 @@
   <span class="md-ellipsis">
     
   
-    Template Architecture
+    模板架构
   
 
     
@@ -7661,7 +7661,7 @@
   <span class="md-ellipsis">
     
   
-    Object Lookup Compatibility
+    对象名称查找兼容性
   
 
     
@@ -7679,7 +7679,7 @@
   <span class="md-ellipsis">
     
   
-    Object Lookup Compatibility
+    对象名称查找兼容性
   
 
     
@@ -7708,7 +7708,7 @@
   <a href="#object-name-lookup-in-sandboxie" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Object-name lookup in Sandboxie
+        Sandboxie 中的对象名称查找
       
     </span>
   </a>
@@ -7741,7 +7741,7 @@
   <a href="#how-the-settings-interact" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How the settings interact
+        两项设置如何相互影响
       
     </span>
   </a>
@@ -7752,7 +7752,7 @@
   <a href="#applying-changes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Applying changes
+        应用更改
       
     </span>
   </a>
@@ -7763,7 +7763,7 @@
   <a href="#version-history" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Version history
+        版本历史
       
     </span>
   </a>
@@ -7774,7 +7774,7 @@
   <a href="#related-pages" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Related pages
+        相关页面
       
     </span>
   </a>
@@ -7922,70 +7922,70 @@
   
 
 
-<h1 id="object-lookup-compatibility">Object Lookup Compatibility<a class="headerlink" href="#object-lookup-compatibility" title="Permanent link"></a></h1>
-<p><code>UseDriverObjLookup</code> and <code>UseObjectNameForKeys</code> are advanced compatibility settings for how Sandboxie obtains names from existing object and registry-key handles. Both are disabled by default. They change name resolution inside Sandboxie, not the rules that grant or deny access to files, registry keys, or named objects.</p>
-<h2 id="object-name-lookup-in-sandboxie">Object-name lookup in Sandboxie<a class="headerlink" href="#object-name-lookup-in-sandboxie" title="Permanent link"></a></h2>
-<p>Some Sandboxie path-processing operations need the name associated with an open handle. Sandboxie's internal <code>Obj_GetObjectName</code> helper normally asks Windows for <code>ObjectNameInformation</code> through <code>NtQueryObject</code>. Other internal file, IPC, and selected security-object paths also use this helper. This is distinct from Sandboxie's hook for an application's own <code>NtQueryObject</code> calls: enabling <code>UseDriverObjLookup</code> does not reroute every such call through the driver.</p>
+<h1 id="object-lookup-compatibility">对象名称查找兼容性<a class="headerlink" href="#object-lookup-compatibility" title="Permanent link"></a></h1>
+<p><code>UseDriverObjLookup</code> 与 <code>UseObjectNameForKeys</code> 是两项高级兼容性设置，用于控制 Sandboxie 如何从既有对象与注册表项句柄取得名称。两者都默认禁用。它们改变的是 Sandboxie 内部的名称解析，而不是那些授予或拒绝对文件、注册表项或命名对象访问的规则。</p>
+<h2 id="object-name-lookup-in-sandboxie">Sandboxie 中的对象名称查找<a class="headerlink" href="#object-name-lookup-in-sandboxie" title="Permanent link"></a></h2>
+<p>某些 Sandboxie 路径处理操作需要取得与已打开句柄关联的名称。Sandboxie 内部的 <code>Obj_GetObjectName</code> 辅助函数通常通过 <code>NtQueryObject</code> 向 Windows 请求 <code>ObjectNameInformation</code>。其他内部的文件、IPC 以及选定的安全对象路径也使用这一辅助函数。这与 Sandboxie 为应用程序自身的 <code>NtQueryObject</code> 调用所设的钩子不同：启用 <code>UseDriverObjLookup</code> 并不会把每一个此类调用都改由驱动程序处理。</p>
 <h2 id="usedriverobjlookup">UseDriverObjLookup<a class="headerlink" href="#usedriverobjlookup" title="Permanent link"></a></h2>
-<p>In a standard sandbox, <code>UseDriverObjLookup=y</code> makes Sandboxie's internal object-name helper ask the Sandboxie driver to resolve a handle's name instead of using its normal user-mode <code>NtQueryObject</code> lookup:</p>
+<p>在标准沙盒中，<code>UseDriverObjLookup=y</code> 会让 Sandboxie 内部的对象名称辅助函数请求 Sandboxie 驱动程序来解析句柄名称，而不是使用它常规的用户态 <code>NtQueryObject</code> 查找：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">UseDriverObjLookup</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>This is an opt-in workaround for specific handle and I/O conditions under which an object-name query can hang, notably a synchronous pipe handle with a pending read. It is not a general performance option or a guarantee against every object-lookup problem. The driver resolves the supplied handle's name using its own object-name path, with special handling for some file objects. If that lookup fails, the helper returns the failure; it does not retry the native <code>NtQueryObject</code> path.</p>
-<p>Application Compartment does not enable this driver-assisted helper path, even if <code>UseDriverObjLookup=y</code> is configured. Its <code>Obj_GetObjectName</code> calls continue to use the native path.</p>
+<p>这是针对特定句柄与 I/O 状况的按需变通手段——在那些状况下，对象名称查询可能挂起，典型情形是带有待处理读取的同步管道句柄。它不是通用的性能选项，也不保证能解决所有对象查找问题。驱动程序使用自己的对象名称路径解析所提供句柄的名称，并对某些文件对象做特殊处理。如果该查找失败，辅助函数会返回失败，不会退回原生的 <code>NtQueryObject</code> 路径重试。</p>
+<p>即使配置了 <code>UseDriverObjLookup=y</code>，应用隔间也不会启用这条由驱动程序协助的辅助函数路径。其 <code>Obj_GetObjectName</code> 调用继续使用原生路径。</p>
 <h2 id="useobjectnameforkeys">UseObjectNameForKeys<a class="headerlink" href="#useobjectnameforkeys" title="Permanent link"></a></h2>
-<p>When a registry operation supplies a <code>RootDirectory</code> key handle and a relative name, Sandboxie obtains the root key's full name before appending the relative part. By default, <code>Key_GetName</code> obtains that root name through <code>NtQueryKey(KeyNameInformation)</code>. <code>UseObjectNameForKeys=y</code> instead sends this root-handle lookup through <code>Obj_GetObjectName</code>:</p>
+<p>当注册表操作提供 <code>RootDirectory</code> 项句柄与一个相对名称时，Sandboxie 会在拼接相对部分之前先取得根项的完整名称。默认情况下，<code>Key_GetName</code> 通过 <code>NtQueryKey(KeyNameInformation)</code> 取得该根名称。<code>UseObjectNameForKeys=y</code> 则改为把这次根句柄查找交给 <code>Obj_GetObjectName</code>：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">UseObjectNameForKeys</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>The option does not replace all <code>NtQueryKey</code> calls or change registry access rules. When an operation has no root handle, this choice is not involved in constructing its path.</p>
-<p>The alternative was retained for compatibility after an earlier <code>NtQueryObject</code>-based root lookup was reverted: it had addressed a case where <code>NtQueryKey</code> could fail for some keys, but caused problems on Windows 10 version 1803 and older. That is historical context, not a recommendation to enable it on a particular Windows version today.</p>
-<h2 id="how-the-settings-interact">How the settings interact<a class="headerlink" href="#how-the-settings-interact" title="Permanent link"></a></h2>
+<p>该选项不会替换所有 <code>NtQueryKey</code> 调用，也不改变注册表访问规则。当某个操作没有根句柄时，这一选择不参与其路径的构造。</p>
+<p>保留该替代方案是为了兼容性：早先基于 <code>NtQueryObject</code> 的根名称查找已被回退，它曾解决 <code>NtQueryKey</code> 对某些项可能失败的情况，但在 Windows 10 版本 1803 及更早版本上引发了问题。这属于历史背景，并不意味着今天应在某个特定的 Windows 版本上启用它。</p>
+<h2 id="how-the-settings-interact">两项设置如何相互影响<a class="headerlink" href="#how-the-settings-interact" title="Permanent link"></a></h2>
 <table>
 <thead>
 <tr>
 <th><code>UseObjectNameForKeys</code></th>
 <th><code>UseDriverObjLookup</code></th>
-<th>Registry root-handle name lookup</th>
+<th>注册表根句柄名称查找</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>n</code></td>
-<td>Either value</td>
-<td><code>NtQueryKey(KeyNameInformation)</code>. The driver setting can still affect other internal <code>Obj_GetObjectName</code> callers.</td>
+<td>任意取值</td>
+<td><code>NtQueryKey(KeyNameInformation)</code>。驱动程序设置仍可能影响其他内部 <code>Obj_GetObjectName</code> 调用方。</td>
 </tr>
 <tr>
 <td><code>y</code></td>
 <td><code>n</code></td>
-<td><code>Obj_GetObjectName</code>, using native <code>NtQueryObject(ObjectNameInformation)</code>.</td>
+<td><code>Obj_GetObjectName</code>，使用原生 <code>NtQueryObject(ObjectNameInformation)</code>。</td>
 </tr>
 <tr>
 <td><code>y</code></td>
-<td><code>y</code>, standard sandbox</td>
-<td><code>Obj_GetObjectName</code>, using the driver-assisted lookup.</td>
+<td><code>y</code>，标准沙盒</td>
+<td><code>Obj_GetObjectName</code>，使用由驱动程序协助的查找。</td>
 </tr>
 <tr>
 <td><code>y</code></td>
-<td><code>y</code>, Application Compartment</td>
-<td><code>Obj_GetObjectName</code>, using native <code>NtQueryObject</code>; the driver-assisted helper path remains disabled in this mode.</td>
+<td><code>y</code>，应用隔间</td>
+<td><code>Obj_GetObjectName</code>，使用原生 <code>NtQueryObject</code>；该模式下由驱动程序协助的辅助函数路径仍处于禁用状态。</td>
 </tr>
 </tbody>
 </table>
-<p>Neither setting requires the other to be enabled. A failed selected lookup is returned as a failure to its caller rather than automatically switching to the other lookup method.</p>
-<h2 id="applying-changes">Applying changes<a class="headerlink" href="#applying-changes" title="Permanent link"></a></h2>
-<p>These are box-wide yes/no settings, not executable-qualified or process-group rules. The effective value can come from the box, <code>[GlobalSettings]</code>, or an applicable enabled template. Sandboxie reads each value while initializing its DLL in a sandboxed process, so restart affected sandboxed processes after changing it. A driver, service, or Windows restart is not normally required for the new process to read the changed configuration.</p>
-<p>SandMan has no dedicated checkbox for either setting and does not list them among the built-in advanced-option suggestions. Its <strong>Sandbox Options &gt; Advanced Options &gt; Miscellaneous &gt; Add Option</strong> field accepts a manually entered option name; the examples above also show the direct <code>Sandboxie.ini</code> form.</p>
-<h2 id="version-history">Version history<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
+<p>两项设置互不要求对方先启用。所选查找失败时，失败结果会返回给调用方，而不会自动切换到另一种查找方式。</p>
+<h2 id="applying-changes">应用更改<a class="headerlink" href="#applying-changes" title="Permanent link"></a></h2>
+<p>这些是沙盒范围的“是/否”设置，既不是按可执行文件限定的规则，也不是进程组规则。有效值可以来自沙盒自身、<code>[GlobalSettings]</code> 或某个适用的已启用模板。Sandboxie 会在沙盒化进程中初始化其 DLL 时读取各项取值，因此更改后请重启受影响的沙盒化进程。新进程读取更改后的配置，通常不需要重启驱动程序、服务或 Windows。</p>
+<p>SandMan 没有为这两项设置提供专用复选框，也没有把它们列入内置的高级选项建议。它的 <strong>沙盒选项 &gt; 高级选项 &gt; 杂项 &gt; 添加选项</strong> 字段接受手动输入的选项名；上面的示例同时给出了直接写 <code>Sandboxie.ini</code> 的形式。</p>
+<h2 id="version-history">版本历史<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
 <ul>
-<li><code>UseObjectNameForKeys</code> was added as an opt-in compatibility setting in Sandboxie Plus 0.8.8 / Classic 5.50.8.</li>
-<li><code>UseDriverObjLookup</code> was added for the rare object-name-query hang scenario in Sandboxie Plus 1.10.3 / Classic 5.65.3.</li>
+<li><code>UseObjectNameForKeys</code> 在 Sandboxie Plus 0.8.8 / Classic 5.50.8 中作为按需启用的兼容性设置加入。</li>
+<li><code>UseDriverObjLookup</code> 针对罕见的对象名称查询挂起情形，在 Sandboxie Plus 1.10.3 / Classic 5.65.3 中加入。</li>
 </ul>
-<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
+<h2 id="related-pages">相关页面<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
 <ul>
-<li><a href="SandboxieIni.html">Sandboxie Ini</a> explains box configuration and inheritance.</li>
-<li><a href="KeyRootPath.html">Key Root Path</a> describes where a sandbox registry hive is mounted; it does not select a root-handle lookup method.</li>
-<li><a href="NtNamespaceIsolation.html">NT Namespace Isolation</a> concerns isolation of named-object directories, not lookup of an existing handle's name.</li>
+<li><a href="SandboxieIni.html">Sandboxie Ini</a> 说明了沙盒配置与继承。</li>
+<li><a href="KeyRootPath.html">注册表根路径</a> 描述了沙盒注册表配置单元挂载在哪里；它并不选择根句柄的查找方式。</li>
+<li><a href="NtNamespaceIsolation.html">Nt 命名空间隔离</a> 关注的是命名对象目录的隔离，而不是既有句柄名称的查找。</li>
 </ul>
 
 

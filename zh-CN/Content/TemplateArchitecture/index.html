@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="A Sandboxie template is primarily a reusable collection of Sandboxie configuration entries. Selecting a template makes its ordinary settings part of the effective configuration; the selection does not permanently copy those entries into the sandbox&#x27;s explicit configuration. Template presentation and discovery data are separate from the rules that Sandboxie applies at runtime.">
+        <meta name="description" content="Sandboxie 模板主要是一组可复用的 Sandboxie 配置条目。选中某个模板会使其中的普通设置成为有效配置的一部分；选中操作不会把这些条目永久复制到沙盒的显式配置中。模板的呈现数据与发现数据独立于 Sandboxie 在运行时应用的规则。">
       
       
       
@@ -31,7 +31,7 @@
     
     
       
-        <title>Template Architecture - Sandboxie 文档</title>
+        <title>模板架构 - Sandboxie 文档</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Template Architecture
+              模板架构
             
           </span>
         </div>
@@ -2746,7 +2746,7 @@
   <span class="md-ellipsis">
     
   
-    Template Architecture
+    模板架构
   
 
     
@@ -2764,7 +2764,7 @@
   <span class="md-ellipsis">
     
   
-    Template Architecture
+    模板架构
   
 
     
@@ -2793,7 +2793,7 @@
   <a href="#official-and-local-templates" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Official and local templates
+        官方模板与本地模板
       
     </span>
   </a>
@@ -2804,7 +2804,7 @@
   <a href="#selecting-templates" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Selecting templates
+        选择模板
       
     </span>
   </a>
@@ -2815,7 +2815,7 @@
   <a href="#how-templates-are-merged" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How templates are merged
+        模板如何合并
       
     </span>
   </a>
@@ -2826,7 +2826,7 @@
   <a href="#default-templates" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Default templates
+        默认模板
       
     </span>
   </a>
@@ -2837,7 +2837,7 @@
   <a href="#template-variables-and-internal-sections" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Template variables and internal sections
+        模板变量与内部节
       
     </span>
   </a>
@@ -2848,7 +2848,7 @@
   <a href="#template-metadata" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Template metadata
+        模板元数据
       
     </span>
   </a>
@@ -2859,7 +2859,7 @@
   <a href="#template-discovery" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Template discovery
+        模板发现
       
     </span>
   </a>
@@ -2870,7 +2870,7 @@
   <a href="#software-updater-blocking" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Software updater blocking
+        阻止软件更新程序
       
     </span>
   </a>
@@ -2881,7 +2881,7 @@
   <a href="#sandman-and-applying-changes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        SandMan and applying changes
+        SandMan 与应用更改
       
     </span>
   </a>
@@ -2892,7 +2892,7 @@
   <a href="#related-pages" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Related pages
+        相关页面
       
     </span>
   </a>
@@ -7809,7 +7809,7 @@
   <span class="md-ellipsis">
     
   
-    Object Lookup Compatibility
+    对象名称查找兼容性
   
 
     
@@ -7955,9 +7955,9 @@
   
 
 
-<h1 id="template-architecture">Template Architecture<a class="headerlink" href="#template-architecture" title="Permanent link"></a></h1>
-<p>A Sandboxie template is primarily a reusable collection of <a href="../SandboxieIni/">Sandboxie configuration</a> entries. Selecting a template makes its ordinary settings part of the effective configuration; the selection does not permanently copy those entries into the sandbox's explicit configuration. Template presentation and discovery data are separate from the rules that Sandboxie applies at runtime.</p>
-<p>For example:</p>
+<h1 id="template-architecture">模板架构<a class="headerlink" href="#template-architecture" title="Permanent link"></a></h1>
+<p>Sandboxie 模板主要是一组可复用的 <a href="../SandboxieIni/">Sandboxie 配置</a>条目。选中某个模板会使其中的普通设置成为有效配置的一部分；选中操作不会把这些条目永久复制到沙盒的显式配置中。模板的呈现数据与发现数据独立于 Sandboxie 在运行时应用的规则。</p>
+<p>例如：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[Template_Example]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">Tmpl.Title</span><span class="o">=</span><span class="s">Example</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">Tmpl.Class</span><span class="o">=</span><span class="s">Misc</span>
@@ -7967,118 +7967,118 @@
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="na">Template</span><span class="o">=</span><span class="s">Example</span>
 </span></code></pre></div>
-<p>Here <code>OpenFilePath</code> and <code>OpenIpcPath</code> contribute configuration to <code>DefaultBox</code>. The <code>Tmpl.*</code> entries describe the template; they are not sandbox access rules.</p>
-<h2 id="official-and-local-templates">Official and local templates<a class="headerlink" href="#official-and-local-templates" title="Permanent link"></a></h2>
-<p>Official templates ship in <code>Templates.ini</code> in the Sandboxie installation. Use that file as a reference for existing definitions, but put custom templates in <a href="../SandboxieIni/"><code>Sandboxie.ini</code></a> rather than editing the stock file.</p>
-<p>Official template sections normally use <code>[Template_Name]</code>. User-created templates conventionally use <code>[Template_Local_Name]</code>, which distinguishes them in the UI and avoids collisions with future official names:</p>
+<p>在这里，<code>OpenFilePath</code> 与 <code>OpenIpcPath</code> 为 <code>DefaultBox</code> 提供配置。<code>Tmpl.*</code> 条目用于描述模板本身；它们不是沙盒访问规则。</p>
+<h2 id="official-and-local-templates">官方模板与本地模板<a class="headerlink" href="#official-and-local-templates" title="Permanent link"></a></h2>
+<p>官方模板随 Sandboxie 安装包以 <code>Templates.ini</code> 的形式提供。可以把该文件作为现有定义的参考，但自定义模板应放入 <a href="../SandboxieIni/"><code>Sandboxie.ini</code></a>，而不要修改这个随附文件。</p>
+<p>官方模板的节通常使用 <code>[Template_Name]</code>。用户创建的模板按惯例使用 <code>[Template_Local_Name]</code>，这样既能在界面中把它们区分开来，也能避免与将来新增的官方名称冲突：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[Template_Local_ExampleSoft]</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">Tmpl.Title</span><span class="o">=</span><span class="s">ExampleSoft</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="na">Tmpl.Class</span><span class="o">=</span><span class="s">Local</span>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="na">OpenWinClass</span><span class="o">=</span><span class="s">ExampleSoft_WindowClass</span>
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="na">OpenIpcPath</span><span class="o">=</span><span class="s">*\BaseNamedObjects*\ExampleSoft_*</span>
 </span></code></pre></div>
-<p>Local templates can be enabled manually like official templates. <code>Template_Local_</code> is a naming and presentation convention, not a separate runtime inheritance mechanism. The <a href="../ApplicationsSettings/#local">Applications Settings</a> page also describes the legacy local-template UI.</p>
-<h2 id="selecting-templates">Selecting templates<a class="headerlink" href="#selecting-templates" title="Permanent link"></a></h2>
-<p>Enable a template for a sandbox with its name after <code>Template=</code>:</p>
+<p>本地模板可以像官方模板一样手动启用。<code>Template_Local_</code> 只是一种命名与呈现约定，并不是独立的运行时继承机制。<a href="../ApplicationsSettings/#local">应用程序设置</a>页面也介绍了旧的本地模板界面。</p>
+<h2 id="selecting-templates">选择模板<a class="headerlink" href="#selecting-templates" title="Permanent link"></a></h2>
+<p>在 <code>Template=</code> 后面写上模板名称，即可为某个沙盒启用该模板：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">Template</span><span class="o">=</span><span class="s">Example</span>
 </span></code></pre></div>
-<p>A section can contain multiple <code>Template=</code> entries. Sandboxie processes each selected template and merges its settings into that section's effective configuration. A template can also be selected globally:</p>
+<p>一个节中可以包含多个 <code>Template=</code> 条目。Sandboxie 会逐个处理选中的模板，并把其中的设置合并到该节的有效配置中。模板也可以全局选中：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">[GlobalSettings]</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">Template</span><span class="o">=</span><span class="s">Example</span>
 </span></code></pre></div>
-<p>Global selection contributes settings to the global effective configuration. It does not make a separate permanent copy of the template definition in every sandbox section.</p>
-<p><code>TemplateReject=Name</code> belongs in <code>[GlobalSettings]</code>. It records compatibility-template selection state so a detected template is treated as rejected/configured instead of remaining a pending recommendation. A value in an individual sandbox section is not consulted for this purpose. It does not subtract settings from an explicitly selected <code>Template=Name</code>; normal template merging still applies to that selection.</p>
-<h2 id="how-templates-are-merged">How templates are merged<a class="headerlink" href="#how-templates-are-merged" title="Permanent link"></a></h2>
-<p>At configuration load, Sandboxie first processes templates selected in <code>GlobalSettings</code>, then applies <code>[DefaultTemplates]</code> to the global effective configuration, and then processes templates selected by each sandbox. Ordinary settings in a selected template are merged into the destination's effective configuration. <code>Tmpl.*</code> metadata is skipped by this runtime merge.</p>
-<p>Explicit entries and template-origin entries can coexist in the effective configuration. Sandboxie records which entries came from templates, and direct entries normally precede entries merged afterward. The effect of competing entries still depends on the subsystem that consumes them; configuration-source order is not a universal precedence rule. See <a href="../../PlusContent/RuleSpecificity/">Rule Specificity</a> for resource-rule conflicts.</p>
-<h2 id="default-templates">Default templates<a class="headerlink" href="#default-templates" title="Permanent link"></a></h2>
-<p><code>[DefaultTemplates]</code> in the shipped <code>Templates.ini</code> lists built-in templates automatically merged into global effective configuration. These provide baseline settings without a user selecting them individually for a box. The current list includes <code>RpcPortBindings</code>, <code>SpecialImages</code>, <code>COM</code>, <code>WindowsExplorer</code>, <code>ThirdPartyIsolation</code>, <code>BlockSoftwareUpdaters</code>, <code>BlockWinRM</code>, <code>OpenWinInetCache</code>, <code>CredentialUIBroker</code>, and <code>MSI_Lite</code>. The shipped list can change between releases; default templates are not immutable policy.</p>
-<p>This automatic merge differs from enabling an optional application compatibility template for a particular sandbox.</p>
-<h2 id="template-variables-and-internal-sections">Template variables and internal sections<a class="headerlink" href="#template-variables-and-internal-sections" title="Permanent link"></a></h2>
-<p><code>[TemplateSettings]</code> provides shared <code>%Tmpl.*%</code> variable definitions and related metadata infrastructure. A template can use these variables, as described in <a href="../ExpandableVariables/#template-variables">Expandable Variables</a>. <code>[TemplateSettings]</code> is not a compatibility template selected with <code>Template=TemplateSettings</code>; custom templates do not require copying or editing it.</p>
-<p>Other sections with names beginning with <code>Template</code> are also not ordinary App Templates. <code>TemplateDefaultPaths</code>, <code>TemplateSModPaths</code>, <code>TemplatePModPaths</code>, and <code>TemplateAppCPaths</code> supply built-in path rules to runtime subsystems through separate loading paths. Do not enable them through the App Templates list or assume that <code>Template=Name</code> controls them.</p>
-<h2 id="template-metadata">Template metadata<a class="headerlink" href="#template-metadata" title="Permanent link"></a></h2>
-<p>Entries beginning with <code>Tmpl.</code> describe a template or help discover when it may be useful. They are skipped when template rules are merged into runtime configuration.</p>
+<p>全局选中会把设置贡献到全局有效配置中。它不会在每个沙盒节里另外生成一份模板定义的永久副本。</p>
+<p><code>TemplateReject=Name</code> 应放在 <code>[GlobalSettings]</code> 中。它记录兼容性模板的选择状态，使被检测到的模板被视为已拒绝/已配置，而不再停留在待推荐的候选状态。单个沙盒节中的同名值不用于此目的。它不会从显式选中的 <code>Template=Name</code> 中扣除设置；对该选择而言，常规的模板合并仍然生效。</p>
+<h2 id="how-templates-are-merged">模板如何合并<a class="headerlink" href="#how-templates-are-merged" title="Permanent link"></a></h2>
+<p>在加载配置时，Sandboxie 先处理 <code>GlobalSettings</code> 中选中的模板，然后把 <code>[DefaultTemplates]</code> 应用到全局有效配置，最后处理各沙盒选中的模板。被选中模板中的普通设置会合并到目标的有效配置中。<code>Tmpl.*</code> 元数据在这一运行时合并过程中会被跳过。</p>
+<p>显式条目与来自模板的条目可以在有效配置中共存。Sandboxie 会记录哪些条目来自模板，而直接条目通常排在随后合并进来的条目之前。相互竞争的条目最终如何生效，仍取决于使用它们的子系统；配置来源的顺序并不是通用的优先级规则。资源规则冲突请参见 <a href="../../PlusContent/RuleSpecificity/">规则特异性</a>。</p>
+<h2 id="default-templates">默认模板<a class="headerlink" href="#default-templates" title="Permanent link"></a></h2>
+<p>随附的 <code>Templates.ini</code> 中的 <code>[DefaultTemplates]</code> 列出了会自动合并到全局有效配置中的内置模板。用户无需为某个沙盒单独选中这些模板，即可获得它们提供的基线设置。当前列表包括 <code>RpcPortBindings</code>、<code>SpecialImages</code>、<code>COM</code>、<code>WindowsExplorer</code>、<code>ThirdPartyIsolation</code>、<code>BlockSoftwareUpdaters</code>、<code>BlockWinRM</code>、<code>OpenWinInetCache</code>、<code>CredentialUIBroker</code> 和 <code>MSI_Lite</code>。随附列表可能在不同版本之间变化；默认模板并非不可更改的策略。</p>
+<p>这种自动合并与为特定沙盒启用某个可选的应用程序兼容性模板并不相同。</p>
+<h2 id="template-variables-and-internal-sections">模板变量与内部节<a class="headerlink" href="#template-variables-and-internal-sections" title="Permanent link"></a></h2>
+<p><code>[TemplateSettings]</code> 提供共享的 <code>%Tmpl.*%</code> 变量定义以及相关的元数据基础设施。模板可以使用这些变量，具体见 <a href="../ExpandableVariables/#template-variables">可展开变量</a>。<code>[TemplateSettings]</code> 并不是用 <code>Template=TemplateSettings</code> 选中的兼容性模板；自定义模板无需复制或编辑它。</p>
+<p>其他以 <code>Template</code> 开头的节同样不是普通的应用程序模板。<code>TemplateDefaultPaths</code>、<code>TemplateSModPaths</code>、<code>TemplatePModPaths</code> 与 <code>TemplateAppCPaths</code> 通过各自独立的加载路径，为运行时子系统提供内置路径规则。不要通过应用程序模板列表启用它们，也不要假定 <code>Template=Name</code> 能控制它们。</p>
+<h2 id="template-metadata">模板元数据<a class="headerlink" href="#template-metadata" title="Permanent link"></a></h2>
+<p>以 <code>Tmpl.</code> 开头的条目用于描述模板，或帮助发现该模板何时可能有用。当模板规则合并进运行时配置时，这些条目会被跳过。</p>
 <table>
 <thead>
 <tr>
-<th>Entry</th>
-<th>Purpose</th>
+<th>条目</th>
+<th>用途</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>Tmpl.Title</code></td>
-<td>Display title</td>
+<td>显示标题</td>
 </tr>
 <tr>
 <td><code>Tmpl.Class</code></td>
-<td>UI category</td>
+<td>界面类别</td>
 </tr>
 <tr>
 <td><code>Tmpl.Url</code></td>
-<td>Related software or vendor URL</td>
+<td>相关软件或厂商的 URL</td>
 </tr>
 <tr>
 <td><code>Tmpl.Comment</code></td>
-<td>Description or comment</td>
+<td>描述或注释</td>
 </tr>
 <tr>
 <td><code>Tmpl.Hide</code></td>
-<td>Hides a template from normal presentation</td>
+<td>在常规呈现中隐藏模板</td>
 </tr>
 <tr>
 <td><code>Tmpl.Entry</code></td>
-<td>Specialized compatibility or known-conflict entry metadata</td>
+<td>专门的兼容性或已知冲突条目元数据</td>
 </tr>
 <tr>
 <td><code>Tmpl.Version</code></td>
-<td>Template/configuration metadata version</td>
+<td>模板/配置元数据版本</td>
 </tr>
 <tr>
 <td><code>Tmpl.Scan</code></td>
-<td>Compatibility discovery mode</td>
+<td>兼容性发现模式</td>
 </tr>
 <tr>
 <td><code>Tmpl.Scan*</code></td>
-<td>Evidence used to detect whether a template may apply</td>
+<td>用于检测模板是否可能适用的证据</td>
 </tr>
 <tr>
 <td><code>Tmpl.ScanScript</code></td>
-<td>Scripted detection in SandMan's modern checker</td>
+<td>SandMan 现代检查器中的脚本化检测</td>
 </tr>
 </tbody>
 </table>
-<p>Most of these fields are used by template presentation or compatibility discovery code, not by the driver as access rules.</p>
-<h2 id="template-discovery">Template discovery<a class="headerlink" href="#template-discovery" title="Permanent link"></a></h2>
-<p>Template discovery determines whether Sandboxie or SandMan should suggest a compatibility template. It does not itself enforce the template's sandbox rules. Those rules enter effective configuration only when the template is selected or applied through the default-template mechanism.</p>
-<p><code>Tmpl.Scan</code> selects one or more evidence modes:</p>
+<p>这些字段大多由模板呈现或兼容性发现代码使用，驱动程序并不把它们用作访问规则。</p>
+<h2 id="template-discovery">模板发现<a class="headerlink" href="#template-discovery" title="Permanent link"></a></h2>
+<p>模板发现决定 Sandboxie 或 SandMan 是否应推荐某个兼容性模板。它本身并不强制执行该模板的沙盒规则。只有当模板被选中，或通过默认模板机制被应用之后，这些规则才会进入有效配置。</p>
+<p><code>Tmpl.Scan</code> 用于选择一种或多种证据模式：</p>
 <ul>
-<li><code>i</code> checks for IPC objects using <code>OpenIpcPath</code> and <code>Tmpl.ScanIpc</code> evidence. An <code>OpenIpcPath</code> entry alone does not imply scanning unless <code>i</code> is selected.</li>
-<li><code>w</code> checks known window classes using <code>OpenWinClass</code> and <code>Tmpl.ScanWinClass</code> evidence.</li>
-<li><code>s</code> checks software-presence evidence such as <code>Tmpl.ScanService</code>, <code>Tmpl.ScanProduct</code>, <code>Tmpl.ScanKey</code>, and <code>Tmpl.ScanFile</code>. These can indicate services, installed products, registry keys, or files; <code>s</code> is not limited to services.</li>
+<li><code>i</code> 使用 <code>OpenIpcPath</code> 与 <code>Tmpl.ScanIpc</code> 证据检查 IPC 对象。除非选中了 <code>i</code>，否则仅有 <code>OpenIpcPath</code> 条目并不意味着会进行扫描。</li>
+<li><code>w</code> 使用 <code>OpenWinClass</code> 与 <code>Tmpl.ScanWinClass</code> 证据检查已知的窗口类。</li>
+<li><code>s</code> 检查软件存在性证据，例如 <code>Tmpl.ScanService</code>、<code>Tmpl.ScanProduct</code>、<code>Tmpl.ScanKey</code> 与 <code>Tmpl.ScanFile</code>。这类证据可以指向服务、已安装的产品、注册表项或文件；<code>s</code> 并不限于服务。</li>
 </ul>
-<p>SandMan's modern compatibility checker evaluates <code>Tmpl.ScanScript</code> first when a scan script exists. The older C++ fallback scanner instead uses the <code>Tmpl.Scan</code> evidence fields and does not execute that script path. Automatic scanning by the modern checker skips <code>Local_</code> templates; local templates remain available for manual selection.</p>
-<h2 id="software-updater-blocking">Software updater blocking<a class="headerlink" href="#software-updater-blocking" title="Permanent link"></a></h2>
-<p>The shipped <code>[DefaultTemplates]</code> list includes <code>Template=BlockSoftwareUpdaters</code>. Its <code>[Template_BlockSoftwareUpdaters]</code> section supplies maintained <code>SoftwareUpdater</code> patterns to effective configuration. This default template is already included; users do not need to select it as an optional App Template to obtain those definitions.</p>
-<p>The maintained rules use an originating application image followed by an updater executable or path pattern:</p>
+<p>当存在扫描脚本时，SandMan 的现代兼容性检查器会先求值 <code>Tmpl.ScanScript</code>。较旧的 C++ 回退扫描器则改用 <code>Tmpl.Scan</code> 的证据字段，不会执行该脚本路径。现代检查器的自动扫描会跳过 <code>Local_</code> 模板；本地模板仍可供手动选择。</p>
+<h2 id="software-updater-blocking">阻止软件更新程序<a class="headerlink" href="#software-updater-blocking" title="Permanent link"></a></h2>
+<p>随附的 <code>[DefaultTemplates]</code> 列表包含 <code>Template=BlockSoftwareUpdaters</code>。它的 <code>[Template_BlockSoftwareUpdaters]</code> 节会向有效配置提供持续维护的 <code>SoftwareUpdater</code> 模式。该默认模板已经包含在内；用户无需把它作为可选的应用程序模板选中，即可获得这些定义。</p>
+<p>这些规则由起始应用程序映像，以及随后的更新程序可执行文件或路径模式组成：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="na">SoftwareUpdater</span><span class="o">=</span><span class="s">starting_image.exe,updater_path\updater_image.exe</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="na">SoftwareUpdater</span><span class="o">=</span><span class="s">firefox.exe,*\mozilla firefox\updater.exe</span>
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="na">SoftwareUpdater</span><span class="o">=</span><span class="s">msedge.exe,*\Microsoft\EdgeUpdate\MicrosoftEdgeUpdate.exe</span>
 </span></code></pre></div>
-<p><code>BlockSoftwareUpdaters</code> is a separate runtime gate, queried with a default of <code>y</code>. When the gate is enabled and a child process matches a <code>SoftwareUpdater</code> rule, Sandboxie blocks its creation with <code>ERROR_ACCESS_DENIED</code> and reports <strong>Blocked start of an updater</strong> to its monitor path. With <code>BlockSoftwareUpdaters=n</code>, the default template and its patterns may still be present in effective configuration, but this process-creation blocker does not enforce them.</p>
-<p><code>BlockSoftwareUpdaters</code> was introduced in 0.5.5, removed in 1.0.11, and reintroduced in 1.14.4. It is active in the current runtime. This mechanism covers matching updater process creations; it does not guarantee that every software update, installer, or network-based update path is blocked.</p>
-<h2 id="sandman-and-applying-changes">SandMan and applying changes<a class="headerlink" href="#sandman-and-applying-changes" title="Permanent link"></a></h2>
-<p>In SandMan, templates are presented under <strong>Sandbox Options &gt; App Templates</strong> by title and category. Enabling one for a sandbox corresponds to selecting its configuration without requiring manual <code>Template=</code> edits.</p>
-<p>After enabling, disabling, or editing a template, restart affected sandboxed processes so settings cached during process initialization are rebuilt consistently. Different template-derived settings have different lifetimes; a template change should not be assumed to update every running process immediately. A Windows reboot, driver restart, or service restart is not normally required.</p>
-<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
+<p><code>BlockSoftwareUpdaters</code> 是一个独立的运行时开关，其查询默认值为 <code>y</code>。当该开关启用且子进程匹配某条 <code>SoftwareUpdater</code> 规则时，Sandboxie 会以 <code>ERROR_ACCESS_DENIED</code> 阻止其创建，并把 <strong>Blocked start of an updater</strong> 报告到其监控路径。设为 <code>BlockSoftwareUpdaters=n</code> 时，该默认模板及其模式仍可能存在于有效配置中，但这一进程创建拦截机制不会强制执行它们。</p>
+<p><code>BlockSoftwareUpdaters</code> 于 0.5.5 引入，1.0.11 中移除，1.14.4 中重新引入。它在当前运行时中处于生效状态。该机制只涵盖匹配的更新程序进程创建；它并不保证所有软件更新、安装程序或基于网络的更新途径都会被阻止。</p>
+<h2 id="sandman-and-applying-changes">SandMan 与应用更改<a class="headerlink" href="#sandman-and-applying-changes" title="Permanent link"></a></h2>
+<p>在 SandMan 中，模板按标题和类别显示在 <strong>沙盒选项 &gt; 应用模板</strong> 下。为某个沙盒启用模板，相当于选中它的配置，无需手动修改 <code>Template=</code>。</p>
+<p>启用、禁用或编辑模板后，请重启受影响的沙盒化进程，以便在进程初始化期间缓存的设置能按照一致的方式重建。不同模板派生设置的生存期各不相同；不应假定更改模板会立即更新每一个正在运行的进程。通常不需要重启 Windows、重启驱动程序或重启服务。</p>
+<h2 id="related-pages">相关页面<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
 <ul>
 <li><a href="../SandboxieIni/">Sandboxie Ini</a></li>
-<li><a href="../ApplicationsSettings/">Applications Settings</a></li>
-<li><a href="../ExpandableVariables/">Expandable Variables</a></li>
-<li><a href="../../PlusContent/RuleSpecificity/">Rule Specificity</a></li>
+<li><a href="../ApplicationsSettings/">应用程序设置</a></li>
+<li><a href="../ExpandableVariables/">可展开变量</a></li>
+<li><a href="../../PlusContent/RuleSpecificity/">规则特异性</a></li>
 </ul>
 
 

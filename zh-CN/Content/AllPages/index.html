@@ -3068,7 +3068,7 @@
   <span class="md-ellipsis">
     
   
-    Template Architecture
+    模板架构
   
 
     
@@ -7983,7 +7983,7 @@
   <span class="md-ellipsis">
     
   
-    Object Lookup Compatibility
+    对象名称查找兼容性
   
 
     
@@ -8138,6 +8138,7 @@
 <p><a href="../AdvancedTopics/">高级主题</a></p>
 <p><a href="../AlertFolder/">警报文件夹</a></p>
 <p><a href="../AlertProcess/">警报进程</a></p>
+<p><a href="../AllowNetworkAccess/">允许网络访问</a></p>
 <p><a href="../AllowRawDiskRead/">允许原始磁盘读取</a></p>
 <p><a href="../AllowSpoolerPrintToFile/">允许后台打印程序打印到文件</a></p>
 <p><a href="../AppContainerTokens/">AppContainer 令牌兼容性</a></p>
@@ -8154,13 +8155,16 @@
 <p><a href="../BindAdapterIP/">绑定适配器 IP</a></p>
 <p><del><a href="../BlockDrivers/">阻止驱动程序</a></del>（自 Sandboxie v4.xx 起移除）</p>
 <p><del><a href="../BlockFakeInput/">阻止伪造输入</a></del>（自 Sandboxie v4.xx 起移除）</p>
+<p><a href="../BlockLocalLoop/">阻止本地回环</a></p>
 <p><a href="../BlockNetParam/">阻止网络参数</a></p>
 <p><a href="../BlockNetworkFiles/">阻止网络文件访问</a></p>
 <p><del><a href="../BlockPassword/">阻止密码更改</a></del>（已过时）</p>
 <p><del><a href="../BlockPort/">阻止端口</a></del>（自 Sandboxie v0.9.0 / 5.51.0 起移除）</p>
+<p><a href="../BlockRegisterDeviceNotification/">阻止注册设备通知</a></p>
 <p><a href="../BlockScreenCapture/">阻止屏幕截图</a></p>
 <p><del><a href="../BlockSysParam/">阻止 Sys 参数</a></del>（自 Sandboxie v4.xx 起移除）</p>
 <p><del><a href="../BlockWinHooks/">阻止 Win Hooks</a></del>（自 Sandboxie v4.xx 起移除）</p>
+<p><a href="../BlockWinRM/">阻止 WinRM</a></p>
 <p><a href="../BorderColor/">边框颜色</a></p>
 <p><a href="../BoxAlias/">沙盒别名</a></p>
 <p><a href="../../PlusContent/BoxEncryption/">加密沙盒</a></p>
@@ -8222,6 +8226,7 @@
 <p><a href="../EnableWin32kHooks/">EnableWin32kHooks</a></p>
 <p><a href="../Enabled/">启用</a></p>
 <p><a href="../EnableEFS/">启用 EFS</a></p>
+<p><a href="../EnableObjectFiltering/">启用对象过滤</a></p>
 <p><a href="../ExpandableVariables/">可展开变量</a></p>
 <p><a href="../ExternalTutorials/">外部教程</a></p>
 <h3 id="f">F<a class="headerlink" href="#f" title="Permanent link"></a></h3>
@@ -8306,6 +8311,7 @@
 <p><a href="../NetworkAdapterMAC/">网络适配器 MAC</a></p>
 <p><a href="../NetworkAccess/">网络访问</a></p>
 <p><a href="../NetworkDnsFilter/">网络 DNS 过滤</a></p>
+<p><a href="../NetworkEnableWFP/">启用 WFP</a></p>
 <p><a href="../NeutralizeLowBoxToken/">NeutralizeLowBoxToken</a></p>
 <p><a href="../NeverDelete/">从不删除</a></p>
 <p><a href="../NoAddProcessToJob/">NoAddProcessToJob</a></p>
@@ -8323,17 +8329,22 @@
 <p><a href="../NtNamespaceIsolation/">Nt 命名空间隔离</a></p>
 <p><a href="../NtStatusCodes/">NT 状态码</a></p>
 <h3 id="o">O<a class="headerlink" href="#o" title="Permanent link"></a></h3>
+<p><a href="../ObjectLookupCompatibility/">对象名称查找兼容性</a></p>
 <p><a href="../OpenClipboard/">开放剪贴板</a></p>
 <p><a href="../OpenClsid/">开放 Clsid</a></p>
 <p><a href="../OpenConfPath/">开放配置路径</a></p>
 <p><a href="../OpenCredentials/">开放凭据</a></p>
+<p><a href="../OpenDevCMApi/">开放设备配置管理器 API</a></p>
 <p><a href="../OpenFilePath/">开放文件路径</a></p>
 <p><a href="../OpenIpcPath/">开放 IPC 路径</a></p>
 <p><a href="../OpenKeyPath/">开放注册表路径</a></p>
+<p><a href="../OpenLsaEndpoint/">开放 LSA 端点</a></p>
 <p><a href="../OpenPipePath/">开放管道路径</a></p>
 <p><a href="../OpenPrintSpooler/">开放打印后台处理程序</a></p>
 <p><a href="../OpenProtectedStorage/">开放受保护的存储</a></p>
+<p><a href="../OpenSamEndpoint/">开放 SAM 端点</a></p>
 <p><a href="../OpenWinClass/">开放窗口类</a></p>
+<p><a href="../OpenWPADEndpoint/">开放 WPAD 端点</a></p>
 <p><a href="../OriginalToken/">原始令牌</a></p>
 <h3 id="p">P<a class="headerlink" href="#p" title="Permanent link"></a></h3>
 <p><a href="../PaperAnalogy/">纸张类比</a></p>
@@ -8560,7 +8571,24 @@
 <p><a href="../SystemEventLog/">系统事件日志</a></p>
 <h3 id="t">T<a class="headerlink" href="#t" title="Permanent link"></a></h3>
 <p><a href="../TechnicalAspects/">技术细节</a></p>
+<p><a href="../TemplateArchitecture/">模板架构</a></p>
+<p><a href="../TemplateReject/">拒绝模板</a></p>
 <p><a href="../TestEmailConfiguration/">测试邮件配置</a></p>
+<p><a href="../Tmpl.Class/">模板类别</a></p>
+<p><a href="../Tmpl.Comment/">模板注释</a></p>
+<p><a href="../Tmpl.Entry/">模板条目</a></p>
+<p><a href="../Tmpl.Hide/">隐藏模板</a></p>
+<p><a href="../Tmpl.Scan/">模板扫描</a></p>
+<p><a href="../Tmpl.ScanFile/">扫描文件</a></p>
+<p><a href="../Tmpl.ScanIpc/">扫描 IPC</a></p>
+<p><a href="../Tmpl.ScanKey/">扫描注册表项</a></p>
+<p><a href="../Tmpl.ScanProduct/">扫描产品</a></p>
+<p><a href="../Tmpl.ScanScript/">扫描脚本</a></p>
+<p><a href="../Tmpl.ScanService/">扫描服务</a></p>
+<p><a href="../Tmpl.ScanWinClass/">扫描窗口类</a></p>
+<p><a href="../Tmpl.Title/">模板标题</a></p>
+<p><a href="../Tmpl.Url/">模板 URL</a></p>
+<p><a href="../Tmpl.Version/">模板版本</a></p>
 <p><a href="../TotalMemoryLimit/">总内存限制</a></p>
 <p><a href="../../PlusContent/TraceLog/">跟踪日志（适用于 Sandboxie Plus）</a></p>
 <p><a href="../../PlusContent/translations/">翻译</a></p>

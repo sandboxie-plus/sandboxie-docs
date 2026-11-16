@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="BlockLocalLoop is a sandbox setting in Sandboxie Ini available since Sandboxie Plus 1.17.4. It restricts matched IP-loopback traffic through Sandboxie&#x27;s covered networking paths and is disabled by default.">
+        <meta name="description" content="BlockLocalLoop 是 Sandboxie Ini 中的一项沙盒设置，自 Sandboxie Plus 1.17.4 起可用。它会限制 Sandboxie 所覆盖的网络路径上的匹配 IP 回环流量，默认禁用。">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>BlockLocalLoop - Sandboxie 文档</title>
+        <title>阻止本地回环 - Sandboxie 文档</title>
       
     
     
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              BlockLocalLoop
+              阻止本地回环
             
           </span>
         </div>
@@ -2729,7 +2729,7 @@
   <span class="md-ellipsis">
     
   
-    Template Architecture
+    模板架构
   
 
     
@@ -7644,7 +7644,7 @@
   <span class="md-ellipsis">
     
   
-    Object Lookup Compatibility
+    对象名称查找兼容性
   
 
     
@@ -7790,71 +7790,71 @@
   
 
 
-<h1 id="blocklocalloop">BlockLocalLoop<a class="headerlink" href="#blocklocalloop" title="Permanent link"></a></h1>
-<p><strong>BlockLocalLoop</strong> is a sandbox setting in <a href="../SandboxieIni/">Sandboxie Ini</a> available since Sandboxie Plus 1.17.4. It restricts matched IP-loopback traffic through Sandboxie's covered networking paths and is disabled by default.</p>
+<h1 id="blocklocalloop">阻止本地回环<a class="headerlink" href="#blocklocalloop" title="Permanent link"></a></h1>
+<p><strong>BlockLocalLoop</strong> 是 <a href="../SandboxieIni/">Sandboxie Ini</a> 中的一项沙盒设置，自 Sandboxie Plus 1.17.4 起可用。它会限制 Sandboxie 所覆盖的网络路径上的匹配 IP 回环流量，默认禁用。</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">BlockLocalLoop</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>This is a narrow loopback restriction, not complete local-network or host isolation. It does not block every way a sandboxed process could communicate with a service running on the same computer.</p>
-<h2 id="address-scope">Address scope<a class="headerlink" href="#address-scope" title="Permanent link"></a></h2>
-<p>The user-mode Winsock enforcement recognizes:</p>
+<p>这是一种范围很窄的回环限制，并不等于完整的本地网络隔离或宿主隔离。它不会阻断沙盒化进程与同一台计算机上运行的服务通信的所有途径。</p>
+<h2 id="address-scope">地址范围<a class="headerlink" href="#address-scope" title="Permanent link"></a></h2>
+<p>用户态的 Winsock 强制执行能识别：</p>
 <ul>
-<li>the complete IPv4 <code>127.0.0.0/8</code> loopback range;</li>
-<li>the IPv6 loopback address <code>::1</code>;</li>
-<li>IPv4-mapped IPv6 loopback addresses containing an address from <code>127.0.0.0/8</code>.</li>
+<li>完整的 IPv4 <code>127.0.0.0/8</code> 回环地址段；</li>
+<li>IPv6 回环地址 <code>::1</code>；</li>
+<li>含 <code>127.0.0.0/8</code> 中某个地址的、IPv4 映射的 IPv6 回环地址。</li>
 </ul>
-<p><code>BlockLocalLoop</code> does not determine whether a non-loopback address belongs to the same computer. The host's LAN or Wi-Fi address, private addresses such as <code>10.x.x.x</code> and <code>192.168.x.x</code>, link-local addresses, assigned non-loopback IPv6 addresses, and virtual-adapter addresses are outside its normal address scope. Broader access should be controlled with normal <code>NetworkAccess</code> rules.</p>
-<p>The setting acts on resolved IP addresses rather than DNS names. For example, <code>localhost</code> or a custom hostname resolving to <code>127.0.0.0/8</code> or <code>::1</code> is subject to the restriction. A name resolving to a non-loopback address is not blocked merely because it identifies the local computer, and DNS resolution itself is not prevented.</p>
-<p>The restriction is address-based rather than port-specific. It has no documented per-port exceptions or built-in exemptions for particular browsers, RPC endpoints, or system services.</p>
-<h2 id="communication-behavior">Communication behavior<a class="headerlink" href="#communication-behavior" title="Permanent link"></a></h2>
-<p>When enabled, Sandboxie's user-mode Winsock path rejects standard outbound communication to matched loopback addresses. Covered paths include normal TCP connection attempts, connected UDP, UDP sends, and selected UDP receive paths. For example, calls through <code>connect</code>, <code>WSAConnect</code>, <code>sendto</code>, or <code>WSASendTo</code> are subject to the restriction.</p>
-<p>Standard Winsock operations blocked by the user-mode path normally fail immediately with a connection-refused error. Other networking paths, including operations blocked by Windows Filtering Platform (WFP), should not be assumed to return the same exact error.</p>
-<p><code>BlockLocalLoop</code> does not itself prevent a sandboxed application from binding a local socket or listening on a loopback address. It restricts communication through covered loopback paths rather than preventing creation of local listeners.</p>
-<p>There is no same-sandbox exemption. For outbound loopback traffic initiated by a sandboxed process with the setting enabled, the restriction does not distinguish whether the peer is:</p>
+<p><code>BlockLocalLoop</code> 并不判断某个非回环地址是否属于同一台计算机。宿主的局域网或 Wi-Fi 地址、<code>10.x.x.x</code> 与 <code>192.168.x.x</code> 一类的专用地址、链路本地地址、已分配的非回环 IPv6 地址以及虚拟适配器地址，都在其常规地址范围之外。更广泛的访问应通过常规的 <code>NetworkAccess</code> 规则控制。</p>
+<p>该设置作用于解析后的 IP 地址，而不是 DNS 名称。例如，<code>localhost</code> 或某个解析到 <code>127.0.0.0/8</code> 或 <code>::1</code> 的自定义主机名都受该限制约束。解析到非回环地址的名称，不会仅仅因为它指向本机就被阻止，DNS 解析本身也不被阻止。</p>
+<p>该限制基于地址而非端口。它没有已记录在案的按端口例外，也没有针对特定浏览器、RPC 端点或系统服务的内置豁免。</p>
+<h2 id="communication-behavior">通信行为<a class="headerlink" href="#communication-behavior" title="Permanent link"></a></h2>
+<p>启用后，Sandboxie 的用户态 Winsock 路径会拒绝向匹配的回环地址发起的标准出站通信。覆盖的路径包括常规的 TCP 连接尝试、已连接的 UDP、UDP 发送以及选定的 UDP 接收路径。例如，通过 <code>connect</code>、<code>WSAConnect</code>、<code>sendto</code> 或 <code>WSASendTo</code> 发出的调用都受该限制约束。</p>
+<p>被用户态路径阻断的标准 Winsock 操作通常立即以连接被拒绝的错误失败。对于其他网络路径，包括被 Windows 过滤平台（WFP）阻断的操作，不应假定会返回完全相同的错误。</p>
+<p><code>BlockLocalLoop</code> 本身并不阻止沙盒化应用程序绑定本地套接字或在回环地址上监听。它限制的是通过所覆盖回环路径进行的通信，而不是阻止创建本地监听器。</p>
+<p>不存在同一沙盒内的豁免。对于启用该设置的沙盒化进程发起的出站回环流量，该限制不区分对端是：</p>
 <ul>
-<li>an unsandboxed host process;</li>
-<li>another process in the same sandbox;</li>
-<li>a process in another sandbox.</li>
+<li>非沙盒化的宿主进程；</li>
+<li>同一沙盒中的另一个进程；</li>
+<li>另一个沙盒中的进程。</li>
 </ul>
-<p>Consequently, client/server pairs within the same sandbox may also be affected.</p>
-<p>The documented scope is IP networking over IPv4 and IPv6, including TCP and UDP through the covered Winsock paths. It does not apply to AF_UNIX sockets, named pipes, or other non-IP IPC mechanisms. Comprehensive raw-socket or ICMP filtering should not be assumed from the user-mode path alone.</p>
-<h2 id="network-rules-and-wfp-support">Network rules and WFP support<a class="headerlink" href="#network-rules-and-wfp-support" title="Permanent link"></a></h2>
-<p><code>BlockLocalLoop</code> is evaluated independently from normal <code>NetworkAccess</code> rules. An allow rule does not override a successful <code>BlockLocalLoop</code> match. Broader deny rules may make the setting redundant for traffic they already block.</p>
-<p>The default enforcement layer is the user-mode Winsock path inside sandboxed processes. If WFP support is enabled globally:</p>
+<p>因此，同一沙盒内的客户端/服务器组合也可能受到影响。</p>
+<p>已记录的作用范围是 IPv4 与 IPv6 上的 IP 网络通信，包括经由所覆盖 Winsock 路径的 TCP 与 UDP。它不适用于 AF_UNIX 套接字、命名管道或其他非 IP 的 IPC 机制。不应仅凭用户态路径就假定具备完整的原始套接字或 ICMP 过滤。</p>
+<h2 id="network-rules-and-wfp-support">网络规则与 WFP 支持<a class="headerlink" href="#network-rules-and-wfp-support" title="Permanent link"></a></h2>
+<p><code>BlockLocalLoop</code> 与常规的 <code>NetworkAccess</code> 规则独立求值。放行规则不能覆盖一次成功的 <code>BlockLocalLoop</code> 匹配。对于更宽泛的拒绝规则已经阻断的流量，该设置可能是多余的。</p>
+<p>默认的强制执行层是沙盒化进程内部的用户态 Winsock 路径。如果全局启用了 WFP 支持：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[GlobalSettings]</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">NetworkEnableWFP</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>Sandboxie's driver also participates through Windows Filtering Platform. WFP can extend enforcement beyond the intercepted Winsock exports and can apply kernel authorization to additional IP traffic classes. The user-mode fallback primarily restricts traffic initiated by the sandboxed process; with WFP enabled, authorization can also apply to inbound connection and receive paths.</p>
-<h3 id="implementation-notes-and-limitations">Implementation notes and limitations<a class="headerlink" href="#implementation-notes-and-limitations" title="Permanent link"></a></h3>
-<p>The reliable documented behavior is based primarily on the standard Winsock enforcement path. Kernel WFP support provides additional coverage when enabled, but current implementation details differ between address families and networking paths. Applications that bypass normal Winsock paths should not be assumed to receive identical behavior, and complete bidirectional IPv4 loopback blocking through WFP is not guaranteed.</p>
-<p>Binding or listening itself is not prevented. Changing the global <code>NetworkEnableWFP</code> option is separate from changing <code>BlockLocalLoop</code>; see <a href="../../PlusContent/WFPSupport/">WFP Support</a> for its activation requirements.</p>
-<h2 id="compatibility-and-purpose">Compatibility and purpose<a class="headerlink" href="#compatibility-and-purpose" title="Permanent link"></a></h2>
-<p>The setting can reduce access by sandboxed code to host-local services that listen only on loopback, including unauthenticated localhost services, development or administration endpoints, and local helper or control services.</p>
-<p>Software may be affected if it actually uses loopback communication, including:</p>
+<p>Sandboxie 的驱动程序也会通过 Windows 过滤平台参与执行。WFP 可以把强制执行扩展到被拦截的 Winsock 导出之外，并可对额外的 IP 流量类别施加内核级授权。用户态回退路径主要限制沙盒化进程发起的流量；启用 WFP 后，授权还可以作用于入站连接与接收路径。</p>
+<h3 id="implementation-notes-and-limitations">实现说明与限制<a class="headerlink" href="#implementation-notes-and-limitations" title="Permanent link"></a></h3>
+<p>可靠且有记录的行为主要基于标准的 Winsock 强制执行路径。内核 WFP 支持在启用后提供额外覆盖，但当前的实现细节在不同地址族与不同网络路径之间存在差异。不应假定绕过常规 Winsock 路径的应用程序会得到完全一致的行为，也不保证能通过 WFP 实现完整的双向 IPv4 回环阻断。</p>
+<p>绑定或监听本身不被阻止。更改全局的 <code>NetworkEnableWFP</code> 选项与更改 <code>BlockLocalLoop</code> 是两件独立的事；其启用条件参见 <a href="../../PlusContent/WFPSupport/">WFP（Windows 过滤平台）支持</a>。</p>
+<h2 id="compatibility-and-purpose">兼容性与用途<a class="headerlink" href="#compatibility-and-purpose" title="Permanent link"></a></h2>
+<p>该设置可以减少沙盒内代码对仅在回环上监听的宿主本地服务的访问，包括无需身份验证的 localhost 服务、开发或管理端点，以及本地辅助服务或控制服务。</p>
+<p>如果软件确实使用回环通信，就可能受到影响，例如：</p>
 <ul>
-<li>browsers connecting to a local development server;</li>
-<li>Electron or WebView applications using a local helper;</li>
-<li>OAuth or login callbacks using <code>127.0.0.1</code> or <code>::1</code>;</li>
-<li>IDEs, test tools, and development servers;</li>
-<li>local databases, HTTP or SOCKS proxies, and DNS resolvers;</li>
-<li>game launchers or helper processes communicating over TCP or UDP loopback.</li>
+<li>连接到本地开发服务器的浏览器；</li>
+<li>使用本地辅助程序的 Electron 或 WebView 应用程序；</li>
+<li>使用 <code>127.0.0.1</code> 或 <code>::1</code> 的 OAuth 或登录回调；</li>
+<li>IDE、测试工具与开发服务器；</li>
+<li>本地数据库、HTTP 或 SOCKS 代理以及 DNS 解析器；</li>
+<li>通过 TCP 或 UDP 回环通信的游戏启动器或辅助进程。</li>
 </ul>
-<p>Not every application in these categories uses loopback. Non-loopback addresses assigned to the host remain outside this setting's scope, and named pipes or other local IPC mechanisms are unrelated. Use network-access rules when broader restrictions are required.</p>
-<h2 id="scope-and-applying-changes">Scope and applying changes<a class="headerlink" href="#scope-and-applying-changes" title="Permanent link"></a></h2>
-<p><code>BlockLocalLoop</code> is a normal box setting and can be inherited through normal template or global configuration resolution. There is no documented per-program syntax.</p>
-<p>The user-mode value is read when networking initializes in the sandboxed process. Changing the option does not reliably update every process that is already running, so restarting affected sandboxed applications is the reliable way to apply the change. A service or driver restart is not required merely for newly started processes.</p>
-<h2 id="user-interface-and-notifications">User interface and notifications<a class="headerlink" href="#user-interface-and-notifications" title="Permanent link"></a></h2>
-<p>There is currently no dedicated <strong>BlockLocalLoop</strong> checkbox in normal Sandbox Options. Configure it through:</p>
-<p><strong>Sandbox Options</strong> &gt; <strong>Edit ini Section</strong> &gt; <strong>Edit ini</strong></p>
-<p>There is also no dedicated <code>BlockLocalLoop</code> notification or user-facing SBIE message for each blocked connection. Applications normally report their own networking failure.</p>
-<h2 id="version-history">Version history<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
-<p><em>BlockLocalLoop</em> was introduced in Sandboxie Plus 1.17.4. It remains disabled by default, and the current Sandbox Options interface does not provide a dedicated checkbox for it.</p>
-<h2 id="related-configuration">Related configuration<a class="headerlink" href="#related-configuration" title="Permanent link"></a></h2>
+<p>这些类别并非每个应用程序都使用回环。分配给宿主的非回环地址仍在该设置范围之外，命名管道或其他本地 IPC 机制也不相关。需要更广泛的限制时，请使用网络访问规则。</p>
+<h2 id="scope-and-applying-changes">作用范围与应用更改<a class="headerlink" href="#scope-and-applying-changes" title="Permanent link"></a></h2>
+<p><code>BlockLocalLoop</code> 是一项常规的沙盒设置，可以通过常规的模板或全局配置解析继承。它没有已记录在案的按程序语法。</p>
+<p>用户态取值在沙盒化进程初始化网络时读取。更改该选项并不能可靠地更新每一个已在运行的进程，因此重启受影响的沙盒化应用程序才是可靠的应用方式。仅就新启动的进程而言，不需要重启服务或驱动程序。</p>
+<h2 id="user-interface-and-notifications">用户界面与通知<a class="headerlink" href="#user-interface-and-notifications" title="Permanent link"></a></h2>
+<p>常规的沙盒选项目前没有专门的 <strong>BlockLocalLoop</strong> 复选框。请通过以下位置配置：</p>
+<p><strong>沙盒选项</strong> &gt; <strong>配置文本</strong> &gt; <strong>编辑配置</strong></p>
+<p>对于每一次被阻断的连接，也没有专门的 <code>BlockLocalLoop</code> 通知或面向用户的 SBIE 消息。应用程序通常会自行报告其网络失败。</p>
+<h2 id="version-history">版本历史<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
+<p><em>BlockLocalLoop</em> 在 Sandboxie Plus 1.17.4 中引入。它仍然默认禁用，当前的沙盒选项界面也没有为它提供专用复选框。</p>
+<h2 id="related-configuration">相关配置<a class="headerlink" href="#related-configuration" title="Permanent link"></a></h2>
 <ul>
 <li><a href="../SandboxieIni/">Sandboxie Ini</a></li>
-<li><a href="../../PlusContent/WFPSupport/">WFP Support</a></li>
-<li><code>NetworkAccess</code> for broader address, port, protocol, or program-based network rules</li>
-<li><code>NetworkEnableWFP</code> for optional kernel-level network enforcement</li>
+<li><a href="../../PlusContent/WFPSupport/">WFP（Windows 过滤平台）支持</a></li>
+<li><code>NetworkAccess</code>，用于更广泛的地址、端口、协议或基于程序的网络规则</li>
+<li><code>NetworkEnableWFP</code>，用于可选的内核级网络强制执行</li>
 </ul>
 
 
