@@ -10,6 +10,8 @@
 | `DelayLoadDll` | 使指定 DLL 在进程早期初始化期间表现为不可用，并记录其路径。 |
 | `OverrideOsBuild` | 改变沙盒进程内选定的版本查询 API 的返回结果。 |
 
+<div id="manifest-compatibility-during-process-creation"></div>
+
 ## 进程创建期间的清单兼容性
 
 `PreferExternalManifest` 默认禁用。尽管名字如此，它并不是简单地告诉 Windows 优先使用应用程序自带的 `.manifest` 文件。当针对某个子可执行文件启用时，Sandboxie 可以在进程创建期间拦截对该子进程清单或配置文件的打开，并替换为 Sandboxie 随附的文件。它还可以把相关的 SxS 注册表访问重定向到 Sandboxie 服务侧的兼容项。应用程序实际的清单文件不会被修改。

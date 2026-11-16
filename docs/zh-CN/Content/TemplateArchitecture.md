@@ -33,7 +33,9 @@ OpenIpcPath=*\BaseNamedObjects*\ExampleSoft_*
 
 本地模板可以像官方模板一样手动启用。`Template_Local_` 只是一种命名与呈现约定，并不是独立的运行时继承机制。[应用程序设置](ApplicationsSettings.md#local)页面也介绍了旧的本地模板界面。
 
-## 选择模板 {#selecting-templates}
+<div id="selecting-templates"></div>
+
+## 选择模板
 
 在 `Template=` 后面写上模板名称，即可为某个沙盒启用该模板：
 
@@ -71,7 +73,9 @@ Template=Example
 
 其他以 `Template` 开头的节同样不是普通的应用程序模板。`TemplateDefaultPaths`、`TemplateSModPaths`、`TemplatePModPaths` 与 `TemplateAppCPaths` 通过各自独立的加载路径，为运行时子系统提供内置路径规则。不要通过应用程序模板列表启用它们，也不要假定 `Template=Name` 能控制它们。
 
-## 模板元数据 {#template-metadata}
+<div id="template-metadata"></div>
+
+## 模板元数据
 
 以 `Tmpl.` 开头的条目用于描述模板，或帮助发现该模板何时可能有用。当模板规则合并进运行时配置时，这些条目会被跳过。
 
@@ -90,7 +94,9 @@ Template=Example
 
 这些字段大多由模板呈现或兼容性发现代码使用，驱动程序并不把它们用作访问规则。
 
-## 模板发现 {#template-discovery}
+<div id="template-discovery"></div>
+
+## 模板发现
 
 模板发现决定 Sandboxie 或 SandMan 是否应推荐某个兼容性模板。它本身并不强制执行该模板的沙盒规则。只有当模板被选中，或通过默认模板机制被应用之后，这些规则才会进入有效配置。
 

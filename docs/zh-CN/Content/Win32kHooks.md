@@ -6,6 +6,8 @@ Sandboxie 可以挂钩选定的 Win32k 系统调用，以兼容那些需要特�
 
 这不是通用的 GPU 加速开关，不会挂钩每一个 Win32k 系统调用，也不会切换某项 Windows 安全缓解措施。实验性的 Win32k 过滤表支持是另一套内部机制。
 
+<div id="global-hook-support"></div>
+
 ## 全局钩子支持
 
 全局可用性设置是：
@@ -24,6 +26,8 @@ SandMan 在 **全局设置 > 高级选项 > Sandboxie 配置** 下以如下标�
 > Hook selected Win32k system calls to enable GPU acceleration (required for chrome, firefox and more)
 
 该控件在低于 14393 的 Windows 内部版本上不可用。界面标签描述的是兼容性动机，但仅启用全局支持并不会选定每个应用程序，也不保证 GPU 加速。
+
+<div id="per-process-hook-selection"></div>
 
 ## 逐进程钩子选择
 
@@ -57,6 +61,8 @@ UseWin32kHooks=program.exe,y
 - `UseWin32kHooks` 被禁用，或对该进程未默认启用。
 
 这些检查发生在沙盒进程初始化其钩子路径时。更改设置后请重启受影响的沙盒进程，以确保使用新的选择。
+
+<div id="advanced-and-experimental-controls"></div>
 
 ## 高级与实验性控件
 

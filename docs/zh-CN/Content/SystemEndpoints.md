@@ -38,7 +38,7 @@ Sandboxie 把通用的 IPC 可达性与端点专属的请求过滤作为两个�
 
 [开放 IPC 路径](OpenIpcPath.md) 可以让某个 IPC 对象变得可达，而 [封禁 IPC 路径](ClosedIpcPath.md) 可以拒绝可达性。本页记录的 `Open...Endpoint` 设置影响的是更靠后的、专门的操作过滤器。开放 IPC 路径并不会自动移除该过滤器，端点设置也不会自动让一个被封闭的 IPC 对象变得可达。
 
-## OpenLsaEndpoint {#openlsaendpoint}
+## OpenLsaEndpoint
 
 ```ini
 OpenLsaEndpoint=y
@@ -60,7 +60,7 @@ Sandboxie 在 SbieDrv 中直接处理以下固定端点：
 
 LSA 端点过滤器在 Sandboxie Plus 0.5.4 / Classic 5.46.0 中引入，用于应对后来被追踪为安全议题 ID-8 / CVE-2019-13502 的问题。该过滤器仍然默认启用；`OpenLsaEndpoint=y` 是为需要执行会被该过滤器拒绝的操作的软件提供的兼容性放宽。
 
-## OpenSamEndpoint {#opensamendpoint}
+## OpenSamEndpoint
 
 ```ini
 OpenSamEndpoint=y
@@ -92,7 +92,7 @@ OpenSamEndpoint=y
 
 `SandboxService` 把提权服务纳入 Sandboxie 的沙盒化服务模型，`RunServiceAsSystem` 为该服务提供所需的源身份，`OpenSamEndpoint` 则移除该兼容性流程所需的 SAM 过滤器。仅设置 `OpenSamEndpoint` 并不会实现 DPAPI 兼容性，也不会授予对宿主凭据的访问权限。参见 [沙盒化服务](SandboxedServices.md)。
 
-## OpenWPADEndpoint {#openwpadendpoint}
+## OpenWPADEndpoint
 
 ```ini
 OpenWPADEndpoint=y
