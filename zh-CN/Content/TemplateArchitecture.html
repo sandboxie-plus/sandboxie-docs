@@ -24,6 +24,8 @@
         
           <link rel="alternate" href="TemplateArchitecture.html" hreflang="zh">
         
+          <link rel="alternate" href="../../ja/Content/TemplateArchitecture.html" hreflang="ja">
+        
       
       
       <link rel="icon" href="../../material/assets/images/favicon.ico">
@@ -178,6 +180,12 @@
           <li class="md-select__item">
             <a href="TemplateArchitecture.html" hreflang="zh" class="md-select__link">
               简体中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ja/Content/TemplateArchitecture.html" hreflang="ja" class="md-select__link">
+              日本語
             </a>
           </li>
         
@@ -2801,7 +2809,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#selecting-templates" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
         选择模板
@@ -2845,7 +2853,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#template-metadata" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
         模板元数据
@@ -2856,7 +2864,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#template-discovery" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
         模板发现
@@ -7394,7 +7402,7 @@
   <span class="md-ellipsis">
     
   
-    Advanced Token Settings
+    高级令牌设置
   
 
     
@@ -7539,7 +7547,7 @@
   <span class="md-ellipsis">
     
   
-    Win32k Hooks
+    Win32k 钩子
   
 
     
@@ -7632,7 +7640,7 @@
   <span class="md-ellipsis">
     
   
-    Hook and Loader Compatibility
+    钩子与加载器兼容性
   
 
     
@@ -7660,7 +7668,7 @@
   <span class="md-ellipsis">
     
   
-    Advanced Loader and SxS Compatibility
+    高级加载器与 SxS 兼容性
   
 
     
@@ -7978,7 +7986,9 @@
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="na">OpenIpcPath</span><span class="o">=</span><span class="s">*\BaseNamedObjects*\ExampleSoft_*</span>
 </span></code></pre></div>
 <p>本地模板可以像官方模板一样手动启用。<code>Template_Local_</code> 只是一种命名与呈现约定，并不是独立的运行时继承机制。<a href="ApplicationsSettings.html#local">应用程序设置</a>页面也介绍了旧的本地模板界面。</p>
-<h2 id="selecting-templates">选择模板<a class="headerlink" href="#selecting-templates" title="Permanent link"></a></h2>
+<div id="selecting-templates"></div>
+
+<h2 id="_1">选择模板<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
 <p>在 <code>Template=</code> 后面写上模板名称，即可为某个沙盒启用该模板：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">Template</span><span class="o">=</span><span class="s">Example</span>
@@ -7998,7 +8008,9 @@
 <h2 id="template-variables-and-internal-sections">模板变量与内部节<a class="headerlink" href="#template-variables-and-internal-sections" title="Permanent link"></a></h2>
 <p><code>[TemplateSettings]</code> 提供共享的 <code>%Tmpl.*%</code> 变量定义以及相关的元数据基础设施。模板可以使用这些变量，具体见 <a href="ExpandableVariables.html#template-variables">可展开变量</a>。<code>[TemplateSettings]</code> 并不是用 <code>Template=TemplateSettings</code> 选中的兼容性模板；自定义模板无需复制或编辑它。</p>
 <p>其他以 <code>Template</code> 开头的节同样不是普通的应用程序模板。<code>TemplateDefaultPaths</code>、<code>TemplateSModPaths</code>、<code>TemplatePModPaths</code> 与 <code>TemplateAppCPaths</code> 通过各自独立的加载路径，为运行时子系统提供内置路径规则。不要通过应用程序模板列表启用它们，也不要假定 <code>Template=Name</code> 能控制它们。</p>
-<h2 id="template-metadata">模板元数据<a class="headerlink" href="#template-metadata" title="Permanent link"></a></h2>
+<div id="template-metadata"></div>
+
+<h2 id="_2">模板元数据<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <p>以 <code>Tmpl.</code> 开头的条目用于描述模板，或帮助发现该模板何时可能有用。当模板规则合并进运行时配置时，这些条目会被跳过。</p>
 <table>
 <thead>
@@ -8051,7 +8063,9 @@
 </tbody>
 </table>
 <p>这些字段大多由模板呈现或兼容性发现代码使用，驱动程序并不把它们用作访问规则。</p>
-<h2 id="template-discovery">模板发现<a class="headerlink" href="#template-discovery" title="Permanent link"></a></h2>
+<div id="template-discovery"></div>
+
+<h2 id="_3">模板发现<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
 <p>模板发现决定 Sandboxie 或 SandMan 是否应推荐某个兼容性模板。它本身并不强制执行该模板的沙盒规则。只有当模板被选中，或通过默认模板机制被应用之后，这些规则才会进入有效配置。</p>
 <p><code>Tmpl.Scan</code> 用于选择一种或多种证据模式：</p>
 <ul>
@@ -8068,7 +8082,7 @@
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="na">SoftwareUpdater</span><span class="o">=</span><span class="s">firefox.exe,*\mozilla firefox\updater.exe</span>
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="na">SoftwareUpdater</span><span class="o">=</span><span class="s">msedge.exe,*\Microsoft\EdgeUpdate\MicrosoftEdgeUpdate.exe</span>
 </span></code></pre></div>
-<p><code>BlockSoftwareUpdaters</code> 是一个独立的运行时开关，其查询默认值为 <code>y</code>。当该开关启用且子进程匹配某条 <code>SoftwareUpdater</code> 规则时，Sandboxie 会以 <code>ERROR_ACCESS_DENIED</code> 阻止其创建，并把 <strong>Blocked start of an updater</strong> 报告到其监控路径。设为 <code>BlockSoftwareUpdaters=n</code> 时，该默认模板及其模式仍可能存在于有效配置中，但这一进程创建拦截机制不会强制执行它们。</p>
+<p><code>BlockSoftwareUpdaters</code> 是一个独立的运行时开关，其查询默认值为 <code>y</code>。当该开关启用时，如果发起创建的进程所运行的可执行文件位于沙盒内，或其真实映像路径匹配开放文件规则，则不会进行此更新程序拦截。否则，当子进程匹配某条 <code>SoftwareUpdater</code> 规则时，Sandboxie 会以 <code>ERROR_ACCESS_DENIED</code> 阻止其创建，并把 <strong>Blocked start of an updater</strong> 报告到其监控路径。设为 <code>BlockSoftwareUpdaters=n</code> 时，该默认模板及其模式仍可能存在于有效配置中，但这一进程创建拦截机制不会强制执行它们。</p>
 <p><code>BlockSoftwareUpdaters</code> 于 0.5.5 引入，1.0.11 中移除，1.14.4 中重新引入。它在当前运行时中处于生效状态。该机制只涵盖匹配的更新程序进程创建；它并不保证所有软件更新、安装程序或基于网络的更新途径都会被阻止。</p>
 <h2 id="sandman-and-applying-changes">SandMan 与应用更改<a class="headerlink" href="#sandman-and-applying-changes" title="Permanent link"></a></h2>
 <p>在 SandMan 中，模板按标题和类别显示在 <strong>沙盒选项 &gt; 应用模板</strong> 下。为某个沙盒启用模板，相当于选中它的配置，无需手动修改 <code>Template=</code>。</p>

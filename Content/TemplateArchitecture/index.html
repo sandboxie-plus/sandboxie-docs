@@ -24,6 +24,8 @@
         
           <link rel="alternate" href="../../zh-CN/Content/TemplateArchitecture/" hreflang="zh">
         
+          <link rel="alternate" href="../../ja/Content/TemplateArchitecture/" hreflang="ja">
+        
       
       
       <link rel="icon" href="../../material/assets/images/favicon.ico">
@@ -178,6 +180,12 @@
           <li class="md-select__item">
             <a href="../../zh-CN/Content/TemplateArchitecture/" hreflang="zh" class="md-select__link">
               简体中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ja/Content/TemplateArchitecture/" hreflang="ja" class="md-select__link">
+              日本語
             </a>
           </li>
         
@@ -8068,7 +8076,7 @@
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="na">SoftwareUpdater</span><span class="o">=</span><span class="s">firefox.exe,*\mozilla firefox\updater.exe</span>
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="na">SoftwareUpdater</span><span class="o">=</span><span class="s">msedge.exe,*\Microsoft\EdgeUpdate\MicrosoftEdgeUpdate.exe</span>
 </span></code></pre></div>
-<p><code>BlockSoftwareUpdaters</code> is a separate runtime gate, queried with a default of <code>y</code>. When the gate is enabled and a child process matches a <code>SoftwareUpdater</code> rule, Sandboxie blocks its creation with <code>ERROR_ACCESS_DENIED</code> and reports <strong>Blocked start of an updater</strong> to its monitor path. With <code>BlockSoftwareUpdaters=n</code>, the default template and its patterns may still be present in effective configuration, but this process-creation blocker does not enforce them.</p>
+<p><code>BlockSoftwareUpdaters</code> is a separate runtime gate, queried with a default of <code>y</code>. When the gate is enabled, Sandboxie skips this updater check if the executable of the process creating the child is inside the sandbox or its true image path matches an open file rule. Otherwise, if the child process matches a <code>SoftwareUpdater</code> rule, Sandboxie blocks its creation with <code>ERROR_ACCESS_DENIED</code> and reports <strong>Blocked start of an updater</strong> to its monitor path. With <code>BlockSoftwareUpdaters=n</code>, the default template and its patterns may still be present in effective configuration, but this process-creation blocker does not enforce them.</p>
 <p><code>BlockSoftwareUpdaters</code> was introduced in 0.5.5, removed in 1.0.11, and reintroduced in 1.14.4. It is active in the current runtime. This mechanism covers matching updater process creations; it does not guarantee that every software update, installer, or network-based update path is blocked.</p>
 <h2 id="sandman-and-applying-changes">SandMan and applying changes<a class="headerlink" href="#sandman-and-applying-changes" title="Permanent link"></a></h2>
 <p>In SandMan, templates are presented under <strong>Sandbox Options &gt; App Templates</strong> by title and category. Enabling one for a sandbox corresponds to selecting its configuration without requiring manual <code>Template=</code> edits.</p>

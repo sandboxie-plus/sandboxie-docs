@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="These advanced settings change selected Sandboxie hook or Windows loader initialization paths. They are intended for targeted compatibility troubleshooting, not as general switches to disable sandboxing. Skipping an interception path can also change the mediation or compatibility behavior that depends on it.">
+        <meta name="description" content="这些高级设置会改变 Sandboxie 选定的钩子或 Windows 加载器初始化路径。它们面向有针对性的兼容性排查，不是用来关闭沙盒的通用开关。跳过某条拦截路径，同样会改变依赖该路径的中介或兼容行为。">
       
       
       
@@ -24,6 +24,8 @@
         
           <link rel="alternate" href="./" hreflang="zh">
         
+          <link rel="alternate" href="../../../ja/Content/HookAndLoaderCompatibility/" hreflang="ja">
+        
       
       
       <link rel="icon" href="../../../material/assets/images/favicon.ico">
@@ -31,7 +33,7 @@
     
     
       
-        <title>Hook and Loader Compatibility - Sandboxie 文档</title>
+        <title>钩子与加载器兼容性 - Sandboxie 文档</title>
       
     
     
@@ -78,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#hook-and-loader-compatibility" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -113,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Hook and Loader Compatibility
+              钩子与加载器兼容性
             
           </span>
         </div>
@@ -178,6 +180,12 @@
           <li class="md-select__item">
             <a href="./" hreflang="zh" class="md-select__link">
               简体中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../ja/Content/HookAndLoaderCompatibility/" hreflang="ja" class="md-select__link">
+              日本語
             </a>
           </li>
         
@@ -7235,7 +7243,7 @@
   <span class="md-ellipsis">
     
   
-    Advanced Token Settings
+    高级令牌设置
   
 
     
@@ -7380,7 +7388,7 @@
   <span class="md-ellipsis">
     
   
-    Win32k Hooks
+    Win32k 钩子
   
 
     
@@ -7484,7 +7492,7 @@
   <span class="md-ellipsis">
     
   
-    Hook and Loader Compatibility
+    钩子与加载器兼容性
   
 
     
@@ -7502,7 +7510,7 @@
   <span class="md-ellipsis">
     
   
-    Hook and Loader Compatibility
+    钩子与加载器兼容性
   
 
     
@@ -7528,10 +7536,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#hooking-layers" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Hooking layers
+        钩子层次
       
     </span>
   </a>
@@ -7562,10 +7570,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#how-the-two-syscall-settings-differ" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How the two syscall settings differ
+        两个系统调用设置的区别
       
     </span>
   </a>
@@ -7600,10 +7608,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#templates-and-presets" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Templates and presets
+        模板与预设
       
     </span>
   </a>
@@ -7611,10 +7619,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#applying-changes" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Applying changes
+        应用更改
       
     </span>
   </a>
@@ -7622,10 +7630,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#version-history" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Version history
+        版本历史
       
     </span>
   </a>
@@ -7633,10 +7641,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#related-settings" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Related settings
+        相关设置
       
     </span>
   </a>
@@ -7666,7 +7674,7 @@
   <span class="md-ellipsis">
     
   
-    Advanced Loader and SxS Compatibility
+    高级加载器与 SxS 兼容性
   
 
     
@@ -7961,49 +7969,49 @@
   
 
 
-<h1 id="hook-and-loader-compatibility">Hook and Loader Compatibility<a class="headerlink" href="#hook-and-loader-compatibility" title="Permanent link"></a></h1>
-<p>These advanced settings change selected Sandboxie hook or Windows loader initialization paths. They are intended for targeted compatibility troubleshooting, not as general switches to disable sandboxing. Skipping an interception path can also change the mediation or compatibility behavior that depends on it.</p>
-<h2 id="hooking-layers">Hooking layers<a class="headerlink" href="#hooking-layers" title="Permanent link"></a></h2>
-<p>Sandboxie does not use one universal hook. The driver maintains information about selected native system calls; an injected low-level path can prepare syscall stubs in a newly started process. SbieDll separately installs Nt and Win32 API hooks, and its loader callbacks initialize hooks and workarounds for particular loaded modules. A setting that skips one of these paths does not necessarily skip the others.</p>
+<h1 id="_1">钩子与加载器兼容性<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<p>这些高级设置会改变 Sandboxie 选定的钩子或 Windows 加载器初始化路径。它们面向有针对性的兼容性排查，不是用来关闭沙盒的通用开关。跳过某条拦截路径，同样会改变依赖该路径的中介或兼容行为。</p>
+<h2 id="_2">钩子层次<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
+<p>Sandboxie 并不使用统一的单一钩子。驱动维护关于选定原生系统调用的信息；一条注入的低层路径可以在新启动的进程中准备系统调用桩。SbieDll 另外安装 Nt 与 Win32 API 钩子，其加载器回调为特定已加载模块初始化钩子与变通方案。跳过其中某一条路径的设置，不一定跳过其他路径。</p>
 <h2 id="nosyscallhooks">NoSysCallHooks<a class="headerlink" href="#nosyscallhooks" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">NoSysCallHooks</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p><code>NoSysCallHooks</code> is a box-wide Boolean option, disabled by default. When enabled, Sandboxie skips the low-level syscall-stub initialization for newly started processes in that box. It also skips selected SbieDll secure hooks for <code>NtOpenProcess</code>, <code>NtOpenThread</code>, and <code>NtDuplicateObject</code>, and the related WoW64 syscall fix-up. Application Compartment mode independently skips the low-level path and those selected secure hooks.</p>
-<p>This does <strong>not</strong> disable every Sandboxie hook or the rest of process injection. Other SbieDll hooks and independent driver controls still have their own initialization paths. Use this option only for a diagnosed compatibility problem; it is not a way to turn off all API interception while keeping otherwise unchanged sandbox behavior.</p>
+<p><code>NoSysCallHooks</code> 是盒级布尔选项，默认禁用。启用后，Sandboxie 会跳过该盒中新启动进程的低层系统调用桩初始化。它还会跳过 <code>NtOpenProcess</code>、<code>NtOpenThread</code> 与 <code>NtDuplicateObject</code> 上选定的 SbieDll 安全钩子，以及相关的 WoW64 系统调用修补。应用程序隔离模式会独立地跳过低层路径和这些选定的安全钩子。</p>
+<p>这<strong>不会</strong>禁用 Sandboxie 的所有钩子，也不会禁用进程注入的其余部分。其他 SbieDll 钩子与独立的驱动控件仍各有自己的初始化路径。仅对已诊断出的兼容问题使用该选项；它不是“关掉所有 API 拦截、其余沙盒行为保持不变”的手段。</p>
 <h2 id="disablewinnthook">DisableWinNtHook<a class="headerlink" href="#disablewinnthook" title="Permanent link"></a></h2>
-<p><code>DisableWinNtHook</code> is a repeatable pattern setting for the driver's NT syscall map. The map loader reads entries from <code>[SysCallPresets]</code>, so the setting is global rather than selected separately for each box or executable. The underlying configuration lookup has fallback behavior for <code>[GlobalSettings]</code>, but these sources should not be described as two freely merged lists. Shipped presets already provide entries. Write the syscall entry name without its <code>Nt</code> or <code>Zw</code> prefix. A current preset illustrates the syntax:</p>
+<p><code>DisableWinNtHook</code> 是驱动 NT 系统调用映射的可重复模式设置。映射加载器从 <code>[SysCallPresets]</code> 读取条目，因此该设置是全局的，而不是按盒或按可执行文件分别选择。底层配置查找对 <code>[GlobalSettings]</code> 有回退行为，但不应把这两个来源描述为可自由合并的两个列表。随附的预设已经提供了条目。写入系统调用条目名时不要带 <code>Nt</code> 或 <code>Zw</code> 前缀。当前某个预设示范了该语法：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[SysCallPresets]</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">DisableWinNtHook</span><span class="o">=</span><span class="s">MapViewOfSection</span>
 </span></code></pre></div>
-<p>The driver scans <code>Zw</code> exports, removes the <code>Zw</code> prefix, and marks matching map entries disabled. Entries so marked are omitted when Sandboxie copies syscall information for its low-level hook path. The parser accepts multiple entries and its pattern matcher supports <code>*</code> and <code>?</code>; matching uses the export-name spelling, including case. A name or pattern matching no known entry has no effect. This is not an image-aware rule: program selectors, process groups, and negated selectors are not parsed here.</p>
-<p>This setting does not generically disable Win32 API hooks, nor does it guarantee that every higher-level API using a named syscall becomes unhooked. <code>DisableWin32Hook</code> is a separate Win32k map control discussed in <a href="../Win32kHooks/">Win32k Hooks</a>.</p>
-<h3 id="how-the-two-syscall-settings-differ">How the two syscall settings differ<a class="headerlink" href="#how-the-two-syscall-settings-differ" title="Permanent link"></a></h3>
-<p><code>NoSysCallHooks=y</code> skips a broader low-level syscall-stub initialization path for processes in a box. <code>DisableWinNtHook</code> instead selects named entries in a driver-wide NT syscall map used by that path. The first is a box-level Boolean; the second is a repeatable map pattern. Neither setting disables all Sandboxie hooks.</p>
+<p>驱动扫描 <code>Zw</code> 导出，去掉 <code>Zw</code> 前缀，并把匹配的映射条目标记为禁用。被如此标记的条目，在 Sandboxie 为其低层钩子路径复制系统调用信息时会被略过。解析器接受多个条目，其模式匹配支持 <code>*</code> 与 <code>?</code>；匹配使用导出名的拼写，区分大小写。不匹配任何已知条目的名称或模式不产生效果。这不是映像感知规则：此处不解析程序选择器、进程组与取反选择器。</p>
+<p>该设置不会普遍禁用 Win32 API 钩子，也不保证使用某个具名系统调用的每个更高层 API 都会变为未被挂钩。<code>DisableWin32Hook</code> 是另一项 Win32k 映射控制，见 <a href="../Win32kHooks/">Win32k 钩子</a>。</p>
+<h3 id="_3">两个系统调用设置的区别<a class="headerlink" href="#_3" title="Permanent link"></a></h3>
+<p><code>NoSysCallHooks=y</code> 为盒中的进程跳过一条更宽泛的低层系统调用桩初始化路径。<code>DisableWinNtHook</code> 则在该路径所用的、驱动范围的 NT 系统调用映射中选定具名条目。前者是盒级布尔值；后者是可重复的映射模式。两者都不会禁用 Sandboxie 的全部钩子。</p>
 <h2 id="noparallelloading">NoParallelLoading<a class="headerlink" href="#noparallelloading" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">NoParallelLoading</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p><code>NoParallelLoading</code> is a box-wide Boolean option, disabled by default. During SbieDll loader initialization in a newly started sandboxed process, it sets that process's <code>LoaderThreads</code> parameter to <code>0</code>. This targets Windows loader parallel-loading behavior for debugging loader compatibility issues. It does not disable application multithreading or serialize all process activity.</p>
+<p><code>NoParallelLoading</code> 是盒级布尔选项，默认禁用。在新启动的沙盒进程中，SbieDll 加载器初始化期间会把该进程的 <code>LoaderThreads</code> 参数设为 <code>0</code>。这针对的是 Windows 加载器的并行加载行为，用于排查加载器兼容问题。它不会禁用应用程序的多线程，也不会把所有进程活动串行化。</p>
 <h2 id="dllskiphook">DllSkipHook<a class="headerlink" href="#dllskiphook" title="Permanent link"></a></h2>
-<p><code>DllSkipHook</code> is a repeatable DLL-name setting in the effective box configuration. For example, the current Proxifier compatibility template contains:</p>
+<p><code>DllSkipHook</code> 是生效盒配置中的可重复 DLL 名称设置。例如，当前的 Proxifier 兼容模板包含：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">DllSkipHook</span><span class="o">=</span><span class="s">ws2_32.dll</span>
 </span></code></pre></div>
-<p>At SbieDll loader initialization, each value is compared case-insensitively with the exact DLL basenames in Sandboxie's known module-initializer table. A match skips that module's Sandboxie-specific initialization callback when the DLL is loaded. It does <strong>not</strong> prevent Windows from loading the DLL. Other, separate tracing or hook paths are not universally disabled by this setting.</p>
-<p>An unknown name, a full path, or a wildcard pattern does not match that table and has no effect. There is no executable-selector, process-group, or negation parser for these values. Unlike <a href="../SkipHook/">Skip Hook</a> and <a href="../FuncSkipHook/">Function Skip Hook</a>, this option selects known module callbacks rather than individual hook identifiers or exported functions.</p>
-<p><code>NoParallelLoading</code> and <code>DllSkipHook</code> address different problems: the former changes loader concurrency for a process, while the latter skips a selected Sandboxie callback for a known module. Neither is a general DLL-blocking or sandbox-disable mechanism.</p>
-<h2 id="templates-and-presets">Templates and presets<a class="headerlink" href="#templates-and-presets" title="Permanent link"></a></h2>
-<p>Sandboxie's current <code>[SysCallPresets]</code> contains several <code>DisableWinNtHook</code> entries maintained for its syscall map. The Proxifier template provides the <code>DllSkipHook=ws2_32.dll</code> compatibility example above. These are current maintained presets, not a recommendation to copy every entry or a promise that template contents will remain unchanged. <code>DllSkipHook</code> can also come from applicable enabled templates in the effective sandbox configuration.</p>
-<h2 id="applying-changes">Applying changes<a class="headerlink" href="#applying-changes" title="Permanent link"></a></h2>
-<p><code>NoSysCallHooks</code>, <code>NoParallelLoading</code>, and <code>DllSkipHook</code> are read during process or SbieDll initialization. Start new sandboxed processes after changing them; existing processes do not rebuild their installed hooks or loader state. The driver can refresh <code>DisableWinNtHook</code> map flags when its configuration is reloaded, but already initialized process stubs are not retroactively rebuilt. Reload the configuration and restart affected sandboxed processes when testing a map change. A driver restart or Windows reboot is not normally required for that update.</p>
-<p>The current SandMan options source has no dedicated controls for these four settings. Configure them in <a href="../SandboxieIni/">Sandboxie Ini</a> or through an applicable preset or template.</p>
-<h2 id="version-history">Version history<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
-<p>The changelog records <code>NoSysCallHooks</code> in Sandboxie Plus 0.4.5 / Classic 5.44.1, <code>DllSkipHook</code> in Plus 0.9.1 / Classic 5.51.1, <code>DisableWinNtHook</code> in Plus 1.3.0 / Classic 5.58.0, and <code>NoParallelLoading</code> in Plus 1.7.0 / Classic 5.62.0. It also records support for changing <code>DisableWinNtHook</code> without a driver reload in Plus 1.15.9 / Classic 5.70.9.</p>
-<h2 id="related-settings">Related settings<a class="headerlink" href="#related-settings" title="Permanent link"></a></h2>
+<p>在 SbieDll 加载器初始化时，每个值都会与 Sandboxie 已知模块初始化表中的确切 DLL 基名做不区分大小写的比较。匹配时，该 DLL 加载时会跳过其模块的 Sandboxie 专用初始化回调。它<strong>不会</strong>阻止 Windows 加载该 DLL。其他独立的跟踪或钩子路径不会被该设置普遍禁用。</p>
+<p>未知名称、完整路径或通配符模式都不会匹配该表，因而没有效果。这些值没有可执行文件选择器、进程组或取反解析器。与 <a href="../SkipHook/">跳过钩子</a> 和 <a href="../FuncSkipHook/">跳过函数钩子</a> 不同，该选项选择的是已知模块回调，而不是单个钩子标识或导出函数。</p>
+<p><code>NoParallelLoading</code> 与 <code>DllSkipHook</code> 解决的是不同问题：前者改变某个进程的加载器并发行为，后者为已知模块跳过选定的 Sandboxie 回调。两者都不是通用的 DLL 阻止机制或关闭沙盒的机制。</p>
+<h2 id="_4">模板与预设<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
+<p>Sandboxie 当前的 <code>[SysCallPresets]</code> 包含若干为其系统调用映射维护的 <code>DisableWinNtHook</code> 条目。Proxifier 模板提供了上面那个 <code>DllSkipHook=ws2_32.dll</code> 兼容示例。这些是当前维护的预设，不是“照抄每个条目”的建议，也不承诺模板内容保持不变。<code>DllSkipHook</code> 也可以来自生效沙盒配置中适用的已启用模板。</p>
+<h2 id="_5">应用更改<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
+<p><code>NoSysCallHooks</code>、<code>NoParallelLoading</code> 与 <code>DllSkipHook</code> 在进程或 SbieDll 初始化期间读取。更改后请启动新的沙盒进程；既有进程不会重建已安装的钩子或加载器状态。驱动在其配置重载时可以刷新 <code>DisableWinNtHook</code> 的映射标志，但已初始化的进程桩不会被追溯重建。测试映射更改时，请重载配置并重启受影响的沙盒进程。该更新通常不需要重启驱动或重启 Windows。</p>
+<p>当前 SandMan 的选项来源没有针对这四个设置的专门控件。请在 <a href="../SandboxieIni/">Sandboxie Ini</a> 中或通过适用的预设或模板配置它们。</p>
+<h2 id="_6">版本历史<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
+<p>变更日志记录了 <code>NoSysCallHooks</code> 于 Sandboxie Plus 0.4.5 / Classic 5.44.1 引入，<code>DllSkipHook</code> 于 Plus 0.9.1 / Classic 5.51.1，<code>DisableWinNtHook</code> 于 Plus 1.3.0 / Classic 5.58.0，<code>NoParallelLoading</code> 于 Plus 1.7.0 / Classic 5.62.0。它还记录了 Plus 1.15.9 / Classic 5.70.9 起支持无需重载驱动即可更改 <code>DisableWinNtHook</code>。</p>
+<h2 id="_7">相关设置<a class="headerlink" href="#_7" title="Permanent link"></a></h2>
 <ul>
-<li><a href="../SyscallSettings/">System Call Settings</a> explains syscall mediation, approvals, and lockdown separately from hook-map exclusions.</li>
-<li><a href="../Win32kHooks/">Win32k Hooks</a> covers the distinct Win32k hook path.</li>
-<li><a href="../AdvancedLoaderCompatibility/">Advanced Loader and SxS Compatibility</a> covers other loader and process-start workarounds.</li>
+<li><a href="../SyscallSettings/">系统调用设置</a> 单独说明系统调用中介、批准与锁定，区别于钩子映射排除。</li>
+<li><a href="../Win32kHooks/">Win32k 钩子</a> 涵盖另一条独立的 Win32k 钩子路径。</li>
+<li><a href="../AdvancedLoaderCompatibility/">高级加载器与 SxS 兼容性</a> 涵盖其他加载器与进程启动变通方案。</li>
 </ul>
 
 
@@ -8043,7 +8051,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../Win32kHooks/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Win32k Hooks">
+          <a href="../Win32kHooks/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Win32k 钩子">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -8053,20 +8061,20 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                Win32k Hooks
+                Win32k 钩子
               </div>
             </div>
           </a>
         
         
           
-          <a href="../AdvancedLoaderCompatibility/" class="md-footer__link md-footer__link--next" aria-label="下一页: Advanced Loader and SxS Compatibility">
+          <a href="../AdvancedLoaderCompatibility/" class="md-footer__link md-footer__link--next" aria-label="下一页: 高级加载器与 SxS 兼容性">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                Advanced Loader and SxS Compatibility
+                高级加载器与 SxS 兼容性
               </div>
             </div>
             <div class="md-footer__button md-icon">

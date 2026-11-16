@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="These advanced settings address specific process-creation, Side-by-Side (SxS) activation-context, early DLL-loading, and Windows-version compatibility problems. They are troubleshooting controls, not general security improvements or a way to reproduce a different Windows installation.">
+        <meta name="description" content="这些高级设置针对特定的进程创建、并行（Side-by-Side，SxS）激活上下文、早期 DLL 加载与 Windows 版本兼容问题。它们是故障排查控件，不是通用的安全改进手段，也不能用来复现另一套 Windows 安装。">
       
       
       
@@ -24,6 +24,8 @@
         
           <link rel="alternate" href="AdvancedLoaderCompatibility.html" hreflang="zh">
         
+          <link rel="alternate" href="../../ja/Content/AdvancedLoaderCompatibility.html" hreflang="ja">
+        
       
       
       <link rel="icon" href="../../material/assets/images/favicon.ico">
@@ -31,7 +33,7 @@
     
     
       
-        <title>Advanced Loader and SxS Compatibility - Sandboxie 文档</title>
+        <title>高级加载器与 SxS 兼容性 - Sandboxie 文档</title>
       
     
     
@@ -78,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#advanced-loader-and-sxs-compatibility" class="md-skip">
+        <a href="#sxs" class="md-skip">
           跳转至
         </a>
       
@@ -113,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Advanced Loader and SxS Compatibility
+              高级加载器与 SxS 兼容性
             
           </span>
         </div>
@@ -178,6 +180,12 @@
           <li class="md-select__item">
             <a href="AdvancedLoaderCompatibility.html" hreflang="zh" class="md-select__link">
               简体中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ja/Content/AdvancedLoaderCompatibility.html" hreflang="ja" class="md-select__link">
+              日本語
             </a>
           </li>
         
@@ -7235,7 +7243,7 @@
   <span class="md-ellipsis">
     
   
-    Advanced Token Settings
+    高级令牌设置
   
 
     
@@ -7380,7 +7388,7 @@
   <span class="md-ellipsis">
     
   
-    Win32k Hooks
+    Win32k 钩子
   
 
     
@@ -7475,7 +7483,7 @@
   <span class="md-ellipsis">
     
   
-    Hook and Loader Compatibility
+    钩子与加载器兼容性
   
 
     
@@ -7512,7 +7520,7 @@
   <span class="md-ellipsis">
     
   
-    Advanced Loader and SxS Compatibility
+    高级加载器与 SxS 兼容性
   
 
     
@@ -7530,7 +7538,7 @@
   <span class="md-ellipsis">
     
   
-    Advanced Loader and SxS Compatibility
+    高级加载器与 SxS 兼容性
   
 
     
@@ -7556,10 +7564,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#manifest-compatibility-during-process-creation" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Manifest compatibility during process creation
+        进程创建期间的清单兼容性
       
     </span>
   </a>
@@ -7600,10 +7608,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sandman-configuration" class="md-nav__link">
+  <a href="#sandman" class="md-nav__link">
     <span class="md-ellipsis">
       
-        SandMan configuration
+        SandMan 中的配置
       
     </span>
   </a>
@@ -7611,10 +7619,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#applying-changes" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Applying changes
+        应用更改
       
     </span>
   </a>
@@ -7622,10 +7630,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#version-history" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Version history
+        版本历史
       
     </span>
   </a>
@@ -7633,10 +7641,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#related-pages" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Related pages
+        相关页面
       
     </span>
   </a>
@@ -7933,94 +7941,96 @@
   
 
 
-<h1 id="advanced-loader-and-sxs-compatibility">Advanced Loader and SxS Compatibility<a class="headerlink" href="#advanced-loader-and-sxs-compatibility" title="Permanent link"></a></h1>
-<p>These advanced settings address specific process-creation, Side-by-Side (SxS) activation-context, early DLL-loading, and Windows-version compatibility problems. They are troubleshooting controls, not general security improvements or a way to reproduce a different Windows installation.</p>
+<h1 id="sxs">高级加载器与 SxS 兼容性<a class="headerlink" href="#sxs" title="Permanent link"></a></h1>
+<p>这些高级设置针对特定的进程创建、并行（Side-by-Side，SxS）激活上下文、早期 DLL 加载与 Windows 版本兼容问题。它们是故障排查控件，不是通用的安全改进手段，也不能用来复现另一套 Windows 安装。</p>
 <table>
 <thead>
 <tr>
-<th>Setting</th>
-<th>Current scope</th>
+<th>设置</th>
+<th>当前作用范围</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>PreferExternalManifest</code></td>
-<td>Selects Sandboxie's dummy-manifest workaround by the <strong>child executable</strong> being created.</td>
+<td>依据<strong>被创建的子进程可执行文件</strong>选择 Sandboxie 的虚拟清单变通方案。</td>
 </tr>
 <tr>
 <td><code>ExternalManifestHack</code></td>
-<td>Selects that workaround by the <strong>sandboxed parent</strong> creating the child.</td>
+<td>依据<strong>创建子进程的沙盒父进程</strong>选择同一变通方案。</td>
 </tr>
 <tr>
 <td><code>DisableBoxedWinSxS</code></td>
-<td>Uses an alternate activation-context path instead of Sandboxie's boxed SxS service for matching processes.</td>
+<td>对匹配的进程改用另一条激活上下文路径，而不使用 Sandboxie 的沙盒内 SxS 服务。</td>
 </tr>
 <tr>
 <td><code>DelayLoadDll</code></td>
-<td>Makes a named DLL unavailable during early process initialization and records its path.</td>
+<td>使指定 DLL 在进程早期初始化期间表现为不可用，并记录其路径。</td>
 </tr>
 <tr>
 <td><code>OverrideOsBuild</code></td>
-<td>Changes results from selected version-query APIs in a sandboxed process.</td>
+<td>改变沙盒进程内选定的版本查询 API 的返回结果。</td>
 </tr>
 </tbody>
 </table>
-<h2 id="manifest-compatibility-during-process-creation">Manifest compatibility during process creation<a class="headerlink" href="#manifest-compatibility-during-process-creation" title="Permanent link"></a></h2>
-<p><code>PreferExternalManifest</code> is disabled by default. Despite its name, it does not simply tell Windows to prefer an application's own external <code>.manifest</code> file. When enabled for a child executable, Sandboxie can intercept opens of that child's manifest or configuration file during process creation and substitute files shipped with Sandboxie. It can also redirect relevant SxS registry access to Sandboxie's service-side compatibility key. The application's actual manifest is not edited.</p>
-<p>When Sandboxie's process-creation path marks the child as <code>asInvoker</code>, for example when the application's manifest explicitly requests <code>asInvoker</code>, the substituted files are a small <code>asInvoker</code> manifest and a minimal configuration file. Otherwise Sandboxie substitutes an empty file so that Windows can still apply its UAC elevation heuristics. These substitutions are specific to the process-creation compatibility path, not a general replacement of all application manifests.</p>
-<p>For example:</p>
+<div id="manifest-compatibility-during-process-creation"></div>
+
+<h2 id="_1">进程创建期间的清单兼容性<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
+<p><code>PreferExternalManifest</code> 默认禁用。尽管名字如此，它并不是简单地告诉 Windows 优先使用应用程序自带的 <code>.manifest</code> 文件。当针对某个子可执行文件启用时，Sandboxie 可以在进程创建期间拦截对该子进程清单或配置文件的打开，并替换为 Sandboxie 随附的文件。它还可以把相关的 SxS 注册表访问重定向到 Sandboxie 服务侧的兼容项。应用程序实际的清单文件不会被修改。</p>
+<p>当 Sandboxie 的进程创建路径把子进程标记为 <code>asInvoker</code> 时，例如应用清单明确要求 <code>asInvoker</code>，替换掉的文件是一个小巧的 <code>asInvoker</code> 清单和一个最小配置文件。否则 Sandboxie 会替换成一个空文件，以便 Windows 仍能应用其 UAC 提升启发式判断。这些替换只属于进程创建兼容路径，不是对所有应用清单的通用替换。</p>
+<p>例如：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">PreferExternalManifest</span><span class="o">=</span><span class="s">legacyapp.exe,y</span>
 </span></code></pre></div>
-<p>The optional executable selector refers to the <strong>child being created</strong>. A box-wide <code>PreferExternalManifest=y</code> enables the workaround generally; a more specific <code>legacyapp.exe,n</code> can turn it off for that child. Normal box, global, and enabled-template configuration lookup applies.</p>
-<p><code>ExternalManifestHack</code> is a separate, disabled-by-default way to select the same compatibility path:</p>
+<p>可选的可执行文件选择器指向的是<strong>被创建的子进程</strong>。盒级的 <code>PreferExternalManifest=y</code> 会普遍启用该变通方案；更具体的 <code>legacyapp.exe,n</code> 可以为该子进程关闭它。常规的盒、全局与已启用模板配置查找依然适用。</p>
+<p><code>ExternalManifestHack</code> 是选择同一条兼容路径的另一条途径，同样默认禁用：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">ExternalManifestHack</span><span class="o">=</span><span class="s">parent.exe,y</span>
 </span></code></pre></div>
-<p>Here the selector refers to the <strong>already-running sandboxed parent</strong> that creates the child, not to the child. If the parent matches an enabled <code>ExternalManifestHack</code> rule, the workaround is selected before the child-oriented <code>PreferExternalManifest</code> check. Therefore these two executable-qualified settings are not interchangeable. The parent-oriented option was added for an Edge compatibility case following Windows 11 KB5014019; the old Edge template entries are currently commented out and should not be treated as active defaults.</p>
-<p>The current image-aware lookup also accepts wildcard patterns and configured process groups. Use executable-qualified rules only for applications that need the workaround; a specific matching value can take precedence over a general value.</p>
+<p>这里的选择器指向<strong>已经在运行的、创建子进程的沙盒父进程</strong>，而不是子进程。若父进程匹配某条已启用的 <code>ExternalManifestHack</code> 规则，该变通方案会在面向子进程的 <code>PreferExternalManifest</code> 检查之前被选定。因此这两个带可执行文件限定的设置不可互换。面向父进程的选项是为 Windows 11 KB5014019 之后的一个 Edge 兼容案例添加的；旧的 Edge 模板条目目前已注释掉，不应视为生效的默认值。</p>
+<p>当前的映像感知查找还接受通配符模式与已配置的进程组。仅对确实需要该变通方案的应用程序使用可执行文件限定的规则；更具体的匹配值可以优先于通用值。</p>
 <h2 id="disableboxedwinsxs"><code>DisableBoxedWinSxS</code><a class="headerlink" href="#disableboxedwinsxs" title="Permanent link"></a></h2>
-<p>Sandboxie's normal <code>CreateActCtxW</code> handling can ask its boxed RpcSs SxS service to generate activation-context data. <code>DisableBoxedWinSxS=y</code> is a compatibility alternative to that route, <strong>not</strong> a switch that turns off WinSxS assemblies. For matching processes, SbieDll instead calls the system <code>CreateActCtxW</code> path, translating a sandboxed source-file path when needed.</p>
+<p>Sandboxie 常规的 <code>CreateActCtxW</code> 处理可以要求其沙盒内 RpcSs SxS 服务生成激活上下文数据。<code>DisableBoxedWinSxS=y</code> 是该路线的一条兼容替代路径，<strong>不是</strong>关闭 WinSxS 程序集的开关。对于匹配的进程，SbieDll 改为调用系统的 <code>CreateActCtxW</code> 路径，并在需要时转换沙盒内的源文件路径。</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">DisableBoxedWinSxS</span><span class="o">=</span><span class="s">explorer.exe,y</span>
 </span></code></pre></div>
-<p>The SbieDll choice is image-aware, even though the setting metadata describes only a box-wide boolean. Shipped ARM64 compatibility templates use executable-qualified values. The alternate path is also selected automatically inside SandboxieRpcSs itself and for processes with an AppContainer token.</p>
-<p>There is a second consumer in boxed RpcSs. At startup it reads an ordinary effective boolean for <code>DisableBoxedWinSxS</code>; a box-wide <code>y</code> prevents its <code>RPCSS_SXS</code> service thread from initializing. This lookup does <strong>not</strong> perform the same executable-name matching as SbieDll. A process-qualified entry should therefore be understood as selecting the alternate path for matching processes, not as a reliable way to disable the boxed SxS service for the entire box.</p>
+<p>SbieDll 的选择是映像感知的，尽管设置元数据只描述了一个盒级布尔值。随附的 ARM64 兼容模板使用带可执行文件限定的值。在 SandboxieRpcSs 自身内部，以及对于带 AppContainer 令牌的进程，该替代路径也会被自动选用。</p>
+<p>沙盒内 RpcSs 中还有第二个读取方。它在启动时读取 <code>DisableBoxedWinSxS</code> 的常规生效布尔值；盒级的 <code>y</code> 会阻止其 <code>RPCSS_SXS</code> 服务线程初始化。该查找并<strong>不</strong>执行与 SbieDll 相同的可执行文件名称匹配。因此，带进程限定的条目应当理解为：对匹配的进程选择替代路径，而不是可靠地为整个盒禁用沙盒内 SxS 服务。</p>
 <h2 id="delayloaddll"><code>DelayLoadDll</code><a class="headerlink" href="#delayloaddll" title="Permanent link"></a></h2>
-<p><code>DelayLoadDll</code> takes a DLL <strong>basename</strong>, with case-insensitive exact matching; the current driver check does not implement path or wildcard matching:</p>
+<p><code>DelayLoadDll</code> 接受 DLL 的<strong>基名</strong>，精确匹配且不区分大小写；当前的驱动检查不实现路径或通配符匹配：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">DelayLoadDll</span><span class="o">=</span><span class="s">guard64.dll</span>
 </span></code></pre></div>
-<p>Before SbieDll has initialized in a newly starting process, a matching DLL open is made to appear as though the file does not exist. The driver records the DLL's full path in a per-process queue, and an API exists to retrieve queued paths. However, no current in-tree caller of that API—or other current in-tree path that completes the intended later DLL load—was found. Do not rely on <code>DelayLoadDll</code> as a guarantee that the DLL will subsequently be loaded. Existing compatibility templates still contain entries for products such as Comodo, ThreatFire, and Logitech Process Monitor; their presence does not establish that a later-load path remains active.</p>
+<p>在新启动的进程中，SbieDll 完成初始化之前，对匹配 DLL 的打开会被表现为文件不存在。驱动会把该 DLL 的完整路径记录到每进程队列中，并且存在一个用于取回队列路径的 API。但是，当前代码树中既没有找到调用该 API 的调用方，也没有找到其他能完成后续预期 DLL 加载的路径。不要把 <code>DelayLoadDll</code> 当作“该 DLL 随后一定会被加载”的保证。现有兼容模板中仍有 Comodo、ThreatFire、Logitech Process Monitor 等产品的条目；它们的存在并不能证明后续加载路径仍然有效。</p>
 <h2 id="overrideosbuild"><code>OverrideOsBuild</code><a class="headerlink" href="#overrideosbuild" title="Permanent link"></a></h2>
-<p><code>OverrideOsBuild</code> accepts a decimal Windows <strong>build number</strong>, optionally qualified by the executable being started:</p>
+<p><code>OverrideOsBuild</code> 接受十进制的 Windows <strong>内部版本号</strong>，可选地由被启动的可执行文件加以限定：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="na">OverrideOsBuild</span><span class="o">=</span><span class="s">legacyapp.exe,7601</span>
 </span></code></pre></div>
-<p>For a box-wide value, use <code>OverrideOsBuild=7601</code>. The current parser uses <code>_wtoi()</code>; a full version string such as <code>10.0.19045.6216</code> is <strong>not</strong> valid build-number syntax—it would be parsed as the initial number <code>10</code>. When the parsed build is nonzero, SbieDll hooks <code>RtlGetVersion</code>, <code>GetVersionExW</code>, and <code>GetVersionExA</code> for that process.</p>
-<p>Sandboxie reports the configured build number through those hooks and derives a corresponding major/minor version and service-pack level. For example, build <code>7601</code> maps to Windows 7 SP1 (<code>6.1</code>), <code>9200</code> to Windows 8 (<code>6.2</code>), <code>9600</code> to Windows 8.1 (<code>6.3</code>), and builds above <code>9600</code> to major/minor <code>10.0</code>. This does not change the actual OS, available APIs, product edition, or build revision. It also does not cover every version-detection method; <code>VerifyVersionInfoW</code> is not hooked by this mechanism.</p>
-<p>The executable selector is matched against the sandboxed process whose version-query APIs are hooked. Normal box, global, and enabled-template lookup applies, with a matching image-specific value preferred over a general value.</p>
-<h2 id="sandman-configuration">SandMan configuration<a class="headerlink" href="#sandman-configuration" title="Permanent link"></a></h2>
-<p>The box-wide <code>PreferExternalManifest</code> checkbox is under <strong>Sandbox Options &gt; Various Options &gt; Compatibility</strong>, labeled <strong>Force usage of custom dummy Manifest files (legacy behaviour)</strong>. It is unchecked by default.</p>
-<p>Executable-qualified <code>PreferExternalManifest</code> entries and general or executable-qualified <code>ExternalManifestHack</code> entries are available in <strong>Sandbox Options &gt; Advanced Options &gt; Miscellaneous</strong> through the advanced <strong>Add Option</strong> editor. <code>ExternalManifestHack</code> has no dedicated checkbox. That editor can show entries inherited from templates separately.</p>
-<p>The current SandMan special-options list has no dedicated controls for <code>DisableBoxedWinSxS</code>, <code>DelayLoadDll</code>, or <code>OverrideOsBuild</code>; configure them in <a href="SandboxieIni.html">Sandboxie Ini</a> or through an applicable compatibility template. A template's presence does not mean the setting applies unless that template is enabled.</p>
-<h2 id="applying-changes">Applying changes<a class="headerlink" href="#applying-changes" title="Permanent link"></a></h2>
-<p>The manifest workaround is queried during child-process creation. After a configuration reload, a running sandboxed parent can use changed <code>PreferExternalManifest</code> or <code>ExternalManifestHack</code> rules for later children; an already created child is unaffected.</p>
-<p>The <code>DisableBoxedWinSxS</code> alternate-path decision is made during SbieDll initialization. Restart affected sandboxed processes after changing it. For a box-wide change that controls the boxed RpcSs SxS thread, recreate the sandbox process tree so RpcSs starts with the new value.</p>
-<p><code>DelayLoadDll</code> is checked by the driver only on qualifying DLL opens before SbieDll initialization, so changes chiefly matter to newly starting processes. <code>OverrideOsBuild</code> installs its hooks during process initialization; restart affected processes after changing it. Neither setting retroactively changes an already loaded DLL or an already initialized process.</p>
-<h2 id="version-history">Version history<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
+<p>盒级取值写成 <code>OverrideOsBuild=7601</code>。当前解析器使用 <code>_wtoi()</code>；像 <code>10.0.19045.6216</code> 这样的完整版本串<strong>不是</strong>合法的内部版本号语法——它会被解析成开头的数字 <code>10</code>。当解析出的版本号非零时，SbieDll 会为该进程挂钩 <code>RtlGetVersion</code>、<code>GetVersionExW</code> 与 <code>GetVersionExA</code>。</p>
+<p>Sandboxie 通过上述挂钩报告配置的版本号，并推导出对应的主/次版本号与服务包级别。例如版本号 <code>7601</code> 映射为 Windows 7 SP1（<code>6.1</code>），<code>9200</code> 映射为 Windows 8（<code>6.2</code>），<code>9600</code> 映射为 Windows 8.1（<code>6.3</code>），高于 <code>9600</code> 的映射为主/次版本 <code>10.0</code>。这不会改变实际的操作系统、可用 API、产品版本或内部修订号。它也不覆盖所有版本检测手段；<code>VerifyVersionInfoW</code> 不在该机制的挂钩范围内。</p>
+<p>可执行文件选择器会与版本查询 API 被挂钩的那个沙盒进程匹配。常规的盒、全局与已启用模板查找适用，映像特定的匹配值优先于通用值。</p>
+<h2 id="sandman">SandMan 中的配置<a class="headerlink" href="#sandman" title="Permanent link"></a></h2>
+<p>盒级的 <code>PreferExternalManifest</code> 复选框位于 <strong>沙盒选项 &gt; 其它选项 &gt; 兼容性</strong>，标签为 <strong>强制使用自定义虚拟 Manifest 文件 (传统行为)</strong>。默认未勾选。</p>
+<p>带可执行文件限定的 <code>PreferExternalManifest</code> 条目，以及通用或带可执行文件限定的 <code>ExternalManifestHack</code> 条目，可通过 <strong>沙盒选项 &gt; 高级选项 &gt; 杂项</strong> 中的高级 <strong>添加选项</strong> 编辑器配置。<code>ExternalManifestHack</code> 没有专门的复选框。该编辑器可以单独显示从模板继承来的条目。</p>
+<p>当前 SandMan 的特殊选项列表没有针对 <code>DisableBoxedWinSxS</code>、<code>DelayLoadDll</code> 或 <code>OverrideOsBuild</code> 的专门控件；请在 <a href="SandboxieIni.html">Sandboxie Ini</a> 中或通过适用的兼容模板配置它们。模板存在并不意味着设置生效，除非该模板已启用。</p>
+<h2 id="_2">应用更改<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
+<p>清单变通方案在子进程创建期间查询。配置重载后，正在运行的沙盒父进程可以对后续子进程使用更改过的 <code>PreferExternalManifest</code> 或 <code>ExternalManifestHack</code> 规则；已经创建的子进程不受影响。</p>
+<p><code>DisableBoxedWinSxS</code> 的替代路径决策在 SbieDll 初始化期间做出。更改后请重启受影响的沙盒进程。对于控制沙盒内 RpcSs SxS 线程的盒级更改，请重建沙盒进程树，使 RpcSs 以新值启动。</p>
+<p><code>DelayLoadDll</code> 只由驱动在 SbieDll 初始化之前对符合条件的 DLL 打开进行检查，因此更改主要影响新启动的进程。<code>OverrideOsBuild</code> 在进程初始化期间安装其挂钩；更改后请重启受影响的进程。这两个设置都不会追溯性地改变已加载的 DLL 或已初始化的进程。</p>
+<h2 id="_3">版本历史<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
 <ul>
-<li>Sandboxie Plus 0.4.5 / Classic 5.44.1 disabled the older application-manifest hack by default; <code>PreferExternalManifest=y</code> retained that legacy behavior.</li>
-<li>Plus 0.7.2 / Classic 5.49.0 added <code>OverrideOsBuild=7601</code>; Plus 0.7.5 / Classic 5.49.8 added per-process <code>PreferExternalManifest</code> configuration.</li>
-<li>Plus 1.0.3 / Classic 5.55.3 fixed a <code>GetVersionExW</code> issue affecting <code>OverrideOsBuild</code>.</li>
-<li>Plus 1.1.1 / Classic 5.56.1 improved <code>PreferExternalManifest</code> and fixed an Edge issue after KB5014019. Current metadata lists <code>ExternalManifestHack</code> as added in 1.1.2.</li>
+<li>Sandboxie Plus 0.4.5 / Classic 5.44.1 默认禁用了较早的应用清单变通方案；<code>PreferExternalManifest=y</code> 保留了该传统行为。</li>
+<li>Plus 0.7.2 / Classic 5.49.0 添加了 <code>OverrideOsBuild=7601</code>；Plus 0.7.5 / Classic 5.49.8 添加了逐进程的 <code>PreferExternalManifest</code> 配置。</li>
+<li>Plus 1.0.3 / Classic 5.55.3 修复了一个影响 <code>OverrideOsBuild</code> 的 <code>GetVersionExW</code> 问题。</li>
+<li>Plus 1.1.1 / Classic 5.56.1 改进了 <code>PreferExternalManifest</code>，并修复了 KB5014019 之后的 Edge 问题。当前元数据把 <code>ExternalManifestHack</code> 记为 1.1.2 添加。</li>
 </ul>
-<p>The current metadata does not establish an introduction version for <code>DisableBoxedWinSxS</code> or <code>DelayLoadDll</code>. In particular, metadata descriptions for <code>PreferExternalManifest</code> and <code>DisableBoxedWinSxS</code> are broader than their current executable behavior.</p>
-<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
+<p>当前元数据无法确定 <code>DisableBoxedWinSxS</code> 与 <code>DelayLoadDll</code> 的引入版本。特别是 <code>PreferExternalManifest</code> 与 <code>DisableBoxedWinSxS</code> 的元数据描述，比它们当前的可执行行为更宽泛。</p>
+<h2 id="_4">相关页面<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
 <ul>
 <li><a href="SandboxieIni.html">Sandboxie Ini</a></li>
-<li><a href="RpcCompatibility.html">RPC Compatibility</a></li>
-<li><a href="CodeInjection.html">Code Injection</a></li>
+<li><a href="RpcCompatibility.html">RPC 兼容性</a></li>
+<li><a href="CodeInjection.html">代码注入</a></li>
 </ul>
 
 
@@ -8060,7 +8070,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="HookAndLoaderCompatibility.html" class="md-footer__link md-footer__link--prev" aria-label="上一页: Hook and Loader Compatibility">
+          <a href="HookAndLoaderCompatibility.html" class="md-footer__link md-footer__link--prev" aria-label="上一页: 钩子与加载器兼容性">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -8070,7 +8080,7 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                Hook and Loader Compatibility
+                钩子与加载器兼容性
               </div>
             </div>
           </a>
