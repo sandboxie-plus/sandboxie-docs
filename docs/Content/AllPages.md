@@ -164,6 +164,8 @@
 
 [Closed RT](ClosedRT.md)
 
+[Comment](Comment.md)
+
 [CLSID Trace](ClsidTrace.md)
 
 [Code Injection](CodeInjection.md)
