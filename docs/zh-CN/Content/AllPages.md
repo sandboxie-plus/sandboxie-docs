@@ -16,6 +16,8 @@
 
 [警报进程](AlertProcess.md)
 
+[允许网络访问](AllowNetworkAccess.md)
+
 [允许原始磁盘读取](AllowRawDiskRead.md)
 
 [允许后台打印程序打印到文件](AllowSpoolerPrintToFile.md)
@@ -48,6 +50,8 @@
 
 ~~[阻止伪造输入](BlockFakeInput.md)~~（自 Sandboxie v4.xx 起移除）
 
+[阻止本地回环](BlockLocalLoop.md)
+
 [阻止网络参数](BlockNetParam.md)
 
 [阻止网络文件访问](BlockNetworkFiles.md)
@@ -56,11 +60,15 @@
 
 ~~[阻止端口](BlockPort.md)~~（自 Sandboxie v0.9.0 / 5.51.0 起移除）
 
+[阻止注册设备通知](BlockRegisterDeviceNotification.md)
+
 [阻止屏幕截图](BlockScreenCapture.md)
 
 ~~[阻止 Sys 参数](BlockSysParam.md)~~（自 Sandboxie v4.xx 起移除）
 
 ~~[阻止 Win Hooks](BlockWinHooks.md)~~（自 Sandboxie v4.xx 起移除）
+
+[阻止 WinRM](BlockWinRM.md)
 
 [边框颜色](BorderColor.md)
 
@@ -183,6 +191,8 @@
 [启用](Enabled.md)
 
 [启用 EFS](EnableEFS.md)
+
+[启用对象过滤](EnableObjectFiltering.md)
 
 [可展开变量](ExpandableVariables.md)
 
@@ -352,6 +362,8 @@
 
 [网络 DNS 过滤](NetworkDnsFilter.md)
 
+[启用 WFP](NetworkEnableWFP.md)
+
 [NeutralizeLowBoxToken](NeutralizeLowBoxToken.md)
 
 [从不删除](NeverDelete.md)
@@ -386,6 +398,8 @@
 
 ### O
 
+[对象名称查找兼容性](ObjectLookupCompatibility.md)
+
 [开放剪贴板](OpenClipboard.md)
 
 [开放 Clsid](OpenClsid.md)
@@ -394,11 +408,15 @@
 
 [开放凭据](OpenCredentials.md)
 
+[开放设备配置管理器 API](OpenDevCMApi.md)
+
 [开放文件路径](OpenFilePath.md)
 
 [开放 IPC 路径](OpenIpcPath.md)
 
 [开放注册表路径](OpenKeyPath.md)
+
+[开放 LSA 端点](OpenLsaEndpoint.md)
 
 [开放管道路径](OpenPipePath.md)
 
@@ -406,7 +424,11 @@
 
 [开放受保护的存储](OpenProtectedStorage.md)
 
+[开放 SAM 端点](OpenSamEndpoint.md)
+
 [开放窗口类](OpenWinClass.md)
+
+[开放 WPAD 端点](OpenWPADEndpoint.md)
 
 [原始令牌](OriginalToken.md)
 
