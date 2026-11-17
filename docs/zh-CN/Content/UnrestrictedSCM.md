@@ -12,13 +12,17 @@ UnrestrictedSCM=y
 > [!WARNING]
 > 启用此设置会削弱隔离。仅应在已确定存在服务兼容性需求时才使用它。
 
-## 该设置改变的内容 {#what-the-setting-changes}
+<div id="what-the-setting-changes"></div>
+
+## 该设置改变的内容
 
 当全局路径 `RunServicesAsSystem=y` 为沙盒化服务选择 SYSTEM 源令牌时，SbieSvc 通常会检查调用方对真实 Windows SCM 是否会具有 `SC_MANAGER_ALL_ACCESS` 权限。它会获取 SCM 的安全描述符，并使用适合该沙盒模式的调用方令牌执行 Windows 访问检查。如果该检查失败，Sandboxie 会拒绝此次 SYSTEM 服务启动。
 
 *UnrestrictedSCM* 会绕过该项特定的权限检查。它不会授予每个沙盒化进程不受限的 SCM 访问权限，也不会禁用 Sandboxie 通用的 SCM 拦截与模拟。
 
-## 相关服务控制项 {#related-service-controls}
+<div id="related-service-controls"></div>
+
+## 相关服务控制项
 
 *UnrestrictedSCM* 不会：
 
@@ -34,11 +38,13 @@ Sandboxie 会在 *UnrestrictedSCM* 检查之前求值 [撤销管理员权限](Dr
 
 `SandboxieDcomLaunch.exe` 有单独的内置授权例外，不需要 *UnrestrictedSCM*。
 
-## 配置范围 {#configuration-scope}
+<div id="configuration-scope"></div>
+
+## 配置范围
 
 *UnrestrictedSCM* 是一项沙盒级布尔设置。当沙盒未提供覆盖值时，适用的模板和全局设置回退值可以参与构成其生效值。系统在执行相关服务启动授权时查询此设置，因此重新加载配置可能会影响后续的请求；它不会改变已在运行的服务进程。
 
-## SandMan {#sandman}
+## SandMan
 
 打开**沙盒选项 > 安全选项 > 高级安全**，使用：
 
@@ -51,11 +57,15 @@ Sandboxie 会在 *UnrestrictedSCM* 检查之前求值 [撤销管理员权限](Dr
 
 SandMan 会将带有 `UnrestrictedSCM=y` 的沙盒识别为**削弱隔离**。
 
-## 版本历史 {#version-history}
+<div id="version-history"></div>
+
+## 版本历史
 
 *UnrestrictedSCM* 在 Sandboxie Plus 0.3 / Classic 5.42 中引入，是用于禁用在 Security Issue ID-3 修复中添加的 SCM 访问检查的调试选项。
 
-## 相关页面 {#related-pages}
+<div id="related-pages"></div>
+
+## 相关页面
 
 - [Sandboxed Services](SandboxedServices.md)
 - [撤销管理员权限](DropAdminRights.md)
