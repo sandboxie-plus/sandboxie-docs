@@ -12,7 +12,9 @@ NoSandboxieConsole=y
 > [!IMPORTANT]
 > 这个名称并不意味着控制台应用程序被禁用，也不意味着不能存在控制台窗口。它禁用 Sandboxie 的自定义控制台处理，以便在可能的情况下使用 Windows 的常规控制台行为。
 
-## 有哪些变化 {#what-changes}
+<div id="what-changes"></div>
+
+## 有哪些变化
 
 启用 `NoSandboxieConsole=y` 后，Sandboxie 在进程初始化期间进入无自定义控制台的分支：
 
@@ -23,39 +25,55 @@ NoSandboxieConsole=y
 
 这些变化绕过了 SbieDll 请求 SbieSvc GUI 代理创建一个辅助控制台、再把沙盒化进程附加到该控制台的路径。该设置不会阻止 `cmd.exe`、PowerShell 或其他控制台应用程序运行。
 
-## 仍然生效的部分 {#what-remains-active}
+<div id="what-remains-active"></div>
+
+## 仍然生效的部分
 
 该设置并不会移除 Sandboxie 所有与控制台相关的代码路径。只要存在当前控制台窗口，SbieDll 仍会记录它，以便其后来的辅助 GUI/消息线程可以工作，包括用于设备更改通知的消息处理。
 
 Sandboxie 的其他隔离与虚拟化机制也保持独立。`NoSandboxieConsole` 不是用于终端、桌面、令牌或 GUI 隔离的通用开关。
 
-## 兼容性与调试 {#compatibility-and-debugging}
+<div id="compatibility-and-debugging"></div>
+
+## 兼容性与调试
 
 该选项是为那些无法与 Sandboxie 自定义控制台重定向配合工作的应用程序提供的调试与兼容性逃生通道。它不是常规默认值，也不应被描述为禁用 Windows 控制台宿主。
 
 当前源代码实现的是上文描述的经典 Sandboxie 控制台路径。它并未为 Windows Terminal 或伪控制台（ConPTY）会话确立全面的行为。
 
-## 应用隔间 {#application-compartment}
+<div id="application-compartment"></div>
+
+## 应用隔间
 
 [应用隔间](NoSecurityIsolation.md) 进程在驱动程序、底层与 SbieDll 初始化期间本来就会绕过同样的自定义控制台分支。在应用隔间沙盒中再添加 `NoSandboxieConsole=y` 不会第二次启用该控制台行为。这种等效性仅限于相关的控制台路径；除此之外，两项设置并不可以互换。
 
-## 与 DropConHostIntegrity 的关系 {#relationship-to-dropconhostintegrity}
+<div id="relationship-to-dropconhostintegrity"></div>
+
+## 与 DropConHostIntegrity 的关系
 
 [降低 ConHost 完整性](DropConHostIntegrity.md) 作用于通过 Sandboxie 代理/辅助路径创建的外部控制台宿主。由于 `NoSandboxieConsole=y` 绕过了该路径，不应指望 `DropConHostIntegrity` 会修改通过由此产生的常规 Windows 控制台路径创建的控制台宿主。
 
-## SandMan 配置 {#sandman-configuration}
+<div id="sandman-configuration"></div>
+
+## SandMan 配置
 
 SandMan 目前没有为 `NoSandboxieConsole` 提供专门的控件。请在 `Sandboxie.ini` 的沙盒节中手动配置它，或通过适用的模板或 `GlobalSettings` 条目配置。
 
-## 应用更改 {#applying-changes}
+<div id="applying-changes"></div>
+
+## 应用更改
 
 该设置在进程与控制台的早期初始化期间被读取，无法为已在运行的进程改用另一种控制台路径。更改后请重启受影响的沙盒化控制台应用程序。通常不需要重启 SandMan、服务或驱动程序。
 
-## 版本历史 {#version-history}
+<div id="version-history"></div>
+
+## 版本历史
 
 `NoSandboxieConsole` 在 Sandboxie Plus 0.9.8 / Classic 5.53.0 中引入。更新日志指出，该控制台行为此前属于 `NoSandboxieDesktop=y`；当前源代码把 `NoSandboxieConsole` 与 `NoSandboxieDesktop` 作为两项独立的设置读取。
 
-## 相关页面 {#related-pages}
+<div id="related-pages"></div>
+
+## 相关页面
 
 - [降低 ConHost 完整性](DropConHostIntegrity.md)
 - [无安全隔离](NoSecurityIsolation.md)

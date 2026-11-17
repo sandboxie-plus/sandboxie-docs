@@ -1,12 +1,16 @@
 # 作业对象 {#job-objects}
 
-## 概述 {#overview}
+<div id="overview"></div>
+
+## 概述
 
 Sandboxie 通常会把沙盒化进程分配到由 Sandboxie 管理的 Windows 作业对象中。该作业对象提供进程分组与生存期功能、部分 Windows 作业对象 GUI 限制、相关设置页面所记载的资源限制，以及可选的集体终止行为。
 
 作业对象只是 Sandboxie 架构中的一层。令牌限制、文件系统与注册表隔离、IPC 与对象隔离、网络限制，以及其他 GUI 钩子与策略都另行实现。
 
-## Sandboxie 的作业对象 {#sandboxies-job-object}
+<div id="sandboxies-job-object"></div>
+
+## Sandboxie 的作业对象
 
 Sandboxie 通常为每个沙盒与 Windows 会话的组合维护一个作业对象。沙盒化进程启动时，GuiServer 会查找或创建相应的对象。
 
@@ -14,7 +18,9 @@ Sandboxie 通常为每个沙盒与 Windows 会话的组合维护一个作业对�
 
 Sandboxie 在进程初始化期间分配每一个受影响的进程。其根作业对象允许脱离（breakaway），以兼容应用程序和 Windows 作业行为，但 Sandboxie 仍会在每个沙盒化进程启动时对其进行评估，并可再次请求将其关联到根作业。从作业对象脱离本身并不会把进程移出沙盒，也不会禁用 Sandboxie 的其他隔离层。
 
-## 默认的 GUI 限制 {#default-gui-restrictions}
+<div id="default-gui-restrictions"></div>
+
+## 默认的 GUI 限制
 
 正常的 Sandboxie 作业对象目前应用以下 Windows 作业对象 UI 限制：
 
@@ -85,7 +91,9 @@ Sandboxie 通过其用户模式 API 处理以及驱动层的作业对象访问�
 
 `AllowBoxedJobs` 自 Sandboxie Plus 0.8.5 与 Sandboxie Classic 5.50.5 起可用。
 
-## 对比 {#comparison}
+<div id="comparison"></div>
+
+## 对比
 
 | 配置 | Sandboxie 根作业 | 根作业的 GUI 限制 | 根作业的资源限制 | 应用程序自有的作业对象 |
 | --- | --- | --- | --- | --- |
@@ -99,7 +107,9 @@ Sandboxie 通过其用户模式 API 处理以及驱动层的作业对象访问�
 - `NoAddProcessToJob=y` 阻止对该进程使用 Sandboxie 的根作业。
 - `AllowBoxedJobs=y` 保留 Sandboxie 的根作业，并允许应用程序自有的嵌套作业。
 
-## 资源限制 {#resource-limits}
+<div id="resource-limits"></div>
+
+## 资源限制
 
 Sandboxie 的根作业对象可以承载以下页面所记载的设置：
 
@@ -122,7 +132,9 @@ TerminateJobObject=y
 
 启用后，符合条件的宿主侧**终止所有进程**（Terminate All）处理可以先尝试终止 Sandboxie 的根作业对象。Sandboxie 的进程服务随后仍会枚举并终止剩余的沙盒化进程，因此作业终止并不是唯一的清理机制。该选项并不保证每个终止请求都会使用作业，尤其是当沙盒没有可用的根作业对象时。
 
-## 应用隔间与相关设置 {#application-compartment-and-related-settings}
+<div id="application-compartment-and-related-settings"></div>
+
+## 应用隔间与相关设置
 
 在以下配置下：
 
@@ -134,7 +146,9 @@ NoSecurityIsolation=y
 
 类似地，`OpenWinClass=*` 会使 Sandboxie 在受影响的配置中避开其根作业对象。根作业的 GUI 限制与资源限制因此不会通过该作业生效。其他窗口类行为记载于 [开放窗口类](OpenWinClass.md)。
 
-## SandMan 配置 {#sandman-configuration}
+<div id="sandman-configuration"></div>
+
+## SandMan 配置
 
 当前控件位于：
 
@@ -158,13 +172,17 @@ NoSecurityIsolation=y
 
 SandMan 为 `NoAddProcessToJob` 与 `AllowBoxedJobs` 提供了当前的专门控件。当前的 Sandboxie Control Classic 既没有为这些设置提供等效的专门控件，也没有为 `TerminateJobObject` 提供；Classic 用户可以在适用的情况下手动配置它们。
 
-## 应用更改 {#applying-configuration-changes}
+<div id="applying-configuration-changes"></div>
+
+## 应用更改
 
 作业分配决策在进程初始化期间做出。更改 `NoAddProcessToJob` 或 `AllowBoxedJobs` 后，请重启受影响的沙盒化进程。
 
 资源限制与 GUI 限制在 Sandboxie 创建其根作业对象时配置。如果该作业中仍有活动进程，Sandboxie 会复用它。为确保新配置的作业设置生效，请让沙盒变为空，以便 Sandboxie 在下一个进程启动时创建新的作业对象。通常不需要重启 Windows。
 
-## 版本历史 {#version-history}
+<div id="version-history"></div>
+
+## 版本历史
 
 - Sandboxie Plus 0.3.5 / Classic 5.42.1：引入 `NoAddProcessToJob`。
 - Sandboxie Plus 0.5.5 / Classic 5.46.4：兼容性改动使 Chrome 相关应用程序在 `NoAddProcessToJob=y` 时能更充分地使用其作业系统。
@@ -173,7 +191,9 @@ SandMan 为 `NoAddProcessToJob` 与 `AllowBoxedJobs` 提供了当前的专门控
 - Sandboxie Plus 1.1.3 / Classic 5.56.3：在出现兼容性问题后，默认值恢复为 `n`。
 - Sandboxie Plus 1.15.4 / Classic 5.70.4：引入 `TerminateJobObject`，以单个进程终止作为常规默认路径。
 
-## 相关页面 {#related-pages}
+<div id="related-pages"></div>
+
+## 相关页面
 
 - [进程内存限制](ProcessMemoryLimit.md)
 - [总内存限制](TotalMemoryLimit.md)
