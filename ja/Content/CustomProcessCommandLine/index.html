@@ -7874,8 +7874,8 @@ plan before API or PEB publication, not just the affected rule. Existing fatal
 preparation errors also discard the plan. A later fatal error overrides an earlier
 fallback status in that payload's diagnostic. <code>Expand=n</code> bypasses expansion queries
 and expansion-failure diagnostics; payloads without expansion attempts are not logged.</p>
-<p>The compatibility settings CustomChromiumFlags and InjectCmdLine retain their
-existing literal payload behavior.</p>
+<p>The compatibility setting CustomChromiumFlags retains its existing literal
+payload behavior.</p>
 <h2 id="other-rule-fields">Other Rule Fields<a class="headerlink" href="#other-rule-fields" title="Permanent link"></a></h2>
 <ul>
 <li><code>If=&lt;pattern&gt;</code>: Apply only when the condition matches. Repeated fields use AND.</li>
@@ -8092,8 +8092,8 @@ will not find that argument in the PEB result.</p>
 the original command line instead. An action can apply without a net text
 change, so such a rule can still control publication. If preparing either
 result fails, neither result is published.</p>
-<p>Legacy <code>InjectCmdLine</code> and <code>CustomChromiumFlags</code> actions retain their existing
-behavior and participate in PEB publication with the default <code>y</code> mode.</p>
+<p><code>CustomChromiumFlags</code> actions retain their existing behavior and participate in
+PEB publication with the default <code>y</code> mode.</p>
 <h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link"></a></h2>
 <ul>
 <li>All effective sandbox, template, and global rules are collected before execution.</li>
@@ -8102,14 +8102,6 @@ behavior and participate in PEB publication with the default <code>y</code> mode
 <li>The final command line is published only after the complete plan succeeds.</li>
 <li><code>CustomChromiumFlags</code> uses the same transformation path.</li>
 </ul>
-<h2 id="legacy-injectcmdline">Legacy InjectCmdLine<a class="headerlink" href="#legacy-injectcmdline" title="Permanent link"></a></h2>
-<p><code>InjectCmdLine</code> permits duplicate arguments. To preserve that behavior when
-replacing a rule, include <code>Duplicate=Allow</code>:</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="na">CustomProcessCommandLine</span><span class="o">=</span><span class="s">app.exe,Add=--foo</span><span class="c1">;At=Start;Duplicate=Allow;Skip=--type=*;Match=Pattern</span>
-</span></code></pre></div>
-<p>Without <code>Duplicate=Allow</code>, the default <code>Duplicate=Skip</code> suppresses an addition
-when the argument sequence is already present. Unlike the first-matching
-legacy setting, multiple matching generic rules are cumulative.</p>
 <h2 id="limits-and-diagnostics">Limits and Diagnostics<a class="headerlink" href="#limits-and-diagnostics" title="Permanent link"></a></h2>
 <ul>
 <li>Up to 128 valid selector-matching rules are retained, including generated
@@ -8135,24 +8127,24 @@ legacy setting, multiple matching generic rules are cumulative.</p>
   at the end or after that argument; no closing quote is synthesized.</li>
 </ul>
 <h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link"></a></h2>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="na">CustomProcessCommandLine</span><span class="o">=</span><span class="s">&lt;Special:Chrome&gt;,Add=--disable-background-networking</span><span class="c1">;Skip=--type=*;Match=Pattern</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="na">CustomProcessCommandLine</span><span class="o">=</span><span class="s">app.exe,Clear=Arguments</span><span class="c1">;Skip=InputArgCount&gt;8</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="na">CustomProcessCommandLine</span><span class="o">=</span><span class="s">ping.exe,RemoveSequence=-w *</span><span class="c1">;Match=Pattern</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="na">CustomProcessCommandLine=app.exe,Set</span><span class="o">=</span><span class="s">"--mode clean"</span><span class="c1">;If=Empty</span>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="na">CustomProcessCommandLine</span><span class="o">=</span><span class="s">app.exe,Add=--box=%SANDBOX%</span><span class="c1">;Expand=y</span>
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="na">CustomProcessCommandLine</span><span class="o">=</span><span class="s">app.exe,Add=--literal=%SANDBOX%</span><span class="c1">;Expand=n</span>
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="na">CustomProcessCommandLine</span><span class="o">=</span><span class="s">&lt;Browsers&gt;,Remove=--bad-flag</span>
-</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="na">CustomProcessCommandLine</span><span class="o">=</span><span class="s">app.exe,Replace=--mode=old</span><span class="c1">;With=--mode=new</span>
-</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="na">CustomProcessCommandLine</span><span class="o">=</span><span class="s">app.exe,Remove=--verbose</span><span class="c1">;Occurrences=Last</span>
-</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="na">CustomProcessCommandLine</span><span class="o">=</span><span class="s">app.exe,ReplaceSequence=--profile old</span><span class="c1">;With=--profile new;Occurrences=Last</span>
-</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="na">CustomProcessCommandLine</span><span class="o">=</span><span class="s">app.exe,Add=--work</span><span class="c1">;IfSequence=--profile "Work profile"</span>
-</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="na">CustomProcessCommandLine</span><span class="o">=</span><span class="s">app.exe,Add=--literal</span><span class="c1">;IfArg=Empty</span>
-</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="na">CustomProcessCommandLine</span><span class="o">=</span><span class="s">app.exe,Remove=--role=worker</span>
-</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="na">CustomProcessCommandLine</span><span class="o">=</span><span class="s">app.exe,Add=--worker-mode</span><span class="c1">;IfArg=--role=worker;ConditionSource=Input</span>
-</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="na">CustomProcessCommandLine</span><span class="o">=</span><span class="s">app.exe,Replace=--mode=*</span><span class="c1">;With=--mode=new;Match=Pattern;Occurrences=Last</span>
-</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="na">CustomProcessCommandLine=firefox.exe,Add</span><span class="o">=</span><span class="s">"-P SSH01"</span><span class="c1">;If=-no-remote;Skip=-contentproc</span>
-</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="na">CustomProcessCommandLine</span><span class="o">=</span><span class="s">*,Id=CommonMode</span><span class="c1">;Order=400;Add=--common-mode</span>
-</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="na">CustomProcessCommandLine</span><span class="o">=</span><span class="s">app.exe,Id=CommonMode</span><span class="c1">;Disabled=y</span>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="na">CustomProcessCommandLine</span><span class="o">=</span><span class="s">&lt;Special:Chrome&gt;,Add=--disable-background-networking</span><span class="c1">;Skip=--type=*;Match=Pattern</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="na">CustomProcessCommandLine</span><span class="o">=</span><span class="s">app.exe,Clear=Arguments</span><span class="c1">;Skip=InputArgCount&gt;8</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="na">CustomProcessCommandLine</span><span class="o">=</span><span class="s">ping.exe,RemoveSequence=-w *</span><span class="c1">;Match=Pattern</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="na">CustomProcessCommandLine=app.exe,Set</span><span class="o">=</span><span class="s">"--mode clean"</span><span class="c1">;If=Empty</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="na">CustomProcessCommandLine</span><span class="o">=</span><span class="s">app.exe,Add=--box=%SANDBOX%</span><span class="c1">;Expand=y</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="na">CustomProcessCommandLine</span><span class="o">=</span><span class="s">app.exe,Add=--literal=%SANDBOX%</span><span class="c1">;Expand=n</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="na">CustomProcessCommandLine</span><span class="o">=</span><span class="s">&lt;Browsers&gt;,Remove=--bad-flag</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="na">CustomProcessCommandLine</span><span class="o">=</span><span class="s">app.exe,Replace=--mode=old</span><span class="c1">;With=--mode=new</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="na">CustomProcessCommandLine</span><span class="o">=</span><span class="s">app.exe,Remove=--verbose</span><span class="c1">;Occurrences=Last</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="na">CustomProcessCommandLine</span><span class="o">=</span><span class="s">app.exe,ReplaceSequence=--profile old</span><span class="c1">;With=--profile new;Occurrences=Last</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="na">CustomProcessCommandLine</span><span class="o">=</span><span class="s">app.exe,Add=--work</span><span class="c1">;IfSequence=--profile "Work profile"</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="na">CustomProcessCommandLine</span><span class="o">=</span><span class="s">app.exe,Add=--literal</span><span class="c1">;IfArg=Empty</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="na">CustomProcessCommandLine</span><span class="o">=</span><span class="s">app.exe,Remove=--role=worker</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="na">CustomProcessCommandLine</span><span class="o">=</span><span class="s">app.exe,Add=--worker-mode</span><span class="c1">;IfArg=--role=worker;ConditionSource=Input</span>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="na">CustomProcessCommandLine</span><span class="o">=</span><span class="s">app.exe,Replace=--mode=*</span><span class="c1">;With=--mode=new;Match=Pattern;Occurrences=Last</span>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="na">CustomProcessCommandLine=firefox.exe,Add</span><span class="o">=</span><span class="s">"-P SSH01"</span><span class="c1">;If=-no-remote;Skip=-contentproc</span>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="na">CustomProcessCommandLine</span><span class="o">=</span><span class="s">*,Id=CommonMode</span><span class="c1">;Order=400;Add=--common-mode</span>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="na">CustomProcessCommandLine</span><span class="o">=</span><span class="s">app.exe,Id=CommonMode</span><span class="c1">;Disabled=y</span>
 </span></code></pre></div>
 <h2 id="regression-scenarios">Regression Scenarios<a class="headerlink" href="#regression-scenarios" title="Permanent link"></a></h2>
 <p>These scenarios are specified for future native validation and <strong>have not been
@@ -8267,11 +8259,6 @@ executed</strong>. Static source checks do not prove Windows runtime behavior.</
 <td>A separate --new argument is inserted at the requested position; "old value" and tail remain unchanged.</td>
 </tr>
 <tr>
-<td>Legacy duplicate handling</td>
-<td>Input app.exe --foo; compare InjectCmdLine=app.exe,--foo with the generic replacement above</td>
-<td>Both contain two --foo arguments; the generic form with default Duplicate=Skip instead retains one.</td>
-</tr>
-<tr>
 <td>Applied gate</td>
 <td>Input app.exe --safe-profile with the SafeProfile example above</td>
 <td>app.exe --disable-plugins --verbose; alternative skipped. Without the marker: app.exe --normal-mode.</td>
@@ -8314,7 +8301,7 @@ executed</strong>. Static source checks do not prove Windows runtime behavior.</
 <tr>
 <td>Default PEB publication</td>
 <td>Input app.exe; Add=--visible without UpdatePEB</td>
-<td>API and PEB both expose app.exe --visible, including legacy InjectCmdLine and CustomChromiumFlags actions.</td>
+<td>API and PEB both expose app.exe --visible; CustomChromiumFlags actions also use the default publication mode.</td>
 </tr>
 <tr>
 <td>Selective PEB publication</td>
@@ -8423,7 +8410,7 @@ executed</strong>. Static source checks do not prove Windows runtime behavior.</
 </tr>
 <tr>
 <td>Existing compatibility payloads</td>
-<td>CustomChromiumFlags or InjectCmdLine contains %SANDBOX%</td>
+<td>CustomChromiumFlags contains %SANDBOX%</td>
 <td>The compatibility setting retains its previous literal behavior.</td>
 </tr>
 <tr>
