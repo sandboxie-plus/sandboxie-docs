@@ -94,8 +94,8 @@ preparation errors also discard the plan. A later fatal error overrides an earli
 fallback status in that payload's diagnostic. `Expand=n` bypasses expansion queries
 and expansion-failure diagnostics; payloads without expansion attempts are not logged.
 
-The compatibility settings CustomChromiumFlags and InjectCmdLine retain their
-existing literal payload behavior.
+The compatibility setting CustomChromiumFlags retains its existing literal
+payload behavior.
 
 ## Other Rule Fields
 
@@ -263,8 +263,8 @@ the original command line instead. An action can apply without a net text
 change, so such a rule can still control publication. If preparing either
 result fails, neither result is published.
 
-Legacy `InjectCmdLine` and `CustomChromiumFlags` actions retain their existing
-behavior and participate in PEB publication with the default `y` mode.
+`CustomChromiumFlags` actions retain their existing behavior and participate in
+PEB publication with the default `y` mode.
 
 ## Notes
 
@@ -273,19 +273,6 @@ behavior and participate in PEB publication with the default `y` mode.
 - Invalid rules are ignored without partially modifying the command line.
 - The final command line is published only after the complete plan succeeds.
 - `CustomChromiumFlags` uses the same transformation path.
-
-## Legacy InjectCmdLine
-
-`InjectCmdLine` permits duplicate arguments. To preserve that behavior when
-replacing a rule, include `Duplicate=Allow`:
-
-```ini
-CustomProcessCommandLine=app.exe,Add=--foo;At=Start;Duplicate=Allow;Skip=--type=*;Match=Pattern
-```
-
-Without `Duplicate=Allow`, the default `Duplicate=Skip` suppresses an addition
-when the argument sequence is already present. Unlike the first-matching
-legacy setting, multiple matching generic rules are cumulative.
 
 ## Limits and Diagnostics
 
@@ -361,7 +348,6 @@ executed**. Static source checks do not prove Windows runtime behavior.
 | Add quote boundary | Input app.exe "old; Add=--new, or Add=--new;After=old | Entire plan discarded; original text retained without a merged argument, applied ID or Stop. |
 | Add quoted trailing backslash | Input app.exe "old\; Add=--new | Entire plan discarded; no closing quote is synthesized and the trailing backslash is retained. |
 | Existing Add placement | Input app.exe "old value" tail; Add=--new with At=Start, At=End, Before=tail or After=tail | A separate --new argument is inserted at the requested position; "old value" and tail remain unchanged. |
-| Legacy duplicate handling | Input app.exe --foo; compare InjectCmdLine=app.exe,--foo with the generic replacement above | Both contain two --foo arguments; the generic form with default Duplicate=Skip instead retains one. |
 | Applied gate | Input app.exe --safe-profile with the SafeProfile example above | app.exe --disable-plugins --verbose; alternative skipped. Without the marker: app.exe --normal-mode. |
 | Unknown/disabled/skipped gate | A child refers to an ID that is missing, suppressed by a local tombstone, or skipped by conditions | If is false; Skip does not suppress. No inherited shadowed action activates the gate. |
 | Case and source independence | Gate ID SafeProfile, reference Id:safeprofile with CaseSensitive=y and ConditionSource=Input | The earlier applied gate is still found case-insensitively. |
@@ -370,7 +356,7 @@ executed**. Static source checks do not prove Windows runtime behavior.
 | Later/self/cyclic reference | A rule references itself or an ID that executes later; rules mutually depend only on each other | No deferred or recursive evaluation; unseen IDs are false. A Skip to a later ID does not suppress the earlier rule. |
 | Inheritance and order | Local rule replaces an inherited same-ID rule; children execute after the selected rule by Order | Only the effective selected rule can activate that ID; equal orders retain effective sequence. |
 | Stop and rollback | Gate has Stop=y, or a later required condition/action/publication fails | Stop prevents children; failures publish none of the private plan and retain no gate state. |
-| Default PEB publication | Input app.exe; Add=--visible without UpdatePEB | API and PEB both expose app.exe --visible, including legacy InjectCmdLine and CustomChromiumFlags actions. |
+| Default PEB publication | Input app.exe; Add=--visible without UpdatePEB | API and PEB both expose app.exe --visible; CustomChromiumFlags actions also use the default publication mode. |
 | Selective PEB publication | Input app.exe; Add=--api-only;UpdatePEB=n, then Add=--visible | API contains both arguments; PEB contains only --visible. |
 | Keep original PEB | An applied action uses UpdatePEB=KeepOriginal alongside y and n actions | API contains all applied actions; PEB remains exactly original. |
 | Applied-only PEB control | A KeepOriginal or n rule is disabled, condition-skipped, duplicate-skipped, or follows an applied Stop=y | That rule has no publication effect. |
@@ -392,6 +378,6 @@ executed**. Static source checks do not prove Windows runtime behavior.
 | Expansion failure precedence | A payload first has ordinary fallback, then a fatal query-buffer or local capacity failure | Fatal status replaces the earlier fallback status; no private plan is published and no duplicate generic preparation diagnostic is emitted. |
 | Successful expansion diagnostics | Expand an existing environment/Sandboxie variable successfully, or use a payload without percent tokens | Existing expanded/literal behavior remains; no expansion-failure diagnostic is emitted. |
 | Expanded PEB replay | An expanded Add uses UpdatePEB=y after an API-only action | API and PEB use the same prepared payload; replay does not expand it again. |
-| Existing compatibility payloads | CustomChromiumFlags or InjectCmdLine contains %SANDBOX% | The compatibility setting retains its previous literal behavior. |
+| Existing compatibility payloads | CustomChromiumFlags contains %SANDBOX% | The compatibility setting retains its previous literal behavior. |
 | Nested special group | A selected ProcessGroup contains a nested group containing <Special:Chrome> and an ordinary image pattern | Special and ordinary selectors still match through the shared traversal; legacy group callers retain their previous matching and depth behavior. |
 | Program runner expansion | RunProgram uses process and Sandboxie variables, unknown variables, or an empty command | Existing expansion, unknown-variable fallback, empty-command rejection, and launch timeout behavior are retained. |
