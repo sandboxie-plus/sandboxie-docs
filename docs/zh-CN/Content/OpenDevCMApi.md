@@ -10,7 +10,9 @@ OpenDevCMApi=y
 !!! warning
     启用此设置可能让提权后的沙盒化进程对宿主硬件配置做出更改，且这些更改在沙盒删除后依然存在。它不会授予对所有硬件的不受限访问权限，不会绕过 Windows 访问检查，也不会禁用 Sandboxie 的其他资源限制。
 
-## 过滤的内容 {#what-is-filtered}
+<div id="what-is-filtered"></div>
+
+## 过滤的内容
 
 在默认的 `OpenDevCMApi=n` 下，Sandboxie 驱动程序会检查发往配置管理器 API 端点的设备控制请求：
 
@@ -34,23 +36,31 @@ OpenDevCMApi=y
 
 `OpenDevCMApi=y` 会跳过这道针对 CMApi 的变更过滤器。底层操作仍受 Windows 权限以及任何独立的 Sandboxie 控制约束，因此该设置并不保证所请求的硬件管理操作一定成功。它本身也不会改变 CMApi 设备对象能否被打开。
 
-## 过滤器存在的原因 {#why-the-filter-exists}
+<div id="why-the-filter-exists"></div>
+
+## 过滤器存在的原因
 
 该过滤器是针对安全议题 ID-14 引入的，此前 [issue #552](https://github.com/sandboxie-plus/Sandboxie/issues/552) 表明，提权后的进程可以在沙盒内使用设备管理器移除宿主设备。那些更改影响了宿主，并且独立于沙盒删除而持续存在。
 
 请仅把 `OpenDevCMApi=y` 当作兼容性例外，用于确实需要某项被过滤的设备管理操作的软件。
 
-## 兼容性 {#compatibility}
+<div id="compatibility"></div>
+
+## 兼容性
 
 Sandboxie Plus 0.7.1 / Classic 5.48.5 细化了该过滤器，在保留选定变更限制的同时修复了摄像头访问问题。因此，普通的摄像头访问不应被视为需要 `OpenDevCMApi=y`。
 
-## 应用更改 {#applying-changes}
+<div id="applying-changes"></div>
+
+## 应用更改
 
 该设置可以为某个沙盒指定，也可以通过常规的模板与全局配置解析继承。它没有已记录在案的可执行文件限定语法。
 
 驱动程序在初始化每个沙盒化进程时缓存有效值。更改该设置后，请重启受影响的沙盒化应用程序，或重建沙盒化的进程树。新启动的进程通常不需要重启 SandMan、服务或驱动程序。
 
-## SandMan 配置 {#sandman-configuration}
+<div id="sandman-configuration"></div>
+
+## SandMan 配置
 
 该控件位于：
 
@@ -58,20 +68,26 @@ Sandboxie Plus 0.7.1 / Classic 5.48.5 细化了该过滤器，在保留选定变
 
 该复选框默认未选中。选中它会写入 `OpenDevCMApi=y`，即限制较少的兼容性状态。当选中 **无安全隔离** 时，SandMan 会禁用该控件。
 
-## 与其他设备功能的关系 {#relationship-to-other-device-features}
+<div id="relationship-to-other-device-features"></div>
+
+## 与其他设备功能的关系
 
 [`BlockRegisterDeviceNotification`](BlockRegisterDeviceNotification.md) 控制的是另一组用于设备通知注册的用户态钩子。它不会启用或禁用 CMApi 变更过滤器。
 
 [USB 沙盒化](../PlusContent/USBSandboxing.md) 同样是独立的。该功能是 SandMan 的一项自动化：为符合条件的 USB 卷维护强制文件夹规则；它不使用 `OpenDevCMApi` 来虚拟化或控制 USB 设备。
 
-## 版本历史 {#version-history}
+<div id="version-history"></div>
+
+## 版本历史
 
 | 更改 | 版本 |
 | --- | --- |
 | 引入 CMApi 变更过滤器与 `OpenDevCMApi` 兼容性设置 | Sandboxie Plus 0.7.0 / Classic 5.48.0 |
 | 改善启用过滤器后的摄像头兼容性 | Sandboxie Plus 0.7.1 / Classic 5.48.5 |
 
-## 相关页面 {#related-pages}
+<div id="related-pages"></div>
+
+## 相关页面
 
 - [阻止注册设备通知](BlockRegisterDeviceNotification.md)
 - [USB 沙盒化](../PlusContent/USBSandboxing.md)
