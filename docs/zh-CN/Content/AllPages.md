@@ -54,6 +54,8 @@
 
 ~~[阻止伪造输入](BlockFakeInput.md)~~（自 Sandboxie v4.xx 起移除）
 
+[阻止 IE 嵌入](BlockIEEmbedding.md)
+
 [阻止本地回环](BlockLocalLoop.md)
 
 [阻止网络参数](BlockNetParam.md)
@@ -71,6 +73,8 @@
 ~~[阻止 Sys 参数](BlockSysParam.md)~~（自 Sandboxie v4.xx 起移除）
 
 ~~[阻止 Win Hooks](BlockWinHooks.md)~~（自 Sandboxie v4.xx 起移除）
+
+[阻止软件更新程序](BlockSoftwareUpdaters.md)
 
 [阻止 WinRM](BlockWinRM.md)
 
@@ -93,6 +97,8 @@
 [沙盒快照（适用于 Sandboxie Plus）](../PlusContent/BoxSnapshots.md)
 
 [分离文档](BreakoutDocument.md)
+
+[分离文档进程](BreakoutDocumentProcess.md)
 
 [分离文件夹](BreakoutFolder.md)
 
@@ -219,6 +225,8 @@
 [文件菜单](FileMenu.md)
 
 [文件迁移设置](FileMigrationSettings.md)
+
+[文件恢复架构](RecoveryArchitecture.md)
 
 [文件根路径](FileRootPath.md)
 
@@ -486,6 +494,8 @@
 
 [提示文件迁移](PromptForFileMigration.md)
 
+[提示互联网访问](PromptForInternetAccess.md)
+
 [安全桌面上的提示](PromptOnSecureDesktop.md)
 
 [仅限管理员访问加密沙盒数据](ProtectAdminOnly.md)
@@ -548,13 +558,21 @@
 
 [规则特异性](../PlusContent/RuleSpecificity.md)
 
+[运行命令](RunCommand.md)
+
 [以 SYSTEM 身份运行 RpcSs](RunRpcssAsSystem.md)
+
+[以 SYSTEM 身份运行服务](RunServiceAsSystem.md)
+
+[以 SYSTEM 身份运行全部服务](RunServicesAsSystem.md)
 
 ### S
 
 [沙盒层级](SandboxHierarchy.md)
 
 [沙盒菜单](SandboxMenu.md)
+
+[沙盒服务](SandboxService.md)
 
 [沙盒设置](SandboxSettings.md)
 
@@ -878,6 +896,8 @@
 
 [跳过钩子](SkipHook.md)
 
+[软件更新程序](SoftwareUpdater.md)
+
 [特殊图像分类](SpecialImage.md)
 
 [启动命令行](StartCommandLine.md)
@@ -885,6 +905,8 @@
 [启动程序](StartProgram.md)
 
 [启动服务](StartService.md)
+
+[启动系统沙盒](StartSystemBox.md)
 
 [剥离 SYSTEM 权限](StripSystemPrivileges.md)
 
@@ -962,9 +984,13 @@
 
 [使用速度更改](UseChangeSpeed.md)
 
+[使用驱动程序对象查找](UseDriverObjLookup.md)
+
 [使用文件映像](UseFileImage.md)
 
 [使用非恶意 HWND 修补方案](UseNonRudeHwndHack.md)
+
+[为注册表项使用对象名称](UseObjectNameForKeys.md)
 
 [使用原始 ACL](UseOriginalACLs.md)
 

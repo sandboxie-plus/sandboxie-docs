@@ -49,7 +49,7 @@ Sandboxie 使用 Windows 的 `SE_PRIVILEGE_REMOVED` 操作。这些权限会从�
 
 ## 与会话 0 启动的关系 {#relationship-to-session-0-startup}
 
-[Start System Box](StartSystemBox.md) 使用不同的启动路径。在会话 0 中以 SYSTEM 身份启动的沙盒，本身并不会使该令牌经过本文档介绍的 *StripSystemPrivileges* 辅助函数。
+[启动系统沙盒](StartSystemBox.md) 使用不同的启动路径。在会话 0 中以 SYSTEM 身份启动的沙盒，本身并不会使该令牌经过本文档介绍的 *StripSystemPrivileges* 辅助函数。
 
 ## 版本历史 {#version-history}
 
@@ -58,6 +58,6 @@ Sandboxie 使用 Windows 的 `SE_PRIVILEGE_REMOVED` 操作。这些权限会从�
 ## 相关页面 {#related-pages}
 
 - [Sandboxed Services](SandboxedServices.md)
-- [Start System Box](StartSystemBox.md)
+- [启动系统沙盒](StartSystemBox.md)
 - [撤销管理员权限](DropAdminRights.md)
 - [Sandboxie Ini](SandboxieIni.md)
