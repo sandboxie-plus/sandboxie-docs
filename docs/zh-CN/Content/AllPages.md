@@ -16,9 +16,13 @@
 
 [高级令牌设置](AdvancedTokenSettings.md)
 
+[启动前警报](AlertBeforeStart.md)
+
 [警报文件夹](AlertFolder.md)
 
 [警报进程](AlertProcess.md)
+
+[启动/运行访问被拒绝时警报](AlertStartRunAccessDenied.md)
 
 [允许嵌套作业对象](AllowBoxedJobs.md)
 
@@ -37,6 +41,8 @@
 [应用程序设置](ApplicationsSettings.md)
 
 [使用现代沙盒管理器界面申请支持者证书](../PlusContent/applying-supporter-certificate.md)
+
+[NT 系统调用审批](ApproveWinNtSysCall.md)
 
 [Win32 系统调用审批](ApproveWin32SysCall.md)
 
@@ -179,6 +185,8 @@
 [禁用对象过滤器](DisableObjectFilter.md)
 
 [禁用 RT 黑名单](DisableRTBlacklist.md)
+
+[禁用 WinNt 钩子](DisableWinNtHook.md)
 
 [磁盘序列号](DiskSerialNumber.md)
 
@@ -402,6 +410,8 @@
 
 [无安全隔离](NoSecurityIsolation.md)
 
+[无系统调用钩子](NoSysCallHooks.md)
+
 [无 UAC 代理](NoUACProxy.md)
 
 [不使用不可信令牌](NoUntrustedToken.md)
@@ -412,11 +422,25 @@
 
 [标准注册表路径](NormalKeyPath.md)
 
+[通知设置](NotificationSettings.md)
+
+[沙盒受保护时通知](NotifyBoxProtected.md)
+
 [直接磁盘访问时通知](NotifyDirectDiskAccess.md)
+
+[强制进程被禁用时通知](NotifyForceProcessDisabled.md)
+
+[强制进程已启用时通知](NotifyForceProcessEnabled.md)
+
+[映像加载被拒绝时通知](NotifyImageLoadDenied.md)
 
 [互联网访问被拒绝时通知](NotifyInternetAccessDenied.md)
 
+[MSI 安装程序通知](NotifyMsiInstaller.md)
+
 [进程访问被拒绝时通知](NotifyProcessAccessDenied.md)
+
+[沙盒根目录受保护时通知](NotifyRootProtected.md)
 
 [启动/运行访问被拒绝时通知](NotifyStartRunAccessDenied.md)
 
@@ -427,6 +451,8 @@
 ### O
 
 [对象名称查找兼容性](ObjectLookupCompatibility.md)
+
+[开放所有系统调用](OpenAllSysCalls.md)
 
 [开放剪贴板](OpenClipboard.md)
 
@@ -902,11 +928,17 @@
 
 [启动程序](StartProgram.md)
 
+[启动/运行警报时拒绝启动](StartRunAlertDenied.md)
+
 [启动服务](StartService.md)
 
 [剥离 SYSTEM 权限](StripSystemPrivileges.md)
 
 [支持者证书](../PlusContent/supporter-certificate.md)
+
+[系统调用锁定](SysCallLockDown.md)
+
+[系统调用设置](SyscallSettings.md)
 
 [系统端点](SystemEndpoints.md)
 
