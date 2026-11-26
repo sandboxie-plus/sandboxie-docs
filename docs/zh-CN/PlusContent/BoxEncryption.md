@@ -6,7 +6,9 @@ Sandboxie Plus 可以将沙盒根目录及其中的注册表配置单元存放�
 
 加密存储是一层独立的保护，与 Sandboxie 运行时的隔离机制、限制宿主机访问沙盒进程的设置相互独立。
 
-## 静态存储加密 {#at-rest-encrypted-storage}
+<div id="at-rest-encrypted-storage"></div>
+
+## 静态存储加密
 
 镜像未挂载时，其中的内容保存在加密的 `.box` 文件内。SandMan 可在启动程序前提示用户并预先挂载镜像。其他启动路径可能通过服务端尝试获取镜像，而不显示交互式密码提示；如果无法解锁镜像，启动可能失败。自动卸载取决于当前挂载选项，以及注册表配置单元、根目录和设备是否成功释放或清理。
 
@@ -16,7 +18,9 @@ Sandboxie Plus 可以将沙盒根目录及其中的注册表配置单元存放�
 
 加密镜像需要可用的 ImDisk 设备及驱动，以及当前有效且支持加密功能的支持者证书。ImDisk 提供虚拟磁盘，ImBox 提供加密存储。镜像或其加密头损坏可能导致数据无法访问，因此加密沙盒仍需要备份。
 
-## 密码与镜像头 {#password-and-header-model}
+<div id="password-and-header-model"></div>
+
+## 密码与镜像头
 
 通过沙盒选项创建加密镜像的常规流程需要设置密码。但底层服务也可在密码输入为空时选择加密存储，因此仅启用加密并不意味着设置了具有保护作用的密码。常规流程不提供可重复使用的密码库，也不会将挂载密码保存在 `Sandboxie.ini` 中。
 
@@ -24,7 +28,9 @@ Sandboxie Plus 可以将沙盒根目录及其中的注册表配置单元存放�
 
 <div id="sandboxie"></div>
 
-## 挂载期间的根目录保护 {#root-protection-while-mounted}
+<div id="root-protection-while-mounted"></div>
+
+## 挂载期间的根目录保护
 
 挂载对话框提供“阻止非沙盒进程访问沙盒根目录”选项。它会请求 SbieDrv 对无关宿主机进程在已挂载磁盘根目录下新发起的相关文件系统打开操作施加独立限制。例外包括该沙盒自身、SbieSvc、`csrss.exe` 及获准访问的会话主进程（session leader）。此前已取得的句柄不会被一律撤销；内核模式及其他跳过此检查的路径不在其覆盖范围内。Windows 文件系统权限仍单独生效。
 
@@ -32,7 +38,9 @@ Sandboxie Plus 可以将沙盒根目录及其中的注册表配置单元存放�
 
 根目录保护作用于已挂载的根目录路径，并非通用的数据流控制；沙盒应用仍可使用其策略允许的其他通道。
 
-## 保密沙盒保护 {#confidential-box-protection}
+<div id="confidential-box-protection"></div>
+
+## 保密沙盒保护
 
 [ConfidentialBox](../Content/ConfidentialBox.md) 是独立的运行时设置。它限制沙盒外宿主机进程通过句柄访问沙盒内的进程和线程，同时保留文档所述的运行例外。`DenyHostAccess` 可为同一保护机制按程序配置允许或拒绝规则。
 
@@ -40,7 +48,9 @@ Sandboxie Plus 可以将沙盒根目录及其中的注册表配置单元存放�
 
 [ProtectHostImages](../Content/ProtectHostImages.md) 是另一项独立功能，用于限制可执行文件来自宿主机的沙盒进程从沙盒内加载可执行映像。它不加密存储，也不控制宿主机进程的句柄访问。
 
-## SandMan 设置 {#sandman-configuration}
+<div id="sandman-configuration"></div>
+
+## SandMan 设置
 
 加密存储的设置位置：
 
@@ -61,15 +71,21 @@ Sandboxie Plus 可以将沙盒根目录及其中的注册表配置单元存放�
 
 若要从沙盒内访问指定的宿主机文件，应按需配置 [OpenFilePath](../Content/OpenFilePath.md) 等常规资源访问规则。这些规则会有意允许指定的访问，应将其纳入沙盒数据流策略一并审查。
 
-## 保护边界 {#security-boundary}
+<div id="security-boundary"></div>
+
+## 保护边界
 
 加密存储、根目录保护和进程保密保护分别作用于不同的访问路径。组合使用可减少多种离线访问及运行期间的宿主机访问，但不能保证数据无法离开正在运行的沙盒。如果沙盒应用被允许使用网络连接、开放的宿主机路径、IPC、剪贴板或其他通道，这些通道不会仅因沙盒启用了加密或保密功能就被阻断。
 
-## 版本历史 {#version-history}
+<div id="version-history"></div>
+
+## 版本历史
 
 加密沙盒支持及 `UseFileImage` 自 Sandboxie Plus 1.11.0 / Classic 5.66.0 引入。进程保密保护早于加密镜像：`ConfidentialBox` 和 `DenyHostAccess` 自 Sandboxie Plus 1.3.3 / Classic 5.58.3 引入。
 
-## 相关页面 {#related-pages}
+<div id="related-pages"></div>
+
+## 相关页面
 
 - [使用文件镜像](../Content/UseFileImage.md)
 - [强制挂载保护](../Content/ForceProtectionOnMount.md)

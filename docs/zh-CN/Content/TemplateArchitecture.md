@@ -17,7 +17,9 @@ Template=Example
 
 在这里，`OpenFilePath` 与 `OpenIpcPath` 为 `DefaultBox` 提供配置。`Tmpl.*` 条目用于描述模板本身；它们不是沙盒访问规则。
 
-## 官方模板与本地模板 {#official-and-local-templates}
+<div id="official-and-local-templates"></div>
+
+## 官方模板与本地模板
 
 官方模板随 Sandboxie 安装包以 `Templates.ini` 的形式提供。可以把该文件作为现有定义的参考，但自定义模板应放入 [`Sandboxie.ini`](SandboxieIni.md)，而不要修改这个随附文件。
 
@@ -55,19 +57,25 @@ Template=Example
 
 `TemplateReject=Name` 应放在 `[GlobalSettings]` 中。它记录兼容性模板的选择状态，使被检测到的模板被视为已拒绝/已配置，而不再停留在待推荐的候选状态。单个沙盒节中的同名值不用于此目的。它不会从显式选中的 `Template=Name` 中扣除设置；对该选择而言，常规的模板合并仍然生效。
 
-## 模板如何合并 {#how-templates-are-merged}
+<div id="how-templates-are-merged"></div>
+
+## 模板如何合并
 
 在加载配置时，Sandboxie 先处理 `GlobalSettings` 中选中的模板，然后把 `[DefaultTemplates]` 应用到全局有效配置，最后处理各沙盒选中的模板。被选中模板中的普通设置会合并到目标的有效配置中。`Tmpl.*` 元数据在这一运行时合并过程中会被跳过。
 
 显式条目与来自模板的条目可以在有效配置中共存。Sandboxie 会记录哪些条目来自模板，而直接条目通常排在随后合并进来的条目之前。相互竞争的条目最终如何生效，仍取决于使用它们的子系统；配置来源的顺序并不是通用的优先级规则。资源规则冲突请参见 [规则特异性](../PlusContent/RuleSpecificity.md)。
 
-## 默认模板 {#default-templates}
+<div id="default-templates"></div>
+
+## 默认模板
 
 随附的 `Templates.ini` 中的 `[DefaultTemplates]` 列出了会自动合并到全局有效配置中的内置模板。用户无需为某个沙盒单独选中这些模板，即可获得它们提供的基线设置。当前列表包括 `RpcPortBindings`、`SpecialImages`、`COM`、`WindowsExplorer`、`ThirdPartyIsolation`、`BlockSoftwareUpdaters`、`BlockWinRM`、`OpenWinInetCache`、`CredentialUIBroker` 和 `MSI_Lite`。随附列表可能在不同版本之间变化；默认模板并非不可更改的策略。
 
 这种自动合并与为特定沙盒启用某个可选的应用程序兼容性模板并不相同。
 
-## 模板变量与内部节 {#template-variables-and-internal-sections}
+<div id="template-variables-and-internal-sections"></div>
+
+## 模板变量与内部节
 
 `[TemplateSettings]` 提供共享的 `%Tmpl.*%` 变量定义以及相关的元数据基础设施。模板可以使用这些变量，具体见 [可展开变量](ExpandableVariables.md#template-variables)。`[TemplateSettings]` 并不是用 `Template=TemplateSettings` 选中的兼容性模板；自定义模板无需复制或编辑它。
 
@@ -108,7 +116,9 @@ Template=Example
 
 当存在扫描脚本时，SandMan 的现代兼容性检查器会先求值 `Tmpl.ScanScript`。较旧的 C++ 回退扫描器则改用 `Tmpl.Scan` 的证据字段，不会执行该脚本路径。现代检查器的自动扫描会跳过 `Local_` 模板；本地模板仍可供手动选择。
 
-## 阻止软件更新程序 {#software-updater-blocking}
+<div id="software-updater-blocking"></div>
+
+## 阻止软件更新程序
 
 随附的 `[DefaultTemplates]` 列表包含 `Template=BlockSoftwareUpdaters`。它的 `[Template_BlockSoftwareUpdaters]` 节会向有效配置提供持续维护的 `SoftwareUpdater` 模式。该默认模板已经包含在内；用户无需把它作为可选的应用程序模板选中，即可获得这些定义。
 
@@ -125,13 +135,17 @@ SoftwareUpdater=msedge.exe,*\Microsoft\EdgeUpdate\MicrosoftEdgeUpdate.exe
 
 `BlockSoftwareUpdaters` 于 0.5.5 引入，1.0.11 中移除，1.14.4 中重新引入。它在当前运行时中处于生效状态。该机制只涵盖匹配的更新程序进程创建；它并不保证所有软件更新、安装程序或基于网络的更新途径都会被阻止。
 
-## SandMan 与应用更改 {#sandman-and-applying-changes}
+<div id="sandman-and-applying-changes"></div>
+
+## SandMan 与应用更改
 
 在 SandMan 中，模板按标题和类别显示在 **沙盒选项 > 应用模板** 下。为某个沙盒启用模板，相当于选中它的配置，无需手动修改 `Template=`。
 
 启用、禁用或编辑模板后，请重启受影响的沙盒化进程，以便在进程初始化期间缓存的设置能按照一致的方式重建。不同模板派生设置的生存期各不相同；不应假定更改模板会立即更新每一个正在运行的进程。通常不需要重启 Windows、重启驱动程序或重启服务。
 
-## 相关页面 {#related-pages}
+<div id="related-pages"></div>
+
+## 相关页面
 
 - [Sandboxie Ini](SandboxieIni.md)
 - [应用程序设置](ApplicationsSettings.md)

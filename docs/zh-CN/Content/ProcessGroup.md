@@ -13,7 +13,9 @@ ProcessGroup=<Browsers>,firefox.exe,chrome.exe
 
 Sandboxie 驱动程序侧与 SbieDll 用户态的配置匹配器都会为使用这些匹配器的设置解析进程组。这并不意味着每项 Sandboxie 设置都接受进程组；请查阅将要引用该组的设置的语法。
 
-## 语法 {#syntax}
+<div id="syntax"></div>
+
+## 语法
 
 一般形式为：
 
@@ -34,7 +36,9 @@ ProcessGroup=<GroupName>,program1.exe,program2.exe
 
 不要把组定义为 `ProcessGroup=!<Browsers>,...`。
 
-## 在规则中使用组 {#using-a-group-in-rules}
+<div id="using-a-group-in-rules"></div>
+
+## 在规则中使用组
 
 下面这个资源访问示例把文件规则应用于 `<Browsers>` 的成员：
 
@@ -48,7 +52,9 @@ OpenFilePath=<Browsers>,C:\Shared\*
 
 在使用 Sandboxie 通用进程匹配层级的使用方中，直接的可执行文件匹配或组匹配比取反选择器具有更高的进程匹配优先级，而取反选择器又比全局或 `*` 选择器更强。这是限定规则之间的优先级关系。`ProcessGroup` 内部成员的顺序不会使某个成员优先于另一个成员。
 
-## 嵌套组 {#nested-groups}
+<div id="nested-groups"></div>
+
+## 嵌套组
 
 一个进程组可以包含另一个进程组：
 
@@ -62,7 +68,9 @@ ProcessGroup=<WebApps>,<Browsers>,electron-app.exe
 
 在当前运行时中，嵌套展开的深度被有意限制。对循环定义或过深定义的展开是有界的，不会无限递归，但这类定义并不是有用的配置，不应依赖。SandMan 允许把已有组选为成员，且目前不阻止直接或间接循环。
 
-## 重复与继承的定义 {#repeated-and-inherited-definitions}
+<div id="repeated-and-inherited-definitions"></div>
+
+## 重复与继承的定义
 
 同名的重复定义会贡献额外成员：
 
@@ -80,7 +88,9 @@ ProcessGroup=<Browsers>,chrome.exe
 
 当前 SandMan 中的说明文字称，为沙盒定义的组会覆盖模板中定义的组。该表述并未反映当前运行时匹配器的行为——匹配器会检查所有适用的同名定义。当意外的合并成员关系会造成歧义时，请避免在不同配置来源之间重用同一个组名。
 
-## 在 SandMan 中管理组 {#managing-groups-in-sandman}
+<div id="managing-groups-in-sandman"></div>
+
+## 在 SandMan 中管理组
 
 打开**沙盒选项 > 程序组**。该页面提供：
 
@@ -95,13 +105,17 @@ ProcessGroup=<Browsers>,chrome.exe
 
 在此页面中重命名本地组会改变其定义名称，但这不是一次全局重构操作。其他进程组或配置规则中对旧名称的引用不会被自动改写。同样，移除组会删除所选定义，但不一定删除引用它的设置。悬空的组选择器无法通过已删除的定义进行匹配，尽管另一个同名的适用定义仍可能提供成员。
 
-## 界面管理的组 {#ui-managed-groups}
+<div id="ui-managed-groups"></div>
+
+## 界面管理的组
 
 某些更高级的 SandMan 功能会在内部维护 `ProcessGroup` 条目。目前的例子包括 Internet Access 和 Start/Run 限制使用的程序列表，其组包括 `<InternetAccess>`、`<StartRunAccess>` 和 `<StartRunAccessDisabled>`。
 
 因此，手动编辑或删除这些条目可能会改变这些控件所代表的含义。这些名称是普通的运行时进程组；它们的意义来自引用它们的规则和 SandMan 功能。
 
-## ProcessGroup 与 BoxGrouping {#processgroup-vs-boxgrouping}
+<div id="processgroup-vs-boxgrouping"></div>
+
+## ProcessGroup 与 BoxGrouping
 
 `ProcessGroup` 和 [`BoxGrouping`](BoxGrouping.md) 的用途互不相关。
 
@@ -112,19 +126,27 @@ ProcessGroup=<Browsers>,chrome.exe
 
 把两个沙盒放进同一个 `BoxGrouping` 分支，不会共享它们的 `ProcessGroup` 定义，也不会使这些沙盒中的进程成为同一个进程组的成员。
 
-## 应用更改 {#applying-changes}
+<div id="applying-changes"></div>
+
+## 应用更改
 
 保存 `ProcessGroup` 更改会更新配置，但新成员关系何时变得可观察取决于引用该组的设置。动态求值的检查可以在后续操作中使用更新后的定义，而在进程初始化期间构建或缓存有效规则的使用方则可能需要重启受影响的沙盒化进程。仅为了更改进程组，通常不需要重启 SandMan、服务或驱动程序。
 
-## Sandboxie Plus 与 Classic {#sandboxie-plus-and-classic}
+<div id="sandboxie-plus-and-classic"></div>
+
+## Sandboxie Plus 与 Classic
 
 `ProcessGroup` 是一项共享的运行时配置机制，并非 Sandboxie Plus 独有的功能。SandMan 提供了当前的**程序组**页面，Sandboxie Control Classic 也包含程序组的配置和选择支持。两者的界面并不相同，但兼容的 INI 定义由共享的运行时使用。
 
-## 版本历史 {#version-history}
+<div id="version-history"></div>
+
+## 版本历史
 
 当前的设置元数据没有记录 `ProcessGroup` 的 `AddedVersion`，因此这里无法确定其确切的引入版本。程序组处理早于 Sandboxie Plus 0.4.3 / Classic 5.43.7；该版本修复的是 SandMan 界面中的解析问题，而不是引入该运行时设置。后来的 SandMan 版本还修复了更多程序组界面问题。
 
-## 相关页面 {#related-pages}
+<div id="related-pages"></div>
+
+## 相关页面
 
 - [Box Grouping](BoxGrouping.md) — 在 SandMan 界面中组织沙盒
 - [Sandboxie Ini](SandboxieIni.md) — 说明 Sandboxie 配置文件的节与编辑方法

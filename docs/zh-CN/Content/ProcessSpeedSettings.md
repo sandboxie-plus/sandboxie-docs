@@ -2,7 +2,9 @@
 
 进程速度设置是 [Sandboxie Ini](SandboxieIni.md) 中的沙盒设置，自 Sandboxie Plus 1.14.0 起可用。它们调整沙盒化进程内选定的 Windows 计时、休眠和计时器 API。它们不会更改 Windows 系统时钟，也不会为沙盒提供完整的时间虚拟化。
 
-## 启用进程速度更改 {#enabling-process-speed-changes}
+<div id="enabling-process-speed-changes"></div>
+
+## 启用进程速度更改
 
 使用以下配置为沙盒启用该功能：
 
@@ -15,11 +17,15 @@ UseChangeSpeed=y
 
 请使用较小的正十进制整数因子。六个因子的使用方回退值（consumer fallback）均为 `1`，即正常的中性值。普通的字面量 `0` 也会回退到该值；`AddSleepSpeed=0` 并不是跳过休眠调用的指令，也不应通过设为 0 来禁用该功能。
 
-## 受影响的 API {#affected-apis}
+<div id="affected-apis"></div>
+
+## 受影响的 API
 
 这些设置只作用于下列 API 组。
 
-### 时钟滴答与时钟函数 {#tick-and-clock-functions}
+<div id="tick-and-clock-functions"></div>
+
+### 时钟滴答与时钟函数
 
 `AddTickSpeed` 和 `LowTickSpeed` 控制：
 
@@ -34,7 +40,9 @@ UseChangeSpeed=y
 
 这些函数表示经过时间或性能计数器时间，而不是系统日期和时间。受影响的计时源是各自独立调整的，不应被视为单一而精确的虚拟时钟。比较不同 Windows 计时源的应用程序可能会观察到差异。
 
-### 休眠函数 {#sleep-functions}
+<div id="sleep-functions"></div>
+
+### 休眠函数
 
 `AddSleepSpeed` 和 `LowSleepSpeed` 控制通过 Sandboxie 的 `SleepEx` 钩子传递的请求时长。Sandboxie 不会安装单独的 `Sleep` 钩子：只有当普通 `Sleep` 调用在 Windows 中的实际执行路径到达被拦截的 `SleepEx` 实现时，它们才会受到影响。
 
@@ -47,7 +55,9 @@ UseChangeSpeed=y
 
 这不会修改 `WaitForSingleObject` 这类同步等待。实际经过时间仍受 Windows 正常调度、计时器分辨率行为和可警报休眠（alertable sleep）语义的约束。
 
-### 计时器函数 {#timer-functions}
+<div id="timer-functions"></div>
+
+### 计时器函数
 
 `AddTimerSpeed` 和 `LowTimerSpeed` 控制：
 
@@ -64,7 +74,9 @@ UseChangeSpeed=y
 
 间隔包装函数使用 64 位中间算术，然后再转换回原生间隔类型；较大的变换后数值可能发生窄化或回绕。Windows 的计时器最小值、支持范围、分辨率、消息处理和调度仍然生效，因此实际回调或消息送达时间可能与计算出的间隔不同。计时器钩子的安装还受额外的 GUI 条件约束，详见“运行时范围”一节。
 
-## 因子对照 {#factor-comparison}
+<div id="factor-comparison"></div>
+
+## 因子对照
 
 | 设置 | 控制对象 | 取值 `2` |
 | --- | --- | --- |
@@ -77,7 +89,9 @@ UseChangeSpeed=y
 
 每一对中的另一个因子均假定为 `1`。这些是请求转换或近似的时钟关系，受上文所述限制的约束。
 
-## 示例 {#example}
+<div id="example"></div>
+
+## 示例
 
 ```ini
 [DefaultBox]
@@ -94,7 +108,9 @@ AddTimerSpeed=2
 - 请求的计时器间隔大约减少一半；
 - `timeGetTime` 的推进速度约快一倍。
 
-## 组合使用 Add 与 Low 因子 {#combining-add-and-low-factors}
+<div id="combining-add-and-low-factors"></div>
+
+## 组合使用 Add 与 Low 因子
 
 同一组的 Add 与 Low 变体可以同时配置，两者互不覆盖。例如：
 
@@ -107,7 +123,9 @@ LowTickSpeed=3
 
 在算术范围内，这会对 `GetTickCount`、`GetTickCount64` 和 `QueryPerformanceCounter` 施加约 `2/3` 的缩放，并各自使用不同的参考点。`QueryUnbiasedInterruptTime` 则先用 `2` 除以 `3`，结果为 0。因此，Add 与 Low 的取值按被拦截的 API 组合，而不是套用同一个统一公式。滴答、休眠和计时器这三个因子组相互独立，更改其中一组不会自动配置其他组。
 
-## 运行时范围 {#runtime-scope}
+<div id="runtime-scope"></div>
+
+## 运行时范围
 
 相应的钩子通过 Sandboxie 注入的 DLL 在沙盒化进程内运行。是否安装取决于有效配置、初始化路径、API/模块的可用性、挂钩是否成功以及适用的钩子抑制设置；并非每个进程都会获得每一个钩子。这不是对 Windows 时钟的系统级更改。在非沙盒化运行时，SandMan 和 Sandboxie 服务通常不受影响。
 
@@ -117,11 +135,15 @@ LowTickSpeed=3
 
 全部六个数值因子都会在相应的钩子调用期间查询，因此成功重新加载的取值可以影响已安装的钩子。各因子对是分别读取的，跨计时源的更新并非原子操作，且初始化时保留的引用意味着更改可能导致时钟不连续。间隔更改作用于后续被拦截的调用；仅更改因子并不会重新设定已有的计时器。仅保存文件并不等于配置重新加载成功。一般的更新并不必然需要重启 Sandboxie 服务、驱动程序或 Windows。
 
-## 预期用途 {#intended-use}
+<div id="intended-use"></div>
+
+## 预期用途
 
 该功能适用于以下场景：在分析或测试期间缩短固定的应用程序延迟，以及为兼容的单人应用程序或游戏修改逻辑速度。兼容性取决于应用程序使用了哪些 Windows 计时机制。它不会加速 CPU 执行或提高处理器频率，也不保证应用程序执行得更快或游戏能够兼容。
 
-## 限制 {#limitations}
+<div id="limitations"></div>
+
+## 限制
 
 - 该功能不会拦截所有 Windows 时间源或等待机制。系统实际时间（wall clock）API、`NtQuerySystemTime`、`NtDelayExecution`、同步等待、可等待计时器、计时器队列和线程池计时器均不在覆盖范围内。
 - 由于只调整选定的 API，比较多个计时源的应用程序可能会观察到不一致的经过时间。

@@ -4,7 +4,9 @@ Sandboxie 在多个独立阶段处理 AppContainer 相关请求：配置文件�
 
 在标准沙盒中，Sandboxie 会替代部分 AppContainer 创建行为以兼顾兼容性，不会原样保留 Windows 的原生 AppContainer 模型。真正的 Windows AppContainer 令牌、Sandboxie 用于兼容的替代令牌，以及配置文件 API 返回的形似 AppContainer 的 SID，是不同的对象。
 
-## 标准沙盒与应用隔间 {#standard-sandbox-and-application-compartment}
+<div id="standard-sandbox-and-application-compartment"></div>
+
+## 标准沙盒与应用隔间
 
 下表适用于 Sandboxie Plus 1.18.8 / Classic 5.73.8 及后续版本。
 
@@ -20,7 +22,9 @@ Sandboxie 在多个独立阶段处理 AppContainer 相关请求：配置文件�
 
 应用隔间允许 Windows 原生 AppContainer 处理更直接地参与，同时跳过 Sandboxie 正常的受限主令牌替换。其他沙盒策略仍然独立生效。参见[应用隔间](../PlusContent/compartment-mode.md)、[无安全隔离](NoSecurityIsolation.md)和[访问令牌隔离](AccessTokenIsolation.md)。
 
-## AppContainer API 兼容性 {#appcontainer-api-compatibility}
+<div id="appcontainer-api-compatibility"></div>
+
+## AppContainer API 兼容性
 
 在 Windows 8.1 及更高版本的标准沙盒中，Sandboxie 会挂钩 `CreateAppContainerToken`。通常，它会打开当前进程的令牌，并使用 `DISABLE_MAX_PRIVILEGE` 和 `CreateRestrictedToken` 禁用选定的组，返回受限的兼容性替代令牌。自 1.18.8 起，默认会将四个常用组排除在禁用列表之外；参见 [KeepBroadGroupsInAppContainerToken](#keepbroadgroupsinappcontainertoken)。所得令牌并不是真正包含所请求 AppContainer SID 和能力的 AppContainer 令牌。
 
@@ -32,7 +36,7 @@ Sandboxie 可以另外通过 `TokenAppContainerSid` 检测进程令牌是否是�
 
 <div id="fakeappcontainertoken-historical-setting"></div>
 
-### FakeAppContainerToken {#fakeappcontainertoken}
+### FakeAppContainerToken
 
 ```ini
 FakeAppContainerToken=program.exe,n
@@ -44,11 +48,13 @@ FakeAppContainerToken=program.exe,n
 
 在 1.18.6 和 1.18.7 中，此路径的配置检查被注释掉，因此修改设置值不会影响属性是否传递。元数据记录的历史引入版本为 1.8.2；这与该设置在 1.18.8 中重新生效是两回事。
 
-## 创建子进程时由调用者提供的令牌 {#caller-supplied-tokens-during-child-creation}
+<div id="caller-supplied-tokens-during-child-creation"></div>
+
+## 创建子进程时由调用者提供的令牌
 
 `DropAppContainerToken` 和[丢弃子进程令牌](DropChildProcessToken.md)作用于调用进程在创建子进程时提供的令牌。两者都不会从已有令牌中移除 AppContainer SID，也不会直接禁用 Sandboxie 随后的主令牌替换。
 
-### DropAppContainerToken {#dropappcontainertoken}
+### DropAppContainerToken
 
 ```ini
 DropAppContainerToken=browser.exe,n
@@ -62,7 +68,7 @@ DropAppContainerToken=browser.exe,n
 
 在应用隔间中，原生 AppContainer 处理可以更直接地参与，而正常的受限主令牌替换会被跳过。因此，显式设置 `DropAppContainerToken=program.exe,y` 可能移除原本会作用于子进程的 Windows 令牌限制。这会降低令牌隔离程度，但不会自动提升权限。
 
-### UnRestrictAppContainerToken {#unrestrictappcontainertoken}
+### UnRestrictAppContainerToken
 
 ```ini
 UnRestrictAppContainerToken=program.exe,y
@@ -72,7 +78,7 @@ UnRestrictAppContainerToken=program.exe,y
 
 在 1.18.6 和 1.18.7 中，出于兼容性考虑，`msedge.exe` 的运行时默认值为 `y`。1.18.8 对常用组的处理调整使受限替代令牌重新适用于 Edge，因此移除了这项默认例外。显式设置 `UnRestrictAppContainerToken=msedge.exe,y` 仍会选择令牌复制路径。应用隔间不安装此替代钩子，因此此设置不是该模式的常规控制项。
 
-### KeepBroadGroupsInAppContainerToken {#keepbroadgroupsinappcontainertoken}
+### KeepBroadGroupsInAppContainerToken
 
 ```ini
 KeepBroadGroupsInAppContainerToken=program.exe,n
@@ -82,7 +88,7 @@ KeepBroadGroupsInAppContainerToken=program.exe,n
 
 设为 `n` 会恢复旧行为，将查询到的所有组都传给 `CreateRestrictedToken` 以禁用它们。旧行为可能导致子进程无法打开 `\KnownDlls` 等资源。此选项用于兼容性排查和调试，不建议普遍修改默认值。它不控制 `UnRestrictAppContainerToken=y` 所选择的令牌复制路径，也不控制独立的直接 LowBox 令牌钩子。
 
-### NeutralizeLowBoxToken {#neutralizelowboxtoken}
+### NeutralizeLowBoxToken
 
 ```ini
 NeutralizeLowBoxToken=program.exe,n
@@ -92,13 +98,17 @@ NeutralizeLowBoxToken=program.exe,n
 
 设为 `n` 时，钩子会将原始调用及其参数转交给 Windows，Windows 的访问检查和失败条件仍然适用。应用隔间不安装此钩子。此设置与 `UnRestrictAppContainerToken`、`KeepBroadGroupsInAppContainerToken` 以及进程属性是否传递相互独立；修改其中一项不会同时配置其他项。
 
-### 其他子进程令牌兼容性路径 {#other-child-token-compatibility-paths}
+<div id="other-child-token-compatibility-paths"></div>
+
+### 其他子进程令牌兼容性路径
 
 `DropChildProcessToken` 默认值为 `n`，可以为选定的调用进程清除其提供的任意子进程令牌。对于分类为 Acrobat Reader 或插件容器的映像，同样的清除行为已在代码中固定启用。独立的 Firefox 分支可在子进程命令行包含 `-sandboxingKind` 时清除令牌。这些是不同的处理路径；旧的 Flash 专用条件已被注释掉。该设置的作用范围见[丢弃子进程令牌](DropChildProcessToken.md)。
 
 代码仍会为旧的 Chromium/Edge 兼容性分支查询 `DeprecatedTokenHacks`，但仅限应用隔间之外且未启用 `OriginalToken` 的情况。启用时，如果调用进程被分类为 Chrome，且子进程命令行包含 `--service-sandbox-type`，该分支可以清除调用者提供的子进程令牌。它不控制 `FakeAppContainerToken`，也不是所有历史令牌变通处理的统一开关。
 
-## 已有沙盒与 AppContainer 权限 {#existing-boxes-and-appcontainer-permissions}
+<div id="existing-boxes-and-appcontainer-permissions"></div>
+
+## 已有沙盒与 AppContainer 权限
 
 1.18.8 在沙盒根目录和沙盒内对象使用的安全描述符中加入了 AppContainer 访问控制项（ACE），帮助原生 AppContainer 子进程访问所需的沙盒资源。已有沙盒可能仍保留旧的文件系统自由访问控制列表（DACL），因此更新新对象使用的描述符本身，并不能修复每个已有沙盒。
 
@@ -112,7 +122,9 @@ KmdUtil.exe fixboxdacls
 
 此操作会修改已保存的文件系统权限，并非只读诊断。枚举沙盒和查询路径需要驱动可用。无法解析或不存在的根目录会被跳过，自定义权限和继承设置也可能影响结果。不能假定运行命令后，每个已有子对象都能被 AppContainer 访问，也不能假定不可用的镜像沙盒根目录已得到修复。使用前应核对自定义 ACL 的要求。此修复与上述令牌设置相互独立。
 
-## 安全性与配置 {#security-and-configuration}
+<div id="security-and-configuration"></div>
+
+## 安全性与配置
 
 这些设置会改变特定的 Windows 令牌选择，可能显著影响访问检查。它们本身不会禁用文件或注册表虚拟化、网络限制、IPC 策略或沙盒归属，也不会授予管理员权限。[原始令牌](OriginalToken.md)和[高级令牌设置](AdvancedTokenSettings.md)介绍了令牌处理后续阶段中的独立选项。
 
@@ -122,7 +134,9 @@ KmdUtil.exe fixboxdacls
 
 当前设置元数据记录的引入版本为：`DropAppContainerToken` 是 1.7.2，`FakeAppContainerToken` 是 1.8.2，`UnRestrictAppContainerToken` 是 1.8.4，`DropChildProcessToken` 是 1.15.6。重新启用 `FakeAppContainerToken` 检查、统一 `UnRestrictAppContainerToken=n` 默认值，以及新增 `KeepBroadGroupsInAppContainerToken`、`NeutralizeLowBoxToken` 和 `fixboxdacls` 命令，均属于 1.18.8 的变化。
 
-## 相关页面 {#related-pages}
+<div id="related-pages"></div>
+
+## 相关页面
 
 - [丢弃子进程令牌](DropChildProcessToken.md)
 - [原始令牌](OriginalToken.md)
