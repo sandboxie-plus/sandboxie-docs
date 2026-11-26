@@ -39,7 +39,7 @@ Direct [ForceProcess](ForceProcess.md) and [ForceFolder](ForceFolder.md) launche
 When the setting is enabled:
 
 1. `Start.exe` first asks whether to start a new program in the selected sandbox.
-2. A second warning may be shown when the apparent parent process does not look like a Sandboxie component based on its executable path under Sandboxie's installation directory.
+2. A second warning may be shown if the apparent parent process's executable path does not begin with Sandboxie's installation directory path.
 
 The first prompt identifies the target sandbox. It does not show the executable being started, the full command line, the caller executable, or the caller process ID. Both prompts use **Yes** and **No** choices and have no “remember” option.
 
