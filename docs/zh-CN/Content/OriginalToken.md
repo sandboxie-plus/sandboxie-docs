@@ -55,7 +55,7 @@ SandMan 没有专门的 *OriginalToken* 复选框，其常规的高级选项列�
 
 *OriginalToken* 还会改变 Sandboxie 服务所做的部分令牌选择与检查。它本身**不会**让沙盒化的 RpcSs 以 SYSTEM 身份运行：当前自动的 SYSTEM 源路径还需要 *MsiInstallerExemptions* 或 *RunServicesAsSystem* 等设置。这些独立行为参见 [Sandboxed Services](SandboxedServices.md) 和 [RPC Compatibility](RpcCompatibility.md)。
 
-此设置可以省略 Sandboxie 根作业对象上的基本 UI 限制，但不会把进程从该作业对象中移除，也不会自动禁用其资源限制。参见 [Job Objects](JobObjects.md)。
+此设置可以省略 Sandboxie 根作业对象上的基本 UI 限制，但不会把进程从该作业对象中移除，也不会自动禁用其资源限制。参见 [作业对象](JobObjects.md)。
 
 ## 应用更改 {#applying-changes}
 
