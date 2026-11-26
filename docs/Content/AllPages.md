@@ -118,6 +118,10 @@
 
 [Border Exclude Taskbar](BorderExcludeTaskbar.md)
 
+[Border Label Font](BorderLabelFont.md)
+
+[Border Label Position](BorderLabelPosition.md)
+
 [Box Alias](BoxAlias.md)
 
 [Box Encryption](../PlusContent/BoxEncryption.md)
@@ -203,6 +207,8 @@
 [Custom Chromium Flags](CustomChromiumFlags.md)
 
 [Custom Locale/LangID](CustomLCID.md)
+
+[Custom Process Command Line](CustomProcessCommandLine.md)
 
 ### D
 
@@ -307,6 +313,8 @@
 [Fake Admin Rights](FakeAdminRights.md)
 
 [Fake App Container Token](FakeAppContainerToken.md)
+
+[Fake Process Mitigations](FakeProcessMitigations.md)
 
 [FAQ Email](FAQEmail.md)
 

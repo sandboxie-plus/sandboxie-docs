@@ -4,7 +4,9 @@ _EnableObjectFiltering_ 是 [Sandboxie Ini](SandboxieIni.md) 中的一项全局�
 
 尽管设置名比较宽泛，当前注册的回调专门针对进程与线程句柄。文件、注册表、IPC 命名空间以及其他对象类型由 Sandboxie 的其他机制处理。
 
-## 当前默认值与配置 {#current-default-and-configuration}
+<div id="current-default-and-configuration"></div>
+
+## 当前默认值与配置
 
 对象过滤默认启用。正常运行无需显式添加 `EnableObjectFiltering=y` 条目。
 
@@ -20,7 +22,9 @@ EnableObjectFiltering=n
 > [!WARNING]
 > 禁用该全局回调层会为所有沙盒移除一项重要的进程/线程访问控制机制。Sandboxie 针对特定系统调用的进程/线程检查在某些路径中仍然保留，但覆盖范围并不相同，不应被视为等效替代。
 
-## 回调过滤的内容 {#what-the-callback-filters}
+<div id="what-the-callback-filters"></div>
+
+## 回调过滤的内容
 
 当前实现为以下操作注册对象管理器回调：
 
@@ -35,7 +39,9 @@ EnableObjectFiltering=n
 
 更改只影响后续的进程/线程句柄创建与复制：它不会追溯削减既有句柄中的权限，不会为先前受限的句柄追加权限，也不会使既有句柄失效。
 
-## 进程与线程访问策略 {#process-and-thread-access-policy}
+<div id="process-and-thread-access-policy"></div>
+
+## 进程与线程访问策略
 
 同一有效沙盒内部的进程或线程访问，通常会被该策略允许。一个沙盒中的进程以另一个沙盒中的进程或线程为目标时，会被视为沙盒外；`HideOtherBoxes` 一类的可见性控制与句柄访问过滤是相互独立的。
 
@@ -53,7 +59,9 @@ ClosedIpcPath=$:target.exe
 
 资源规则的更广泛行为参见 [开放 IPC 路径](OpenIpcPath.md)、[读取 IPC 路径](ReadIpcPath.md) 与 [封禁 IPC 路径](ClosedIpcPath.md)。
 
-## 回调过滤与系统调用专属过滤 {#callback-and-syscall-specific-filtering}
+<div id="callback-and-syscall-specific-filtering"></div>
+
+## 回调过滤与系统调用专属过滤
 
 Sandboxie 目前有两层相关的进程/线程过滤：
 
@@ -71,7 +79,9 @@ Sandboxie 目前有两层相关的进程/线程过滤：
 | `DisableObjectFilter=y` | 受影响的沙盒化进程 | 仍然安装 | 放宽这些进程的出站回调过滤 |
 | 带 `NoSecurityFiltering=y` 的应用隔间 | 受影响的应用隔间进程 | 仍全局安装 | 启用按进程的文件、注册表项与对象过滤禁用状态 |
 
-## 宿主到沙盒的保护 {#host-to-sandbox-protection}
+<div id="host-to-sandbox-protection"></div>
+
+## 宿主到沙盒的保护
 
 当非沙盒化的宿主进程请求指向某个沙盒化进程或线程的句柄时，该回调还会执行一项独立的检查。这条路径支撑 `DenyHostAccess`、`ProtectAdminOnly` 与 `NotifyBoxProtected` 等设置，也支撑保密沙盒额外的进程保护。
 
@@ -79,13 +89,17 @@ Sandboxie 目前有两层相关的进程/线程过滤：
 
 面向用户的宿主访问策略参见 [保密沙盒](ConfidentialBox.md)。
 
-## 应用隔间 {#application-compartment}
+<div id="application-compartment"></div>
+
+## 应用隔间
 
 [应用隔间](NoSecurityIsolation.md) 模式本身并不会禁用对象管理器回调。在 `NoSecurityIsolation=y` 且保持常规过滤的情况下，应用隔间进程仍可能受这一进程/线程访问策略约束。
 
 当同时启用 [无安全过滤](NoSecurityFiltering.md) 时，新建的应用隔间进程会获得相应的按进程文件、注册表项与对象过滤禁用状态。回调仍全局注册，其他沙盒仍正常受到过滤。
 
-## SandMan 界面 {#sandman-interface}
+<div id="sandman-interface"></div>
+
+## SandMan 界面
 
 全局控件位于：
 
@@ -97,17 +111,23 @@ Sandboxie 目前有两层相关的进程/线程过滤：
 
 如果在驱动程序启动期间需要注册回调但注册失败，驱动程序初始化会失败，Sandboxie 会记录该注册问题。后续重新配置期间的失败会被记录，并使该回调功能保持未激活状态；具体的界面呈现可能有所不同。
 
-## 应用更改 {#applying-changes}
+<div id="applying-changes"></div>
+
+## 应用更改
 
 更改该全局设置会影响后续的进程/线程句柄创建与复制，包括已运行进程在重新配置之后发出的请求。它不会改变已经打开的句柄。
 
 相比之下，`DisableObjectFilter` 是在每个沙盒化进程初始化时存储的。更改该设置后，请重启受影响的沙盒化进程。
 
-## 版本历史 {#version-history}
+<div id="version-history"></div>
+
+## 版本历史
 
 该回调功能在 Sandboxie Plus 1.0.0 / Classic 5.55.0 中作为实验性功能引入，最初需要显式设置 `EnableObjectFiltering=y`。自 Sandboxie Plus 1.0.16 / Classic 5.55.16 起，它改为默认启用。
 
-## 相关页面 {#related-pages}
+<div id="related-pages"></div>
+
+## 相关页面
 
 - [禁用对象过滤器](DisableObjectFilter.md)
 - [无安全过滤](NoSecurityFiltering.md)

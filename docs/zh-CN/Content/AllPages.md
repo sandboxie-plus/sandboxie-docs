@@ -24,6 +24,10 @@
 
 [启动/运行访问被拒绝时警报](AlertStartRunAccessDenied.md)
 
+[允许嵌套作业对象](AllowBoxedJobs.md)
+
+[允许强制系统身份](AllowForceSystem.md)
+
 [允许网络访问](AllowNetworkAccess.md)
 
 [允许原始磁盘读取](AllowRawDiskRead.md)
@@ -100,6 +104,8 @@
 
 [分离文档](BreakoutDocument.md)
 
+[分离执行](BreakoutExecution.md)
+
 [分离文件夹](BreakoutFolder.md)
 
 [分离沙盒进程](BreakoutProcess.md)
@@ -143,6 +149,8 @@
 [覆盖沙盒窗口](CoverBoxedWindows.md)
 
 [CPU 亲和性掩码](CpuAffinityMask.md)
+
+[CPU 速率限制](CpuRateLimit.md)
 
 [自定义 Chromium 启动参数](CustomChromiumFlags.md)
 
@@ -334,6 +342,8 @@
 
 ### J
 
+[作业对象](JobObjects.md)
+
 ### K
 
 [KeepBroadGroupsInAppContainerToken](KeepBroadGroupsInAppContainerToken.md)
@@ -392,6 +402,8 @@
 
 [不重命名窗口类](NoRenameWinClass.md)
 
+[无 Sandboxie 控制台](NoSandboxieConsole.md)
+
 [不启动沙盒化 RpcSs](NoSandboxieRpcSs.md)
 
 [无安全过滤](NoSecurityFiltering.md)
@@ -399,6 +411,8 @@
 [无安全隔离](NoSecurityIsolation.md)
 
 [无系统调用钩子](NoSysCallHooks.md)
+
+[无 UAC 代理](NoUACProxy.md)
 
 [不使用不可信令牌](NoUntrustedToken.md)
 
@@ -471,6 +485,8 @@
 [开放 WPAD 端点](OpenWPADEndpoint.md)
 
 [原始令牌](OriginalToken.md)
+
+[覆盖操作系统构建号](OverrideOsBuild.md)
 
 ### P
 
@@ -557,6 +573,8 @@
 [资源访问监视器（适用于 Sandboxie 经典版）](ResourceAccessMonitor.md)
 
 [资源访问设置](ResourceAccessSettings.md)
+
+[限制设备访问](RestrictDevices.md)
 
 [限制设置](RestrictionsSettings.md)
 
@@ -965,6 +983,8 @@
 [模板 URL](Tmpl.Url.md)
 
 [模板版本](Tmpl.Version.md)
+
+[终止作业对象](TerminateJobObject.md)
 
 [总内存限制](TotalMemoryLimit.md)
 

@@ -81,6 +81,9 @@ This setting works with all Chromium-based browsers, including:
 ## Related Settings
 
 - [SpecialImage](SpecialImage.md) - Used to classify applications as Chromium browsers
+- [CustomProcessCommandLine](CustomProcessCommandLine.md) - Generic command line injection for any process image
+
+Use [CustomProcessCommandLine](CustomProcessCommandLine.md) for non-Chromium applications or for rule-based insertion/removal behavior.
 
 Related Sandboxie Plus setting: Not directly exposed in UI (uses default value automatically)
 

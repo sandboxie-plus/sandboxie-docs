@@ -4,7 +4,9 @@ Sandboxie 为使用 Windows 远程过程调用（RPC）的应用程序提供了�
 
 这些机制并不是通用的 RPC 防火墙。通用的 IPC 可达性、Windows 访问检查、按端点过滤请求，以及沙盒化服务进程的身份，是整体模型中各自独立的部分。
 
-## 架构概述 {#architecture-overview}
+<div id="architecture-overview"></div>
+
+## 架构概述
 
 RPC 兼容性涉及 Sandboxie 的多个组件：
 
@@ -32,7 +34,9 @@ SbieDll 的 RPC 绑定拦截
 
 内置模板提供了受支持的兼容性场景所需的、由项目维护的映射。LSA、SAM、WPAD 及相关服务的端点专属安全行为记录在 [系统端点](SystemEndpoints.md) 下。
 
-## RPC 绑定预设 {#rpc-binding-presets}
+<div id="rpc-binding-presets"></div>
+
+## RPC 绑定预设
 
 `RpcPortBinding` 为 RPC 绑定提供高级兼容性预设。每个预设都会匹配调用模块以及绑定操作提供的一个标识符：
 
@@ -55,7 +59,9 @@ RpcPortBinding=<module>,<object-UUID-or-string-binding-pattern>[,Resolve=<port-i
 
 解析器还支持由项目维护的模板所使用的内部形式。请优先使用这些模板，不要把每一种受支持的形式或端点标识符都当作稳定的手动配置接口。
 
-### 动态端点映射 {#dynamic-endpoint-mappings}
+<div id="dynamic-endpoint-mappings"></div>
+
+### 动态端点映射
 
 有两个相关设置向端点映射器辅助程序提供 `Resolve=` 所需的信息：
 
@@ -64,7 +70,9 @@ RpcPortBinding=<module>,<object-UUID-or-string-binding-pattern>[,Resolve=<port-i
 
 这些设置主要是由项目维护的模板与服务解析方面的底层配套机制。接口 UUID 和服务端点细节可能随 Windows 变化，不应直接从模板中盲目复制。
 
-## 动态端口过滤 {#dynamic-port-filtering}
+<div id="dynamic-port-filtering"></div>
+
+## 动态端口过滤
 
 `RpcPortFilter` 为 Sandboxie 全局注册到驱动程序的动态解析端口提供请求过滤。SbieSvc 读取维护的过滤条目，并把解析出的端口和过滤器标识符提交给 SbieDrv。驱动程序通过其仅限服务的路径接受该注册，检查发往已注册端口的请求，并对配置中匹配的请求返回“拒绝访问”。
 
@@ -75,7 +83,9 @@ RpcPortBinding=<module>,<object-UUID-or-string-binding-pattern>[,Resolve=<port-i
 
 `RpcPortFilter` 并不过滤所有 RPC 端点，也不是通用的 RPC 防火墙。受支持的端点专属兼容性控制参见 [系统端点](SystemEndpoints.md)。
 
-## RPC 通信超时 {#rpc-communication-timeout}
+<div id="rpc-communication-timeout"></div>
+
+## RPC 通信超时
 
 Sandboxie 通常会对绑定句柄应用 RPC 通信超时调整。`RpcMgmtSetComTimeout` 的当前运行时默认值在未配置该项时为启用。
 
@@ -97,7 +107,9 @@ RpcMgmtSetComTimeout=n
 - 选中时写入 `RpcMgmtSetComTimeout=n`；
 - 清除时保持正常的启用行为。
 
-### 调用模块覆盖 {#calling-module-override}
+<div id="calling-module-override"></div>
+
+### 调用模块覆盖
 
 `UseRpcMgmtSetComTimeout` 是一种高级的、按调用模块限定的覆盖，用于当前绑定尚未提供其超时判定的情况。例如，维护的模板可以为源自特定 DLL 的调用选择不同的超时行为。
 
@@ -105,7 +117,9 @@ RpcMgmtSetComTimeout=n
 
 如果匹配的预设包含 `TimeOut=`，该值会覆盖按模块的判定。否则，即使有绑定预设匹配，按模块的判定仍然生效。如果两者都没有提供覆盖，Sandboxie 会使用进程的 `RpcMgmtSetComTimeout` 默认值。
 
-## 沙盒化 RpcSs 的启动 {#sandboxed-rpcss-startup}
+<div id="sandboxed-rpcss-startup"></div>
+
+## 沙盒化 RpcSs 的启动
 
 当进程需要沙盒化的端点映射器时，Sandboxie 通常会启动与其沙盒关联的 RpcSs。该 RpcSs 进而可以通过特殊的服务器启动流程启动沙盒化的 DcomLaunch 进程。这些是与沙盒关联的 Sandboxie 服务可执行文件，而不是非沙盒化的宿主服务实例。
 
@@ -113,13 +127,17 @@ RpcMgmtSetComTimeout=n
 
 用于启动沙盒化 RpcSs 的身份由另一项设置控制。参见 [沙盒化服务](SandboxedServices.md#runrpcssassystem)。
 
-## 应用更改 {#applying-changes}
+<div id="applying-changes"></div>
+
+## 应用更改
 
 RPC 超时默认值会在每个沙盒化进程中初始化，而按模块的绑定判定则在创建绑定之时做出。动态端点也会按需解析和注册。更改这些设置后，请重启受影响的沙盒化进程，或重建沙盒化的进程树，以免沿用已有的绑定和缓存的端点信息。
 
 更改 RpcSs 的启动身份需要重启沙盒化 RpcSs 进程。仅因这些配置更改，通常不需要重启 SandMan、SbieSvc 或驱动程序。
 
-## 版本历史 {#version-history}
+<div id="version-history"></div>
+
+## 版本历史
 
 | 设置或机制 | 引入版本 |
 | --- | --- |
@@ -129,7 +147,9 @@ RPC 超时默认值会在每个沙盒化进程中初始化，而按模块的绑�
 | `NoSandboxieRpcSs` | Sandboxie Plus 1.5.0 |
 | `RpcPortFilter` | Sandboxie Plus 1.14.2 |
 
-## 相关页面 {#related-pages}
+<div id="related-pages"></div>
+
+## 相关页面
 
 - [系统端点](SystemEndpoints.md)
 - [沙盒化服务](SandboxedServices.md)
