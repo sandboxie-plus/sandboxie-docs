@@ -8,7 +8,9 @@
 <div id="_3"></div>
 <div id="_8"></div>
 
-## 配置与调用进程范围 {#configuration-and-caller-scope}
+<div id="configuration-and-caller-scope"></div>
+
+## 配置与调用进程范围
 
 ```ini
 [DefaultBox]
@@ -24,7 +26,9 @@ DropChildProcessToken=parent.exe,y
 <div id="_4"></div>
 <div id="_6"></div>
 
-## 对子进程的影响 {#what-happens-to-the-child}
+<div id="what-happens-to-the-child"></div>
+
+## 对子进程的影响
 
 此设置会从本次创建请求中移除调用进程提供的子进程令牌（`hToken = NULL`）。子进程最终使用何种令牌运行，取决于后续的沙盒模式和令牌处理路径：
 
@@ -38,7 +42,9 @@ DropChildProcessToken=parent.exe,y
 <div id="_7"></div>
 <div id="_10"></div>
 
-## 相关页面 {#related-pages}
+<div id="related-pages"></div>
+
+## 相关页面
 
 - [AppContainer 令牌兼容性](AppContainerTokens.md)
 - [原始令牌](OriginalToken.md)

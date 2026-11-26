@@ -4,7 +4,9 @@
 
 这些设置只影响基于令牌的隔离。文件系统和注册表虚拟化、IPC 控制、网络限制、GUI 隔离以及其他独立的 Sandboxie 机制不受影响。
 
-## 令牌处理阶段 {#token-processing-stages}
+<div id="token-processing-stages"></div>
+
+## 令牌处理阶段
 
 令牌处理的相关部分可以简化为如下流程：
 
@@ -33,7 +35,9 @@ Sandboxie 有新令牌构造路径和历史过滤路径。当前的常规配置�
 
 这只是令牌处理的概念性概述，并非 Sandboxie 完整的隔离模型。
 
-## 通用语法与范围 {#common-syntax-and-scope}
+<div id="common-syntax-and-scope"></div>
+
+## 通用语法与范围
 
 本页面的所有设置都是沙盒级布尔设置：
 
@@ -44,7 +48,7 @@ SettingName=n
 
 当前的运行时查找不按可执行文件限定，因此这些设置不支持 `SettingName=program.exe,y` 这类语法。常规的 Sandboxie 配置和模板继承仍会影响沙盒实际生效的配置。
 
-## NoUntrustedToken {#nountrustedtoken}
+## NoUntrustedToken
 
 ```ini
 NoUntrustedToken=y
@@ -66,7 +70,7 @@ SandMan 在以下位置公开此设置：
 
 该复选框的标签为**使用 低完整性令牌 而不是 不受信任的完整性令牌（会降低隔离）**。
 
-## UnfilteredToken {#unfilteredtoken}
+## UnfilteredToken
 
 ```ini
 UnfilteredToken=y
@@ -84,7 +88,7 @@ UnfilteredToken=n
 
 由于 *DropAdminRights* 参与初步过滤，*UnfilteredToken* 可以绕过其对管理员相关组和选定权限的初步移除。但它不会移除后续的 Sandboxie 限制。
 
-## UnrestrictedToken {#unrestrictedtoken}
+## UnrestrictedToken
 
 ```ini
 UnrestrictedToken=y
@@ -100,7 +104,9 @@ UnrestrictedToken=n
 
 *UnrestrictedToken* 跳过正常的重量级令牌限制阶段，但其他 Sandboxie 隔离机制仍然生效，较早的令牌过滤也可能已经修改过令牌。它不会禁用文件系统或注册表虚拟化与隔离、IPC 控制、网络限制或其他独立的沙盒机制。
 
-## UnfilteredToken 与 UnrestrictedToken 的对比 {#unfilteredtoken-versus-unrestrictedtoken}
+<div id="unfilteredtoken-versus-unrestrictedtoken"></div>
+
+## UnfilteredToken 与 UnrestrictedToken 的对比
 
 | 配置 | 初步过滤 | 限制/重建 |
 |---|---|---|
@@ -111,7 +117,7 @@ UnrestrictedToken=n
 
 同时使用两个选项比单独使用任一选项能保留更多源令牌的特征。这并不会完全禁用 Sandboxie，因为其他隔离层仍然是独立的。
 
-## ReplicateToken {#replicatetoken}
+## ReplicateToken
 
 ```ini
 ReplicateToken=y
@@ -131,7 +137,7 @@ ReplicateToken=n
 
 该实现不会显式复制每一种令牌信息类。研究未能确认会显式复制 `TokenRestrictedSids`、`TokenOrigin`、`TokenSessionId` 或 AppContainer 能力。*ReplicateToken* 在保留源令牌更多属性的同时重建沙盒令牌；不应把它当作对每一个令牌字段的精确克隆。
 
-## CopyDeviceGroups {#copydevicegroups}
+## CopyDeviceGroups
 
 ```ini
 CopyDeviceGroups=y
@@ -155,7 +161,7 @@ CopyDeviceGroups=n
 
 保留设备组信息本身不会恢复管理员权限、更改设备 ACL、禁用 Sandboxie 设备限制或文件和注册表虚拟化、绕过其他安全控制，或授予不受限制的宿主设备访问权限。它不保证应用程序兼容性。
 
-## CopyTokenAttributes {#copytokenattributes}
+## CopyTokenAttributes
 
 ```ini
 CopyTokenAttributes=y
@@ -176,7 +182,7 @@ CopyTokenAttributes=n
 
 属性复制发生在新令牌创建之后，并且是尽力而为的。查询、分配或应用 `TokenSecurityAttributes` 时失败不会使本来成功创建的令牌失效。
 
-## KeepTokenIntegrity {#keeptokenintegrity}
+## KeepTokenIntegrity
 
 ```ini
 KeepTokenIntegrity=y
@@ -192,7 +198,7 @@ KeepTokenIntegrity=n
 
 启用此设置会使 *NoUntrustedToken* 失去意义。当正常的主令牌替换被 *NoSecurityIsolation* 绕过时，它同样是多余的。
 
-## KeepUserGroup {#keepusergroup}
+## KeepUserGroup
 
 ```ini
 KeepUserGroup=y
@@ -206,7 +212,7 @@ KeepUserGroup=n
 
 在正常的组限制过程中，Sandboxie 可以禁用组或将它们转换为仅拒绝。启用 *KeepUserGroup* 后，与令牌用户 SID 相匹配的组会被保留，而不接受这种正常处理。`TokenUser` 身份本身仍可能在后续被正常的匿名登录（Anonymous Logon）或 Sandboxie SID 路径替换。
 
-## UnstrippedToken {#unstrippedtoken}
+## UnstrippedToken
 
 ```ini
 UnstrippedToken=y
@@ -218,19 +224,25 @@ UnstrippedToken=n
 
 *UnstrippedToken* 默认值为 `n`。它会跳过选定的剥离操作，但具体保留哪些属性取决于令牌构造路径。
 
-### 新令牌构造路径 {#modern-token-construction-path}
+<div id="modern-token-construction-path"></div>
+
+### 新令牌构造路径
 
 在新的 `Token_CreateToken` 路径上，启用 *UnstrippedToken* 会跳过正常的组限制转换和完整性级别替换。正常的令牌用户替换仍会发生，权限仍会被削减到新路径的受限权限集，该权限集通常会保留 `SeChangeNotifyPrivilege`。
 
 因此，它不会保留每一个令牌组成部分。
 
-### 历史过滤路径 {#legacy-filtering-path}
+<div id="legacy-filtering-path"></div>
+
+### 历史过滤路径
 
 在历史路径上，完整性处理发生在 *UnstrippedToken* 提前返回之前。后续的组剥离和限制步骤会被跳过。因此，不能把此设置一概等同于 *KeepTokenIntegrity*，两种实现的行为并不一致。
 
 *UnstrippedToken* 的作用比 *UnfilteredToken* 更晚且范围更窄，不如 *UnrestrictedToken* 全面，也不是任何一者的别名。新行为与当前的常规配置最相关，但在其他配置或平台条件下，历史行为的区别仍然存在。
 
-## 与 NoSecurityIsolation 的交互 {#interaction-with-nosecurityisolation}
+<div id="interaction-with-nosecurityisolation"></div>
+
+## 与 NoSecurityIsolation 的交互
 
 当 [`NoSecurityIsolation=y`](NoSecurityIsolation.md) 时，Sandboxie 通常会绕过主令牌替换。因此，本页面介绍的设置对于正常主令牌而言通常是多余的，或者根本不会被执行：
 
@@ -246,13 +258,17 @@ UnstrippedToken=n
 
 该模式更广泛的影响参见 [无安全隔离](NoSecurityIsolation.md)。
 
-## 与管理权限相关设置的交互 {#interaction-with-administrative-rights-settings}
+<div id="interaction-with-administrative-rights-settings"></div>
+
+## 与管理权限相关设置的交互
 
 [`DropAdminRights`](DropAdminRights.md) 执行真正的令牌过滤，包括禁用管理员相关组和移除选定权限。*UnfilteredToken* 可以绕过其初步过滤阶段，而单独启用 *UnrestrictedToken* 不会恢复在那里已被移除的属性。*KeepTokenIntegrity* 可以保留高完整性级别，但不会恢复管理员组或权限。
 
 [`FakeAdminRights`](FakeAdminRights.md) 则不同：其当前实现主要使用兼容性钩子，使选定的管理员检查看起来成功。它不会恢复被令牌过滤移除的真实管理员组或权限。
 
-## SandMan 配置 {#sandman-configuration}
+<div id="sandman-configuration"></div>
+
+## SandMan 配置
 
 在本页面的设置中，只有 *NoUntrustedToken* 有当前 SandMan 中的专用控件：
 
@@ -260,11 +276,15 @@ UnstrippedToken=n
 
 其余设置是高级的手动 [`Sandboxie.ini`](SandboxieIni.md) 选项。对于 *CopyDeviceGroups*，请使用**沙盒选项 > 配置文本 > 编辑配置**；没有专用的复选框。
 
-## Sandboxie Plus 与 Classic {#sandboxie-plus-and-classic}
+<div id="sandboxie-plus-and-classic"></div>
+
+## Sandboxie Plus 与 Classic
 
 令牌处理由共享的 Sandboxie 组件实现。SandMan 公开 *NoUntrustedToken* 控件，而本页面的其他设置使用手动配置。当前源代码中不包含等效的专用 Sandboxie Control Classic 控件，但共享运行时在适用的情况下可以使用兼容的手动 INI 设置。Classic 通过**配置 > 编辑配置**提供手动编辑。
 
-## 应用配置更改 {#applying-configuration-changes}
+<div id="applying-configuration-changes"></div>
+
+## 应用配置更改
 
 这些设置主要在 Sandboxie 准备、过滤或创建进程令牌时被读取。更改它们不会追溯性地重建已分配的主令牌。更改设置后请重启受影响的沙盒化进程；重建沙盒化进程树可获得一致的行为。通常不需要重启 SandMan、服务或驱动程序。
 
@@ -272,7 +292,9 @@ UnstrippedToken=n
 
 *CopyDeviceGroups* 决策在到达新令牌构造时求值，包括后续相关的模拟令牌处理；它不是仅在进程启动时读取一次的缓存。后续读取配置不会重建已有的主令牌。
 
-## 失败行为 {#failure-behavior}
+<div id="failure-behavior"></div>
+
+## 失败行为
 
 必要的令牌过滤、构造或分配失败会导致进程初始化失败，而不会故意回退到限制较少的宿主令牌。具体的错误取决于失败的操作。
 
@@ -280,7 +302,9 @@ UnstrippedToken=n
 
 可选的 *CopyTokenAttributes* 步骤也有所不同：复制 `TokenSecurityAttributes` 失败不会使本来成功创建的令牌失效。
 
-## 版本历史 {#version-history}
+<div id="version-history"></div>
+
+## 版本历史
 
 - *UnfilteredToken* 和 *UnrestrictedToken* 自 Sandboxie Plus 0.2.1 / Classic 5.41.1 起存在。
 - *KeepTokenIntegrity* 自 Sandboxie Plus 0.3.0 / Classic 5.42 起存在。
@@ -289,7 +313,9 @@ UnstrippedToken=n
 - *CopyDeviceGroups* 在 Sandboxie Plus 1.17.0 / Classic 5.72.0 中引入。
 - 专用的 *NoUntrustedToken* SandMan 控件在 Sandboxie Plus 1.17.0 / Classic 5.72.0 时期的变更中有记录。
 
-## 相关页面 {#related-pages}
+<div id="related-pages"></div>
+
+## 相关页面
 
 - [隔离机制](IsolationMechanism.md)
 - [无安全隔离](NoSecurityIsolation.md)

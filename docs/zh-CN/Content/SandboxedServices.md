@@ -4,7 +4,7 @@ Sandboxie 可以拦截并模拟选定的 Windows 服务控制管理器（SCM）�
 
 它并不是对 Windows SCM 的完整克隆或完全虚拟化。Sandboxie 有选择地拦截并模拟 SCM 操作，把沙盒化服务的配置与状态保存在沙盒内，并使用 SbieSvc 执行权限操作或与真实 SCM 通信。
 
-## SandboxService {#sandboxservice}
+## SandboxService
 
 `SandboxService` 用于选择应使用 Sandboxie 沙盒化服务模型的服务：
 
@@ -23,7 +23,9 @@ SandboxService=ServiceTwo
 
 `SandboxService` 本身不会选择 SYSTEM 身份。它只影响匹配的服务是否按沙盒化服务处理。
 
-## 服务被视为沙盒化的条件 {#what-makes-a-service-sandboxed}
+<div id="what-makes-a-service-sandboxed"></div>
+
+## 服务被视为沙盒化的条件
 
 在其他内部路径之外，Sandboxie 可以在以下情况下把服务归类为沙盒化：
 
@@ -33,7 +35,9 @@ SandboxService=ServiceTwo
 
 这些内置情形属于实现细节，不应被视为 `SandboxService` 所支持服务的通用清单。
 
-## 启动沙盒化服务 {#starting-a-sandboxed-service}
+<div id="starting-a-sandboxed-service"></div>
+
+## 启动沙盒化服务
 
 当被拦截的 `StartService` 请求指向一个被归类为沙盒内的服务时，Sandboxie 不会简单地要求宿主 SCM 启动已有的宿主实例。大致流程如下：
 
@@ -60,13 +64,15 @@ SbieSvc 通过 Sandboxie 启动服务可执行文件
 
 已经在运行的宿主服务不会被自动移入沙盒、被终止或被收编为沙盒化实例。某个服务是否支持独立的沙盒化实例，取决于该服务本身。如果服务缺失，或无法通过沙盒化服务路径启动，操作会失败，而不会有意回退去启动真实的宿主服务。
 
-## 沙盒化 SCM 模型 {#sandboxed-scm-model}
+<div id="sandboxed-scm-model"></div>
+
+## 沙盒化 SCM 模型
 
 SbieDll 拦截服务的打开、创建、启动、查询和调度器路径。在沙盒内创建的服务配置可以通过虚拟化的注册表状态保存，Sandboxie 会在需要时维护合成的句柄或服务状态。当某项操作是针对宿主服务的，SbieSvc 会执行权限操作并与真实 SCM 通信。
 
 这种分工让沙盒化进程可以使用熟悉的 SCM API，但并不意味着每一种 SCM 行为都被完全虚拟化。
 
-## RunServiceAsSystem {#runserviceassystem}
+## RunServiceAsSystem
 
 `RunServiceAsSystem` 为指定的沙盒化服务选择 SYSTEM 源身份：
 
@@ -78,7 +84,7 @@ RunServiceAsSystem=ServiceName
 
 `RunServiceAsSystem` 改变的是启动匹配的沙盒化服务时使用的源身份。它本身不会把宿主服务移入沙盒。该服务必须另行被归类为沙盒化，例如通过 `SandboxService`。
 
-## RunServicesAsSystem {#runservicesassystem}
+## RunServicesAsSystem
 
 宽泛形式如下：
 
@@ -90,13 +96,15 @@ RunServicesAsSystem=y
 
 历史元数据中提到 RpcSs 和 DcomLaunch 的表述，并不完整描述当前的可执行文件行为。该设置既不限于这两个名称，也不是“无论特例如何、每个沙盒化服务都会使用 SYSTEM”的无条件保证。
 
-### 选择性形式与宽泛形式 {#selective-and-broad-forms}
+<div id="selective-and-broad-forms"></div>
+
+### 选择性形式与宽泛形式
 
 `RunServiceAsSystem=<name>` 只针对指定的服务。`RunServicesAsSystem=y` 启用更宽泛的 SYSTEM 源选择，因此未被选择性设置点名的服务，在当前逻辑允许的情况下仍可走宽泛路径。添加选择性条目不会取消针对其他服务的全局设置。
 
 当只有特定服务需要 SYSTEM 源身份时，选择性形式更有用。
 
-## RunRpcssAsSystem {#runrpcssassystem}
+## RunRpcssAsSystem
 
 `RunRpcssAsSystem` 控制 SbieSvc 启动与沙盒关联的 RpcSs 进程时使用的源身份：
 
@@ -109,7 +117,9 @@ RunRpcssAsSystem=y
 > [!WARNING]
 > 以 SYSTEM 源令牌启动沙盒化 RpcSs，会放大该进程仍可访问的资源被滥用时的后果。仅在确有需要时使用此兼容性选项。它本身并不会把 RpcSs 移出沙盒。
 
-### 应用隔间与 OriginalToken {#application-compartment-and-originaltoken}
+<div id="application-compartment-and-originaltoken"></div>
+
+### 应用隔间与 OriginalToken
 
 当前的服务启动逻辑在以下两个条件同时成立时，可以自动选择相同的 SYSTEM 源路径：
 
@@ -120,7 +130,9 @@ RunRpcssAsSystem=y
 
 沙盒化的 DcomLaunch 通过沙盒化 RpcSs/服务器流程启动。上述显式的令牌源决定是针对 RpcSs 启动做出的；不应将其推广为一条独立的、完全相同的 DcomLaunch 令牌选择规则。
 
-### SandMan 控件 {#sandman-control}
+<div id="sandman-control"></div>
+
+### SandMan 控件
 
 该控件位于 **沙盒选项 > 安全选项 > 高级安全**，标签为：
 
@@ -130,7 +142,9 @@ SandMan 会从显式的 `RunRpcssAsSystem` 值加载此复选框。在应用隔�
 
 有关绑定解析、端点过滤、超时行为和沙盒化 RpcSs 启动架构，参见 [RPC 兼容性](RpcCompatibility.md)。
 
-## “以 SYSTEM 身份”的含义 {#what-as-system-means}
+<div id="what-as-system-means"></div>
+
+## “以 SYSTEM 身份”的含义
 
 对于这条服务启动路径，Sandboxie 从以 LocalSystem 身份运行的 SbieSvc 获取源令牌，复制主令牌、调整其会话，并用它启动沙盒化的服务进程。在适用的情况下，Sandboxie 默认还会执行服务侧的权限剥离。
 
@@ -144,11 +158,15 @@ SandMan 会从显式的 `RunRpcssAsSystem` 值加载此复选框。在应用隔�
 
 `NoSecurityIsolation` / 应用隔间会改变后续的令牌与隔离行为，因此本页的设置并不保证在任何沙盒模式下都得到完全相同的最终令牌。
 
-## 相关的特殊情形 {#related-special-cases}
+<div id="related-special-cases"></div>
+
+## 相关的特殊情形
 
 [MSI 安装程序豁免](MsiInstallerExemptions.md) 可以改变 MSIServer 的处理方式，CryptSvc 也有当前的特例行为。这些机制与服务身份相关，但并不是本页所记录设置的通用替代品。
 
-## Chromium 提权模板 {#chromium-elevation-template}
+<div id="chromium-elevation-template"></div>
+
+## Chromium 提权模板
 
 当前的 `Chromium_Elevation` 模板使用以下模式：
 
@@ -189,13 +207,17 @@ RunServiceAsSystem=BraveElevationService
 
 该模板由 Sandboxie 维护，通常无需手动复制。
 
-## 与 DPAPI 的关系 {#dpapi-relationship}
+<div id="dpapi-relationship"></div>
+
+## 与 DPAPI 的关系
 
 Sandboxie 有独立的 DPAPI 兼容性与代理处理。近期的 Chromium 提权工作调整了涉及以 SYSTEM 运行服务的 DPAPI 场景所使用的身份。
 
 `OpenSamEndpoint` 并不实现 DPAPI，也不解密凭据。兼容性仍取决于有效的 Windows 身份、Windows DPAPI 规则、Chromium 的行为与策略、应用绑定加密或相关机制，以及提权服务的可用性与配置。本页的设置不保证能够访问宿主凭据。
 
-## 失败时的行为 {#failure-behavior}
+<div id="failure-behavior"></div>
+
+## 失败时的行为
 
 沙盒化服务路径没有“沙盒内启动失败后再启动真实宿主服务”的通用回退：
 
@@ -207,7 +229,9 @@ Sandboxie 有独立的 DPAPI 兼容性与代理处理。近期的 Chromium 提�
 
 具体的 Windows 错误可能取决于失败发生的环节。
 
-## 应用更改 {#applying-changes}
+<div id="applying-changes"></div>
+
+## 应用更改
 
 `SandboxService` 会在服务分类和启动操作期间被评估。新值可以影响后续的启动，但不会移动已经在运行的服务实例。
 
@@ -215,7 +239,9 @@ Sandboxie 有独立的 DPAPI 兼容性与代理处理。近期的 Chromium 提�
 
 更改服务身份设置后，请重启受影响的沙盒化服务或进程。需要进行干净的配置测试时，请重建沙盒化的进程树。通常不需要重启 SandMan、SbieSvc 或驱动程序。
 
-## SandMan 配置 {#sandman-configuration}
+<div id="sandman-configuration"></div>
+
+## SandMan 配置
 
 宽泛设置暴露在 **沙盒选项 > 安全选项 > 高级安全** 下，标签为：
 
@@ -228,11 +254,15 @@ Sandboxie 有独立的 DPAPI 兼容性与代理处理。近期的 Chromium 提�
 
 `SandboxService` 和 `RunServiceAsSystem` 目前没有专门的 SandMan 控件；它们是手动设置或模板设置。新沙盒向导不会暴露这些控件。
 
-## Sandboxie Plus 与 Classic {#sandboxie-plus-and-classic}
+<div id="sandboxie-plus-and-classic"></div>
+
+## Sandboxie Plus 与 Classic
 
 运行时由共享的 Sandboxie 组件实现。SandMan 提供当前的 `RunServicesAsSystem` 控件，而 `SandboxService` 和 `RunServiceAsSystem` 仍属手动或模板设置。这并不意味着 Sandboxie Control（Classic）中有等效的当前控件。
 
-## 版本历史 {#version-history}
+<div id="version-history"></div>
+
+## 版本历史
 
 | 设置或变更 | 引入版本 |
 | --- | --- |
@@ -245,7 +275,9 @@ Sandboxie 有独立的 DPAPI 兼容性与代理处理。近期的 Chromium 提�
 
 这些服务设置早于它们当前在 Chromium 提权中的用途。
 
-## 相关页面 {#related-pages}
+<div id="related-pages"></div>
+
+## 相关页面
 
 - [RPC 兼容性](RpcCompatibility.md)
 - [系统端点](SystemEndpoints.md)

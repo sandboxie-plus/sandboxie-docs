@@ -16,9 +16,17 @@
 
 [高级令牌设置](AdvancedTokenSettings.md)
 
+[启动前警报](AlertBeforeStart.md)
+
 [警报文件夹](AlertFolder.md)
 
 [警报进程](AlertProcess.md)
+
+[启动/运行访问被拒绝时警报](AlertStartRunAccessDenied.md)
+
+[允许嵌套作业对象](AllowBoxedJobs.md)
+
+[允许强制系统身份](AllowForceSystem.md)
 
 [允许网络访问](AllowNetworkAccess.md)
 
@@ -33,6 +41,8 @@
 [应用程序设置](ApplicationsSettings.md)
 
 [使用现代沙盒管理器界面申请支持者证书](../PlusContent/applying-supporter-certificate.md)
+
+[NT 系统调用审批](ApproveWinNtSysCall.md)
 
 [Win32 系统调用审批](ApproveWin32SysCall.md)
 
@@ -100,6 +110,8 @@
 
 [分离文档进程](BreakoutDocumentProcess.md)
 
+[分离执行](BreakoutExecution.md)
+
 [分离文件夹](BreakoutFolder.md)
 
 [分离沙盒进程](BreakoutProcess.md)
@@ -144,6 +156,8 @@
 
 [CPU 亲和性掩码](CpuAffinityMask.md)
 
+[CPU 速率限制](CpuRateLimit.md)
+
 [自定义 Chromium 启动参数](CustomChromiumFlags.md)
 
 [自定义区域设置/语言 ID](CustomLCID.md)
@@ -177,6 +191,8 @@
 [禁用对象过滤器](DisableObjectFilter.md)
 
 [禁用 RT 黑名单](DisableRTBlacklist.md)
+
+[禁用 WinNt 钩子](DisableWinNtHook.md)
 
 [磁盘序列号](DiskSerialNumber.md)
 
@@ -334,6 +350,8 @@
 
 ### J
 
+[作业对象](JobObjects.md)
+
 ### K
 
 [KeepBroadGroupsInAppContainerToken](KeepBroadGroupsInAppContainerToken.md)
@@ -392,11 +410,17 @@
 
 [不重命名窗口类](NoRenameWinClass.md)
 
+[无 Sandboxie 控制台](NoSandboxieConsole.md)
+
 [不启动沙盒化 RpcSs](NoSandboxieRpcSs.md)
 
 [无安全过滤](NoSecurityFiltering.md)
 
 [无安全隔离](NoSecurityIsolation.md)
+
+[无系统调用钩子](NoSysCallHooks.md)
+
+[无 UAC 代理](NoUACProxy.md)
 
 [不使用不可信令牌](NoUntrustedToken.md)
 
@@ -406,11 +430,25 @@
 
 [标准注册表路径](NormalKeyPath.md)
 
+[通知设置](NotificationSettings.md)
+
+[沙盒受保护时通知](NotifyBoxProtected.md)
+
 [直接磁盘访问时通知](NotifyDirectDiskAccess.md)
+
+[强制进程被禁用时通知](NotifyForceProcessDisabled.md)
+
+[强制进程已启用时通知](NotifyForceProcessEnabled.md)
+
+[映像加载被拒绝时通知](NotifyImageLoadDenied.md)
 
 [互联网访问被拒绝时通知](NotifyInternetAccessDenied.md)
 
+[MSI 安装程序通知](NotifyMsiInstaller.md)
+
 [进程访问被拒绝时通知](NotifyProcessAccessDenied.md)
+
+[沙盒根目录受保护时通知](NotifyRootProtected.md)
 
 [启动/运行访问被拒绝时通知](NotifyStartRunAccessDenied.md)
 
@@ -421,6 +459,8 @@
 ### O
 
 [对象名称查找兼容性](ObjectLookupCompatibility.md)
+
+[开放所有系统调用](OpenAllSysCalls.md)
 
 [开放剪贴板](OpenClipboard.md)
 
@@ -453,6 +493,8 @@
 [开放 WPAD 端点](OpenWPADEndpoint.md)
 
 [原始令牌](OriginalToken.md)
+
+[覆盖操作系统构建号](OverrideOsBuild.md)
 
 ### P
 
@@ -541,6 +583,8 @@
 [资源访问监视器（适用于 Sandboxie 经典版）](ResourceAccessMonitor.md)
 
 [资源访问设置](ResourceAccessSettings.md)
+
+[限制设备访问](RestrictDevices.md)
 
 [限制设置](RestrictionsSettings.md)
 
@@ -904,6 +948,8 @@
 
 [启动程序](StartProgram.md)
 
+[启动/运行警报时拒绝启动](StartRunAlertDenied.md)
+
 [启动服务](StartService.md)
 
 [启动系统沙盒](StartSystemBox.md)
@@ -911,6 +957,10 @@
 [剥离 SYSTEM 权限](StripSystemPrivileges.md)
 
 [支持者证书](../PlusContent/supporter-certificate.md)
+
+[系统调用锁定](SysCallLockDown.md)
+
+[系统调用设置](SyscallSettings.md)
 
 [系统端点](SystemEndpoints.md)
 
@@ -955,6 +1005,8 @@
 [模板 URL](Tmpl.Url.md)
 
 [模板版本](Tmpl.Version.md)
+
+[终止作业对象](TerminateJobObject.md)
 
 [总内存限制](TotalMemoryLimit.md)
 

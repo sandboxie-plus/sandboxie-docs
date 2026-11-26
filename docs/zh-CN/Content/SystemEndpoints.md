@@ -14,7 +14,9 @@ OpenWPADEndpoint=y
 
 这三个设置都是沙盒范围的布尔选项，默认禁用，且不按可执行文件限定。它们可以通过常规的有效 Sandboxie 配置（包括模板）继承。
 
-## IPC 可达性与端点过滤 {#ipc-reachability-and-endpoint-filtering}
+<div id="ipc-reachability-and-endpoint-filtering"></div>
+
+## IPC 可达性与端点过滤
 
 Sandboxie 把通用的 IPC 可达性与端点专属的请求过滤作为两个独立的层来处理：
 
@@ -56,7 +58,9 @@ Sandboxie 在 SbieDrv 中直接处理以下固定端点：
 
 `OpenLsaEndpoint` 会禁用 Sandboxie 针对 `LSARPC_ENDPOINT` 上敏感操作的专门过滤器。它不会授予对 LSA 的不受限制的访问权限，也不会禁用 Windows 正常的访问检查。
 
-### 安全背景 {#security-history}
+<div id="security-history"></div>
+
+### 安全背景
 
 LSA 端点过滤器在 Sandboxie Plus 0.5.4 / Classic 5.46.0 中引入，用于应对后来被追踪为安全议题 ID-8 / CVE-2019-13502 的问题。该过滤器仍然默认启用；`OpenLsaEndpoint=y` 是为需要执行会被该过滤器拒绝的操作的软件提供的兼容性放宽。
 
@@ -80,7 +84,9 @@ Sandboxie 同样在 SbieDrv 中直接处理以下固定端点：
 
 该过滤器及其兼容性设置在 Sandboxie Plus 0.7.0 / Classic 5.48.0 中引入，起因是一起涉及提权后的沙盒化进程修改帐户或密码状态的安全问题。
 
-### Chromium 提权服务 {#chromium-elevation-services}
+<div id="chromium-elevation-services"></div>
+
+### Chromium 提权服务
 
 当前的 Chromium 提权兼容性模板按以下模式组合这些设置：
 
@@ -125,7 +131,9 @@ Sandboxie 通常会为该端点注册一个过滤器，用于处理与代理配�
 
 因此，`OpenWPADEndpoint` 允许那些原本会被 Sandboxie 过滤的 WPAD 操作。它不会提供不受限制的网络、代理、WinHTTP 或 Internet 访问权限。
 
-## 固定实现与动态实现 {#fixed-and-dynamic-implementations}
+<div id="fixed-and-dynamic-implementations"></div>
+
+## 固定实现与动态实现
 
 这些设置的效果在概念上相似，但使用不同的实现路径：
 
@@ -135,11 +143,15 @@ Sandboxie 通常会为该端点注册一个过滤器，用于处理与代理配�
 | `OpenSamEndpoint` | 在 SbieDrv 中直接过滤的固定端点 | 跳过专门的 SAM 请求过滤器 |
 | `OpenWPADEndpoint` | 由 SbieDll 与 SbieSvc 解析、再注册到 SbieDrv 的动态端点 | 在不附带专门消息过滤器的情况下注册 WPAD |
 
-## 与 BlockPassword 的关系 {#blockpassword-relationship}
+<div id="blockpassword-relationship"></div>
+
+## 与 BlockPassword 的关系
 
 [`BlockPassword`](BlockPassword.md) 控制的是另一项遗留的 LSA 身份验证与密码相关过滤器。当前运行时仍会查询它，尽管在现代的密码更改兼容性场景中，它已被 `OpenSamEndpoint` 取代。它不是 `OpenLsaEndpoint` 或 `OpenSamEndpoint` 的别名。`OpenLsaSSPI` 尚未被确认为当前的 INI 设置。
 
-## SandMan 配置 {#sandman-configuration}
+<div id="sandman-configuration"></div>
+
+## SandMan 配置
 
 这些控件位于 **沙盒选项 > 常规选项 > 隔离**：
 
@@ -153,7 +165,9 @@ Sandboxie 通常会为该端点注册一个过滤器，用于处理与代理配�
 
 这些控件目前未在新沙盒向导中提供。
 
-## 应用更改 {#applying-changes}
+<div id="applying-changes"></div>
+
+## 应用更改
 
 LSA 和 SAM 设置会在沙盒化进程的 IPC 初始化期间被缓存。更改后，请重启受影响的沙盒化进程，或重建沙盒化的进程树。
 
@@ -161,15 +175,21 @@ LSA 和 SAM 设置会在沙盒化进程的 IPC 初始化期间被缓存。更改
 
 这些设置并不普遍要求重启 SandMan、SbieSvc 或驱动程序。
 
-## 失败时的行为 {#failure-behavior}
+<div id="failure-behavior"></div>
+
+## 失败时的行为
 
 被其常规专门过滤器选中的 LSA 和 SAM 操作会被拒绝。如果 WPAD 端点解析或注册失败，相应的 RPC 或绑定操作可能失败；目前没有确立不受限制的回退路径。通用的 IPC 策略也可能在到达端点专属过滤之前就拒绝通信。可观察到的错误取决于失败的层级，因此单一错误码无法描述所有情况。
 
-## Sandboxie Plus 与 Classic {#sandboxie-plus-and-classic}
+<div id="sandboxie-plus-and-classic"></div>
+
+## Sandboxie Plus 与 Classic
 
 运行时支持由共享的 Sandboxie 组件实现。SandMan 提供上文所述的控件，兼容的手动设置也可以被共享运行时读取。这并不意味着 Sandboxie Control（Classic）提供等效的当前控件。
 
-## 版本历史 {#version-history}
+<div id="version-history"></div>
+
+## 版本历史
 
 | 设置 | 引入版本 |
 | --- | --- |
@@ -177,7 +197,9 @@ LSA 和 SAM 设置会在沙盒化进程的 IPC 初始化期间被缓存。更改
 | `OpenSamEndpoint` | Sandboxie Plus 0.7.0 / Classic 5.48.0 |
 | `OpenWPADEndpoint` | Sandboxie Plus 1.15.0 / Classic 5.70.0 |
 
-## 相关页面 {#related-pages}
+<div id="related-pages"></div>
+
+## 相关页面
 
 - [RPC 兼容性](RpcCompatibility.md)
 - [开放 IPC 路径](OpenIpcPath.md)
