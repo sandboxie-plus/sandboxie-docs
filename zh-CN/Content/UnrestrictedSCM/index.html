@@ -1579,7 +1579,7 @@
   <span class="md-ellipsis">
     
   
-    File Recovery Architecture
+    文件恢复架构
   
 
     
@@ -2208,7 +2208,7 @@
   <span class="md-ellipsis">
     
   
-    Breakout Execution
+    分离执行
   
 
     
@@ -2650,7 +2650,7 @@
   <span class="md-ellipsis">
     
   
-    Notification Settings
+    通知设置
   
 
     
@@ -7354,7 +7354,7 @@
   <span class="md-ellipsis">
     
   
-    System Call Settings
+    系统调用设置
   
 
     
@@ -7708,7 +7708,7 @@
   <span class="md-ellipsis">
     
   
-    Job Objects
+    作业对象
   
 
     
@@ -7808,10 +7808,14 @@
 <p class="admonition-title">Warning</p>
 <p>启用此设置会削弱隔离。仅应在已确定存在服务兼容性需求时才使用它。</p>
 </div>
-<h2 id="what-the-setting-changes">该设置改变的内容<a class="headerlink" href="#what-the-setting-changes" title="Permanent link"></a></h2>
+<div id="what-the-setting-changes"></div>
+
+<h2 id="_1">该设置改变的内容<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
 <p>当全局路径 <code>RunServicesAsSystem=y</code> 为沙盒化服务选择 SYSTEM 源令牌时，SbieSvc 通常会检查调用方对真实 Windows SCM 是否会具有 <code>SC_MANAGER_ALL_ACCESS</code> 权限。它会获取 SCM 的安全描述符，并使用适合该沙盒模式的调用方令牌执行 Windows 访问检查。如果该检查失败，Sandboxie 会拒绝此次 SYSTEM 服务启动。</p>
 <p><em>UnrestrictedSCM</em> 会绕过该项特定的权限检查。它不会授予每个沙盒化进程不受限的 SCM 访问权限，也不会禁用 Sandboxie 通用的 SCM 拦截与模拟。</p>
-<h2 id="related-service-controls">相关服务控制项<a class="headerlink" href="#related-service-controls" title="Permanent link"></a></h2>
+<div id="related-service-controls"></div>
+
+<h2 id="_2">相关服务控制项<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <p><em>UnrestrictedSCM</em> 不会：</p>
 <ul>
 <li>启用 <code>RunServicesAsSystem</code>；</li>
@@ -7823,7 +7827,9 @@
 <p><code>RunServicesAsSystem</code> 和 <code>RunServiceAsSystem</code> 通过各自独立的全局路径和按服务路径选择 SYSTEM 源身份。这些设置参见 <a href="../SandboxedServices/">Sandboxed Services</a>。</p>
 <p>Sandboxie 会在 <em>UnrestrictedSCM</em> 检查之前求值 <a href="../DropAdminRights/">撤销管理员权限</a>。如果撤销权限策略已经拒绝了提升权限路径，启用 <em>UnrestrictedSCM</em> 也不会覆盖该拒绝结果。</p>
 <p><code>SandboxieDcomLaunch.exe</code> 有单独的内置授权例外，不需要 <em>UnrestrictedSCM</em>。</p>
-<h2 id="configuration-scope">配置范围<a class="headerlink" href="#configuration-scope" title="Permanent link"></a></h2>
+<div id="configuration-scope"></div>
+
+<h2 id="_3">配置范围<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
 <p><em>UnrestrictedSCM</em> 是一项沙盒级布尔设置。当沙盒未提供覆盖值时，适用的模板和全局设置回退值可以参与构成其生效值。系统在执行相关服务启动授权时查询此设置，因此重新加载配置可能会影响后续的请求；它不会改变已在运行的服务进程。</p>
 <h2 id="sandman">SandMan<a class="headerlink" href="#sandman" title="Permanent link"></a></h2>
 <p>打开<strong>沙盒选项 &gt; 安全选项 &gt; 高级安全</strong>，使用：</p>
@@ -7836,9 +7842,13 @@
 <li>未选中：SandMan 可以写入 <code>UnrestrictedSCM=y</code>。</li>
 </ul>
 <p>SandMan 会将带有 <code>UnrestrictedSCM=y</code> 的沙盒识别为<strong>削弱隔离</strong>。</p>
-<h2 id="version-history">版本历史<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
+<div id="version-history"></div>
+
+<h2 id="_4">版本历史<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
 <p><em>UnrestrictedSCM</em> 在 Sandboxie Plus 0.3 / Classic 5.42 中引入，是用于禁用在 Security Issue ID-3 修复中添加的 SCM 访问检查的调试选项。</p>
-<h2 id="related-pages">相关页面<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
+<div id="related-pages"></div>
+
+<h2 id="_5">相关页面<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
 <ul>
 <li><a href="../SandboxedServices/">Sandboxed Services</a></li>
 <li><a href="../DropAdminRights/">撤销管理员权限</a></li>

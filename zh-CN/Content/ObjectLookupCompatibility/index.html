@@ -1583,7 +1583,7 @@
   <span class="md-ellipsis">
     
   
-    File Recovery Architecture
+    文件恢复架构
   
 
     
@@ -2212,7 +2212,7 @@
   <span class="md-ellipsis">
     
   
-    Breakout Execution
+    分离执行
   
 
     
@@ -2654,7 +2654,7 @@
   <span class="md-ellipsis">
     
   
-    Notification Settings
+    通知设置
   
 
     
@@ -7360,7 +7360,7 @@
   <span class="md-ellipsis">
     
   
-    System Call Settings
+    系统调用设置
   
 
     
@@ -7713,7 +7713,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#object-name-lookup-in-sandboxie" class="md-nav__link">
+  <a href="#sandboxie" class="md-nav__link">
     <span class="md-ellipsis">
       
         Sandboxie 中的对象名称查找
@@ -7746,7 +7746,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-the-settings-interact" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
         两项设置如何相互影响
@@ -7757,7 +7757,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#applying-changes" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
         应用更改
@@ -7768,7 +7768,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#version-history" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
         版本历史
@@ -7779,7 +7779,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#related-pages" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         相关页面
@@ -7840,7 +7840,7 @@
   <span class="md-ellipsis">
     
   
-    Job Objects
+    作业对象
   
 
     
@@ -7932,7 +7932,9 @@
 
 <h1 id="object-lookup-compatibility">对象名称查找兼容性<a class="headerlink" href="#object-lookup-compatibility" title="Permanent link"></a></h1>
 <p><code>UseDriverObjLookup</code> 与 <code>UseObjectNameForKeys</code> 是两项高级兼容性设置，用于控制 Sandboxie 如何从既有对象与注册表项句柄取得名称。两者都默认禁用。它们改变的是 Sandboxie 内部的名称解析，而不是那些授予或拒绝对文件、注册表项或命名对象访问的规则。</p>
-<h2 id="object-name-lookup-in-sandboxie">Sandboxie 中的对象名称查找<a class="headerlink" href="#object-name-lookup-in-sandboxie" title="Permanent link"></a></h2>
+<div id="object-name-lookup-in-sandboxie"></div>
+
+<h2 id="sandboxie">Sandboxie 中的对象名称查找<a class="headerlink" href="#sandboxie" title="Permanent link"></a></h2>
 <p>某些 Sandboxie 路径处理操作需要取得与已打开句柄关联的名称。Sandboxie 内部的 <code>Obj_GetObjectName</code> 辅助函数通常通过 <code>NtQueryObject</code> 向 Windows 请求 <code>ObjectNameInformation</code>。其他内部的文件、IPC 以及选定的安全对象路径也使用这一辅助函数。这与 Sandboxie 为应用程序自身的 <code>NtQueryObject</code> 调用所设的钩子不同：启用 <code>UseDriverObjLookup</code> 并不会把每一个此类调用都改由驱动程序处理。</p>
 <h2 id="usedriverobjlookup">UseDriverObjLookup<a class="headerlink" href="#usedriverobjlookup" title="Permanent link"></a></h2>
 <p>在标准沙盒中，<code>UseDriverObjLookup=y</code> 会让 Sandboxie 内部的对象名称辅助函数请求 Sandboxie 驱动程序来解析句柄名称，而不是使用它常规的用户态 <code>NtQueryObject</code> 查找：</p>
@@ -7948,7 +7950,9 @@
 </span></code></pre></div>
 <p>该选项不会替换所有 <code>NtQueryKey</code> 调用，也不改变注册表访问规则。当某个操作没有根句柄时，这一选择不参与其路径的构造。</p>
 <p>保留该替代方案是为了兼容性：早先基于 <code>NtQueryObject</code> 的根名称查找已被回退，它曾解决 <code>NtQueryKey</code> 对某些项可能失败的情况，但在 Windows 10 版本 1803 及更早版本上引发了问题。这属于历史背景，并不意味着今天应在某个特定的 Windows 版本上启用它。</p>
-<h2 id="how-the-settings-interact">两项设置如何相互影响<a class="headerlink" href="#how-the-settings-interact" title="Permanent link"></a></h2>
+<div id="how-the-settings-interact"></div>
+
+<h2 id="_1">两项设置如何相互影响<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
 <table>
 <thead>
 <tr>
@@ -7981,15 +7985,21 @@
 </tbody>
 </table>
 <p>两项设置互不要求对方先启用。所选查找失败时，失败结果会返回给调用方，而不会自动切换到另一种查找方式。</p>
-<h2 id="applying-changes">应用更改<a class="headerlink" href="#applying-changes" title="Permanent link"></a></h2>
+<div id="applying-changes"></div>
+
+<h2 id="_2">应用更改<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <p>这些是沙盒范围的“是/否”设置，既不是按可执行文件限定的规则，也不是进程组规则。有效值可以来自沙盒自身、<code>[GlobalSettings]</code> 或某个适用的已启用模板。Sandboxie 会在沙盒化进程中初始化其 DLL 时读取各项取值，因此更改后请重启受影响的沙盒化进程。新进程读取更改后的配置，通常不需要重启驱动程序、服务或 Windows。</p>
 <p>SandMan 没有为这两项设置提供专用复选框，也没有把它们列入内置的高级选项建议。它的 <strong>沙盒选项 &gt; 高级选项 &gt; 杂项 &gt; 添加选项</strong> 字段接受手动输入的选项名；上面的示例同时给出了直接写 <code>Sandboxie.ini</code> 的形式。</p>
-<h2 id="version-history">版本历史<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
+<div id="version-history"></div>
+
+<h2 id="_3">版本历史<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
 <ul>
 <li><code>UseObjectNameForKeys</code> 在 Sandboxie Plus 0.8.8 / Classic 5.50.8 中作为按需启用的兼容性设置加入。</li>
 <li><code>UseDriverObjLookup</code> 针对罕见的对象名称查询挂起情形，在 Sandboxie Plus 1.10.3 / Classic 5.65.3 中加入。</li>
 </ul>
-<h2 id="related-pages">相关页面<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
+<div id="related-pages"></div>
+
+<h2 id="_4">相关页面<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
 <ul>
 <li><a href="../SandboxieIni/">Sandboxie Ini</a> 说明了沙盒配置与继承。</li>
 <li><a href="../KeyRootPath/">注册表根路径</a> 描述了沙盒注册表配置单元挂载在哪里；它并不选择根句柄的查找方式。</li>

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="NoSandboxieConsole is an advanced debug and compatibility setting that bypasses Sandboxie&#x27;s custom console-redirection and proxy path.">
+        <meta name="description" content="NoSandboxieConsole 是一项高级调试与兼容性设置，用于绕过 Sandboxie 自定义的控制台重定向与代理路径。">
       
       
       
@@ -29,7 +29,7 @@
     
     
       
-        <title>No Sandboxie Console - Sandboxie 文档</title>
+        <title>无 Sandboxie 控制台 - Sandboxie 文档</title>
       
     
     
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              No Sandboxie Console
+              无 Sandboxie 控制台
             
           </span>
         </div>
@@ -1579,7 +1579,7 @@
   <span class="md-ellipsis">
     
   
-    File Recovery Architecture
+    文件恢复架构
   
 
     
@@ -2208,7 +2208,7 @@
   <span class="md-ellipsis">
     
   
-    Breakout Execution
+    分离执行
   
 
     
@@ -2650,7 +2650,7 @@
   <span class="md-ellipsis">
     
   
-    Notification Settings
+    通知设置
   
 
     
@@ -7354,7 +7354,7 @@
   <span class="md-ellipsis">
     
   
-    System Call Settings
+    系统调用设置
   
 
     
@@ -7708,7 +7708,7 @@
   <span class="md-ellipsis">
     
   
-    Job Objects
+    作业对象
   
 
     
@@ -7798,45 +7798,63 @@
   
 
 
-<h1 id="no-sandboxie-console">No Sandboxie Console<a class="headerlink" href="#no-sandboxie-console" title="Permanent link"></a></h1>
-<p><em>NoSandboxieConsole</em> is an advanced debug and compatibility setting that bypasses Sandboxie's custom console-redirection and proxy path.</p>
+<h1 id="no-sandboxie-console">无 Sandboxie 控制台<a class="headerlink" href="#no-sandboxie-console" title="Permanent link"></a></h1>
+<p><em>NoSandboxieConsole</em> 是一项高级调试与兼容性设置，用于绕过 Sandboxie 自定义的控制台重定向与代理路径。</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">NoSandboxieConsole</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>The default is <code>n</code>. This is a box-wide Boolean setting; normal template and <code>GlobalSettings</code> inheritance can contribute its effective value.</p>
+<p>默认值为 <code>n</code>。这是一项沙盒级布尔设置；常规的模板与 <code>GlobalSettings</code> 继承可以贡献它的生效值。</p>
 <div class="admonition warning">
 <p class="admonition-title">Important</p>
-<p>The name does not mean that console applications are disabled or that no console window can exist. It disables Sandboxie's custom console handling so that normal Windows console behavior can be used where possible.</p>
+<p>这个名称并不意味着控制台应用程序被禁用，也不意味着不能存在控制台窗口。它禁用 Sandboxie 的自定义控制台处理，以便在可能的情况下使用 Windows 的常规控制台行为。</p>
 </div>
-<h2 id="what-changes">What changes<a class="headerlink" href="#what-changes" title="Permanent link"></a></h2>
-<p>With <code>NoSandboxieConsole=y</code>, Sandboxie takes the no-custom-console branch during process initialization:</p>
+<div id="what-changes"></div>
+
+<h2 id="_1">有哪些变化<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
+<p>启用 <code>NoSandboxieConsole=y</code> 后，Sandboxie 在进程初始化期间进入无自定义控制台的分支：</p>
 <ul>
-<li>the driver skips the special initialization that can detach a console application from its initial console and mark it for later proxy-console creation;</li>
-<li>the low-level initialization skips the corresponding WOW64 console-handle adjustment;</li>
-<li>SbieDll skips its proxy-console reconnection and <code>AllocConsole</code> replacement path, along with the console-title hooks installed by the normal branch;</li>
-<li>Sandboxie's <code>ConsoleControl</code> hook is not imported or installed.</li>
+<li>驱动程序跳过特殊的初始化步骤，该步骤可能把控制台应用程序从其初始控制台分离，并标记为稍后创建代理控制台；</li>
+<li>底层初始化跳过相应的 WOW64 控制台句柄调整；</li>
+<li>SbieDll 跳过其代理控制台重连与 <code>AllocConsole</code> 替换路径，以及常规分支所安装的控制台标题钩子；</li>
+<li>Sandboxie 的 <code>ConsoleControl</code> 钩子不会被导入或安装。</li>
 </ul>
-<p>These changes bypass the path in which SbieDll asks the SbieSvc GUI proxy to create a helper console and then attaches the sandboxed process to it. The setting does not prevent <code>cmd.exe</code>, PowerShell, or other console applications from running.</p>
-<h2 id="what-remains-active">What remains active<a class="headerlink" href="#what-remains-active" title="Permanent link"></a></h2>
-<p>The setting does not remove every console-related Sandboxie code path. SbieDll still records the current console window when one exists so that its later auxiliary GUI/message thread can operate, including message handling used for device-change notifications.</p>
-<p>Other Sandboxie isolation and virtualization mechanisms also remain independent. <code>NoSandboxieConsole</code> is not a general switch for terminal, desktop, token, or GUI isolation.</p>
-<h2 id="compatibility-and-debugging">Compatibility and debugging<a class="headerlink" href="#compatibility-and-debugging" title="Permanent link"></a></h2>
-<p>The option exists as a debug and compatibility escape for applications that do not work with Sandboxie's custom console redirection. It is not the normal default and should not be described as disabling Windows Console Host.</p>
-<p>Current source implements the classic Sandboxie console path described above. It does not establish comprehensive behavior for Windows Terminal or pseudoconsole (ConPTY) sessions.</p>
-<h2 id="application-compartment">Application Compartment<a class="headerlink" href="#application-compartment" title="Permanent link"></a></h2>
-<p><a href="NoSecurityIsolation.html">Application Compartment</a> processes already bypass the same custom console branches during driver, low-level, and SbieDll initialization. Adding <code>NoSandboxieConsole=y</code> does not enable that console behavior a second time in an Application Compartment box. This equivalence is limited to the relevant console paths; the two settings are not otherwise interchangeable.</p>
-<h2 id="relationship-to-dropconhostintegrity">Relationship to DropConHostIntegrity<a class="headerlink" href="#relationship-to-dropconhostintegrity" title="Permanent link"></a></h2>
-<p><a href="DropConHostIntegrity.html">Drop ConHost Integrity</a> applies to the external console host created through Sandboxie's proxy/helper path. Because <code>NoSandboxieConsole=y</code> bypasses that path, <code>DropConHostIntegrity</code> should not be expected to modify a console host created through the resulting normal Windows console path.</p>
-<h2 id="sandman-configuration">SandMan configuration<a class="headerlink" href="#sandman-configuration" title="Permanent link"></a></h2>
-<p>SandMan does not currently provide a dedicated control for <code>NoSandboxieConsole</code>. Configure it manually in the sandbox section of <code>Sandboxie.ini</code>, or through an applicable template or <code>GlobalSettings</code> entry.</p>
-<h2 id="applying-changes">Applying changes<a class="headerlink" href="#applying-changes" title="Permanent link"></a></h2>
-<p>The setting is consumed during early process and console initialization and cannot retrofit a different console path into an already-running process. Restart affected sandboxed console applications after changing it. A SandMan, service, or driver restart is not normally required.</p>
-<h2 id="version-history">Version history<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
-<p><code>NoSandboxieConsole</code> was introduced in Sandboxie Plus 0.9.8 / Classic 5.53.0. The changelog notes that this console behavior had previously been part of <code>NoSandboxieDesktop=y</code>; current source reads <code>NoSandboxieConsole</code> and <code>NoSandboxieDesktop</code> as separate settings.</p>
-<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
+<p>这些变化绕过了 SbieDll 请求 SbieSvc GUI 代理创建一个辅助控制台、再把沙盒化进程附加到该控制台的路径。该设置不会阻止 <code>cmd.exe</code>、PowerShell 或其他控制台应用程序运行。</p>
+<div id="what-remains-active"></div>
+
+<h2 id="_2">仍然生效的部分<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
+<p>该设置并不会移除 Sandboxie 所有与控制台相关的代码路径。只要存在当前控制台窗口，SbieDll 仍会记录它，以便其后来的辅助 GUI/消息线程可以工作，包括用于设备更改通知的消息处理。</p>
+<p>Sandboxie 的其他隔离与虚拟化机制也保持独立。<code>NoSandboxieConsole</code> 不是用于终端、桌面、令牌或 GUI 隔离的通用开关。</p>
+<div id="compatibility-and-debugging"></div>
+
+<h2 id="_3">兼容性与调试<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
+<p>该选项是为那些无法与 Sandboxie 自定义控制台重定向配合工作的应用程序提供的调试与兼容性逃生通道。它不是常规默认值，也不应被描述为禁用 Windows 控制台宿主。</p>
+<p>当前源代码实现的是上文描述的经典 Sandboxie 控制台路径。它并未为 Windows Terminal 或伪控制台（ConPTY）会话确立全面的行为。</p>
+<div id="application-compartment"></div>
+
+<h2 id="_4">应用隔间<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
+<p><a href="NoSecurityIsolation.html">应用隔间</a> 进程在驱动程序、底层与 SbieDll 初始化期间本来就会绕过同样的自定义控制台分支。在应用隔间沙盒中再添加 <code>NoSandboxieConsole=y</code> 不会第二次启用该控制台行为。这种等效性仅限于相关的控制台路径；除此之外，两项设置并不可以互换。</p>
+<div id="relationship-to-dropconhostintegrity"></div>
+
+<h2 id="dropconhostintegrity">与 DropConHostIntegrity 的关系<a class="headerlink" href="#dropconhostintegrity" title="Permanent link"></a></h2>
+<p><a href="DropConHostIntegrity.html">降低 ConHost 完整性</a> 作用于通过 Sandboxie 代理/辅助路径创建的外部控制台宿主。由于 <code>NoSandboxieConsole=y</code> 绕过了该路径，不应指望 <code>DropConHostIntegrity</code> 会修改通过由此产生的常规 Windows 控制台路径创建的控制台宿主。</p>
+<div id="sandman-configuration"></div>
+
+<h2 id="sandman">SandMan 配置<a class="headerlink" href="#sandman" title="Permanent link"></a></h2>
+<p>SandMan 目前没有为 <code>NoSandboxieConsole</code> 提供专门的控件。请在 <code>Sandboxie.ini</code> 的沙盒节中手动配置它，或通过适用的模板或 <code>GlobalSettings</code> 条目配置。</p>
+<div id="applying-changes"></div>
+
+<h2 id="_5">应用更改<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
+<p>该设置在进程与控制台的早期初始化期间被读取，无法为已在运行的进程改用另一种控制台路径。更改后请重启受影响的沙盒化控制台应用程序。通常不需要重启 SandMan、服务或驱动程序。</p>
+<div id="version-history"></div>
+
+<h2 id="_6">版本历史<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
+<p><code>NoSandboxieConsole</code> 在 Sandboxie Plus 0.9.8 / Classic 5.53.0 中引入。更新日志指出，该控制台行为此前属于 <code>NoSandboxieDesktop=y</code>；当前源代码把 <code>NoSandboxieConsole</code> 与 <code>NoSandboxieDesktop</code> 作为两项独立的设置读取。</p>
+<div id="related-pages"></div>
+
+<h2 id="_7">相关页面<a class="headerlink" href="#_7" title="Permanent link"></a></h2>
 <ul>
-<li><a href="DropConHostIntegrity.html">Drop ConHost Integrity</a></li>
-<li><a href="NoSecurityIsolation.html">No Security Isolation</a></li>
+<li><a href="DropConHostIntegrity.html">降低 ConHost 完整性</a></li>
+<li><a href="NoSecurityIsolation.html">无安全隔离</a></li>
 <li><a href="SandboxieIni.html">Sandboxie Ini</a></li>
 </ul>
 

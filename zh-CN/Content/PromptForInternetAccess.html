@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="PromptForInternetAccess lets SandMan offer an interactive exception when a process is blocked by Sandboxie&#x27;s Internet-access restrictions. The prompt itself is not the network enforcement mechanism.">
+        <meta name="description" content="PromptForInternetAccess 允许 SandMan 在某个进程被 Sandboxie 的互联网访问限制阻止时提供一个交互式例外。提示本身并不是网络强制执行机制。">
       
       
       
@@ -29,7 +29,7 @@
     
     
       
-        <title>Prompt For Internet Access - Sandboxie 文档</title>
+        <title>提示互联网访问 - Sandboxie 文档</title>
       
     
     
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Prompt For Internet Access
+              提示互联网访问
             
           </span>
         </div>
@@ -1579,7 +1579,7 @@
   <span class="md-ellipsis">
     
   
-    File Recovery Architecture
+    文件恢复架构
   
 
     
@@ -2208,7 +2208,7 @@
   <span class="md-ellipsis">
     
   
-    Breakout Execution
+    分离执行
   
 
     
@@ -2650,7 +2650,7 @@
   <span class="md-ellipsis">
     
   
-    Notification Settings
+    通知设置
   
 
     
@@ -7354,7 +7354,7 @@
   <span class="md-ellipsis">
     
   
-    System Call Settings
+    系统调用设置
   
 
     
@@ -7708,7 +7708,7 @@
   <span class="md-ellipsis">
     
   
-    Job Objects
+    作业对象
   
 
     
@@ -7798,85 +7798,103 @@
   
 
 
-<h1 id="prompt-for-internet-access">Prompt For Internet Access<a class="headerlink" href="#prompt-for-internet-access" title="Permanent link"></a></h1>
-<p><em>PromptForInternetAccess</em> lets SandMan offer an interactive exception when a process is blocked by Sandboxie's Internet-access restrictions. The prompt itself is not the network enforcement mechanism.</p>
-<p>Enabling this setting does not create an Internet-access restriction and does not prompt for ordinary unrestricted network activity. A blockade must already apply to the process for there to be an exception to grant.</p>
-<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link"></a></h2>
+<h1 id="prompt-for-internet-access">提示互联网访问<a class="headerlink" href="#prompt-for-internet-access" title="Permanent link"></a></h1>
+<p><em>PromptForInternetAccess</em> 允许 SandMan 在某个进程被 Sandboxie 的互联网访问限制阻止时提供一个交互式例外。提示本身并不是网络强制执行机制。</p>
+<p>启用此设置不会创建互联网访问限制，也不会对普通的未受限网络活动弹出提示。必须已经对该进程实施封锁，才有可授予的例外。</p>
+<div id="configuration"></div>
+
+<h2 id="_1">配置<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">PromptForInternetAccess</span><span class="o">=</span><span class="s">y</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">PromptForInternetAccess</span><span class="o">=</span><span class="s">n</span>
 </span></code></pre></div>
-<p>This is a box-wide boolean setting. It does not accept an executable-qualified value. The default is <code>n</code>, which disables the interactive exception prompt.</p>
-<p>The setting was introduced in Sandboxie Plus 0.5.0.</p>
-<h2 id="when-the-prompt-appears">When the prompt appears<a class="headerlink" href="#when-the-prompt-appears" title="Permanent link"></a></h2>
-<p>The prompt becomes relevant after another Sandboxie policy has denied Internet or network access for the process. Current enforcement paths include Windows Filtering Platform (WFP) blocking and blocking access to Internet-related network devices.</p>
-<p>The dialog concerns the blocked process, not an individually classified remote destination. In the WFP path, a decision may be requested when a socket is created, before a remote destination is known. It should therefore not be interpreted as a separate approval for each server, LAN address, or connection.</p>
-<p>SandMan identifies the executable and shows its full path when asking whether the process should be allowed Internet access.</p>
-<h2 id="prompt-choices">Prompt choices<a class="headerlink" href="#prompt-choices" title="Permanent link"></a></h2>
+<p>这是一项沙盒范围的布尔设置。它不接受按可执行文件限定的值。默认值为 <code>n</code>，即禁用交互式例外提示。</p>
+<p>该设置于 Sandboxie Plus 0.5.0 引入。</p>
+<div id="when-the-prompt-appears"></div>
+
+<h2 id="_2">提示出现时机<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
+<p>只有在另一项 Sandboxie 策略已拒绝该进程的互联网或网络访问之后，该提示才会起作用。当前的强制执行路径包括 Windows 过滤平台（WFP）阻断，以及阻止访问与互联网相关的网络设备。</p>
+<p>该对话框针对的是被阻止的进程，而不是逐个分类的远程目标。在 WFP 路径中，可能在创建套接字时、尚不知道远程目标之前就请求作出决定。因此，不应把它理解为对每个服务器、LAN 地址或连接的单独批准。</p>
+<p>在询问是否应允许该进程访问互联网时，SandMan 会识别可执行文件并显示其完整路径。</p>
+<div id="prompt-choices"></div>
+
+<h2 id="_3">提示中的选项<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
 <table>
 <thead>
 <tr>
-<th>Choice</th>
-<th>Effect on the current process</th>
-<th>Persistent configuration</th>
+<th>选项</th>
+<th>对当前进程的影响</th>
+<th>持久配置</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Yes</strong></td>
-<td>Grants a runtime Internet exception to the current process instance/PID.</td>
-<td>None.</td>
+<td><strong>是</strong></td>
+<td>为当前进程实例/PID 授予运行时互联网例外。</td>
+<td>无。</td>
 </tr>
 <tr>
-<td><strong>No</strong></td>
-<td>Grants no exception; the existing blockade remains effective.</td>
-<td>None.</td>
+<td><strong>否</strong></td>
+<td>不授予例外；现有封锁继续有效。</td>
+<td>无。</td>
 </tr>
 <tr>
-<td><strong>Yes and add to allowed programs</strong></td>
-<td>Grants the runtime exception.</td>
-<td>Adds the executable to the existing <code>&lt;InternetAccess&gt;</code> allowed-program group.</td>
+<td><strong>是且添加到允许的程序</strong></td>
+<td>授予运行时例外。</td>
+<td>把该可执行文件添加到现有的 <code>&lt;InternetAccess&gt;</code> 允许程序组。</td>
 </tr>
 <tr>
-<td><strong>Terminate</strong></td>
-<td>Terminates the process.</td>
-<td>None.</td>
+<td><strong>终止</strong></td>
+<td>终止该进程。</td>
+<td>无。</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Remember for this process</strong> is initially selected for an Internet-access prompt. It is not a separate allow or deny action: it causes SandMan to reuse the selected <strong>Yes</strong> or <strong>No</strong> decision for later requests from the same running process instance. The remembered decision ends with that process and does not create a <code>Sandboxie.ini</code> rule.</p>
-<p>Selecting <strong>Yes</strong> alone is also temporary. Use <strong>Yes and add to allowed programs</strong> when the executable should be added to the persistent Internet-access allow configuration.</p>
-<h2 id="enforcement-behavior">Enforcement behavior<a class="headerlink" href="#enforcement-behavior" title="Permanent link"></a></h2>
-<p>The underlying Internet-access restriction remains responsible for enforcement while SandMan handles the exemption decision:</p>
+<p>对于互联网访问提示，<strong>记住对此进程的选择</strong> 初始处于选中状态。它不是一个单独的允许或拒绝操作：它使 SandMan 对来自同一正在运行的进程实例的后续请求复用已选的 <strong>是</strong> 或 <strong>否</strong> 决定。记住的决定随该进程结束而失效，不会创建 <code>Sandboxie.ini</code> 规则。</p>
+<p>只选择 <strong>是</strong> 同样是临时的。当需要把该可执行文件加入持久的互联网访问允许配置时，请使用 <strong>是且添加到允许的程序</strong>。</p>
+<div id="enforcement-behavior"></div>
+
+<h2 id="_4">强制执行行为<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
+<p>由底层的互联网访问限制继续负责强制执行，SandMan 仅处理例外决定：</p>
 <ul>
-<li>with WFP-backed blocking, the driver and network policy continue to block traffic unless a runtime exception is granted;</li>
-<li>with the network-device blockade, the protected device-open operation remains denied unless an exception is granted.</li>
+<li>在使用 WFP 阻断时，除非授予运行时例外，驱动程序与网络策略会继续阻断流量；</li>
+<li>在使用网络设备封锁时，除非授予例外，受保护的设备打开操作会继续被拒绝。</li>
 </ul>
-<p>If SandMan cannot provide a decision, no exemption is granted and the existing block remains in effect. Merely waiting for the prompt does not give the process unrestricted network access.</p>
-<p>The prompt is an exception workflow, not a firewall or a complete network policy. See <a href="RestrictionsSettings.html#internet-access">Restrictions Settings</a> for the allowed-program model and <a href="../PlusContent/WFPSupport.html">Windows Filtering Platform</a> for the separate network enforcement mechanism.</p>
-<p><a href="NotifyInternetAccessDenied.html"><em>NotifyInternetAccessDenied</em></a> is independent: it controls notification of denied access, while <em>PromptForInternetAccess</em> can offer an exception. Enabling either setting does not automatically enable the other.</p>
-<h2 id="sandboxie-plus-interface">Sandboxie Plus interface<a class="headerlink" href="#sandboxie-plus-interface" title="Permanent link"></a></h2>
-<p>In SandMan, open:</p>
-<p><strong>Sandbox Options</strong> &gt; <strong>Network Options</strong> &gt; <strong>Process Restrictions</strong></p>
-<p>The checkbox is labeled <strong>Prompt user whether to allow an exemption from the blockade.</strong> It is disabled when Internet access is set to unrestricted <strong>Allow access</strong> mode because no configured blockade is available to exempt.</p>
-<p>The New Box Wizard also offers the prompt option when an Internet-access blockade is being configured.</p>
-<h2 id="runtime-changes">Runtime changes<a class="headerlink" href="#runtime-changes" title="Permanent link"></a></h2>
-<p><em>PromptForInternetAccess</em> is consulted when a blocked access attempt needs a decision. Changing the setting can therefore affect later blocked-access events without recreating the sandbox or restarting SandMan or the Sandboxie service.</p>
-<p>An existing runtime exception or a decision remembered for the current process instance may prevent another prompt for that process. Persistent approval through <strong>Yes and add to allowed programs</strong> follows the normal Internet-access allowed-program configuration.</p>
-<h2 id="sandboxie-plus-and-classic">Sandboxie Plus and Classic<a class="headerlink" href="#sandboxie-plus-and-classic" title="Permanent link"></a></h2>
-<p>The underlying network and runtime mechanisms are shared, but the current interactive prompt is provided by SandMan. Source review did not identify an equivalent current Sandboxie Control Classic handler for this request. If no compatible management interface responds, no runtime exception is granted and the existing blockade remains in effect.</p>
-<h2 id="version-history">Version history<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
+<p>如果 SandMan 无法给出决定，则不会授予例外，现有的阻止继续有效。仅仅等待提示并不会给该进程不受限制的网络访问。</p>
+<p>该提示是一个例外工作流，而不是防火墙或完整的网络策略。允许程序模型参见 <a href="RestrictionsSettings.html#internet-access">限制设置</a>，单独的网络强制执行机制参见 <a href="../PlusContent/WFPSupport.html">WFP（Windows 过滤平台）支持</a>。</p>
+<p><a href="NotifyInternetAccessDenied.html"><em>NotifyInternetAccessDenied</em></a> 是独立的：它控制访问被拒绝时的通知，而 <em>PromptForInternetAccess</em> 可以提供例外。启用其中任一设置都不会自动启用另一项。</p>
+<div id="sandboxie-plus-interface"></div>
+
+<h2 id="sandboxie-plus">Sandboxie Plus 界面<a class="headerlink" href="#sandboxie-plus" title="Permanent link"></a></h2>
+<p>在 SandMan 中，请打开：</p>
+<p><strong>沙盒选项</strong> &gt; <strong>网络选项</strong> &gt; <strong>程序限制</strong></p>
+<p>复选框的标签为 <strong>询问用户是否允许例外。</strong> 当互联网访问设为不受限制的 <strong>允许访问</strong> 模式时，该复选框被禁用，因为没有已配置的封锁可供豁免。</p>
+<p>在配置互联网访问封锁时，新建沙盒向导也会提供该提示选项。</p>
+<div id="runtime-changes"></div>
+
+<h2 id="_5">运行时更改<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
+<p>当被阻止的访问尝试需要作出决定时，会查询 <em>PromptForInternetAccess</em>。因此，更改该设置可以影响之后的被阻止访问事件，而无需重建沙盒，也无需重启 SandMan 或 Sandboxie 服务。</p>
+<p>现有的运行时例外或为当前进程实例记住的决定，可能会使该进程不再弹出提示。通过 <strong>是且添加到允许的程序</strong> 进行的持久批准，会遵循常规的互联网访问允许程序配置。</p>
+<div id="sandboxie-plus-and-classic"></div>
+
+<h2 id="sandboxie-plus-classic">Sandboxie Plus 与 Classic<a class="headerlink" href="#sandboxie-plus-classic" title="Permanent link"></a></h2>
+<p>底层的网络与运行时机制是共享的，但当前的交互式提示由 SandMan 提供。源码审查未发现 Sandboxie Control Classic 中有处理该请求的等效当前处理程序。如果没有兼容的管理界面作出响应，则不会授予运行时例外，现有封锁继续有效。</p>
+<div id="version-history"></div>
+
+<h2 id="_6">版本历史<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
 <ul>
-<li>Sandboxie Plus 0.5.0 / Classic 5.45.0-era code introduced the interactive Internet-blockade exemption mechanism.</li>
-<li>Sandboxie Plus 0.5.5 / Classic 5.46.4 added the option to persistently allow the program.</li>
-<li>Sandboxie Plus 1.14.2 added the prompt option to the New Box Wizard.</li>
+<li>Sandboxie Plus 0.5.0 / Classic 5.45.0 时期的代码引入了交互式互联网封锁例外机制。</li>
+<li>Sandboxie Plus 0.5.5 / Classic 5.46.4 添加了持久允许该程序的选项。</li>
+<li>Sandboxie Plus 1.14.2 把该提示选项加入新建沙盒向导。</li>
 </ul>
-<p>These historical counterpart versions do not imply that the current Classic interface provides the same interactive prompt as SandMan.</p>
-<h2 id="related-settings">Related settings<a class="headerlink" href="#related-settings" title="Permanent link"></a></h2>
+<p>这些历史上的对应版本并不意味着当前的 Classic 界面提供与 SandMan 相同的交互式提示。</p>
+<div id="related-settings"></div>
+
+<h2 id="_7">相关设置<a class="headerlink" href="#_7" title="Permanent link"></a></h2>
 <ul>
-<li><a href="RestrictionsSettings.html#internet-access">Restrictions Settings</a> — configures the Internet-access allow/block model</li>
-<li><a href="NotifyInternetAccessDenied.html">Notify Internet Access Denied</a> — controls denial notifications rather than granting exceptions</li>
-<li><a href="../PlusContent/WFPSupport.html">Windows Filtering Platform</a> — describes Sandboxie's separate WFP enforcement</li>
-<li><a href="SandboxieIni.html">Sandboxie Ini</a> — explains manual sandbox configuration</li>
+<li><a href="RestrictionsSettings.html#internet-access">限制设置</a> — 配置互联网访问的允许/阻止模型</li>
+<li><a href="NotifyInternetAccessDenied.html">互联网访问被拒绝时通知</a> — 控制拒绝通知，而不是授予例外</li>
+<li><a href="../PlusContent/WFPSupport.html">WFP（Windows 过滤平台）支持</a> — 介绍 Sandboxie 单独的 WFP 强制执行</li>
+<li><a href="SandboxieIni.html">Sandboxie Ini</a> — 说明手动配置沙盒的方法</li>
 </ul>
 
 

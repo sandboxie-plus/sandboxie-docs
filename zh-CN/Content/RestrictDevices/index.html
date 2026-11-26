@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="RestrictDevices reduces access from sandboxed processes to arbitrary driver and device endpoints under the NT \Device namespace. It uses Sandboxie&#x27;s file/path filtering rules: a broad device-path restriction is combined with more-specific built-in compatibility exceptions. It is not a universal hardware blocker or a network firewall.">
+        <meta name="description" content="RestrictDevices 可减少沙盒化进程对 NT \Device 命名空间下任意驱动程序与设备终结点的访问。它使用 Sandboxie 的文件/路径过滤规则：把宽泛的设备路径限制与更具体的内置兼容性例外结合起来。它既不是通用的硬件阻断器，也不是网络防火墙。">
       
       
       
@@ -29,7 +29,7 @@
     
     
       
-        <title>Restrict Devices - Sandboxie 文档</title>
+        <title>限制设备访问 - Sandboxie 文档</title>
       
     
     
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Restrict Devices
+              限制设备访问
             
           </span>
         </div>
@@ -1579,7 +1579,7 @@
   <span class="md-ellipsis">
     
   
-    File Recovery Architecture
+    文件恢复架构
   
 
     
@@ -2208,7 +2208,7 @@
   <span class="md-ellipsis">
     
   
-    Breakout Execution
+    分离执行
   
 
     
@@ -2650,7 +2650,7 @@
   <span class="md-ellipsis">
     
   
-    Notification Settings
+    通知设置
   
 
     
@@ -7354,7 +7354,7 @@
   <span class="md-ellipsis">
     
   
-    System Call Settings
+    系统调用设置
   
 
     
@@ -7708,7 +7708,7 @@
   <span class="md-ellipsis">
     
   
-    Job Objects
+    作业对象
   
 
     
@@ -7798,58 +7798,72 @@
   
 
 
-<h1 id="restrict-devices">Restrict Devices<a class="headerlink" href="#restrict-devices" title="Permanent link"></a></h1>
-<p><em>RestrictDevices</em> reduces access from sandboxed processes to arbitrary driver and device endpoints under the NT <code>\Device</code> namespace. It uses Sandboxie's file/path filtering rules: a broad device-path restriction is combined with more-specific built-in compatibility exceptions. It is not a universal hardware blocker or a network firewall.</p>
-<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link"></a></h2>
-<p>The setting is disabled by default. To enable it for a sandbox, add:</p>
+<h1 id="restrict-devices">限制设备访问<a class="headerlink" href="#restrict-devices" title="Permanent link"></a></h1>
+<p><em>RestrictDevices</em> 可减少沙盒化进程对 NT <code>\Device</code> 命名空间下任意驱动程序与设备终结点的访问。它使用 Sandboxie 的文件/路径过滤规则：把宽泛的设备路径限制与更具体的内置兼容性例外结合起来。它既不是通用的硬件阻断器，也不是网络防火墙。</p>
+<div id="configuration"></div>
+
+<h2 id="_1">配置<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
+<p>该设置默认禁用。要为某个沙盒启用它，请添加：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">RestrictDevices</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>The setting is evaluated for the sandbox as a whole, including applicable configuration inheritance. It does not have an executable-qualified form. Restart affected sandboxed processes after changing it.</p>
-<p><a href="../../PlusContent/security-mode/">Security Hardened Mode</a> (<code>UseSecurityMode=y</code>) enables the same device-restriction behavior even if <code>RestrictDevices</code> is absent or explicitly set to <code>n</code>. It also enables other security features; selecting that mode does not require a separate <code>RestrictDevices=y</code> entry.</p>
-<h2 id="device-path-policy">Device-path policy<a class="headerlink" href="#device-path-policy" title="Permanent link"></a></h2>
-<p>The current built-in policy, held in the internal <code>[TemplateSModPaths]</code> section of <code>Templates.ini</code>, broadly closes <code>\Device\*</code> with <code>ClosedFilePath</code> and includes more-specific <code>NormalFilePath</code> exceptions. These include Windows compatibility endpoints such as <code>\Device\CNG</code> and <code>\Device\NamedPipe\*</code>. The NT <code>\Device</code> namespace also contains objects such as named pipes that are not physical hardware. The shipped exception list may change between releases.</p>
-<p>The restriction is a Sandboxie path policy. It does not change Windows device ACLs, uninstall devices, disable host drivers, or guarantee that every operation under <code>\Device</code> is blocked. It reduces the attack surface exposed to sandboxed applications where host drivers provide powerful device-control interfaces; it does not prevent every vulnerable-driver exploit.</p>
-<p>Device restriction also enables <a href="../../PlusContent/RuleSpecificity/">Rule Specificity</a>, even if <code>UseRuleSpecificity=n</code> is configured. This lets a sufficiently specific exception take precedence over the broad device-path closure.</p>
-<p>Ordinary drive and volume paths receive separate treatment so that enabling the restriction does not simply make normal filesystem access unusable. Outside Privacy Mode, the built-in drive patterns receive normal-path treatment. With <a href="../../PlusContent/privacy-mode/">Privacy Mode</a>, device restriction remains active, but those drive patterns receive Privacy Mode's <code>WriteFilePath</code> treatment instead. This is not permission for unrestricted raw-disk access.</p>
-<h2 id="allowing-a-specific-endpoint">Allowing a specific endpoint<a class="headerlink" href="#allowing-a-specific-endpoint" title="Permanent link"></a></h2>
-<p>If an application needs a device endpoint that the broad rule closes, use the narrowest suitable <a href="../NormalFilePath/">Normal File Path</a> exception after identifying its actual NT path. For example, <code>VendorDevice</code> below is only a placeholder:</p>
+<p>该设置按整个沙盒进行评估，包括适用的配置继承。它没有可执行文件限定的形式。更改后，请重启受影响的沙盒化进程。</p>
+<p><a href="../../PlusContent/security-mode/">安全强化模式</a>（<code>UseSecurityMode=y</code>）即使 <code>RestrictDevices</code> 缺失或被显式设为 <code>n</code>，也会启用相同的设备限制行为。它还会启用其他安全功能；选择该模式并不需要另外添加 <code>RestrictDevices=y</code> 条目。</p>
+<div id="device-path-policy"></div>
+
+<h2 id="_2">设备路径策略<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
+<p>当前的内置策略保存在 <code>Templates.ini</code> 的内部 <code>[TemplateSModPaths]</code> 节中，它用 <code>ClosedFilePath</code> 宽泛地封闭 <code>\Device\*</code>，并包含更具体的 <code>NormalFilePath</code> 例外。这些例外包括 <code>\Device\CNG</code> 与 <code>\Device\NamedPipe\*</code> 等 Windows 兼容性终结点。NT <code>\Device</code> 命名空间还包含命名管道之类的对象，它们并不是物理硬件。随附的例外列表可能随版本变化。</p>
+<p>该限制是一种 Sandboxie 路径策略。它不会更改 Windows 设备 ACL、卸载设备、禁用宿主驱动程序，也不保证 <code>\Device</code> 下的每一项操作都被阻止。当宿主驱动程序提供强大的设备控制接口时，它可以减少暴露给沙盒化应用程序的攻击面；但它并不能阻止所有针对脆弱驱动程序的漏洞利用。</p>
+<p>设备限制还会启用 <a href="../../PlusContent/RuleSpecificity/">规则特异性</a>，即使配置了 <code>UseRuleSpecificity=n</code> 也是如此。这样，足够具体的例外便可优先于宽泛的设备路径封闭。</p>
+<p>普通驱动器与卷路径会单独处理，以便启用该限制时不至于让正常的文件系统访问直接不可用。在隐私模式之外，内置的驱动器模式按常规路径处理。使用 <a href="../../PlusContent/privacy-mode/">隐私模式</a> 时，设备限制仍然生效，但这些驱动器模式改为接受隐私模式的 <code>WriteFilePath</code> 处理。这并不是允许不受限制的原始磁盘访问。</p>
+<div id="allowing-a-specific-endpoint"></div>
+
+<h2 id="_3">允许特定终结点<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
+<p>如果某个应用程序需要被宽泛规则封闭的设备终结点，请在确认真实的 NT 路径后，使用最窄且合适的 <a href="../NormalFilePath/">标准文件路径</a> 例外。下例中的 <code>VendorDevice</code> 只是占位符：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">RestrictDevices</span><span class="o">=</span><span class="s">y</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="na">NormalFilePath</span><span class="o">=</span><span class="s">\Device\VendorDevice*</span>
 </span></code></pre></div>
-<p>For a matching endpoint, <code>NormalFilePath</code> restores Sandboxie's normal path handling: reads can use the real path while writes remain subject to normal sandbox copy/virtualization behavior where that applies. A non-filesystem driver endpoint may not behave like an ordinary file. By contrast, <a href="../OpenFilePath/">Open File Path</a> requests direct access to the real host path; it is not the standard compatibility exception for this setting. Windows permissions and other Sandboxie controls still apply.</p>
+<p>对于匹配的终结点，<code>NormalFilePath</code> 会恢复 Sandboxie 的常规路径处理：读取可以使用真实路径，而在适用的情况下，写入仍受常规的沙盒复制/虚拟化行为约束。非文件系统的驱动程序终结点可能不会像普通文件那样工作。相比之下，<a href="../OpenFilePath/">开放文件路径</a> 请求直接访问真实宿主路径；它不是此设置的标准兼容性例外。Windows 权限与其他 Sandboxie 控制仍然适用。</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Add only the exception needed for compatibility. Broad <code>NormalFilePath</code> rules covering large portions of the <code>\Device</code> namespace can substantially weaken the protection when they are more specific than the built-in device closure. Prefer the narrowest endpoint-specific rule that resolves the compatibility issue.</p>
+<p>只添加兼容性所需的例外。覆盖 <code>\Device</code> 命名空间大部分区域的宽泛 <code>NormalFilePath</code> 规则，在其比内置设备封闭规则更具体时，会大幅削弱这层防护。请优先使用能解决兼容性问题的最窄的终结点专属规则。</p>
 </div>
-<p>When troubleshooting, keep <code>RestrictDevices=y</code>, use Sandboxie's Trace Log or Resource Access Monitor where available to identify a denied <code>\Device\...</code> path, add a narrow <code>NormalFilePath</code> rule, and test again. Not every denial has a dedicated SBIE message. The outcome for a particular peripheral also depends on its NT endpoint, Windows permissions, device-control operations, and other Sandboxie rules.</p>
-<h2 id="interaction-with-other-settings">Interaction with other settings<a class="headerlink" href="#interaction-with-other-settings" title="Permanent link"></a></h2>
+<p>排查问题时，请保持 <code>RestrictDevices=y</code>，在可用的情况下借助 Sandboxie 的跟踪日志或资源访问监视器找出被拒绝的 <code>\Device\...</code> 路径，添加一条较窄的 <code>NormalFilePath</code> 规则，然后重新测试。并非每一次拒绝都有专门的 SBIE 消息。特定外设的结果还取决于它的 NT 终结点、Windows 权限、设备控制操作以及其他 Sandboxie 规则。</p>
+<div id="interaction-with-other-settings"></div>
+
+<h2 id="_4">与其他设置的交互<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
 <ul>
-<li><a href="../BlockNetworkFiles/">Block Network Files</a>: when it is disabled, Sandboxie adds normal-path exceptions for its network redirector and MUP paths. When it is enabled, those particular exceptions are not added. <code>RestrictDevices</code> does not replace network access rules or Windows Filtering Platform enforcement.</li>
-<li><a href="../DisableFileFilter/">Disable File Filter</a>: device restriction depends on Sandboxie's file/path filtering layer. Disabling that layer for a process undermines enforcement of this device-path policy.</li>
-<li><a href="../NoSecurityIsolation/">Application Compartment</a>: <code>NoSecurityIsolation=y</code> alone does not turn off device restriction. In an Application Compartment, however, <a href="../NoSecurityFiltering/">No Security Filtering</a> disables the file-filter layer used to enforce it.</li>
-<li><a href="../OpenDevCMApi/">Open Dev CM API</a>: the built-in device policy has a normal-path exception for the <code>\Device\DeviceApi*</code> family. <code>OpenDevCMApi</code> separately controls selected Configuration Manager operations through its CMApi endpoint; it is not the same restriction.</li>
-<li><a href="../BlockRegisterDeviceNotification/">Block Register Device Notification</a> and <a href="../../PlusContent/USBSandboxing/">USB Sandboxing</a> address separate notification and USB forced-execution behaviors. <code>RestrictDevices</code> does not enable either one.</li>
+<li><a href="../BlockNetworkFiles/">阻止网络文件访问</a>：当它被禁用时，Sandboxie 会为其网络重定向器与 MUP 路径添加常规路径例外。当它被启用时，则不添加这些特定的例外。<code>RestrictDevices</code> 不能取代网络访问规则或 Windows 筛选平台的强制执行。</li>
+<li><a href="../DisableFileFilter/">禁用文件过滤器</a>：设备限制依赖 Sandboxie 的文件/路径过滤层。为某个进程禁用该层会削弱这项设备路径策略的执行。</li>
+<li><a href="../NoSecurityIsolation/">应用隔间</a>：仅 <code>NoSecurityIsolation=y</code> 不会关闭设备限制。不过在应用隔间中，<a href="../NoSecurityFiltering/">无安全过滤</a> 会禁用用于执行该限制的文件过滤层。</li>
+<li><a href="../OpenDevCMApi/">开放设备配置管理器 API</a>：内置设备策略为 <code>\Device\DeviceApi*</code> 系列设置了常规路径例外。<code>OpenDevCMApi</code> 则通过其 CMApi 终结点单独控制选定的配置管理器操作；两者不是同一项限制。</li>
+<li><a href="../BlockRegisterDeviceNotification/">阻止注册设备通知</a> 与 <a href="../../PlusContent/USBSandboxing/">USB 沙盒化</a> 处理的是另外的通知与 USB 强制执行行为。<code>RestrictDevices</code> 不会启用其中任何一项。</li>
 </ul>
-<p>Existing device handles are not retroactively stripped of rights by this path policy. The setting affects relevant later path/open evaluations. Path-rule lists can be refreshed for a running process, but a refresh does not recalculate that process's stored <code>RestrictDevices</code> state. Restart the affected process tree for a consistent test after changing the setting itself; a Windows reboot or normal driver/service restart is not required for newly started processes.</p>
-<h2 id="sandman-interface-and-certificate">SandMan interface and certificate<a class="headerlink" href="#sandman-interface-and-certificate" title="Permanent link"></a></h2>
-<p>In SandMan, open <strong>Sandbox Options &gt; Security Options &gt; Security Hardening</strong> and select <strong>Restrict driver/device access to only approved ones</strong>. It is unchecked by default in a normal sandbox. The <strong>Enable all security enhancements (make security hardened box)</strong> control shows it as checked and disables the individual checkbox because <code>UseSecurityMode=y</code> already enables the behavior. The Rule Specificity checkbox is likewise shown checked and disabled while device restriction is selected; that display does not imply a separate <code>UseRuleSpecificity=y</code> entry is saved.</p>
-<p><em>RestrictDevices</em> requires an eligible supporter certificate with Sandboxie's security-enhancement capability. Without it, the current runtime logs a feature-availability message and schedules an ordinary affected process for termination after an approximately five-minute evaluation period; it does not universally refuse startup immediately.</p>
-<h2 id="version-history">Version history<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
+<p>已有的设备句柄不会因这项路径策略被追溯剥夺权限。该设置影响的是后续相关的路径/打开评估。路径规则列表可以为正在运行的进程刷新，但刷新不会重新计算该进程已保存的 <code>RestrictDevices</code> 状态。更改该设置本身后，请重启受影响的进程树以获得一致的测试结果；对于新启动的进程，不需要重启 Windows，也不需要常规的驱动程序或服务重启。</p>
+<div id="sandman-interface-and-certificate"></div>
+
+<h2 id="sandman">SandMan 界面与证书<a class="headerlink" href="#sandman" title="Permanent link"></a></h2>
+<p>在 SandMan 中，打开 <strong>沙盒选项 &gt; 安全选项 &gt; 安全加固</strong> 并选中 <strong>将对“驱动程序/设备”的访问权限制在已知的终结点列表内</strong>。在普通沙盒中，它默认未选中。<strong>启用所有安全增强功能(安全防护加固型沙盒选项)</strong> 控件会将其显示为已选中，并禁用该独立复选框，因为 <code>UseSecurityMode=y</code> 已经启用了该行为。在选中设备限制期间，规则特异性复选框同样显示为已选中并被禁用；这种显示并不表示会保存单独的 <code>UseRuleSpecificity=y</code> 条目。</p>
+<p><em>RestrictDevices</em> 需要具备 Sandboxie 安全增强能力的有效支持者证书。没有该证书时，当前运行时会记录一条功能可用性消息，并在约五分钟的评估期后安排终止受影响的普通进程；它并不会普遍地立即拒绝启动。</p>
+<div id="version-history"></div>
+
+<h2 id="_5">版本历史<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
 <ul>
-<li>Sandboxie Plus 1.0.7 / Classic 5.55.7 introduced the older <code>DeviceSecurity</code> template.</li>
-<li>Sandboxie Plus 1.3.0 / Classic 5.58.0 replaced it with the <code>RestrictDevices=y</code> setting and introduced the current Security Hardened mode relationship.</li>
-<li>Sandboxie Plus 1.7.1 / Classic 5.62.1 fixed an interaction with <code>BlockNetworkFiles=y</code>.</li>
-<li>Sandboxie Plus 1.8.0 / Classic 5.63.0 moved built-in access rules into template sections. The current device rules are in the internal <code>[TemplateSModPaths]</code> section, not the deprecated <code>Template_DeviceSecurity</code> template.</li>
+<li>Sandboxie Plus 1.0.7 / Classic 5.55.7 引入了较早的 <code>DeviceSecurity</code> 模板。</li>
+<li>Sandboxie Plus 1.3.0 / Classic 5.58.0 以 <code>RestrictDevices=y</code> 设置取代了它，并引入了当前与安全强化模式的关系。</li>
+<li>Sandboxie Plus 1.7.1 / Classic 5.62.1 修复了与 <code>BlockNetworkFiles=y</code> 的交互问题。</li>
+<li>Sandboxie Plus 1.8.0 / Classic 5.63.0 将内置访问规则移入模板节。当前的设备规则位于内部 <code>[TemplateSModPaths]</code> 节，而不是已弃用的 <code>Template_DeviceSecurity</code> 模板。</li>
 </ul>
-<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
+<div id="related-pages"></div>
+
+<h2 id="_6">相关页面<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
 <ul>
 <li><a href="../SandboxieIni/">Sandboxie Ini</a></li>
-<li><a href="../../PlusContent/security-mode/">Security Hardened Mode</a></li>
-<li><a href="../../PlusContent/RuleSpecificity/">Rule Specificity</a></li>
-<li><a href="../NormalFilePath/">Normal File Path</a></li>
-<li><a href="../BlockNetworkFiles/">Block Network Files</a></li>
+<li><a href="../../PlusContent/security-mode/">安全强化模式</a></li>
+<li><a href="../../PlusContent/RuleSpecificity/">规则特异性</a></li>
+<li><a href="../NormalFilePath/">标准文件路径</a></li>
+<li><a href="../BlockNetworkFiles/">阻止网络文件访问</a></li>
 </ul>
 
 

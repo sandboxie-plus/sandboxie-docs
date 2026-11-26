@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="CpuRateLimit is a sandbox setting in Sandboxie Ini, available since Sandboxie Plus 1.17.5. It configures an integer CPU-rate percentage from 1 through 100 for the Sandboxie Job Object.">
+        <meta name="description" content="CpuRateLimit 是 Sandboxie Ini 中的一项沙盒设置，自 Sandboxie Plus 1.17.5 起可用。它为 Sandboxie 作业对象配置一个 1 到 100 的整数 CPU 速率百分比。">
       
       
       
@@ -29,7 +29,7 @@
     
     
       
-        <title>CPU Rate Limit - Sandboxie 文档</title>
+        <title>CPU 速率限制 - Sandboxie 文档</title>
       
     
     
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              CPU Rate Limit
+              CPU 速率限制
             
           </span>
         </div>
@@ -1579,7 +1579,7 @@
   <span class="md-ellipsis">
     
   
-    File Recovery Architecture
+    文件恢复架构
   
 
     
@@ -2208,7 +2208,7 @@
   <span class="md-ellipsis">
     
   
-    Breakout Execution
+    分离执行
   
 
     
@@ -2650,7 +2650,7 @@
   <span class="md-ellipsis">
     
   
-    Notification Settings
+    通知设置
   
 
     
@@ -7354,7 +7354,7 @@
   <span class="md-ellipsis">
     
   
-    System Call Settings
+    系统调用设置
   
 
     
@@ -7708,7 +7708,7 @@
   <span class="md-ellipsis">
     
   
-    Job Objects
+    作业对象
   
 
     
@@ -7798,25 +7798,33 @@
   
 
 
-<h1 id="cpu-rate-limit">CPU Rate Limit<a class="headerlink" href="#cpu-rate-limit" title="Permanent link"></a></h1>
-<p><em>CpuRateLimit</em> is a sandbox setting in <a href="SandboxieIni.html">Sandboxie Ini</a>, available since Sandboxie Plus 1.17.5. It configures an integer CPU-rate percentage from 1 through 100 for the Sandboxie Job Object.</p>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h2>
+<h1 id="cpu-rate-limit">CPU 速率限制<a class="headerlink" href="#cpu-rate-limit" title="Permanent link"></a></h1>
+<p><em>CpuRateLimit</em> 是 <a href="SandboxieIni.html">Sandboxie Ini</a> 中的一项沙盒设置，自 Sandboxie Plus 1.17.5 起可用。它为 Sandboxie 作业对象配置一个 1 到 100 的整数 CPU 速率百分比。</p>
+<div id="usage"></div>
+
+<h2 id="_1">用法<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">CpuRateLimit</span><span class="o">=</span><span class="s">25</span>
 </span></code></pre></div>
-<h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link"></a></h2>
+<div id="syntax"></div>
+
+<h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">CpuRateLimit</span><span class="o">=</span><span class="s">1-100</span>
 </span></code></pre></div>
-<p>In this example, Sandboxie configures a 25% hard CPU-rate cap for the Job Object. Internally, the value is passed to Windows as <code>CpuRate = 2500</code> because Windows represents the rate as the percentage multiplied by 100. Users should configure the percentage directly; <code>25</code> means 25% and <code>100</code> means 100%.</p>
-<h2 id="collective-cpu-limit">Collective CPU Limit<a class="headerlink" href="#collective-cpu-limit" title="Permanent link"></a></h2>
-<p>The limit applies collectively to all processes assigned to the same Sandboxie Job Object. If several sandboxed processes consume CPU simultaneously, they share one CPU-rate budget; each process does not receive a separate 25% quota.</p>
-<p>When the Sandboxie Job has no parent Job with CPU-rate control, the percentage represents a portion of the processor-cycle capacity of the entire system. If it is nested under a parent that also has CPU-rate control, Windows calculates its rate relative to the immediate parent's allocation.</p>
-<p>Sandboxie enables the Windows <code>JOB_OBJECT_CPU_RATE_CONTROL_HARD_CAP</code> policy. When the Job consumes its permitted processor cycles for a scheduling interval, Windows stops scheduling its threads until the next interval. This throttles the processes rather than terminating them and is not a processor-affinity restriction. The underlying Windows mechanism is available starting with Windows 8 and Windows Server 2012.</p>
-<h2 id="job-object-requirements">Job Object Requirements<a class="headerlink" href="#job-object-requirements" title="Permanent link"></a></h2>
-<p><em>CpuRateLimit</em> affects only processes assigned to Sandboxie's Job Object. Sandboxie skips that assignment for affected processes when <code>NoAddProcessToJob=y</code>, <a href="NoSecurityIsolation.html"><code>NoSecurityIsolation=y</code></a>, or <a href="OpenWinClass.html"><code>OpenWinClass=*</code></a> is configured. <code>AllowBoxedJobs=y</code> does not itself disable the Sandboxie CPU-rate limit.</p>
-<p>The rate is configured when Sandboxie creates its Job Object. If that Job still has active processes, Sandboxie reuses it, so a configuration change may not take effect until the current Job is no longer in use and a new one is created.</p>
-<p>In SandMan, this setting is available under <strong>Sandbox Options &gt; Security Options &gt; Job Object</strong> as <strong>Total CPU Rate Limit (%)</strong>. The field accepts values from 1 through 100 and shows <code>unlimited</code> when the setting is not configured.</p>
-<p><em>CpuRateLimit</em> controls how much aggregate processor scheduling capacity the Job Object may consume. To restrict where sandboxed processes may execute, see <a href="CpuAffinityMask.html">CPU Affinity Mask</a>. The two settings can be used together; the percentage is not recalculated solely from the processors selected by the affinity mask.</p>
+<p>在此示例中，Sandboxie 为作业对象配置 25% 的强制 CPU 速率上限。在内部，该值会以 <code>CpuRate = 2500</code> 的形式传给 Windows，因为 Windows 用百分比乘以 100 表示速率。用户应直接配置百分比；<code>25</code> 表示 25%，<code>100</code> 表示 100%。</p>
+<div id="collective-cpu-limit"></div>
+
+<h2 id="cpu">集体 CPU 限制<a class="headerlink" href="#cpu" title="Permanent link"></a></h2>
+<p>该限制集体适用于分配到同一个 Sandboxie 作业对象的所有进程。如果多个沙盒化进程同时占用 CPU，它们共享一份 CPU 速率预算；每个进程并不会各自获得 25% 的独立配额。</p>
+<p>当 Sandboxie 作业没有带 CPU 速率控制的父作业时，该百分比表示整个系统处理器周期容量的一部分。如果它嵌套在同样具有 CPU 速率控制的父作业之下，Windows 会相对于直接父作业的分配量来计算其速率。</p>
+<p>Sandboxie 启用 Windows 的 <code>JOB_OBJECT_CPU_RATE_CONTROL_HARD_CAP</code> 策略。当作业在一个调度间隔内用完其允许的处理器周期后，Windows 会停止调度其线程，直到下一个间隔。这样会限制这些进程的速度，而不是终止它们，并且它不属于处理器亲和性限制。底层的 Windows 机制从 Windows 8 与 Windows Server 2012 起可用。</p>
+<div id="job-object-requirements"></div>
+
+<h2 id="_3">作业对象要求<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
+<p><em>CpuRateLimit</em> 只影响分配到 Sandboxie 作业对象的进程。当配置了 <code>NoAddProcessToJob=y</code>、<a href="NoSecurityIsolation.html"><code>NoSecurityIsolation=y</code></a> 或 <a href="OpenWinClass.html"><code>OpenWinClass=*</code></a> 时，Sandboxie 会为受影响的进程跳过该分配。<code>AllowBoxedJobs=y</code> 本身不会禁用 Sandboxie 的 CPU 速率限制。</p>
+<p>该速率在 Sandboxie 创建其作业对象时配置。如果该作业仍有活动进程，Sandboxie 会复用它，因此配置更改可能要等到当前作业不再使用并创建新作业之后才会生效。</p>
+<p>在 SandMan 中，该设置位于 <strong>沙盒选项 &gt; 安全选项 &gt; 作业对象</strong> 之下，名称为 <strong>总 CPU 使用率限制 (%)</strong>。该字段接受 1 到 100 的数值，未配置该设置时显示 <code>unlimited</code>。</p>
+<p><em>CpuRateLimit</em> 控制作业对象可以占用多少总处理器调度能力。若要限制沙盒化进程可以在何处执行，参见 <a href="CpuAffinityMask.html">CPU 亲和性掩码</a>。两项设置可以一起使用；该百分比不会仅根据亲和性掩码所选择的处理器重新计算。</p>
 
 
 

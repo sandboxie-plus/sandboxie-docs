@@ -1579,7 +1579,7 @@
   <span class="md-ellipsis">
     
   
-    File Recovery Architecture
+    文件恢复架构
   
 
     
@@ -2208,7 +2208,7 @@
   <span class="md-ellipsis">
     
   
-    Breakout Execution
+    分离执行
   
 
     
@@ -2650,7 +2650,7 @@
   <span class="md-ellipsis">
     
   
-    Notification Settings
+    通知设置
   
 
     
@@ -7354,7 +7354,7 @@
   <span class="md-ellipsis">
     
   
-    System Call Settings
+    系统调用设置
   
 
     
@@ -7708,7 +7708,7 @@
   <span class="md-ellipsis">
     
   
-    Job Objects
+    作业对象
   
 
     
@@ -7805,7 +7805,9 @@
 <div id="_3"></div>
 <div id="_8"></div>
 
-<h2 id="configuration-and-caller-scope">配置与调用进程范围<a class="headerlink" href="#configuration-and-caller-scope" title="Permanent link"></a></h2>
+<div id="configuration-and-caller-scope"></div>
+
+<h2 id="_2">配置与调用进程范围<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">DropChildProcessToken</span><span class="o">=</span><span class="s">parent.exe,y</span>
 </span></code></pre></div>
@@ -7816,7 +7818,9 @@
 <div id="_4"></div>
 <div id="_6"></div>
 
-<h2 id="what-happens-to-the-child">对子进程的影响<a class="headerlink" href="#what-happens-to-the-child" title="Permanent link"></a></h2>
+<div id="what-happens-to-the-child"></div>
+
+<h2 id="_3">对子进程的影响<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
 <p>此设置会从本次创建请求中移除调用进程提供的子进程令牌（<code>hToken = NULL</code>）。子进程最终使用何种令牌运行，取决于后续的沙盒模式和令牌处理路径：</p>
 <ul>
 <li><strong>标准沙盒</strong>：驱动程序通常仍会执行 <code>Token_ReplacePrimary()</code>，并为子进程分配 Sandboxie 的受限主令牌。清除调用者传入的令牌参数与随后替换主令牌，是两个独立阶段。</li>
@@ -7828,7 +7832,9 @@
 <div id="_7"></div>
 <div id="_10"></div>
 
-<h2 id="related-pages">相关页面<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
+<div id="related-pages"></div>
+
+<h2 id="_4">相关页面<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
 <ul>
 <li><a href="AppContainerTokens.html">AppContainer 令牌兼容性</a></li>
 <li><a href="OriginalToken.html">原始令牌</a></li>

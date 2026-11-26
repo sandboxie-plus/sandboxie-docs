@@ -1579,7 +1579,7 @@
   <span class="md-ellipsis">
     
   
-    File Recovery Architecture
+    文件恢复架构
   
 
     
@@ -2208,7 +2208,7 @@
   <span class="md-ellipsis">
     
   
-    Breakout Execution
+    分离执行
   
 
     
@@ -2650,7 +2650,7 @@
   <span class="md-ellipsis">
     
   
-    Notification Settings
+    通知设置
   
 
     
@@ -7354,7 +7354,7 @@
   <span class="md-ellipsis">
     
   
-    System Call Settings
+    系统调用设置
   
 
     
@@ -7708,7 +7708,7 @@
   <span class="md-ellipsis">
     
   
-    Job Objects
+    作业对象
   
 
     
@@ -7804,16 +7804,22 @@
 <p class="admonition-title">Warning</p>
 <p><code>OriginalToken=y</code> 会显著削弱 Sandboxie 基于令牌的隔离。Sandboxie 通常会削减的组、权限与完整性特征，可能从传入的令牌中保留下来。因此，以提升权限的令牌启动的应用程序可能保留该提升状态；此设置不会为标准用户授予管理员权限。即使其他沙盒机制仍然生效，更强的令牌也可能增加对宿主资源的访问。Sandboxie 将其归类为不安全的调试选项。</p>
 </div>
-<h2 id="configuration">配置<a class="headerlink" href="#configuration" title="Permanent link"></a></h2>
+<div id="configuration"></div>
+
+<h2 id="_1">配置<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">OriginalToken</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
 <p>运行时默认值为 <code>n</code>（禁用）。这是一项沙盒级布尔设置；正常的配置解析也可以通过适用的模板或全局设置提供该值。当前的使用方不会按可执行文件名选择 <em>OriginalToken</em>。不要使用 <code>OriginalToken=program.exe,y</code> 这类按可执行文件限定的形式来配置此行为。</p>
 <p>SandMan 没有专门的 <em>OriginalToken</em> 复选框，其常规的高级选项列表中也没有对应条目。仅在确有特定兼容性或调试需求时，才通过 <a href="SandboxieIni.html">Sandboxie Ini</a> 进行配置。当前随附的模板不会自动启用它。</p>
-<h2 id="primary-token-behavior">主令牌行为<a class="headerlink" href="#primary-token-behavior" title="Permanent link"></a></h2>
+<div id="primary-token-behavior"></div>
+
+<h2 id="_2">主令牌行为<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <p>对于正常的沙盒化进程，Sandboxie 会获取初始主令牌，在配置了初步过滤时应用该过滤，然后构造或限制，并分配一个由 Sandboxie 管理的主令牌。视配置而定，这些步骤可以削减权限、改变组访问权限并降低完整性。</p>
 <p>启用 <code>OriginalToken=y</code> 时，驱动程序会在该正常主令牌过滤、限制与分配路径之前返回。进程保留提供给该路径的 Windows 令牌，而不会获得 Sandboxie 通常分配的受限替代令牌。这并不意味着原始权限中的每一项都始终存在：传入的令牌本身可能已经受限，其他 Windows 或 Sandboxie 路径也仍可能影响特定的令牌操作。正常的令牌模型参见 <a href="AccessTokenIsolation.html">访问令牌隔离</a>。</p>
-<h3 id="distinction-from-other-token-settings">与其他令牌设置的区别<a class="headerlink" href="#distinction-from-other-token-settings" title="Permanent link"></a></h3>
+<div id="distinction-from-other-token-settings"></div>
+
+<h3 id="_3">与其他令牌设置的区别<a class="headerlink" href="#_3" title="Permanent link"></a></h3>
 <table>
 <thead>
 <tr>
@@ -7846,23 +7852,37 @@
 </tbody>
 </table>
 <p>因此，<em>UnfilteredToken</em> 和 <em>UnrestrictedToken</em> 并不是 <em>OriginalToken</em> 的别名。在主令牌替换路径中，<em>OriginalToken</em> 会在 <em>ReplicateToken</em>、<em>CopyTokenAttributes</em>、<em>UnstrippedToken</em>、<em>KeepTokenIntegrity</em> 等选项以及 <em>DropAdminRights</em> 初步过滤的分支之前返回。这并不意味着上述设置的每一个独立使用方都不再起作用。<a href="AdvancedTokenSettings.html">Advanced Token Settings</a> 介绍了它们各自的阶段。<em>FakeAdminRights</em> 在创建子进程期间也有单独的兼容性行为。</p>
-<h2 id="what-remains-sandboxed">仍然处于沙盒中的部分<a class="headerlink" href="#what-remains-sandboxed" title="Permanent link"></a></h2>
+<div id="what-remains-sandboxed"></div>
+
+<h2 id="_4">仍然处于沙盒中的部分<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
 <p>进程仍在其沙盒中注册，Sandboxie 的正常进程初始化也仍会建立独立配置的文件、注册表、IPC、GUI 和网络处理。仅凭 <em>OriginalToken</em> 并不会禁用 SbieDll 注入与沙盒身份。因此，文件和注册表虚拟化、适用的过滤器以及其他沙盒规则都可以继续生效。</p>
 <p>生效的过滤器并不保证能得到与正常受限令牌进程相同的宿主访问结果。Windows 访问检查可以看到 <em>OriginalToken</em> 保留下来的更强令牌。应把此设置视为对基于令牌的保护的实质性削弱，而<strong>不是</strong>完全移除沙盒，也不是以同等强度保留其他所有保护。</p>
-<h2 id="application-compartment">应用隔间<a class="headerlink" href="#application-compartment" title="Permanent link"></a></h2>
+<div id="application-compartment"></div>
+
+<h2 id="_5">应用隔间<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
 <p><a href="NoSecurityIsolation.html">应用隔间</a> 与 <em>OriginalToken</em> 共享部分运行时分支，这些分支会绕过受限主令牌替换，并使用更直接的子进程创建路径。应用隔间不会自动写入或启用 <code>OriginalToken=y</code>，这两种配置也不等同。应用隔间还有额外的路径策略、过滤和作业对象行为，仅靠 <em>OriginalToken</em> 不会启用这些行为。</p>
-<h2 id="child-processes-and-appcontainer-tokens">子进程与 AppContainer 令牌<a class="headerlink" href="#child-processes-and-appcontainer-tokens" title="Permanent link"></a></h2>
+<div id="child-processes-and-appcontainer-tokens"></div>
+
+<h2 id="appcontainer">子进程与 AppContainer 令牌<a class="headerlink" href="#appcontainer" title="Permanent link"></a></h2>
 <p>在创建子进程时，<em>OriginalToken</em> 会跳过 Sandboxie 后续的挂起创建与令牌替换序列，并把最终的令牌选择交给 Windows。它<strong>不</strong>保证每个子进程都获得父进程令牌的精确副本。特别是，<a href="DropChildProcessToken.html">丢弃子进程令牌</a>可以在 <em>OriginalToken</em> 分支运行<strong>之前</strong>清除调用方提供的令牌。<em>DropAppContainerToken</em> 也在该分支之前求值，其他特殊情形处理同样可能影响传给 Windows 的令牌。</p>
 <p><em>OriginalToken</em> 不会禁用所有 AppContainer 兼容性处理。<a href="AppContainerTokens.html">AppContainer 令牌兼容性</a>介绍了那些独立的 API、进程属性和调用方提供令牌的阶段。</p>
-<h2 id="impersonation-and-related-effects">模拟及相关影响<a class="headerlink" href="#impersonation-and-related-effects" title="Permanent link"></a></h2>
+<div id="impersonation-and-related-effects"></div>
+
+<h2 id="_6">模拟及相关影响<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
 <p>此设置的影响范围不止主令牌替换。驱动程序会放宽 Sandboxie 特有的模拟令牌验证路径，SbieDll 也会省略选定的模拟钩子和令牌兼容性处理。其他 IPC 命名空间与安全钩子仍会安装。这并不意味着模拟总是成功，也不意味着所有 IPC 隔离都被禁用；Windows 检查和其他 Sandboxie 控制仍然生效。</p>
 <p><em>OriginalToken</em> 还会改变 Sandboxie 服务所做的部分令牌选择与检查。它本身<strong>不会</strong>让沙盒化的 RpcSs 以 SYSTEM 身份运行：当前自动的 SYSTEM 源路径还需要 <em>MsiInstallerExemptions</em> 或 <em>RunServicesAsSystem</em> 等设置。这些独立行为参见 <a href="SandboxedServices.html">Sandboxed Services</a> 和 <a href="RpcCompatibility.html">RPC Compatibility</a>。</p>
-<p>此设置可以省略 Sandboxie 根作业对象上的基本 UI 限制，但不会把进程从该作业对象中移除，也不会自动禁用其资源限制。参见 <a href="JobObjects.html">Job Objects</a>。</p>
-<h2 id="applying-changes">应用更改<a class="headerlink" href="#applying-changes" title="Permanent link"></a></h2>
+<p>此设置可以省略 Sandboxie 根作业对象上的基本 UI 限制，但不会把进程从该作业对象中移除，也不会自动禁用其资源限制。参见 <a href="JobObjects.html">作业对象</a>。</p>
+<div id="applying-changes"></div>
+
+<h2 id="_7">应用更改<a class="headerlink" href="#_7" title="Permanent link"></a></h2>
 <p>主令牌替换以及若干钩子安装决策发生在沙盒化进程启动时。更改 <em>OriginalToken</em> 不会重建现有进程的令牌，也不会在该进程中重新安装钩子。更改后请重启受影响的沙盒化进程；重启整个沙盒化进程树可以得到一致的测试结果。通常不需要重启 Windows，也不需要重启 SandMan、服务或驱动程序。</p>
-<h2 id="version-history">版本历史<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
+<div id="version-history"></div>
+
+<h2 id="_8">版本历史<a class="headerlink" href="#_8" title="Permanent link"></a></h2>
 <p>当前的设置元数据记录为 <code>AddedVersion=0.2.1</code>，而变更日志将 <em>OriginalToken</em> 描述为 Sandboxie Plus 0.4.5 / Classic 5.44.1 中的实验性测试/调试选项。这些来源并未确定一个明确的引入版本。变更日志后来又称其为不安全的调试选项。</p>
-<h2 id="related-pages">相关页面<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
+<div id="related-pages"></div>
+
+<h2 id="_9">相关页面<a class="headerlink" href="#_9" title="Permanent link"></a></h2>
 <ul>
 <li><a href="AccessTokenIsolation.html">访问令牌隔离</a></li>
 <li><a href="AdvancedTokenSettings.html">Advanced Token Settings</a></li>

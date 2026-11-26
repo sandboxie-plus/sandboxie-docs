@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="RunCommand adds custom entries to a sandbox&#x27;s Run menu in SandMan. Selecting an entry starts its configured command in that sandbox. Defining an entry does not start a program automatically, at sandbox startup, or on another sandbox event.">
+        <meta name="description" content="RunCommand 会在 SandMan 中为沙盒的 运行 菜单添加自定义条目。选中某个条目会在该沙盒中启动它配置的命令。定义条目并不会在沙盒启动时或沙盒的其他事件中自动启动程序。">
       
       
       
@@ -1579,7 +1579,7 @@
   <span class="md-ellipsis">
     
   
-    File Recovery Architecture
+    文件恢复架构
   
 
     
@@ -2208,7 +2208,7 @@
   <span class="md-ellipsis">
     
   
-    Breakout Execution
+    分离执行
   
 
     
@@ -2650,7 +2650,7 @@
   <span class="md-ellipsis">
     
   
-    Notification Settings
+    通知设置
   
 
     
@@ -7354,7 +7354,7 @@
   <span class="md-ellipsis">
     
   
-    System Call Settings
+    系统调用设置
   
 
     
@@ -7708,7 +7708,7 @@
   <span class="md-ellipsis">
     
   
-    Job Objects
+    作业对象
   
 
     
@@ -7799,45 +7799,59 @@
 
 
 <h1 id="runcommand">RunCommand<a class="headerlink" href="#runcommand" title="Permanent link"></a></h1>
-<p><code>RunCommand</code> adds custom entries to a sandbox's <strong>Run</strong> menu in SandMan. Selecting an entry starts its configured command in that sandbox. Defining an entry does not start a program automatically, at sandbox startup, or on another sandbox event.</p>
-<p>This is a SandMan menu feature, not a driver-enforced execution rule. The current Sandboxie Control Classic code does not provide the corresponding custom Run Menu consumer.</p>
-<h2 id="configuration-formats">Configuration formats<a class="headerlink" href="#configuration-formats" title="Permanent link"></a></h2>
-<p>Each <code>RunCommand</code> line defines one menu entry. The simple format separates the displayed name from the command line with the first <code>|</code>:</p>
+<p><code>RunCommand</code> 会在 SandMan 中为沙盒的 <strong>运行</strong> 菜单添加自定义条目。选中某个条目会在该沙盒中启动它配置的命令。定义条目并不会在沙盒启动时或沙盒的其他事件中自动启动程序。</p>
+<p>这是 SandMan 的菜单功能，而不是由驱动程序强制实施的执行规则。当前的 Sandboxie Control Classic 代码没有提供对应的自定义运行菜单使用方。</p>
+<div id="configuration-formats"></div>
+
+<h2 id="_1">配置格式<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
+<p>每一行 <code>RunCommand</code> 定义菜单中的一个条目。简单格式用第一个 <code>|</code> 把显示名称与命令行分隔开：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">RunCommand</span><span class="o">=</span><span class="s">Notepad|"C:\Windows\notepad.exe"</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">RunCommand</span><span class="o">=</span><span class="s">Config\Open win.ini|"C:\Windows\notepad.exe" "C:\Windows\win.ini"</span>
 </span></code></pre></div>
-<p>The command may include arguments. Quote executable paths containing spaces and quote arguments as required by the launched program. SandMan passes the command line to its normal sandbox launcher; <code>RunCommand</code> does not provide a separate shell-command parser.</p>
-<p>A backslash in the name creates a menu hierarchy. For example, <code>Config\Open win.ini</code> appears under <strong>Run &gt; Config</strong>. Multiple levels can be written as <code>Tools\Editors\Notepad</code>.</p>
-<p>The legacy format also accepts an optional icon after the first comma in the name portion: <code>Name,icon|command</code>. Because the first comma and first <code>|</code> are separators, use JSON for menu names that need those characters.</p>
-<p>For an icon or working directory, use a JSON value with <code>Command</code>, <code>Name</code>, optional <code>Icon</code>, and optional <code>WorkingDir</code> fields:</p>
+<p>命令可以包含参数。包含空格的路径请加引号，参数请按被启动程序的要求加引号。SandMan 会把命令行传给其常规的沙盒启动器；<code>RunCommand</code> 不提供独立的 shell 命令解析器。</p>
+<p>名称中的反斜杠会创建菜单层级。例如 <code>Config\Open win.ini</code> 会出现在 <strong>运行 &gt; Config</strong> 下。多级可以用 <code>Tools\Editors\Notepad</code> 这样的写法。</p>
+<p>旧式格式还允许在名称部分的第一个逗号之后给出可选图标：<code>Name,icon|command</code>。由于第一个逗号和第一个 <code>|</code> 都是分隔符，菜单名称需要包含这些字符时请改用 JSON。</p>
+<p>需要指定图标或工作目录时，请使用带有 <code>Command</code>、<code>Name</code>、可选 <code>Icon</code> 和可选 <code>WorkingDir</code> 字段的 JSON 值：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">RunCommand={"Command"</span><span class="o">:</span><span class="s">"\"</span><span class="na">C:\\Windows\\notepad.exe\" \"C:\\Windows\\win.ini\"","Name"</span><span class="o">:</span><span class="s">"Config\\Open win.ini"</span><span class="na">,"Icon"</span><span class="o">:</span><span class="s">"C:\\Windows\\System32\\notepad.exe,0"</span><span class="na">,"WorkingDir"</span><span class="o">:</span><span class="s">"C:\\Windows"</span><span class="na">}</span>
 </span></code></pre></div>
-<p>JSON requires backslashes and embedded quotation marks to be escaped as shown. SandMan's editor writes the compact legacy form when neither icon nor working directory is set; otherwise it writes JSON. It removes double quotes from <code>WorkingDir</code> when serializing an entry.</p>
-<p><code>Icon</code> can specify an icon file and index as <code>path,index</code>, or just an index to use with the command's executable. Without an explicit icon, SandMan tries the command executable's icon. If a specified icon cannot be loaded, it uses a fallback icon. The special index <code>-1</code> selects SandMan's Internet icon.</p>
-<h2 id="working-directory-and-sandbox-paths">Working directory and sandbox paths<a class="headerlink" href="#working-directory-and-sandbox-paths" title="Permanent link"></a></h2>
-<p><code>WorkingDir</code> is optional. When present, SandMan passes it as the working directory for the <code>Start.exe</code> launcher; when empty, SandMan does not set a working directory for that launch. Use a path appropriate for the program you start.</p>
-<p>SandMan recognizes <code>%BoxRoot%</code> in the command and working-directory strings and replaces it with that sandbox's file-root path before launching. Pinning a program may create such a path. Do not treat this substitution as general environment-variable expansion.</p>
-<h2 id="global-sandbox-and-template-entries">Global, sandbox, and template entries<a class="headerlink" href="#global-sandbox-and-template-entries" title="Permanent link"></a></h2>
-<p>Entries may be placed in <code>[GlobalSettings]</code> for all sandboxes or in an individual sandbox section. Applicable templates can also contribute entries. When SandMan builds a sandbox's Run menu, it requests local, template, and global values together. These entries are combined rather than treated as a single overriding value: adding a box-specific entry does not replace a global entry with the same name, and duplicate menu actions are possible.</p>
-<p>The sandbox's <strong>Run Menu</strong> editor shows its own entries, not the complete effective list from global settings and templates. The global editor manages global entries separately. Because the effective list can combine entries from the sandbox, applicable templates, and global settings, do not rely on the relative order of entries from different configuration sources as a stable menu order.</p>
-<h2 id="sandman-interface">SandMan interface<a class="headerlink" href="#sandman-interface" title="Permanent link"></a></h2>
-<p>For one sandbox, open <strong>Sandbox Options &gt; General Options &gt; Run Menu</strong>. The editor lists <strong>Name</strong> and <strong>Command Line</strong>, with controls to add a program or command, remove an entry, and move it up or down. <strong>Add program</strong> also offers <strong>Browse for Program</strong>.</p>
-<p>For entries available to all sandboxes, open <strong>Options &gt; Global Settings &gt; General Config &gt; Run Menu</strong>. This is a separate editor for <code>[GlobalSettings]</code> entries.</p>
-<p>You can also use a running sandboxed process's <strong>Preset &gt; Pin to Run Menu</strong> action. SandMan records its executable and working directory in a box-local entry. A shortcut shown under the sandbox's <strong>Run from Start Menu</strong> submenu can likewise be pinned, preserving its command, arguments, icon, and working directory when available. That submenu represents the sandbox's Start Menu items, not the host Windows Start Menu.</p>
-<p>A Run Menu item can also be used to create a desktop shortcut. The <code>RunCommand</code> value itself is not a Windows <code>.lnk</code> file.</p>
-<h2 id="execution-and-changes">Execution and changes<a class="headerlink" href="#execution-and-changes" title="Permanent link"></a></h2>
-<p>When a custom entry is selected, SandMan expands <code>%BoxRoot%</code> in its command and working directory, then calls its normal <code>RunStart</code> path with the selected box and default start flags. That path invokes <code>Start.exe</code> for the box. <code>RunCommand</code> does not request elevation or bypass the box's normal restrictions.</p>
-<p>SandMan rebuilds the Run menu from configuration when updating the selected sandbox's menu. After saving changes, reopen the menu if necessary; existing sandboxed processes do not need to be restarted. If you edit <code>Sandboxie.ini</code> outside SandMan, reload the configuration first.</p>
-<p><code>RunCommand</code> is distinct from automatic startup settings such as <code>StartCommand</code> and <code>StartSystemBox</code>, and from host-side <a href="SandManTriggers.html">SandMan triggers</a> such as <code>OnBoxDelete</code> or <code>OnBoxTerminate</code>. A separate <code>CSbieUtils::RunCommand()</code> helper executes other SandMan commands and is not the consumer of <code>RunCommand=</code> menu entries.</p>
-<h2 id="version-history">Version history<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
-<p>The changelog records custom per-sandbox Run Menu commands and process pinning in the Sandboxie Plus 0.5.0 / Classic 5.45.0 release pair. This establishes the SandMan UI milestone, not the original introduction date of the <code>RunCommand</code> setting, whose current metadata has no <code>AddedVersion</code>.</p>
-<p>Later milestones include global Run Menu entries in 1.6.1 / 5.61.1, menu folders in 1.8.0 / 5.63.0, and custom icons in 1.9.0 / 5.64.0. Subsequent releases fixed working-directory handling for Run Menu entries.</p>
-<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
+<p>JSON 要求按示例转义反斜杠和嵌入的引号。当既未设置图标也未设置工作目录时，SandMan 的编辑器写入紧凑的旧式格式；否则写入 JSON。序列化条目时，它会移除 <code>WorkingDir</code> 中的双引号。</p>
+<p><code>Icon</code> 可以用 <code>path,index</code> 指定图标文件与索引，也可以只给索引以配合命令的可执行文件使用。未指定显式图标时，SandMan 会尝试使用命令可执行文件的图标。如果指定的图标无法加载，则使用回退图标。特殊索引 <code>-1</code> 会选择 SandMan 的 Internet 图标。</p>
+<div id="working-directory-and-sandbox-paths"></div>
+
+<h2 id="_2">工作目录与沙盒路径<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
+<p><code>WorkingDir</code> 是可选的。指定后，SandMan 会把它作为 <code>Start.exe</code> 启动器的工作目录传入；为空时，SandMan 不为该次启动设置工作目录。请使用适合所启动程序的路径。</p>
+<p>SandMan 能识别命令与工作目录字符串中的 <code>%BoxRoot%</code>，并在启动前把它替换为该沙盒的文件根路径。固定程序时可能会创建这样的路径。请不要把这种替换当作通用的环境变量展开。</p>
+<div id="global-sandbox-and-template-entries"></div>
+
+<h2 id="_3">全局、沙盒与模板条目<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
+<p>条目可以放在 <code>[GlobalSettings]</code> 中以适用于所有沙盒，也可以放在单个沙盒的节中。适用的模板也可以提供条目。SandMan 构建某个沙盒的运行菜单时，会同时请求本地值、模板值和全局值。这些条目是合并的，而不是当作一个覆盖性取值：添加某个沙盒专属的条目不会替换同名的全局条目，因此可能出现重复的菜单动作。</p>
+<p>沙盒的 <strong>运行菜单</strong> 编辑器只显示它自己的条目，而不是来自全局设置与模板的完整有效列表。全局编辑器单独管理全局条目。由于有效列表可能合并来自沙盒、适用模板和全局设置的条目，请不要把不同配置来源的条目之间的相对顺序当作稳定的菜单顺序。</p>
+<div id="sandman-interface"></div>
+
+<h2 id="sandman">SandMan 界面<a class="headerlink" href="#sandman" title="Permanent link"></a></h2>
+<p>对单个沙盒，请打开 <strong>沙盒选项 &gt; 常规选项 &gt; 运行菜单</strong>。编辑器列出 <strong>名称</strong> 与 <strong>命令行</strong>，并提供添加程序或命令、移除条目、上移或下移的控件。<strong>添加程序</strong> 还提供 <strong>浏览程序</strong>。</p>
+<p>对适用于所有沙盒的条目，请打开 <strong>选项 &gt; 全局设置 &gt; 常规选项 &gt; 运行菜单</strong>。这是用于 <code>[GlobalSettings]</code> 条目的独立编辑器。</p>
+<p>你也可以使用正在运行的沙盒化进程的 <strong>预设 &gt; 固定到运行菜单</strong> 操作。SandMan 会把它的可执行文件与工作目录记录到一个沙盒本地条目中。显示在沙盒 <strong>从开始菜单运行</strong> 子菜单下的快捷方式同样可以被固定，并在可用时保留其命令、参数、图标和工作目录。该子菜单表示沙盒内的开始菜单项，而不是宿主 Windows 的开始菜单。</p>
+<p>运行菜单项也可以用来创建桌面快捷方式。<code>RunCommand</code> 值本身并不是 Windows <code>.lnk</code> 文件。</p>
+<div id="execution-and-changes"></div>
+
+<h2 id="_4">执行与更改<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
+<p>选中自定义条目时，SandMan 会展开其命令与工作目录中的 <code>%BoxRoot%</code>，然后用所选沙盒和默认启动标志调用其常规的 <code>RunStart</code> 路径。该路径会为该沙盒调用 <code>Start.exe</code>。<code>RunCommand</code> 不会请求提升权限，也不会绕过该沙盒的常规限制。</p>
+<p>SandMan 在更新所选沙盒的菜单时，会依据配置重新构建运行菜单。保存更改后，如有必要请重新打开菜单；现有的沙盒化进程无需重启。如果你在 SandMan 之外编辑了 <code>Sandboxie.ini</code>，请先重新加载配置。</p>
+<p><code>RunCommand</code> 与 <code>StartCommand</code>、<code>StartSystemBox</code> 这类自动启动设置不同，也与宿主侧的 <a href="SandManTriggers.html">SandMan triggers</a>（如 <code>OnBoxDelete</code> 或 <code>OnBoxTerminate</code>）不同。另一个独立的 <code>CSbieUtils::RunCommand()</code> 辅助函数执行其他 SandMan 命令，并不是 <code>RunCommand=</code> 菜单条目的使用方。</p>
+<div id="version-history"></div>
+
+<h2 id="_5">版本历史<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
+<p>更新日志在 Sandboxie Plus 0.5.0 / Classic 5.45.0 这一对版本中记录了按沙盒自定义的运行菜单命令与进程固定功能。这确立的是 SandMan 界面上的里程碑，而不是 <code>RunCommand</code> 设置的原始引入日期——该设置当前的元数据中没有 <code>AddedVersion</code>。</p>
+<p>之后的里程碑包括 1.6.1 / 5.61.1 的全局运行菜单条目、1.8.0 / 5.63.0 的菜单文件夹，以及 1.9.0 / 5.64.0 的自定义图标。后续版本修复了运行菜单条目的工作目录处理。</p>
+<div id="related-pages"></div>
+
+<h2 id="_6">相关页面<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
 <ul>
 <li><a href="SandboxieIni.html">Sandboxie Ini</a></li>
-<li><a href="StartCommandLine.html">Start Command Line</a></li>
-<li><a href="StartSystemBox.html">Start System Box</a></li>
+<li><a href="StartCommandLine.html">启动命令行</a></li>
+<li><a href="StartSystemBox.html">启动系统沙盒</a></li>
 <li><a href="SandManTriggers.html">SandMan Triggers</a></li>
 </ul>
 

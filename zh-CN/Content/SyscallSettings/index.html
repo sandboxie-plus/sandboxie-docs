@@ -33,7 +33,7 @@
     
     
       
-        <title>System Call Settings - Sandboxie 文档</title>
+        <title>系统调用设置 - Sandboxie 文档</title>
       
     
     
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              System Call Settings
+              系统调用设置
             
           </span>
         </div>
@@ -1583,7 +1583,7 @@
   <span class="md-ellipsis">
     
   
-    File Recovery Architecture
+    文件恢复架构
   
 
     
@@ -2212,7 +2212,7 @@
   <span class="md-ellipsis">
     
   
-    Breakout Execution
+    分离执行
   
 
     
@@ -2654,7 +2654,7 @@
   <span class="md-ellipsis">
     
   
-    Notification Settings
+    通知设置
   
 
     
@@ -7371,7 +7371,7 @@
   <span class="md-ellipsis">
     
   
-    System Call Settings
+    系统调用设置
   
 
     
@@ -7389,7 +7389,7 @@
   <span class="md-ellipsis">
     
   
-    System Call Settings
+    系统调用设置
   
 
     
@@ -7415,10 +7415,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Overview
+        概述
       
     </span>
   </a>
@@ -7437,22 +7437,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#approved-system-calls" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Approved system calls
+        已批准的系统调用
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Approved system calls">
+    <nav class="md-nav" aria-label="已批准的系统调用">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#nt-system-calls" class="md-nav__link">
+  <a href="#nt" class="md-nav__link">
     <span class="md-ellipsis">
       
-        NT system calls
+        NT 系统调用
       
     </span>
   </a>
@@ -7460,10 +7460,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#win32k-system-calls" class="md-nav__link">
+  <a href="#win32k" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Win32k system calls
+        Win32k 系统调用
       
     </span>
   </a>
@@ -7476,10 +7476,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuration-reload" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configuration reload
+        配置重新加载
       
     </span>
   </a>
@@ -7498,10 +7498,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#security-considerations" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Security considerations
+        安全考虑
       
     </span>
   </a>
@@ -7509,10 +7509,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#version-history" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Version history
+        版本历史
       
     </span>
   </a>
@@ -7520,10 +7520,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#related-pages" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Related pages
+        相关页面
       
     </span>
   </a>
@@ -7879,7 +7879,7 @@
   <span class="md-ellipsis">
     
   
-    Job Objects
+    作业对象
   
 
     
@@ -7969,85 +7969,101 @@
   
 
 
-<h1 id="system-call-settings">System Call Settings<a class="headerlink" href="#system-call-settings" title="Permanent link"></a></h1>
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h2>
-<p>Sandboxie mediates selected native system calls as part of its isolation and compatibility architecture. This mediation can involve both a Sandboxie handler for the call and a temporary choice of security token while the call is processed. These are separate decisions.</p>
-<p>Sandboxie does not intercept every Windows system call, and system-call mediation is not its only isolation layer. File and registry filtering, kernel-object filtering, virtualization, network policy, and other controls operate separately. For background on Sandboxie's token architecture, see <a href="../TokenMagic/">Token and Syscall Internals</a>.</p>
+<h1 id="system-call-settings">系统调用设置<a class="headerlink" href="#system-call-settings" title="Permanent link"></a></h1>
+<div id="overview"></div>
+
+<h2 id="_1">概述<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
+<p>Sandboxie 会对部分原生系统调用进行中介，作为其隔离与兼容性架构的一部分。这种中介既涉及 Sandboxie 为该调用提供的处理程序，也涉及在处理该调用期间临时选择的安全令牌。这是两个彼此独立的决定。</p>
+<p>Sandboxie 并不拦截每一个 Windows 系统调用，系统调用中介也不是它唯一的隔离层。文件与注册表过滤、内核对象过滤、虚拟化、网络策略以及其他控制各自独立运作。关于 Sandboxie 令牌架构的背景知识，参见 <a href="../TokenMagic/">令牌与系统调用内部机制</a>。</p>
 <h2 id="syscalllockdown">SysCallLockDown<a class="headerlink" href="#syscalllockdown" title="Permanent link"></a></h2>
-<p>The box-wide setting is:</p>
+<p>沙盒级设置是：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">SysCallLockDown</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p><code>SysCallLockDown=y</code> places the process's intercepted system calls in lockdown mode. <code>UseSecurityMode=y</code>, which enables Security Hardened mode, also causes the process to use this lockdown behavior.</p>
-<p>Without lockdown, Sandboxie's mediation path can temporarily use the original or full token when required to process an intercepted call. With lockdown enabled:</p>
+<p><code>SysCallLockDown=y</code> 会把进程被拦截的系统调用置于锁定模式。<code>UseSecurityMode=y</code>（用于启用安全强化模式）也会使进程采用这种锁定行为。</p>
+<p>未启用锁定时，Sandboxie 的中介路径在处理被拦截的调用时，可以按需临时使用原始令牌或完整令牌。启用锁定后：</p>
 <ul>
-<li>an approved intercepted call may use that original/full-token execution path;</li>
-<li>an unapproved intercepted call does not receive that path and continues under the restricted sandbox token;</li>
-<li>the call can still execute, but it may fail if the restricted token lacks a required right.</li>
+<li>已批准的拦截调用可以使用那条原始/完整令牌的执行路径；</li>
+<li>未批准的拦截调用不会获得该路径，而是继续在受限的沙盒令牌下执行；</li>
+<li>调用仍可执行，但如果受限令牌缺少所需的权限，它可能失败。</li>
 </ul>
-<p><code>SysCallLockDown</code> is therefore not a simple list that blocks every unapproved system call. It controls the token-selection decision within the intercepted paths that Sandboxie mediates.</p>
-<p>Security Hardened mode and direct use of <code>SysCallLockDown</code> require a valid <a href="../../PlusContent/supporter-certificate/">Supporter Certificate</a>.</p>
-<h2 id="approved-system-calls">Approved system calls<a class="headerlink" href="#approved-system-calls" title="Permanent link"></a></h2>
-<p>Approval marks an intercepted system-call entry as eligible for original/full-token execution while lockdown is active. It does not disable Sandboxie interception, bypass an associated Sandboxie handler, or execute the call outside the sandbox. File, registry, object, and other independent filtering also remain in effect.</p>
-<p><code>ApproveWinNtSysCall</code> and <code>ApproveWin32SysCall</code> populate global approval maps; Sandboxie does not maintain separate maps for individual sandboxes. Built-in approvals come from the <code>[SysCallPresets]</code> section in <code>Templates.ini</code>. Custom approvals can be written directly in <code>[GlobalSettings]</code> or supplied by a custom template enabled through <code>[GlobalSettings]</code>.</p>
-<p>Approval entries in an individual sandbox section, or in a template enabled only for a particular sandbox, are not consulted when these global maps are built. Syscall approval is therefore not a per-box mechanism. Keep custom approvals narrow: every approved entry restores eligibility for the original/full-token path for that call under lockdown. The built-in approvals are maintained for supported scenarios and should not be copied wholesale into a custom configuration.</p>
-<h3 id="nt-system-calls">NT system calls<a class="headerlink" href="#nt-system-calls" title="Permanent link"></a></h3>
-<p><code>ApproveWinNtSysCall</code> adds names to the global NT system-call approval map. Names use the driver entry name without the <code>Nt</code> or <code>Zw</code> prefix. Direct custom approvals use <code>[GlobalSettings]</code>, for example:</p>
+<p>因此，<code>SysCallLockDown</code> 并不是一份阻止所有未批准系统调用的简单清单。它控制的是 Sandboxie 所中介的拦截路径内部的令牌选择决定。</p>
+<p>安全强化模式以及直接使用 <code>SysCallLockDown</code> 都需要有效的 <a href="../../PlusContent/supporter-certificate/">支持者证书</a>。</p>
+<div id="approved-system-calls"></div>
+
+<h2 id="_2">已批准的系统调用<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
+<p>批准会把某个被拦截的系统调用条目标记为在锁定生效期间有资格使用原始/完整令牌执行。它不会禁用 Sandboxie 的拦截，不会绕过与之关联的 Sandboxie 处理程序，也不会让该调用在沙盒之外执行。文件、注册表、对象以及其他独立过滤同样保持生效。</p>
+<p><code>ApproveWinNtSysCall</code> 与 <code>ApproveWin32SysCall</code> 填充的是全局批准映射；Sandboxie 不为单个沙盒维护单独的映射。内置批准来自 <code>Templates.ini</code> 中的 <code>[SysCallPresets]</code> 节。自定义批准可以直接写入 <code>[GlobalSettings]</code>，也可以由通过 <code>[GlobalSettings]</code> 启用的自定义模板提供。</p>
+<p>构建这些全局映射时，不会参考单个沙盒节中、或仅在某个特定沙盒中启用的模板中的批准条目。因此，系统调用批准不是逐沙盒机制。请把自定义批准保持在最小范围：在锁定状态下，每一个被批准的条目都会为该调用恢复原始/完整令牌路径的资格。内置批准是为受支持的场景维护的，不应整体复制到自定义配置中。</p>
+<div id="nt-system-calls"></div>
+
+<h3 id="nt">NT 系统调用<a class="headerlink" href="#nt" title="Permanent link"></a></h3>
+<p><code>ApproveWinNtSysCall</code> 把名称加入全局 NT 系统调用批准映射。名称使用驱动入口名，不带 <code>Nt</code> 或 <code>Zw</code> 前缀。直接的自定义批准使用 <code>[GlobalSettings]</code>，例如：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[GlobalSettings]</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">ApproveWinNtSysCall</span><span class="o">=</span><span class="s">OpenFile</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="na">ApproveWinNtSysCall</span><span class="o">=</span><span class="s">CreateFile</span>
 </span></code></pre></div>
-<p>These examples demonstrate syntax only. They do not constitute a general recommended approval list.</p>
-<h3 id="win32k-system-calls">Win32k system calls<a class="headerlink" href="#win32k-system-calls" title="Permanent link"></a></h3>
-<p><code>ApproveWin32SysCall</code> is the corresponding global approval mechanism for intercepted Win32k system calls. A direct custom approval can use a matching pattern:</p>
+<p>这些示例仅演示语法，并不构成一份通用的推荐批准清单。</p>
+<div id="win32k-system-calls"></div>
+
+<h3 id="win32k">Win32k 系统调用<a class="headerlink" href="#win32k" title="Permanent link"></a></h3>
+<p><code>ApproveWin32SysCall</code> 是面向被拦截的 Win32k 系统调用的对应全局批准机制。直接的自定义批准可以使用匹配模式：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[GlobalSettings]</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">ApproveWin32SysCall</span><span class="o">=</span><span class="s">GdiDdDDI*</span>
 </span></code></pre></div>
-<p>Win32k approval has an effect only when Sandboxie's Win32k system-call hooking path is available and installed for the process. Approval still controls the lockdown token decision; it does not bypass any Sandboxie handler installed for the matching call.</p>
-<h2 id="configuration-reload">Configuration reload<a class="headerlink" href="#configuration-reload" title="Permanent link"></a></h2>
-<p>Current Sandboxie versions reload the NT and Win32k approval maps when the driver configuration is reconfigured. After editing approval entries, use <strong>Options &gt; Reload configuration</strong> so the new maps are applied. A driver restart is not normally required solely for these approval-list changes.</p>
-<p>This updates the approval maps. It does not rebuild tokens already assigned to running processes or change which system-call hooks were installed when a process started. Restart affected sandboxed processes when testing broader system-call configuration changes.</p>
+<p>只有当 Sandboxie 的 Win32k 系统调用挂钩路径对该进程可用且已安装时，Win32k 批准才会生效。批准仍然控制锁定的令牌决定；它不会绕过为匹配调用安装的任何 Sandboxie 处理程序。</p>
+<div id="configuration-reload"></div>
+
+<h2 id="_3">配置重新加载<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
+<p>当前版本的 Sandboxie 会在驱动配置被重新配置时重新加载 NT 与 Win32k 批准映射。编辑批准条目后，请使用 <strong>选项 &gt; 重新加载配置文件</strong>，使新的映射生效。通常不必仅为这些批准清单的改动而重启驱动。</p>
+<p>这只会更新批准映射。它不会重建已分配给运行中进程的令牌，也不会改变进程启动时安装了哪些系统调用钩子。在测试范围更大的系统调用配置改动时，请重启受影响的沙盒化进程。</p>
 <h2 id="openallsyscalls">OpenAllSysCalls<a class="headerlink" href="#openallsyscalls" title="Permanent link"></a></h2>
-<p>The box-wide debug setting is:</p>
+<p>沙盒级调试设置是：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">OpenAllSysCalls</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>Despite its name, <code>OpenAllSysCalls</code> does not simply “allow every system call” or disable the complete sandbox. <code>OpenAllSysCalls=y</code> causes NT system-call entries with an installed Sandboxie first-stage handler to bypass that handler and invoke the underlying system-call path directly. The same internal gate is present in the Win32k dispatch path, but the current Win32k table does not install first-stage handlers in that path.</p>
-<p>The lockdown token decision is independent and occurs before this handler decision. Consequently, <code>OpenAllSysCalls=y</code> does not disable <code>SysCallLockDown</code> and does not make every call run with the original token. If the process is locked down and an intercepted call is not approved, the restricted-token behavior still applies; enabling <code>OpenAllSysCalls</code> does not grant that call original/full-token execution.</p>
+<p>尽管名称如此，<code>OpenAllSysCalls</code> 并不是简单地“允许每一个系统调用”，也不会禁用整个沙盒。<code>OpenAllSysCalls=y</code> 会使已安装 Sandboxie 第一阶段处理程序的 NT 系统调用条目绕过该处理程序，直接调用底层系统调用路径。Win32k 分派路径中存在同一个内部开关，但当前的 Win32k 表中并未在该路径安装第一阶段处理程序。</p>
+<p>锁定的令牌决定是独立的，并且发生在这一处理程序决定之前。因此，<code>OpenAllSysCalls=y</code> 不会禁用 <code>SysCallLockDown</code>，也不会让每个调用都以原始令牌运行。如果进程处于锁定状态且某个被拦截的调用未获批准，受限令牌行为仍然适用；启用 <code>OpenAllSysCalls</code> 不会赋予该调用原始/完整令牌执行权限。</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The project explicitly classifies <code>OpenAllSysCalls</code> as an insecure debug option. It weakens system-call-level mediation by bypassing installed Sandboxie first-stage handlers that may provide security, virtualization, filtering, or compatibility behavior for hooked entries. It is intended for debugging or highly specific compatibility investigation, not as a normal sandbox configuration.</p>
+<p>本项目明确把 <code>OpenAllSysCalls</code> 归类为不安全的调试选项。它绕过为被挂钩条目提供安全、虚拟化、过滤或兼容性行为的已安装 Sandboxie 第一阶段处理程序，从而削弱系统调用层面的中介。它用于调试或非常特定的兼容性排查，而不是常规的沙盒配置。</p>
 </div>
-<p>The setting does not automatically disable unrelated layers such as file and registry filtering, kernel-object callbacks, network policy, or other independent Sandboxie controls.</p>
-<h2 id="security-considerations">Security considerations<a class="headerlink" href="#security-considerations" title="Permanent link"></a></h2>
+<p>该设置不会自动禁用无关的层，例如文件与注册表过滤、内核对象回调、网络策略或其他独立的 Sandboxie 控制。</p>
+<div id="security-considerations"></div>
+
+<h2 id="_4">安全考虑<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
 <ul>
-<li>Approve only the specific calls required by a confirmed compatibility problem.</li>
-<li>Treat the built-in <code>[SysCallPresets]</code> approvals as maintained implementation policy, not as a general list to copy.</li>
-<li>Approval changes the temporary token context; it does not remove the normal handler for the call.</li>
-<li><code>OpenAllSysCalls</code> removes more mediation than an approval and should not be used as a routine compatibility switch.</li>
-<li>A working application is not evidence that a broad approval or debug bypass preserves the intended isolation boundary.</li>
+<li>只批准已确认的兼容性问题所必需的那些调用。</li>
+<li>把内置的 <code>[SysCallPresets]</code> 批准视为受维护的实现策略，而不是一份可供复制的通用清单。</li>
+<li>批准改变的是临时令牌上下文；它不会移除该调用的常规处理程序。</li>
+<li><code>OpenAllSysCalls</code> 移除的中介比一次批准更多，不应把它当作常规的兼容性开关。</li>
+<li>应用程序能正常工作，并不能证明宽泛的批准或调试绕过仍保留了预期的隔离边界。</li>
 </ul>
-<h2 id="version-history">Version history<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
+<div id="version-history"></div>
+
+<h2 id="_5">版本历史<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
 <table>
 <thead>
 <tr>
-<th>Setting or change</th>
-<th>Introduced</th>
+<th>设置或变更</th>
+<th>引入版本</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Security Hardened mode, <code>SysCallLockDown</code>, <code>ApproveWinNtSysCall</code>, and <code>ApproveWin32SysCall</code></td>
+<td>安全强化模式、<code>SysCallLockDown</code>、<code>ApproveWinNtSysCall</code> 与 <code>ApproveWin32SysCall</code></td>
 <td>Sandboxie Plus 1.3.0 / Classic 5.58.0</td>
 </tr>
 <tr>
-<td><code>OpenAllSysCalls</code> insecure debug option</td>
+<td><code>OpenAllSysCalls</code> 不安全调试选项</td>
 <td>Sandboxie Plus 1.15.9 / Classic 5.70.9</td>
 </tr>
 </tbody>
 </table>
-<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
+<div id="related-pages"></div>
+
+<h2 id="_6">相关页面<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
 <ul>
-<li><a href="../../PlusContent/security-mode/">Security Hardened Mode</a></li>
-<li><a href="../TokenMagic/">Token and Syscall Internals</a></li>
+<li><a href="../../PlusContent/security-mode/">安全强化模式</a></li>
+<li><a href="../TokenMagic/">令牌与系统调用内部机制</a></li>
 <li><a href="../SandboxieIni/">Sandboxie Ini</a></li>
 </ul>
 

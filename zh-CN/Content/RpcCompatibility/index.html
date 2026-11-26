@@ -1583,7 +1583,7 @@
   <span class="md-ellipsis">
     
   
-    File Recovery Architecture
+    文件恢复架构
   
 
     
@@ -2214,7 +2214,7 @@
   <span class="md-ellipsis">
     
   
-    Breakout Execution
+    分离执行
   
 
     
@@ -2448,7 +2448,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#architecture-overview" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
         架构概述
@@ -2459,7 +2459,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#rpc-binding-presets" class="md-nav__link">
+  <a href="#rpc" class="md-nav__link">
     <span class="md-ellipsis">
       
         RPC 绑定预设
@@ -2471,7 +2471,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#dynamic-endpoint-mappings" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
         动态端点映射
@@ -2487,7 +2487,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#dynamic-port-filtering" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
         动态端口过滤
@@ -2498,7 +2498,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#rpc-communication-timeout" class="md-nav__link">
+  <a href="#rpc_1" class="md-nav__link">
     <span class="md-ellipsis">
       
         RPC 通信超时
@@ -2510,7 +2510,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#calling-module-override" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         调用模块覆盖
@@ -2526,7 +2526,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sandboxed-rpcss-startup" class="md-nav__link">
+  <a href="#rpcss" class="md-nav__link">
     <span class="md-ellipsis">
       
         沙盒化 RpcSs 的启动
@@ -2537,7 +2537,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#applying-changes" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         应用更改
@@ -2548,7 +2548,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#version-history" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         版本历史
@@ -2559,7 +2559,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#related-pages" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
         相关页面
@@ -2827,7 +2827,7 @@
   <span class="md-ellipsis">
     
   
-    Notification Settings
+    通知设置
   
 
     
@@ -7531,7 +7531,7 @@
   <span class="md-ellipsis">
     
   
-    System Call Settings
+    系统调用设置
   
 
     
@@ -7885,7 +7885,7 @@
   <span class="md-ellipsis">
     
   
-    Job Objects
+    作业对象
   
 
     
@@ -7978,7 +7978,9 @@
 <h1 id="rpc-compatibility">RPC 兼容性<a class="headerlink" href="#rpc-compatibility" title="Permanent link"></a></h1>
 <p>Sandboxie 为使用 Windows 远程过程调用（RPC）的应用程序提供了兼容性处理。这些处理帮助沙盒化进程构造合适的绑定、解析动态本地端点、应用通信超时调整，以及连接到选定的宿主服务，同时不替换 Windows RPC 运行时。</p>
 <p>这些机制并不是通用的 RPC 防火墙。通用的 IPC 可达性、Windows 访问检查、按端点过滤请求，以及沙盒化服务进程的身份，是整体模型中各自独立的部分。</p>
-<h2 id="architecture-overview">架构概述<a class="headerlink" href="#architecture-overview" title="Permanent link"></a></h2>
+<div id="architecture-overview"></div>
+
+<h2 id="_1">架构概述<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
 <p>RPC 兼容性涉及 Sandboxie 的多个组件：</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>沙盒化应用程序
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>        |
@@ -8001,7 +8003,9 @@
 </span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>             Windows RPC 端点
 </span></code></pre></div>
 <p>内置模板提供了受支持的兼容性场景所需的、由项目维护的映射。LSA、SAM、WPAD 及相关服务的端点专属安全行为记录在 <a href="../SystemEndpoints/">系统端点</a> 下。</p>
-<h2 id="rpc-binding-presets">RPC 绑定预设<a class="headerlink" href="#rpc-binding-presets" title="Permanent link"></a></h2>
+<div id="rpc-binding-presets"></div>
+
+<h2 id="rpc">RPC 绑定预设<a class="headerlink" href="#rpc" title="Permanent link"></a></h2>
 <p><code>RpcPortBinding</code> 为 RPC 绑定提供高级兼容性预设。每个预设都会匹配调用模块以及绑定操作提供的一个标识符：</p>
 <ul>
 <li>对于 <code>RpcBindingCreateW</code>，该标识符是绑定模板的对象 UUID。</li>
@@ -8015,14 +8019,18 @@
 <p>当某个预设匹配时，Sandboxie 可以提供本地端点并调整通信超时。<code>Resolve=&lt;port-id&gt;</code> 会请求使用下文所述的映射进行端点查找。在 <code>RpcBindingCreateW</code> 路径中，端点替换只适用于尚未指定端点的本地 RPC 绑定。</p>
 <p>如果没有预设匹配，Sandboxie 会继续走正常的绑定路径。未匹配的预设不会拒绝访问。</p>
 <p>解析器还支持由项目维护的模板所使用的内部形式。请优先使用这些模板，不要把每一种受支持的形式或端点标识符都当作稳定的手动配置接口。</p>
-<h3 id="dynamic-endpoint-mappings">动态端点映射<a class="headerlink" href="#dynamic-endpoint-mappings" title="Permanent link"></a></h3>
+<div id="dynamic-endpoint-mappings"></div>
+
+<h3 id="_2">动态端点映射<a class="headerlink" href="#_2" title="Permanent link"></a></h3>
 <p>有两个相关设置向端点映射器辅助程序提供 <code>Resolve=</code> 所需的信息：</p>
 <ul>
 <li><code>RpcPortBindingIfId</code> 把逻辑端口标识符映射到 RPC 接口 UUID。随后 SbieSvc 可以向 Windows 端点映射器查询匹配的当前端点。</li>
 <li><code>RpcPortBindingSvc</code> 把逻辑端口标识符映射到 Windows 服务名。SbieSvc 会识别该服务的进程，并向驱动程序查询该进程当前的动态 RPC 端口。</li>
 </ul>
 <p>这些设置主要是由项目维护的模板与服务解析方面的底层配套机制。接口 UUID 和服务端点细节可能随 Windows 变化，不应直接从模板中盲目复制。</p>
-<h2 id="dynamic-port-filtering">动态端口过滤<a class="headerlink" href="#dynamic-port-filtering" title="Permanent link"></a></h2>
+<div id="dynamic-port-filtering"></div>
+
+<h2 id="_3">动态端口过滤<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
 <p><code>RpcPortFilter</code> 为 Sandboxie 全局注册到驱动程序的动态解析端口提供请求过滤。SbieSvc 读取维护的过滤条目，并把解析出的端口和过滤器标识符提交给 SbieDrv。驱动程序通过其仅限服务的路径接受该注册，检查发往已注册端口的请求，并对配置中匹配的请求返回“拒绝访问”。</p>
 <p>过滤条目中可选的函数名仅供说明；当前的执行逻辑使用的是配置的请求标识符，而不是该标签。对于受支持的特殊端点，<code>Open&lt;Name&gt;Endpoint</code> 选项可以在端点注册时抑制相应的过滤器。</p>
 <div class="admonition warning">
@@ -8030,7 +8038,9 @@
 <p><code>RpcPortFilter</code> 使用的请求标识符是与协议和版本相关的实现细节。错误的取值可能阻断合法的 RPC 活动。请优先使用 Sandboxie 维护的模板，不要凭空编写条目，也不要把消息标识符当成稳定的 RPC 授权 API 来复制。</p>
 </div>
 <p><code>RpcPortFilter</code> 并不过滤所有 RPC 端点，也不是通用的 RPC 防火墙。受支持的端点专属兼容性控制参见 <a href="../SystemEndpoints/">系统端点</a>。</p>
-<h2 id="rpc-communication-timeout">RPC 通信超时<a class="headerlink" href="#rpc-communication-timeout" title="Permanent link"></a></h2>
+<div id="rpc-communication-timeout"></div>
+
+<h2 id="rpc_1">RPC 通信超时<a class="headerlink" href="#rpc_1" title="Permanent link"></a></h2>
 <p>Sandboxie 通常会对绑定句柄应用 RPC 通信超时调整。<code>RpcMgmtSetComTimeout</code> 的当前运行时默认值在未配置该项时为启用。</p>
 <p>要显式禁用默认调整：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[DefaultBox]</span>
@@ -8046,18 +8056,26 @@
 <li>选中时写入 <code>RpcMgmtSetComTimeout=n</code>；</li>
 <li>清除时保持正常的启用行为。</li>
 </ul>
-<h3 id="calling-module-override">调用模块覆盖<a class="headerlink" href="#calling-module-override" title="Permanent link"></a></h3>
+<div id="calling-module-override"></div>
+
+<h3 id="_4">调用模块覆盖<a class="headerlink" href="#_4" title="Permanent link"></a></h3>
 <p><code>UseRpcMgmtSetComTimeout</code> 是一种高级的、按调用模块限定的覆盖，用于当前绑定尚未提供其超时判定的情况。例如，维护的模板可以为源自特定 DLL 的调用选择不同的超时行为。</p>
 <p><code>UseRpcMgmtSetComTimeout</code> 允许对源自特定模块（例如某个 DLL）的调用采用不同的超时行为。Sandboxie 会先检查此设置，然后再查找匹配的 <code>RpcPortBinding</code> 预设。</p>
 <p>如果匹配的预设包含 <code>TimeOut=</code>，该值会覆盖按模块的判定。否则，即使有绑定预设匹配，按模块的判定仍然生效。如果两者都没有提供覆盖，Sandboxie 会使用进程的 <code>RpcMgmtSetComTimeout</code> 默认值。</p>
-<h2 id="sandboxed-rpcss-startup">沙盒化 RpcSs 的启动<a class="headerlink" href="#sandboxed-rpcss-startup" title="Permanent link"></a></h2>
+<div id="sandboxed-rpcss-startup"></div>
+
+<h2 id="rpcss">沙盒化 RpcSs 的启动<a class="headerlink" href="#rpcss" title="Permanent link"></a></h2>
 <p>当进程需要沙盒化的端点映射器时，Sandboxie 通常会启动与其沙盒关联的 RpcSs。该 RpcSs 进而可以通过特殊的服务器启动流程启动沙盒化的 DcomLaunch 进程。这些是与沙盒关联的 Sandboxie 服务可执行文件，而不是非沙盒化的宿主服务实例。</p>
 <p><code>NoSandboxieRpcSs</code> 会让特殊的服务器启动辅助程序在处理相关端点请求时，在启动沙盒化 RpcSs 或 DcomLaunch 之前就返回。它不会禁用 Windows RPC、不会阻断所有 RPC 通信，也不会禁用 <code>RpcPortBinding</code>。此选项没有记录受支持的通用用户工作流，因此应将其视为内部的兼容性行为，而不是常规配置控件。</p>
 <p>用于启动沙盒化 RpcSs 的身份由另一项设置控制。参见 <a href="../SandboxedServices/#runrpcssassystem">沙盒化服务</a>。</p>
-<h2 id="applying-changes">应用更改<a class="headerlink" href="#applying-changes" title="Permanent link"></a></h2>
+<div id="applying-changes"></div>
+
+<h2 id="_5">应用更改<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
 <p>RPC 超时默认值会在每个沙盒化进程中初始化，而按模块的绑定判定则在创建绑定之时做出。动态端点也会按需解析和注册。更改这些设置后，请重启受影响的沙盒化进程，或重建沙盒化的进程树，以免沿用已有的绑定和缓存的端点信息。</p>
 <p>更改 RpcSs 的启动身份需要重启沙盒化 RpcSs 进程。仅因这些配置更改，通常不需要重启 SandMan、SbieSvc 或驱动程序。</p>
-<h2 id="version-history">版本历史<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
+<div id="version-history"></div>
+
+<h2 id="_6">版本历史<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
 <table>
 <thead>
 <tr>
@@ -8088,7 +8106,9 @@
 </tr>
 </tbody>
 </table>
-<h2 id="related-pages">相关页面<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
+<div id="related-pages"></div>
+
+<h2 id="_7">相关页面<a class="headerlink" href="#_7" title="Permanent link"></a></h2>
 <ul>
 <li><a href="../SystemEndpoints/">系统端点</a></li>
 <li><a href="../SandboxedServices/">沙盒化服务</a></li>

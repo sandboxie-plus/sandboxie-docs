@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="File recovery moves selected content from a sandbox to a host-accessible destination. Configuring a recoverable location does not grant a sandboxed program access to that host location; the recovery action is performed outside the sandbox after a user chooses what to recover.">
+        <meta name="description" content="文件恢复会把选定的内容从沙盒移动到宿主可访问的目标位置。配置可恢复位置并不会授予沙盒化程序访问该宿主位置的权限；恢复操作在用户选择要恢复的内容之后，于沙盒外执行。">
       
       
       
@@ -33,7 +33,7 @@
     
     
       
-        <title>File Recovery Architecture - Sandboxie 文档</title>
+        <title>文件恢复架构 - Sandboxie 文档</title>
       
     
     
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              File Recovery Architecture
+              文件恢复架构
             
           </span>
         </div>
@@ -1596,7 +1596,7 @@
   <span class="md-ellipsis">
     
   
-    File Recovery Architecture
+    文件恢复架构
   
 
     
@@ -1614,7 +1614,7 @@
   <span class="md-ellipsis">
     
   
-    File Recovery Architecture
+    文件恢复架构
   
 
     
@@ -1640,10 +1640,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#recovery-is-split-across-components" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Recovery is split across components
+        恢复分散在多个组件中
       
     </span>
   </a>
@@ -1651,10 +1651,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#recoverable-locations" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Recoverable locations
+        可恢复位置
       
     </span>
   </a>
@@ -1662,10 +1662,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#automatic-and-immediate-recovery" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Automatic and Immediate Recovery
+        自动恢复与即时恢复
       
     </span>
   </a>
@@ -1673,10 +1673,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#quick-recovery" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Quick Recovery
+        快速恢复
       
     </span>
   </a>
@@ -1684,10 +1684,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#destinations-and-moving-files" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Destinations and moving files
+        目标位置与移动文件
       
     </span>
   </a>
@@ -1695,10 +1695,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#applying-changes" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Applying changes
+        应用更改
       
     </span>
   </a>
@@ -1706,10 +1706,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#classic-and-sandman" class="md-nav__link">
+  <a href="#classic-sandman" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Classic and SandMan
+        Classic 与 SandMan
       
     </span>
   </a>
@@ -1717,10 +1717,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#version-history" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Version history
+        版本历史
       
     </span>
   </a>
@@ -1728,10 +1728,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#related-pages" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Related pages
+        相关页面
       
     </span>
   </a>
@@ -2362,7 +2362,7 @@
   <span class="md-ellipsis">
     
   
-    Breakout Execution
+    分离执行
   
 
     
@@ -2804,7 +2804,7 @@
   <span class="md-ellipsis">
     
   
-    Notification Settings
+    通知设置
   
 
     
@@ -7508,7 +7508,7 @@
   <span class="md-ellipsis">
     
   
-    System Call Settings
+    系统调用设置
   
 
     
@@ -7862,7 +7862,7 @@
   <span class="md-ellipsis">
     
   
-    Job Objects
+    作业对象
   
 
     
@@ -7952,67 +7952,85 @@
   
 
 
-<h1 id="file-recovery-architecture">File Recovery Architecture<a class="headerlink" href="#file-recovery-architecture" title="Permanent link"></a></h1>
-<p>File recovery moves selected content from a sandbox to a host-accessible destination. Configuring a recoverable location does not grant a sandboxed program access to that host location; the recovery action is performed outside the sandbox after a user chooses what to recover.</p>
-<h2 id="recovery-is-split-across-components">Recovery is split across components<a class="headerlink" href="#recovery-is-split-across-components" title="Permanent link"></a></h2>
+<h1 id="file-recovery-architecture">文件恢复架构<a class="headerlink" href="#file-recovery-architecture" title="Permanent link"></a></h1>
+<p>文件恢复会把选定的内容从沙盒移动到宿主可访问的目标位置。配置可恢复位置并不会授予沙盒化程序访问该宿主位置的权限；恢复操作在用户选择要恢复的内容之后，于沙盒外执行。</p>
+<div id="recovery-is-split-across-components"></div>
+
+<h2 id="_1">恢复分散在多个组件中<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
 <table>
 <thead>
 <tr>
-<th>Component</th>
-<th>Role</th>
+<th>组件</th>
+<th>作用</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Automatic detection</td>
-<td>With <code>AutoRecover=y</code>, SbieDll watches eligible file activity in a sandboxed process and reports recovery candidates.</td>
+<td>自动检测</td>
+<td>使用 <code>AutoRecover=y</code> 时，SbieDll 会监视沙盒化进程中符合条件的文件活动，并报告恢复候选对象。</td>
 </tr>
 <tr>
-<td>Quick Recovery</td>
-<td>SandMan separately scans configured locations when the recovery window is opened. It does not require <code>AutoRecover=y</code>.</td>
+<td>快速恢复</td>
+<td>SandMan 在打开恢复窗口时单独扫描已配置的位置。它不要求 <code>AutoRecover=y</code>。</td>
 </tr>
 <tr>
-<td>Presentation</td>
-<td>SandMan shows a recovery dialog or notification according to its preferences.</td>
+<td>呈现</td>
+<td>SandMan 按其偏好显示恢复对话框或通知。</td>
 </tr>
 <tr>
-<td>Destination</td>
-<td>The user chooses the corresponding host folder or another folder.</td>
+<td>目标位置</td>
+<td>用户选择对应的宿主文件夹或其他文件夹。</td>
 </tr>
 <tr>
-<td>Recovery operation</td>
-<td>SandMan moves selected files from sandbox storage to the host destination.</td>
+<td>恢复操作</td>
+<td>SandMan 把选定的文件从沙盒存储移动到宿主目标位置。</td>
 </tr>
 </tbody>
 </table>
-<h2 id="recoverable-locations">Recoverable locations<a class="headerlink" href="#recoverable-locations" title="Permanent link"></a></h2>
-<p>Repeatable <a href="../RecoverFolder/"><code>RecoverFolder</code></a> entries identify locations or patterns for both automatic detection and Quick Recovery. A literal folder supplies a recursive Quick Recovery scan root. A wildcard entry instead filters candidate paths; it is not an instruction to recursively scan every path represented by the pattern. Effective entries may come from box configuration and enabled templates. Shell-folder references such as <code>%Personal%</code> can be expanded to usable paths.</p>
-<h2 id="automatic-and-immediate-recovery">Automatic and Immediate Recovery<a class="headerlink" href="#automatic-and-immediate-recovery" title="Permanent link"></a></h2>
-<p><a href="../AutoRecover/"><code>AutoRecover=y</code></a> initializes process-side detection using the effective <code>RecoverFolder</code> and <a href="../AutoRecoverIgnore/"><code>AutoRecoverIgnore</code></a> entries. A candidate must match a recoverable location and not match an ignore entry. Sandboxie reports an eligible, non-empty sandboxed file after the relevant file activity; this is not a promise of a prompt at the exact instant of creation. Detection does not itself move the file.</p>
-<p>SandMan receives the recovery event and can open a dialog or present a notification. Its notification preference and temporary suppression can affect what the user sees. Automatic detection applies <code>AutoRecoverIgnore</code> regardless of the Quick Recovery ignore option.</p>
-<p>The SbieDll fallback for an absent <code>AutoRecover</code> setting is disabled. Newly created boxes may explicitly enable it: the current SandMan new-box wizard offers Immediate Recovery checked by default, while Classic's new-box defaults write <code>AutoRecover=y</code>. Thus a product-created box and a box with no effective <code>AutoRecover</code> value need not behave alike.</p>
-<h2 id="quick-recovery">Quick Recovery<a class="headerlink" href="#quick-recovery" title="Permanent link"></a></h2>
-<p>Opening <a href="../QuickRecovery/">Quick Recovery</a> makes SandMan read the effective recovery locations and scan literal roots recursively. Wildcard entries filter candidates found through the scan. The window can also show all boxed files rather than only the configured recovery locations.</p>
-<p>SandMan can apply <code>AutoRecoverIgnore</code> to the Quick Recovery list when <a href="../UseAutoRecoverIgnoreForQuick/"><code>UseAutoRecoverIgnoreForQuick</code></a> is enabled. The window's <strong>Show All Files</strong> or <strong>Show Ignored</strong> view can expose otherwise hidden files. This Quick-specific filtering does not replace the automatic detector's own ignore check.</p>
-<p>The settings metadata describes <code>UseAutoRecoverIgnoreForQuick</code> with an <code>n</code> default, but the current SandMan consumer treats an absent value as enabled. An explicit <code>n</code> turns off its normal Quick-list filtering. This is a SandMan consumer default, not an SbieDll-wide runtime default.</p>
-<h2 id="destinations-and-moving-files">Destinations and moving files<a class="headerlink" href="#destinations-and-moving-files" title="Permanent link"></a></h2>
-<p><strong>Recover to Same Folder</strong> selects the corresponding location outside the sandbox; <strong>Recover to Any Folder</strong> lets the user choose another destination. SandMan keeps reusable destination history in a user setting (<code>SbieCtrl_RecoverTarget</code>) and its own last-target preference. These are not <code>RecoverFolder</code> box rules.</p>
-<p>SandMan prepares the destination and uses a host-side move (<code>QFile::rename</code>) for the selected sandbox file. If a target already exists, it asks before overwriting; approving overwrite can remove the existing target before the move. A failed move is reported and the unrecovered sandbox source remains. Recovery is not guaranteed to be atomic or to roll back a previously approved overwrite.</p>
-<p>SandMan may run an installed FileChecker add-on or configured <a href="../SandManTriggers/"><code>OnFileRecovery</code></a> commands before moving a file. A checker failure can stop that recovery unless the user explicitly overrides the warning. Checkers and user approval do not prove that recovered content is safe to open or run.</p>
-<h2 id="applying-changes">Applying changes<a class="headerlink" href="#applying-changes" title="Permanent link"></a></h2>
-<p>Automatic detection and its folder/ignore lists initialize in each sandboxed process. Restart affected sandboxed processes after changing <code>AutoRecover</code>, <code>RecoverFolder</code>, or <code>AutoRecoverIgnore</code> when you need the automatic detector to use the new values. SandMan reads recovery locations when the recovery window is created, while Quick-list ignore settings are reloaded during scans and refreshes. Reopen the recovery window after changing <code>RecoverFolder</code> outside that window. These SandMan-side changes do not require restarting sandboxed processes for Quick Recovery.</p>
-<h2 id="classic-and-sandman">Classic and SandMan<a class="headerlink" href="#classic-and-sandman" title="Permanent link"></a></h2>
-<p>The older <a href="../RecoverySettings/">Recovery Settings</a>, <a href="../QuickRecovery/">Quick Recovery</a>, and <a href="../ImmediateRecovery/">Immediate Recovery</a> pages retain useful Sandboxie Control / Classic workflows and screenshots. Current Sandboxie Plus controls are under <strong>Sandbox Options &gt; File Recovery</strong>, with separate <strong>Quick Recovery</strong> and <strong>Immediate Recovery</strong> sections. SandMan's presentation preferences are in <strong>Global Settings &gt; General Config</strong>: <strong>Recovery Options</strong> contains recovery-window preferences, and <strong>Notifications</strong> contains <strong>Show recoverable files as notifications</strong>.</p>
-<h2 id="version-history">Version history<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
-<p>Wildcard recovery patterns and <code>UseAutoRecoverIgnoreForQuick</code> were added in Sandboxie Plus 1.18.0 / Classic 5.73.0. This does not date the introduction of the older recovery settings.</p>
-<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
+<div id="recoverable-locations"></div>
+
+<h2 id="_2">可恢复位置<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
+<p>可重复的 <a href="../RecoverFolder/"><code>RecoverFolder</code></a> 条目为自动检测和快速恢复共同指明位置或模式。字面的文件夹会提供一个递归的快速恢复扫描根。通配符条目则用于过滤候选路径；它不是递归扫描该模式所代表的每个路径的指令。有效条目可能来自沙盒配置和已启用的模板。<code>%Personal%</code> 这类个人文件夹引用可以展开为可用的路径。</p>
+<div id="automatic-and-immediate-recovery"></div>
+
+<h2 id="_3">自动恢复与即时恢复<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
+<p><a href="../AutoRecover/"><code>AutoRecover=y</code></a> 使用有效的 <code>RecoverFolder</code> 与 <a href="../AutoRecoverIgnore/"><code>AutoRecoverIgnore</code></a> 条目来初始化进程侧检测。候选对象必须匹配某个可恢复位置，且不匹配任何忽略条目。Sandboxie 会在相关文件活动之后报告符合条件的、非空的沙盒内文件；这并不承诺在文件创建的确切时刻弹出提示。检测本身不会移动文件。</p>
+<p>SandMan 接收恢复事件，可以打开对话框或呈现通知。其通知偏好与临时抑制会影响用户看到的内容。无论快速恢复的忽略选项如何，自动检测都会应用 <code>AutoRecoverIgnore</code>。</p>
+<p>当 <code>AutoRecover</code> 设置缺失时，SbieDll 中对应的回退行为处于禁用状态。新建的沙盒可能会显式启用它：当前 SandMan 的新建沙盒向导默认勾选即时恢复，而 Classic 的新建沙盒默认值会写入 <code>AutoRecover=y</code>。因此，由产品创建的沙盒与没有有效 <code>AutoRecover</code> 值的沙盒行为未必相同。</p>
+<div id="quick-recovery"></div>
+
+<h2 id="_4">快速恢复<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
+<p>打开 <a href="../QuickRecovery/">快速恢复</a> 时，SandMan 会读取有效的恢复位置并递归扫描字面根。通配符条目会过滤扫描中发现的候选对象。该窗口也可以显示所有沙盒内文件，而不只是已配置的恢复位置。</p>
+<p>启用 <a href="../UseAutoRecoverIgnoreForQuick/"><code>UseAutoRecoverIgnoreForQuick</code></a> 时，SandMan 可以把 <code>AutoRecoverIgnore</code> 应用到快速恢复列表。窗口的 <strong>显示所有文件</strong> 或 <strong>显示被忽略的文件</strong> 视图可以显示原本隐藏的文件。这种快速恢复专用的过滤不会取代自动检测器自身的忽略检查。</p>
+<p>设置元数据把 <code>UseAutoRecoverIgnoreForQuick</code> 的默认值描述为 <code>n</code>，但当前的 SandMan 使用方把缺失值视为已启用。显式的 <code>n</code> 会关闭其常规的快速恢复列表过滤。这是 SandMan 使用方的默认值，而不是 SbieDll 范围内的运行时默认值。</p>
+<div id="destinations-and-moving-files"></div>
+
+<h2 id="_5">目标位置与移动文件<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
+<p><strong>恢复到对应的目录</strong> 选择沙盒外的对应位置；<strong>恢复到任意文件夹</strong> 允许用户选择另一个目标位置。SandMan 在用户设置（<code>SbieCtrl_RecoverTarget</code>）中保留可复用的目标历史，并保留自己的上次目标偏好。这些不是 <code>RecoverFolder</code> 的沙盒规则。</p>
+<p>SandMan 会准备目标位置，并对选定的沙盒文件使用宿主侧移动（<code>QFile::rename</code>）。如果目标已存在，它会在覆盖前询问；批准覆盖可能会在移动之前移除已有的目标。移动失败会被报告，未恢复的沙盒源文件仍然保留。恢复不保证是原子的，也不保证回滚先前已批准的覆盖。</p>
+<p>移动文件之前，SandMan 可能运行已安装的 FileChecker 附加组件或已配置的 <a href="../SandManTriggers/"><code>OnFileRecovery</code></a> 命令。检查器失败可能会中止该次恢复，除非用户显式忽略该警告。检查器与用户批准并不能证明恢复的内容可以安全地打开或运行。</p>
+<div id="applying-changes"></div>
+
+<h2 id="_6">应用更改<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
+<p>自动检测及其文件夹/忽略列表会在每个沙盒化进程中初始化。当你需要自动检测器使用新值时，请在更改 <code>AutoRecover</code>、<code>RecoverFolder</code> 或 <code>AutoRecoverIgnore</code> 之后重启受影响的沙盒化进程。SandMan 在创建恢复窗口时读取恢复位置，而快速恢复列表的忽略设置会在扫描与刷新期间重新加载。在该窗口之外更改 <code>RecoverFolder</code> 后，请重新打开恢复窗口。这些 SandMan 侧的更改不需要为快速恢复重启沙盒化进程。</p>
+<div id="classic-and-sandman"></div>
+
+<h2 id="classic-sandman">Classic 与 SandMan<a class="headerlink" href="#classic-sandman" title="Permanent link"></a></h2>
+<p>较早的 <a href="../RecoverySettings/">恢复设置</a>、<a href="../QuickRecovery/">快速恢复</a> 与 <a href="../ImmediateRecovery/">即时恢复</a> 页面保留了有用的 Sandboxie Control / Classic 工作流程与截图。当前的 Sandboxie Plus 控件位于 <strong>沙盒选项 &gt; 文件恢复</strong>，其中有单独的 <strong>快速恢复</strong> 与 <strong>即时恢复</strong> 节。SandMan 的呈现偏好位于 <strong>全局设置 &gt; 常规选项</strong>：<strong>恢复选项</strong> 包含恢复窗口偏好，<strong>消息通知</strong> 包含 <strong>将可恢复的文件以通知形式显示</strong>。</p>
+<div id="version-history"></div>
+
+<h2 id="_7">版本历史<a class="headerlink" href="#_7" title="Permanent link"></a></h2>
+<p>通配符恢复模式与 <code>UseAutoRecoverIgnoreForQuick</code> 是在 Sandboxie Plus 1.18.0 / Classic 5.73.0 中添加的。这并不代表较早的恢复设置的引入日期。</p>
+<div id="related-pages"></div>
+
+<h2 id="_8">相关页面<a class="headerlink" href="#_8" title="Permanent link"></a></h2>
 <ul>
-<li><a href="../RecoverFolder/">Recover Folder</a></li>
-<li><a href="../AutoRecover/">Auto Recover</a></li>
-<li><a href="../AutoRecoverIgnore/">Auto Recover Ignore</a></li>
-<li><a href="../UseAutoRecoverIgnoreForQuick/">Use Auto Recover Ignore For Quick</a></li>
-<li><a href="../QuickRecovery/">Quick Recovery</a></li>
-<li><a href="../ImmediateRecovery/">Immediate Recovery</a></li>
+<li><a href="../RecoverFolder/">恢复文件夹</a></li>
+<li><a href="../AutoRecover/">自动恢复</a></li>
+<li><a href="../AutoRecoverIgnore/">自动恢复忽略</a></li>
+<li><a href="../UseAutoRecoverIgnoreForQuick/">对快速恢复使用自动恢复忽略</a></li>
+<li><a href="../QuickRecovery/">快速恢复</a></li>
+<li><a href="../ImmediateRecovery/">即时恢复</a></li>
 </ul>
 
 

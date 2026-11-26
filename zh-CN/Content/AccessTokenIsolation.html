@@ -1583,7 +1583,7 @@
   <span class="md-ellipsis">
     
   
-    File Recovery Architecture
+    文件恢复架构
   
 
     
@@ -2066,7 +2066,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#current-behavior" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
         当前行为
@@ -2099,7 +2099,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#effective-settings" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
         实际生效的设置
@@ -2110,7 +2110,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sandman-control" class="md-nav__link">
+  <a href="#sandman" class="md-nav__link">
     <span class="md-ellipsis">
       
         SandMan 控件
@@ -2121,7 +2121,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#token-restrictions" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
         令牌限制
@@ -2133,7 +2133,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#shared-group-and-per-sandbox-identity" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         共享组与按沙盒身份
@@ -2149,7 +2149,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#security-implications" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         安全影响
@@ -2160,7 +2160,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#administrator-and-elevation-behavior" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         管理员与提升权限行为
@@ -2171,7 +2171,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nosecurityisolation-interaction" class="md-nav__link">
+  <a href="#nosecurityisolation" class="md-nav__link">
     <span class="md-ellipsis">
       
         与 NoSecurityIsolation 的交互
@@ -2182,7 +2182,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#compatibility-and-failure-behavior" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
         兼容性与失败行为
@@ -2193,7 +2193,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#version-history" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
         版本历史
@@ -2204,7 +2204,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#related-settings" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
         相关设置
@@ -2412,7 +2412,7 @@
   <span class="md-ellipsis">
     
   
-    Breakout Execution
+    分离执行
   
 
     
@@ -2854,7 +2854,7 @@
   <span class="md-ellipsis">
     
   
-    Notification Settings
+    通知设置
   
 
     
@@ -7558,7 +7558,7 @@
   <span class="md-ellipsis">
     
   
-    System Call Settings
+    系统调用设置
   
 
     
@@ -7912,7 +7912,7 @@
   <span class="md-ellipsis">
     
   
-    Job Objects
+    作业对象
   
 
     
@@ -8005,7 +8005,9 @@
 <h1 id="access-token-isolation">访问令牌隔离<a class="headerlink" href="#access-token-isolation" title="Permanent link"></a></h1>
 <p>Sandboxie 将高度受限的主访问令牌用作沙盒隔离的一层。该令牌限制沙盒化进程通过直接的 Windows 访问检查所能执行的操作。文件、注册表、IPC 以及其他沙盒规则是更广泛的隔离模型中各自独立的层次。</p>
 <p>Sandboxie Plus 1.14.1 引入了 <code>UseCreateToken</code> 和 <code>SandboxieAllGroup</code> 设置。自引入以来，它们的行为和默认值都有所演变。</p>
-<h2 id="current-behavior">当前行为<a class="headerlink" href="#current-behavior" title="Permanent link"></a></h2>
+<div id="current-behavior"></div>
+
+<h2 id="_1">当前行为<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
 <p>虽然 <code>UseCreateToken</code> 本身默认为 <code>n</code>，但 <code>SandboxieAllGroup</code> 默认为 <code>y</code>，并且同样会选择新令牌构造路径。因此，即使没有显式写入 <code>UseCreateToken</code>，创建新的沙盒化令牌也是当前的正常行为。</p>
 <h2 id="usecreatetoken">UseCreateToken<a class="headerlink" href="#usecreatetoken" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">UseCreateToken</span><span class="o">=</span><span class="s">y</span>
@@ -8028,7 +8030,9 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Sandboxie\All Sandboxes
 </span></code></pre></div>
 <p>Sandboxie 会将该 SID 作为普通启用组添加到沙盒化令牌中。该组由所有沙盒中的进程共享，因此 Windows 的访问控制或审核策略可以用它来统一匹配沙盒化进程。该 SID 本身不授予访问权限；必须由 ACL 或其他策略引用它。它既不能标识单个沙盒，也不能把一个沙盒与另一个沙盒隔离开。</p>
-<h2 id="effective-settings">实际生效的设置<a class="headerlink" href="#effective-settings" title="Permanent link"></a></h2>
+<div id="effective-settings"></div>
+
+<h2 id="_2">实际生效的设置<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <table>
 <thead>
 <tr>
@@ -8066,7 +8070,9 @@
 </tbody>
 </table>
 <p>当某项设置未写入单个沙盒时，全局设置会影响其实际生效的值。</p>
-<h2 id="sandman-control">SandMan 控件<a class="headerlink" href="#sandman-control" title="Permanent link"></a></h2>
+<div id="sandman-control"></div>
+
+<h2 id="sandman">SandMan 控件<a class="headerlink" href="#sandman" title="Permanent link"></a></h2>
 <p>在 SandMan 中，该控件位于<strong>沙盒选项 &gt; 安全选项 &gt; 高级安全 &gt; 沙盒令牌</strong>下，标签为<strong>创建新的沙盒令牌，而不是剥离原始令牌</strong>。</p>
 <table>
 <thead>
@@ -8091,7 +8097,9 @@
 </tbody>
 </table>
 <p>当默认值或全局继承已经产生所选状态时，SandMan 可能会删除某项设置，而不是写入字面的 <code>y</code> 或 <code>n</code>。共享组是否启用还由另一个单独的全局选项控制。</p>
-<h2 id="token-restrictions">令牌限制<a class="headerlink" href="#token-restrictions" title="Permanent link"></a></h2>
+<div id="token-restrictions"></div>
+
+<h2 id="_3">令牌限制<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
 <p>在正常的新令牌路径中，Sandboxie 会构造一个高度受限的主访问令牌，除其他限制外，它会：</p>
 <ul>
 <li>削减进程可以使用的权限；</li>
@@ -8100,28 +8108,42 @@
 <li>替换 Sandboxie 隔离模型所使用的沙盒身份。</li>
 </ul>
 <p>令牌的具体内容还可能受其他高级设置影响。</p>
-<h3 id="shared-group-and-per-sandbox-identity">共享组与按沙盒身份<a class="headerlink" href="#shared-group-and-per-sandbox-identity" title="Permanent link"></a></h3>
+<div id="shared-group-and-per-sandbox-identity"></div>
+
+<h3 id="_4">共享组与按沙盒身份<a class="headerlink" href="#_4" title="Permanent link"></a></h3>
 <p><code>Sandboxie\All Sandboxes</code> 为所有沙盒共有，当策略需要匹配所有沙盒化进程时很有用。与 SandboxieLogon 配合使用的按沙盒身份则标识特定的沙盒，用途不同。</p>
-<h2 id="security-implications">安全影响<a class="headerlink" href="#security-implications" title="Permanent link"></a></h2>
+<div id="security-implications"></div>
+
+<h2 id="_5">安全影响<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
 <p>受限主令牌有助于确保直接的 Windows 访问尝试不会简单地以原始未受限身份执行。随后，Sandboxie 经由驱动程序中介的路径可以单独执行文件、注册表、IPC 和其他资源访问规则。</p>
 <p>新令牌路径与历史过滤路径的主要区别在于实现方式和令牌内容。两者都参与 Sandboxie 更广泛的隔离设计；两者都不应被视为完整的安全模型，新令牌路径也并非在每种配置下都绝对更安全。</p>
-<h2 id="administrator-and-elevation-behavior">管理员与提升权限行为<a class="headerlink" href="#administrator-and-elevation-behavior" title="Permanent link"></a></h2>
+<div id="administrator-and-elevation-behavior"></div>
+
+<h2 id="_6">管理员与提升权限行为<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
 <p>以提升权限方式运行应用程序，并不意味着沙盒化进程使用的主令牌会保留完整的管理员组和权限集。Sandboxie 仍会应用其令牌限制。<a href="DropAdminRights.html">撤销管理员权限</a> 是一项独立设置，会进一步影响管理员权限与提升权限的行为。</p>
-<h2 id="nosecurityisolation-interaction">与 NoSecurityIsolation 的交互<a class="headerlink" href="#nosecurityisolation-interaction" title="Permanent link"></a></h2>
+<div id="nosecurityisolation-interaction"></div>
+
+<h2 id="nosecurityisolation">与 NoSecurityIsolation 的交互<a class="headerlink" href="#nosecurityisolation" title="Permanent link"></a></h2>
 <p>当以下设置生效时，这些令牌隔离设置不会用于正常的令牌替换：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="na">NoSecurityIsolation</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
 <p>该模式的更广泛影响参见 <a href="NoSecurityIsolation.html">无安全隔离</a>。</p>
-<h2 id="compatibility-and-failure-behavior">兼容性与失败行为<a class="headerlink" href="#compatibility-and-failure-behavior" title="Permanent link"></a></h2>
+<div id="compatibility-and-failure-behavior"></div>
+
+<h2 id="_7">兼容性与失败行为<a class="headerlink" href="#_7" title="Permanent link"></a></h2>
 <p>新令牌路径避免依赖 <code>SepFilterToken</code> 作为正常实现路径，并在后续的 Sandboxie Plus 版本中成为正常行为。当两项设置都实际禁用了新路径且内部例程可用时，仍可使用历史路径。</p>
 <p>如果无法定位历史过滤例程，Sandboxie 会回退到构造新令牌。在真正构造或应用沙盒化令牌时发生运行时失败，可能导致进程无法初始化。</p>
-<h2 id="version-history">版本历史<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
+<div id="version-history"></div>
+
+<h2 id="_8">版本历史<a class="headerlink" href="#_8" title="Permanent link"></a></h2>
 <ul>
 <li>Sandboxie Plus 1.14.1 引入了 <code>UseCreateToken</code> 和 <code>SandboxieAllGroup</code>。</li>
 <li>后续版本为该实现加入了兼容性和安全修复。</li>
 <li>从 Sandboxie Plus 1.17.0 起，<code>SandboxieAllGroup</code> 默认启用，使新令牌路径成为正常行为。</li>
 </ul>
-<h2 id="related-settings">相关设置<a class="headerlink" href="#related-settings" title="Permanent link"></a></h2>
+<div id="related-settings"></div>
+
+<h2 id="_9">相关设置<a class="headerlink" href="#_9" title="Permanent link"></a></h2>
 <ul>
 <li><a href="SandboxieIni.html">Sandboxie Ini</a></li>
 <li><a href="DropAdminRights.html">撤销管理员权限</a></li>

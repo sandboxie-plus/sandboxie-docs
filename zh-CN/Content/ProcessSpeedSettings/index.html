@@ -1581,7 +1581,7 @@
   <span class="md-ellipsis">
     
   
-    File Recovery Architecture
+    文件恢复架构
   
 
     
@@ -2210,7 +2210,7 @@
   <span class="md-ellipsis">
     
   
-    Breakout Execution
+    分离执行
   
 
     
@@ -2652,7 +2652,7 @@
   <span class="md-ellipsis">
     
   
-    Notification Settings
+    通知设置
   
 
     
@@ -7358,7 +7358,7 @@
   <span class="md-ellipsis">
     
   
-    System Call Settings
+    系统调用设置
   
 
     
@@ -7714,7 +7714,7 @@
   <span class="md-ellipsis">
     
   
-    Job Objects
+    作业对象
   
 
     
@@ -7795,7 +7795,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#enabling-process-speed-changes" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
         启用进程速度更改
@@ -7806,7 +7806,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#affected-apis" class="md-nav__link">
+  <a href="#api" class="md-nav__link">
     <span class="md-ellipsis">
       
         受影响的 API
@@ -7818,7 +7818,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#tick-and-clock-functions" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
         时钟滴答与时钟函数
@@ -7829,7 +7829,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#sleep-functions" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
         休眠函数
@@ -7840,7 +7840,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#timer-functions" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         计时器函数
@@ -7856,7 +7856,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#factor-comparison" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         因子对照
@@ -7867,7 +7867,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         示例
@@ -7878,7 +7878,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#combining-add-and-low-factors" class="md-nav__link">
+  <a href="#add-low" class="md-nav__link">
     <span class="md-ellipsis">
       
         组合使用 Add 与 Low 因子
@@ -7889,7 +7889,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#runtime-scope" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
         运行时范围
@@ -7900,7 +7900,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#intended-use" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
         预期用途
@@ -7911,7 +7911,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#limitations" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
         限制
@@ -7980,16 +7980,22 @@
 
 <h1 id="process-speed-settings">进程速度设置<a class="headerlink" href="#process-speed-settings" title="Permanent link"></a></h1>
 <p>进程速度设置是 <a href="../SandboxieIni/">Sandboxie Ini</a> 中的沙盒设置，自 Sandboxie Plus 1.14.0 起可用。它们调整沙盒化进程内选定的 Windows 计时、休眠和计时器 API。它们不会更改 Windows 系统时钟，也不会为沙盒提供完整的时间虚拟化。</p>
-<h2 id="enabling-process-speed-changes">启用进程速度更改<a class="headerlink" href="#enabling-process-speed-changes" title="Permanent link"></a></h2>
+<div id="enabling-process-speed-changes"></div>
+
+<h2 id="_1">启用进程速度更改<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
 <p>使用以下配置为沙盒启用该功能：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">UseChangeSpeed</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
 <p><code>UseChangeSpeed=y</code> 会在适用的计时钩子初始化期间启用安装，其运行时回退值为禁用（<code>n</code>）。该值可以来自沙盒节、适用的已启用模板或 <code>[GlobalSettings]</code>；未直接写在沙盒节中，并不一定意味着该功能被禁用。当没有任何生效的值启用它时，相应的钩子不会被安装。</p>
 <p>请使用较小的正十进制整数因子。六个因子的使用方回退值（consumer fallback）均为 <code>1</code>，即正常的中性值。普通的字面量 <code>0</code> 也会回退到该值；<code>AddSleepSpeed=0</code> 并不是跳过休眠调用的指令，也不应通过设为 0 来禁用该功能。</p>
-<h2 id="affected-apis">受影响的 API<a class="headerlink" href="#affected-apis" title="Permanent link"></a></h2>
+<div id="affected-apis"></div>
+
+<h2 id="api">受影响的 API<a class="headerlink" href="#api" title="Permanent link"></a></h2>
 <p>这些设置只作用于下列 API 组。</p>
-<h3 id="tick-and-clock-functions">时钟滴答与时钟函数<a class="headerlink" href="#tick-and-clock-functions" title="Permanent link"></a></h3>
+<div id="tick-and-clock-functions"></div>
+
+<h3 id="_2">时钟滴答与时钟函数<a class="headerlink" href="#_2" title="Permanent link"></a></h3>
 <p><code>AddTickSpeed</code> 和 <code>LowTickSpeed</code> 控制：</p>
 <ul>
 <li><code>GetTickCount</code></li>
@@ -8000,7 +8006,9 @@
 <p>对于算术范围内的较小正值，列出的大多数时钟大致按 <code>AddTickSpeed / LowTickSpeed</code> 缩放，但它们的计算方式并不相同。<code>GetTickCount</code> 以安装其钩子时捕获的原生参考值为基准，对经过时间值做缩放；<code>GetTickCount64</code> 和 <code>QueryPerformanceCounter</code> 则缩放原生的绝对值。该功能不会安装对应的 <code>QueryPerformanceFrequency</code> 钩子。</p>
 <p>在当前实现中，<code>QueryUnbiasedInterruptTime</code> 会先对整数因子做除法，再缩放结果。因此，与其他列出的时钟不同，小于 1 的分数比值可能得到 0，而不是按比例变慢；诸如 <code>3/2</code> 的比值会被截断为 <code>1</code>。这是当前实现的一项限制，而不是一致的分数缩放约定。参见 <a href="https://github.com/sandboxie-plus/Sandboxie/blob/31ba1e5c1aaaf3c98248a8994aecc9d016b7a310/Sandboxie/core/dll/kernel.c#L326-L401">当前的时钟包装函数</a>。</p>
 <p>这些函数表示经过时间或性能计数器时间，而不是系统日期和时间。受影响的计时源是各自独立调整的，不应被视为单一而精确的虚拟时钟。比较不同 Windows 计时源的应用程序可能会观察到差异。</p>
-<h3 id="sleep-functions">休眠函数<a class="headerlink" href="#sleep-functions" title="Permanent link"></a></h3>
+<div id="sleep-functions"></div>
+
+<h3 id="_3">休眠函数<a class="headerlink" href="#_3" title="Permanent link"></a></h3>
 <p><code>AddSleepSpeed</code> 和 <code>LowSleepSpeed</code> 控制通过 Sandboxie 的 <code>SleepEx</code> 钩子传递的请求时长。Sandboxie 不会安装单独的 <code>Sleep</code> 钩子：只有当普通 <code>Sleep</code> 调用在 Windows 中的实际执行路径到达被拦截的 <code>SleepEx</code> 实现时，它们才会受到影响。</p>
 <p>对于算术范围内的普通正值，转发后的时长约为 <code>requested duration * LowSleepSpeed / AddSleepSpeed</code>。请求的延迟越短，执行就越可能推进得更快。在另一个因子保持为 <code>1</code> 时：</p>
 <ul>
@@ -8009,7 +8017,9 @@
 </ul>
 <p>这些是请求的间隔，并不保证实际的经过时间。转换在除法之前以 32 位无符号算术相乘：较大的值可能溢出，很小的结果可能被截断为 0，任意缩放也未必能保留 <code>INFINITE</code> 这类特殊超时值。</p>
 <p>这不会修改 <code>WaitForSingleObject</code> 这类同步等待。实际经过时间仍受 Windows 正常调度、计时器分辨率行为和可警报休眠（alertable sleep）语义的约束。</p>
-<h3 id="timer-functions">计时器函数<a class="headerlink" href="#timer-functions" title="Permanent link"></a></h3>
+<div id="timer-functions"></div>
+
+<h3 id="_4">计时器函数<a class="headerlink" href="#_4" title="Permanent link"></a></h3>
 <p><code>AddTimerSpeed</code> 和 <code>LowTimerSpeed</code> 控制：</p>
 <ul>
 <li><code>SetTimer</code></li>
@@ -8023,7 +8033,9 @@
 <li><code>LowTimerSpeed=2</code> 大致将请求的计时器间隔加倍，并使 <code>timeGetTime</code> 的推进速度约慢一半。</li>
 </ul>
 <p>间隔包装函数使用 64 位中间算术，然后再转换回原生间隔类型；较大的变换后数值可能发生窄化或回绕。Windows 的计时器最小值、支持范围、分辨率、消息处理和调度仍然生效，因此实际回调或消息送达时间可能与计算出的间隔不同。计时器钩子的安装还受额外的 GUI 条件约束，详见“运行时范围”一节。</p>
-<h2 id="factor-comparison">因子对照<a class="headerlink" href="#factor-comparison" title="Permanent link"></a></h2>
+<div id="factor-comparison"></div>
+
+<h2 id="_5">因子对照<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
 <table>
 <thead>
 <tr>
@@ -8066,7 +8078,9 @@
 </tbody>
 </table>
 <p>每一对中的另一个因子均假定为 <code>1</code>。这些是请求转换或近似的时钟关系，受上文所述限制的约束。</p>
-<h2 id="example">示例<a class="headerlink" href="#example" title="Permanent link"></a></h2>
+<div id="example"></div>
+
+<h2 id="_6">示例<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">UseChangeSpeed</span><span class="o">=</span><span class="s">y</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="na">AddTickSpeed</span><span class="o">=</span><span class="s">2</span>
@@ -8080,7 +8094,9 @@
 <li>请求的计时器间隔大约减少一半；</li>
 <li><code>timeGetTime</code> 的推进速度约快一倍。</li>
 </ul>
-<h2 id="combining-add-and-low-factors">组合使用 Add 与 Low 因子<a class="headerlink" href="#combining-add-and-low-factors" title="Permanent link"></a></h2>
+<div id="combining-add-and-low-factors"></div>
+
+<h2 id="add-low">组合使用 Add 与 Low 因子<a class="headerlink" href="#add-low" title="Permanent link"></a></h2>
 <p>同一组的 Add 与 Low 变体可以同时配置，两者互不覆盖。例如：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">UseChangeSpeed</span><span class="o">=</span><span class="s">y</span>
@@ -8088,14 +8104,20 @@
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="na">LowTickSpeed</span><span class="o">=</span><span class="s">3</span>
 </span></code></pre></div>
 <p>在算术范围内，这会对 <code>GetTickCount</code>、<code>GetTickCount64</code> 和 <code>QueryPerformanceCounter</code> 施加约 <code>2/3</code> 的缩放，并各自使用不同的参考点。<code>QueryUnbiasedInterruptTime</code> 则先用 <code>2</code> 除以 <code>3</code>，结果为 0。因此，Add 与 Low 的取值按被拦截的 API 组合，而不是套用同一个统一公式。滴答、休眠和计时器这三个因子组相互独立，更改其中一组不会自动配置其他组。</p>
-<h2 id="runtime-scope">运行时范围<a class="headerlink" href="#runtime-scope" title="Permanent link"></a></h2>
+<div id="runtime-scope"></div>
+
+<h2 id="_7">运行时范围<a class="headerlink" href="#_7" title="Permanent link"></a></h2>
 <p>相应的钩子通过 Sandboxie 注入的 DLL 在沙盒化进程内运行。是否安装取决于有效配置、初始化路径、API/模块的可用性、挂钩是否成功以及适用的钩子抑制设置；并非每个进程都会获得每一个钩子。这不是对 Windows 时钟的系统级更改。在非沙盒化运行时，SandMan 和 Sandboxie 服务通常不受影响。</p>
 <p>计时器钩子还依赖 GUI 初始化。在应用隔间中，或在 <code>NoSandboxieDesktop=y</code> 生效时，它们的安装代码块会被跳过；滴答/时钟钩子和 <code>SleepEx</code> 钩子不共享这一 GUI 条件。</p>
 <p><code>UseChangeSpeed</code> 由相关的初始化器读取。重新加载配置不会重放已完成的初始化器，也不会追溯安装或移除计时钩子。要可靠地更改钩子的安装状态，请重启受影响的沙盒化应用程序。尚未运行的 GUI 初始化器可能在之后读取到新生效的取值；这属于延迟初始化，而不是由重新加载引起的重新安装。</p>
 <p>全部六个数值因子都会在相应的钩子调用期间查询，因此成功重新加载的取值可以影响已安装的钩子。各因子对是分别读取的，跨计时源的更新并非原子操作，且初始化时保留的引用意味着更改可能导致时钟不连续。间隔更改作用于后续被拦截的调用；仅更改因子并不会重新设定已有的计时器。仅保存文件并不等于配置重新加载成功。一般的更新并不必然需要重启 Sandboxie 服务、驱动程序或 Windows。</p>
-<h2 id="intended-use">预期用途<a class="headerlink" href="#intended-use" title="Permanent link"></a></h2>
+<div id="intended-use"></div>
+
+<h2 id="_8">预期用途<a class="headerlink" href="#_8" title="Permanent link"></a></h2>
 <p>该功能适用于以下场景：在分析或测试期间缩短固定的应用程序延迟，以及为兼容的单人应用程序或游戏修改逻辑速度。兼容性取决于应用程序使用了哪些 Windows 计时机制。它不会加速 CPU 执行或提高处理器频率，也不保证应用程序执行得更快或游戏能够兼容。</p>
-<h2 id="limitations">限制<a class="headerlink" href="#limitations" title="Permanent link"></a></h2>
+<div id="limitations"></div>
+
+<h2 id="_9">限制<a class="headerlink" href="#_9" title="Permanent link"></a></h2>
 <ul>
 <li>该功能不会拦截所有 Windows 时间源或等待机制。系统实际时间（wall clock）API、<code>NtQuerySystemTime</code>、<code>NtDelayExecution</code>、同步等待、可等待计时器、计时器队列和线程池计时器均不在覆盖范围内。</li>
 <li>由于只调整选定的 API，比较多个计时源的应用程序可能会观察到不一致的经过时间。</li>
@@ -8143,7 +8165,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../JobObjects/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Job Objects">
+          <a href="../JobObjects/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 作业对象">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -8153,7 +8175,7 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                Job Objects
+                作业对象
               </div>
             </div>
           </a>

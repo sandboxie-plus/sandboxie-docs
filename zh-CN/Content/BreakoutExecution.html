@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Breakout is an intentional exception to sandbox containment for selected future operations. Breakout Process and Breakout Folder can affect a new process creation attempt from inside a sandbox. Breakout Document instead applies to a supported Shell request to open a matching path. None of these settings moves an already-running process out of its box, grants elevation, or makes arbitrary file access unsandboxed.">
+        <meta name="description" content="分离（breakout）是针对选定的后续操作、有意对沙盒封闭性做出的例外。分离沙盒进程 与 分离文件夹 可以影响从沙盒内部发起的新进程创建尝试。分离文档 则适用于受支持的、用于打开匹配路径的 Shell 请求。这些设置都不会把已在运行的进程移出其沙盒、授予权限提升，或让任意文件访问脱离沙盒。">
       
       
       
@@ -33,7 +33,7 @@
     
     
       
-        <title>Breakout Execution - Sandboxie 文档</title>
+        <title>分离执行 - Sandboxie 文档</title>
       
     
     
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Breakout Execution
+              分离执行
             
           </span>
         </div>
@@ -1583,7 +1583,7 @@
   <span class="md-ellipsis">
     
   
-    File Recovery Architecture
+    文件恢复架构
   
 
     
@@ -2225,7 +2225,7 @@
   <span class="md-ellipsis">
     
   
-    Breakout Execution
+    分离执行
   
 
     
@@ -2243,7 +2243,7 @@
   <span class="md-ellipsis">
     
   
-    Breakout Execution
+    分离执行
   
 
     
@@ -2269,10 +2269,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#process-breakout" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Process breakout
+        进程分离
       
     </span>
   </a>
@@ -2280,10 +2280,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#document-breakout" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Document breakout
+        文档分离
       
     </span>
   </a>
@@ -2291,10 +2291,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#explorer-compatibility-bridge" class="md-nav__link">
+  <a href="#explorer" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Explorer compatibility bridge
+        Explorer 兼容性桥接
       
     </span>
   </a>
@@ -2302,10 +2302,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuration-and-applying-changes" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configuration and applying changes
+        配置与应用更改
       
     </span>
   </a>
@@ -2313,10 +2313,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#version-history" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Version history
+        版本历史
       
     </span>
   </a>
@@ -2324,10 +2324,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#related-pages" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Related pages
+        相关页面
       
     </span>
   </a>
@@ -2771,7 +2771,7 @@
   <span class="md-ellipsis">
     
   
-    Notification Settings
+    通知设置
   
 
     
@@ -7475,7 +7475,7 @@
   <span class="md-ellipsis">
     
   
-    System Call Settings
+    系统调用设置
   
 
     
@@ -7829,7 +7829,7 @@
   <span class="md-ellipsis">
     
   
-    Job Objects
+    作业对象
   
 
     
@@ -7919,33 +7919,45 @@
   
 
 
-<h1 id="breakout-execution">Breakout Execution<a class="headerlink" href="#breakout-execution" title="Permanent link"></a></h1>
-<p>Breakout is an intentional exception to sandbox containment for selected future operations. <a href="BreakoutProcess.html">Breakout Process</a> and <a href="BreakoutFolder.html">Breakout Folder</a> can affect a new process creation attempt from inside a sandbox. <a href="BreakoutDocument.html">Breakout Document</a> instead applies to a supported Shell request to open a matching path. None of these settings moves an already-running process out of its box, grants elevation, or makes arbitrary file access unsandboxed.</p>
-<h2 id="process-breakout">Process breakout<a class="headerlink" href="#process-breakout" title="Permanent link"></a></h2>
-<p>When a sandboxed program tries to start a new process, Sandboxie first checks whether the target is a breakout candidate. The sandboxed process then asks the Sandboxie service to create it outside the source box. The service independently checks the breakout rule before creating the process; the initial candidate check alone does not authorize the escape.</p>
-<p>If the service rejects the breakout request with <code>ERROR_NOT_SUPPORTED</code>, Sandboxie continues through the normal sandboxed process-creation path. Other creation errors do not necessarily have that fallback. For <code>BreakoutProcess</code>, the service additionally requires the target executable to resolve to a host file outside the source sandbox's file root. That specific host-file check is not applied to <code>BreakoutFolder</code>.</p>
-<p>A successful breakout does not necessarily leave the process unsandboxed. The service checks enabled boxes for matching <a href="ForceProcess.html">Force Process</a> or <a href="ForceFolder.html">Force Folder</a> rules, so another box can capture the launch. For example, if viewing a PDF from an Email box starts <code>browser.exe</code>, <code>BreakoutProcess=browser.exe</code> in Email and <code>ForceProcess=browser.exe</code> in a Browser box can route that browser launch to Browser. This is not a configurable priority between boxes: when several boxes match, do not rely on a particular destination being selected. <code>ForceChildren</code> does not participate in this explicit destination check.</p>
-<p>If that force check resolves back to the source box, the service rejects the breakout request with <code>ERROR_NOT_SUPPORTED</code>, and normal sandboxed creation resumes. For a host breakout, the service creates the process using the token appropriate to the request and returns limited-access process and thread handles to the sandboxed caller, not full-control handles. Breakout is not an elevation mechanism.</p>
-<h2 id="document-breakout">Document breakout<a class="headerlink" href="#document-breakout" title="Permanent link"></a></h2>
-<p><code>BreakoutDocument</code> is a separate Shell-open mechanism, not a folder-based process rule. On an intercepted <code>ShellExecuteExW</code> path, Sandboxie compares the supplied file/path text with the configured patterns. A match is sent through the user-session proxy, which validates the sandboxed caller and session and checks the rule again. It then asks the host Shell to open the matched path with the <code>open</code> verb.</p>
-<p>The host request contains the path, not an unchanged copy of the original Shell request: the original verb, parameters, and working directory are not forwarded. This does not cover every way an application might open a document. A host-side open can start an application or execute content outside the originating box's file and registry virtualization.</p>
+<h1 id="breakout-execution">分离执行<a class="headerlink" href="#breakout-execution" title="Permanent link"></a></h1>
+<p>分离（breakout）是针对选定的后续操作、有意对沙盒封闭性做出的例外。<a href="BreakoutProcess.html">分离沙盒进程</a> 与 <a href="BreakoutFolder.html">分离文件夹</a> 可以影响从沙盒内部发起的新进程创建尝试。<a href="BreakoutDocument.html">分离文档</a> 则适用于受支持的、用于打开匹配路径的 Shell 请求。这些设置都不会把已在运行的进程移出其沙盒、授予权限提升，或让任意文件访问脱离沙盒。</p>
+<div id="process-breakout"></div>
+
+<h2 id="_1">进程分离<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
+<p>当沙盒化程序尝试启动新进程时，Sandboxie 会先检查目标是否为分离候选对象。随后，沙盒化进程请求 Sandboxie 服务在源沙盒之外创建该进程。服务在创建进程之前会独立检查分离规则；仅凭最初的候选检查并不构成对这次逃逸的授权。</p>
+<p>如果服务以 <code>ERROR_NOT_SUPPORTED</code> 拒绝该分离请求，Sandboxie 会继续走常规的沙盒化进程创建路径。其他创建错误不一定具有这种回退处理。对于 <code>BreakoutProcess</code>，服务还要求目标可执行文件解析到源沙盒文件根之外的宿主文件。这项特定的宿主文件检查不适用于 <code>BreakoutFolder</code>。</p>
+<p>成功分离并不一定让进程脱离沙盒。服务会检查已启用的沙盒中是否存在匹配的 <a href="ForceProcess.html">强制进程</a> 或 <a href="ForceFolder.html">强制文件夹</a> 规则，因此另一个沙盒可以捕获这次启动。例如，若从 Email 沙盒中查看 PDF 时启动了 <code>browser.exe</code>，Email 中的 <code>BreakoutProcess=browser.exe</code> 与 Browser 沙盒中的 <code>ForceProcess=browser.exe</code> 可以把这次浏览器启动路由到 Browser。这不是可配置的沙盒间优先级：当多个沙盒匹配时，不要依赖会选中某个特定目标。<code>ForceChildren</code> 不参与这项显式的目标检查。</p>
+<p>如果该强制检查最终指回源沙盒，服务会以 <code>ERROR_NOT_SUPPORTED</code> 拒绝分离请求，并恢复常规的沙盒化创建。对于宿主分离，服务会使用与请求相符的令牌创建进程，并向沙盒化调用方返回受限访问的进程与线程句柄，而不是完全控制句柄。分离不是一种权限提升机制。</p>
+<div id="document-breakout"></div>
+
+<h2 id="_2">文档分离<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
+<p><code>BreakoutDocument</code> 是独立的 Shell 打开机制，而不是基于文件夹的进程规则。在被拦截的 <code>ShellExecuteExW</code> 路径上，Sandboxie 会把提供的文件/路径文本与配置的模式进行比较。一旦匹配，该请求会经由用户会话代理发送，由代理验证沙盒化调用方与会话，并再次检查规则。随后它请求宿主 Shell 用 <code>open</code> 谓词打开匹配的路径。</p>
+<p>宿主请求包含的是路径，而不是原始 Shell 请求的未经更改的副本：原始谓词、参数与工作目录都不会被转发。这并不覆盖应用程序打开文档的所有方式。宿主侧打开可能会启动某个应用程序，或在原始沙盒的文件与注册表虚拟化之外执行内容。</p>
 <blockquote>
-<p><strong>Security warning:</strong> Use narrow paths and intended document types. A broad rule such as <code>BreakoutDocument=C:\path\*</code> can allow executable or script content to run outside the source sandbox. SandMan warns about broad or risky document patterns, but its extension checks are UI safeguards, not a runtime allowlist. Manually edited configuration can contain broader patterns.</p>
+<p><strong>安全警告：</strong> 请使用较窄的路径和预期的文档类型。像 <code>BreakoutDocument=C:\path\*</code> 这样的宽泛规则可能允许可执行文件或脚本内容在源沙盒之外运行。SandMan 会对宽泛或有风险的文档模式发出警告，但其扩展名检查属于界面层防护，并非运行时允许列表。手动编辑的配置可能包含更宽泛的模式。</p>
 </blockquote>
-<h2 id="explorer-compatibility-bridge">Explorer compatibility bridge<a class="headerlink" href="#explorer-compatibility-bridge" title="Permanent link"></a></h2>
-<p><code>BreakoutDocumentProcess</code> is an image-aware Boolean compatibility setting, disabled by default. The Windows Explorer template sets <code>BreakoutDocumentProcess=explorer.exe,y</code> because Explorer can initiate the relevant document launch through process creation rather than the usual intercepted <code>ShellExecuteExW</code> route. For that image, Sandboxie checks the command-line remainder against <code>BreakoutDocument</code> rules during a future process creation attempt. This is an Explorer compatibility bridge, not another general-purpose breakout list; normally it does not need manual configuration. It was added in Sandboxie Plus 1.15.1 / Classic 5.70.1.</p>
-<h2 id="configuration-and-applying-changes">Configuration and applying changes<a class="headerlink" href="#configuration-and-applying-changes" title="Permanent link"></a></h2>
-<p>Active breakout entries can come from the box configuration or applicable templates. In SandMan, open <strong>Sandbox Options &gt; Program Control &gt; Breakout Programs</strong> to use <strong>Breakout Program</strong>, <strong>Breakout Folder</strong>, <strong>Breakout Document</strong>, <strong>Show Templates</strong>, and <strong>Remove</strong>. An unchecked entry remains available in the interface under a corresponding <code>BreakoutProcessDisabled</code>, <code>BreakoutFolderDisabled</code>, or <code>BreakoutDocumentDisabled</code> setting; these saved entries are not active breakout rules. There is no single global breakout switch in this interface.</p>
-<p>The process rules are evaluated for future relevant process creation attempts, and document rules for future supported Shell-open requests. Changes do not relocate existing processes or alter completed document opens. After the effective configuration is updated, subsequently evaluated operations can use the new rules without restarting Windows, the service, or an already-running sandboxed application solely for breakout.</p>
-<h2 id="version-history">Version history<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
-<p><code>BreakoutProcess</code> and <code>BreakoutFolder</code> appeared in Sandboxie Plus 1.0.8 / Classic 5.55.8. In 1.0.9 / 5.55.9, process breakout was reworked around service-created processes. <code>BreakoutDocument</code> was introduced in 1.15.0 / 5.70.0, followed by the Explorer-related <code>BreakoutDocumentProcess</code> bridge in 1.15.1 / 5.70.1.</p>
-<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
+<div id="explorer-compatibility-bridge"></div>
+
+<h2 id="explorer">Explorer 兼容性桥接<a class="headerlink" href="#explorer" title="Permanent link"></a></h2>
+<p><code>BreakoutDocumentProcess</code> 是一项可识别映像的布尔兼容性设置，默认禁用。Windows Explorer 模板会设置 <code>BreakoutDocumentProcess=explorer.exe,y</code>，因为 Explorer 可能通过进程创建而非通常被拦截的 <code>ShellExecuteExW</code> 路径来发起相关的文档启动。对于该映像，Sandboxie 会在后续的进程创建尝试中按 <code>BreakoutDocument</code> 规则检查命令行的剩余部分。这是一个 Explorer 兼容性桥接，而不是另一份通用分离列表；通常不需要手动配置。它在 Sandboxie Plus 1.15.1 / Classic 5.70.1 中加入。</p>
+<div id="configuration-and-applying-changes"></div>
+
+<h2 id="_3">配置与应用更改<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
+<p>生效的分离条目可以来自沙盒配置或适用的模板。在 SandMan 中，打开 <strong>沙盒选项 &gt; 程序控制 &gt; 分离程序</strong>，即可使用<strong>分离程序</strong>、<strong>分离目录</strong>、<strong>分离文档</strong>、<strong>显示模板</strong> 与 <strong>移除</strong>。未选中的条目仍会以相应的 <code>BreakoutProcessDisabled</code>、<code>BreakoutFolderDisabled</code> 或 <code>BreakoutDocumentDisabled</code> 设置保留在界面中；这些已保存的条目并不是生效的分离规则。此界面中不存在单一的全局分离开关。</p>
+<p>进程规则会针对后续相关的进程创建尝试进行评估，文档规则则针对后续受支持的 Shell 打开请求进行评估。更改不会迁移已有进程，也不会改变已完成的文档打开。在有效配置更新后，后续被评估的操作可以使用新规则，而无需仅为分离功能重启 Windows、服务或已在运行的沙盒化应用程序。</p>
+<div id="version-history"></div>
+
+<h2 id="_4">版本历史<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
+<p><code>BreakoutProcess</code> 与 <code>BreakoutFolder</code> 出现于 Sandboxie Plus 1.0.8 / Classic 5.55.8。在 1.0.9 / 5.55.9 中，进程分离改为围绕服务创建进程来重做。<code>BreakoutDocument</code> 于 1.15.0 / 5.70.0 引入，随后在 1.15.1 / 5.70.1 加入了与 Explorer 相关的 <code>BreakoutDocumentProcess</code> 桥接。</p>
+<div id="related-pages"></div>
+
+<h2 id="_5">相关页面<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
 <ul>
-<li><a href="BreakoutProcess.html">Breakout Process</a></li>
-<li><a href="BreakoutFolder.html">Breakout Folder</a></li>
-<li><a href="BreakoutDocument.html">Breakout Document</a></li>
-<li><a href="ForceProcess.html">Force Process</a></li>
-<li><a href="ForceFolder.html">Force Folder</a></li>
+<li><a href="BreakoutProcess.html">分离沙盒进程</a></li>
+<li><a href="BreakoutFolder.html">分离文件夹</a></li>
+<li><a href="BreakoutDocument.html">分离文档</a></li>
+<li><a href="ForceProcess.html">强制进程</a></li>
+<li><a href="ForceFolder.html">强制文件夹</a></li>
 </ul>
 
 

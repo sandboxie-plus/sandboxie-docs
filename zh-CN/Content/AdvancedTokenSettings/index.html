@@ -1583,7 +1583,7 @@
   <span class="md-ellipsis">
     
   
-    File Recovery Architecture
+    文件恢复架构
   
 
     
@@ -2212,7 +2212,7 @@
   <span class="md-ellipsis">
     
   
-    Breakout Execution
+    分离执行
   
 
     
@@ -2654,7 +2654,7 @@
   <span class="md-ellipsis">
     
   
-    Notification Settings
+    通知设置
   
 
     
@@ -7298,7 +7298,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#token-processing-stages" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
         令牌处理阶段
@@ -7309,7 +7309,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#common-syntax-and-scope" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
         通用语法与范围
@@ -7353,7 +7353,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#unfilteredtoken-versus-unrestrictedtoken" class="md-nav__link">
+  <a href="#unfilteredtoken-unrestrictedtoken" class="md-nav__link">
     <span class="md-ellipsis">
       
         UnfilteredToken 与 UnrestrictedToken 的对比
@@ -7431,7 +7431,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#modern-token-construction-path" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
         新令牌构造路径
@@ -7442,7 +7442,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#legacy-filtering-path" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         历史过滤路径
@@ -7458,7 +7458,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#interaction-with-nosecurityisolation" class="md-nav__link">
+  <a href="#nosecurityisolation" class="md-nav__link">
     <span class="md-ellipsis">
       
         与 NoSecurityIsolation 的交互
@@ -7469,7 +7469,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#interaction-with-administrative-rights-settings" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         与管理权限相关设置的交互
@@ -7480,7 +7480,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sandman-configuration" class="md-nav__link">
+  <a href="#sandman" class="md-nav__link">
     <span class="md-ellipsis">
       
         SandMan 配置
@@ -7491,7 +7491,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sandboxie-plus-and-classic" class="md-nav__link">
+  <a href="#sandboxie-plus-classic" class="md-nav__link">
     <span class="md-ellipsis">
       
         Sandboxie Plus 与 Classic
@@ -7502,7 +7502,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#applying-configuration-changes" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         应用配置更改
@@ -7513,7 +7513,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#failure-behavior" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
         失败行为
@@ -7524,7 +7524,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#version-history" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
         版本历史
@@ -7535,7 +7535,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#related-pages" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
         相关页面
@@ -7657,7 +7657,7 @@
   <span class="md-ellipsis">
     
   
-    System Call Settings
+    系统调用设置
   
 
     
@@ -8011,7 +8011,7 @@
   <span class="md-ellipsis">
     
   
-    Job Objects
+    作业对象
   
 
     
@@ -8104,7 +8104,9 @@
 <h1 id="advanced-token-settings">高级令牌设置<a class="headerlink" href="#advanced-token-settings" title="Permanent link"></a></h1>
 <p>本页面的设置会改变 Sandboxie 过滤或重建 Windows 访问令牌的方式。其中大多数是高级兼容性或调试选项，用于保留 Sandboxie 通常会移除或限制的属性。通常仅应在需要兼容性或专门测试时才使用这些设置。</p>
 <p>这些设置只影响基于令牌的隔离。文件系统和注册表虚拟化、IPC 控制、网络限制、GUI 隔离以及其他独立的 Sandboxie 机制不受影响。</p>
-<h2 id="token-processing-stages">令牌处理阶段<a class="headerlink" href="#token-processing-stages" title="Permanent link"></a></h2>
+<div id="token-processing-stages"></div>
+
+<h2 id="_1">令牌处理阶段<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
 <p>令牌处理的相关部分可以简化为如下流程：</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>原始主令牌
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    |
@@ -8126,7 +8128,9 @@
 <p>初步过滤器与后续的限制或重建阶段是相互独立的。因此，<em>UnfilteredToken</em> 并不意味着令牌不受限制，<em>UnrestrictedToken</em> 也不会恢复初步过滤所移除的属性。同时启用两者比单独启用任一选项能保留更多源令牌的特征。</p>
 <p>Sandboxie 有新令牌构造路径和历史过滤路径。当前的常规配置通常使用新的 <code>Token_CreateToken</code> 路径，因为 <em>SandboxieAllGroup</em> 的运行时默认值为启用；<em>UseCreateToken</em> 也可以选择该路径。这一区别对 <em>UnstrippedToken</em> 尤为重要，其行为在两条路径之间有所不同。</p>
 <p>这只是令牌处理的概念性概述，并非 Sandboxie 完整的隔离模型。</p>
-<h2 id="common-syntax-and-scope">通用语法与范围<a class="headerlink" href="#common-syntax-and-scope" title="Permanent link"></a></h2>
+<div id="common-syntax-and-scope"></div>
+
+<h2 id="_2">通用语法与范围<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <p>本页面的所有设置都是沙盒级布尔设置：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">SettingName</span><span class="o">=</span><span class="s">y</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">SettingName</span><span class="o">=</span><span class="s">n</span>
@@ -8160,7 +8164,9 @@
 <p><em>UnrestrictedToken</em> 默认值为 <code>n</code>。它会跳过重量级的令牌限制或重建阶段，使 Sandboxie 复制从上一阶段收到的令牌。</p>
 <p>该令牌可能已经受过初步过滤的修改。单独启用 <em>UnrestrictedToken</em> 不会恢复先前被移除的组、权限或其他属性。</p>
 <p><em>UnrestrictedToken</em> 跳过正常的重量级令牌限制阶段，但其他 Sandboxie 隔离机制仍然生效，较早的令牌过滤也可能已经修改过令牌。它不会禁用文件系统或注册表虚拟化与隔离、IPC 控制、网络限制或其他独立的沙盒机制。</p>
-<h2 id="unfilteredtoken-versus-unrestrictedtoken">UnfilteredToken 与 UnrestrictedToken 的对比<a class="headerlink" href="#unfilteredtoken-versus-unrestrictedtoken" title="Permanent link"></a></h2>
+<div id="unfilteredtoken-versus-unrestrictedtoken"></div>
+
+<h2 id="unfilteredtoken-unrestrictedtoken">UnfilteredToken 与 UnrestrictedToken 的对比<a class="headerlink" href="#unfilteredtoken-unrestrictedtoken" title="Permanent link"></a></h2>
 <table>
 <thead>
 <tr>
@@ -8249,13 +8255,19 @@
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="na">UnstrippedToken</span><span class="o">=</span><span class="s">n</span>
 </span></code></pre></div>
 <p><em>UnstrippedToken</em> 默认值为 <code>n</code>。它会跳过选定的剥离操作，但具体保留哪些属性取决于令牌构造路径。</p>
-<h3 id="modern-token-construction-path">新令牌构造路径<a class="headerlink" href="#modern-token-construction-path" title="Permanent link"></a></h3>
+<div id="modern-token-construction-path"></div>
+
+<h3 id="_3">新令牌构造路径<a class="headerlink" href="#_3" title="Permanent link"></a></h3>
 <p>在新的 <code>Token_CreateToken</code> 路径上，启用 <em>UnstrippedToken</em> 会跳过正常的组限制转换和完整性级别替换。正常的令牌用户替换仍会发生，权限仍会被削减到新路径的受限权限集，该权限集通常会保留 <code>SeChangeNotifyPrivilege</code>。</p>
 <p>因此，它不会保留每一个令牌组成部分。</p>
-<h3 id="legacy-filtering-path">历史过滤路径<a class="headerlink" href="#legacy-filtering-path" title="Permanent link"></a></h3>
+<div id="legacy-filtering-path"></div>
+
+<h3 id="_4">历史过滤路径<a class="headerlink" href="#_4" title="Permanent link"></a></h3>
 <p>在历史路径上，完整性处理发生在 <em>UnstrippedToken</em> 提前返回之前。后续的组剥离和限制步骤会被跳过。因此，不能把此设置一概等同于 <em>KeepTokenIntegrity</em>，两种实现的行为并不一致。</p>
 <p><em>UnstrippedToken</em> 的作用比 <em>UnfilteredToken</em> 更晚且范围更窄，不如 <em>UnrestrictedToken</em> 全面，也不是任何一者的别名。新行为与当前的常规配置最相关，但在其他配置或平台条件下，历史行为的区别仍然存在。</p>
-<h2 id="interaction-with-nosecurityisolation">与 NoSecurityIsolation 的交互<a class="headerlink" href="#interaction-with-nosecurityisolation" title="Permanent link"></a></h2>
+<div id="interaction-with-nosecurityisolation"></div>
+
+<h2 id="nosecurityisolation">与 NoSecurityIsolation 的交互<a class="headerlink" href="#nosecurityisolation" title="Permanent link"></a></h2>
 <p>当 <a href="../NoSecurityIsolation/"><code>NoSecurityIsolation=y</code></a> 时，Sandboxie 通常会绕过主令牌替换。因此，本页面介绍的设置对于正常主令牌而言通常是多余的，或者根本不会被执行：</p>
 <ul>
 <li><em>NoUntrustedToken</em></li>
@@ -8269,24 +8281,36 @@
 <li><em>UnstrippedToken</em></li>
 </ul>
 <p>该模式更广泛的影响参见 <a href="../NoSecurityIsolation/">无安全隔离</a>。</p>
-<h2 id="interaction-with-administrative-rights-settings">与管理权限相关设置的交互<a class="headerlink" href="#interaction-with-administrative-rights-settings" title="Permanent link"></a></h2>
+<div id="interaction-with-administrative-rights-settings"></div>
+
+<h2 id="_5">与管理权限相关设置的交互<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
 <p><a href="../DropAdminRights/"><code>DropAdminRights</code></a> 执行真正的令牌过滤，包括禁用管理员相关组和移除选定权限。<em>UnfilteredToken</em> 可以绕过其初步过滤阶段，而单独启用 <em>UnrestrictedToken</em> 不会恢复在那里已被移除的属性。<em>KeepTokenIntegrity</em> 可以保留高完整性级别，但不会恢复管理员组或权限。</p>
 <p><a href="../FakeAdminRights/"><code>FakeAdminRights</code></a> 则不同：其当前实现主要使用兼容性钩子，使选定的管理员检查看起来成功。它不会恢复被令牌过滤移除的真实管理员组或权限。</p>
-<h2 id="sandman-configuration">SandMan 配置<a class="headerlink" href="#sandman-configuration" title="Permanent link"></a></h2>
+<div id="sandman-configuration"></div>
+
+<h2 id="sandman">SandMan 配置<a class="headerlink" href="#sandman" title="Permanent link"></a></h2>
 <p>在本页面的设置中，只有 <em>NoUntrustedToken</em> 有当前 SandMan 中的专用控件：</p>
 <p><strong>沙盒选项 &gt; 安全选项 &gt; 高级安全 &gt; 使用 低完整性令牌 而不是 不受信任的完整性令牌（会降低隔离）</strong></p>
 <p>其余设置是高级的手动 <a href="../SandboxieIni/"><code>Sandboxie.ini</code></a> 选项。对于 <em>CopyDeviceGroups</em>，请使用<strong>沙盒选项 &gt; 配置文本 &gt; 编辑配置</strong>；没有专用的复选框。</p>
-<h2 id="sandboxie-plus-and-classic">Sandboxie Plus 与 Classic<a class="headerlink" href="#sandboxie-plus-and-classic" title="Permanent link"></a></h2>
+<div id="sandboxie-plus-and-classic"></div>
+
+<h2 id="sandboxie-plus-classic">Sandboxie Plus 与 Classic<a class="headerlink" href="#sandboxie-plus-classic" title="Permanent link"></a></h2>
 <p>令牌处理由共享的 Sandboxie 组件实现。SandMan 公开 <em>NoUntrustedToken</em> 控件，而本页面的其他设置使用手动配置。当前源代码中不包含等效的专用 Sandboxie Control Classic 控件，但共享运行时在适用的情况下可以使用兼容的手动 INI 设置。Classic 通过<strong>配置 &gt; 编辑配置</strong>提供手动编辑。</p>
-<h2 id="applying-configuration-changes">应用配置更改<a class="headerlink" href="#applying-configuration-changes" title="Permanent link"></a></h2>
+<div id="applying-configuration-changes"></div>
+
+<h2 id="_6">应用配置更改<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
 <p>这些设置主要在 Sandboxie 准备、过滤或创建进程令牌时被读取。更改它们不会追溯性地重建已分配的主令牌。更改设置后请重启受影响的沙盒化进程；重建沙盒化进程树可获得一致的行为。通常不需要重启 SandMan、服务或驱动程序。</p>
 <p><em>UnfilteredToken</em> 在后续相关的模拟令牌处理中也会被读取，但这并不能免除在更改主令牌策略时重启进程的必要性。</p>
 <p><em>CopyDeviceGroups</em> 决策在到达新令牌构造时求值，包括后续相关的模拟令牌处理；它不是仅在进程启动时读取一次的缓存。后续读取配置不会重建已有的主令牌。</p>
-<h2 id="failure-behavior">失败行为<a class="headerlink" href="#failure-behavior" title="Permanent link"></a></h2>
+<div id="failure-behavior"></div>
+
+<h2 id="_7">失败行为<a class="headerlink" href="#_7" title="Permanent link"></a></h2>
 <p>必要的令牌过滤、构造或分配失败会导致进程初始化失败，而不会故意回退到限制较少的宿主令牌。具体的错误取决于失败的操作。</p>
 <p>可选的 <em>CopyDeviceGroups</em> 检索失败则不同：源令牌句柄不可用、信息查询失败或分配失败都可能让构造过程在缺少可选设备组信息的情况下继续。这并不保证令牌创建或分配会成功，并且构造函数失败不会自动触发不带设备组的重试。</p>
 <p>可选的 <em>CopyTokenAttributes</em> 步骤也有所不同：复制 <code>TokenSecurityAttributes</code> 失败不会使本来成功创建的令牌失效。</p>
-<h2 id="version-history">版本历史<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
+<div id="version-history"></div>
+
+<h2 id="_8">版本历史<a class="headerlink" href="#_8" title="Permanent link"></a></h2>
 <ul>
 <li><em>UnfilteredToken</em> 和 <em>UnrestrictedToken</em> 自 Sandboxie Plus 0.2.1 / Classic 5.41.1 起存在。</li>
 <li><em>KeepTokenIntegrity</em> 自 Sandboxie Plus 0.3.0 / Classic 5.42 起存在。</li>
@@ -8295,7 +8319,9 @@
 <li><em>CopyDeviceGroups</em> 在 Sandboxie Plus 1.17.0 / Classic 5.72.0 中引入。</li>
 <li>专用的 <em>NoUntrustedToken</em> SandMan 控件在 Sandboxie Plus 1.17.0 / Classic 5.72.0 时期的变更中有记录。</li>
 </ul>
-<h2 id="related-pages">相关页面<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
+<div id="related-pages"></div>
+
+<h2 id="_9">相关页面<a class="headerlink" href="#_9" title="Permanent link"></a></h2>
 <ul>
 <li><a href="../IsolationMechanism/">隔离机制</a></li>
 <li><a href="../NoSecurityIsolation/">无安全隔离</a></li>

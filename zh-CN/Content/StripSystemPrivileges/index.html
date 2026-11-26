@@ -1579,7 +1579,7 @@
   <span class="md-ellipsis">
     
   
-    File Recovery Architecture
+    文件恢复架构
   
 
     
@@ -2208,7 +2208,7 @@
   <span class="md-ellipsis">
     
   
-    Breakout Execution
+    分离执行
   
 
     
@@ -2650,7 +2650,7 @@
   <span class="md-ellipsis">
     
   
-    Notification Settings
+    通知设置
   
 
     
@@ -7354,7 +7354,7 @@
   <span class="md-ellipsis">
     
   
-    System Call Settings
+    系统调用设置
   
 
     
@@ -7708,7 +7708,7 @@
   <span class="md-ellipsis">
     
   
-    Job Objects
+    作业对象
   
 
     
@@ -7808,14 +7808,18 @@
 <p class="admonition-title">Warning</p>
 <p><code>StripSystemPrivileges=n</code> 会为受影响的 SYSTEM 令牌路径恢复较早的、限制较少的行为，不建议这样做。</p>
 </div>
-<h2 id="privileges-removed">移除的权限<a class="headerlink" href="#privileges-removed" title="Permanent link"></a></h2>
+<div id="privileges-removed"></div>
+
+<h2 id="_1">移除的权限<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
 <p>在受影响的路径上启用时，Sandboxie 会从新复制的令牌中移除以下权限：</p>
 <ul>
 <li><code>SeTcbPrivilege</code></li>
 <li><code>SeCreateTokenPrivilege</code></li>
 </ul>
 <p>Sandboxie 使用 Windows 的 <code>SE_PRIVILEGE_REMOVED</code> 操作。这些权限会从该令牌中移除，而不只是被禁用，因此无法简单地在同一令牌上重新启用它们。当前的辅助实现不会移除 <code>SeAssignPrimaryTokenPrivilege</code>。</p>
-<h2 id="runtime-scope">运行时范围<a class="headerlink" href="#runtime-scope" title="Permanent link"></a></h2>
+<div id="runtime-scope"></div>
+
+<h2 id="_2">运行时范围<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <p>当前的实现在 SbieSvc 创建以下令牌时应用此设置：</p>
 <ul>
 <li>为选定以 SYSTEM 身份运行的沙盒化服务创建的 SYSTEM 源令牌；</li>
@@ -7823,7 +7827,9 @@
 </ul>
 <p>它不适用于普通的用户令牌服务启动，也不应被描述为对每个沙盒化进程或每个 SYSTEM 进程都生效的全局权限过滤器。</p>
 <p>如果令牌复制、调整或所需的权限移除操作失败，受影响的启动或令牌请求会失败，而不会故意以未经剥离的 SYSTEM 令牌继续执行。</p>
-<h2 id="configuration-scope">配置范围<a class="headerlink" href="#configuration-scope" title="Permanent link"></a></h2>
+<div id="configuration-scope"></div>
+
+<h2 id="_3">配置范围<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
 <p><em>StripSystemPrivileges</em> 是一项沙盒级布尔设置。当沙盒未提供覆盖值时，适用的模板和全局设置回退值可以参与构成其生效值。系统会在创建受影响的令牌时查询此设置，因此更改它不会修改已分配给运行中进程的令牌。更改后请重启受影响的沙盒化服务或进程。</p>
 <h2 id="sandman">SandMan<a class="headerlink" href="#sandman" title="Permanent link"></a></h2>
 <p>打开<strong>沙盒选项 &gt; 安全选项 &gt; 高级安全</strong>，使用：</p>
@@ -7835,14 +7841,20 @@
 <li>选中：已启用权限移除，这也是默认行为；</li>
 <li>未选中：SandMan 会写入 <code>StripSystemPrivileges=n</code>。</li>
 </ul>
-<h2 id="relationship-to-session-0-startup">与会话 0 启动的关系<a class="headerlink" href="#relationship-to-session-0-startup" title="Permanent link"></a></h2>
-<p><a href="../StartSystemBox/">Start System Box</a> 使用不同的启动路径。在会话 0 中以 SYSTEM 身份启动的沙盒，本身并不会使该令牌经过本文档介绍的 <em>StripSystemPrivileges</em> 辅助函数。</p>
-<h2 id="version-history">版本历史<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
+<div id="relationship-to-session-0-startup"></div>
+
+<h2 id="0">与会话 0 启动的关系<a class="headerlink" href="#0" title="Permanent link"></a></h2>
+<p><a href="../StartSystemBox/">启动系统沙盒</a> 使用不同的启动路径。在会话 0 中以 SYSTEM 身份启动的沙盒，本身并不会使该令牌经过本文档介绍的 <em>StripSystemPrivileges</em> 辅助函数。</p>
+<div id="version-history"></div>
+
+<h2 id="_4">版本历史<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
 <p><em>StripSystemPrivileges</em> 在 Sandboxie Plus 0.5.4 / Classic 5.46.0 中引入，是 Security Issue ID-4 修复的一部分。</p>
-<h2 id="related-pages">相关页面<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
+<div id="related-pages"></div>
+
+<h2 id="_5">相关页面<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
 <ul>
 <li><a href="../SandboxedServices/">Sandboxed Services</a></li>
-<li><a href="../StartSystemBox/">Start System Box</a></li>
+<li><a href="../StartSystemBox/">启动系统沙盒</a></li>
 <li><a href="../DropAdminRights/">撤销管理员权限</a></li>
 <li><a href="../SandboxieIni/">Sandboxie Ini</a></li>
 </ul>

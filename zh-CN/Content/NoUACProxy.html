@@ -29,7 +29,7 @@
     
     
       
-        <title>No UAC Proxy - Sandboxie 文档</title>
+        <title>无 UAC 代理 - Sandboxie 文档</title>
       
     
     
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              No UAC Proxy
+              无 UAC 代理
             
           </span>
         </div>
@@ -1579,7 +1579,7 @@
   <span class="md-ellipsis">
     
   
-    File Recovery Architecture
+    文件恢复架构
   
 
     
@@ -2208,7 +2208,7 @@
   <span class="md-ellipsis">
     
   
-    Breakout Execution
+    分离执行
   
 
     
@@ -2650,7 +2650,7 @@
   <span class="md-ellipsis">
     
   
-    Notification Settings
+    通知设置
   
 
     
@@ -7354,7 +7354,7 @@
   <span class="md-ellipsis">
     
   
-    System Call Settings
+    系统调用设置
   
 
     
@@ -7708,7 +7708,7 @@
   <span class="md-ellipsis">
     
   
-    Job Objects
+    作业对象
   
 
     
@@ -7798,43 +7798,59 @@
   
 
 
-<h1 id="no-uac-proxy">No UAC Proxy<a class="headerlink" href="#no-uac-proxy" title="Permanent link"></a></h1>
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h2>
-<p><strong>NoUACProxy</strong> controls whether Sandboxie intercepts supported asynchronous RPC requests to the Windows Application Information (AppInfo) service and routes recognized elevation requests through its own UAC proxy. It is disabled by default, so Sandboxie's proxy handling is normally active.</p>
+<h1 id="no-uac-proxy">无 UAC 代理<a class="headerlink" href="#no-uac-proxy" title="Permanent link"></a></h1>
+<div id="overview"></div>
+
+<h2 id="_1">概述<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
+<p><strong>NoUACProxy</strong> 控制 Sandboxie 是否拦截发往 Windows 应用程序信息服务（AppInfo）的受支持异步 RPC 请求，并把识别出的提权请求交给它自己的 UAC 代理处理。它默认禁用，因此 Sandboxie 的代理处理通常处于活动状态。</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">NoUACProxy</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>With <code>NoUACProxy=y</code>, Sandboxie's RPC wrappers skip their elevation recognition and proxy logic for these calls. The original native RPC call is then allowed to continue.</p>
-<h2 id="what-it-does-not-mean">What it does not mean<a class="headerlink" href="#what-it-does-not-mean" title="Permanent link"></a></h2>
-<p>This setting does not disable Windows User Account Control, and it does not by itself block elevation requests. Whether the native UAC path succeeds depends on Windows and on the sandbox's RPC and resource-access configuration.</p>
-<p>Conversely, <code>NoUACProxy=n</code> does not mean that Sandboxie intercepts every possible elevation mechanism. The current proxy recognizes supported asynchronous AppInfo/UAC RPC requests for process elevation and administrator-token requests.</p>
-<h2 id="boolean-setting-and-compatibility-template">Boolean setting and compatibility template<a class="headerlink" href="#boolean-setting-and-compatibility-template" title="Permanent link"></a></h2>
-<p>The Boolean and the built-in template have different scopes:</p>
+<p>启用 <code>NoUACProxy=y</code> 后，Sandboxie 的 RPC 包装会针对这些调用跳过提权识别与代理逻辑。原始的本地 RPC 调用随后被允许继续执行。</p>
+<div id="what-it-does-not-mean"></div>
+
+<h2 id="_2">它并不意味着什么<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
+<p>此设置不会禁用 Windows 用户账户控制，也不会单独阻止提权请求。原生 UAC 路径是否成功，取决于 Windows 以及沙盒的 RPC 与资源访问配置。</p>
+<p>反过来，<code>NoUACProxy=n</code> 也不意味着 Sandboxie 拦截了所有可能的提权机制。当前代理识别的是受支持的、用于进程提权与管理员令牌请求的异步 AppInfo/UAC RPC 请求。</p>
+<div id="boolean-setting-and-compatibility-template"></div>
+
+<h2 id="_3">布尔设置与兼容性模板<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
+<p>该布尔设置与内置模板的作用范围不同：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">NoUACProxy</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>disables Sandboxie's elevation-RPC interception. It does not add RPC access rules.</p>
+<p>会禁用 Sandboxie 对提权 RPC 的拦截。它不会添加 RPC 访问规则。</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">Template</span><span class="o">=</span><span class="s">NoUACProxy</span>
 </span></code></pre></div>
-<p>enables the Boolean and also supplies UAC-related RPC port bindings intended to let the native route work in the template's compatibility scenario. Those additional bindings come from <code>Template_NoUACProxy</code>, not from the Boolean itself.</p>
-<p>SandMan has no dedicated <strong>NoUACProxy</strong> checkbox. The built-in template is available under <strong>Sandbox Options &gt; App Templates &gt; Templates</strong> as <strong>Open RPC Port Bindings for UAC</strong>, in the <strong>Miscellaneous</strong> category. It can also be selected manually with <code>Template=NoUACProxy</code>.</p>
-<h2 id="application-compartment-history">Application Compartment history<a class="headerlink" href="#application-compartment-history" title="Permanent link"></a></h2>
-<p>The Sandboxie Plus 1.0.4 / Classic 5.55.4 changelog stated that Application Compartment boxes enabled the template by default. Current SandMan code no longer auto-enables it when creating or selecting an Application Compartment preset; the former calls are commented out. Do not assume that choosing that box type currently enables <strong>NoUACProxy</strong> or its template.</p>
-<h2 id="relationship-to-other-elevation-settings">Relationship to other elevation settings<a class="headerlink" href="#relationship-to-other-elevation-settings" title="Permanent link"></a></h2>
+<p>会启用该布尔设置，同时提供与 UAC 相关的 RPC 端口绑定，目的是让原生路径在该模板的兼容性场景中可用。这些额外绑定来自 <code>Template_NoUACProxy</code>，而不是来自该布尔设置本身。</p>
+<p>SandMan 没有专门的 <strong>NoUACProxy</strong> 复选框。内置模板位于 <strong>沙盒选项 &gt; 应用模板 &gt; 模板</strong> 的 <strong>杂项</strong> 分类下，名称为 <strong>Open RPC Port Bindings for UAC</strong>。也可以通过 <code>Template=NoUACProxy</code> 手动选择它。</p>
+<div id="application-compartment-history"></div>
+
+<h2 id="_4">应用隔间历史<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
+<p>Sandboxie Plus 1.0.4 / Classic 5.55.4 的更新日志称，应用隔间沙盒会默认启用该模板。当前 SandMan 代码在创建或选择应用隔间预设时不再自动启用它；原先的调用已被注释掉。不要假定现在选择该沙盒类型就会启用 <strong>NoUACProxy</strong> 或其模板。</p>
+<div id="relationship-to-other-elevation-settings"></div>
+
+<h2 id="_5">与其他提权设置的关系<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
 <ul>
-<li><a href="UseSandboxieUAC.html">Use Sandboxie UAC</a> controls the enhanced prompt inside Sandboxie's proxy. When <code>NoUACProxy=y</code> skips proxy interception, that prompt is not reached through the skipped path.</li>
-<li><a href="ApplyElevateCreateProcessFix.html">Apply ElevateCreateProcess Fix</a> can initiate a Windows <code>runas</code> request after <code>CreateProcess</code> reports that elevation is required. <strong>NoUACProxy</strong> determines whether Sandboxie's supported RPC interception participates in the resulting elevation path.</li>
+<li><a href="UseSandboxieUAC.html">使用 Sandboxie UAC</a> 控制 Sandboxie 代理内部的增强提示。当 <code>NoUACProxy=y</code> 跳过代理拦截时，该提示不会通过被跳过的路径触发。</li>
+<li><a href="ApplyElevateCreateProcessFix.html">Apply ElevateCreateProcess Fix</a> 可以在 <code>CreateProcess</code> 报告需要提权后发起 Windows <code>runas</code> 请求。<strong>NoUACProxy</strong> 决定 Sandboxie 受支持的 RPC 拦截是否参与由此产生的提权路径。</li>
 </ul>
-<p><code>UseSandboxieUAC=n</code> is not a substitute for <code>NoUACProxy=y</code>: the former skips only the enhanced prompt, while the latter skips Sandboxie's supported RPC elevation interception.</p>
-<h2 id="applying-changes">Applying changes<a class="headerlink" href="#applying-changes" title="Permanent link"></a></h2>
-<p>The RPC hook reads <strong>NoUACProxy</strong> for each relevant request. After the configuration has been saved and reloaded, subsequent requests in an already-running process use the new effective value; restarting the process, SandMan, SbieSvc, or the driver is not normally required. An in-progress request is not changed retroactively.</p>
-<h2 id="version-history">Version history<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
-<p><code>NoUACProxy</code> and its accompanying template were introduced in Sandboxie Plus 1.0.4 / Classic 5.55.4.</p>
-<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link"></a></h2>
+<p><code>UseSandboxieUAC=n</code> 不能替代 <code>NoUACProxy=y</code>：前者只跳过增强提示，后者跳过 Sandboxie 受支持的 RPC 提权拦截。</p>
+<div id="applying-changes"></div>
+
+<h2 id="_6">应用更改<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
+<p>RPC 钩子会为每个相关请求读取 <strong>NoUACProxy</strong>。配置保存并重新加载后，已在运行的进程中的后续请求会使用新的生效值；通常不需要重启进程、SandMan、SbieSvc 或驱动程序。正在进行的请求不会被追溯更改。</p>
+<div id="version-history"></div>
+
+<h2 id="_7">版本历史<a class="headerlink" href="#_7" title="Permanent link"></a></h2>
+<p><code>NoUACProxy</code> 及其附带的模板在 Sandboxie Plus 1.0.4 / Classic 5.55.4 中引入。</p>
+<div id="related-pages"></div>
+
+<h2 id="_8">相关页面<a class="headerlink" href="#_8" title="Permanent link"></a></h2>
 <ul>
 <li><a href="ApplyElevateCreateProcessFix.html">Apply ElevateCreateProcess Fix</a></li>
-<li><a href="NoSecurityIsolation.html">No Security Isolation</a></li>
+<li><a href="NoSecurityIsolation.html">无安全隔离</a></li>
 <li><a href="SandboxieIni.html">Sandboxie Ini</a></li>
-<li><a href="UseSandboxieUAC.html">Use Sandboxie UAC</a></li>
+<li><a href="UseSandboxieUAC.html">使用 Sandboxie UAC</a></li>
 </ul>
 
 

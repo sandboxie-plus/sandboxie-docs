@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Sandboxie notification settings generally control whether an SBIE message is generated when a particular event occurs. They do not change the policy that allowed or denied the operation. For example, disabling NotifyInternetAccessDenied suppresses its denial message; it does not grant Internet access.">
+        <meta name="description" content="Sandboxie 的通知设置通常控制特定事件发生时是否生成 SBIE 消息。它们不改变允许或拒绝该操作的策略。例如，禁用 NotifyInternetAccessDenied 会抑制其拒绝消息；它不会授予互联网访问权限。">
       
       
       
@@ -33,7 +33,7 @@
     
     
       
-        <title>Notification Settings - Sandboxie 文档</title>
+        <title>通知设置 - Sandboxie 文档</title>
       
     
     
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Notification Settings
+              通知设置
             
           </span>
         </div>
@@ -1583,7 +1583,7 @@
   <span class="md-ellipsis">
     
   
-    File Recovery Architecture
+    文件恢复架构
   
 
     
@@ -2214,7 +2214,7 @@
   <span class="md-ellipsis">
     
   
-    Breakout Execution
+    分离执行
   
 
     
@@ -2667,7 +2667,7 @@
   <span class="md-ellipsis">
     
   
-    Notification Settings
+    通知设置
   
 
     
@@ -2685,7 +2685,7 @@
   <span class="md-ellipsis">
     
   
-    Notification Settings
+    通知设置
   
 
     
@@ -2711,10 +2711,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#reference" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Reference
+        参考
       
     </span>
   </a>
@@ -2722,10 +2722,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#policy-generation-and-presentation" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Policy, generation, and presentation
+        策略、生成与呈现
       
     </span>
   </a>
@@ -2733,10 +2733,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#applying-changes" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Applying changes
+        应用更改
       
     </span>
   </a>
@@ -2744,10 +2744,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#startrun-messages-and-confirmation" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Start/Run messages and confirmation
+        启动/运行消息与确认
       
     </span>
   </a>
@@ -2755,10 +2755,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#support-reminder" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Support reminder
+        支持提醒
       
     </span>
   </a>
@@ -2766,10 +2766,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#user-interface-availability" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        User-interface availability
+        用户界面可用性
       
     </span>
   </a>
@@ -2777,10 +2777,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#version-history" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Version history
+        版本历史
       
     </span>
   </a>
@@ -7486,7 +7486,7 @@
   <span class="md-ellipsis">
     
   
-    System Call Settings
+    系统调用设置
   
 
     
@@ -7840,7 +7840,7 @@
   <span class="md-ellipsis">
     
   
-    Job Objects
+    作业对象
   
 
     
@@ -7930,131 +7930,137 @@
   
 
 
-<h1 id="notification-settings">Notification Settings<a class="headerlink" href="#notification-settings" title="Permanent link"></a></h1>
-<p>Sandboxie notification settings generally control whether an SBIE message is generated when a particular event occurs. They do not change the policy that allowed or denied the operation. For example, disabling <code>NotifyInternetAccessDenied</code> suppresses its denial message; it does not grant Internet access.</p>
-<p>Message generation is also separate from presentation. SandMan or Sandboxie Control Classic may show a generated message in a log, popup, or other interface according to their own presentation settings. Only some notification settings have dedicated user-interface controls.</p>
-<p>The settings on this page are implemented by several Sandboxie components rather than one notification subsystem. Some are cached when a sandboxed process initializes, while others are read when the event occurs. The Boolean settings covered here do not have executable-qualified syntax.</p>
-<p>Typical box setting:</p>
+<h1 id="notification-settings">通知设置<a class="headerlink" href="#notification-settings" title="Permanent link"></a></h1>
+<p>Sandboxie 的通知设置通常控制特定事件发生时是否生成 SBIE 消息。它们不改变允许或拒绝该操作的策略。例如，禁用 <code>NotifyInternetAccessDenied</code> 会抑制其拒绝消息；它不会授予互联网访问权限。</p>
+<p>消息的生成也与呈现相互独立。SandMan 或 Sandboxie Control Classic 会按各自的呈现设置，把生成的消息显示在日志、弹窗或其他界面中。只有部分通知设置具有专门的用户界面控件。</p>
+<p>本页的设置由多个 Sandboxie 组件实现，而不是一个统一的通知子系统。有些设置在沙盒化进程初始化时被缓存，另一些则在事件发生时读取。这里涉及的布尔设置都没有可执行文件限定的语法。</p>
+<p>典型的沙盒设置：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[DefaultBox]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">NotifyInternetAccessDenied</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<p>Typical global setting:</p>
+<p>典型的全局设置：</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[GlobalSettings]</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">NotifyForceProcessEnabled</span><span class="o">=</span><span class="s">y</span>
 </span></code></pre></div>
-<h2 id="reference">Reference<a class="headerlink" href="#reference" title="Permanent link"></a></h2>
+<div id="reference"></div>
+
+<h2 id="_1">参考<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
 <table>
 <thead>
 <tr>
-<th>Setting</th>
-<th>Default</th>
-<th>Scope</th>
-<th>Trigger or message</th>
-<th>Applying changes / UI notes</th>
+<th>设置</th>
+<th>默认值</th>
+<th>范围</th>
+<th>触发条件或消息</th>
+<th>应用更改 / 界面说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>AlwaysShowReminder</code></td>
 <td><code>n</code></td>
-<td>Global</td>
-<td>Support/reminder dialog scheduling; not an SBIE event message</td>
-<td>See <a href="#support-reminder">Support reminder</a>.</td>
+<td>全局</td>
+<td>支持/提醒对话框的调度；不是 SBIE 事件消息</td>
+<td>参见 <a href="#support-reminder">支持提醒</a>。</td>
 </tr>
 <tr>
 <td><code>NotifyBoxProtected</code></td>
 <td><code>n</code></td>
-<td>Protected box</td>
-<td>SBIE1318 when a host process is denied access to a protected sandboxed process</td>
-<td>Event-time; SandMan checkbox, which currently changes only this setting.</td>
+<td>受保护沙盒</td>
+<td>当宿主进程被拒绝访问受保护的沙盒化进程时产生 SBIE1318</td>
+<td>事件发生时读取；SandMan 复选框目前只更改这一项设置。</td>
 </tr>
 <tr>
 <td><code>NotifyDirectDiskAccess</code></td>
 <td><code>n</code></td>
-<td>Box</td>
-<td><a href="../SBIE1313/">SBIE1313</a> for certain denied attempts to open a disk device directly; not every denied disk-access request</td>
-<td>Cached for the sandboxed process. See <a href="../NotifyDirectDiskAccess/">Notify Direct Disk Access</a> for exceptions.</td>
+<td>沙盒</td>
+<td>某些被拒绝的直接打开磁盘设备的尝试产生 <a href="../SBIE1313/">SBIE1313</a>；并非每一次被拒绝的磁盘访问请求</td>
+<td>在沙盒化进程内缓存。例外情况参见 <a href="../NotifyDirectDiskAccess/">直接磁盘访问时通知</a>。</td>
 </tr>
 <tr>
 <td><code>NotifyForceProcessDisabled</code></td>
 <td><code>n</code></td>
-<td>Global</td>
-<td><a href="../SBIE1301/">SBIE1301</a> when a process that matches a force rule is not forced because forcing is temporarily disabled</td>
-<td>Event-time; global Program Alerts checkbox.</td>
+<td>全局</td>
+<td>当匹配强制规则的进程因强制被临时禁用而未被强制时产生 <a href="../SBIE1301/">SBIE1301</a></td>
+<td>事件发生时读取；全局程序警报复选框。</td>
 </tr>
 <tr>
 <td><code>NotifyForceProcessEnabled</code></td>
 <td><code>n</code></td>
-<td>Global</td>
-<td>SBIE1321 when a process matches forcing and is assigned to a sandbox</td>
-<td>Event-time; global Program Alerts checkbox.</td>
+<td>全局</td>
+<td>当进程匹配强制规则并被分配到某个沙盒时产生 SBIE1321</td>
+<td>事件发生时读取；全局程序警报复选框。</td>
 </tr>
 <tr>
 <td><code>NotifyImageLoadDenied</code></td>
 <td><code>y</code></td>
-<td>Box</td>
-<td>SBIE1305 when <a href="../ProtectHostImages/">Protect Host Images</a> blocks a boxed image or DLL from being mapped into a protected host-image process</td>
-<td>Event-time; SandMan checkbox.</td>
+<td>沙盒</td>
+<td>当 <a href="../ProtectHostImages/">保护主机镜像</a> 阻止沙盒内的映像或 DLL 映射到受保护的主机映像进程时产生 SBIE1305</td>
+<td>事件发生时读取；SandMan 复选框。</td>
 </tr>
 <tr>
 <td><code>NotifyInternetAccessDenied</code></td>
 <td><code>y</code></td>
-<td>Box</td>
-<td><a href="../SBIE1307/">SBIE1307</a> when Sandboxie's Internet-access policy denies a process; normally once per affected process</td>
-<td>Cached for the process. See <a href="../NotifyInternetAccessDenied/">Notify Internet Access Denied</a>.</td>
+<td>沙盒</td>
+<td>当 Sandboxie 的互联网访问策略拒绝某个进程时产生 <a href="../SBIE1307/">SBIE1307</a>；通常每个受影响进程只产生一次</td>
+<td>在进程内缓存。参见 <a href="../NotifyInternetAccessDenied/">互联网访问被拒绝时通知</a>。</td>
 </tr>
 <tr>
 <td><code>NotifyMsiInstaller</code></td>
 <td><code>y</code></td>
-<td>Box</td>
-<td>SBIE2194 when an MSI installer starts without the recommended <a href="../MsiInstallerExemptions/">Msi Installer Exemptions</a> behavior enabled</td>
-<td>Evaluated during process startup. No dedicated SandMan checkbox was found.</td>
+<td>沙盒</td>
+<td>当 MSI 安装程序启动时未启用推荐的 <a href="../MsiInstallerExemptions/">MSI 安装程序豁免</a> 行为，产生 SBIE2194</td>
+<td>在进程启动期间求值。未找到专门的 SandMan 复选框。</td>
 </tr>
 <tr>
 <td><code>NotifyNoCopy</code></td>
 <td><code>n</code></td>
-<td>Box</td>
-<td>SBIE2113, SBIE2114, or SBIE2115 for the documented file-migration cases</td>
-<td>Cached for the process. See <a href="../NotifyNoCopy/">Notify No Copy</a>.</td>
+<td>沙盒</td>
+<td>针对有文档记载的文件迁移情形产生 SBIE2113、SBIE2114 或 SBIE2115</td>
+<td>在进程内缓存。参见 <a href="../NotifyNoCopy/">不复制通知</a>。</td>
 </tr>
 <tr>
 <td><code>NotifyProcessAccessDenied</code></td>
 <td><code>n</code></td>
-<td>Box</td>
-<td><a href="../SBIE2111/">SBIE2111</a> for supported explicit process or thread access requests denied by Sandboxie's protection paths</td>
-<td>Cached for the process. See <a href="../NotifyProcessAccessDenied/">Notify Process Access Denied</a>.</td>
+<td>沙盒</td>
+<td>受支持的显式进程或线程访问请求被 Sandboxie 的保护路径拒绝时产生 <a href="../SBIE2111/">SBIE2111</a></td>
+<td>在进程内缓存。参见 <a href="../NotifyProcessAccessDenied/">进程访问被拒绝时通知</a>。</td>
 </tr>
 <tr>
 <td><code>NotifyRootProtected</code></td>
 <td><code>n</code></td>
-<td>Global</td>
-<td>SBIE1317 when access to a protected sandbox root by another process or box is denied</td>
-<td>Read when the denial occurs. There is no functioning dedicated SandMan checkbox for this setting.</td>
+<td>全局</td>
+<td>当另一进程或沙盒对受保护的沙盒根目录的访问被拒绝时产生 SBIE1317</td>
+<td>拒绝发生时读取。该设置没有可用的专门 SandMan 复选框。</td>
 </tr>
 <tr>
 <td><code>NotifyStartRunAccessDenied</code></td>
 <td><code>y</code></td>
-<td>Box</td>
-<td><a href="../SBIE1308/">SBIE1308</a> when the box's Start/Run restriction mechanism denies the relevant operation; normally once per affected process</td>
-<td>Cached for the process. See <a href="../NotifyStartRunAccessDenied/">Notify Start Run Access Denied</a>.</td>
+<td>沙盒</td>
+<td>当该沙盒的启动/运行限制机制拒绝相关操作时产生 <a href="../SBIE1308/">SBIE1308</a>；通常每个受影响进程只产生一次</td>
+<td>在进程内缓存。参见 <a href="../NotifyStartRunAccessDenied/">启动/运行访问被拒绝时通知</a>。</td>
 </tr>
 <tr>
 <td><code>AlertStartRunAccessDenied</code></td>
 <td><code>y</code></td>
-<td>Global</td>
-<td><a href="../SBIE1308/">SBIE1308</a> from the separate global program-alert denial path</td>
-<td>Event-time; global Program Alerts checkbox; independent of <code>NotifyStartRunAccessDenied</code>.</td>
+<td>全局</td>
+<td>由独立的全局程序警报拒绝路径产生 <a href="../SBIE1308/">SBIE1308</a></td>
+<td>事件发生时读取；全局程序警报复选框；与 <code>NotifyStartRunAccessDenied</code> 相互独立。</td>
 </tr>
 </tbody>
 </table>
-<h2 id="policy-generation-and-presentation">Policy, generation, and presentation<a class="headerlink" href="#policy-generation-and-presentation" title="Permanent link"></a></h2>
-<p>A notification setting controls message generation only. It does not disable the underlying disk, network, process, launch, image-loading, or sandbox-protection rule. Likewise, <code>NotifyForceProcessDisabled</code> and <code>NotifyForceProcessEnabled</code> report decisions made by the force mechanism; they do not switch forcing on or off.</p>
-<p>After a component generates an SBIE message, SandMan or Sandboxie Control Classic decides how to present it. SandMan's general popup and message-log options are under <strong>Global Settings &gt; General Config &gt; Notifications</strong>. Suppressing a popup is different from disabling generation of the source message.</p>
-<p>The SandMan checkbox <strong>Issue message 1318/1317 when a host process tries to access a sandboxed process/the box root</strong> is broader than its current configuration handling: it reads and writes <code>NotifyBoxProtected</code>, which controls SBIE1318. <code>NotifyRootProtected</code> separately controls SBIE1317 and has no functioning dedicated checkbox in the current interface.</p>
-<p><code>NotifyImageLoadDenied</code> is similarly separate from enforcement. Turning its message off does not disable <a href="../ProtectHostImages/">Protect Host Images</a>, and the message is specific to image mapping denied by that protection rather than every failed DLL load.</p>
-<p><code>NotifyMsiInstaller</code> does not report every MSI launch. It produces its warning when the installer starts without the recommended <a href="../MsiInstallerExemptions/">Msi Installer Exemptions</a> behavior enabled. It is separate from other MSI or COM failure messages.</p>
-<h2 id="applying-changes">Applying changes<a class="headerlink" href="#applying-changes" title="Permanent link"></a></h2>
-<p>Restart affected sandboxed processes after changing settings that are cached in process state:</p>
+<div id="policy-generation-and-presentation"></div>
+
+<h2 id="_2">策略、生成与呈现<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
+<p>通知设置只控制消息的生成。它不会禁用底层的磁盘、网络、进程、启动、映像加载或沙盒保护规则。同样，<code>NotifyForceProcessDisabled</code> 与 <code>NotifyForceProcessEnabled</code> 报告的是强制机制所做的决定；它们不会开启或关闭强制。</p>
+<p>组件生成 SBIE 消息之后，由 SandMan 或 Sandboxie Control Classic 决定如何呈现它。SandMan 的通用弹窗与消息日志选项位于 <strong>全局设置 &gt; 常规选项 &gt; 消息通知</strong>。抑制弹窗与禁用源消息的生成是两件不同的事。</p>
+<p>SandMan 的复选框 <strong>当沙盒外程序尝试访问沙盒根目录或沙盒化进程对象时，发出 SBIE1318 / SBIE1317 警告</strong> 比它当前的配置处理范围更宽：它读写的是 <code>NotifyBoxProtected</code>，该设置控制 SBIE1318。<code>NotifyRootProtected</code> 单独控制 SBIE1317，在当前界面中没有可用的专门复选框。</p>
+<p><code>NotifyImageLoadDenied</code> 同样与强制执行相互独立。关闭它的消息不会禁用 <a href="../ProtectHostImages/">保护主机镜像</a>，而且该消息专门针对被这项保护拒绝的映像映射，而不是每一次失败的 DLL 加载。</p>
+<p><code>NotifyMsiInstaller</code> 并不报告每一次 MSI 启动。当安装程序启动时未启用推荐的 <a href="../MsiInstallerExemptions/">MSI 安装程序豁免</a> 行为，它才会发出警告。它与其他 MSI 或 COM 失败消息相互独立。</p>
+<div id="applying-changes"></div>
+
+<h2 id="_3">应用更改<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
+<p>更改那些缓存在进程状态中的设置后，请重启受影响的沙盒化进程：</p>
 <ul>
 <li><code>NotifyDirectDiskAccess</code></li>
 <li><code>NotifyInternetAccessDenied</code></li>
@@ -8062,7 +8068,7 @@
 <li><code>NotifyProcessAccessDenied</code></li>
 <li><code>NotifyStartRunAccessDenied</code></li>
 </ul>
-<p>The following settings are currently queried when their event occurs and can affect later events after the normal configuration update or reload, without rebuilding the affected process state:</p>
+<p>以下设置在事件发生时才会被查询，因此在常规配置更新或重新加载之后即可影响后续事件，无需重建受影响的进程状态：</p>
 <ul>
 <li><code>NotifyBoxProtected</code></li>
 <li><code>NotifyImageLoadDenied</code></li>
@@ -8071,36 +8077,44 @@
 <li><code>NotifyForceProcessEnabled</code></li>
 <li><code>AlertStartRunAccessDenied</code></li>
 </ul>
-<p>Restarting the affected process tree remains the most predictable approach when several notification settings are changed together.</p>
-<h2 id="startrun-messages-and-confirmation">Start/Run messages and confirmation<a class="headerlink" href="#startrun-messages-and-confirmation" title="Permanent link"></a></h2>
-<p><code>NotifyStartRunAccessDenied</code> and <code>AlertStartRunAccessDenied</code> are independent settings. Both can generate SBIE1308, but they are consumed by different denial paths. Disabling either setting only suppresses its corresponding message; it does not undo the denial.</p>
-<p><a href="../AlertBeforeStart/">Alert Before Start</a> is different. It can request confirmation before an eligible sandbox launch, and the user's answer can determine whether that launch proceeds. It is not merely a switch for suppressing an informational SBIE message.</p>
-<h2 id="support-reminder">Support reminder<a class="headerlink" href="#support-reminder" title="Permanent link"></a></h2>
-<p><code>AlwaysShowReminder</code> is a global setting that affects the scheduling of Sandboxie's support/reminder dialog. It defaults to <code>n</code> and does not generate an SBIE event message or participate in allow/deny policy.</p>
-<h2 id="user-interface-availability">User-interface availability<a class="headerlink" href="#user-interface-availability" title="Permanent link"></a></h2>
-<p>SandMan exposes the following controls:</p>
+<p>同时更改多个通知设置时，重启受影响的进程树仍是最可预测的做法。</p>
+<div id="startrun-messages-and-confirmation"></div>
+
+<h2 id="_4">启动/运行消息与确认<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
+<p><code>NotifyStartRunAccessDenied</code> 与 <code>AlertStartRunAccessDenied</code> 是彼此独立的设置。两者都可能产生 SBIE1308，但它们由不同的拒绝路径使用。禁用其中任一设置只会抑制对应的消息；它不会撤销拒绝。</p>
+<p><a href="../AlertBeforeStart/">启动前警报</a> 则不同。它可以在符合条件的沙盒启动之前请求确认，而用户的回答可以决定该启动是否继续。它不只是一个用于抑制信息性 SBIE 消息的开关。</p>
+<div id="support-reminder"></div>
+
+<h2 id="_5">支持提醒<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
+<p><code>AlwaysShowReminder</code> 是一项全局设置，影响 Sandboxie 支持/提醒对话框的调度。它默认为 <code>n</code>，不生成 SBIE 事件消息，也不参与允许/拒绝策略。</p>
+<div id="user-interface-availability"></div>
+
+<h2 id="_6">用户界面可用性<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
+<p>SandMan 提供以下控件：</p>
 <ul>
-<li><strong>Sandbox Options &gt; General Options &gt; File Options &gt; Disk/File access &gt; Warn when an application opens a harddrive handle</strong> controls <code>NotifyDirectDiskAccess</code>.</li>
-<li><strong>Sandbox Options &gt; Network Options &gt; Internet Access &gt; Issue message 1307 when a program is denied internet access</strong> controls <code>NotifyInternetAccessDenied</code>.</li>
-<li><strong>Sandbox Options &gt; General Options &gt; Restrictions &gt; Other restrictions &gt; Issue message 2111 when a process access is denied</strong> controls <code>NotifyProcessAccessDenied</code>.</li>
-<li><strong>Sandbox Options &gt; Program Control &gt; Start Restrictions &gt; Issue message 1308 when a program fails to start</strong> controls <code>NotifyStartRunAccessDenied</code>.</li>
-<li><strong>Sandbox Options &gt; Security Options &gt; Box Protection &gt; Issue message 1318/1317 when a host process tries to access a sandboxed process/the box root</strong> controls <code>NotifyBoxProtected</code>. Despite the label, it does not save <code>NotifyRootProtected</code>.</li>
-<li><strong>Sandbox Options &gt; Various Options &gt; Dlls &amp; Extensions &gt; Image Protection &gt; Issue message 1305 when a program tries to load a sandboxed dll</strong> controls <code>NotifyImageLoadDenied</code>.</li>
-<li><strong>Global Settings &gt; Program Control &gt; Program Alerts</strong> provides <strong>Issue message 1301 when forced processes has been disabled</strong>, <strong>Issue message 1321 when a process has been forced into a sandbox</strong>, and the global <strong>Issue message 1308 when a program fails to start</strong> control.</li>
+<li><strong>沙盒选项 &gt; 常规选项 &gt; 文件选项 &gt; “磁盘/文件”访问权限 &gt; 有程序打开硬盘句柄时警示</strong> 控制 <code>NotifyDirectDiskAccess</code>。</li>
+<li><strong>沙盒选项 &gt; 网络选项 &gt; 访问 &gt; 程序被拒绝访问网络时，提示问题代码 SBIE1307</strong> 控制 <code>NotifyInternetAccessDenied</code>。</li>
+<li><strong>沙盒选项 &gt; 常规选项 &gt; 限制选项 &gt; 其它限制 &gt; 进程被拒绝访问非沙盒进程内存时，提示问题代码 SBIE2111</strong> 控制 <code>NotifyProcessAccessDenied</code>。</li>
+<li><strong>沙盒选项 &gt; 程序控制 &gt; 启动限制 &gt; 程序启动失败时，提示问题代码 SBIE1308</strong> 控制 <code>NotifyStartRunAccessDenied</code>。</li>
+<li><strong>沙盒选项 &gt; 安全选项 &gt; 沙盒保护 &gt; 当沙盒外程序尝试访问沙盒根目录或沙盒化进程对象时，发出 SBIE1318 / SBIE1317 警告</strong> 控制 <code>NotifyBoxProtected</code>。尽管标签如此，它并不保存 <code>NotifyRootProtected</code>。</li>
+<li><strong>沙盒选项 &gt; 其它杂项 &gt; Dll &amp;&amp; 扩展 &gt; 映像保护 &gt; 当一个程序试图加载一个沙盒内部的 DLL 文件时，提示问题代码 SBIE1305</strong> 控制 <code>NotifyImageLoadDenied</code>。</li>
+<li><strong>全局设置 &gt; 程序控制 &gt; 程序警报</strong> 提供 <strong>当强制沙盒化进程被禁止时，提示问题代码 SBIE1301</strong>、<strong>当进程被强制沙盒化时，提示问题代码 SBIE1321</strong>，以及全局的 <strong>程序启动失败时，提示问题代码 SBIE1308</strong> 控件。</li>
 </ul>
-<p>Sandboxie Control Classic provides Internet Access and Start/Run Access notification controls. No equivalent dedicated current Classic controls were found for <code>NotifyDirectDiskAccess</code>, <code>NotifyProcessAccessDenied</code>, <code>NotifyBoxProtected</code>, or <code>NotifyImageLoadDenied</code>; compatible INI settings remain available through the shared runtime. No dedicated SandMan controls were found for <code>NotifyRootProtected</code> or <code>NotifyMsiInstaller</code>.</p>
-<h2 id="version-history">Version history<a class="headerlink" href="#version-history" title="Permanent link"></a></h2>
+<p>Sandboxie Control Classic 提供互联网访问与启动/运行访问的通知控件。对于 <code>NotifyDirectDiskAccess</code>、<code>NotifyProcessAccessDenied</code>、<code>NotifyBoxProtected</code> 或 <code>NotifyImageLoadDenied</code>，未找到等效的当前专用 Classic 控件；兼容的 INI 设置仍可通过共享的运行时使用。未找到 <code>NotifyRootProtected</code> 或 <code>NotifyMsiInstaller</code> 的专门 SandMan 控件。</p>
+<div id="version-history"></div>
+
+<h2 id="_7">版本历史<a class="headerlink" href="#_7" title="Permanent link"></a></h2>
 <ul>
-<li>The setting metadata lists <code>AlwaysShowReminder</code> as added in version 1.3.0.</li>
-<li><code>NotifyForceProcessDisabled</code> was added in Sandboxie Plus 1.3.2 / Classic 5.58.2.</li>
-<li>The setting metadata lists <code>AlertStartRunAccessDenied</code> as added in version 1.6.0.</li>
-<li>The setting metadata lists <code>NotifyNoCopy</code> as added in version 1.7.0.</li>
-<li>The setting metadata lists <code>NotifyImageLoadDenied</code> as added in version 1.9.0.</li>
-<li>The setting metadata lists <code>NotifyBoxProtected</code> as added in version 1.9.4.</li>
-<li><code>NotifyProcessAccessDenied</code> was added in Sandboxie Plus 1.0.18 / Classic 5.55.18.</li>
-<li><code>NotifyMsiInstaller</code> was added in Sandboxie Plus 1.15.2 / Classic 5.70.2.</li>
-<li><code>NotifyForceProcessEnabled</code> was added in Sandboxie Plus 1.15.3 / Classic 5.70.3.</li>
-<li>The setting metadata lists <code>NotifyRootProtected</code> as added in version 1.15.5.</li>
+<li>设置元数据把 <code>AlwaysShowReminder</code> 列为在 1.3.0 版本中添加。</li>
+<li><code>NotifyForceProcessDisabled</code> 在 Sandboxie Plus 1.3.2 / Classic 5.58.2 中添加。</li>
+<li>设置元数据把 <code>AlertStartRunAccessDenied</code> 列为在 1.6.0 版本中添加。</li>
+<li>设置元数据把 <code>NotifyNoCopy</code> 列为在 1.7.0 版本中添加。</li>
+<li>设置元数据把 <code>NotifyImageLoadDenied</code> 列为在 1.9.0 版本中添加。</li>
+<li>设置元数据把 <code>NotifyBoxProtected</code> 列为在 1.9.4 版本中添加。</li>
+<li><code>NotifyProcessAccessDenied</code> 在 Sandboxie Plus 1.0.18 / Classic 5.55.18 中添加。</li>
+<li><code>NotifyMsiInstaller</code> 在 Sandboxie Plus 1.15.2 / Classic 5.70.2 中添加。</li>
+<li><code>NotifyForceProcessEnabled</code> 在 Sandboxie Plus 1.15.3 / Classic 5.70.3 中添加。</li>
+<li>设置元数据把 <code>NotifyRootProtected</code> 列为在 1.15.5 版本中添加。</li>
 </ul>
 
 
