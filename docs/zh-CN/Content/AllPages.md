@@ -48,11 +48,15 @@
 
 [自动删除](AutoDelete.md)
 
+[自动删除快照目标](AutoDeleteSnapshotTarget.md)
+
 [自动执行](AutoExec.md)
 
 [自动恢复](AutoRecover.md)
 
 [自动恢复忽略](AutoRecoverIgnore.md)
+
+[自动移除](AutoRemove.md)
 
 ### B
 
@@ -154,6 +158,8 @@
 
 [覆盖沙盒窗口](CoverBoxedWindows.md)
 
+[崩溃与调试器诊断](CrashAndDebuggerDiagnostics.md)
+
 [CPU 亲和性掩码](CpuAffinityMask.md)
 
 [CPU 速率限制](CpuRateLimit.md)
@@ -213,6 +219,10 @@
 [编辑密码](EditPassword.md)
 
 [邮件防护](EmailProtection.md)
+
+[启用小型转储](EnableMiniDump.md)
+
+[启用详细的卷检查](EnableVerboseChecks.md)
 
 [EnableWin32kHooks](EnableWin32kHooks.md)
 
@@ -388,6 +398,8 @@
 
 [来自 Sandboxie 的消息](MessagesFromSandboxie.md)
 
+[小型转储标志](MiniDumpFlags.md)
+
 [仅限管理员监视](MonitorAdminOnly.md)
 
 [MSI 安装程序豁免](MsiInstallerExemptions.md)
@@ -405,6 +417,8 @@
 [NeutralizeLowBoxToken](NeutralizeLowBoxToken.md)
 
 [从不删除](NeverDelete.md)
+
+[从不移除](NeverRemove.md)
 
 [NoAddProcessToJob](NoAddProcessToJob.md)
 
@@ -612,9 +626,13 @@
 
 ### S
 
+[沙盒删除与移除生命周期](SandboxRemoval.md)
+
 [沙盒层级](SandboxHierarchy.md)
 
 [沙盒菜单](SandboxMenu.md)
+
+[沙盒根与卷布局](SandboxRootsVolumeLayout.md)
 
 [沙盒服务](SandboxService.md)
 
@@ -1060,15 +1078,25 @@
 
 [使用安全模式](UseSecurityMode.md)
 
+[无驱动器号时使用卷 GUID](UseVolumeGuidWhenNoLetter.md)
+
+[使用卷序列号](UseVolumeSerialNumbers.md)
+
 [用户帐户设置](UserAccountsSettings.md)
 
 ### V
 
 [视图菜单](ViewMenu.md)
 
-[WaitForDebuggerSilent](WaitForDebuggerSilent.md)
-
 ### W
+
+[等待调试器](WaitForDebugger.md)
+
+[对所有程序等待调试器](WaitForDebuggerAll.md)
+
+[按命令行等待调试器](WaitForDebuggerCmdLine.md)
+
+[静默等待调试器](WaitForDebuggerSilent.md)
 
 [WFP（Windows 过滤平台）支持](../PlusContent/WFPSupport.md)
 
