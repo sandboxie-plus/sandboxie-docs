@@ -133,6 +133,10 @@ plugins:
             Sandboxie Control: Sandboxie 控制
             Command Line Usage: 命令行用法
             Sandboxie Plus: Sandboxie Plus
+            AI Agent Connection (MCP): 'AI 智能体连接（MCP）'
+            Overview: '概览'
+            Administration: '管理'
+            Troubleshooting: '故障排除'
             Advanced Topics: 高级主题
             SBIE Messages: SBIE 消息
             All Pages (A-Z): '所有页面（A-Z）'
@@ -163,6 +167,10 @@ plugins:
             Sandboxie Control: Sandboxie Control
             Command Line Usage: Komut Satırı Kullanımı
             Sandboxie Plus: Sandboxie Plus
+            AI Agent Connection (MCP): 'Yapay Zeka Aracısı Bağlantısı (MCP)'
+            Overview: 'Genel Bakış'
+            Administration: 'Yönetim'
+            Troubleshooting: 'Sorun Giderme'
             Advanced Topics: İleri Seviye Konular
             SBIE Messages: SBIE Mesajları
             All Pages (A-Z): 'Tüm Sayfalar (A-Z)'
@@ -193,6 +201,10 @@ plugins:
             Sandboxie Control: Sandboxie Control
             Command Line Usage: Verwendung der Befehlszeile
             Sandboxie Plus: Sandboxie Plus
+            AI Agent Connection (MCP): 'Verbindung mit einem KI-Agenten (MCP)'
+            Overview: 'Übersicht'
+            Administration: 'Verwaltung'
+            Troubleshooting: 'Fehlerbehebung'
             Advanced Topics: Fortgeschrittene Themen
             SBIE Messages: SBIE-Nachrichten
             All Pages (A-Z): 'Alle Seiten (A-Z)'
@@ -223,6 +235,10 @@ plugins:
             Sandboxie Control: Sandboxie Control
             Command Line Usage: Command Line Usage
             Sandboxie Plus: Sandboxie Plus
+            AI Agent Connection (MCP): 'اتصال وكيل الذكاء الاصطناعي (MCP)'
+            Overview: 'نظرة عامة'
+            Administration: 'الإدارة'
+            Troubleshooting: 'استكشاف الأخطاء وإصلاحها'
             Advanced Topics: Advanced Topics
             SBIE Messages: SBIE Messages
             All Pages (A-Z): 'جميع الصفحات (A-Z)'
@@ -253,6 +269,10 @@ plugins:
             Sandboxie Control: Sandboxie Control
             Command Line Usage: Command Line Usage
             Sandboxie Plus: Sandboxie Plus
+            AI Agent Connection (MCP): 'AI 代理程式連線（MCP）'
+            Overview: '總覽'
+            Administration: '管理'
+            Troubleshooting: '疑難排解'
             Advanced Topics: Advanced Topics
             SBIE Messages: SBIE Messages
             All Pages (A-Z): '所有頁面（A-Z）'
@@ -283,6 +303,10 @@ plugins:
             Sandboxie Control: Sandboxie Control
             Command Line Usage: Command Line Usage
             Sandboxie Plus: Sandboxie Plus
+            AI Agent Connection (MCP): 'Verbinding met een AI-agent (MCP)'
+            Overview: 'Overzicht'
+            Administration: 'Beheer'
+            Troubleshooting: 'Problemen oplossen'
             Advanced Topics: Advanced Topics
             SBIE Messages: SBIE Messages
             All Pages (A-Z): 'Alle pagina''s (A-Z)'
@@ -313,6 +337,10 @@ plugins:
             Sandboxie Control: Sandboxie Control
             Command Line Usage: Command Line Usage
             Sandboxie Plus: Sandboxie Plus
+            AI Agent Connection (MCP): 'Connexion à un agent d''IA (MCP)'
+            Overview: 'Vue d''ensemble'
+            Administration: 'Administration'
+            Troubleshooting: 'Dépannage'
             Advanced Topics: Advanced Topics
             SBIE Messages: SBIE Messages
             All Pages (A-Z): 'Toutes les pages (A-Z)'
@@ -343,6 +371,10 @@ plugins:
             Sandboxie Control: Sandboxie Control
             Command Line Usage: Command Line Usage
             Sandboxie Plus: Sandboxie Plus
+            AI Agent Connection (MCP): 'Kapcsolódás AI-ügynökhöz (MCP)'
+            Overview: 'Áttekintés'
+            Administration: 'Felügyelet'
+            Troubleshooting: 'Hibaelhárítás'
             Advanced Topics: Advanced Topics
             SBIE Messages: SBIE Messages
             All Pages (A-Z): 'Összes oldal (A-Z)'
@@ -373,6 +405,10 @@ plugins:
             Sandboxie Control: Sandboxie Control
             Command Line Usage: Command Line Usage
             Sandboxie Plus: Sandboxie Plus
+            AI Agent Connection (MCP): 'Koneksi AI Agent (MCP)'
+            Overview: 'Ikhtisar'
+            Administration: 'Administrasi'
+            Troubleshooting: 'Pemecahan Masalah'
             Advanced Topics: Advanced Topics
             SBIE Messages: SBIE Messages
             All Pages (A-Z): 'Semua Halaman (A-Z)'
@@ -403,6 +439,10 @@ plugins:
             Sandboxie Control: Sandboxie Control
             Command Line Usage: Command Line Usage
             Sandboxie Plus: Sandboxie Plus
+            AI Agent Connection (MCP): 'Connessione a un agente IA (MCP)'
+            Overview: 'Panoramica'
+            Administration: 'Amministrazione'
+            Troubleshooting: 'Risoluzione dei problemi'
             Advanced Topics: Advanced Topics
             SBIE Messages: SBIE Messages
             All Pages (A-Z): 'Tutte le pagine (A-Z)'
@@ -433,6 +473,10 @@ plugins:
             Sandboxie Control: Sandboxie Control
             Command Line Usage: コマンド ラインの使用
             Sandboxie Plus: Sandboxie Plus
+            AI Agent Connection (MCP): 'AI エージェント接続 (MCP)'
+            Overview: '概要'
+            Administration: '管理'
+            Troubleshooting: 'トラブルシューティング'
             Advanced Topics: 高度なトピック
             SBIE Messages: SBIE メッセージ
             All Pages (A-Z): 'すべてのページ (A-Z)'
@@ -463,6 +507,10 @@ plugins:
             Sandboxie Control: Sandboxie Control
             Command Line Usage: Command Line Usage
             Sandboxie Plus: Sandboxie Plus
+            AI Agent Connection (MCP): 'AI 에이전트 연결 (MCP)'
+            Overview: '개요'
+            Administration: '관리'
+            Troubleshooting: '문제 해결'
             Advanced Topics: Advanced Topics
             SBIE Messages: SBIE Messages
             All Pages (A-Z): '모든 페이지 (A-Z)'
@@ -493,6 +541,10 @@ plugins:
             Sandboxie Control: Sandboxie Control
             Command Line Usage: Command Line Usage
             Sandboxie Plus: Sandboxie Plus
+            AI Agent Connection (MCP): 'Połączenie z agentem AI (MCP)'
+            Overview: 'Omówienie'
+            Administration: 'Administracja'
+            Troubleshooting: 'Rozwiązywanie problemów'
             Advanced Topics: Advanced Topics
             SBIE Messages: SBIE Messages
             All Pages (A-Z): 'Wszystkie strony (A-Z)'
@@ -523,6 +575,10 @@ plugins:
             Sandboxie Control: Sandboxie Control
             Command Line Usage: Command Line Usage
             Sandboxie Plus: Sandboxie Plus
+            AI Agent Connection (MCP): 'Ligação a um agente de IA (MCP)'
+            Overview: 'Descrição geral'
+            Administration: 'Administração'
+            Troubleshooting: 'Resolução de problemas'
             Advanced Topics: Advanced Topics
             SBIE Messages: SBIE Messages
             All Pages (A-Z): 'Todas as páginas (A-Z)'
@@ -553,6 +609,10 @@ plugins:
             Sandboxie Control: Sandboxie Control
             Command Line Usage: Command Line Usage
             Sandboxie Plus: Sandboxie Plus
+            AI Agent Connection (MCP): 'Conexão com um agente de IA (MCP)'
+            Overview: 'Visão geral'
+            Administration: 'Administração'
+            Troubleshooting: 'Solução de problemas'
             Advanced Topics: Advanced Topics
             SBIE Messages: SBIE Messages
             All Pages (A-Z): 'Todas as páginas (A-Z)'
@@ -583,6 +643,10 @@ plugins:
             Sandboxie Control: Sandboxie Control
             Command Line Usage: Command Line Usage
             Sandboxie Plus: Sandboxie Plus
+            AI Agent Connection (MCP): 'Подключение ИИ-агента (MCP)'
+            Overview: 'Обзор'
+            Administration: 'Администрирование'
+            Troubleshooting: 'Устранение неполадок'
             Advanced Topics: Advanced Topics
             SBIE Messages: SBIE Messages
             All Pages (A-Z): 'Все страницы (A-Z)'
@@ -613,6 +677,10 @@ plugins:
             Sandboxie Control: Sandboxie Control
             Command Line Usage: Command Line Usage
             Sandboxie Plus: Sandboxie Plus
+            AI Agent Connection (MCP): 'Conexión con un agente de IA (MCP)'
+            Overview: 'Descripción general'
+            Administration: 'Administración'
+            Troubleshooting: 'Solución de problemas'
             Advanced Topics: Advanced Topics
             SBIE Messages: SBIE Messages
             All Pages (A-Z): 'Todas las páginas (A-Z)'
@@ -643,6 +711,10 @@ plugins:
             Sandboxie Control: Sandboxie Control
             Command Line Usage: Command Line Usage
             Sandboxie Plus: Sandboxie Plus
+            AI Agent Connection (MCP): 'Anslutning till en AI-agent (MCP)'
+            Overview: 'Översikt'
+            Administration: 'Administration'
+            Troubleshooting: 'Felsökning'
             Advanced Topics: Advanced Topics
             SBIE Messages: SBIE Messages
             All Pages (A-Z): 'Alla sidor (A-Z)'
@@ -673,6 +745,10 @@ plugins:
             Sandboxie Control: Sandboxie Control
             Command Line Usage: Command Line Usage
             Sandboxie Plus: Sandboxie Plus
+            AI Agent Connection (MCP): 'Підключення ШІ-агента (MCP)'
+            Overview: 'Огляд'
+            Administration: 'Адміністрування'
+            Troubleshooting: 'Усунення несправностей'
             Advanced Topics: Advanced Topics
             SBIE Messages: SBIE Messages
             All Pages (A-Z): 'Усі сторінки (A-Z)'
@@ -703,6 +779,10 @@ plugins:
             Sandboxie Control: Sandboxie Control
             Command Line Usage: Command Line Usage
             Sandboxie Plus: Sandboxie Plus
+            AI Agent Connection (MCP): 'Kết nối tác nhân AI (MCP)'
+            Overview: 'Tổng quan'
+            Administration: 'Quản trị'
+            Troubleshooting: 'Khắc phục sự cố'
             Advanced Topics: Advanced Topics
             SBIE Messages: SBIE Messages
             All Pages (A-Z): 'Tất cả các trang (A-Z)'
