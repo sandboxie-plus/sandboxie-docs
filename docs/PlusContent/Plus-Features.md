@@ -4,6 +4,10 @@ Some of these features (*) are however only available to users with a [Support C
 
 Some more features (**) are available to participants of the [Sandboxie-Insider](../PlusContent/Sandboxie-Insider.md) program.
 
+#### [AI Agent Connection (MCP)](ai-agent-connection.md)
+
+Connect a local AI client to SandMan to inspect sandbox settings, running processes, and diagnostic messages while troubleshooting.
+
 #### [Rule Specificity](../PlusContent/RuleSpecificity.md) *
  - With this option rules are prioritized based on their specificity (see changelog/docs for details) this way sub paths can be readable/writeable while parent parts are still protected.
 

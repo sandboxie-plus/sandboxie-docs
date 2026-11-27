@@ -21,8 +21,6 @@ To activate the protection in [Sandman](PlusMigrationGuide.md), use the Options 
 
 To prevent circumvention of the protection, please consider the following points:
 
-**Placement of the configuration file:** As discussed in the [Sandboxie Ini](SandboxieIni.md) page, Sandboxie looks for its configuration file in the Windows folder first, and in the Sandboxie installation folder second. The protection should be applied to a configuration file that is located in the Windows folder.
-
-If the protection is applied to the configuration file in the Sandboxie installation folder, an attacker might create an empty configuration file in the Windows folder. This will effectively deactivate the protection the next time Sandboxie reads its configuration. This would happen because Sandboxie would switch to using the new empty configuration file, for which protection is not activated.
+**Placement of the configuration file:** The [Sandboxie Ini](SandboxieIni.md#location) page describes the current search order, including the driver's custom `IniPath` if configured. Protect the selected configuration and consider locations that could take precedence over it; changing which file is loaded can change the protections in effect.
 
 **Access to the configuration file:** Adjust the permissions on the [Sandboxie Ini](SandboxieIni.md) configuration file to allow write access only to the SYSTEM account. Any other user account must still be able to read the configuration, so read access should be allowed to the user group **Authenticated Users** or **Everyone**.

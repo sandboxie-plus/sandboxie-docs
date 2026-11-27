@@ -77,5 +77,7 @@ This interface lets you create new portable sandboxes, import existing sandbox f
 
 ![ImportBox Configuration](../Media/ImportBox.png)
 
+For internal section metadata, see [INI Location](IniLocation.md) and [Is Virtual](IsVirtual.md).
+
 
 

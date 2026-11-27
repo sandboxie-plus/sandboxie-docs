@@ -884,6 +884,10 @@ nav:
 - Sandboxie Plus:
   - Content/PlusMigrationGuide.md
   - PlusContent/Plus-Features.md
+  - AI Agent Connection (MCP):
+    - Overview: PlusContent/ai-agent-connection.md
+    - Administration: PlusContent/ai-agent-administration.md
+    - Troubleshooting: PlusContent/ai-agent-troubleshooting.md
   - Box Management:
     - Content/BoxPresentation.md
     - Box Grouping: Content/BoxGrouping.md

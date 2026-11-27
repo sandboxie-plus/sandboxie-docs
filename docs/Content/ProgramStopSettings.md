@@ -157,3 +157,5 @@ The shared runtime can consume compatible manual INI settings, but Sandboxie Con
 The `LeaderProcess` and `LingerProcess` lists are loaded when SandboxieRpcSs initializes. `LingerLeniency` is read both at initialization and during later cleanup checks, while `LingerExemptWnds` is read during cleanup evaluation. Restart or recreate the affected sandbox process tree after changing leader, linger, leniency, or restart policy for predictable behavior.
 
 `ForceRestart`, `ForceRestartAll`, and `NoRestartOnPCA` are read during process initialization. `ExcludeFromTerminateAll` is read when SandMan performs global termination, and `TerminateUsingService` is read for each relevant driver termination request. A service or driver restart is not normally required merely because these settings changed.
+
+For the separate Explorer window monitor, see [No Auto Exit Explorer](NoAutoExitExplorer.md).

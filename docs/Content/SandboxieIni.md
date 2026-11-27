@@ -6,16 +6,11 @@ As a general rule, manual editing of the configuration file is discouraged. You 
 
 ## Location
 
-Sandboxie looks for the file Sandboxie.ini in the following folders, in this order:
-
-* In the Windows folder: `C:\Windows` on most Windows installations
-* In the Sandboxie installation folder: typically `C:\Program Files\Sandboxie` or `C:\Program Files\Sandboxie-Plus`
-
-The search for Sandboxie.ini ends when an instance of the file is found, and all other instances are ignored.
+The driver first tries a custom path configured by its registry `IniPath` value, if present. If that file cannot be opened, it tries `Sandboxie.ini` in the Sandboxie installation directory. If that file is not found, it tries the Windows directory (usually `C:\Windows`). Other installation-directory errors do not necessarily trigger the Windows-directory fallback.
 
 When [Sandboxie Control](SandboxieControl.md) updates the configuration, it rewrites the Sandboxie.ini file in the folder from which the configuration was last read. Thus, if the file is manually moved, Sandboxie configuration must be manually [reloaded](ConfigureMenu.md#reload-configuration). (Restarting the computer would have the same effect.)
 
-**Note:** Sandboxie does not support any other custom location for the Sandboxie.ini file.
+The internal [INI Location](IniLocation.md) query reports the location selected by the driver; it is not itself a configuration setting.
 
 ## Structure
 

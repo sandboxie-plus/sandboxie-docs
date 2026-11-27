@@ -83,4 +83,5 @@ Application Compartment and `NoSecurityIsolation` were introduced in Sandboxie P
 - [No Security Filtering](NoSecurityFiltering.md)
 - [Nt Namespace Isolation](NtNamespaceIsolation.md)
 - [Job Objects](JobObjects.md)
+- [Set Compartment Mode](SetCompartmentMode.md)
 - [Sandboxie Ini](SandboxieIni.md)

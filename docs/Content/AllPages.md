@@ -16,6 +16,18 @@
 
 [Advanced Token Settings](AdvancedTokenSettings.md)
 
+[AI Agent Administration](../PlusContent/ai-agent-administration.md)
+
+[AI Agent Connection (MCP)](../PlusContent/ai-agent-connection.md)
+
+[AI Agent Endpoint](AiAgentEndpoint.md)
+
+[AI Agent Require Confirmation](AiAgentRequireConfirmation.md)
+
+[AI Agent Require Pairing](AiAgentRequirePairing.md)
+
+[AI Agent Troubleshooting](../PlusContent/ai-agent-troubleshooting.md)
+
 [Alert Before Start](AlertBeforeStart.md)
 
 [Alert Folder](AlertFolder.md)
@@ -23,6 +35,8 @@
 [Alert Process](AlertProcess.md)
 
 [Alert Start Run Access Denied](AlertStartRunAccessDenied.md)
+
+[Allow AI Agent](AllowAiAgent.md)
 
 [Allow Boxed Jobs](AllowBoxedJobs.md)
 
@@ -252,6 +266,8 @@
 
 [Disable RT Blacklist](DisableRTBlacklist.md)
 
+[Disable SbieDll](DisableSbieDll.md)
+
 [Disable Win Nt Hook](DisableWinNtHook.md)
 
 [Disable Win32 Hook](DisableWin32Hook.md)
@@ -428,6 +444,8 @@
 
 ### I
 
+[IContextMenu CLSID](IContextMenuClsid.md)
+
 [Ignore Win32 Hook Blacklist](IgnoreWin32HookBlacklist.md)
 
 [ImDisk Integration](../PlusContent/imdisk.md)
@@ -435,6 +453,8 @@
 [Immediate Recovery](ImmediateRecovery.md)
 
 [Import Box](ImportBox.md)
+
+[INI Location](IniLocation.md)
 
 [Inject Dll](InjectDll.md)
 
@@ -445,6 +465,10 @@
 [Ipc Root Path](IpcRootPath.md)
 
 [IPC Trace](IpcTrace.md)
+
+[Is Shadow](IsShadow.md)
+
+[Is Virtual](IsVirtual.md)
 
 [Isolation Mechanism](IsolationMechanism.md)
 
@@ -523,6 +547,8 @@
 [Never Remove](NeverRemove.md)
 
 [No Add Process To Job](NoAddProcessToJob.md)
+
+[No Auto Exit Explorer](NoAutoExitExplorer.md)
 
 [No Parallel Loading](NoParallelLoading.md)
 
@@ -1081,6 +1107,8 @@
 
 [Service Programs](ServicePrograms.md)
 
+[Set Compartment Mode](SetCompartmentMode.md)
+
 [Shell Folders](ShellFolders.md)
 
 [Show For Run In](ShowForRunIn.md)
@@ -1114,6 +1142,12 @@
 [System Event Log](SystemEventLog.md)
 
 ### T
+
+[Taskbar Name](TaskbarName.md)
+
+[Taskbar Program](TaskbarProgram.md)
+
+[Taskbar Unique](TaskbarUnique.md)
 
 [Technical Aspects](TechnicalAspects.md)
 
